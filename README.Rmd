@@ -13,16 +13,18 @@ knitr::opts_chunk$set(
 )
 ```
 
-# tidygeoboundaries <img src="man/figures/logo.png" align="right" height="139" alt="" />
+# tidygeoboundaries <img src="man/figures/logo.png" align="right" height="139"/>
 
 <!-- badges: start -->
+
 <!-- badges: end -->
 
 The goal of tidygeoboundaries is to ...
 
 ## Installation
 
-You can install the development version of tidygeoboundaries from [GitHub](https://github.com/) with:
+You can install the development version of tidygeoboundaries from
+[GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("pak")
@@ -38,11 +40,12 @@ library(tidygeoboundaries)
 ## basic example code
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+What is special about using `README.Rmd` instead of just `README.md`? You can
+include R chunks like so:
 
 ```{r cars}
 summary(cars)
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
-
+You'll still need to render `README.Rmd` regularly, to keep `README.md`
+up-to-date. `devtools::build_readme()` is handy for this.
