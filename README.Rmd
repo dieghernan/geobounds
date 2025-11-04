@@ -76,7 +76,7 @@ gal <- spain_adm1 %>%
 
 library(ggplot2)
 
-ggplot(prov) +
+ggplot(spain_bounds) +
   geom_sf() +
   geom_sf(data = gal, fill = "lightblue")
 
