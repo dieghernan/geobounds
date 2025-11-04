@@ -15,40 +15,122 @@ Concept](https://www.repostatus.org/badges/latest/concept.svg)](https://www.repo
 
 <!-- badges: end -->
 
-The goal of geobounds is to …
+## Why this package?
+
+The **geobounds** package provides an R-friendly interface to access and
+work with the [**geoBoundaries**](https://www.geoboundaries.org/)
+dataset (an open-license global database of administrative boundary
+polygons). Using this package, you can:
+
+- Programmatically retrieve administrative boundary geometries (e.g.,
+  country → region → district) from geoBoundaries  
+- Use tidyverse / **sf** workflows in **R** to map, analyse and join
+  these boundaries with your own data  
+- Work in an open-data context (geoBoundaries uses CC BY-4.0 / open
+  licences)
+
+In short: if you work with geospatial boundaries in **R** (shape files,
+polygons, join with other data), this package simplifies the process.
 
 ## Installation
 
-You can install the development version of geobounds from
-[GitHub](https://github.com/) with:
+You can install the developing version of **geobounds** with:
 
 ``` r
 # install.packages("pak")
 pak::pak("dieghernan/geobounds")
 ```
 
-## Example
+Alternatively, you can install **geobounds** using the
+[r-universe](https://dieghernan.r-universe.dev/geobounds):
 
-This is a basic example which shows you how to solve a common problem:
+``` r
+# Install geobounds in R:
+install.packages("geobounds",
+  repos = c(
+    "https://dieghernan.r-universe.dev",
+    "https://cloud.r-project.org"
+  )
+)
+```
+
+## Example usage
 
 ``` r
 library(geobounds)
-## basic example code
+
+spain_bounds <- get_geobn("ESP")
+spain_adm1 <- get_geobn("ESP", boundary_type = "ADM1")
+
+library(sf)
+#> Linking to GEOS 3.13.1, GDAL 3.11.0, PROJ 9.6.0; sf_use_s2() is TRUE
+library(dplyr)
+#> 
+#> Attaching package: 'dplyr'
+#> The following objects are masked from 'package:stats':
+#> 
+#>     filter, lag
+#> The following objects are masked from 'package:base':
+#> 
+#>     intersect, setdiff, setequal, union
+
+gal <- spain_adm1 %>%
+  filter(shapeName == "Galicia")
+
+library(ggplot2)
+
+ggplot(spain_bounds) +
+  geom_sf() +
+  geom_sf(data = gal, fill = "lightblue")
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+<img src="man/figures/README-simple_plot-1.png" width="100%" />
 
-``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
-```
+> Note: This is a simple illustration. See the package vignettes for
+> full details on parameters, filters, caching, and advanced usage.
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this.
+## Documentation & Resources
+
+- Visit the **pkgdown** site for full documentation:
+  <https://dieghernan.github.io/geobounds/>
+- Explore the geoBoundaries homepage: <https://www.geoboundaries.org/>
+- Read the original paper describing the geoBoundaries dataset:
+  Runfola, D. et al. (2020) geoBoundaries: A global database of
+  political administrative boundaries. PLoS ONE 15(4): e0231866.
+  <https://doi.org/10.1371/journal.pone.0231866>.
+
+## License
+
+This package is released under the CC BY-4.0 license. See the
+`LICENSE.md` file for full details. Note that the boundary data being
+accessed (via geoBoundaries) also uses open licences; please check the
+specific dataset metadata for licensing details.
+
+## Acknowledgements
+
+- Many thanks to the geoBoundaries￼ team and the William & Mary geoLab
+  for creating and mainta\*\*ining the dataset. ￼
+- Thanks to the \*\*R package community and all contributors to this
+  package’s development.
+- If you use **geobounds** (and underlying geoBoundaries data) in your
+  research or project, a citation and acknowledgement is greatly
+  appreciated.
+
+## Citation
+
+<p>
+Hernangómez D (2025). <em>geobounds: Download Map Data from
+GeoBoundaries</em>.
+<a href="https://dieghernan.github.io/geobounds/">https://dieghernan.github.io/geobounds/</a>.
+</p>
+
+A BibTeX entry for LaTeX users:
+
+    @Manual{R-geobounds,
+      title = {{geobounds}: Download Map Data from GeoBoundaries},
+      author = {Diego Hernangómez},
+      year = {2025},
+      version = {0.0.0.9000},
+      url = {https://dieghernan.github.io/geobounds/},
+      abstract = {Tools to download data from geoBoundaries <https://www.geoboundaries.org/>. Several administration levels available. See Runfola, D. et al. (2020) geoBoundaries: A global database of political administrative boundaries. PLoS ONE 15(4): e0231866. <doi:10.1371/journal.pone.0231866>.},
+    }

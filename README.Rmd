@@ -79,8 +79,6 @@ library(ggplot2)
 ggplot(spain_bounds) +
   geom_sf() +
   geom_sf(data = gal, fill = "lightblue")
-
-
 ```
 
 > Note: This is a simple illustration. See the package vignettes for full details on parameters, filters, caching, and advanced usage.
