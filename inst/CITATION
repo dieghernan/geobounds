@@ -3,6 +3,7 @@ abs <- trimws(gsub("\\s+", " ", meta$Description))
 abs <- gsub("'", "", abs)
 title <- trimws(gsub("'", "", meta$Title, fixed = TRUE))
 pkg <- trimws(meta$Package)
+title <- gsub("GeoBoundaries", "geoBoundaries", title)
 
 bibentry(
   "Manual",

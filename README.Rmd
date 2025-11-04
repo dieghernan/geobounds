@@ -1,5 +1,8 @@
 ---
 output: github_document
+bibliography: inst/REFERENCES.bib
+link-citations: yes
+nocite: '@*'
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -87,7 +90,7 @@ ggplot(spain_bounds) +
 
 - Visit the **pkgdown** site for full documentation: <https://dieghernan.github.io/geobounds/>
 - Explore the geoBoundaries homepage: <https://www.geoboundaries.org/>
-- Read the original paper describing the geoBoundaries dataset: Runfola, D. et al. (2020) geoBoundaries: A global database of political administrative boundaries. PLoS ONE 15(4): e0231866. <https://doi.org/10.1371/journal.pone.0231866>.
+- Read the original paper describing the geoBoundaries dataset [@geoboundaries].
 
 ## License
 
@@ -95,8 +98,8 @@ This package is released under the CC BY-4.0 license. See the `LICENSE.md` file 
 Note that the boundary data being accessed (via geoBoundaries) also uses open licences; please check the specific dataset metadata for licensing details.
 
 ## Acknowledgements
-- Many thanks to the geoBoundaries￼ team and the William & Mary geoLab for creating and mainta**ining the dataset.   ￼
-- Thanks to the **R package community and all contributors to this package’s development.
+- Many thanks to the geoBoundaries￼ team and the William & Mary geoLab for creating and maintaining the dataset.   ￼
+- Thanks to the **R** package community and all contributors to this package’s development.
 - If you use **geobounds** (and underlying geoBoundaries data) in your research or project, a citation and acknowledgement is greatly appreciated.
 
 ## Citation
@@ -110,3 +113,5 @@ A BibTeX entry for LaTeX users:
 ```{r, echo=FALSE, comment = ''}
 toBibtex(citation("geobounds")[1])
 ```
+
+## References
