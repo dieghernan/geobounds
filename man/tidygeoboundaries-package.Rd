@@ -4,11 +4,11 @@
 \name{tidygeoboundaries-package}
 \alias{tidygeoboundaries}
 \alias{tidygeoboundaries-package}
-\title{tidygeoboundaries: What the Package Does (One Line, Title Case)}
+\title{tidygeoboundaries: Download Map Data from Geoboundaries}
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-What the package does (one paragraph).
+Tools to download data from geoboundaries \url{https://www.geoboundaries.org/}. Several administration levels available. See Runfola, D. et al. (2020) geoBoundaries: A global database of political administrative boundaries. PLoS ONE 15(4): e0231866. \doi{10.1371/journal.pone.0231866}.
 }
 \seealso{
 Useful links:

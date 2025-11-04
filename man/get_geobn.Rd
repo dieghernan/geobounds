@@ -81,3 +81,4 @@ get_geobn(
 \references{
 geoboundaries API Service \url{https://www.geoboundaries.org/api.html}.
 }
+\concept{API functions}

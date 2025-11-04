@@ -14,15 +14,15 @@
         "familyName": "Hernangómez",
         "givenName": "Diego"
       },
-      "description": "What the package does (one paragraph).",
+      "description": "Tools to download data from geoboundaries <https://www.geoboundaries.org/>. Several administration levels available. See Runfola, D. et al. (2020) geoBoundaries: A global database of political administrative boundaries. PLoS ONE 15(4): e0231866. <doi:10.1371/journal.pone.0231866>.",
       "license": "https://spdx.org/licenses/CC-BY-4.0",
-      "name": "tidygeoboundaries: What the Package Does (One Line, Title Case)",
+      "name": "tidygeoboundaries: Download Map Data from Geoboundaries",
       "programmingLanguage": {
         "type": "ComputerLanguage",
         "name": "R",
         "url": "https://r-project.org"
       },
-      "runtimePlatform": "R version 4.5.2 (2025-10-31 ucrt)",
+      "runtimePlatform": "R version 4.5.1 (2025-06-13 ucrt)",
       "version": "0.0.0.9000"
     },
     {
@@ -32,7 +32,7 @@
         "familyName": "Hernangómez",
         "givenName": "Diego"
       },
-      "name": "{tidygeoboundaries}: What the Package Does (One Line, Title Case)"
+      "name": "{tidygeoboundaries}: Download Map Data from Geoboundaries"
     }
   ]
 }

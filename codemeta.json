@@ -2,8 +2,8 @@
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "tidygeoboundaries",
-  "description": "What the package does (one paragraph).",
-  "name": "tidygeoboundaries: What the Package Does (One Line, Title Case)",
+  "description": "Tools to download data from geoboundaries <https://www.geoboundaries.org/>. Several administration levels available. See Runfola, D. et al. (2020) geoBoundaries: A global database of political administrative boundaries. PLoS ONE 15(4): e0231866. <doi:10.1371/journal.pone.0231866>.",
+  "name": "tidygeoboundaries: Download Map Data from Geoboundaries",
   "relatedLink": "https://dieghernan.github.io/tidygeoboundaries/",
   "codeRepository": "https://github.com/dieghernan/tidygeoboundaries",
   "issueTracker": "https://github.com/dieghernan/tidygeoboundaries/issues",
@@ -14,7 +14,7 @@
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.5.2 (2025-10-31 ucrt)",
+  "runtimePlatform": "R version 4.5.1 (2025-06-13 ucrt)",
   "author": [
     {
       "@type": "Person",
@@ -200,7 +200,7 @@
     "SystemRequirements": null
   },
   "keywords": ["administrative-boundaries", "api", "geoboundaries", "r", "r-package", "spatial-data"],
-  "fileSize": "63.156KB",
+  "fileSize": "64.191KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -212,7 +212,7 @@
           "familyName": "Hernangómez"
         }
       ],
-      "name": "{tidygeoboundaries}: What the Package Does (One Line, Title Case)",
+      "name": "{tidygeoboundaries}: Download Map Data from Geoboundaries",
       "url": "https://dieghernan.github.io/tidygeoboundaries/"
     }
   ],

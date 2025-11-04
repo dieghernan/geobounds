@@ -34,6 +34,7 @@
 #'
 #' @references
 #' geoboundaries API Service <https://www.geoboundaries.org/api.html>.
+#' @family API functions
 #'
 #' @details
 #'  TODO....

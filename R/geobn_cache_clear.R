@@ -63,5 +63,5 @@ geobn_clear_cache <- function(
   Sys.setenv(GEOBN_CACHE_DIR = "")
 
   # Reset cache dir
-  return(invisible())
+  invisible()
 }

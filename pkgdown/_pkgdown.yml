@@ -12,3 +12,18 @@ template:
       creator: "@dhernangomez"
       card: summary_large_image
 
+reference:
+  - title: Political
+    desc: >
+      These functions return <a href="https://CRAN.R-project.org/package=sf"
+      class="external-link"><span class="pkg">sf</span></a> objects with
+      political boundaries.
+    contents:
+      - has_concept("API functions")
+  - title: Cache management
+    contents:
+      - has_concept("cache utilities")
+  - title: About the package
+    contents:
+      - tidygeoboundaries-package
+

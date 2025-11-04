@@ -114,7 +114,7 @@ geobn_set_cache_dir <- function(
   }
 
   Sys.setenv(GEOBN_CACHE_DIR = cache_dir)
-  return(invisible(cache_dir))
+  invisible(cache_dir)
 }
 
 #' Detect cache dir for \pkg{tidygeoboundaries}
@@ -170,7 +170,7 @@ geobn_hlp_cachedir <- function(cache_dir = NULL) {
   if (isFALSE(dir.exists(cache_dir))) {
     dir.create(cache_dir, recursive = TRUE)
   }
-  return(cache_dir)
+  cache_dir
 }
 
 #' Detect cache dir for \pkg{tidygeoboundaries}

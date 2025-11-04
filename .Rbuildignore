@@ -24,3 +24,5 @@
 ^tidygeoboundaries\.Rcheck$
 ^tidygeoboundaries.*\.tar\.gz$
 ^tidygeoboundaries.*\.tgz$
+^[.]?air[.]toml$
+^\.vscode$
