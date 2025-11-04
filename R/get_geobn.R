@@ -5,13 +5,13 @@
 #'
 #' @export
 #'
-#' @param release_type One of `"gbOpen"`, `"gbHumanitarian"`,
-#'   "gbAuthoritative"`. Source of the spatial data. See **Details**.
 #' @param country A character vector of country codes. It could be either
 #'   `"ALL"` (that would return the data for all countries), a vector of country
 #'   names or a vector of ISO3 country codes. Mixed types (as
 #'   `c("Italy","ES","FRA")`) would not work. See also
 #'   [countrycode::countrycode()].
+#' @param release_type One of `"gbOpen"`, `"gbHumanitarian"`,
+#'   "gbAuthoritative"`. Source of the spatial data. See **Details**.
 #' @param boundary_type Type of boundary Accepted values are `"ALL"` (all
 #'   available boundaries) or the ADM level (`"ADM0"` is the country boundary,
 #'   `"ADM1"` is the first level of sub national boundaries, `"ADM2"` is the
@@ -44,7 +44,7 @@
 #' \donttest{
 # Map municipalities in Sri Lanka
 #' sri_lanka <- get_geobn(
-#'   country = "Sri Lanka", boundary_type = "ADM3",
+#'   "Sri Lanka", boundary_type = "ADM3",
 #'   simplified = TRUE
 #' )
 #'
@@ -58,14 +58,14 @@
 #' # Metadata
 #' library(dplyr)
 #' get_geobn(
-#'   country = "Sri Lanka", boundary_type = "ADM3",
+#'   "Sri Lanka", boundary_type = "ADM3",
 #'   metadata = TRUE
 #' ) %>%
 #'   glimpse()
 #'
 get_geobn <- function(
-  release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative"),
   country,
+  release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative"),
   boundary_type = c("ADM0", "ADM1", "ADM2", "ADM3", "ADM4", "ALL"),
   simplified = FALSE,
   metadata = FALSE,
