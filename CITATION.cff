@@ -34,6 +34,13 @@ contact:
   given-names: Diego
   email: diego.hernangomezherrero@gmail.com
   orcid: https://orcid.org/0000-0001-8457-4658
+keywords:
+- administrative-boundaries
+- api
+- geoboundaries
+- r
+- r-package
+- spatial-data
 references:
 - type: software
   title: 'R: A Language and Environment for Statistical Computing'
