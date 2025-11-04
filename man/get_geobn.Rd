@@ -82,5 +82,9 @@ get_geobn(
 }
 \references{
 geoboundaries API Service \url{https://www.geoboundaries.org/api.html}.
+
+Runfola, D. et al. (2020) geoBoundaries: A global database of political
+administrative boundaries. \emph{PLoS ONE} \strong{15}(4): e0231866.
+\doi{10.1371/journal.pone.0231866}.
 }
 \concept{API functions}

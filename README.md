@@ -94,10 +94,8 @@ ggplot(spain_bounds) +
 - Visit the **pkgdown** site for full documentation:
   <https://dieghernan.github.io/geobounds/>
 - Explore the geoBoundaries homepage: <https://www.geoboundaries.org/>
-- Read the original paper describing the geoBoundaries dataset:
-  Runfola, D. et al. (2020) geoBoundaries: A global database of
-  political administrative boundaries. PLoS ONE 15(4): e0231866.
-  <https://doi.org/10.1371/journal.pone.0231866>.
+- Read the original paper describing the geoBoundaries dataset ([Runfola
+  2020](#ref-geoboundaries)).
 
 ## License
 
@@ -109,8 +107,8 @@ specific dataset metadata for licensing details.
 ## Acknowledgements
 
 - Many thanks to the geoBoundaries￼ team and the William & Mary geoLab
-  for creating and mainta\*\*ining the dataset. ￼
-- Thanks to the \*\*R package community and all contributors to this
+  for creating and maintaining the dataset. ￼
+- Thanks to the **R** package community and all contributors to this
   package’s development.
 - If you use **geobounds** (and underlying geoBoundaries data) in your
   research or project, a citation and acknowledgement is greatly
@@ -120,17 +118,32 @@ specific dataset metadata for licensing details.
 
 <p>
 Hernangómez D (2025). <em>geobounds: Download Map Data from
-GeoBoundaries</em>.
+geoBoundaries</em>.
 <a href="https://dieghernan.github.io/geobounds/">https://dieghernan.github.io/geobounds/</a>.
 </p>
 
 A BibTeX entry for LaTeX users:
 
     @Manual{R-geobounds,
-      title = {{geobounds}: Download Map Data from GeoBoundaries},
+      title = {{geobounds}: Download Map Data from geoBoundaries},
       author = {Diego Hernangómez},
       year = {2025},
       version = {0.0.0.9000},
       url = {https://dieghernan.github.io/geobounds/},
       abstract = {Tools to download data from geoBoundaries <https://www.geoboundaries.org/>. Several administration levels available. See Runfola, D. et al. (2020) geoBoundaries: A global database of political administrative boundaries. PLoS ONE 15(4): e0231866. <doi:10.1371/journal.pone.0231866>.},
     }
+
+## References
+
+<div id="refs" class="references csl-bib-body hanging-indent"
+entry-spacing="0">
+
+<div id="ref-geoboundaries" class="csl-entry">
+
+Runfola, Austin AND Baier, Daniel AND Anderson. 2020. “geoBoundaries: A
+Global Database of Political Administrative Boundaries.” *PLOS ONE* 15
+(4): 1–9. <https://doi.org/10.1371/journal.pone.0231866>.
+
+</div>
+
+</div>

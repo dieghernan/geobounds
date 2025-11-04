@@ -200,7 +200,7 @@
     "SystemRequirements": null
   },
   "keywords": ["administrative-boundaries", "api", "geoboundaries", "r", "r-package", "spatial-data"],
-  "fileSize": "84.777KB",
+  "fileSize": "87.083KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -212,7 +212,7 @@
           "familyName": "Hernangómez"
         }
       ],
-      "name": "{geobounds}: Download Map Data from GeoBoundaries",
+      "name": "{geobounds}: Download Map Data from geoBoundaries",
       "url": "https://dieghernan.github.io/geobounds/"
     },
     {
