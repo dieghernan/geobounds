@@ -1,4 +1,4 @@
-url: https://dieghernan.github.io/tidygeoboundaries
+url: https://dieghernan.github.io/geobounds
 
 figures:
   dpi: 300
@@ -25,5 +25,5 @@ reference:
       - has_concept("cache utilities")
   - title: About the package
     contents:
-      - tidygeoboundaries-package
+      - geobounds-package
 

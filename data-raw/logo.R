@@ -1,7 +1,7 @@
 ## code to prepare `logo` dataset goes here
 
 # To replace with package functions when available
-library(tidygeoboundaries)
+library(geobounds)
 
 sri <- get_geobn(
   country = "Sri Lanka",

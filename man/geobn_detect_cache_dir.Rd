@@ -2,7 +2,7 @@
 % Please edit documentation in R/geobn_cache.R
 \name{geobn_detect_cache_dir}
 \alias{geobn_detect_cache_dir}
-\title{Detect cache dir for \pkg{tidygeoboundaries}}
+\title{Detect cache dir for \pkg{geobounds}}
 \usage{
 geobn_detect_cache_dir(x = NULL)
 }

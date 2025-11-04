@@ -2,7 +2,7 @@
 % Please edit documentation in R/geobn_cache.R
 \name{geobn_set_cache_dir}
 \alias{geobn_set_cache_dir}
-\title{Set your \pkg{tidygeoboundaries} cache dir}
+\title{Set your \pkg{geobounds} cache dir}
 \usage{
 geobn_set_cache_dir(
   cache_dir,

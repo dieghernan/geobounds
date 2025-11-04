@@ -1,8 +1,8 @@
 ---
-title: "tidygeoboundaries"
+title: "geobounds"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{tidygeoboundaries}
+  %\VignetteIndexEntry{geobounds}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -15,5 +15,5 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
-library(tidygeoboundaries)
+library(geobounds)
 ```

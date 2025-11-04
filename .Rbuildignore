@@ -1,4 +1,4 @@
-^tidygeoboundaries\.Rproj$
+^geobounds\.Rproj$
 ^\.Rproj\.user$
 ^LICENSE\.md$
 ^data-raw$
@@ -21,8 +21,8 @@
 ^\.github$
 ^docs$
 ^Rplots\.pdf$
-^tidygeoboundaries\.Rcheck$
-^tidygeoboundaries.*\.tar\.gz$
-^tidygeoboundaries.*\.tgz$
+^geobounds\.Rcheck$
+^geobounds.*\.tar\.gz$
+^geobounds.*\.tgz$
 ^[.]?air[.]toml$
 ^\.vscode$

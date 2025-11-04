@@ -1,30 +1,30 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# tidygeoboundaries <img src="man/figures/logo.png" align="right" height="139"/>
+# geobounds <img src="man/figures/logo.png" align="right" height="139"/>
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/dieghernan/tidygeoboundaries/actions/workflows/check-full.yaml/badge.svg)](https://github.com/dieghernan/tidygeoboundaries/actions/workflows/check-full.yaml)
-[![R-hub](https://github.com/dieghernan/tidygeoboundaries/actions/workflows/rhub.yaml/badge.svg)](https://github.com/dieghernan/tidygeoboundaries/actions/workflows/rhub.yaml)
-[![codecov](https://codecov.io/gh/dieghernan/tidygeoboundaries/graph/badge.svg)](https://app.codecov.io/gh/dieghernan/tidygeoboundaries)
-[![r-universe](https://dieghernan.r-universe.dev/badges/tidygeoboundaries)](https://dieghernan.r-universe.dev/tidygeoboundaries)
-[![CodeFactor](https://www.codefactor.io/repository/github/dieghernan/tidygeoboundaries/badge)](https://www.codefactor.io/repository/github/dieghernan/tidygeoboundaries)
+[![R-CMD-check](https://github.com/dieghernan/geobounds/actions/workflows/check-full.yaml/badge.svg)](https://github.com/dieghernan/geobounds/actions/workflows/check-full.yaml)
+[![R-hub](https://github.com/dieghernan/geobounds/actions/workflows/rhub.yaml/badge.svg)](https://github.com/dieghernan/geobounds/actions/workflows/rhub.yaml)
+[![codecov](https://codecov.io/gh/dieghernan/geobounds/graph/badge.svg)](https://app.codecov.io/gh/dieghernan/geobounds)
+[![r-universe](https://dieghernan.r-universe.dev/badges/geobounds)](https://dieghernan.r-universe.dev/geobounds)
+[![CodeFactor](https://www.codefactor.io/repository/github/dieghernan/geobounds/badge)](https://www.codefactor.io/repository/github/dieghernan/geobounds)
 [![Project Status:
 Concept](https://www.repostatus.org/badges/latest/concept.svg)](https://www.repostatus.org/#concept)
 
 <!-- badges: end -->
 
-The goal of tidygeoboundaries is to …
+The goal of geobounds is to …
 
 ## Installation
 
-You can install the development version of tidygeoboundaries from
+You can install the development version of geobounds from
 [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("pak")
-pak::pak("dieghernan/tidygeoboundaries")
+pak::pak("dieghernan/geobounds")
 ```
 
 ## Example
@@ -32,7 +32,7 @@ pak::pak("dieghernan/tidygeoboundaries")
 This is a basic example which shows you how to solve a common problem:
 
 ``` r
-library(tidygeoboundaries)
+library(geobounds)
 ## basic example code
 ```
 

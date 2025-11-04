@@ -142,7 +142,7 @@
      inkscape:document-units="cm"
      inkscape:zoom="1.112554"
      inkscape:cx="253.47084"
-     inkscape:cy="345.60119"
+     inkscape:cy="345.6012"
      inkscape:window-width="1920"
      inkscape:window-height="974"
      inkscape:window-x="-11"
@@ -219,20 +219,10 @@
        clip-path="url(#cpMC4wMHwzODEuMDB8MC4wMHwxODMuNTA=)"
        id="g5" /><g
        clip-path="url(#cpMC4wMHwzODEuMDB8MC4wMHwxODMuNTA=)"
-       id="g754" /></g><text
-     xml:space="preserve"
-     style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:53.0045px;line-height:200%;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0090c5;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
-     x="19.664614"
-     y="190.94469"
-     id="text9"><tspan
-       sodipodi:role="line"
-       id="tspan9"
-       x="19.664614"
-       y="190.94469"
-       style="fill:#0090c5;fill-opacity:1;stroke-width:0">tidygeoboundaries</tspan></text><g
+       id="g754" /></g><g
      class="svglite"
      id="g481"
-     transform="matrix(2.0085812,0,0,2.0085812,-126.23514,193.90218)"
+     transform="matrix(2.8542996,0,0,2.8542996,-266.43941,29.999997)"
      clip-path="url(#clipPath16)"><defs
        id="defs1-1"><style
          type="text/css"
@@ -1712,4 +1702,14 @@
          style="fill-rule:evenodd;stroke:#f0b323;stroke-width:0.21;stroke-linecap:butt"
          id="path479" /></g><g
        clip-path="url(#cpMC4wMHwzODEuMDB8MC4wMHwxODMuNTA=-76)"
-       id="g480" /></g></svg>
+       id="g480" /></g><text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:89.275px;line-height:200%;font-family:'Open Sans';-inkscape-font-specification:'Open Sans, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#0090c5;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+     x="21.274801"
+     y="323.19058"
+     id="text9"><tspan
+       sodipodi:role="line"
+       id="tspan9"
+       x="21.274801"
+       y="323.19058"
+       style="fill:#0090c5;fill-opacity:1;stroke-width:0">geobounds</tspan></text></svg>

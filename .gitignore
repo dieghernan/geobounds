@@ -16,9 +16,9 @@ vignettes/*.pdf
 *.utf8.md
 *.knit.md
 .Renviron
-tidygeoboundaries.Rcheck/
-tidygeoboundaries*.tar.gz
-tidygeoboundaries*.tgz
+geobounds.Rcheck/
+geobounds*.tar.gz
+geobounds*.tgz
 CRAN-SUBMISSION
 cran-comments.md
 .github/pkg.lock

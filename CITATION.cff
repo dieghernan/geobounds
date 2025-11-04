@@ -4,12 +4,12 @@
 # --------------------------------------------
  
 cff-version: 1.2.0
-message: 'To cite package "tidygeoboundaries" in publications use:'
+message: 'To cite package "geobounds" in publications use:'
 type: software
 license: CC-BY-4.0
-title: 'tidygeoboundaries: Download Map Data from Geoboundaries'
+title: 'geobounds: Download Map Data from ''GeoBoundaries'''
 version: 0.0.0.9000
-abstract: 'Tools to download data from geoboundaries <https://www.geoboundaries.org/>.
+abstract: 'Tools to download data from ''geoBoundaries'' <https://www.geoboundaries.org/>.
   Several administration levels available. See Runfola, D. et al. (2020) geoBoundaries:
   A global database of political administrative boundaries. PLoS ONE 15(4): e0231866.
   <https://doi.org/10.1371/journal.pone.0231866>.'
@@ -20,7 +20,7 @@ authors:
   orcid: https://orcid.org/0000-0001-8457-4658
 preferred-citation:
   type: manual
-  title: 'tidygeoboundaries: Download Map Data from Geoboundaries'
+  title: 'geobounds: Download Map Data from GeoBoundaries'
   authors:
   - family-names: Hernangómez
     given-names: Diego
@@ -28,13 +28,13 @@ preferred-citation:
     orcid: https://orcid.org/0000-0001-8457-4658
   year: '2025'
   version: 0.0.0.9000
-  url: https://dieghernan.github.io/tidygeoboundaries/
-  abstract: 'Tools to download data from geoboundaries <https://www.geoboundaries.org/>.
+  url: https://dieghernan.github.io/geobounds/
+  abstract: 'Tools to download data from geoBoundaries <https://www.geoboundaries.org/>.
     Several administration levels available. See Runfola, D. et al. (2020) geoBoundaries:
     A global database of political administrative boundaries. PLoS ONE 15(4): e0231866.
     <doi:10.1371/journal.pone.0231866>.'
-repository-code: https://github.com/dieghernan/tidygeoboundaries
-url: https://dieghernan.github.io/tidygeoboundaries/
+repository-code: https://github.com/dieghernan/geobounds
+url: https://dieghernan.github.io/geobounds/
 contact:
 - family-names: Hernangómez
   given-names: Diego

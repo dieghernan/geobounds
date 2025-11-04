@@ -1,4 +1,4 @@
-#' Set your \pkg{tidygeoboundaries} cache dir
+#' Set your \pkg{geobounds} cache dir
 #'
 #' @family cache utilities
 #' @seealso [rappdirs::user_config_dir()]
@@ -54,7 +54,7 @@ geobn_set_cache_dir <- function(
       )
     }
     # Create a folder on tempdir
-    cache_dir <- file.path(tempdir(), "tidygeobn")
+    cache_dir <- file.path(tempdir(), "geobounds")
     is_temp <- TRUE
     install <- FALSE
   } else {
@@ -74,7 +74,7 @@ geobn_set_cache_dir <- function(
 
   if (verbose) {
     cli::cli_alert_info(
-      "{.pkg tidygeoboundaries} cache dir is {.path {cache_dir}}."
+      "{.pkg geobounds} cache dir is {.path {cache_dir}}."
     )
   }
 
@@ -82,17 +82,17 @@ geobn_set_cache_dir <- function(
   # nocov start
 
   if (install) {
-    config_dir <- rappdirs::user_config_dir("tidygeobn", "R")
+    config_dir <- rappdirs::user_config_dir("geobounds", "R")
     # Create cache dir if not presente
     if (!dir.exists(config_dir)) {
       dir.create(config_dir, recursive = TRUE)
     }
 
-    tidygeobn_file <- file.path(config_dir, "GEOBN_CACHE_DIR")
+    geobounds_file <- file.path(config_dir, "GEOBN_CACHE_DIR")
 
-    if (!file.exists(tidygeobn_file) || overwrite == TRUE) {
+    if (!file.exists(geobounds_file) || overwrite == TRUE) {
       # Create file if it doesn't exist
-      writeLines(cache_dir, con = tidygeobn_file)
+      writeLines(cache_dir, con = geobounds_file)
     } else {
       cli::cli_abort(
         paste0(
@@ -117,7 +117,7 @@ geobn_set_cache_dir <- function(
   invisible(cache_dir)
 }
 
-#' Detect cache dir for \pkg{tidygeoboundaries}
+#' Detect cache dir for \pkg{geobounds}
 #'
 #' @noRd
 geobn_hlp_detect_cache_dir <- function() {
@@ -127,7 +127,7 @@ geobn_hlp_detect_cache_dir <- function() {
   if (is.null(getvar) || is.na(getvar) || getvar == "") {
     # Not set - tries to retrieve from cache
     cache_config <- file.path(
-      rappdirs::user_config_dir("tidygeobn", "R"),
+      rappdirs::user_config_dir("geobounds", "R"),
       "GEOBN_CACHE_DIR"
     )
 
@@ -173,7 +173,7 @@ geobn_hlp_cachedir <- function(cache_dir = NULL) {
   cache_dir
 }
 
-#' Detect cache dir for \pkg{tidygeoboundaries}
+#' Detect cache dir for \pkg{geobounds}
 #'
 #' @description
 #'

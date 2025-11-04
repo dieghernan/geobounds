@@ -17,7 +17,7 @@ test_that("Test cache online", {
   expect_false(dir.exists(testdir))
 
   # Reset just for testing all cases
-  testdir <- file.path(tempdir(), "tidygeobn", "testthat")
+  testdir <- file.path(tempdir(), "geobounds", "testthat")
   expect_message(geobn_set_cache_dir(testdir))
 
   expect_true(dir.exists(testdir))

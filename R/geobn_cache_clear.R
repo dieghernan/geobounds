@@ -1,4 +1,4 @@
-#' Clear your \pkg{tidygeoboundaries} cache dir
+#' Clear your \pkg{geobounds} cache dir
 #'
 #' @family cache utilities
 #'
@@ -8,21 +8,21 @@
 #' **Use this function with caution**. This function would clear your cached
 #' data and configuration, specifically:
 #'
-#' - Deletes the \pkg{tidygeoboundaries} config directory
-#'   (`rappdirs::user_config_dir("tidygeobn", "R")`).
+#' - Deletes the \pkg{geobounds} config directory
+#'   (`rappdirs::user_config_dir("geobounds", "R")`).
 #' - Deletes the `cache_dir` directory.
 #' - Deletes the values on stored on `Sys.getenv("GEOBN_CACHE_DIR")` and
 #'   `options(mapSpain_cache_dir)`.
 #'
 #' @param config Logical. If `TRUE`, will delete the configuration folder of
-#'   \pkg{tidygeoboundaries}.
+#'   \pkg{geobounds}.
 #' @param cached_data Logical. If `TRUE`, it will delete your `cache_dir` and
 #'   all its content.
 #' @inheritParams geobn_set_cache_dir
 #'
 #' @details
 #' This is an overkill function that is intended to reset your status
-#' as it you would never have installed and/or used \pkg{tidygeoboundaries}.
+#' as it you would never have installed and/or used \pkg{geobounds}.
 #'
 #' @examples
 #'
@@ -38,7 +38,7 @@ geobn_clear_cache <- function(
   cached_data = TRUE,
   verbose = FALSE
 ) {
-  config_dir <- rappdirs::user_config_dir("tidygeobn", "R")
+  config_dir <- rappdirs::user_config_dir("geobounds", "R")
   data_dir <- geobn_hlp_detect_cache_dir()
 
   # nocov start
@@ -46,7 +46,7 @@ geobn_clear_cache <- function(
     unlink(config_dir, recursive = TRUE, force = TRUE)
 
     if (verbose) {
-      cli::cli_alert_warning("{.pkg tidygeoboundaries} cache config deleted")
+      cli::cli_alert_warning("{.pkg geobounds} cache config deleted")
     }
   }
   # nocov end
@@ -55,7 +55,7 @@ geobn_clear_cache <- function(
     unlink(data_dir, recursive = TRUE, force = TRUE)
     if (verbose) {
       cli::cli_alert_warning(
-        "{.pkg tidygeoboundaries} data deleted: {.file {data_dir}}"
+        "{.pkg geobounds} data deleted: {.file {data_dir}}"
       )
     }
   }

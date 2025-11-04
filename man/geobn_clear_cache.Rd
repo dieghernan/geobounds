@@ -2,13 +2,13 @@
 % Please edit documentation in R/geobn_cache_clear.R
 \name{geobn_clear_cache}
 \alias{geobn_clear_cache}
-\title{Clear your \pkg{tidygeoboundaries} cache dir}
+\title{Clear your \pkg{geobounds} cache dir}
 \usage{
 geobn_clear_cache(config = FALSE, cached_data = TRUE, verbose = FALSE)
 }
 \arguments{
 \item{config}{Logical. If \code{TRUE}, will delete the configuration folder of
-\pkg{tidygeoboundaries}.}
+\pkg{geobounds}.}
 
 \item{cached_data}{Logical. If \code{TRUE}, it will delete your \code{cache_dir} and
 all its content.}
@@ -23,8 +23,8 @@ Invisible. This function is called for its side effects.
 \strong{Use this function with caution}. This function would clear your cached
 data and configuration, specifically:
 \itemize{
-\item Deletes the \pkg{tidygeoboundaries} config directory
-(\code{rappdirs::user_config_dir("tidygeobn", "R")}).
+\item Deletes the \pkg{geobounds} config directory
+(\code{rappdirs::user_config_dir("geobounds", "R")}).
 \item Deletes the \code{cache_dir} directory.
 \item Deletes the values on stored on \code{Sys.getenv("GEOBN_CACHE_DIR")} and
 \code{options(mapSpain_cache_dir)}.
@@ -32,7 +32,7 @@ data and configuration, specifically:
 }
 \details{
 This is an overkill function that is intended to reset your status
-as it you would never have installed and/or used \pkg{tidygeoboundaries}.
+as it you would never have installed and/or used \pkg{geobounds}.
 }
 \examples{
 

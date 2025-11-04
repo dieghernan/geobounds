@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
-library(tidygeoboundaries)
+library(geobounds)
 
-test_check("tidygeoboundaries")
+test_check("geobounds")

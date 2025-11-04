@@ -6,7 +6,7 @@
       "author": {
         "id": "https://orcid.org/0000-0001-8457-4658"
       },
-      "codeRepository": "https://github.com/dieghernan/tidygeoboundaries",
+      "codeRepository": "https://github.com/dieghernan/geobounds",
       "copyrightHolder": {
         "id": "https://orcid.org/0000-0001-8457-4658",
         "type": "Person",
@@ -14,9 +14,9 @@
         "familyName": "Hernangómez",
         "givenName": "Diego"
       },
-      "description": "Tools to download data from geoboundaries <https://www.geoboundaries.org/>. Several administration levels available. See Runfola, D. et al. (2020) geoBoundaries: A global database of political administrative boundaries. PLoS ONE 15(4): e0231866. <doi:10.1371/journal.pone.0231866>.",
+      "description": "Tools to download data from 'geoBoundaries' <https://www.geoboundaries.org/>. Several administration levels available. See Runfola, D. et al. (2020) geoBoundaries: A global database of political administrative boundaries. PLoS ONE 15(4): e0231866. <doi:10.1371/journal.pone.0231866>.",
       "license": "https://spdx.org/licenses/CC-BY-4.0",
-      "name": "tidygeoboundaries: Download Map Data from Geoboundaries",
+      "name": "geobounds: Download Map Data from 'GeoBoundaries'",
       "programmingLanguage": {
         "type": "ComputerLanguage",
         "name": "R",
@@ -32,7 +32,7 @@
         "familyName": "Hernangómez",
         "givenName": "Diego"
       },
-      "name": "{tidygeoboundaries}: Download Map Data from Geoboundaries"
+      "name": "{geobounds}: Download Map Data from GeoBoundaries"
     }
   ]
 }

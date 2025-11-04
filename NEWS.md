@@ -1,3 +1,3 @@
-# tidygeoboundaries (development version)
+# geobounds (development version)
 
 * Initial CRAN submission.
