@@ -1,0 +1,13 @@
+name: Clear all Github actions caches manually
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 7 12 * *'
+
+jobs:
+  cache-clear:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: easimon/wipe-cache@main
+
