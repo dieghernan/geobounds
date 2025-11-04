@@ -44,7 +44,8 @@
 #' \donttest{
 # Map municipalities in Sri Lanka
 #' sri_lanka <- get_geobn(
-#'   "Sri Lanka", boundary_type = "ADM3",
+#'   "Sri Lanka",
+#'   boundary_type = "ADM3",
 #'   simplified = TRUE
 #' )
 #'
@@ -58,7 +59,8 @@
 #' # Metadata
 #' library(dplyr)
 #' get_geobn(
-#'   "Sri Lanka", boundary_type = "ADM3",
+#'   "Sri Lanka",
+#'   boundary_type = "ADM3",
 #'   metadata = TRUE
 #' ) %>%
 #'   glimpse()

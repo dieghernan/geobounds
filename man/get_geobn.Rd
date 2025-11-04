@@ -5,8 +5,8 @@
 \title{Get geoBoundaries data}
 \usage{
 get_geobn(
-  release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative"),
   country,
+  release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative"),
   boundary_type = c("ADM0", "ADM1", "ADM2", "ADM3", "ADM4", "ALL"),
   simplified = FALSE,
   metadata = FALSE,
@@ -16,14 +16,14 @@ get_geobn(
 )
 }
 \arguments{
-\item{release_type}{One of \code{"gbOpen"}, \code{"gbHumanitarian"},
-"gbAuthoritative"`. Source of the spatial data. See \strong{Details}.}
-
 \item{country}{A character vector of country codes. It could be either
 \code{"ALL"} (that would return the data for all countries), a vector of country
 names or a vector of ISO3 country codes. Mixed types (as
 \code{c("Italy","ES","FRA")}) would not work. See also
 \code{\link[countrycode:countrycode]{countrycode::countrycode()}}.}
+
+\item{release_type}{One of \code{"gbOpen"}, \code{"gbHumanitarian"},
+"gbAuthoritative"`. Source of the spatial data. See \strong{Details}.}
 
 \item{boundary_type}{Type of boundary Accepted values are \code{"ALL"} (all
 available boundaries) or the ADM level (\code{"ADM0"} is the country boundary,
@@ -58,7 +58,8 @@ TODO....
 
 \donttest{
 sri_lanka <- get_geobn(
-  country = "Sri Lanka", boundary_type = "ADM3",
+  "Sri Lanka",
+  boundary_type = "ADM3",
   simplified = TRUE
 )
 
@@ -72,7 +73,8 @@ ggplot(sri_lanka) +
 # Metadata
 library(dplyr)
 get_geobn(
-  country = "Sri Lanka", boundary_type = "ADM3",
+  "Sri Lanka",
+  boundary_type = "ADM3",
   metadata = TRUE
 ) \%>\%
   glimpse()
