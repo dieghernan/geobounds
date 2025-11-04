@@ -1,18 +1,18 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
-<url><loc>/404.html</loc></url>
-<url><loc>/articles/index.html</loc></url>
-<url><loc>/articles/tidygeoboundaries.html</loc></url>
-<url><loc>/authors.html</loc></url>
-<url><loc>/CODE_OF_CONDUCT.html</loc></url>
-<url><loc>/CONTRIBUTING.html</loc></url>
-<url><loc>/index.html</loc></url>
-<url><loc>/LICENSE.html</loc></url>
-<url><loc>/news/index.html</loc></url>
-<url><loc>/reference/geobn_clear_cache.html</loc></url>
-<url><loc>/reference/geobn_detect_cache_dir.html</loc></url>
-<url><loc>/reference/geobn_set_cache_dir.html</loc></url>
-<url><loc>/reference/get_geobn.html</loc></url>
-<url><loc>/reference/index.html</loc></url>
-<url><loc>/reference/tidygeoboundaries-package.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidygeoboundaries/404.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidygeoboundaries/articles/index.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidygeoboundaries/articles/tidygeoboundaries.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidygeoboundaries/authors.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidygeoboundaries/CODE_OF_CONDUCT.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidygeoboundaries/CONTRIBUTING.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidygeoboundaries/index.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidygeoboundaries/LICENSE.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidygeoboundaries/news/index.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidygeoboundaries/reference/geobn_clear_cache.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidygeoboundaries/reference/geobn_detect_cache_dir.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidygeoboundaries/reference/geobn_set_cache_dir.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidygeoboundaries/reference/get_geobn.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidygeoboundaries/reference/index.html</loc></url>
+<url><loc>https://dieghernan.github.io/tidygeoboundaries/reference/tidygeoboundaries-package.html</loc></url>
 </urlset>
 
