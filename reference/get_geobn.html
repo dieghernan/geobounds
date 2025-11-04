@@ -28,7 +28,16 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
-      </ul><ul class="nav navbar-nav navbar-right"></ul></div><!--/.nav-collapse -->
+<li>
+  <a href="../news/index.html">Changelog</a>
+</li>
+      </ul><ul class="nav navbar-nav navbar-right"><li>
+  <a href="https://github.com/dieghernan/tidygeoboundaries/" class="external-link">
+    <span class="fab fa-github fa-lg"></span>
+
+  </a>
+</li>
+      </ul></div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
 
@@ -38,7 +47,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Get geoBoundaries data</h1>
-
+    <small class="dont-index">Source: <a href="https://github.com/dieghernan/tidygeoboundaries/blob/main/R/get_geobn.R" class="external-link"><code>R/get_geobn.R</code></a></small>
     <div class="hidden name"><code>get_geobn.Rd</code></div>
     </div>
 
@@ -49,12 +58,11 @@
     <div id="ref-usage">
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_geobn</span><span class="op">(</span></span>
 <span>  release_type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"gbOpen"</span>, <span class="st">"gbHumanitarian"</span>, <span class="st">"gbAuthoritative"</span><span class="op">)</span>,</span>
-<span>  country <span class="op">=</span> <span class="st">"ALL"</span>,</span>
+<span>  <span class="va">country</span>,</span>
 <span>  boundary_type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"ADM0"</span>, <span class="st">"ADM1"</span>, <span class="st">"ADM2"</span>, <span class="st">"ADM3"</span>, <span class="st">"ADM4"</span>, <span class="st">"ALL"</span><span class="op">)</span>,</span>
 <span>  simplified <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  metadata <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  verbose <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>  cache <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  update_cache <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  cache_dir <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -96,11 +104,6 @@ See <strong>Details</strong>.</p></dd>
 <dt id="arg-verbose">verbose<a class="anchor" aria-label="anchor" href="#arg-verbose"></a></dt>
 <dd><p>Logical, displays information. Useful for debugging,
 default is <code>FALSE</code>.</p></dd>
-
-
-<dt id="arg-cache">cache<a class="anchor" aria-label="anchor" href="#arg-cache"></a></dt>
-<dd><p>A logical whether to do caching. Default is <code>TRUE</code>. See
-<strong>About caching</strong>.</p></dd>
 
 
 <dt id="arg-update-cache">update_cache<a class="anchor" aria-label="anchor" href="#arg-update-cache"></a></dt>
@@ -160,16 +163,16 @@ When set to <code>TRUE</code> it would force a fresh download of the source
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ `UNSDG-region`            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Europe and Northern America"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ `UNSDG-subregion`         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Southern Europe"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ worldBankIncomeGroup      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "High-income Countries"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ admUnitCount              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "1"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ meanVertices              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "667002.0"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ minVertices               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "667002"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ maxVertices               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "667002"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ meanPerimeterLengthKM     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "13154.542240986726"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ minPerimeterLengthKM      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "13154.542240986726"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ maxPerimeterLengthKM      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "13154.542240986726"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ meanAreaSqKM              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "506009.4752517802"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ minAreaSqKM               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "506009.4752517802"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ maxAreaSqKM               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "506009.4752517802"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ admUnitCount              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ meanVertices              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 667002</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ minVertices               <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 667002</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ maxVertices               <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 667002</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ meanPerimeterLengthKM     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 13154.54</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ minPerimeterLengthKM      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 13154.54</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ maxPerimeterLengthKM      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 13154.54</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ meanAreaSqKM              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 506009.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ minAreaSqKM               <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 506009.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ maxAreaSqKM               <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 506009.5</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ staticDownloadLink        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "https://github.com/wmgeolab/geoBoundaries/r…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ gjDownloadURL             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "https://github.com/wmgeolab/geoBoundaries/r…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ tjDownloadURL             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "https://github.com/wmgeolab/geoBoundaries/r…</span>
