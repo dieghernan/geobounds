@@ -32,8 +32,9 @@ A \code{\link[sf:sf]{sf}} object.
 \href{https://www.geoboundaries.org/index.html#usage}{Attribution} is required
 for all uses of this dataset.
 
-This function returns a global composite of the required administration level,
-clipped to international boundaries, with gaps filled between borders.
+This function returns a global composite of the required administration
+level, clipped to international boundaries, with gaps filled between
+borders.
 }
 \details{
 Comprehensive Global Administrative Zones (CGAZ) is a set of global

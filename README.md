@@ -67,16 +67,7 @@ sri_lanka_adm2 <- get_geobn("Sri Lanka", boundary_type = "ADM2")
 sri_lanka_adm3 <- get_geobn("Sri Lanka", boundary_type = "ADM3")
 
 library(sf)
-#> Linking to GEOS 3.13.1, GDAL 3.11.0, PROJ 9.6.0; sf_use_s2() is TRUE
 library(dplyr)
-#> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
 
 library(ggplot2)
 
