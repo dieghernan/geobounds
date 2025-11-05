@@ -59,8 +59,9 @@ install.packages("geobounds",
 ``` r
 library(geobounds)
 
-sri_lanka_bounds <- get_geobn("Sri Lanka")
 sri_lanka_adm1 <- get_geobn("Sri Lanka", boundary_type = "ADM1")
+sri_lanka_adm2 <- get_geobn("Sri Lanka", boundary_type = "ADM2")
+sri_lanka_adm3 <- get_geobn("Sri Lanka", boundary_type = "ADM3")
 
 library(sf)
 #> Linking to GEOS 3.13.1, GDAL 3.10.2, PROJ 9.5.1; sf_use_s2() is TRUE
@@ -74,27 +75,16 @@ library(dplyr)
 #> 
 #>     intersect, setdiff, setequal, union
 
-# Central
-central <- sri_lanka_adm1 %>%
-  filter(shapeISO == "LK-2")
-
 library(ggplot2)
 
-ggplot(sri_lanka_bounds) +
-  geom_sf(fill = "#F6E1B9") +
-  geom_sf(data = sri_lanka_adm1, fill = NA) +
-  geom_sf(data = central, fill = "#C12838") +
-  theme_void() +
-  theme(
-    panel.background = element_rect(fill = "#C7E7FB")
-  ) +
-  labs(
-    title = "Central Province, Sri Lanka",
-    caption = "Source: geoBoundaries"
-  )
+ggplot(sri_lanka_adm3) +
+  geom_sf(fill = "#DFDFDF", color = "white") +
+  geom_sf(data = sri_lanka_adm2, fill = NA, color = "grey30") +
+  geom_sf(data = sri_lanka_adm1, fill = NA, color = "black") +
+  theme_void()
 ```
 
-<img src="man/figures/README-simple_plot-1.png" width="100%" />
+<img src="man/figures/README-simple_plot-1.png" alt="Map of all administration levels for Sri Lanka" width="100%" />
 
 > Note: This is a simple illustration. See the package vignettes for
 > full details on parameters, filters, caching, and advanced usage.
