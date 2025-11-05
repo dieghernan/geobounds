@@ -75,13 +75,12 @@
 </h2>
 <p>The <strong>geobounds</strong> package provides an R-friendly interface to access and work with the <a href="https://www.geoboundaries.org/" class="external-link"><strong>geoBoundaries</strong></a> dataset (an open-license global database of administrative boundary polygons). Using this package, you can:</p>
 <ul>
-<li>Programmatically retrieve administrative boundary geometries (e.g., country → region → district) from geoBoundaries<br>
-</li>
-<li>Use tidyverse / <strong>sf</strong> workflows in <strong>R</strong> to map, analyse and join these boundaries with your own data<br>
-</li>
+<li>Programmatically retrieve administrative boundary geometries (e.g., country → region → district) from geoBoundaries</li>
+<li>Use tidyverse / <strong>sf</strong> workflows in <strong>R</strong> to map, analyse and join these boundaries with your own data</li>
 <li>Work in an open-data context (geoBoundaries uses CC BY-4.0 / open licences)</li>
 </ul>
 <p>In short: if you work with geospatial boundaries in <strong>R</strong> (shape files, polygons, join with other data), this package simplifies the process.</p>
+<p><strong>Note that <a href="https://www.geoboundaries.org/index.html#usage" class="external-link">Attribution</a> is required when using geoBoundaries.</strong></p>
 </div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -128,6 +127,7 @@
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"#DFDFDF"</span>, color <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">sri_lanka_adm2</span>, fill <span class="op">=</span> <span class="cn">NA</span>, color <span class="op">=</span> <span class="st">"grey30"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">sri_lanka_adm1</span>, fill <span class="op">=</span> <span class="cn">NA</span>, color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>caption <span class="op">=</span> <span class="st">"Source: www.geoboundaries.org"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_void</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-simple_plot-1.png" alt="Map of all administration levels for Sri Lanka" width="100%"></p>
 <blockquote>
