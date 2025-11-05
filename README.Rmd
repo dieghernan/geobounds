@@ -38,13 +38,16 @@ open-license global database of administrative boundary polygons). Using this
 package, you can:
 
 -   Programmatically retrieve administrative boundary geometries (e.g., country
-    → region → district) from geoBoundaries\
+    → region → district) from geoBoundaries
 -   Use tidyverse / **sf** workflows in **R** to map, analyse and join these
-    boundaries with your own data\
+    boundaries with your own data
 -   Work in an open-data context (geoBoundaries uses CC BY-4.0 / open licences)
 
 In short: if you work with geospatial boundaries in **R** (shape files,
 polygons, join with other data), this package simplifies the process.
+
+**Note that [Attribution](https://www.geoboundaries.org/index.html#usage) is
+required when using geoBoundaries.**
 
 ## Installation
 
@@ -86,6 +89,7 @@ ggplot(sri_lanka_adm3) +
   geom_sf(fill = "#DFDFDF", color = "white") +
   geom_sf(data = sri_lanka_adm2, fill = NA, color = "grey30") +
   geom_sf(data = sri_lanka_adm1, fill = NA, color = "black") +
+  labs(caption = "Source: www.geoboundaries.org") +
   theme_void()
 ```
 

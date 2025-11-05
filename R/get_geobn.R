@@ -68,7 +68,8 @@
 #'
 #' library(ggplot2)
 #' ggplot(sri_lanka) +
-#'   geom_sf()
+#'   geom_sf() +
+#'   labs(caption = "Source: www.geoboundaries.org")
 #' }
 #'
 #' # Metadata

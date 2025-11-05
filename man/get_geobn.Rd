@@ -77,7 +77,8 @@ sri_lanka
 
 library(ggplot2)
 ggplot(sri_lanka) +
-  geom_sf()
+  geom_sf() +
+  labs(caption = "Source: www.geoboundaries.org")
 }
 
 # Metadata
@@ -96,5 +97,9 @@ geoboundaries API Service \url{https://www.geoboundaries.org/api.html}.
 Runfola, D. et al. (2020) geoBoundaries: A global database of political
 administrative boundaries. \emph{PLoS ONE} \strong{15}(4): e0231866.
 \doi{10.1371/journal.pone.0231866}.
+}
+\seealso{
+Other API functions: 
+\code{\link{get_geobn_adm0}()}
 }
 \concept{API functions}
