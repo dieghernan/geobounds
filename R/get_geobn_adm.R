@@ -1,4 +1,4 @@
-#' Get geoBoundaries data for a given administration level
+#' Get country files from geoBoundaries for a given administration level
 #'
 #' @description
 #'
@@ -21,6 +21,13 @@
 #' Note that not all countries have the same number of levels.
 #'
 #' @rdname get_geobn_adm
+#' @name get_geobn_adm
+#'
+#' @return
+#'
+#' - With `metadata = FALSE`: A [`sf`][sf::st_sf] object.
+#' - With `metadata = TRUE`: A tibble.
+#'
 #' @references
 #' geoboundaries API Service <https://www.geoboundaries.org/api.html>.
 #'

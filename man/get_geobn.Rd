@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_geobn.R
 \name{get_geobn}
 \alias{get_geobn}
-\title{Get geoBoundaries data}
+\title{Get individual country files from geoBoundaries}
 \usage{
 get_geobn(
   country,
@@ -50,9 +50,11 @@ When set to \code{TRUE} it would force a fresh download of the source
 }
 }
 \description{
-Return an spatial object using \CRANpkg{sf}.
 \href{https://www.geoboundaries.org/index.html#usage}{Attribution} is required
 for all uses of this dataset.
+
+This function returns data of individual countries "as they would represent
+themselves", with no special identification of disputed areas.
 }
 \details{
 For most users, we suggest using \code{"gbOpen"}, as it is CC-BY 4.0 compliant,
@@ -100,6 +102,7 @@ administrative boundaries. \emph{PLoS ONE} \strong{15}(4): e0231866.
 }
 \seealso{
 Other API functions: 
-\code{\link{get_geobn_adm0}()}
+\code{\link{get_geobn_adm}},
+\code{\link{get_geobn_world}()}
 }
 \concept{API functions}

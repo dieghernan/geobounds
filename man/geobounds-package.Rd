@@ -4,7 +4,7 @@
 \name{geobounds-package}
 \alias{geobounds}
 \alias{geobounds-package}
-\title{geobounds: Download Map Data from 'GeoBoundaries'}
+\title{geobounds: Download Map Data from 'geoBoundaries'}
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 

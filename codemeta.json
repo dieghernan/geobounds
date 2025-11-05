@@ -3,7 +3,7 @@
   "@type": "SoftwareSourceCode",
   "identifier": "geobounds",
   "description": "Tools to download data from 'geoBoundaries' <https://www.geoboundaries.org/>. Several administration levels available. See Runfola, D. et al. (2020) geoBoundaries: A global database of political administrative boundaries. PLoS ONE 15(4): e0231866. <doi:10.1371/journal.pone.0231866>.",
-  "name": "geobounds: Download Map Data from 'GeoBoundaries'",
+  "name": "geobounds: Download Map Data from 'geoBoundaries'",
   "relatedLink": "https://dieghernan.github.io/geobounds/",
   "codeRepository": "https://github.com/dieghernan/geobounds",
   "issueTracker": "https://github.com/dieghernan/geobounds/issues",
@@ -204,7 +204,7 @@
     "SystemRequirements": null
   },
   "keywords": ["administrative-boundaries", "api", "geoboundaries", "r", "r-package", "spatial-data"],
-  "fileSize": "302.298KB",
+  "fileSize": "308.131KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",

@@ -1,9 +1,11 @@
-#' Get geoBoundaries data
+#' Get individual country files from geoBoundaries
 #'
 #' @description
-#' Return an spatial object using \CRANpkg{sf}.
 #' [Attribution](https://www.geoboundaries.org/index.html#usage) is required
 #' for all uses of this dataset.
+#'
+#' This function returns data of individual countries "as they would represent
+#' themselves", with no special identification of disputed areas.
 #'
 #' @export
 #'
@@ -222,7 +224,14 @@ get_geobn_meta <- function(url) {
 }
 
 
-get_geobn_sf_single <- function(url, subdir, verbose, update_cache, cache_dir) {
+get_geobn_sf_single <- function(
+  url,
+  subdir,
+  verbose,
+  update_cache,
+  cache_dir,
+  format = "geojson"
+) {
   filename <- basename(url)
   # Prepare cache
   cache_dir <- geobn_hlp_cachedir(cache_dir)
@@ -254,6 +263,11 @@ get_geobn_sf_single <- function(url, subdir, verbose, update_cache, cache_dir) {
     get <- httr2::req_perform(q, path = file_local) # nolint
   }
 
-  outsf <- geojsonsf::geojson_sf(file_local, input = num$input, wkt = num$wkt)
+  if (format == "geojson") {
+    outsf <- geojsonsf::geojson_sf(file_local, input = num$input, wkt = num$wkt)
+  } else {
+    outsf <- sf::read_sf(file_local)
+  }
+
   outsf <- geobn_helper_utf8(outsf)
 }

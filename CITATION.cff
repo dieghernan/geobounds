@@ -7,7 +7,7 @@ cff-version: 1.2.0
 message: 'To cite package "geobounds" in publications use:'
 type: software
 license: CC-BY-4.0
-title: 'geobounds: Download Map Data from ''GeoBoundaries'''
+title: 'geobounds: Download Map Data from ''geoBoundaries'''
 version: 0.0.0.9000
 abstract: 'Tools to download data from ''geoBoundaries'' <https://www.geoboundaries.org/>.
   Several administration levels available. See Runfola, D. et al. (2020) geoBoundaries:

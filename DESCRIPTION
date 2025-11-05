@@ -1,5 +1,5 @@
 Package: geobounds
-Title: Download Map Data from 'GeoBoundaries'
+Title: Download Map Data from 'geoBoundaries'
 Version: 0.0.0.9000
 Authors@R: c(
     person("Diego", "Hernangómez", , "diego.hernangomezherrero@gmail.com", role = c("aut", "cre", "cph"),

@@ -15,6 +15,9 @@ Concept](https://www.repostatus.org/badges/latest/concept.svg)](https://www.repo
 
 <!-- badges: end -->
 
+[**Attribution**](https://www.geoboundaries.org/index.html#usage) **is
+required when using geoBoundaries.**
+
 ## Why this package?
 
 The **geobounds** package provides an R-friendly interface to access and
@@ -31,10 +34,6 @@ polygons). Using this package, you can:
 
 In short: if you work with geospatial boundaries in **R** (shape files,
 polygons, join with other data), this package simplifies the process.
-
-**Note that
-[Attribution](https://www.geoboundaries.org/index.html#usage) is
-required when using geoBoundaries.**
 
 ## Installation
 
