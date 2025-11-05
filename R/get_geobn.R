@@ -2,6 +2,8 @@
 #'
 #' @description
 #' Return an spatial object using \CRANpkg{sf}.
+#' [Attribution](https://www.geoboundaries.org/index.html#usage) is required
+#' for all uses of this dataset.
 #'
 #' @export
 #'
@@ -18,7 +20,6 @@
 #'   second level and so on.
 #' @param simplified Logical. Return the simplified boundary or not.
 #' @param metadata Should the result be the metadata of the boundary?
-#'   See **Details**.
 #' @param verbose Logical, displays information. Useful for debugging,
 #'   default is `FALSE`.
 #'
@@ -30,7 +31,9 @@
 #'
 #'
 #' @return
-#' When `metadata = FALSE`: A [`sf`][sf::st_sf] object, otherwise a tibble.
+#'
+#' - With `metadata = FALSE`: A [`sf`][sf::st_sf] object.
+#' - With `metadata = TRUE`: A tibble.
 #'
 #' @references
 #' geoboundaries API Service <https://www.geoboundaries.org/api.html>.
@@ -42,7 +45,14 @@
 #' @family API functions
 #'
 #' @details
-#'  TODO....
+#'
+#'  For most users, we suggest using `"gbOpen"`, as it is CC-BY 4.0 compliant,
+#'  and can be used for most purposes so long as attribution is provided.
+#'  `"gbHumanitarian"` files are mirrored from
+#'  [UN OCHA](https://www.unocha.org/), but may have less open licensure.
+#'  `"gbAuthoritative"` files are mirrored from
+#'  [UN SALB](https://salb.un.org/), and cannot  be used for commercial
+#'  purposes, but are verified through in-country processes.
 #'
 #' @examplesIf httr2::is_online()
 #'
@@ -186,6 +196,26 @@ get_geobn_meta <- function(url) {
   tb$meanAreaSqKM <- as.numeric(tb$meanAreaSqKM)
   tb$minAreaSqKM <- as.numeric(tb$minAreaSqKM)
   tb$maxAreaSqKM <- as.numeric(tb$maxAreaSqKM)
+
+  # Convert dates
+  up <- tb$sourceDataUpdateDate
+  up <- trimws(gsub("Mon|Tue|Wed|Thu|Fri|Sat|Sun", "", up))
+  mabb <- month.abb
+  mnum <- sprintf("%02d", seq_len(length(mabb)))
+  iter <- seq_len(length(mabb))
+  for (i in iter) {
+    up <- gsub(mabb[i], mnum[i], up)
+  }
+  upconv <- strptime(up, "%m %d %H:%M:%S %Y", tz = "GMT")
+  tb$sourceDataUpdateDate <- upconv
+
+  bd <- tb$buildDate
+  for (i in iter) {
+    bd <- gsub(mabb[i], mnum[i], bd)
+  }
+  bd <- gsub(",", "", bd)
+  bdate <- as.Date(bd, "%m %d %Y")
+  tb$buildDate <- bdate
 
   tb
 }

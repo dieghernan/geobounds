@@ -32,8 +32,7 @@ second level and so on.}
 
 \item{simplified}{Logical. Return the simplified boundary or not.}
 
-\item{metadata}{Should the result be the metadata of the boundary?
-See \strong{Details}.}
+\item{metadata}{Should the result be the metadata of the boundary?}
 
 \item{verbose}{Logical, displays information. Useful for debugging,
 default is \code{FALSE}.}
@@ -45,13 +44,24 @@ When set to \code{TRUE} it would force a fresh download of the source
 \item{cache_dir}{A path to a cache directory. See \code{\link[=geobn_set_cache_dir]{geobn_set_cache_dir()}}.}
 }
 \value{
-When \code{metadata = FALSE}: A \code{\link[sf:sf]{sf}} object, otherwise a tibble.
+\itemize{
+\item With \code{metadata = FALSE}: A \code{\link[sf:sf]{sf}} object.
+\item With \code{metadata = TRUE}: A tibble.
+}
 }
 \description{
 Return an spatial object using \CRANpkg{sf}.
+\href{https://www.geoboundaries.org/index.html#usage}{Attribution} is required
+for all uses of this dataset.
 }
 \details{
-TODO....
+For most users, we suggest using \code{"gbOpen"}, as it is CC-BY 4.0 compliant,
+and can be used for most purposes so long as attribution is provided.
+\code{"gbHumanitarian"} files are mirrored from
+\href{https://www.unocha.org/}{UN OCHA}, but may have less open licensure.
+\code{"gbAuthoritative"} files are mirrored from
+\href{https://salb.un.org/}{UN SALB}, and cannot  be used for commercial
+purposes, but are verified through in-country processes.
 }
 \examples{
 \dontshow{if (httr2::is_online()) withAutoprint(\{ # examplesIf}

@@ -16,6 +16,8 @@ vignettes/*.pdf
 *.utf8.md
 *.knit.md
 .Renviron
+docs
+dev
 geobounds.Rcheck/
 geobounds*.tar.gz
 geobounds*.tgz

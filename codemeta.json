@@ -31,6 +31,10 @@
       "familyName": "Hernangómez",
       "email": "diego.hernangomezherrero@gmail.com",
       "@id": "https://orcid.org/0000-0001-8457-4658"
+    },
+    {
+      "@type": "Organization",
+      "name": "geoBoundaries"
     }
   ],
   "maintainer": [
@@ -200,7 +204,7 @@
     "SystemRequirements": null
   },
   "keywords": ["administrative-boundaries", "api", "geoboundaries", "r", "r-package", "spatial-data"],
-  "fileSize": "92.964KB",
+  "fileSize": "290.153KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",

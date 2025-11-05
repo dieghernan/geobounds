@@ -1,9 +1,11 @@
 Package: geobounds
 Title: Download Map Data from 'GeoBoundaries'
 Version: 0.0.0.9000
-Authors@R: 
+Authors@R: c(
     person("Diego", "Hernangómez", , "diego.hernangomezherrero@gmail.com", role = c("aut", "cre", "cph"),
-           comment = c(ORCID = "0000-0001-8457-4658"))
+           comment = c(ORCID = "0000-0001-8457-4658")),
+    person("geoBoundaries", role = "cph")
+  )
 Description: Tools to download data from 'geoBoundaries'
     <https://www.geoboundaries.org/>. Several administration levels
     available. See Runfola, D. et al. (2020) geoBoundaries: A global
@@ -35,6 +37,8 @@ Config/Needs/website: dieghernan/gitdevr, xfun, devtools, remotes,
     geometries, rapidjsonr, sfheaders, jsonify
 Config/testthat/edition: 3
 Config/testthat/parallel: true
+Copyright: Attribution required. See file COPYRIGHTS for specific
+    provisions.
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3

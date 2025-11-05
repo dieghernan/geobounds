@@ -11,6 +11,11 @@ template:
     twitter:
       creator: "@dhernangomez"
       card: summary_large_image
+authors:
+  Diego Hernangómez:
+    href: https://dieghernan.github.io/
+  geoBoundaries:
+    href: https://www.geoboundaries.org/
 
 reference:
   - title: Political
