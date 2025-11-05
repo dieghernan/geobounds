@@ -62,7 +62,7 @@ and can be used for most purposes so long as attribution is provided.
 \code{"gbHumanitarian"} files are mirrored from
 \href{https://www.unocha.org/}{UN OCHA}, but may have less open licensure.
 \code{"gbAuthoritative"} files are mirrored from
-\href{https://salb.un.org/}{UN SALB}, and cannot  be used for commercial
+\href{https://salb.un.org/en}{UN SALB}, and cannot  be used for commercial
 purposes, but are verified through in-country processes.
 }
 \examples{

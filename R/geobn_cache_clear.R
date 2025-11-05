@@ -9,7 +9,7 @@
 #' data and configuration, specifically:
 #'
 #' - Deletes the \pkg{geobounds} config directory
-#'   (`rappdirs::user_config_dir("geobounds", "R")`).
+#'   (`tools::R_user_dir("geobounds", "config")`).
 #' - Deletes the `cache_dir` directory.
 #' - Deletes the values on stored on `Sys.getenv("GEOBN_CACHE_DIR")` and
 #'   `options(mapSpain_cache_dir)`.
@@ -38,7 +38,7 @@ geobn_clear_cache <- function(
   cached_data = TRUE,
   verbose = FALSE
 ) {
-  config_dir <- rappdirs::user_config_dir("geobounds", "R")
+  config_dir <- tools::R_user_dir("geobounds", "config")
   data_dir <- geobn_hlp_detect_cache_dir()
 
   # nocov start

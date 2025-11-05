@@ -1,7 +1,7 @@
 #' Set your \pkg{geobounds} cache dir
 #'
 #' @family cache utilities
-#' @seealso [rappdirs::user_config_dir()]
+#' @seealso [tools::R_user_dir()]
 #'
 #' @return
 #' An (invisible) character with the path to your `cache_dir`.
@@ -82,7 +82,7 @@ geobn_set_cache_dir <- function(
   # nocov start
 
   if (install) {
-    config_dir <- rappdirs::user_config_dir("geobounds", "R")
+    config_dir <- tools::R_user_dir("geobounds", "config")
     # Create cache dir if not presente
     if (!dir.exists(config_dir)) {
       dir.create(config_dir, recursive = TRUE)
@@ -127,7 +127,7 @@ geobn_hlp_detect_cache_dir <- function() {
   if (is.null(getvar) || is.na(getvar) || getvar == "") {
     # Not set - tries to retrieve from cache
     cache_config <- file.path(
-      rappdirs::user_config_dir("geobounds", "R"),
+      tools::R_user_dir("geobounds", "config"),
       "GEOBN_CACHE_DIR"
     )
 

@@ -53,7 +53,7 @@
 #'  `"gbHumanitarian"` files are mirrored from
 #'  [UN OCHA](https://www.unocha.org/), but may have less open licensure.
 #'  `"gbAuthoritative"` files are mirrored from
-#'  [UN SALB](https://salb.un.org/), and cannot  be used for commercial
+#'  [UN SALB](https://salb.un.org/en), and cannot  be used for commercial
 #'  purposes, but are verified through in-country processes.
 #'
 #' @examplesIf httr2::is_online()

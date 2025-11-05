@@ -23,7 +23,7 @@ Imports:
     dplyr,
     geojsonsf,
     httr2 (>= 1.0.0),
-    rappdirs,
+    tools,
     sf
 Suggests: 
     ggplot2,
