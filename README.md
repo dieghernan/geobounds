@@ -95,7 +95,7 @@ ggplot(spain_bounds) +
   <https://dieghernan.github.io/geobounds/>
 - Explore the geoBoundaries homepage: <https://www.geoboundaries.org/>
 - Read the original paper describing the geoBoundaries dataset ([Runfola
-  2020](#ref-geoboundaries)).
+  et al. 2020](#ref-geoboundaries)).
 
 ## License
 
@@ -140,9 +140,11 @@ entry-spacing="0">
 
 <div id="ref-geoboundaries" class="csl-entry">
 
-Runfola, Austin AND Baier, Daniel AND Anderson. 2020. “geoBoundaries: A
-Global Database of Political Administrative Boundaries.” *PLOS ONE* 15
-(4): 1–9. <https://doi.org/10.1371/journal.pone.0231866>.
+Runfola, Daniel, Austin Anderson, Heather Baier, Matt Crittenden,
+Elizabeth Dowker, Sydney Fuhrig, Seth Goodman, et al. 2020.
+“geoBoundaries: A Global Database of Political Administrative
+Boundaries.” *PLOS ONE* 15 (4): 1–9.
+<https://doi.org/10.1371/journal.pone.0231866>.
 
 </div>
 
