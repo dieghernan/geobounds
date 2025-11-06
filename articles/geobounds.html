@@ -210,21 +210,22 @@ version. For example:</p>
 <span><span class="va">current</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/geobn_detect_cache_dir.html">geobn_detect_cache_dir</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">current</span></span>
-<span><span class="co">#&gt; [1] "C:\\Users\\diego\\AppData\\Local\\Temp\\RtmpSwB51m"</span></span>
+<span><span class="co">#&gt; [1] "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\RtmpiAzJoY"</span></span>
 <span></span>
 <span><span class="co"># Change to new</span></span>
 <span><span class="va">newdir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"/geoboundvignette"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/geobn_set_cache_dir.html">geobn_set_cache_dir</a></span><span class="op">(</span><span class="va">newdir</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ℹ geobounds cache dir is 'C:\Users\diego\AppData\Local\Temp\RtmpSwB51m//geoboundvignette'.</span></span>
+<span><span class="co">#&gt; ℹ geobounds cache dir is 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpiAzJoY//geoboundvignette'.</span></span>
 <span><span class="co">#&gt; ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.</span></span>
 <span></span>
 <span><span class="co"># Download</span></span>
 <span><span class="va">example</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_geobn_adm.html">get_geobn_adm0</a></span><span class="op">(</span><span class="st">"Vatican City"</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ℹ File 'C:\Users\diego\AppData\Local\Temp\RtmpSwB51m/geoboundvignette/gbOpen/geoBoundaries-VAT-ADM0.geojson' already cached</span></span>
+<span><span class="co">#&gt; ℹ Downloading file from &lt;https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/VAT/ADM0/geoBoundaries-VAT-ADM0.geojson&gt;</span></span>
+<span><span class="co">#&gt; ℹ Cache dir is 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpiAzJoY//geoboundvignette/gbOpen'</span></span>
 <span></span>
 <span><span class="co"># Restore cache dir</span></span>
 <span><span class="fu"><a href="../reference/geobn_set_cache_dir.html">geobn_set_cache_dir</a></span><span class="op">(</span><span class="va">current</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ℹ geobounds cache dir is 'C:\Users\diego\AppData\Local\Temp\RtmpSwB51m'.</span></span>
+<span><span class="co">#&gt; ℹ geobounds cache dir is 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpiAzJoY'.</span></span>
 <span><span class="co">#&gt; ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.</span></span>
 <span></span>
 <span><span class="va">current</span> <span class="op">==</span> <span class="fu"><a href="../reference/geobn_detect_cache_dir.html">geobn_detect_cache_dir</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -254,10 +255,10 @@ of the individual files and the boundaries data of CGAZ:</p>
 <span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Rows: 47</span></span>
 <span><span class="co">#&gt; Columns: 4</span></span>
-<span><span class="co">#&gt; $ boundaryISO          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "ABW"<span style="color: #949494;">, </span>"AIA"<span style="color: #949494;">, </span>"ARG"<span style="color: #949494;">, </span>"ATG"<span style="color: #949494;">, </span>"BES"<span style="color: #949494;">, </span>"BHS"<span style="color: #949494;">, </span>"BLM"<span style="color: #949494;">, </span>"BLZ"<span style="color: #949494;">, </span>"BOL"<span style="color: #949494;">, </span>"BR…</span></span>
-<span><span class="co">#&gt; $ boundaryName         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Aruba"<span style="color: #949494;">, </span>"Anguilla"<span style="color: #949494;">, </span>"Argentina"<span style="color: #949494;">, </span>"Antigua and Barbuda"<span style="color: #949494;">, </span>"Bonaire …</span></span>
-<span><span class="co">#&gt; $ Continent            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Latin America and the Caribbean"<span style="color: #949494;">, </span>"Latin America and the Caribbea…</span></span>
-<span><span class="co">#&gt; $ worldBankIncomeGroup <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "High-income Countries"<span style="color: #949494;">, </span>"No income group available"<span style="color: #949494;">, </span>"High-income…</span></span>
+<span><span class="co">#&gt; $ boundaryISO          &lt;chr&gt; "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", …</span></span>
+<span><span class="co">#&gt; $ boundaryName         &lt;chr&gt; "Aruba", "Anguilla", "Argentina", "Antigua and Ba…</span></span>
+<span><span class="co">#&gt; $ Continent            &lt;chr&gt; "Latin America and the Caribbean", "Latin America…</span></span>
+<span><span class="co">#&gt; $ worldBankIncomeGroup &lt;chr&gt; "High-income Countries", "No income group availab…</span></span>
 <span></span>
 <span><span class="co"># Adjust factors</span></span>
 <span><span class="va">latam_meta</span><span class="op">$</span><span class="va">income_factor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">latam_meta</span><span class="op">$</span><span class="va">worldBankIncomeGroup</span>,</span>
