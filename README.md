@@ -112,7 +112,6 @@ specific dataset metadata for licensing details.
 ## Citation
 
 <p>
-
 Hernangómez D (2025). <em>geobounds: Download Map Data from
 geoBoundaries</em>.
 <a href="https://dieghernan.github.io/geobounds/">https://dieghernan.github.io/geobounds/</a>.
