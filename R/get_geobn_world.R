@@ -1,4 +1,4 @@
-#' Get global composites data from geoBoundaries
+#' Get global composites data (CGAZ) from geoBoundaries
 #'
 #' @description
 #'

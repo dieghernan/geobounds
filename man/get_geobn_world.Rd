@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_geobn_world.R
 \name{get_geobn_world}
 \alias{get_geobn_world}
-\title{Get global composites data from geoBoundaries}
+\title{Get global composites data (CGAZ) from geoBoundaries}
 \source{
 geoboundaries API Service \url{https://www.geoboundaries.org/api.html}.
 }
