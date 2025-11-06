@@ -26,3 +26,4 @@
 ^geobounds.*\.tgz$
 ^[.]?air[.]toml$
 ^\.vscode$
+^vignettes/geobounds\.Rmd\.orig$

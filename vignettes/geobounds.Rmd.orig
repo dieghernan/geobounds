@@ -11,7 +11,19 @@ vignette: >
 
 <!-- geobounds.Rmd is generated from geobounds.Rmd.orig. Please edit that file -->
 
-
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  warning = FALSE,
+  message = FALSE,
+  tidy = "styler",
+  dev = "ragg_png",
+  dpi = 150,
+  fig.path = "./",
+  out.width = "100%"
+)
+```
 
 [**Attribution**](https://www.geoboundaries.org/index.html#usage) **is required
 when using geoBoundaries.**
@@ -39,8 +51,7 @@ This precision comes at a cost: some files can be quite large and may take
 longer to download. For visualization or general mapping purposes, we recommend
 using the simplified datasets available by setting `simplified = TRUE`.
 
-
-``` r
+```{r norway, fig.cap='Comparison between full vs. simplified map.'}
 library(geobounds)
 library(ggplot2)
 library(dplyr)
@@ -49,12 +60,10 @@ library(dplyr)
 norway <- get_geobn_adm0("NOR") %>%
   mutate(res = "Full resolution")
 print(object.size(norway), units = "Mb")
-#> 26.5 Mb
 
 norway_simp <- get_geobn_adm0(country = "NOR", simplified = TRUE) %>%
   mutate(res = "Simplified")
 print(object.size(norway_simp), units = "Mb")
-#> 1.5 Mb
 
 norway_all <- bind_rows(norway, norway_simp)
 
@@ -69,11 +78,6 @@ ggplot(norway_all) +
   labs(caption = "Source: www.geoboundaries.org")
 ```
 
-<div class="figure">
-<img src="./norway-1.png" alt="Comparison between full vs. simplified map." width="100%" />
-<p class="caption">Comparison between full vs. simplified map.</p>
-</div>
-
 ### Individual country files
 
 The geoBoundaries API provides [individual country
@@ -86,15 +90,13 @@ The download of this data is implemented in `get_geobn()` and the
 perfectly or that there are no gaps between countries. Additionally, these files
 do not include a special identification of disputed areas.
 
-
-``` r
+```{r intersect, fig.cap="Map showing Western Sahara as part of Morocco."}
 # Files may intersect
 check_int <- get_geobn(c("Austria", "Germany"))
 
 # Intersects?
 sf::st_intersects(check_int[1, ], check_int[2, ], sparse = FALSE) %>%
   as.vector()
-#> [1] TRUE
 
 # Disputed areas e.g. Morocco includes Western Sahara
 
@@ -104,11 +106,6 @@ ggplot(mor) +
   geom_sf() +
   labs(caption = "Source: www.geoboundaries.org")
 ```
-
-<div class="figure">
-<img src="./intersect-1.png" alt="Map showing Western Sahara as part of Morocco." width="100%" />
-<p class="caption">Map showing Western Sahara as part of Morocco.</p>
-</div>
 
 ### Composite files
 
@@ -124,8 +121,7 @@ individual country downloads:
 2.  Disputed areas are removed and replaced with polygons following US
     Department of State definitions.
 
-
-``` r
+```{r cgaz, fig.cap="Map showing Morocco as provided by CGAZ."}
 mor_cgaz <- get_geobn_world() %>%
   filter(shapeGroup == "MAR")
 
@@ -134,47 +130,43 @@ ggplot(mor_cgaz) +
   labs(caption = "Source: www.geoboundaries.org")
 ```
 
-<div class="figure">
-<img src="./cgaz-1.png" alt="Map showing Morocco as provided by CGAZ." width="100%" />
-<p class="caption">Map showing Morocco as provided by CGAZ.</p>
-</div>
-
 ## Caching and performance
 
 The package provides a built-in mechanism to cache files locally so that
 repeated downloads for the same country/level will use the cached version. For
 example:
 
+```{r include = FALSE}
+# Internal to not mess the vignette
 
+getcache <- geobn_detect_cache_dir()
 
+geobn_set_cache_dir(tempdir(), verbose = FALSE)
+```
 
-``` r
+```{r, message=TRUE}
 # Current folder
 current <- geobn_detect_cache_dir()
 
 current
-#> [1] "C:\\Users\\diego\\AppData\\Local\\Temp\\RtmpSwB51m"
 
 # Change to new
 newdir <- file.path(tempdir(), "/geoboundvignette")
 geobn_set_cache_dir(newdir)
-#> ℹ geobounds cache dir is 'C:\Users\diego\AppData\Local\Temp\RtmpSwB51m//geoboundvignette'.
-#> ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.
 
 # Download
 example <- get_geobn_adm0("Vatican City", verbose = TRUE)
-#> ℹ File 'C:\Users\diego\AppData\Local\Temp\RtmpSwB51m/geoboundvignette/gbOpen/geoBoundaries-VAT-ADM0.geojson' already cached
 
 # Restore cache dir
 geobn_set_cache_dir(current)
-#> ℹ geobounds cache dir is 'C:\Users\diego\AppData\Local\Temp\RtmpSwB51m'.
-#> ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.
 
 current == geobn_detect_cache_dir()
-#> [1] TRUE
 ```
 
-
+```{r include = FALSE}
+# Restore
+geobn_set_cache_dir(getcache)
+```
 
 Specific cache directories on each function call can be set using the
 `cache_dir` argument of each function.
@@ -192,20 +184,13 @@ combination with other spatial data:
 In this example we would create a choropleth map using the metadata of the
 individual files and the boundaries data of CGAZ:
 
-
-``` r
+```{r choro, fig.cap="World Bank Income Group: Latin America and the Caribbean "}
 # Metadata
 
 latam_meta <- get_geobn_meta(boundary_type = "ADM0") %>%
   select(boundaryISO, boundaryName, Continent, worldBankIncomeGroup) %>%
   filter(Continent == "Latin America and the Caribbean") %>%
   glimpse()
-#> Rows: 47
-#> Columns: 4
-#> $ boundaryISO          [3m[38;5;246m<chr>[39m[23m "ABW"[38;5;246m, [39m"AIA"[38;5;246m, [39m"ARG"[38;5;246m, [39m"ATG"[38;5;246m, [39m"BES"[38;5;246m, [39m"BHS"[38;5;246m, [39m"BLM"[38;5;246m, [39m"BLZ"[38;5;246m, [39m"BOL"[38;5;246m, [39m"BR…
-#> $ boundaryName         [3m[38;5;246m<chr>[39m[23m "Aruba"[38;5;246m, [39m"Anguilla"[38;5;246m, [39m"Argentina"[38;5;246m, [39m"Antigua and Barbuda"[38;5;246m, [39m"Bonaire …
-#> $ Continent            [3m[38;5;246m<chr>[39m[23m "Latin America and the Caribbean"[38;5;246m, [39m"Latin America and the Caribbea…
-#> $ worldBankIncomeGroup [3m[38;5;246m<chr>[39m[23m "High-income Countries"[38;5;246m, [39m"No income group available"[38;5;246m, [39m"High-income…
 
 # Adjust factors
 latam_meta$income_factor <- factor(latam_meta$worldBankIncomeGroup,
@@ -235,11 +220,6 @@ ggplot(latam_sf) +
     caption = "Source: www.geoboundaries.org"
   )
 ```
-
-<div class="figure">
-<img src="./choro-1.png" alt="World Bank Income Group: Latin America and the Caribbean " width="100%" />
-<p class="caption">World Bank Income Group: Latin America and the Caribbean </p>
-</div>
 
 ## Summary
 
