@@ -1,6 +1,6 @@
 test_that("Test cache online", {
   # Get current cache dir
-  current <- gb_detect_cache_dir()
+  expect_message(current <- gb_detect_cache_dir())
 
   # Set a temp cache dir
   expect_message(gb_set_cache_dir(quiet = FALSE))

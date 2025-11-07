@@ -47,7 +47,7 @@
 #'
 #' # This download may take some time
 #' \dontrun{
-#' world <- get_gb_world()
+#' world <- get_gb_cgaz()
 #'
 #' library(ggplot2)
 #'
@@ -57,7 +57,7 @@
 #'   labs(caption = "Source: www.geoboundaries.org")
 #' }
 #'
-get_gb_world <- function(
+get_gb_cgaz <- function(
   country = "ALL",
   adm_lvl = c("ADM0", "ADM1", "ADM2"),
   quiet = TRUE,

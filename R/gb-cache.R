@@ -184,7 +184,9 @@ gb_hlp_cachedir <- function(cache_dir = NULL) {
 #'
 #' @param x Ignored.
 #'
-#' @return A character with the path to your `cache_dir`.
+#' @return
+#' A character with the path to your `cache_dir`. The same path would appear
+#' also as a clickable message, see [`cli::inline-markup`].
 #'
 #' @export
 #'
@@ -197,5 +199,6 @@ gb_detect_cache_dir <- function(x = NULL) {
   # Cheat linters
   cd <- x
   cd <- gb_hlp_detect_cache_dir()
+  cli::cli_alert_info("{.path {cd}}")
   cd
 }

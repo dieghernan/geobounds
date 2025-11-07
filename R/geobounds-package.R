@@ -1,5 +1,6 @@
 #' @keywords internal
 "_PACKAGE"
 
-# import stuffs
+## usethis namespace: start
+## usethis namespace: end
 NULL

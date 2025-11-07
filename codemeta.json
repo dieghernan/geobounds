@@ -8,7 +8,7 @@
   "codeRepository": "https://github.com/dieghernan/geobounds",
   "issueTracker": "https://github.com/dieghernan/geobounds/issues",
   "license": "https://spdx.org/licenses/CC-BY-4.0",
-  "version": "0.0.0.9000",
+  "version": "0.0.1",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -197,7 +197,7 @@
     "SystemRequirements": null
   },
   "keywords": ["administrative-boundaries", "api", "geoboundaries", "r", "r-package", "spatial-data"],
-  "fileSize": "289.873KB",
+  "fileSize": "288.855KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",

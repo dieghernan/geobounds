@@ -1,3 +1,3 @@
-# geobounds (development version)
+# geobounds 0.0.1
 
 -   Initial release.

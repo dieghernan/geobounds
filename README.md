@@ -116,6 +116,7 @@ details.
 ## Citation
 
 <p>
+
 Hernangómez D (2025). <em>geobounds: Download Map Data from
 geoBoundaries</em>.
 <a href="https://dieghernan.github.io/geobounds/">https://dieghernan.github.io/geobounds/</a>.
@@ -127,7 +128,7 @@ A BibTeX entry for LaTeX users:
       title = {{geobounds}: Download Map Data from geoBoundaries},
       author = {Diego Hernangómez},
       year = {2025},
-      version = {0.0.0.9000},
+      version = {0.0.1},
       url = {https://dieghernan.github.io/geobounds/},
       abstract = {Tools to download data from geoBoundaries <https://www.geoboundaries.org/>. Several administration levels available. See Runfola, D. et al. (2020) geoBoundaries: A global database of political administrative boundaries. PLOS ONE 15(4): e0231866. <doi:10.1371/journal.pone.0231866>.},
     }

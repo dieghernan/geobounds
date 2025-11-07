@@ -8,7 +8,7 @@
 #' themselves", with no special identification of disputed areas.
 #'
 #' If you would prefer data that explicitly includes disputed areas, please use
-#' [get_gb_world()].
+#' [get_gb_cgaz()].
 #'
 #' @export
 #'

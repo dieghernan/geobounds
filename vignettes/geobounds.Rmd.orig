@@ -108,7 +108,7 @@ ggplot(india_pak) +
 ### Composite files
 
 If you would prefer data that explicitly includes disputed areas, please use
-`get_gb_world()`. This function downloads global composite datasets for
+`get_gb_cgaz()`. This function downloads global composite datasets for
 administrative boundaries, also known as CGAZ (Comprehensive Global
 Administrative Zones). There are two important distinctions between CGAZ and
 individual country downloads:
@@ -120,7 +120,7 @@ individual country downloads:
     Department of State definitions.
 
 ```{r cgaz, fig.cap="Map showing no overlapping in Kashmir, provided by CGAZ."}
-cgaz_india_pak <- get_gb_world(c("India", "Pakistan"))
+cgaz_india_pak <- get_gb_cgaz(c("India", "Pakistan"))
 
 ggplot(cgaz_india_pak) +
   geom_sf(aes(fill = shapeName), alpha = 0.5) +
@@ -206,7 +206,7 @@ latam_meta$income_factor <- factor(latam_meta$worldBankIncomeGroup,
 )
 
 # Get the shapes from CGAZ
-latam_sf <- get_gb_world(adm_lvl = "ADM0") %>%
+latam_sf <- get_gb_cgaz(adm_lvl = "ADM0") %>%
   inner_join(latam_meta,
     by =
       c("shapeGroup" = "boundaryISO")

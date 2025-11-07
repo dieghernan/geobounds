@@ -29,7 +29,7 @@
         "url": "https://r-project.org"
       },
       "runtimePlatform": "R version 4.5.2 (2025-10-31 ucrt)",
-      "version": "0.0.0.9000"
+      "version": "0.0.1"
     },
     {
       "type": "SoftwareSourceCode",
