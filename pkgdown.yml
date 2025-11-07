@@ -3,7 +3,7 @@ pkgdown: 2.1.3
 pkgdown_sha: ~
 articles:
   geobounds: geobounds.html
-last_built: 2025-11-07T15:05Z
+last_built: 2025-11-07T15:39Z
 urls:
   reference: https://dieghernan.github.io/geobounds/reference
   article: https://dieghernan.github.io/geobounds/articles
