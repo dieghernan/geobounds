@@ -11,8 +11,7 @@
 #' - Deletes the \pkg{geobounds} config directory
 #'   (`tools::R_user_dir("geobounds", "config")`).
 #' - Deletes the `cache_dir` directory.
-#' - Deletes the values on stored on `Sys.getenv("GEOBOUNDS_CACHE_DIR")` and
-#'   `options(mapSpain_cache_dir)`.
+#' - Deletes the values on stored on `Sys.getenv("GEOBOUNDS_CACHE_DIR")`.
 #'
 #' @param config Logical. If `TRUE`, will delete the configuration folder of
 #'   \pkg{geobounds}.
@@ -31,7 +30,6 @@
 #' gb_clear_cache(quiet = FALSE)
 #' }
 #'
-#' Sys.getenv("GEOBOUNDS_CACHE_DIR")
 #' @export
 gb_clear_cache <- function(
   config = FALSE,

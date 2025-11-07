@@ -8,8 +8,8 @@
 #'
 #' @description
 #' This function will store your `cache_dir` path on your local machine and
-#' would load it for future sessions. Type
-#' `Sys.getenv("GEOBOUNDS_CACHE_DIR")` to find your cached path.
+#' would load it for future sessions. Type `gb_detect_cache_dir()` to find 
+#' your cached path.
 #'
 #' Alternatively, you can store the `cache_dir` manually with the following
 #' options:
@@ -25,7 +25,7 @@
 #'   machine for use in future sessions.  Defaults to `FALSE.` If `cache_dir`
 #'   is `FALSE` this parameter is set to `FALSE` automatically.
 #' @param overwrite Logical. If this is set to `TRUE`, it will overwrite an
-#'   existing `GEOBOUNDS_CACHE_DIR` that you already have in local machine.
+#'   existing `cache_dir`.
 #'
 #' @inheritParams get_gb
 #' @examples
@@ -35,7 +35,7 @@
 #' gb_set_cache_dir(quiet = FALSE)
 #' }
 #'
-#' Sys.getenv("GEOBOUNDS_CACHE_DIR")
+#' gb_detect_cache_dir()
 #' @export
 gb_set_cache_dir <- function(
   cache_dir,
