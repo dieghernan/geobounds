@@ -110,8 +110,9 @@ details.
 
 ## Acknowledgements
 
-- Many thanks to the geoBoundaries team and the William & Mary geoLab
-  for creating and maintaining the dataset.
+- Many thanks to the geoBoundaries team and the [William & Mary
+  geoLab](https://sites.google.com/view/wmgeolab/) for creating and
+  maintaining the dataset.
 - Thanks to the **R** package community and all contributors to this
   package’s development.
 - If you use **geobounds** (and underlying geoBoundaries data) in your

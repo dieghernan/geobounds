@@ -55,7 +55,6 @@ package, you can:
 In short: if you work with geospatial boundaries in **R** (shape files,
 polygons, join with other data), this package simplifies the process.
 
-
 ```{r apiversion, echo=FALSE, results='asis'}
 # Get API version
 q <- httr2::request(
@@ -141,8 +140,9 @@ check the specific dataset metadata for licensing details.
 
 ## Acknowledgements
 
--   Many thanks to the geoBoundaries team and the William & Mary geoLab for
-    creating and maintaining the dataset.
+-   Many thanks to the geoBoundaries team and the [William & Mary
+    geoLab](https://sites.google.com/view/wmgeolab/) for creating and
+    maintaining the dataset.
 -   Thanks to the **R** package community and all contributors to this package’s
     development.
 -   If you use **geobounds** (and underlying geoBoundaries data) in your
