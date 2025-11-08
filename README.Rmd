@@ -68,7 +68,7 @@ p <- httr2::resp_body_json(rs)
 v <- p[[1]]$tag_name
 
 cat(paste0(
-  "\n", "This package uses the [geoBoundaries API]",
+  "\n", "> This package uses the [geoBoundaries API]",
   "(https://www.geoboundaries.org/api.html). The latest version is **",
   v,
   "**.\n"
