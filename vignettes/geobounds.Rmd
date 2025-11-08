@@ -25,7 +25,7 @@ and working with global political and administrative boundary data from the
 These datasets are openly licensed ([CC BY
 4.0](https://creativecommons.org/licenses/by/4.0/)) and cover countries
 worldwide across multiple administrative levels. With **geobounds**, you can
-easily fetch boundary geometries as `sf` objects, explore metadata, cache
+easily fetch boundary geometries as **sf** objects, explore metadata, cache
 datasets locally, and seamlessly integrate the boundaries into your spatial
 workflows.
 
@@ -151,28 +151,28 @@ example:
 ``` r
 # Current folder
 current <- gb_detect_cache_dir()
-#> ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpC2DZmO'
+#> ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpAbXZSy'
 
 current
-#> [1] "C:\\Users\\diego\\AppData\\Local\\Temp\\RtmpC2DZmO"
+#> [1] "C:\\Users\\diego\\AppData\\Local\\Temp\\RtmpAbXZSy"
 
 # Change to new
 newdir <- file.path(tempdir(), "/geoboundvignette")
 gb_set_cache_dir(newdir)
-#> ✔ geobounds cache dir is 'C:\Users\diego\AppData\Local\Temp\RtmpC2DZmO//geoboundvignette'.
+#> ✔ geobounds cache dir is 'C:\Users\diego\AppData\Local\Temp\RtmpAbXZSy//geoboundvignette'.
 #> ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.
 
 # Download
 example <- get_gb_adm0("Vatican City", quiet = FALSE)
-#> ✔ File 'C:\Users\diego\AppData\Local\Temp\RtmpC2DZmO/geoboundvignette/gbOpen/geoBoundaries-VAT-ADM0.geojson' already cached
+#> ✔ File 'C:\Users\diego\AppData\Local\Temp\RtmpAbXZSy/geoboundvignette/gbOpen/geoBoundaries-VAT-ADM0.geojson' already cached
 
 # Restore cache dir
 gb_set_cache_dir(current)
-#> ✔ geobounds cache dir is 'C:\Users\diego\AppData\Local\Temp\RtmpC2DZmO'.
+#> ✔ geobounds cache dir is 'C:\Users\diego\AppData\Local\Temp\RtmpAbXZSy'.
 #> ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.
 
 current == gb_detect_cache_dir()
-#> ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpC2DZmO'
+#> ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpAbXZSy'
 #> [1] TRUE
 ```
 
@@ -183,8 +183,8 @@ Specific cache directories on each function call can be set using the
 
 ## Use in spatial analysis pipelines
 
-Because the boundaries are returned as `sf` objects, you can easily use them in
-combination with other spatial data:
+Because the boundaries are returned as **sf** objects, you can easily use them
+in combination with other spatial data:
 
 -   Clip raster data to administrative units
 -   Compute zonal statistics
@@ -204,10 +204,10 @@ latam_meta <- get_gb_meta(adm_lvl = "ADM0") %>%
   glimpse()
 #> Rows: 47
 #> Columns: 4
-#> $ boundaryISO          <chr> "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", "BL…
-#> $ boundaryName         <chr> "Aruba", "Anguilla", "Argentina", "Antigua and Barbu…
-#> $ Continent            <chr> "Latin America and the Caribbean", "Latin America an…
-#> $ worldBankIncomeGroup <chr> "High-income Countries", "No income group available"…
+#> $ boundaryISO          <chr> "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", "BLZ", "BOL", "…
+#> $ boundaryName         <chr> "Aruba", "Anguilla", "Argentina", "Antigua and Barbuda", "Bonair…
+#> $ Continent            <chr> "Latin America and the Caribbean", "Latin America and the Caribb…
+#> $ worldBankIncomeGroup <chr> "High-income Countries", "No income group available", "High-inco…
 
 # Adjust factors
 latam_meta$income_factor <- factor(latam_meta$worldBankIncomeGroup,
@@ -230,6 +230,9 @@ ggplot(latam_sf) +
   geom_sf(aes(fill = income_factor)) +
   scale_fill_brewer(palette = "Greens", direction = -1) +
   guides(fill = guide_legend(position = "bottom", nrow = 2)) +
+  coord_sf(
+    crs = "+proj=laea +lon_0=-75 +lat_0=-15"
+  ) +
   labs(
     title = "World Bank Income Group",
     subtitle = "Latin America and the Caribbean",

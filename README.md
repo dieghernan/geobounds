@@ -22,14 +22,14 @@ required when using geoBoundaries.**
 
 ## Why this package?
 
-The **geobounds** package provides an R-friendly interface to access and
-work with the [**geoBoundaries**](https://www.geoboundaries.org/)
+The **geobounds** package provides an **R**-friendly interface to access
+and work with the [**geoBoundaries**](https://www.geoboundaries.org/)
 dataset (an open-license global database of administrative boundary
 polygons). Using this package, you can:
 
 - Programmatically retrieve administrative boundary geometries (e.g.,
   country → region → district) from geoBoundaries
-- Use tidyverse / **sf** workflows in **R** to map, analyse and join
+- Use **tidyverse** / **sf** workflows in **R** to map, analyse and join
   these boundaries with your own data
 - Work in an open-data context (geoBoundaries uses [CC
   BY-4.0](https://creativecommons.org/licenses/by/4.0/)) / open
@@ -37,6 +37,10 @@ polygons). Using this package, you can:
 
 In short: if you work with geospatial boundaries in **R** (shape files,
 polygons, join with other data), this package simplifies the process.
+
+This package uses the [geoBoundaries
+API](https://www.geoboundaries.org/api.html). The latest version is
+**v6.0.0**.
 
 ## Installation
 

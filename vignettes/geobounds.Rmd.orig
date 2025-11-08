@@ -39,7 +39,7 @@ and working with global political and administrative boundary data from the
 These datasets are openly licensed ([CC BY
 4.0](https://creativecommons.org/licenses/by/4.0/)) and cover countries
 worldwide across multiple administrative levels. With **geobounds**, you can
-easily fetch boundary geometries as `sf` objects, explore metadata, cache
+easily fetch boundary geometries as **sf** objects, explore metadata, cache
 datasets locally, and seamlessly integrate the boundaries into your spatial
 workflows.
 
@@ -176,8 +176,8 @@ Specific cache directories on each function call can be set using the
 
 ## Use in spatial analysis pipelines
 
-Because the boundaries are returned as `sf` objects, you can easily use them in
-combination with other spatial data:
+Because the boundaries are returned as **sf** objects, you can easily use them
+in combination with other spatial data:
 
 -   Clip raster data to administrative units
 -   Compute zonal statistics
@@ -216,6 +216,9 @@ ggplot(latam_sf) +
   geom_sf(aes(fill = income_factor)) +
   scale_fill_brewer(palette = "Greens", direction = -1) +
   guides(fill = guide_legend(position = "bottom", nrow = 2)) +
+  coord_sf(
+      crs = "+proj=laea +lon_0=-75 +lat_0=-15"
+  ) +
   labs(
     title = "World Bank Income Group",
     subtitle = "Latin America and the Caribbean",
