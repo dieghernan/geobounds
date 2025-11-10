@@ -29,8 +29,7 @@ geoboundaries API Service <https://www.geoboundaries.org/api.html>.
 
   A character vector of country codes. It could be either `"ALL"` (that
   would return the data for all countries), a vector of country names or
-  a vector of ISO3 country codes. Mixed types (as
-  `c("Italy","ES","FRA")`) would not work. See also
+  ISO3 country codes. See also
   [`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/reference/countrycode.html).
 
 - adm_lvl:

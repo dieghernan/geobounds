@@ -85,9 +85,7 @@ themselves", with no special identification of disputed areas.</p>
 <dl><dt id="arg-country">country<a class="anchor" aria-label="anchor" href="#arg-country"></a></dt>
 <dd><p>A character vector of country codes. It could be either
 <code>"ALL"</code> (that would return the data for all countries), a vector of country
-names or a vector of ISO3 country codes. Mixed types (as
-<code>c("Italy","ES","FRA")</code>) would not work. See also
-<code><a href="https://vincentarelbundock.github.io/countrycode/reference/countrycode.html" class="external-link">countrycode::countrycode()</a></code>.</p></dd>
+names or ISO3 country codes. See also <code><a href="https://vincentarelbundock.github.io/countrycode/reference/countrycode.html" class="external-link">countrycode::countrycode()</a></code>.</p></dd>
 
 
 <dt id="arg-adm-lvl">adm_lvl<a class="anchor" aria-label="anchor" href="#arg-adm-lvl"></a></dt>
@@ -169,23 +167,23 @@ administrative boundaries. <em>PLOS ONE</em> 15(4): e0231866.
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">sri_lanka</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Simple feature collection with 330 features and 5 fields</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Geometry type: GEOMETRY</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Geometry type: MULTIPOLYGON</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Dimension:     XY</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: 79.51937 ymin: 5.918507 xmax: 81.8772 ymax: 9.835718</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Geodetic CRS:  WGS 84</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 330 × 6</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    shapeName     shapeISO shapeID shapeGroup shapeType                  geometry</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  <span style="color: #BCBCBC;">*</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;GEOMETRY [°]&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Manmunai Sou… <span style="color: #949494;">""</span>       854035… LKA        ADM3      POLYGON ((81.81611 7.459…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Koralai Patt… <span style="color: #949494;">""</span>       854035… LKA        ADM3      MULTIPOLYGON (((81.51482…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Thenmaradchi… <span style="color: #949494;">""</span>       854035… LKA        ADM3      MULTIPOLYGON (((80.18725…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Manmunai Sou… <span style="color: #949494;">""</span>       854035… LKA        ADM3      MULTIPOLYGON (((81.64394…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Manmunai Pat… <span style="color: #949494;">""</span>       854035… LKA        ADM3      POLYGON ((81.78383 7.601…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Koralai Pattu <span style="color: #949494;">""</span>       854035… LKA        ADM3      MULTIPOLYGON (((81.51629…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Porativu Pat… <span style="color: #949494;">""</span>       854035… LKA        ADM3      POLYGON ((81.64394 7.522…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Eravur Pattu  <span style="color: #949494;">""</span>       854035… LKA        ADM3      POLYGON ((81.54727 7.534…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Mundel        <span style="color: #949494;">""</span>       854035… LKA        ADM3      POLYGON ((79.82017 7.966…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Addalaichenai <span style="color: #949494;">""</span>       854035… LKA        ADM3      POLYGON ((81.86513 7.300…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  <span style="color: #BCBCBC;">*</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;MULTIPOLYGON [°]&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Manmunai Sou… <span style="color: #949494;">""</span>       854035… LKA        ADM3      (((81.81611 7.459573, 81…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Koralai Patt… <span style="color: #949494;">""</span>       854035… LKA        ADM3      (((81.51482 7.922462, 81…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Thenmaradchi… <span style="color: #949494;">""</span>       854035… LKA        ADM3      (((80.18725 9.622936, 80…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Manmunai Sou… <span style="color: #949494;">""</span>       854035… LKA        ADM3      (((81.64394 7.52247, 81.…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Manmunai Pat… <span style="color: #949494;">""</span>       854035… LKA        ADM3      (((81.78383 7.601931, 81…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Koralai Pattu <span style="color: #949494;">""</span>       854035… LKA        ADM3      (((81.51629 7.892779, 81…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Porativu Pat… <span style="color: #949494;">""</span>       854035… LKA        ADM3      (((81.64394 7.52247, 81.…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Eravur Pattu  <span style="color: #949494;">""</span>       854035… LKA        ADM3      (((81.54727 7.534724, 81…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Mundel        <span style="color: #949494;">""</span>       854035… LKA        ADM3      (((79.82017 7.96686, 79.…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Addalaichenai <span style="color: #949494;">""</span>       854035… LKA        ADM3      (((81.86513 7.300187, 81…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 320 more rows</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span></span>
