@@ -21,6 +21,16 @@ test_that("Problematic names", {
   # Special case for Kosovo
   expect_snapshot(gb_helper_countrynames(c("Spain", "Kosovo", "Antartica")))
   expect_snapshot(gb_helper_countrynames(c("ESP", "XKX", "DEU")))
+  expect_snapshot(
+    gb_helper_countrynames(c("Spain", "Rea", "Kosovo", "Antartica", "Murcua"))
+  )
+
+  expect_snapshot(
+    gb_helper_countrynames("Kosovo")
+  )
+  expect_snapshot(
+    gb_helper_countrynames("XKX")
+  )
 
   kos <- get_gb_adm0("Kosovo", simplified = TRUE)
   expect_s3_class(kos, "sf")
