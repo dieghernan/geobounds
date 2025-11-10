@@ -67,11 +67,10 @@ get_gb_cgaz <- function(
   # Get info of distro in GitHub (commit) and change url
   level <- match.arg(adm_lvl)
 
-  # Lightweight, we only need here the url
-  metadat <- get_gb_adm0("Vatican City", metadata = TRUE)
-
-  baseurl <- metadat$gjDownloadURL[1]
-  baseurl <- gsub("/gbOpen.*", "", baseurl)
+  baseurl <- paste0(
+    "https://github.com/wmgeolab/geoBoundaries/",
+    "raw/main/releaseData"
+  )
 
   fname <- paste0("geoBoundariesCGAZ_", level, ".gpkg")
 

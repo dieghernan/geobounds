@@ -55,26 +55,6 @@ package, you can:
 In short: if you work with geospatial boundaries in **R** (shape files,
 polygons, join with other data), this package simplifies the process.
 
-```{r apiversion, echo=FALSE, results='asis'}
-# Get API version
-q <- httr2::request(
-  "https://api.github.com/repos/wmgeolab/geoBoundaries/releases"
-)
-
-rs <- httr2::req_perform(q)
-
-p <- httr2::resp_body_json(rs)
-
-v <- p[[1]]$tag_name
-
-cat(paste0(
-  "\n", "> This package uses the [geoBoundaries API]",
-  "(https://www.geoboundaries.org/api.html). The latest version is **",
-  v,
-  "**.\n"
-))
-```
-
 ## Installation
 
 You can install the developing version of **geobounds** with:
