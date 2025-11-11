@@ -3,7 +3,7 @@ test_that("Metadata calls", {
   skip_if_offline()
 
   # Single metadata
-  meta <- get_gb(
+  meta <- gb_get(
     country = "Portugal",
     adm_lvl = "ADM0",
     metadata = TRUE
@@ -13,7 +13,7 @@ test_that("Metadata calls", {
   expect_equal(nrow(meta), 1L)
 
   # One call, several sources
-  meta2 <- get_gb(
+  meta2 <- gb_get(
     country = "Portugal",
     adm_lvl = "ALL",
     metadata = TRUE
@@ -22,7 +22,7 @@ test_that("Metadata calls", {
   expect_gt(nrow(meta2), 1L)
 
   # Several call, several sources
-  meta3 <- get_gb(
+  meta3 <- gb_get(
     country = c("Portugal", "Italy"),
     adm_lvl = "ALL",
     metadata = TRUE
@@ -32,7 +32,7 @@ test_that("Metadata calls", {
   expect_gt(nrow(meta3), nrow(meta2))
 
   # Debug of ALL in countries
-  all1 <- get_gb(
+  all1 <- gb_get(
     country = "ALL",
     adm_lvl = "ADM0",
     metadata = TRUE
@@ -40,7 +40,7 @@ test_that("Metadata calls", {
   expect_s3_class(all1, "data.frame")
   expect_gt(nrow(all1), 100)
 
-  all2 <- get_gb(
+  all2 <- gb_get(
     country = c("ALL", "Spain"),
     adm_lvl = "ADM0",
     metadata = TRUE
@@ -53,7 +53,7 @@ test_that("Metadata errors", {
   skip_on_cran()
   skip_if_offline()
   expect_snapshot(
-    err <- get_gb(
+    err <- gb_get(
       country = c("AND", "ESP", "ATA"),
       adm_lvl = "ADM2",
       metadata = TRUE
@@ -64,7 +64,7 @@ test_that("Metadata errors", {
   expect_equal(nrow(err), 1)
 
   expect_snapshot(
-    err2 <- get_gb(
+    err2 <- gb_get(
       country = "ATA",
       adm_lvl = "ADM2",
       metadata = TRUE
@@ -80,7 +80,7 @@ test_that("NULL output", {
   skip_on_cran()
   skip_if_offline()
 
-  expect_snapshot(err2 <- get_gb(country = "ATA", adm_lvl = "ADM2"))
+  expect_snapshot(err2 <- gb_get(country = "ATA", adm_lvl = "ADM2"))
 
   expect_null(err2)
 })
@@ -91,7 +91,7 @@ test_that("sf output simplified", {
 
   tmpd <- file.path(tempdir(), "testthat")
   expect_silent(
-    che <- get_gb(
+    che <- gb_get(
       country = "San Marino",
       adm_lvl = "ADM0",
       cache_dir = tmpd,
@@ -104,7 +104,7 @@ test_that("sf output simplified", {
 
   # Not simplified
   expect_silent(
-    chefull <- get_gb(
+    chefull <- gb_get(
       country = "San Marino",
       adm_lvl = "ADM0",
       cache_dir = tmpd,
@@ -123,7 +123,7 @@ test_that("sf output messages", {
 
   tmpd <- file.path(tempdir(), "testthat2")
   msg <- expect_message(
-    che <- get_gb(
+    che <- gb_get(
       country = "San Marino",
       adm_lvl = "ADM0",
       cache_dir = tmpd,
@@ -138,7 +138,7 @@ test_that("sf output messages", {
 
   # Cached
   msg <- expect_message(
-    che <- get_gb(
+    che <- gb_get(
       country = "San Marino",
       adm_lvl = "ADM0",
       cache_dir = tmpd,
@@ -165,7 +165,7 @@ test_that("Fail gracefully single", {
 
   expect_snapshot(
     res_sf <- lapply(url_bound, function(x) {
-      hlp_get_gb_sf_single(
+      hlp_gb_get_sf_single(
         url = x,
         subdir = "gbOpen",
         verbose = FALSE,
@@ -186,7 +186,7 @@ test_that("Fail gracefully several", {
   skip_if_offline()
   # Replicate internal logic
 
-  sev <- get_gb_meta(c("Andorra", "Vatican"), adm_lvl = "ADM0")
+  sev <- gb_get_meta(c("Andorra", "Vatican"), adm_lvl = "ADM0")
   geoms <- sev$simplifiedGeometryGeoJSON
 
   # Mock a fake call
@@ -199,7 +199,7 @@ test_that("Fail gracefully several", {
 
   expect_snapshot(
     res_sf <- lapply(url_bound, function(x) {
-      hlp_get_gb_sf_single(
+      hlp_gb_get_sf_single(
         url = x,
         subdir = "gbOpen",
         verbose = FALSE,
@@ -218,7 +218,7 @@ test_that("Fail gracefully several", {
   url_bound <- c(url, geoms)
 
   res_sf <- lapply(url_bound, function(x) {
-    hlp_get_gb_sf_single(
+    hlp_gb_get_sf_single(
       url = x,
       subdir = "gbOpen",
       verbose = FALSE,

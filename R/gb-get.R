@@ -8,7 +8,7 @@
 #' themselves", with no special identification of disputed areas.
 #'
 #' If you would prefer data that explicitly includes disputed areas, please use
-#' [get_gb_cgaz()].
+#' [gb_get_cgaz()].
 #'
 #' @export
 #'
@@ -66,7 +66,7 @@
 #'
 #' \donttest{
 # Map municipalities in Sri Lanka
-#' sri_lanka <- get_gb(
+#' sri_lanka <- gb_get(
 #'   "Sri Lanka",
 #'   adm_lvl = "ADM3",
 #'   simplified = TRUE
@@ -82,14 +82,14 @@
 #'
 #' # Metadata
 #' library(dplyr)
-#' get_gb(
+#' gb_get(
 #'   "Sri Lanka",
 #'   adm_lvl = "ADM3",
 #'   metadata = TRUE
 #' ) %>%
 #'   glimpse()
 #'
-get_gb <- function(
+gb_get <- function(
   country,
   adm_lvl = c("ADM0", "ADM1", "ADM2", "ADM3", "ADM4", "ALL"),
   simplified = FALSE,
@@ -121,7 +121,7 @@ get_gb <- function(
   )
 
   res <- lapply(urls, function(x) {
-    hlp_get_gb_meta(url = x)
+    hlp_gb_get_meta(url = x)
   })
 
   meta_df <- dplyr::bind_rows(res)
@@ -146,7 +146,7 @@ get_gb <- function(
   url_bound
   # Call and bind
   res_sf <- lapply(url_bound, function(x) {
-    hlp_get_gb_sf_single(
+    hlp_gb_get_sf_single(
       url = x,
       subdir = source,
       verbose = verbose,
@@ -161,7 +161,7 @@ get_gb <- function(
 }
 
 
-hlp_get_gb_meta <- function(url) {
+hlp_gb_get_meta <- function(url) {
   # Prepare query
   q <- httr2::request(url)
   q <- httr2::req_error(q, is_error = function(x) {
@@ -233,7 +233,7 @@ hlp_get_gb_meta <- function(url) {
 }
 
 
-hlp_get_gb_sf_single <- function(
+hlp_gb_get_sf_single <- function(
   url,
   subdir,
   verbose,

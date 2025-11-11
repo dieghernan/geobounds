@@ -3,9 +3,9 @@
 # To replace with package functions when available
 library(geobounds)
 
-sri <- get_gb(
+sri <- gb_get(
   country = "Sri Lanka",
-  level = "ADM3",
+  adm_lvl = "ADM3",
   simplified = TRUE
 )
 
@@ -19,4 +19,5 @@ library(ggplot2)
 p <- ggplot(sri) +
   geom_sf(fill = NA, linewidth = 0.1, color = "#F0B323") +
   theme_void()
+
 ggsave("data-raw/map.svg", plot = p)

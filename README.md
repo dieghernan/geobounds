@@ -65,9 +65,9 @@ install.packages("geobounds",
 ``` r
 library(geobounds)
 
-sri_lanka_adm1 <- get_gb_adm1("Sri Lanka")
-sri_lanka_adm2 <- get_gb_adm2("Sri Lanka")
-sri_lanka_adm3 <- get_gb_adm3("Sri Lanka")
+sri_lanka_adm1 <- gb_get_adm1("Sri Lanka")
+sri_lanka_adm2 <- gb_get_adm2("Sri Lanka")
+sri_lanka_adm3 <- gb_get_adm3("Sri Lanka")
 
 library(sf)
 library(dplyr)

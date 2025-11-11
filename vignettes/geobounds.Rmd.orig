@@ -60,11 +60,11 @@ library(ggplot2)
 library(dplyr)
 
 # Different resolutions
-norway <- get_gb_adm0("NOR") %>%
+norway <- gb_get_adm0("NOR") %>%
   mutate(res = "Full resolution")
 print(object.size(norway), units = "Mb")
 
-norway_simp <- get_gb_adm0(country = "NOR", simplified = TRUE) %>%
+norway_simp <- gb_get_adm0(country = "NOR", simplified = TRUE) %>%
   mutate(res = "Simplified")
 print(object.size(norway_simp), units = "Mb")
 
@@ -85,13 +85,13 @@ files](https://www.geoboundaries.org/countryDownloads.html), whose aim is to
 represent every nation "as they would represent themselves", with no special
 identification of disputed areas.
 
-The download of this data is implemented in `get_gb()` and the `get_gb_adm`
+The download of this data is implemented in `gb_get()` and the `gb_get_adm`
 family of functions. It is not guaranteed that borders align perfectly or that
 there are no gaps between countries. Additionally, these files do not include a
 special identification of disputed areas.
 
 ```{r intersect, fig.cap="Map showing overlapping in disputed area: Kashmir."}
-india_pak <- get_gb_adm0(c("India", "Pakistan"))
+india_pak <- gb_get_adm0(c("India", "Pakistan"))
 
 # Disputed area: Kashmir
 ggplot(india_pak) +
@@ -108,7 +108,7 @@ ggplot(india_pak) +
 ### Composite files
 
 If you would prefer data that explicitly includes disputed areas, please use
-`get_gb_cgaz()`. This function downloads global composite datasets for
+`gb_get_cgaz()`. This function downloads global composite datasets for
 administrative boundaries, also known as CGAZ (Comprehensive Global
 Administrative Zones). There are two important distinctions between CGAZ and
 individual country downloads:
@@ -120,7 +120,7 @@ individual country downloads:
     Department of State definitions.
 
 ```{r cgaz, fig.cap="Map showing no overlapping in Kashmir, provided by CGAZ."}
-cgaz_india_pak <- get_gb_cgaz(c("India", "Pakistan"))
+cgaz_india_pak <- gb_get_cgaz(c("India", "Pakistan"))
 
 ggplot(cgaz_india_pak) +
   geom_sf(aes(fill = shapeName), alpha = 0.5) +
@@ -158,7 +158,7 @@ newdir <- file.path(tempdir(), "/geoboundvignette")
 gb_set_cache_dir(newdir)
 
 # Download
-example <- get_gb_adm0("Vatican City", quiet = FALSE)
+example <- gb_get_adm0("Vatican City", quiet = FALSE)
 
 # Restore cache dir
 gb_set_cache_dir(current)
@@ -190,7 +190,7 @@ individual files and the boundaries data of CGAZ:
 ```{r choro, fig.cap="World Bank Income Group: Latin America and the Caribbean "}
 # Metadata
 
-latam_meta <- get_gb_meta(adm_lvl = "ADM0") %>%
+latam_meta <- gb_get_meta(adm_lvl = "ADM0") %>%
   select(boundaryISO, boundaryName, Continent, worldBankIncomeGroup) %>%
   filter(Continent == "Latin America and the Caribbean") %>%
   glimpse()
@@ -206,7 +206,7 @@ latam_meta$income_factor <- factor(latam_meta$worldBankIncomeGroup,
 )
 
 # Get the shapes from CGAZ
-latam_sf <- get_gb_cgaz(adm_lvl = "ADM0") %>%
+latam_sf <- gb_get_cgaz(adm_lvl = "ADM0") %>%
   inner_join(latam_meta,
     by =
       c("shapeGroup" = "boundaryISO")

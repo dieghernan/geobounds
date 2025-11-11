@@ -5,23 +5,23 @@
 #' [Attribution](https://www.geoboundaries.org/index.html#usage) is required
 #' for all uses of this dataset.
 #'
-#' These functions are wrappers of [get_gb()] for extracting any
+#' These functions are wrappers of [gb_get()] for extracting any
 #' given administration level:
 #'
-#' - `get_gb_adm0()` returns the country boundary.
-#' - `get_gb_adm1()` returns first-level administration
+#' - `gb_get_adm0()` returns the country boundary.
+#' - `gb_get_adm1()` returns first-level administration
 #'   boundaries (e.g. States in the United States).
-#' - `get_gb_adm2()` returns second-level administration
+#' - `gb_get_adm2()` returns second-level administration
 #'   boundaries (e.g. Counties in the United States).
-#' - `get_gb_adm3()` returns third-level administration
+#' - `gb_get_adm3()` returns third-level administration
 #'   boundaries (e.g. towns or cities in some countries).
-#' - `get_gb_adm4()` returns fourth-level administration
+#' - `gb_get_adm4()` returns fourth-level administration
 #'   boundaries.
 #'
 #' Note that not all countries have the same number of levels.
 #'
-#' @rdname get_gb_adm
-#' @name get_gb_adm
+#' @rdname gb_get_adm
+#' @name gb_get_adm
 #'
 #' @return
 #'
@@ -38,18 +38,18 @@
 #'
 #' @family API functions
 #'
-#' @inheritParams get_gb
+#' @inheritParams gb_get
 #'
 #' @export
 #'
 #' @details
 #'
-#' See **Details** in [get_gb()].
+#' See **Details** in [gb_get()].
 #'
 #' @examplesIf httr2::is_online()
 #'
 #' \donttest{
-#' lev2 <- get_gb_adm2(
+#' lev2 <- gb_get_adm2(
 #'   c("Italia", "Suiza", "Austria"),
 #'   simplified = TRUE
 #' )
@@ -66,7 +66,7 @@
 #'   )
 #' }
 #'
-get_gb_adm0 <- function(
+gb_get_adm0 <- function(
   country,
   simplified = FALSE,
   release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative"),
@@ -75,7 +75,7 @@ get_gb_adm0 <- function(
   overwrite = FALSE,
   cache_dir = NULL
 ) {
-  get_gb(
+  gb_get(
     country = country,
     release_type = release_type,
     adm_lvl = "ADM0",
@@ -87,9 +87,9 @@ get_gb_adm0 <- function(
   )
 }
 
-#' @rdname get_gb_adm
+#' @rdname gb_get_adm
 #' @export
-get_gb_adm1 <- function(
+gb_get_adm1 <- function(
   country,
   simplified = FALSE,
   release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative"),
@@ -98,7 +98,7 @@ get_gb_adm1 <- function(
   overwrite = FALSE,
   cache_dir = NULL
 ) {
-  get_gb(
+  gb_get(
     country = country,
     release_type = release_type,
     adm_lvl = "ADM1",
@@ -110,9 +110,9 @@ get_gb_adm1 <- function(
   )
 }
 
-#' @rdname get_gb_adm
+#' @rdname gb_get_adm
 #' @export
-get_gb_adm2 <- function(
+gb_get_adm2 <- function(
   country,
   simplified = FALSE,
   release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative"),
@@ -121,7 +121,7 @@ get_gb_adm2 <- function(
   overwrite = FALSE,
   cache_dir = NULL
 ) {
-  get_gb(
+  gb_get(
     country = country,
     release_type = release_type,
     adm_lvl = "ADM2",
@@ -133,9 +133,9 @@ get_gb_adm2 <- function(
   )
 }
 
-#' @rdname get_gb_adm
+#' @rdname gb_get_adm
 #' @export
-get_gb_adm3 <- function(
+gb_get_adm3 <- function(
   country,
   simplified = FALSE,
   release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative"),
@@ -144,7 +144,7 @@ get_gb_adm3 <- function(
   overwrite = FALSE,
   cache_dir = NULL
 ) {
-  get_gb(
+  gb_get(
     country = country,
     release_type = release_type,
     adm_lvl = "ADM3",
@@ -156,9 +156,9 @@ get_gb_adm3 <- function(
   )
 }
 
-#' @rdname get_gb_adm
+#' @rdname gb_get_adm
 #' @export
-get_gb_adm4 <- function(
+gb_get_adm4 <- function(
   country,
   simplified = FALSE,
   release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative"),
@@ -167,7 +167,7 @@ get_gb_adm4 <- function(
   overwrite = FALSE,
   cache_dir = NULL
 ) {
-  get_gb(
+  gb_get(
     country = country,
     release_type = release_type,
     adm_lvl = "ADM4",
