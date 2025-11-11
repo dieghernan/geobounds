@@ -5,6 +5,8 @@
 - All functions:
   - Improve detection for Antarctica and Kosovo.
   - All functions return a `MULTIPOLYGON`.
+  - Function fails gracefully when the country file is not available
+    (with neither errors nor warnings).
 - `get_gb*()`: In all functions now the `country` argument recognize
   mixed types (e.g. `get_gb(country = c("Germany", "USA"))` would work).
 - [`get_gb_cgaz()`](https://dieghernan.github.io/geobounds/reference/get_gb_cgaz.md)

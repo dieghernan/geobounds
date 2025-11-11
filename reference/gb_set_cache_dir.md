@@ -64,10 +64,10 @@ Other cache utilities:
 # \dontrun{
 gb_set_cache_dir(quiet = FALSE)
 #> ℹ Using a temporary cache directory. Set `cache_dir` to a value for store permanently
-#> ✔ geobounds cache dir is C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp2f0yRu/geobounds.
+#> ✔ geobounds cache dir is C:\Users\RUNNER~1\AppData\Local\Temp\RtmpOaiNsa/geobounds.
 # }
 
 gb_detect_cache_dir()
-#> ℹ C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp2f0yRu/geobounds
-#> [1] "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\Rtmp2f0yRu/geobounds"
+#> ℹ C:\Users\RUNNER~1\AppData\Local\Temp\RtmpOaiNsa/geobounds
+#> [1] "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\RtmpOaiNsa/geobounds"
 ```

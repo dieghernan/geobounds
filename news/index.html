@@ -45,6 +45,7 @@
 <ul><li>All functions:
 <ul><li>Improve detection for Antarctica and Kosovo.</li>
 <li>All functions return a <code>MULTIPOLYGON</code>.</li>
+<li>Function fails gracefully when the country file is not available (with neither errors nor warnings).</li>
 </ul></li>
 <li>
 <code>get_gb*()</code>: In all functions now the <code>country</code> argument recognize mixed types (e.g. <code>get_gb(country = c("Germany", "USA"))</code> would work).</li>
