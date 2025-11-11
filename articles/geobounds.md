@@ -135,29 +135,29 @@ version. For example:
 ``` r
 # Current folder
 current <- gb_detect_cache_dir()
-#> ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpsX8GxF'
+#> ℹ 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpGirTyA'
 
 current
-#> [1] "C:\\Users\\diego\\AppData\\Local\\Temp\\RtmpsX8GxF"
+#> [1] "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\RtmpGirTyA"
 
 # Change to new
 newdir <- file.path(tempdir(), "/geoboundvignette")
 gb_set_cache_dir(newdir)
-#> ✔ geobounds cache dir is 'C:\Users\diego\AppData\Local\Temp\RtmpsX8GxF//geoboundvignette'.
+#> ✔ geobounds cache dir is 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpGirTyA//geoboundvignette'.
 #> ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.
 
 # Download
 example <- gb_get_adm0("Vatican City", quiet = FALSE)
 #> ℹ Downloading file from <https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/VAT/ADM0/geoBoundaries-VAT-ADM0.geojson>
-#> → Cache dir is 'C:\Users\diego\AppData\Local\Temp\RtmpsX8GxF//geoboundvignette/gbOpen'
+#> → Cache dir is 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpGirTyA//geoboundvignette/gbOpen'
 
 # Restore cache dir
 gb_set_cache_dir(current)
-#> ✔ geobounds cache dir is 'C:\Users\diego\AppData\Local\Temp\RtmpsX8GxF'.
+#> ✔ geobounds cache dir is 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpGirTyA'.
 #> ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.
 
 current == gb_detect_cache_dir()
-#> ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpsX8GxF'
+#> ℹ 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpGirTyA'
 #> [1] TRUE
 ```
 
@@ -186,10 +186,10 @@ latam_meta <- gb_get_meta(adm_lvl = "ADM0") %>%
   glimpse()
 #> Rows: 47
 #> Columns: 4
-#> $ boundaryISO          <chr> "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", "BLZ", "BOL…
-#> $ boundaryName         <chr> "Aruba", "Anguilla", "Argentina", "Antigua and Barbuda", "Bo…
-#> $ Continent            <chr> "Latin America and the Caribbean", "Latin America and the Ca…
-#> $ worldBankIncomeGroup <chr> "High-income Countries", "No income group available", "High-…
+#> $ boundaryISO          <chr> "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", …
+#> $ boundaryName         <chr> "Aruba", "Anguilla", "Argentina", "Antigua and Ba…
+#> $ Continent            <chr> "Latin America and the Caribbean", "Latin America…
+#> $ worldBankIncomeGroup <chr> "High-income Countries", "No income group availab…
 
 # Adjust factors
 latam_meta$income_factor <- factor(latam_meta$worldBankIncomeGroup,

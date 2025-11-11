@@ -53,6 +53,6 @@ Other cache utilities:
 # Don't run this! It would modify your current state
 # \dontrun{
 gb_clear_cache(quiet = FALSE)
-#> ! geobounds data deleted: C:\Users\RUNNER~1\AppData\Local\Temp\RtmpWGlbMN/geobounds
+#> ! geobounds data deleted: C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp6fXALf/geobounds
 # }
 ```
