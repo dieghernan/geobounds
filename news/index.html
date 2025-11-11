@@ -54,11 +54,15 @@
 <li>
 <code>get_gb_meta()</code> -&gt; <code><a href="../reference/gb_get_meta.html">gb_get_meta()</a></code>.</li>
 </ul><div class="section level4">
-<h4 id="others-development-version">Others<a class="anchor" aria-label="anchor" href="#others-development-version"></a></h4>
-<ul><li>All functions:
+<h4 id="other-changes-development-version">Other changes<a class="anchor" aria-label="anchor" href="#other-changes-development-version"></a></h4>
+<ul><li>
+<code>get_gb_adm5()</code> added.</li>
+<li>All functions:
 <ul><li>Improve detection for Antarctica and Kosovo.</li>
 <li>All functions return a <code>MULTIPOLYGON</code>.</li>
 <li>Function fails gracefully when the country file is not available (with neither errors nor warnings).</li>
+<li>
+<code><a href="https://httr2.r-lib.org/reference/req_retry.html" class="external-link">httr2::req_retry()</a></code> implemented to avoid timeout / transient errors.</li>
 </ul></li>
 <li>
 <code>gb_get*()</code>: In all functions now the <code>country</code> argument recognize mixed types (e.g. <code>gb_get(country = c("Germany", "USA"))</code> would work).</li>

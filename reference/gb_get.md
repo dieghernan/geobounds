@@ -15,7 +15,7 @@ use
 ``` r
 gb_get(
   country,
-  adm_lvl = c("ADM0", "ADM1", "ADM2", "ADM3", "ADM4", "ALL"),
+  adm_lvl = c("ADM0", "ADM1", "ADM2", "ADM3", "ADM4", "ADM5", "ALL"),
   simplified = FALSE,
   release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative"),
   metadata = FALSE,

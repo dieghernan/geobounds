@@ -20,7 +20,8 @@ for extracting any given administration level:
 
 - `gb_get_adm4()` returns fourth-level administration boundaries.
 
-Note that not all countries have the same number of levels.
+- `gb_get_adm5()` returns fifth-level administration boundaries. Note
+  that not all countries have the same number of levels.
 
 ## Usage
 
@@ -66,6 +67,16 @@ gb_get_adm3(
 )
 
 gb_get_adm4(
+  country,
+  simplified = FALSE,
+  release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative"),
+  metadata = FALSE,
+  quiet = TRUE,
+  overwrite = FALSE,
+  cache_dir = NULL
+)
+
+gb_get_adm5(
   country,
   simplified = FALSE,
   release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative"),
