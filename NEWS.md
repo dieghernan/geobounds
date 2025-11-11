@@ -12,7 +12,7 @@ Functions for downloading data have been renamed to follow the convention
 
 ### Other changes
 
--   `get_gb_adm5()` added.
+-   `gb_get_adm5()` added.
 -   All functions:
     -   Improve detection for Antarctica and Kosovo.
     -   All functions return a `MULTIPOLYGON`.
