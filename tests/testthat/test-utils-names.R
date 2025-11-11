@@ -16,7 +16,7 @@ test_that("Problematic names", {
   expect_snapshot(gb_helper_countrynames(c("Espagne", "Antartica")))
   expect_snapshot(gb_helper_countrynames(c("spain", "antartica")))
 
-  ata <- get_gb_adm0("Antartica", simplified = TRUE)
+  ata <- gb_get_adm0("Antartica", simplified = TRUE)
   expect_s3_class(ata, "sf")
 
   # Special case for Kosovo
@@ -33,10 +33,10 @@ test_that("Problematic names", {
     gb_helper_countrynames("XKX")
   )
 
-  kos <- get_gb_adm0("Kosovo", simplified = TRUE)
+  kos <- gb_get_adm0("Kosovo", simplified = TRUE)
   expect_s3_class(kos, "sf")
 
-  full <- get_gb_adm0(c("Antarctica", "Kosovo"), simplified = TRUE)
+  full <- gb_get_adm0(c("Antarctica", "Kosovo"), simplified = TRUE)
   expect_s3_class(full, "sf")
   expect_identical(full$shapeGroup, c("ATA", "XKX"))
   expect_equal(nrow(full), 2)
@@ -46,7 +46,7 @@ test_that("Test full name conversion", {
   skip_on_cran()
   skip_if_offline()
 
-  allnames <- get_gb_meta(adm_lvl = "ADM0")
+  allnames <- gb_get_meta(adm_lvl = "ADM0")
   nm <- unique(allnames$boundaryName)
   expect_silent(nm2 <- gb_helper_countrynames(nm))
   isos <- unique(allnames$boundaryISO)
@@ -57,6 +57,6 @@ test_that("Test full name conversion", {
 test_that("Test mixed countries", {
   skip_on_cran()
   skip_if_offline()
-  expect_silent(cnt <- get_gb(country = c("Germany", "USA"), simplified = TRUE))
+  expect_silent(cnt <- gb_get(country = c("Germany", "USA"), simplified = TRUE))
   expect_s3_class(cnt, "sf")
 })

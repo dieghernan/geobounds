@@ -1,7 +1,7 @@
 # Metadata errors
 
     Code
-      err <- get_gb(country = c("AND", "ESP", "ATA"), adm_lvl = "ADM2", metadata = TRUE)
+      err <- gb_get(country = c("AND", "ESP", "ATA"), adm_lvl = "ADM2", metadata = TRUE)
     Message
       x <https://www.geoboundaries.org/api/current/gbOpen/AND/ADM2> gives error 404 - Not Found
       x <https://www.geoboundaries.org/api/current/gbOpen/ATA/ADM2> gives error 404 - Not Found
@@ -9,14 +9,14 @@
 ---
 
     Code
-      err2 <- get_gb(country = "ATA", adm_lvl = "ADM2", metadata = TRUE)
+      err2 <- gb_get(country = "ATA", adm_lvl = "ADM2", metadata = TRUE)
     Message
       x <https://www.geoboundaries.org/api/current/gbOpen/ATA/ADM2> gives error 404 - Not Found
 
 # NULL output
 
     Code
-      err2 <- get_gb(country = "ATA", adm_lvl = "ADM2")
+      err2 <- gb_get(country = "ATA", adm_lvl = "ADM2")
     Message
       x <https://www.geoboundaries.org/api/current/gbOpen/ATA/ADM2> gives error 404 - Not Found
       x Nothing to download, returning `NULL`
@@ -25,7 +25,7 @@
 
     Code
       res_sf <- lapply(url_bound, function(x) {
-        hlp_get_gb_sf_single(url = x, subdir = "gbOpen", verbose = FALSE, overwrite = FALSE,
+        hlp_gb_get_sf_single(url = x, subdir = "gbOpen", verbose = FALSE, overwrite = FALSE,
           cache_dir = tempdir())
       })
     Message
@@ -35,7 +35,7 @@
 
     Code
       res_sf <- lapply(url_bound, function(x) {
-        hlp_get_gb_sf_single(url = x, subdir = "gbOpen", verbose = FALSE, overwrite = FALSE,
+        hlp_gb_get_sf_single(url = x, subdir = "gbOpen", verbose = FALSE, overwrite = FALSE,
           cache_dir = tempdir())
       })
     Message

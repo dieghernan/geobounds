@@ -22,7 +22,7 @@
 #' @return
 #' A [`sf`][sf::st_sf] object.
 #'
-#' @inheritParams get_gb
+#' @inheritParams gb_get
 #'
 #' @param adm_lvl Type of boundary Accepted values are the ADM level
 #'  (`"ADM0"` is the country boundary, `"ADM1"` is the first level of sub
@@ -47,7 +47,7 @@
 #'
 #' # This download may take some time
 #' \dontrun{
-#' world <- get_gb_cgaz()
+#' world <- gb_get_cgaz()
 #'
 #' library(ggplot2)
 #'
@@ -57,7 +57,7 @@
 #'   labs(caption = "Source: www.geoboundaries.org")
 #' }
 #'
-get_gb_cgaz <- function(
+gb_get_cgaz <- function(
   country = "ALL",
   adm_lvl = c("ADM0", "ADM1", "ADM2"),
   quiet = TRUE,
@@ -87,7 +87,7 @@ get_gb_cgaz <- function(
 
   verbose <- isFALSE(quiet)
 
-  world <- hlp_get_gb_sf_single(
+  world <- hlp_gb_get_sf_single(
     urlend,
     subdir = "CGAZ",
     cache_dir = cache_dir,

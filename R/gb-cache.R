@@ -27,7 +27,7 @@
 #' @param overwrite Logical. If this is set to `TRUE`, it will overwrite an
 #'   existing `cache_dir`.
 #'
-#' @inheritParams get_gb
+#' @inheritParams gb_get
 #' @examples
 #'
 #' # Don't run this! It would modify your current state
