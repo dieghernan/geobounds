@@ -269,10 +269,31 @@ hlp_get_gb_sf_single <- function(
 
     # Prepare download
     q <- httr2::request(url)
+    q <- httr2::req_error(q, is_error = function(x) {
+      FALSE
+    })
     if (verbose) {
       q <- httr2::req_progress(q)
     }
     get <- httr2::req_perform(q, path = file_local) # nolint
+
+    # In error inform and return NULL
+    if (httr2::resp_is_error(get)) {
+      unlink(file_local, force = TRUE)
+      # nolint start: Error code for message
+      err <- paste0(
+        c(
+          httr2::resp_status(get),
+          httr2::resp_status_desc(get)
+        ),
+        collapse = " - "
+      )
+
+      # nolint end
+      cli::cli_alert_danger("{.url {url}} gives error {err}")
+
+      return(NULL)
+    }
   }
 
   if (format == "geojson") {

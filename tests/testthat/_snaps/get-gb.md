@@ -21,3 +21,23 @@
       x <https://www.geoboundaries.org/api/current/gbOpen/ATA/ADM2> gives error 404 - Not Found
       x Nothing to download, returning `NULL`
 
+# Fail gracefully single
+
+    Code
+      res_sf <- lapply(url_bound, function(x) {
+        hlp_get_gb_sf_single(url = x, subdir = "gbOpen", verbose = FALSE, overwrite = FALSE,
+          cache_dir = tempdir())
+      })
+    Message
+      x <https://github.com/wmgeolab/geoBoundaries/raw/FAKE/releaseData/gbOpen/ESP/ADM0/fakefile.geojson> gives error 404 - Not Found
+
+# Fail gracefully several
+
+    Code
+      res_sf <- lapply(url_bound, function(x) {
+        hlp_get_gb_sf_single(url = x, subdir = "gbOpen", verbose = FALSE, overwrite = FALSE,
+          cache_dir = tempdir())
+      })
+    Message
+      x <https://github.com/wmgeolab/geoBoundaries/raw/FAKE/releaseData/gbOpen/ESP/ADM0/fakefile.geojson> gives error 404 - Not Found
+

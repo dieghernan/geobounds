@@ -151,3 +151,85 @@ test_that("sf output messages", {
   unlink(tmpd, recursive = TRUE)
   expect_false(dir.exists(tmpd))
 })
+
+test_that("Fail gracefully single", {
+  skip_on_cran()
+  skip_if_offline()
+
+  # Mock a fake call
+  url_bound <- paste0(
+    "https://github.com/wmgeolab/geoBoundaries/",
+    "raw/FAKE/releaseData/gbOpen/ESP/ADM0/",
+    "fakefile.geojson"
+  )
+
+  expect_snapshot(
+    res_sf <- lapply(url_bound, function(x) {
+      hlp_get_gb_sf_single(
+        url = x,
+        subdir = "gbOpen",
+        verbose = FALSE,
+        overwrite = FALSE,
+        cache_dir = tempdir()
+      )
+    })
+  )
+  meta_sf <- dplyr::bind_rows(res_sf)
+
+  expect_s3_class(meta_sf, "tbl")
+  expect_equal(nrow(meta_sf), 0)
+})
+
+
+test_that("Fail gracefully several", {
+  skip_on_cran()
+  skip_if_offline()
+  # Replicate internal logic
+
+  sev <- get_gb_meta(c("Andorra", "Vatican"), adm_lvl = "ADM0")
+  geoms <- sev$simplifiedGeometryGeoJSON
+
+  # Mock a fake call
+  url <- paste0(
+    "https://github.com/wmgeolab/geoBoundaries/",
+    "raw/FAKE/releaseData/gbOpen/ESP/ADM0/",
+    "fakefile.geojson"
+  )
+  url_bound <- c(geoms, url)
+
+  expect_snapshot(
+    res_sf <- lapply(url_bound, function(x) {
+      hlp_get_gb_sf_single(
+        url = x,
+        subdir = "gbOpen",
+        verbose = FALSE,
+        overwrite = FALSE,
+        cache_dir = tempdir()
+      )
+    })
+  )
+  meta_sf <- dplyr::bind_rows(res_sf)
+
+  expect_s3_class(meta_sf, "tbl")
+  expect_s3_class(meta_sf, "sf")
+  expect_equal(nrow(meta_sf), 2)
+
+  # If we change order...
+  url_bound <- c(url, geoms)
+
+  res_sf <- lapply(url_bound, function(x) {
+    hlp_get_gb_sf_single(
+      url = x,
+      subdir = "gbOpen",
+      verbose = FALSE,
+      overwrite = FALSE,
+      cache_dir = tempdir()
+    )
+  })
+
+  meta_sf <- dplyr::bind_rows(res_sf)
+
+  expect_s3_class(meta_sf, "tbl")
+  expect_s3_class(meta_sf, "sf")
+  expect_equal(nrow(meta_sf), 2)
+})
