@@ -19,6 +19,7 @@
 #'   boundaries.
 #' - `gb_get_adm5()` returns fifth-level administration
 #'   boundaries.
+#'
 #' Note that not all countries have the same number of levels.
 #'
 #' @rdname gb_get_adm

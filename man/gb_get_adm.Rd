@@ -121,8 +121,9 @@ boundaries (e.g. towns or cities in some countries).
 boundaries.
 \item \code{gb_get_adm5()} returns fifth-level administration
 boundaries.
-Note that not all countries have the same number of levels.
 }
+
+Note that not all countries have the same number of levels.
 }
 \details{
 See \strong{Details} in \code{\link[=gb_get]{gb_get()}}.
