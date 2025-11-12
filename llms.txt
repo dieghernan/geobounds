@@ -121,6 +121,15 @@ A BibTeX entry for LaTeX users:
 
 ## References
 
+## Contributors
+
+All contributions to this project are gratefully acknowledged using the
+[`allcontributors` package](https://github.com/ropensci/allcontributors)
+following the [allcontributors](https://allcontributors.org)
+specification. Contributions of any kind are welcome!
+
+[TABLE]
+
 Runfola, Daniel, Austin Anderson, Heather Baier, Matt Crittenden,
 Elizabeth Dowker, Sydney Fuhrig, Seth Goodman, et al. 2020.
 “geoBoundaries: A Global Database of Political Administrative

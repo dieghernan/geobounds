@@ -114,32 +114,33 @@ Other API functions:
 
 ``` r
 # \donttest{
+# Map level 2 in Sri Lanka
 sri_lanka <- gb_get(
   "Sri Lanka",
-  adm_lvl = "ADM3",
+  adm_lvl = "ADM2",
   simplified = TRUE
 )
 
 sri_lanka
-#> Simple feature collection with 330 features and 5 fields
+#> Simple feature collection with 25 features and 5 fields
 #> Geometry type: MULTIPOLYGON
 #> Dimension:     XY
-#> Bounding box:  xmin: 79.51937 ymin: 5.918507 xmax: 81.8772 ymax: 9.835718
+#> Bounding box:  xmin: 79.65102 ymin: 5.919017 xmax: 81.87896 ymax: 9.835791
 #> Geodetic CRS:  WGS 84
-#> # A tibble: 330 × 6
+#> # A tibble: 25 × 6
 #>    shapeName     shapeISO shapeID shapeGroup shapeType                  geometry
 #>  * <chr>         <chr>    <chr>   <chr>      <chr>            <MULTIPOLYGON [°]>
-#>  1 Manmunai Sou… ""       854035… LKA        ADM3      (((81.81611 7.459573, 81…
-#>  2 Koralai Patt… ""       854035… LKA        ADM3      (((81.51482 7.922462, 81…
-#>  3 Thenmaradchi… ""       854035… LKA        ADM3      (((80.18725 9.622936, 80…
-#>  4 Manmunai Sou… ""       854035… LKA        ADM3      (((81.64394 7.52247, 81.…
-#>  5 Manmunai Pat… ""       854035… LKA        ADM3      (((81.78383 7.601931, 81…
-#>  6 Koralai Pattu ""       854035… LKA        ADM3      (((81.51629 7.892779, 81…
-#>  7 Porativu Pat… ""       854035… LKA        ADM3      (((81.64394 7.52247, 81.…
-#>  8 Eravur Pattu  ""       854035… LKA        ADM3      (((81.54727 7.534724, 81…
-#>  9 Mundel        ""       854035… LKA        ADM3      (((79.82017 7.96686, 79.…
-#> 10 Addalaichenai ""       854035… LKA        ADM3      (((81.86513 7.300187, 81…
-#> # ℹ 320 more rows
+#>  1 Jaffna Distr… LK-41    463711… LKA        ADM2      (((79.7152 9.529465, 79.…
+#>  2 Kilinochchi … LK-42    463711… LKA        ADM2      (((80.01015 9.472403, 80…
+#>  3 Mannar Distr… LK-43    463711… LKA        ADM2      (((80.11535 9.209068, 80…
+#>  4 Mullaitivu D… LK-45    463711… LKA        ADM2      (((80.61353 9.456581, 80…
+#>  5 Vavuniya Dis… LK-44    463711… LKA        ADM2      (((80.23541 8.680412, 80…
+#>  6 Galle Distri… LK-31    463711… LKA        ADM2      (((79.98757 6.440352, 79…
+#>  7 Hambantota D… LK-33    463711… LKA        ADM2      (((80.67006 6.306029, 80…
+#>  8 Matara Distr… LK-32    463711… LKA        ADM2      (((80.3818 5.965264, 80.…
+#>  9 Ampara Distr… LK-52    463711… LKA        ADM2      (((81.70788 6.51073, 81.…
+#> 10 Anuradhapura… LK-71    463711… LKA        ADM2      (((80.03237 8.527211, 80…
+#> # ℹ 15 more rows
 
 library(ggplot2)
 ggplot(sri_lanka) +
@@ -160,39 +161,39 @@ library(dplyr)
 #>     intersect, setdiff, setequal, union
 gb_get(
   "Sri Lanka",
-  adm_lvl = "ADM3",
+  adm_lvl = "ADM2",
   metadata = TRUE
 ) %>%
   glimpse()
 #> Rows: 1
 #> Columns: 32
-#> $ boundaryID                <chr> "LKA-ADM3-8540358"
+#> $ boundaryID                <chr> "LKA-ADM2-46371173"
 #> $ boundaryName              <chr> "Sri Lanka"
 #> $ boundaryISO               <chr> "LKA"
-#> $ boundaryYearRepresented   <chr> "2020"
-#> $ boundaryType              <chr> "ADM3"
-#> $ boundaryCanonical         <chr> "Divisional Secretariat"
-#> $ boundarySource            <chr> "OCHA ROAP, Survey Department of Sri Lanka"
-#> $ boundaryLicense           <chr> "Creative Commons Attribution 3.0 Intergover…
-#> $ licenseDetail             <chr> NA
-#> $ licenseSource             <chr> "data.humdata.org/dataset/sri-lanka-administ…
-#> $ boundarySourceURL         <chr> "data.humdata.org/dataset/sri-lanka-administ…
+#> $ boundaryYearRepresented   <chr> "2017"
+#> $ boundaryType              <chr> "ADM2"
+#> $ boundaryCanonical         <chr> "Unknown"
+#> $ boundarySource            <chr> "OpenStreetMap, Wambacher"
+#> $ boundaryLicense           <chr> "Open Data Commons Open Database License 1.0"
+#> $ licenseDetail             <chr> "Open Data Commons Open Database License 1.0"
+#> $ licenseSource             <chr> "www.openstreetmap.org/copyright"
+#> $ boundarySourceURL         <chr> "wambachers-osm.website/boundaries/"
 #> $ sourceDataUpdateDate      <dttm> 2023-01-19 07:31:04
 #> $ buildDate                 <date> 2023-12-12
 #> $ Continent                 <chr> "Asia"
 #> $ `UNSDG-region`            <chr> "Central and Southern Asia"
 #> $ `UNSDG-subregion`         <chr> "Southern Asia"
 #> $ worldBankIncomeGroup      <chr> "Lower-middle-income Countries"
-#> $ admUnitCount              <dbl> 330
-#> $ meanVertices              <dbl> 4097
-#> $ minVertices               <dbl> 286
-#> $ maxVertices               <dbl> 30321
-#> $ meanPerimeterLengthKM     <dbl> 87.90021
-#> $ minPerimeterLengthKM      <dbl> 6.072107
-#> $ maxPerimeterLengthKM      <dbl> 322.9302
-#> $ meanAreaSqKM              <dbl> 200.0581
-#> $ minAreaSqKM               <dbl> 1.813479
-#> $ maxAreaSqKM               <dbl> 1060.133
+#> $ admUnitCount              <dbl> 25
+#> $ meanVertices              <dbl> 2050
+#> $ minVertices               <dbl> 1133
+#> $ maxVertices               <dbl> 3262
+#> $ meanPerimeterLengthKM     <dbl> 363.8314
+#> $ minPerimeterLengthKM      <dbl> 202.6016
+#> $ maxPerimeterLengthKM      <dbl> 608.5452
+#> $ meanAreaSqKM              <dbl> 2642.756
+#> $ minAreaSqKM               <dbl> 683.3785
+#> $ maxAreaSqKM               <dbl> 7202.982
 #> $ staticDownloadLink        <chr> "https://github.com/wmgeolab/geoBoundaries/r…
 #> $ gjDownloadURL             <chr> "https://github.com/wmgeolab/geoBoundaries/r…
 #> $ tjDownloadURL             <chr> "https://github.com/wmgeolab/geoBoundaries/r…

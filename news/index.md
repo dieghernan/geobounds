@@ -21,6 +21,11 @@ convention `object_verb()` (see
 - [`gb_get_adm5()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
   added.
 - All functions:
+  - Source files: Use of the `.zip/.shp` version of the dataset instead
+    of `.geojson/.gpkg`. This implies that the **geojsonsf** dependency
+    in `Imports` is removed as it is not needed any more. As a
+    consequence cached files with previous versions of the package are
+    not used any more.
   - Improve detection for Antarctica and Kosovo.
   - All functions return a `MULTIPOLYGON`.
   - Function fails gracefully when the country file is not available
