@@ -9,10 +9,14 @@ test_that("Test levels", {
 
   cnt <- db %>%
     group_by(boundaryISO) %>%
-    count() %>%
+    mutate(n = n()) %>%
+    # Countries with all levels
     filter(n == 6) %>%
     ungroup() %>%
-    slice_head(n = 1) %>%
+    filter(boundaryType == "ADM5") %>%
+    mutate(total = admUnitCount * meanVertices) %>%
+    # Minimum vertices
+    slice_min(order_by = total, n = 1) %>%
     pull(boundaryISO)
 
   # Check 0
