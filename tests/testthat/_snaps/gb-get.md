@@ -36,8 +36,8 @@
     Code
       res_sf <- lapply(url_bound, function(x) {
         hlp_gb_get_sf_single(url = x, subdir = "gbOpen", verbose = FALSE, overwrite = FALSE,
-          cache_dir = tempdir())
+          cache_dir = tempdir(), simplified = TRUE)
       })
     Message
-      x <https://github.com/wmgeolab/geoBoundaries/raw/FAKE/releaseData/gbOpen/ESP/ADM0/fakefile.geojson> gives error 404 - Not Found
+      x <https://github.com/wmgeolab/geoBoundaries/raw/FAKE/releaseData/gbOpen/ESP/ADM0/fakefile.zip> gives error 404 - Not Found
 

@@ -21,7 +21,6 @@ Imports:
     cli,
     countrycode,
     dplyr,
-    geojsonsf,
     httr2 (>= 1.0.0),
     sf,
     tools

@@ -72,7 +72,7 @@ gb_get_cgaz <- function(
     "raw/main/releaseData"
   )
 
-  fname <- paste0("geoBoundariesCGAZ_", level, ".gpkg")
+  fname <- paste0("geoBoundariesCGAZ_", level, ".zip")
 
   urlend <- paste(baseurl, "CGAZ", fname, sep = "/")
 
@@ -93,8 +93,8 @@ gb_get_cgaz <- function(
     cache_dir = cache_dir,
     overwrite = overwrite,
     verbose = verbose,
-    format = "gpkg",
-    cgaz_country = cgaz_country
+    cgaz_country = cgaz_country,
+    simplified = FALSE
   )
 
   tokeep <- setdiff(names(world), "id")
@@ -102,24 +102,4 @@ gb_get_cgaz <- function(
   world <- world[, tokeep]
 
   world
-}
-
-
-# Helper to read gpkg file
-read_gpkg_query <- function(file_local, cgaz_country) {
-  outsf <- sf::read_sf(file_local)
-
-  if (!("ALL" %in% cgaz_country)) {
-    outsf <- outsf[outsf$shapeGroup %in% cgaz_country, ]
-  }
-
-  # Adjust CRS just in case, in some OS seems to be problematic
-  # nocov start
-  if (is.na(sf::st_is_longlat(outsf))) {
-    outsf <- sf::st_set_crs(outsf, sf::st_crs(4326))
-  }
-
-  # nocov end
-
-  outsf
 }

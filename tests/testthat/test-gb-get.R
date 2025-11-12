@@ -187,13 +187,13 @@ test_that("Fail gracefully several", {
   # Replicate internal logic
 
   sev <- gb_get_meta(c("Andorra", "Vatican"), adm_lvl = "ADM0")
-  geoms <- sev$simplifiedGeometryGeoJSON
+  geoms <- sev$staticDownloadLink
 
   # Mock a fake call
   url <- paste0(
     "https://github.com/wmgeolab/geoBoundaries/",
     "raw/FAKE/releaseData/gbOpen/ESP/ADM0/",
-    "fakefile.geojson"
+    "fakefile.zip"
   )
   url_bound <- c(geoms, url)
 
@@ -204,7 +204,8 @@ test_that("Fail gracefully several", {
         subdir = "gbOpen",
         verbose = FALSE,
         overwrite = FALSE,
-        cache_dir = tempdir()
+        cache_dir = tempdir(),
+        simplified = TRUE
       )
     })
   )
@@ -232,4 +233,23 @@ test_that("Fail gracefully several", {
   expect_s3_class(meta_sf, "tbl")
   expect_s3_class(meta_sf, "sf")
   expect_equal(nrow(meta_sf), 2)
+})
+
+test_that("Release type", {
+  skip_on_cran()
+  skip_if_offline()
+  library(dplyr)
+  iso <- gb_get_meta(release_type = "gbHumanitarian", adm_lvl = "ADM0") %>%
+    slice_head(n = 1) %>%
+    pull(boundaryISO)
+
+  res <- gb_get_adm0(iso, simplified = TRUE, release_type = "gbHumanitarian")
+  expect_s3_class(res, "sf")
+
+  iso <- gb_get_meta(release_type = "gbAuthoritative", adm_lvl = "ADM0") %>%
+    slice_head(n = 1) %>%
+    pull(boundaryISO)
+
+  res <- gb_get_adm0(iso, simplified = TRUE, release_type = "gbAuthoritative")
+  expect_s3_class(res, "sf")
 })

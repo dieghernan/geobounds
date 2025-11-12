@@ -22,6 +22,7 @@ doi
 et
 geoLab
 geoboundaries
+geojsonsf
 geospatial
 licences
 licensure
@@ -30,4 +31,3 @@ modelling
 pkgdown
 tibble
 tidyverse
-zenodo

@@ -154,18 +154,6 @@
     },
     "5": {
       "@type": "SoftwareApplication",
-      "identifier": "geojsonsf",
-      "name": "geojsonsf",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=geojsonsf"
-    },
-    "6": {
-      "@type": "SoftwareApplication",
       "identifier": "httr2",
       "name": "httr2",
       "version": ">= 1.0.0",
@@ -177,7 +165,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=httr2"
     },
-    "7": {
+    "6": {
       "@type": "SoftwareApplication",
       "identifier": "sf",
       "name": "sf",
@@ -189,7 +177,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=sf"
     },
-    "8": {
+    "7": {
       "@type": "SoftwareApplication",
       "identifier": "tools",
       "name": "tools"
@@ -197,7 +185,7 @@
     "SystemRequirements": null
   },
   "keywords": ["administrative-boundaries", "api", "geoboundaries", "r", "r-package", "spatial-data"],
-  "fileSize": "312.619KB",
+  "fileSize": "313.365KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",

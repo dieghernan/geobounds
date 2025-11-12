@@ -78,9 +78,10 @@ purposes, but are verified through in-country processes.
 \dontshow{if (httr2::is_online()) withAutoprint(\{ # examplesIf}
 
 \donttest{
+# Map level 2 in Sri Lanka
 sri_lanka <- gb_get(
   "Sri Lanka",
-  adm_lvl = "ADM3",
+  adm_lvl = "ADM2",
   simplified = TRUE
 )
 
@@ -96,7 +97,7 @@ ggplot(sri_lanka) +
 library(dplyr)
 gb_get(
   "Sri Lanka",
-  adm_lvl = "ADM3",
+  adm_lvl = "ADM2",
   metadata = TRUE
 ) \%>\%
   glimpse()

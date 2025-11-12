@@ -65,10 +65,10 @@
 #' @examplesIf httr2::is_online()
 #'
 #' \donttest{
-# Map municipalities in Sri Lanka
+#' # Map level 2 in Sri Lanka
 #' sri_lanka <- gb_get(
 #'   "Sri Lanka",
-#'   adm_lvl = "ADM3",
+#'   adm_lvl = "ADM2",
 #'   simplified = TRUE
 #' )
 #'
@@ -84,7 +84,7 @@
 #' library(dplyr)
 #' gb_get(
 #'   "Sri Lanka",
-#'   adm_lvl = "ADM3",
+#'   adm_lvl = "ADM2",
 #'   metadata = TRUE
 #' ) %>%
 #'   glimpse()
@@ -135,15 +135,13 @@ gb_get <- function(
     return(NULL)
   }
 
-  bnd_type <- ifelse(simplified, "simplifiedGeometryGeoJSON", "gjDownloadURL")
-  url_bound <- as.vector(meta_df[[bnd_type]])
+  url_bound <- meta_df$staticDownloadLink
 
   # CleanUp
   url_bound <- unique(url_bound)
   url_bound <- url_bound[!is.na(url_bound)]
   url_bound <- url_bound[!is.null(url_bound)]
 
-  url_bound
   # Call and bind
   res_sf <- lapply(url_bound, function(x) {
     hlp_gb_get_sf_single(
@@ -151,7 +149,8 @@ gb_get <- function(
       subdir = source,
       verbose = verbose,
       overwrite = overwrite,
-      cache_dir = cache_dir
+      cache_dir = cache_dir,
+      simplified = simplified
     )
   })
 
@@ -242,8 +241,8 @@ hlp_gb_get_sf_single <- function(
   verbose,
   overwrite,
   cache_dir,
-  format = "geojson",
-  cgaz_country = "ALL"
+  cgaz_country = "ALL",
+  simplified = FALSE
 ) {
   filename <- basename(url)
   # Prepare cache
@@ -255,8 +254,6 @@ hlp_gb_get_sf_single <- function(
   file_local <- gsub("//", "/", file_local)
 
   fileoncache <- file.exists(file_local)
-
-  num <- sf::st_crs(4326)
 
   # Check if cached
   if (isFALSE(overwrite) && fileoncache) {
@@ -302,13 +299,23 @@ hlp_gb_get_sf_single <- function(
     }
   }
 
-  if (format == "geojson") {
-    outsf <- geojsonsf::geojson_sf(file_local, input = num$input, wkt = num$wkt)
+  # Read file names
+  shp_zip <- unzip(file_local, list = TRUE)
+  shp_zip <- shp_zip$Name
+  shp_zip <- shp_zip[grepl("shp$", shp_zip)]
+  if (simplified) {
+    shp_end <- shp_zip[grepl("simplified", shp_zip)]
   } else {
-    # Geopackage
-
-    outsf <- read_gpkg_query(file_local, cgaz_country)
+    shp_end <- shp_zip[!grepl("simplified", shp_zip)]
   }
 
+  # Read with vszip
+  shp_read <- file.path("/vsizip/", file_local, shp_end)
+  shp_read <- gsub("//", "/", shp_read)
+  outsf <- sf::read_sf(shp_read)
+
+  if (subdir == "CGAZ" && !("ALL" %in% cgaz_country)) {
+    outsf <- outsf[outsf$shapeGroup %in% cgaz_country, ]
+  }
   outsf <- gb_helper_utf8(outsf)
 }
