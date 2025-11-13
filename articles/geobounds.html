@@ -218,29 +218,29 @@ version. For example:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Current folder</span></span>
 <span><span class="va">current</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/gb_detect_cache_dir.html">gb_detect_cache_dir</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ℹ 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpghWgeL'</span></span>
+<span><span class="co">#&gt; ℹ 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpETgSpV'</span></span>
 <span></span>
 <span><span class="va">current</span></span>
-<span><span class="co">#&gt; [1] "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\RtmpghWgeL"</span></span>
+<span><span class="co">#&gt; [1] "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\RtmpETgSpV"</span></span>
 <span></span>
 <span><span class="co"># Change to new</span></span>
 <span><span class="va">newdir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"/geoboundvignette"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/gb_set_cache_dir.html">gb_set_cache_dir</a></span><span class="op">(</span><span class="va">newdir</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ✔ geobounds cache dir is 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpghWgeL//geoboundvignette'.</span></span>
+<span><span class="co">#&gt; ✔ geobounds cache dir is 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpETgSpV//geoboundvignette'.</span></span>
 <span><span class="co">#&gt; ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.</span></span>
 <span></span>
 <span><span class="co"># Download</span></span>
 <span><span class="va">example</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/gb_get_adm.html">gb_get_adm0</a></span><span class="op">(</span><span class="st">"Vatican City"</span>, quiet <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ℹ Downloading file from &lt;https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/VAT/ADM0/geoBoundaries-VAT-ADM0-all.zip&gt;</span></span>
-<span><span class="co">#&gt; → Cache dir is 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpghWgeL//geoboundvignette/gbOpen'</span></span>
+<span><span class="co">#&gt; → Cache dir is 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpETgSpV//geoboundvignette/gbOpen'</span></span>
 <span></span>
 <span><span class="co"># Restore cache dir</span></span>
 <span><span class="fu"><a href="../reference/gb_set_cache_dir.html">gb_set_cache_dir</a></span><span class="op">(</span><span class="va">current</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ✔ geobounds cache dir is 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpghWgeL'.</span></span>
+<span><span class="co">#&gt; ✔ geobounds cache dir is 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpETgSpV'.</span></span>
 <span><span class="co">#&gt; ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.</span></span>
 <span></span>
 <span><span class="va">current</span> <span class="op">==</span> <span class="fu"><a href="../reference/gb_detect_cache_dir.html">gb_detect_cache_dir</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ℹ 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpghWgeL'</span></span>
+<span><span class="co">#&gt; ℹ 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpETgSpV'</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
 <p>Specific cache directories on each function call can be set using the
 <code>cache_dir</code> argument of each function.</p>
