@@ -22,7 +22,8 @@ for extracting any given administration level:
 
 - `gb_get_adm5()` returns fifth-level administration boundaries.
 
-Note that not all countries have the same number of levels.
+Note that not all countries have the same number of levels. Check
+[gb_get_max_adm_lvl](https://dieghernan.github.io/geobounds/reference/gb_get_max_adm_lvl.md).
 
 ## Usage
 
@@ -31,7 +32,6 @@ gb_get_adm0(
   country,
   simplified = FALSE,
   release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative"),
-  metadata = FALSE,
   quiet = TRUE,
   overwrite = FALSE,
   cache_dir = NULL
@@ -41,7 +41,6 @@ gb_get_adm1(
   country,
   simplified = FALSE,
   release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative"),
-  metadata = FALSE,
   quiet = TRUE,
   overwrite = FALSE,
   cache_dir = NULL
@@ -51,7 +50,6 @@ gb_get_adm2(
   country,
   simplified = FALSE,
   release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative"),
-  metadata = FALSE,
   quiet = TRUE,
   overwrite = FALSE,
   cache_dir = NULL
@@ -61,7 +59,6 @@ gb_get_adm3(
   country,
   simplified = FALSE,
   release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative"),
-  metadata = FALSE,
   quiet = TRUE,
   overwrite = FALSE,
   cache_dir = NULL
@@ -71,7 +68,6 @@ gb_get_adm4(
   country,
   simplified = FALSE,
   release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative"),
-  metadata = FALSE,
   quiet = TRUE,
   overwrite = FALSE,
   cache_dir = NULL
@@ -81,7 +77,6 @@ gb_get_adm5(
   country,
   simplified = FALSE,
   release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative"),
-  metadata = FALSE,
   quiet = TRUE,
   overwrite = FALSE,
   cache_dir = NULL
@@ -90,39 +85,44 @@ gb_get_adm5(
 
 ## Source
 
-geoboundaries API Service <https://www.geoboundaries.org/api.html>.
+geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
 
 ## Arguments
 
 - country:
 
-  A character vector of country codes. It could be either `"ALL"` (that
+  A character vector of country codes. It could be either `"all"` (that
   would return the data for all countries), a vector of country names or
   ISO3 country codes. See also
   [`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/reference/countrycode.html).
 
 - simplified:
 
-  Logical. Return the simplified boundary or not.
+  logical. Return the simplified boundary or not. The default `FALSE`
+  would use the premier geoBoundaries release.
 
 - release_type:
 
-  One of `"gbOpen"`, `"gbHumanitarian"`, `"gbAuthoritative"`. Source of
-  the spatial data. See **Details**.
+  One of `"gbOpen"`, `"gbHumanitarian"`, `"gbAuthoritative"`. For most
+  users, we suggest using `"gbOpen"` (the default), as it is CC-BY 4.0
+  compliant and can be used for most purposes so long as attribution is
+  provided:
 
-- metadata:
+  - `"gbHumanitarian"` files are mirrored from [UN
+    OCHA](https://www.unocha.org/), but may have less open licensure.
 
-  Should the result be the metadata of the boundary?
+  - `"gbAuthoritative"` files are mirrored from [UN
+    SALB](https://salb.un.org/en), and cannot be used for commercial
+    purposes, but are verified through in-country processes.
 
 - quiet:
 
-  Logical, on `FALSE` it displays information of the call. Useful for
-  debugging, default is no messages `quiet = TRUE`.
+  logical. If `TRUE` suppresses informational messages.
 
 - overwrite:
 
-  A logical whether to update cache. Default is `FALSE`. When set to
-  `TRUE` it would force a fresh download of the source `.geojson` file.
+  logical. When set to `TRUE` it would force a fresh download of the
+  source `.zip` file.
 
 - cache_dir:
 
@@ -131,28 +131,34 @@ geoboundaries API Service <https://www.geoboundaries.org/api.html>.
   [`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_set_cache_dir.md)).
   If no cache directory has been set, files would be stored in the
   temporary directory (see
-  [`base::tempdir()`](https://rdrr.io/r/base/tempfile.html)).
+  [`base::tempdir()`](https://rdrr.io/r/base/tempfile.html)). See
+  caching strategies in
+  [`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_set_cache_dir.md).
 
 ## Value
 
-- With `metadata = FALSE`: A
-  [`sf`](https://r-spatial.github.io/sf/reference/sf.html) object.
-
-- With `metadata = TRUE`: A tibble.
+A [`sf`](https://r-spatial.github.io/sf/reference/sf.html) object.
 
 ## Details
 
-See **Details** in
-[`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md).
+Individual data files in the geoBoundaries database are governed by the
+license or licenses identified within the metadata for each respective
+boundary (see
+[`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_meta.md).
+Users using individual boundary files from geoBoundaries should
+additionally ensure that they are citing the sources provided in the
+metadata for each file.
 
 ## References
 
 Runfola, D. et al. (2020) geoBoundaries: A global database of political
-administrative boundaries. *PLOS ONE* 15(4): e0231866.
+administrative boundaries. *PLoS ONE* 15(4): e0231866.
 [doi:10.1371/journal.pone.0231866](https://doi.org/10.1371/journal.pone.0231866)
 .
 
 ## See also
+
+[`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/reference/gb_get_max_adm_lvl.md).
 
 Other API functions:
 [`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md),

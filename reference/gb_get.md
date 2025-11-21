@@ -15,10 +15,9 @@ use
 ``` r
 gb_get(
   country,
-  adm_lvl = c("ADM0", "ADM1", "ADM2", "ADM3", "ADM4", "ADM5", "ALL"),
+  adm_lvl = "adm0",
   simplified = FALSE,
   release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative"),
-  metadata = FALSE,
   quiet = TRUE,
   overwrite = FALSE,
   cache_dir = NULL
@@ -27,46 +26,52 @@ gb_get(
 
 ## Source
 
-geoboundaries API Service <https://www.geoboundaries.org/api.html>.
+geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
 
 ## Arguments
 
 - country:
 
-  A character vector of country codes. It could be either `"ALL"` (that
+  A character vector of country codes. It could be either `"all"` (that
   would return the data for all countries), a vector of country names or
   ISO3 country codes. See also
   [`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/reference/countrycode.html).
 
 - adm_lvl:
 
-  Type of boundary Accepted values are `"ALL"` (all available
-  boundaries) or the ADM level (`"ADM0"` is the country boundary,
-  `"ADM1"` is the first level of sub national boundaries, `"ADM2"` is
-  the second level and so on.
+  Type of boundary Accepted values are `"all"` (all available
+  boundaries) or the ADM level (`"adm0"` is the country boundary,
+  `"adm1"` is the first level of sub national boundaries, `"adm2"` is
+  the second level and so on. Upper case version (`"ADM1"`) and the
+  number of the level (`1, 2, 3, 4, 5`) and also accepted.
 
 - simplified:
 
-  Logical. Return the simplified boundary or not.
+  logical. Return the simplified boundary or not. The default `FALSE`
+  would use the premier geoBoundaries release.
 
 - release_type:
 
-  One of `"gbOpen"`, `"gbHumanitarian"`, `"gbAuthoritative"`. Source of
-  the spatial data. See **Details**.
+  One of `"gbOpen"`, `"gbHumanitarian"`, `"gbAuthoritative"`. For most
+  users, we suggest using `"gbOpen"` (the default), as it is CC-BY 4.0
+  compliant and can be used for most purposes so long as attribution is
+  provided:
 
-- metadata:
+  - `"gbHumanitarian"` files are mirrored from [UN
+    OCHA](https://www.unocha.org/), but may have less open licensure.
 
-  Should the result be the metadata of the boundary?
+  - `"gbAuthoritative"` files are mirrored from [UN
+    SALB](https://salb.un.org/en), and cannot be used for commercial
+    purposes, but are verified through in-country processes.
 
 - quiet:
 
-  Logical, on `FALSE` it displays information of the call. Useful for
-  debugging, default is no messages `quiet = TRUE`.
+  logical. If `TRUE` suppresses informational messages.
 
 - overwrite:
 
-  A logical whether to update cache. Default is `FALSE`. When set to
-  `TRUE` it would force a fresh download of the source `.geojson` file.
+  logical. When set to `TRUE` it would force a fresh download of the
+  source `.zip` file.
 
 - cache_dir:
 
@@ -75,32 +80,51 @@ geoboundaries API Service <https://www.geoboundaries.org/api.html>.
   [`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_set_cache_dir.md)).
   If no cache directory has been set, files would be stored in the
   temporary directory (see
-  [`base::tempdir()`](https://rdrr.io/r/base/tempfile.html)).
+  [`base::tempdir()`](https://rdrr.io/r/base/tempfile.html)). See
+  caching strategies in
+  [`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_set_cache_dir.md).
 
 ## Value
 
-- With `metadata = FALSE`: A
-  [`sf`](https://r-spatial.github.io/sf/reference/sf.html) object.
-
-- With `metadata = TRUE`: A tibble.
+A [`sf`](https://r-spatial.github.io/sf/reference/sf.html) object.
 
 ## Details
 
-For most users, we suggest using `"gbOpen"`, as it is CC-BY 4.0
-compliant, and can be used for most purposes so long as attribution is
-provided.
+Individual data files in the geoBoundaries database are governed by the
+license or licenses identified within the metadata for each respective
+boundary (see
+[`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_meta.md).
+Users using individual boundary files from geoBoundaries should
+additionally ensure that they are citing the sources provided in the
+metadata for each file. See **Examples**.
 
-- `"gbHumanitarian"` files are mirrored from [UN
-  OCHA](https://www.unocha.org/), but may have less open licensure.
+The following wrappers are also available:
 
-- `"gbAuthoritative"` files are mirrored from [UN
-  SALB](https://salb.un.org/en), and cannot be used for commercial
-  purposes, but are verified through in-country processes.
+- [`gb_get_adm0()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
+  returns the country boundary.
+
+- [`gb_get_adm1()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
+  returns first-level administration boundaries (e.g. States in the
+  United States).
+
+- [`gb_get_adm2()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
+  returns second-level administration boundaries (e.g. Counties in the
+  United States).
+
+- [`gb_get_adm3()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
+  returns third-level administration boundaries (e.g. towns or cities in
+  some countries).
+
+- [`gb_get_adm4()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
+  returns fourth-level administration boundaries.
+
+- [`gb_get_adm5()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
+  returns fifth-level administration boundaries.
 
 ## References
 
 Runfola, D. et al. (2020) geoBoundaries: A global database of political
-administrative boundaries. *PLOS ONE* 15(4): e0231866.
+administrative boundaries. *PLoS ONE* 15(4): e0231866.
 [doi:10.1371/journal.pone.0231866](https://doi.org/10.1371/journal.pone.0231866)
 .
 
@@ -117,7 +141,7 @@ Other API functions:
 # Map level 2 in Sri Lanka
 sri_lanka <- gb_get(
   "Sri Lanka",
-  adm_lvl = "ADM2",
+  adm_lvl = 2,
   simplified = TRUE
 )
 
@@ -159,10 +183,9 @@ library(dplyr)
 #> The following objects are masked from 'package:base':
 #> 
 #>     intersect, setdiff, setequal, union
-gb_get(
+gb_get_meta(
   "Sri Lanka",
-  adm_lvl = "ADM2",
-  metadata = TRUE
+  adm_lvl = 2,
 ) %>%
   glimpse()
 #> Rows: 1

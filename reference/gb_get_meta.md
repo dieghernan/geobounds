@@ -1,55 +1,160 @@
 # Get metadata of individual country files from geoBoundaries
 
-This function returns metadadata of the [geoBoundaries
+This function returns metadata of the [geoBoundaries
 API](https://www.geoboundaries.org/api.html).
 
 ## Usage
 
 ``` r
 gb_get_meta(
-  country = "ALL",
-  adm_lvl = c("ALL", "ADM0", "ADM1", "ADM2", "ADM3", "ADM4", "ADM5"),
+  country = "all",
+  adm_lvl = "all",
   release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative")
 )
 ```
 
 ## Source
 
-geoboundaries API Service <https://www.geoboundaries.org/api.html>.
+geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
 
 ## Arguments
 
 - country:
 
-  A character vector of country codes. It could be either `"ALL"` (that
+  A character vector of country codes. It could be either `"all"` (that
   would return the data for all countries), a vector of country names or
   ISO3 country codes. See also
   [`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/reference/countrycode.html).
 
 - adm_lvl:
 
-  Type of boundary Accepted values are `"ALL"` (all available
-  boundaries) or the ADM level (`"ADM0"` is the country boundary,
-  `"ADM1"` is the first level of sub national boundaries, `"ADM2"` is
-  the second level and so on.
+  Type of boundary Accepted values are `"all"` (all available
+  boundaries) or the ADM level (`"adm0"` is the country boundary,
+  `"adm1"` is the first level of sub national boundaries, `"adm2"` is
+  the second level and so on. Upper case version (`"ADM1"`) and the
+  number of the level (`1, 2, 3, 4, 5`) and also accepted.
 
 - release_type:
 
-  One of `"gbOpen"`, `"gbHumanitarian"`, `"gbAuthoritative"`. Source of
-  the spatial data. See **Details**.
+  One of `"gbOpen"`, `"gbHumanitarian"`, `"gbAuthoritative"`. For most
+  users, we suggest using `"gbOpen"` (the default), as it is CC-BY 4.0
+  compliant and can be used for most purposes so long as attribution is
+  provided:
+
+  - `"gbHumanitarian"` files are mirrored from [UN
+    OCHA](https://www.unocha.org/), but may have less open licensure.
+
+  - `"gbAuthoritative"` files are mirrored from [UN
+    SALB](https://salb.un.org/en), and cannot be used for commercial
+    purposes, but are verified through in-country processes.
 
 ## Value
 
-A tibble.
+A tibble with class
+[`tbl_df`](https://tibble.tidyverse.org/reference/tbl_df-class.html).
 
 ## Details
 
-Equivalent to `gb_get(..., metadata = TRUE)`. See **Details** in
-[`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md).
+The result would be a tibble with the following columns:
+
+- `boundaryID`: The ID for this layer, which is a combination of the ISO
+  code, the boundary type, and a unique identifier for the boundary
+  generated based on the input metadata and geometry. This only changes
+  if the underlying data changes.
+
+- `boundaryName`: The name of the country the layer represents.
+
+- `boundaryISO`: ISO-3166-1 (Alpha 3) code for the country.
+
+- `boundaryYearRepresented`: The year, or range of years in
+  `"START to END"` format, which the boundary layers represent.
+
+- `boundaryType`: The type of boundary.
+
+- `boundaryCanonical`: The canonical name of a given boundary.
+
+- `boundarySource`: A comma-separated list of the primary sources for
+  the boundary.
+
+- `boundarySource`: A comma-separated list of the primary sources for
+  the boundary.
+
+- `boundaryLicense`: The original license that the dataset was released
+  under by the primary source.
+
+- `licenseDetail`: Any notes regarding the license.
+
+- `licenseSource`: The URL of the primary source.
+
+- `sourceDataUpdateDate`: The date the source information was integrated
+  into the geoBoundaries repository.
+
+- `buildDate`: The date the source data was most recently standardized
+  and built into a geoBoundaries release.
+
+- `Continent`: The continent the country is associated with.
+
+- `UNSDG-region`: The United Nations Sustainable Development Goals (SDG)
+  region the country is associated with.
+
+- `UNSDG-subregion`: The United Nations Sustainable Development Goals
+  (SDG) subregion the country is associated with.
+
+- `worldBankIncomeGroup`: The World Bank income group the country is
+  associated with.
+
+- `admUnitCount`: Count of administrative units in the file.
+
+- `meanVertices`: Mean number of vertices defining the boundaries of
+  each administrative unit in the layer.
+
+- `minVertices`: Minimum number of vertices defining a boundary.
+
+- `maxVertices`: Maximum number of vertices defining a boundary.
+
+- `minPerimeterLengthKM`: The minimum perimeter length of an
+  administrative unit in the layer, measured in kilometers (based on a
+  World Equidistant Cylindrical projection).
+
+- `meanPerimeterLengthKM`: The mean perimeter length of an
+  administrative unit in the layer, measured in kilometers (based on a
+  World Equidistant Cylindrical projection).
+
+- `maxPerimeterLengthKM`: The maximum perimeter length of an
+  administrative unit in the layer, measured in kilometers (based on a
+  World Equidistant Cylindrical projection).
+
+- `meanAreaSqKM`: The mean area of all administrative units in the
+  layer, measured in square kilometers (based on a EASE-GRID 2
+  projection).
+
+- `minAreaSqKM`: The minimum area of an administrative unit in the
+  layer, measured in square kilometers (based on a EASE-GRID 2
+  projection).
+
+- `maxAreaSqKM`: The maximum area of an administrative unit in the
+  layer, measured in square kilometers (based on a EASE-GRID 2
+  projection).
+
+- `staticDownloadLink`: The static download link for the aggregate zip
+  file containing all boundary information.
+
+- `gjDownloadURL`: The static download link for the `geoJSON`.
+
+- `tjDownloadURL`: The static download link for the `topoJSON`.
+
+- `imagePreview`: The static download link for the automatically
+  rendered `PNG` of the layer.
+
+- `simplifiedGeometryGeoJSON`: The static download link for the
+  simplified `geoJSON`.
 
 ## See also
 
 [`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md)
+
+Other metadata functions:
+[`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/reference/gb_get_max_adm_lvl.md)
 
 ## Examples
 

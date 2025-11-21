@@ -29,8 +29,7 @@ gb_clear_cache(config = FALSE, cached_data = TRUE, quiet = TRUE)
 
 - quiet:
 
-  Logical, on `FALSE` it displays information of the call. Useful for
-  debugging, default is no messages `quiet = TRUE`.
+  logical. If `TRUE` suppresses informational messages.
 
 ## Value
 
@@ -54,20 +53,20 @@ Other cache utilities:
 
 # \dontrun{
 my_cache <- gb_detect_cache_dir()
-#> ℹ C:\Users\RUNNER~1\AppData\Local\Temp\RtmpmqubwF/geobounds
+#> ℹ C:\Users\RUNNER~1\AppData\Local\Temp\RtmpYb2v9W/geobounds
 # Set an example cache
 ex <- file.path(tempdir(), "example", "cache")
 gb_set_cache_dir(ex, quiet = TRUE)
 
 gb_clear_cache(quiet = FALSE)
-#> ! geobounds data deleted: C:\Users\RUNNER~1\AppData\Local\Temp\RtmpmqubwF/example/cache
+#> Error in gb_clear_cache(quiet = FALSE): could not find function "gb_clear_cache"
 
 # Restore initial cache
 gb_set_cache_dir(my_cache)
-#> ✔ geobounds cache dir is C:\Users\RUNNER~1\AppData\Local\Temp\RtmpmqubwF/geobounds.
+#> ✔ geobounds cache dir is C:\Users\RUNNER~1\AppData\Local\Temp\RtmpYb2v9W/geobounds.
 #> ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.
 identical(my_cache, gb_detect_cache_dir())
-#> ℹ C:\Users\RUNNER~1\AppData\Local\Temp\RtmpmqubwF/geobounds
+#> ℹ C:\Users\RUNNER~1\AppData\Local\Temp\RtmpYb2v9W/geobounds
 #> [1] TRUE
 # }
 ```

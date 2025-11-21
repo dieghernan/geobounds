@@ -11,8 +11,8 @@ borders.
 
 ``` r
 gb_get_cgaz(
-  country = "ALL",
-  adm_lvl = c("ADM0", "ADM1", "ADM2"),
+  country = "all",
+  adm_lvl = "adm0",
   quiet = TRUE,
   overwrite = FALSE,
   cache_dir = NULL
@@ -21,32 +21,33 @@ gb_get_cgaz(
 
 ## Source
 
-geoboundaries API Service <https://www.geoboundaries.org/api.html>.
+geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
 
 ## Arguments
 
 - country:
 
-  A character vector of country codes. It could be either `"ALL"` (that
+  A character vector of country codes. It could be either `"all"` (that
   would return the data for all countries), a vector of country names or
   ISO3 country codes. See also
   [`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/reference/countrycode.html).
 
 - adm_lvl:
 
-  Type of boundary Accepted values are the ADM level (`"ADM0"` is the
-  country boundary, `"ADM1"` is the first level of sub national
-  boundaries, `"ADM2"` is the second level).
+  Type of boundary Accepted values are administrative levels 0, 1 and 2
+  (`"adm0"` is the country boundary, `"adm1"` is the first level of sub
+  national boundaries, `"adm2"` is the second level and so on. Upper
+  case version (`"ADM1"`) and the number of the level (`0, 1, 2`) and
+  also accepted.
 
 - quiet:
 
-  Logical, on `FALSE` it displays information of the call. Useful for
-  debugging, default is no messages `quiet = TRUE`.
+  logical. If `TRUE` suppresses informational messages.
 
 - overwrite:
 
-  A logical whether to update cache. Default is `FALSE`. When set to
-  `TRUE` it would force a fresh download of the source `.gpkg` file.
+  logical. When set to `TRUE` it would force a fresh download of the
+  source `.zip` file.
 
 - cache_dir:
 
@@ -55,7 +56,9 @@ geoboundaries API Service <https://www.geoboundaries.org/api.html>.
   [`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_set_cache_dir.md)).
   If no cache directory has been set, files would be stored in the
   temporary directory (see
-  [`base::tempdir()`](https://rdrr.io/r/base/tempfile.html)).
+  [`base::tempdir()`](https://rdrr.io/r/base/tempfile.html)). See
+  caching strategies in
+  [`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_set_cache_dir.md).
 
 ## Value
 
@@ -77,7 +80,7 @@ downloads.
 ## References
 
 Runfola, D. et al. (2020) geoBoundaries: A global database of political
-administrative boundaries. *PLOS ONE* 15(4): e0231866.
+administrative boundaries. *PLoS ONE* 15(4): e0231866.
 [doi:10.1371/journal.pone.0231866](https://doi.org/10.1371/journal.pone.0231866)
 .
 
