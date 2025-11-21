@@ -14,12 +14,21 @@ convention `object_verb()` (see
 - `get_gb_cgaz()` -\>
   [`gb_get_cgaz()`](https://dieghernan.github.io/geobounds/reference/gb_get_cgaz.md).
 - `get_gb_meta()` -\>
-  [`gb_get_meta()`](https://dieghernan.github.io/geobounds/reference/gb_get_meta.md).
+  [`gb_get_meta()`](https://dieghernan.github.io/geobounds/reference/gb_get_meta.md)
+  (or its alias
+  [`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_meta.md)).
+
+Additionally, the `metadata` argument has been removed. Use
+[`gb_get_meta()`](https://dieghernan.github.io/geobounds/reference/gb_get_meta.md)
+instead.
 
 #### Other changes
 
 - [`gb_get_adm5()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
   added.
+- [`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/reference/gb_get_max_adm_lvl.md)
+  added.
+- 
 - All functions:
   - Source files: Use of the `.zip/.shp` version of the dataset instead
     of `.geojson/.gpkg`. This implies that the **geojsonsf** dependency
