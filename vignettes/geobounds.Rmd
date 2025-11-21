@@ -168,29 +168,29 @@ example:
 ``` r
 # Current folder
 current <- gb_detect_cache_dir()
-#> ℹ 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpyQmP6J'
+#> ℹ 'C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp4ub4GL'
 
 current
-#> [1] "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\RtmpyQmP6J"
+#> [1] "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\Rtmp4ub4GL"
 
 # Change to new
 newdir <- file.path(tempdir(), "/geoboundvignette")
 gb_set_cache_dir(newdir)
-#> ✔ geobounds cache dir is 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpyQmP6J//geoboundvignette'.
+#> ✔ geobounds cache dir is 'C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp4ub4GL//geoboundvignette'.
 #> ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.
 
 # Download
 example <- gb_get_adm0("Vatican City", quiet = FALSE)
 #> ℹ Downloading file from <https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/VAT/ADM0/geoBoundaries-VAT-ADM0-all.zip>
-#> → Cache dir is 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpyQmP6J//geoboundvignette/gbOpen'
+#> → Cache dir is 'C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp4ub4GL//geoboundvignette/gbOpen'
 
 # Restore cache dir
 gb_set_cache_dir(current)
-#> ✔ geobounds cache dir is 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpyQmP6J'.
+#> ✔ geobounds cache dir is 'C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp4ub4GL'.
 #> ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.
 
 current == gb_detect_cache_dir()
-#> ℹ 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpyQmP6J'
+#> ℹ 'C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp4ub4GL'
 #> [1] TRUE
 ```
 
