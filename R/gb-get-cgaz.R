@@ -9,7 +9,7 @@
 #' level, clipped to international boundaries, with gaps filled between
 #' borders.
 #'
-#' @inherits get_gb source references
+#' @inherit get_gb source references
 #'
 #' @family API functions
 #'

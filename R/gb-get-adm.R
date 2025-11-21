@@ -33,7 +33,7 @@
 #'
 #' @inheritParams gb_get
 #'
-#' @inherits get_gb source references
+#' @inherit get_gb source references
 #'
 #' @seealso [gb_get_max_adm_lvl()].
 #'
