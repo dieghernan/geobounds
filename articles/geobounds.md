@@ -256,5 +256,5 @@ with minimal overhead.
 Runfola, Daniel, Austin Anderson, Heather Baier, Matt Crittenden,
 Elizabeth Dowker, Sydney Fuhrig, Seth Goodman, et al. 2020.
 “geoBoundaries: A Global Database of Political Administrative
-Boundaries.” *PLOS ONE* 15 (4): 1–9.
+Boundaries.” *PLoS ONE* 15 (4): 1–9.
 <https://doi.org/10.1371/journal.pone.0231866>.
