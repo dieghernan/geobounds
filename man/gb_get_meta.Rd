@@ -4,9 +4,6 @@
 \alias{gb_get_meta}
 \alias{gb_get_metadata}
 \title{Get metadata of individual country files from geoBoundaries}
-\source{
-geoBoundaries API Service \url{https://www.geoboundaries.org/api.html}.
-}
 \usage{
 gb_get_meta(
   country = "all",

@@ -3,9 +3,6 @@
 \name{gb_get_cgaz}
 \alias{gb_get_cgaz}
 \title{Get global composites data (CGAZ) from geoBoundaries}
-\source{
-geoBoundaries API Service \url{https://www.geoboundaries.org/api.html}.
-}
 \usage{
 gb_get_cgaz(
   country = "all",
@@ -74,11 +71,6 @@ ggplot(world) +
   labs(caption = "Source: www.geoboundaries.org")
 }
 \dontshow{\}) # examplesIf}
-}
-\references{
-Runfola, D. et al. (2020) geoBoundaries: A global database of political
-administrative boundaries. \emph{PLoS ONE} 15(4): e0231866.
-\doi{10.1371/journal.pone.0231866}.
 }
 \seealso{
 Other API functions: 
