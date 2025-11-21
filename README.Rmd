@@ -18,7 +18,6 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 
-knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
 ```
 
 # geobounds <img src="man/figures/logo.png" align="right" height="139"/>
@@ -105,7 +104,7 @@ ggplot(sri_lanka_adm3) +
 
 Get a map with the level of coverage of geoBoundaries by country:
 
-```{r map-coverage, echo=FALSE, fig.alt="World coverage of geoBoundaries (gbOpen)", crop=TRUE}
+```{r map-coverage, echo=FALSE, fig.alt="World coverage of geoBoundaries (gbOpen)"}
 library(geobounds)
 library(ggplot2)
 library(dplyr)
