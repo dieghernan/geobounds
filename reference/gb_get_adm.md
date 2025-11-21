@@ -83,10 +83,6 @@ gb_get_adm5(
 )
 ```
 
-## Source
-
-geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
-
 ## Arguments
 
 - country:
@@ -148,13 +144,6 @@ boundary (see
 Users using individual boundary files from geoBoundaries should
 additionally ensure that they are citing the sources provided in the
 metadata for each file.
-
-## References
-
-Runfola, D. et al. (2020) geoBoundaries: A global database of political
-administrative boundaries. *PLoS ONE* 15(4): e0231866.
-[doi:10.1371/journal.pone.0231866](https://doi.org/10.1371/journal.pone.0231866)
-.
 
 ## See also
 

@@ -13,10 +13,6 @@ gb_get_meta(
 )
 ```
 
-## Source
-
-geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
-
 ## Arguments
 
 - country:
