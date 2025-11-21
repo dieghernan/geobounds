@@ -17,10 +17,10 @@
         },
         {
           "type": "Organization",
-          "name": "geoBoundaries"
+          "name": "William and Mary geoLab"
         }
       ],
-      "description": "Tools to download data from 'geoBoundaries' <https://www.geoboundaries.org/>. Several administration levels available. See Runfola, D. et al. (2020) geoBoundaries: A global database of political administrative boundaries. PLOS ONE 15(4): e0231866. <doi:10.1371/journal.pone.0231866>.",
+      "description": "Tools to download data from 'geoBoundaries' <https://www.geoboundaries.org/>. Several administration levels available. See Runfola, D. et al. (2020) geoBoundaries: A global database of political administrative boundaries. PLoS ONE 15(4): e0231866. <doi:10.1371/journal.pone.0231866>.",
       "license": "https://spdx.org/licenses/CC-BY-4.0",
       "name": "geobounds: Download Map Data from 'geoBoundaries'",
       "programmingLanguage": {

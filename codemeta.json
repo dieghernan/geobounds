@@ -2,7 +2,7 @@
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "geobounds",
-  "description": "Tools to download data from 'geoBoundaries' <https://www.geoboundaries.org/>. Several administration levels available. See Runfola, D. et al. (2020) geoBoundaries: A global database of political administrative boundaries. PLOS ONE 15(4): e0231866. <doi:10.1371/journal.pone.0231866>.",
+  "description": "Tools to download data from 'geoBoundaries' <https://www.geoboundaries.org/>. Several administration levels available. See Runfola, D. et al. (2020) geoBoundaries: A global database of political administrative boundaries. PLoS ONE 15(4): e0231866. <doi:10.1371/journal.pone.0231866>.",
   "name": "geobounds: Download Map Data from 'geoBoundaries'",
   "relatedLink": "https://dieghernan.github.io/geobounds/",
   "codeRepository": "https://github.com/dieghernan/geobounds",
@@ -34,7 +34,7 @@
     },
     {
       "@type": "Organization",
-      "name": "geoBoundaries"
+      "name": "William and Mary geoLab"
     }
   ],
   "maintainer": [
@@ -97,6 +97,18 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "spelling",
+      "name": "spelling",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=spelling"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "testthat",
       "name": "testthat",
       "version": ">= 3.0.0",
@@ -107,6 +119,18 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=testthat"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "tibble",
+      "name": "tibble",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=tibble"
     }
   ],
   "softwareRequirements": {
@@ -182,10 +206,15 @@
       "identifier": "tools",
       "name": "tools"
     },
+    "8": {
+      "@type": "SoftwareApplication",
+      "identifier": "utils",
+      "name": "utils"
+    },
     "SystemRequirements": null
   },
   "keywords": ["administrative-boundaries", "api", "geoboundaries", "r", "r-package", "spatial-data"],
-  "fileSize": "314.55KB",
+  "fileSize": "350.004KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -315,7 +344,7 @@
         "isPartOf": {
           "@type": ["PublicationVolume", "Periodical"],
           "volumeNumber": "15",
-          "name": "PLOS ONE"
+          "name": "PLoS ONE"
         }
       }
     }

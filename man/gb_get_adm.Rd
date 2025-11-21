@@ -10,14 +10,13 @@
 \alias{gb_get_adm5}
 \title{Get country files from geoBoundaries for a given administration level}
 \source{
-geoboundaries API Service \url{https://www.geoboundaries.org/api.html}.
+geoBoundaries API Service \url{https://www.geoboundaries.org/api.html}.
 }
 \usage{
 gb_get_adm0(
   country,
   simplified = FALSE,
   release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative"),
-  metadata = FALSE,
   quiet = TRUE,
   overwrite = FALSE,
   cache_dir = NULL
@@ -27,7 +26,6 @@ gb_get_adm1(
   country,
   simplified = FALSE,
   release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative"),
-  metadata = FALSE,
   quiet = TRUE,
   overwrite = FALSE,
   cache_dir = NULL
@@ -37,7 +35,6 @@ gb_get_adm2(
   country,
   simplified = FALSE,
   release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative"),
-  metadata = FALSE,
   quiet = TRUE,
   overwrite = FALSE,
   cache_dir = NULL
@@ -47,7 +44,6 @@ gb_get_adm3(
   country,
   simplified = FALSE,
   release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative"),
-  metadata = FALSE,
   quiet = TRUE,
   overwrite = FALSE,
   cache_dir = NULL
@@ -57,7 +53,6 @@ gb_get_adm4(
   country,
   simplified = FALSE,
   release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative"),
-  metadata = FALSE,
   quiet = TRUE,
   overwrite = FALSE,
   cache_dir = NULL
@@ -67,7 +62,6 @@ gb_get_adm5(
   country,
   simplified = FALSE,
   release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative"),
-  metadata = FALSE,
   quiet = TRUE,
   overwrite = FALSE,
   cache_dir = NULL
@@ -75,33 +69,37 @@ gb_get_adm5(
 }
 \arguments{
 \item{country}{A character vector of country codes. It could be either
-\code{"ALL"} (that would return the data for all countries), a vector of country
+\code{"all"} (that would return the data for all countries), a vector of country
 names or ISO3 country codes. See also \code{\link[countrycode:countrycode]{countrycode::countrycode()}}.}
 
-\item{simplified}{Logical. Return the simplified boundary or not.}
+\item{simplified}{logical. Return the simplified boundary or not. The default
+\code{FALSE} would use the premier geoBoundaries release.}
 
 \item{release_type}{One of \code{"gbOpen"}, \code{"gbHumanitarian"},
-\code{"gbAuthoritative"}. Source of the spatial data. See \strong{Details}.}
+\code{"gbAuthoritative"}. For most users, we suggest using \code{"gbOpen"}
+(the default), as it is CC-BY 4.0 compliant and can be used for most
+purposes so long as attribution is provided:
+\itemize{
+\item \code{"gbHumanitarian"} files are mirrored from
+\href{https://www.unocha.org/}{UN OCHA}, but may have less open licensure.
+\item \code{"gbAuthoritative"} files are mirrored from
+\href{https://salb.un.org/en}{UN SALB}, and cannot  be used for commercial
+purposes, but are verified through in-country processes.
+}}
 
-\item{metadata}{Should the result be the metadata of the boundary?}
+\item{quiet}{logical. If \code{TRUE} suppresses informational messages.}
 
-\item{quiet}{Logical, on \code{FALSE} it displays information of the call. Useful
-for debugging, default is no messages \code{quiet = TRUE}.}
-
-\item{overwrite}{A logical whether to update cache. Default is \code{FALSE}.
-When set to \code{TRUE} it would force a fresh download of the source
-\code{.geojson} file.}
+\item{overwrite}{logical. When set to \code{TRUE} it would force a fresh
+download of the source \code{.zip} file.}
 
 \item{cache_dir}{A path to a cache directory. If not set (the default
 \code{NULL}), the data would be stored in the default cache directory (see
 \code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}). If no cache directory has been set, files would be
-stored in the temporary directory (see \code{base::tempdir()}).}
+stored in the temporary directory (see \code{base::tempdir()}). See caching
+strategies in \code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}.}
 }
 \value{
-\itemize{
-\item With \code{metadata = FALSE}: A \code{\link[sf:sf]{sf}} object.
-\item With \code{metadata = TRUE}: A tibble.
-}
+A \code{\link[sf:sf]{sf}} object.
 }
 \description{
 \href{https://www.geoboundaries.org/index.html#usage}{Attribution} is required
@@ -123,10 +121,15 @@ boundaries.
 boundaries.
 }
 
-Note that not all countries have the same number of levels.
+Note that not all countries have the same number of levels. Check
+\link{gb_get_max_adm_lvl}.
 }
 \details{
-See \strong{Details} in \code{\link[=gb_get]{gb_get()}}.
+Individual data files in the geoBoundaries database are governed by the
+license or licenses identified within the metadata for each respective
+boundary (see \code{\link[=gb_get_metadata]{gb_get_metadata()}}. Users using individual boundary files
+from geoBoundaries should additionally ensure that they are citing the
+sources provided in the metadata for each file.
 }
 \examples{
 \dontshow{if (httr2::is_online()) withAutoprint(\{ # examplesIf}
@@ -152,10 +155,12 @@ ggplot(lev2) +
 }
 \references{
 Runfola, D. et al. (2020) geoBoundaries: A global database of political
-administrative boundaries. \emph{PLOS ONE} 15(4): e0231866.
+administrative boundaries. \emph{PLoS ONE} 15(4): e0231866.
 \doi{10.1371/journal.pone.0231866}.
 }
 \seealso{
+\code{\link[=gb_get_max_adm_lvl]{gb_get_max_adm_lvl()}}.
+
 Other API functions: 
 \code{\link{gb_get}()},
 \code{\link{gb_get_cgaz}()}

@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Tools to download data from 'geoBoundaries' \url{https://www.geoboundaries.org/}. Several administration levels available. See Runfola, D. et al. (2020) geoBoundaries: A global database of political administrative boundaries. PLOS ONE 15(4): e0231866. \doi{10.1371/journal.pone.0231866}.
+Tools to download data from 'geoBoundaries' \url{https://www.geoboundaries.org/}. Several administration levels available. See Runfola, D. et al. (2020) geoBoundaries: A global database of political administrative boundaries. PLoS ONE 15(4): e0231866. \doi{10.1371/journal.pone.0231866}.
 }
 \seealso{
 Useful links:
@@ -24,7 +24,7 @@ Useful links:
 
 Other contributors:
 \itemize{
-  \item geoBoundaries [copyright holder]
+  \item William and Mary geoLab [copyright holder]
 }
 
 }

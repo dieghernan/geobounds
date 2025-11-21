@@ -16,8 +16,8 @@ template:
 authors:
   Diego Hernangómez:
     href: https://dieghernan.github.io/
-  geoBoundaries:
-    href: https://www.geoboundaries.org/
+  William and Mary geoLab:
+    href: https://sites.google.com/view/wmgeolab/
 
 home:
   title: geobounds | R package for download geodata from geoBoundaries

@@ -2,6 +2,14 @@
 https://www.geoboundaries.org/
 ========================================
 
+Individual data files in the geoBoundaries database are governed by the license
+or licenses identified within the metadata for each respective boundary. Users
+using individual boundary files from geoBoundaries should additionally
+ensure that they are citing the sources provided in the metadata for each file.
+
+Citation of the geoBoundaries Data Product
+==========================================
+
 geoBoundaries datasets are provided under the CC BY 4.0 license, which allows
 for most commmercial, noncommercial, and academic uses. Our license requires an
 acknowledgement in any products you produce which use this data.
@@ -14,13 +22,13 @@ Written Works
 =============
 
 For written works that use geoBoundaries in analysis, we ask that you cite our
-PLOS One Publication. We recommend either of the below (long or short form)
+PLoS One Publication. We recommend either of the below (long or short form)
 citations, but feel free to adapt to your own citation style.
 
  - Short Form:
 
 Runfola, D. et al. (2020) geoBoundaries: A global database of political
-administrative boundaries. PLOS ONE 15(4): e0231866.
+administrative boundaries. PLoS ONE 15(4): e0231866.
 https://doi.org/10.1371/journal.pone.0231866
 
 

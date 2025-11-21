@@ -11,14 +11,6 @@
 #' would load it for future sessions. Type `gb_detect_cache_dir()` to find
 #' your cached path.
 #'
-#' Alternatively, you can store the `cache_dir` manually with the following
-#' options:
-#'  - Run `Sys.setenv(GEOBOUNDS_CACHE_DIR = "cache_dir")`. You would need to
-#'    run this command on each session (Similar to `install = FALSE`).
-#'  - Write this line on your .Renviron file:
-#'    `GEOBOUNDS_CACHE_DIR = "value_for_cache_dir"` (same behavior than
-#'    `install = TRUE`). This would store your `cache_dir` permanently.
-#'
 #' @param cache_dir A path to a cache directory. On missing value the function
 #'   would store the cached files on a temporary dir (See [base::tempdir()]).
 #' @param install Logical. If `TRUE`, will install the key in your local
@@ -26,6 +18,26 @@
 #'   is `FALSE` this parameter is set to `FALSE` automatically.
 #' @param overwrite Logical. If this is set to `TRUE`, it will overwrite an
 #'   existing `cache_dir`.
+#'
+#'
+#' @details
+#' By default, when no cache `cache_dir` is set the package uses a folder inside
+#' [base::tempdir()] (so files are temporary and are removed when the **R**
+#' session ends). To persist a cache across **R** sessions, use
+#' `gb_set_cache(path, install = TRUE)` which writes the chosen path to a small
+#' configuration file under `tools::R_user_dir("geobounds", "config")`.
+#'
+#' @section Caching strategies:
+#'
+#' - For occasional use, rely on the default [tempdir()]-based cache (no
+#'   install).
+#' - Modify the cache for a single session setting
+#'   `gb_set_cache_dir(cache_dir = "a/path/here)`.
+#' - For reproducible workflows, install a persistent cache with
+#'   `gb_set_cache_dir(cache_dir = "a/path/here, install = TRUE)` that would be
+#'   kept across **R** sessions.
+#' - For caching specific files, use the `cache_dir` argument in the
+#'   corresponding function. See [gb_get()].
 #'
 #' @inheritParams gb_get
 #' @examples
@@ -131,6 +143,111 @@ gb_set_cache_dir <- function(
 
 #' Detect cache dir for \pkg{geobounds}
 #'
+#' @description
+#'
+#' Helper function to detect the current cache folder. See
+#' [gb_set_cache_dir()].
+#'
+#'
+#' @param x Ignored.
+#'
+#' @return
+#' A character with the path to your `cache_dir`. The same path would appear
+#' also as a clickable message, see [`cli::inline-markup`].
+#'
+#' @export
+#'
+#' @rdname gb_detect_cache_dir
+#' @family cache utilities
+#' @examples
+#' gb_detect_cache_dir()
+#'
+gb_detect_cache_dir <- function(x = NULL) {
+  # Cheat linters
+  cd <- x
+  cd <- gb_hlp_detect_cache_dir()
+  cli::cli_alert_info("{.path {cd}}")
+  cd
+}
+
+#' Clear your \pkg{geobounds} cache dir
+#'
+#' @family cache utilities
+#'
+#' @return Invisible. This function is called for its side effects.
+#'
+#' @description
+#' **Use this function with caution**. This function would clear your cached
+#' data and configuration, specifically:
+#'
+#' - Deletes the \pkg{geobounds} config directory
+#'   (`tools::R_user_dir("geobounds", "config")`).
+#' - Deletes the `cache_dir` directory.
+#' - Deletes the values on stored on `Sys.getenv("GEOBOUNDS_CACHE_DIR")`.
+#'
+#' @param config Logical. If `TRUE`, will delete the configuration folder of
+#'   \pkg{geobounds}.
+#' @param cached_data Logical. If `TRUE`, it will delete your `cache_dir` and
+#'   all its content.
+#' @inheritParams gb_set_cache_dir
+#' @rdname gb_clear_cache
+#' @details
+#' This is an overkill function that is intended to reset your status
+#' as it you would never have installed and/or used \pkg{geobounds}.
+#'
+#' @examples
+#'
+#' # Caution! This may modify your current state
+#'
+#' \dontrun{
+#' my_cache <- gb_detect_cache_dir()
+#' # Set an example cache
+#' ex <- file.path(tempdir(), "example", "cache")
+#' gb_set_cache_dir(ex, quiet = TRUE)
+#'
+#' gb_clear_cache(quiet = FALSE)
+#'
+#' # Restore initial cache
+#' gb_set_cache_dir(my_cache)
+#' identical(my_cache, gb_detect_cache_dir())
+#' }
+#'
+gb_clear_cache <- function(
+  config = FALSE,
+  cached_data = TRUE,
+  quiet = TRUE
+) {
+  verbose <- isFALSE(quiet)
+
+  config_dir <- tools::R_user_dir("geobounds", "config")
+  data_dir <- gb_hlp_detect_cache_dir()
+
+  # nocov start
+  if (config && dir.exists(config_dir)) {
+    unlink(config_dir, recursive = TRUE, force = TRUE)
+
+    if (verbose) {
+      cli::cli_alert_warning("{.pkg geobounds} cache config deleted")
+    }
+  }
+  # nocov end
+
+  if (cached_data && dir.exists(data_dir)) {
+    unlink(data_dir, recursive = TRUE, force = TRUE)
+    if (verbose) {
+      cli::cli_alert_warning(
+        "{.pkg geobounds} data deleted: {.file {data_dir}}"
+      )
+    }
+  }
+
+  Sys.setenv(GEOBOUNDS_CACHE_DIR = "")
+
+  # Reset cache dir
+  invisible()
+}
+
+#' Internal (and silent) version of `gb_detect_cache_dir()`
 #' @noRd
 gb_hlp_detect_cache_dir <- function() {
   # Try from getenv
@@ -168,6 +285,7 @@ gb_hlp_detect_cache_dir <- function() {
   }
 }
 
+
 #' Creates `cache_dir`
 #'
 #'
@@ -183,33 +301,4 @@ gb_hlp_cachedir <- function(cache_dir = NULL) {
     dir.create(cache_dir, recursive = TRUE)
   }
   cache_dir
-}
-
-#' Detect cache dir for \pkg{geobounds}
-#'
-#' @description
-#'
-#' Helper function to detect the current cache folder. See
-#' [gb_set_cache_dir()].
-#'
-#'
-#' @param x Ignored.
-#'
-#' @return
-#' A character with the path to your `cache_dir`. The same path would appear
-#' also as a clickable message, see [`cli::inline-markup`].
-#'
-#' @export
-#'
-#' @rdname gb_detect_cache_dir
-#' @family cache utilities
-#' @examples
-#' gb_detect_cache_dir()
-#'
-gb_detect_cache_dir <- function(x = NULL) {
-  # Cheat linters
-  cd <- x
-  cd <- gb_hlp_detect_cache_dir()
-  cli::cli_alert_info("{.path {cd}}")
-  cd
 }

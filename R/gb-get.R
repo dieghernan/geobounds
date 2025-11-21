@@ -13,54 +13,67 @@
 #' @export
 #'
 #' @param country A character vector of country codes. It could be either
-#'   `"ALL"` (that would return the data for all countries), a vector of country
+#'   `"all"` (that would return the data for all countries), a vector of country
 #'   names or ISO3 country codes. See also [countrycode::countrycode()].
-#' @param adm_lvl Type of boundary Accepted values are `"ALL"` (all
-#'   available boundaries) or the ADM level (`"ADM0"` is the country boundary,
-#'   `"ADM1"` is the first level of sub national boundaries, `"ADM2"` is the
-#'   second level and so on.
-#' @param simplified Logical. Return the simplified boundary or not.
+#' @param adm_lvl Type of boundary Accepted values are `"all"` (all
+#'   available boundaries) or the ADM level (`"adm0"` is the country boundary,
+#'   `"adm1"` is the first level of sub national boundaries, `"adm2"` is the
+#'   second level and so on. Upper case version (`"ADM1"`) and the number of
+#'   the level (`1, 2, 3, 4, 5`) and also accepted.
+#' @param simplified logical. Return the simplified boundary or not. The default
+#'   `FALSE` would use the premier geoBoundaries release.
 #' @param release_type One of `"gbOpen"`, `"gbHumanitarian"`,
-#'   `"gbAuthoritative"`. Source of the spatial data. See **Details**.
-#' @param metadata Should the result be the metadata of the boundary?
-#' @param quiet Logical, on `FALSE` it displays information of the call. Useful
-#'   for debugging, default is no messages `quiet = TRUE`.
-#'
-#' @param overwrite A logical whether to update cache. Default is `FALSE`.
-#'  When set to `TRUE` it would force a fresh download of the source
-#'  `.geojson` file.
-#'
-#' @param cache_dir A path to a cache directory. If not set (the default
-#'   `NULL`), the data would be stored in the default cache directory (see
-#'   [gb_set_cache_dir()]). If no cache directory has been set, files would be
-#'   stored in the temporary directory (see `base::tempdir()`).
-#'
-#'
-#' @return
-#'
-#' - With `metadata = FALSE`: A [`sf`][sf::st_sf] object.
-#' - With `metadata = TRUE`: A tibble.
-#'
-#' @source
-#' geoboundaries API Service <https://www.geoboundaries.org/api.html>.
-#'
-#' @references
-#' Runfola, D. et al. (2020) geoBoundaries: A global database of political
-#' administrative boundaries. *PLOS ONE* 15(4): e0231866.
-#' \doi{10.1371/journal.pone.0231866}.
-#'
-#' @family API functions
-#'
-#' @details
-#'
-#'  For most users, we suggest using `"gbOpen"`, as it is CC-BY 4.0 compliant,
-#'  and can be used for most purposes so long as attribution is provided.
-#'
+#'   `"gbAuthoritative"`. For most users, we suggest using `"gbOpen"`
+#'   (the default), as it is CC-BY 4.0 compliant and can be used for most
+#'   purposes so long as attribution is provided:
 #'  - `"gbHumanitarian"` files are mirrored from
 #'    [UN OCHA](https://www.unocha.org/), but may have less open licensure.
 #'  - `"gbAuthoritative"` files are mirrored from
 #'    [UN SALB](https://salb.un.org/en), and cannot  be used for commercial
 #'    purposes, but are verified through in-country processes.
+#' @param quiet logical. If `TRUE` suppresses informational messages.
+#' @param overwrite logical. When set to `TRUE` it would force a fresh
+#'    download of the source `.zip` file.
+#' @param cache_dir A path to a cache directory. If not set (the default
+#'   `NULL`), the data would be stored in the default cache directory (see
+#'   [gb_set_cache_dir()]). If no cache directory has been set, files would be
+#'   stored in the temporary directory (see `base::tempdir()`). See caching
+#'   strategies in [gb_set_cache_dir()].
+#'
+#' @details
+#'
+#' Individual data files in the geoBoundaries database are governed by the
+#' license or licenses identified within the metadata for each respective
+#' boundary (see [gb_get_metadata()]. Users using individual boundary files
+#' from geoBoundaries should additionally ensure that they are citing the
+#' sources provided in the metadata for each file. See **Examples**.
+#'
+#' The following wrappers are also available:
+#'
+#' - [gb_get_adm0()] returns the country boundary.
+#' - [gb_get_adm1()] returns first-level administration
+#'   boundaries (e.g. States in the United States).
+#' - [gb_get_adm2()] returns second-level administration
+#'   boundaries (e.g. Counties in the United States).
+#' - [gb_get_adm3()] returns third-level administration
+#'   boundaries (e.g. towns or cities in some countries).
+#' - [gb_get_adm4()] returns fourth-level administration
+#'   boundaries.
+#' - [gb_get_adm5()] returns fifth-level administration
+#'   boundaries.
+#'
+#' @return
+#' A [`sf`][sf::st_sf] object.
+#'
+#' @source
+#' geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
+#'
+#' @references
+#' Runfola, D. et al. (2020) geoBoundaries: A global database of political
+#' administrative boundaries. *PLoS ONE* 15(4): e0231866.
+#' \doi{10.1371/journal.pone.0231866}.
+#'
+#' @family API functions
 #'
 #' @examplesIf httr2::is_online()
 #'
@@ -68,7 +81,7 @@
 #' # Map level 2 in Sri Lanka
 #' sri_lanka <- gb_get(
 #'   "Sri Lanka",
-#'   adm_lvl = "ADM2",
+#'   adm_lvl = 2,
 #'   simplified = TRUE
 #' )
 #'
@@ -82,53 +95,31 @@
 #'
 #' # Metadata
 #' library(dplyr)
-#' gb_get(
+#' gb_get_meta(
 #'   "Sri Lanka",
-#'   adm_lvl = "ADM2",
-#'   metadata = TRUE
+#'   adm_lvl = 2,
 #' ) %>%
 #'   glimpse()
 #'
 gb_get <- function(
   country,
-  adm_lvl = c("ADM0", "ADM1", "ADM2", "ADM3", "ADM4", "ADM5", "ALL"),
+  adm_lvl = "adm0",
   simplified = FALSE,
   release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative"),
-  metadata = FALSE,
   quiet = TRUE,
   overwrite = FALSE,
   cache_dir = NULL
 ) {
   # Input params
   source <- match.arg(release_type)
-  level <- match.arg(adm_lvl)
+  adm_lvl <- assert_adm_lvl(adm_lvl)
+  country <- gbnds_dev_country2iso(country)
 
-  verbose <- isFALSE(quiet)
-
-  if (any(toupper(country) == "ALL")) {
-    country <- "ALL"
-  } else {
-    country <- gb_helper_countrynames(country)
-  }
-
-  # Prepare query urls
-  urls <- paste(
-    "https://www.geoboundaries.org/api/current",
-    source,
-    country,
-    level,
-    sep = "/"
+  meta_df <- gb_get_metadata(
+    country = country,
+    adm_lvl = adm_lvl,
+    release_type = release_type
   )
-
-  res <- lapply(urls, function(x) {
-    hlp_gb_get_meta(url = x)
-  })
-
-  meta_df <- dplyr::bind_rows(res)
-
-  if (metadata) {
-    return(meta_df)
-  }
 
   if (nrow(meta_df) == 0) {
     cli::cli_alert_danger("Nothing to download, returning {.code NULL}")
@@ -144,10 +135,10 @@ gb_get <- function(
 
   # Call and bind
   res_sf <- lapply(url_bound, function(x) {
-    hlp_gb_get_sf_single(
+    gbnds_dev_shp_query(
       url = x,
       subdir = source,
-      verbose = verbose,
+      quiet = quiet,
       overwrite = overwrite,
       cache_dir = cache_dir,
       simplified = simplified
@@ -159,86 +150,10 @@ gb_get <- function(
   meta_sf
 }
 
-
-hlp_gb_get_meta <- function(url) {
-  # Prepare query
-  q <- httr2::request(url)
-  q <- httr2::req_error(q, is_error = function(x) {
-    FALSE
-  })
-  q <- httr2::req_retry(q, max_tries = 3, is_transient = function(resp) {
-    httr2::resp_status(resp) %in% c(429, 500, 503)
-  })
-  resp <- httr2::req_perform(q)
-
-  # In error inform and return NULL
-  if (httr2::resp_is_error(resp)) {
-    # nolint start: Error code for message
-    err <- paste0(
-      c(
-        httr2::resp_status(resp),
-        httr2::resp_status_desc(resp)
-      ),
-      collapse = " - "
-    )
-
-    # nolint end
-    cli::cli_alert_danger("{.url {url}} gives error {err}")
-
-    return(NULL)
-  }
-
-  # Get the metadata
-  resp_body <- httr2::resp_body_json(resp)
-
-  # Check if single or several responses
-  if ("boundaryID" %in% names(resp_body)) {
-    tb <- dplyr::as_tibble(resp_body)
-  } else {
-    tb <- lapply(resp_body, dplyr::as_tibble)
-    tb <- dplyr::bind_rows(tb)
-  }
-  tb[tb == "nan"] <- NA
-  tb$admUnitCount <- as.numeric(tb$admUnitCount)
-  tb$meanVertices <- as.numeric(tb$meanVertices)
-  tb$minVertices <- as.numeric(tb$minVertices)
-  tb$maxVertices <- as.numeric(tb$maxVertices)
-  tb$minVertices <- as.numeric(tb$minVertices)
-  tb$meanPerimeterLengthKM <- as.numeric(tb$meanPerimeterLengthKM)
-  tb$minPerimeterLengthKM <- as.numeric(tb$minPerimeterLengthKM)
-  tb$maxPerimeterLengthKM <- as.numeric(tb$maxPerimeterLengthKM)
-  tb$meanAreaSqKM <- as.numeric(tb$meanAreaSqKM)
-  tb$minAreaSqKM <- as.numeric(tb$minAreaSqKM)
-  tb$maxAreaSqKM <- as.numeric(tb$maxAreaSqKM)
-
-  # Convert dates
-  up <- tb$sourceDataUpdateDate
-  up <- trimws(gsub("Mon|Tue|Wed|Thu|Fri|Sat|Sun", "", up))
-  mabb <- month.abb
-  mnum <- sprintf("%02d", seq_len(length(mabb)))
-  iter <- seq_len(length(mabb))
-  for (i in iter) {
-    up <- gsub(mabb[i], mnum[i], up)
-  }
-  upconv <- strptime(up, "%m %d %H:%M:%S %Y", tz = "GMT")
-  tb$sourceDataUpdateDate <- upconv
-
-  bd <- tb$buildDate
-  for (i in iter) {
-    bd <- gsub(mabb[i], mnum[i], bd)
-  }
-  bd <- gsub(",", "", bd)
-  bdate <- as.Date(bd, "%m %d %Y")
-  tb$buildDate <- bdate
-
-  tb
-}
-
-
-hlp_gb_get_sf_single <- function(
+gbnds_dev_shp_query <- function(
   url,
   subdir,
-  verbose,
+  quiet,
   overwrite,
   cache_dir,
   cgaz_country = "ALL",
@@ -246,25 +161,25 @@ hlp_gb_get_sf_single <- function(
 ) {
   filename <- basename(url)
   # Prepare cache
-  cache_dir <- gb_hlp_cachedir(cache_dir)
-  cache_dir <- gb_hlp_cachedir(file.path(cache_dir, subdir))
+  path <- gb_hlp_cachedir(cache_dir)
+  path <- gb_hlp_cachedir(file.path(path, subdir))
 
   # Create destfile and clean
-  file_local <- file.path(cache_dir, filename)
+  file_local <- file.path(path, filename)
   file_local <- gsub("//", "/", file_local)
 
   fileoncache <- file.exists(file_local)
 
   # Check if cached
   if (isFALSE(overwrite) && fileoncache) {
-    if (verbose) {
+    if (!quiet) {
       cli::cli_alert_success("File {.file {file_local}} already cached")
     }
   } else {
     # Download
-    if (verbose) {
+    if (!quiet) {
       cli::cli_alert_info("Downloading file from {.url {url}}")
-      cli::cli_alert("Cache dir is {.path {cache_dir}}")
+      cli::cli_alert("Cache dir is {.path {path}}")
     }
 
     # Prepare download
@@ -275,7 +190,7 @@ hlp_gb_get_sf_single <- function(
     q <- httr2::req_retry(q, max_tries = 3, is_transient = function(resp) {
       httr2::resp_status(resp) %in% c(429, 500, 503)
     })
-    if (verbose) {
+    if (!quiet) {
       q <- httr2::req_progress(q)
     }
     get <- httr2::req_perform(q, path = file_local) # nolint
@@ -317,5 +232,5 @@ hlp_gb_get_sf_single <- function(
   if (subdir == "CGAZ" && !("ALL" %in% cgaz_country)) {
     outsf <- outsf[outsf$shapeGroup %in% cgaz_country, ]
   }
-  outsf <- gb_helper_utf8(outsf)
+  outsf <- gbnds_dev_sf_helper(outsf)
 }

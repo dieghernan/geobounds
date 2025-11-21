@@ -1,0 +1,50 @@
+#' Get the highest administrative level available for a given country
+#'
+#' @description
+#' Get a summary of selected or all countries and their highest administrative
+#' level available in geoBoundaries.
+#'
+#' @family metadata functions
+#'
+#' @inheritParams gb_get_metadata
+#'
+#' @return
+#'
+#' A tibble with class [`tbl_df`][tibble::tbl_df-class]  with the country names
+#' and corresponding highest administrative level.
+#'
+#' @source
+#' geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
+#'
+#' @export
+#'
+#' @examplesIf httr2::is_online()
+#'
+#' all <- gb_get_max_adm_lvl()
+#' library(dplyr)
+#'
+#' # Countries with only 1 level available
+#' all %>%
+#'   filter(maxBoundaryType == 1)
+#'
+#' # Countries with level 4 available
+#' all %>%
+#'   filter(maxBoundaryType == 4)
+#'
+gb_get_max_adm_lvl <- function(
+  country = "all",
+  release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative")
+) {
+  release_type <- match.arg(release_type)
+  country <- gbnds_dev_country2iso(country)
+  df <- gb_get_metadata(
+    country = country,
+    adm_lvl = "all",
+    release_type = release_type
+  )
+  df$rank <- as.integer(as.factor(df$boundaryType))
+  res <- tapply(df$rank, df$boundaryISO, max)
+  tib <- dplyr::tibble(boundaryISO = names(res), maxBoundaryType = res - 1)
+  tib$maxBoundaryType <- as.integer(tib$maxBoundaryType)
+  tib
+}

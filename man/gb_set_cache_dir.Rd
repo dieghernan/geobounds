@@ -17,8 +17,7 @@ existing \code{cache_dir}.}
 machine for use in future sessions.  Defaults to \code{FALSE.} If \code{cache_dir}
 is \code{FALSE} this parameter is set to \code{FALSE} automatically.}
 
-\item{quiet}{Logical, on \code{FALSE} it displays information of the call. Useful
-for debugging, default is no messages \code{quiet = TRUE}.}
+\item{quiet}{logical. If \code{TRUE} suppresses informational messages.}
 }
 \value{
 An (invisible) character with the path to your \code{cache_dir}.
@@ -27,17 +26,29 @@ An (invisible) character with the path to your \code{cache_dir}.
 This function will store your \code{cache_dir} path on your local machine and
 would load it for future sessions. Type \code{gb_detect_cache_dir()} to find
 your cached path.
+}
+\details{
+By default, when no cache \code{cache_dir} is set the package uses a folder inside
+\code{\link[base:tempfile]{base::tempdir()}} (so files are temporary and are removed when the \strong{R}
+session ends). To persist a cache across \strong{R} sessions, use
+\code{gb_set_cache(path, install = TRUE)} which writes the chosen path to a small
+configuration file under \code{tools::R_user_dir("geobounds", "config")}.
+}
+\section{Caching strategies}{
 
-Alternatively, you can store the \code{cache_dir} manually with the following
-options:
 \itemize{
-\item Run \code{Sys.setenv(GEOBOUNDS_CACHE_DIR = "cache_dir")}. You would need to
-run this command on each session (Similar to \code{install = FALSE}).
-\item Write this line on your .Renviron file:
-\code{GEOBOUNDS_CACHE_DIR = "value_for_cache_dir"} (same behavior than
-\code{install = TRUE}). This would store your \code{cache_dir} permanently.
+\item For occasional use, rely on the default \code{\link[=tempdir]{tempdir()}}-based cache (no
+install).
+\item Modify the cache for a single session setting
+\verb{gb_set_cache_dir(cache_dir = "a/path/here)}.
+\item For reproducible workflows, install a persistent cache with
+\verb{gb_set_cache_dir(cache_dir = "a/path/here, install = TRUE)} that would be
+kept across \strong{R} sessions.
+\item For caching specific files, use the \code{cache_dir} argument in the
+corresponding function. See \code{\link[=gb_get]{gb_get()}}.
 }
 }
+
 \examples{
 
 # Caution! This may modify your current state

@@ -1,3 +1,29 @@
+assert_adm_lvl <- function(
+  adm_lvl,
+  dict = c("all", paste0("adm", 0:5), 0:5)
+) {
+  if (length(adm_lvl) > 1) {
+    cli::cli_abort(
+      "You can't mix different {.arg adm_lvl}. You entered {.val {adm_lvl}}."
+    )
+  }
+  adm_lvl_clean <- tolower(as.character(adm_lvl))
+  if (!adm_lvl_clean %in% dict) {
+    cli::cli_abort(
+      c(
+        "Not a valid {.arg adm_lvl} level code ({.val {adm_lvl_clean}}).",
+        "Accepted values are {.val {dict}}."
+      )
+    )
+  }
+
+  # Check if number and return correct adm_lvl format
+  if (is.numeric(adm_lvl)) {
+    adm_lvl <- paste0("ADM", adm_lvl)
+  }
+  toupper(adm_lvl)
+}
+
 #' Helper function to convert country names to codes
 #'
 #' Convert country codes
@@ -9,9 +35,12 @@
 #' @return a vector of names
 #'
 #' @noRd
-gb_helper_countrynames <- function(names, out = "iso3c") {
+gbnds_dev_country2iso <- function(names, out = "iso3c") {
   names[tolower(names) == "antartica"] <- "Antarctica"
   out <- "iso3c"
+  if (any(tolower(names) == "all")) {
+    return("ALL")
+  }
 
   # Vectorize
   outnames <- lapply(names, function(x) {
@@ -47,18 +76,7 @@ gb_helper_countrynames <- function(names, out = "iso3c") {
   outnames2
 }
 
-#' Convert sf object to UTF-8
-#'
-#' Convert to UTF-8
-#'
-#' @param data_sf data_sf
-#'
-#' @return data_sf with UTF-8 encoding.
-#'
-#' @source Extracted from [`sf`][sf::st_sf] package.
-#'
-#' @noRd
-gb_helper_utf8 <- function(data_sf) {
+gbnds_dev_sf_helper <- function(data_sf) {
   # From sf/read.R - https://github.com/r-spatial/sf/blob/master/R/read.R
   set_utf8 <- function(x) {
     n <- names(x)

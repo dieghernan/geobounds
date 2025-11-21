@@ -101,7 +101,7 @@ bibentry(
       family = "Hobbs"
     )
   ),
-  journal = "PLOS ONE",
+  journal = "PLoS ONE",
   publisher = "Public Library of Science",
   title = "geoBoundaries: A global database of political administrative boundaries",
   year = 2020,
