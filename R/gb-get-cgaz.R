@@ -9,13 +9,7 @@
 #' level, clipped to international boundaries, with gaps filled between
 #' borders.
 #'
-#' @source
-#' geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
-#'
-#' @references
-#' Runfola, D. et al. (2020) geoBoundaries: A global database of political
-#' administrative boundaries. *PLoS ONE* 15(4): e0231866.
-#' \doi{10.1371/journal.pone.0231866}.
+#' @inherits get_gb source references
 #'
 #' @family API functions
 #'

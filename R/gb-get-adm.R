@@ -29,17 +29,11 @@
 #' @return
 #' A [`sf`][sf::st_sf] object.
 #'
-#' @source
-#' geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
-#'
-#' @references
-#' Runfola, D. et al. (2020) geoBoundaries: A global database of political
-#' administrative boundaries. *PLoS ONE* 15(4): e0231866.
-#' \doi{10.1371/journal.pone.0231866}.
-#'
 #' @family API functions
 #'
 #' @inheritParams gb_get
+#'
+#' @inherits get_gb source references
 #'
 #' @seealso [gb_get_max_adm_lvl()].
 #'

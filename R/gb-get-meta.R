@@ -5,9 +5,7 @@
 #' This function returns metadata of the
 #' [geoBoundaries API](https://www.geoboundaries.org/api.html).
 #'
-#' @source
-#' geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
-#'
+#' @inherits get_gb source
 #'
 #' @family metadata functions
 #'
