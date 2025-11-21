@@ -217,43 +217,17 @@ administrative boundaries. <em>PLoS ONE</em> 15(4): e0231866.
 <span class="r-msg co"><span class="r-pr">#&gt;</span>     intersect, setdiff, setequal, union</span>
 <span class="r-in"><span><span class="fu"><a href="gb_get_meta.html">gb_get_meta</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>  <span class="st">"Sri Lanka"</span>,</span></span>
-<span class="r-in"><span>  adm_lvl <span class="op">=</span> <span class="fl">2</span>,</span></span>
+<span class="r-in"><span>  adm_lvl <span class="op">=</span> <span class="fl">2</span></span></span>
 <span class="r-in"><span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="co"># Check individual license</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">boundaryISO</span>, <span class="va">boundaryType</span>, <span class="va">licenseDetail</span>, <span class="va">licenseSource</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 32</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ boundaryID                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "LKA-ADM2-46371173"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ boundaryName              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Sri Lanka"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ boundaryISO               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "LKA"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ boundaryYearRepresented   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "2017"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ boundaryType              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "ADM2"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ boundaryCanonical         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Unknown"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ boundarySource            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "OpenStreetMap, Wambacher"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ boundaryLicense           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Open Data Commons Open Database License 1.0"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ licenseDetail             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Open Data Commons Open Database License 1.0"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ licenseSource             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "www.openstreetmap.org/copyright"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ boundarySourceURL         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "wambachers-osm.website/boundaries/"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ sourceDataUpdateDate      <span style="color: #949494; font-style: italic;">&lt;dttm&gt;</span> 2023-01-19 07:31:04</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ buildDate                 <span style="color: #949494; font-style: italic;">&lt;date&gt;</span> 2023-12-12</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ Continent                 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Asia"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ `UNSDG-region`            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Central and Southern Asia"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ `UNSDG-subregion`         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Southern Asia"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ worldBankIncomeGroup      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Lower-middle-income Countries"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ admUnitCount              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 25</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ meanVertices              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 2050</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ minVertices               <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 1133</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ maxVertices               <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 3262</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ meanPerimeterLengthKM     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 363.8314</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ minPerimeterLengthKM      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 202.6016</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ maxPerimeterLengthKM      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 608.5452</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ meanAreaSqKM              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 2642.756</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ minAreaSqKM               <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 683.3785</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ maxAreaSqKM               <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 7202.982</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ staticDownloadLink        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "https://github.com/wmgeolab/geoBoundaries/r…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ gjDownloadURL             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "https://github.com/wmgeolab/geoBoundaries/r…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ tjDownloadURL             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "https://github.com/wmgeolab/geoBoundaries/r…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ imagePreview              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "https://github.com/wmgeolab/geoBoundaries/r…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $ simplifiedGeometryGeoJSON <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "https://github.com/wmgeolab/geoBoundaries/r…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Columns: 4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ boundaryISO   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "LKA"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ boundaryType  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "ADM2"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ licenseDetail <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "Open Data Commons Open Database License 1.0"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ licenseSource <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "www.openstreetmap.org/copyright"</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

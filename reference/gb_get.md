@@ -185,41 +185,15 @@ library(dplyr)
 #>     intersect, setdiff, setequal, union
 gb_get_meta(
   "Sri Lanka",
-  adm_lvl = 2,
+  adm_lvl = 2
 ) %>%
+  # Check individual license
+  select(boundaryISO, boundaryType, licenseDetail, licenseSource) %>%
   glimpse()
 #> Rows: 1
-#> Columns: 32
-#> $ boundaryID                <chr> "LKA-ADM2-46371173"
-#> $ boundaryName              <chr> "Sri Lanka"
-#> $ boundaryISO               <chr> "LKA"
-#> $ boundaryYearRepresented   <chr> "2017"
-#> $ boundaryType              <chr> "ADM2"
-#> $ boundaryCanonical         <chr> "Unknown"
-#> $ boundarySource            <chr> "OpenStreetMap, Wambacher"
-#> $ boundaryLicense           <chr> "Open Data Commons Open Database License 1.0"
-#> $ licenseDetail             <chr> "Open Data Commons Open Database License 1.0"
-#> $ licenseSource             <chr> "www.openstreetmap.org/copyright"
-#> $ boundarySourceURL         <chr> "wambachers-osm.website/boundaries/"
-#> $ sourceDataUpdateDate      <dttm> 2023-01-19 07:31:04
-#> $ buildDate                 <date> 2023-12-12
-#> $ Continent                 <chr> "Asia"
-#> $ `UNSDG-region`            <chr> "Central and Southern Asia"
-#> $ `UNSDG-subregion`         <chr> "Southern Asia"
-#> $ worldBankIncomeGroup      <chr> "Lower-middle-income Countries"
-#> $ admUnitCount              <dbl> 25
-#> $ meanVertices              <dbl> 2050
-#> $ minVertices               <dbl> 1133
-#> $ maxVertices               <dbl> 3262
-#> $ meanPerimeterLengthKM     <dbl> 363.8314
-#> $ minPerimeterLengthKM      <dbl> 202.6016
-#> $ maxPerimeterLengthKM      <dbl> 608.5452
-#> $ meanAreaSqKM              <dbl> 2642.756
-#> $ minAreaSqKM               <dbl> 683.3785
-#> $ maxAreaSqKM               <dbl> 7202.982
-#> $ staticDownloadLink        <chr> "https://github.com/wmgeolab/geoBoundaries/r…
-#> $ gjDownloadURL             <chr> "https://github.com/wmgeolab/geoBoundaries/r…
-#> $ tjDownloadURL             <chr> "https://github.com/wmgeolab/geoBoundaries/r…
-#> $ imagePreview              <chr> "https://github.com/wmgeolab/geoBoundaries/r…
-#> $ simplifiedGeometryGeoJSON <chr> "https://github.com/wmgeolab/geoBoundaries/r…
+#> Columns: 4
+#> $ boundaryISO   <chr> "LKA"
+#> $ boundaryType  <chr> "ADM2"
+#> $ licenseDetail <chr> "Open Data Commons Open Database License 1.0"
+#> $ licenseSource <chr> "www.openstreetmap.org/copyright"
 ```
