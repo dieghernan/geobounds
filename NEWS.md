@@ -8,11 +8,17 @@ Functions for downloading data have been renamed to follow the convention
 -   `get_gb()` -\> `gb_get()`.
 -   `get_gb_adm` family -\> `gb_get_adm`.
 -   `get_gb_cgaz()` -\> `gb_get_cgaz()`.
--   `get_gb_meta()` -\> `gb_get_meta()`.
+-   `get_gb_meta()` -\> `gb_get_meta()` (or its alias `gb_get_metadata()`).
+
+
+Additionally, the `metadata` argument has been removed. Use `gb_get_meta()`
+instead.
 
 ### Other changes
 
 -   `gb_get_adm5()` added.
+-   `gb_get_max_adm_lvl()` added.
+- 
 -   All functions:
     -   Source files: Use of the `.zip/.shp` version of the dataset instead of
         `.geojson/.gpkg`. This implies that the **geojsonsf** dependency in
