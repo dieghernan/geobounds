@@ -84,9 +84,11 @@ ggplot(sri_lanka_adm3) +
 
 <img src="man/figures/README-simple_plot-1.png" alt="Map of all administration levels for Sri Lanka" width="100%" />
 
-> Note: This is a simple illustration. See the [package
-> vignettes](https://dieghernan.github.io/geobounds/articles/geobounds.html)
-> for full details on parameters, filters, caching, and advanced usage.
+## Advanced usage
+
+Get a map with the level of coverage of geoBoundaries by country:
+
+<img src="man/figures/README-map-coverage-1.png" alt="World coverage of geoBoundaries (gbOpen)" width="100%" />
 
 ## Documentation & Resources
 

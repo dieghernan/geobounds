@@ -49,7 +49,6 @@ gb_set_cache_dir(my_cache)
 identical(my_cache, gb_detect_cache_dir())
 }
 
-#
 }
 \seealso{
 Other cache utilities: 

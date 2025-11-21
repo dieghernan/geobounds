@@ -10,8 +10,6 @@ Kosovo
 OCHA
 ORCID
 PLoS
-PLoS
-Renviron
 Runfola
 SALB
 SDG
@@ -22,8 +20,8 @@ choropleth
 codecov
 doi
 et
+geoBoundaries
 geoLab
-geoboundaries
 geojsonsf
 geospatial
 licences
@@ -33,3 +31,4 @@ pkgdown
 subregion
 tibble
 tidyverse
+zenodo

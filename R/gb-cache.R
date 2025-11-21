@@ -25,7 +25,7 @@
 #' [base::tempdir()] (so files are temporary and are removed when the **R**
 #' session ends). To persist a cache across **R** sessions, use
 #' `gb_set_cache(path, install = TRUE)` which writes the chosen path to a small
-#' configuration file under `tools::R_user_dir("rgeoboundaries", "config")`.
+#' configuration file under `tools::R_user_dir("geobounds", "config")`.
 #'
 #' @section Caching strategies:
 #'
@@ -165,42 +165,6 @@ gb_set_cache_dir <- function(
 gb_detect_cache_dir <- function(x = NULL) {
   # Cheat linters
   cd <- x
-  gb_hlp_detect_cache_dir <- function() {
-    # Try from getenv
-    getvar <- Sys.getenv("GEOBOUNDS_CACHE_DIR")
-
-    if (is.null(getvar) || is.na(getvar) || getvar == "") {
-      # Not set - tries to retrieve from cache
-      cache_config <- file.path(
-        tools::R_user_dir("geobounds", "config"),
-        "GEOBOUNDS_CACHE_DIR"
-      )
-
-      # nocov start
-      if (file.exists(cache_config)) {
-        cached_path <- readLines(cache_config)
-
-        # Case on empty cached path - would default
-        if (any(is.null(cached_path), is.na(cached_path), cached_path == "")) {
-          cache_dir <- gb_set_cache_dir(overwrite = TRUE, quiet = TRUE)
-          return(cache_dir)
-        }
-
-        # 3. Return from cached path
-        Sys.setenv(GEOBOUNDS_CACHE_DIR = cached_path)
-        cached_path
-        # nocov end
-      } else {
-        # 4. Default cache location
-
-        cache_dir <- gb_set_cache_dir(overwrite = TRUE, quiet = TRUE)
-        cache_dir
-      }
-    } else {
-      getvar
-    }
-  }
-
   cd <- gb_hlp_detect_cache_dir()
   cli::cli_alert_info("{.path {cd}}")
   cd
@@ -248,7 +212,6 @@ gb_detect_cache_dir <- function(x = NULL) {
 #' identical(my_cache, gb_detect_cache_dir())
 #' }
 #'
-#' #
 gb_clear_cache <- function(
   config = FALSE,
   cached_data = TRUE,
@@ -283,6 +246,45 @@ gb_clear_cache <- function(
   # Reset cache dir
   invisible()
 }
+
+#' Internal (and silent) version of `gb_detect_cache_dir()`
+#' @noRd
+gb_hlp_detect_cache_dir <- function() {
+  # Try from getenv
+  getvar <- Sys.getenv("GEOBOUNDS_CACHE_DIR")
+
+  if (is.null(getvar) || is.na(getvar) || getvar == "") {
+    # Not set - tries to retrieve from cache
+    cache_config <- file.path(
+      tools::R_user_dir("geobounds", "config"),
+      "GEOBOUNDS_CACHE_DIR"
+    )
+
+    # nocov start
+    if (file.exists(cache_config)) {
+      cached_path <- readLines(cache_config)
+
+      # Case on empty cached path - would default
+      if (any(is.null(cached_path), is.na(cached_path), cached_path == "")) {
+        cache_dir <- gb_set_cache_dir(overwrite = TRUE, quiet = TRUE)
+        return(cache_dir)
+      }
+
+      # 3. Return from cached path
+      Sys.setenv(GEOBOUNDS_CACHE_DIR = cached_path)
+      cached_path
+      # nocov end
+    } else {
+      # 4. Default cache location
+
+      cache_dir <- gb_set_cache_dir(overwrite = TRUE, quiet = TRUE)
+      cache_dir
+    }
+  } else {
+    getvar
+  }
+}
+
 
 #' Creates `cache_dir`
 #'

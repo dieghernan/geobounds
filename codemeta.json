@@ -206,10 +206,15 @@
       "identifier": "tools",
       "name": "tools"
     },
+    "8": {
+      "@type": "SoftwareApplication",
+      "identifier": "utils",
+      "name": "utils"
+    },
     "SystemRequirements": null
   },
   "keywords": ["administrative-boundaries", "api", "geoboundaries", "r", "r-package", "spatial-data"],
-  "fileSize": "331.777KB",
+  "fileSize": "350.004KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",

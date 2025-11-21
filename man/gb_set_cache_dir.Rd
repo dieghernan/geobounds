@@ -32,7 +32,7 @@ By default, when no cache \code{cache_dir} is set the package uses a folder insi
 \code{\link[base:tempfile]{base::tempdir()}} (so files are temporary and are removed when the \strong{R}
 session ends). To persist a cache across \strong{R} sessions, use
 \code{gb_set_cache(path, install = TRUE)} which writes the chosen path to a small
-configuration file under \code{tools::R_user_dir("rgeoboundaries", "config")}.
+configuration file under \code{tools::R_user_dir("geobounds", "config")}.
 }
 \section{Caching strategies}{
 
