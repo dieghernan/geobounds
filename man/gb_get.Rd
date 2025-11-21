@@ -4,15 +4,14 @@
 \alias{gb_get}
 \title{Get individual country files from geoBoundaries}
 \source{
-geoboundaries API Service \url{https://www.geoboundaries.org/api.html}.
+geoBoundaries API Service \url{https://www.geoboundaries.org/api.html}.
 }
 \usage{
 gb_get(
   country,
-  adm_lvl = c("ADM0", "ADM1", "ADM2", "ADM3", "ADM4", "ADM5", "ALL"),
+  adm_lvl = "adm0",
   simplified = FALSE,
   release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative"),
-  metadata = FALSE,
   quiet = TRUE,
   overwrite = FALSE,
   cache_dir = NULL
@@ -20,38 +19,43 @@ gb_get(
 }
 \arguments{
 \item{country}{A character vector of country codes. It could be either
-\code{"ALL"} (that would return the data for all countries), a vector of country
+\code{"all"} (that would return the data for all countries), a vector of country
 names or ISO3 country codes. See also \code{\link[countrycode:countrycode]{countrycode::countrycode()}}.}
 
-\item{adm_lvl}{Type of boundary Accepted values are \code{"ALL"} (all
-available boundaries) or the ADM level (\code{"ADM0"} is the country boundary,
-\code{"ADM1"} is the first level of sub national boundaries, \code{"ADM2"} is the
-second level and so on.}
+\item{adm_lvl}{Type of boundary Accepted values are \code{"all"} (all
+available boundaries) or the ADM level (\code{"adm0"} is the country boundary,
+\code{"adm1"} is the first level of sub national boundaries, \code{"adm2"} is the
+second level and so on. Upper case version (\code{"ADM1"}) and the number of
+the level (\verb{1, 2, 3, 4, 5}) and also accepted.}
 
-\item{simplified}{Logical. Return the simplified boundary or not.}
+\item{simplified}{logical. Return the simplified boundary or not. The default
+\code{FALSE} would use the premier geoBoundaries release.}
 
 \item{release_type}{One of \code{"gbOpen"}, \code{"gbHumanitarian"},
-\code{"gbAuthoritative"}. Source of the spatial data. See \strong{Details}.}
+\code{"gbAuthoritative"}. For most users, we suggest using \code{"gbOpen"}
+(the default), as it is CC-BY 4.0 compliant and can be used for most
+purposes so long as attribution is provided:
+\itemize{
+\item \code{"gbHumanitarian"} files are mirrored from
+\href{https://www.unocha.org/}{UN OCHA}, but may have less open licensure.
+\item \code{"gbAuthoritative"} files are mirrored from
+\href{https://salb.un.org/en}{UN SALB}, and cannot  be used for commercial
+purposes, but are verified through in-country processes.
+}}
 
-\item{metadata}{Should the result be the metadata of the boundary?}
+\item{quiet}{logical. If \code{TRUE} suppresses informational messages.}
 
-\item{quiet}{Logical, on \code{FALSE} it displays information of the call. Useful
-for debugging, default is no messages \code{quiet = TRUE}.}
-
-\item{overwrite}{A logical whether to update cache. Default is \code{FALSE}.
-When set to \code{TRUE} it would force a fresh download of the source
-\code{.geojson} file.}
+\item{overwrite}{logical. When set to \code{TRUE} it would force a fresh
+download of the source \code{.zip} file.}
 
 \item{cache_dir}{A path to a cache directory. If not set (the default
 \code{NULL}), the data would be stored in the default cache directory (see
 \code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}). If no cache directory has been set, files would be
-stored in the temporary directory (see \code{base::tempdir()}).}
+stored in the temporary directory (see \code{base::tempdir()}). See caching
+strategies in \code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}.}
 }
 \value{
-\itemize{
-\item With \code{metadata = FALSE}: A \code{\link[sf:sf]{sf}} object.
-\item With \code{metadata = TRUE}: A tibble.
-}
+A \code{\link[sf:sf]{sf}} object.
 }
 \description{
 \href{https://www.geoboundaries.org/index.html#usage}{Attribution} is required
@@ -64,14 +68,25 @@ If you would prefer data that explicitly includes disputed areas, please use
 \code{\link[=gb_get_cgaz]{gb_get_cgaz()}}.
 }
 \details{
-For most users, we suggest using \code{"gbOpen"}, as it is CC-BY 4.0 compliant,
-and can be used for most purposes so long as attribution is provided.
+Individual data files in the geoBoundaries database are governed by the
+license or licenses identified within the metadata for each respective
+boundary (see \code{\link[=gb_get_metadata]{gb_get_metadata()}}. Users using individual boundary files
+from geoBoundaries should additionally ensure that they are citing the
+sources provided in the metadata for each file. See \strong{Examples}.
+
+The following wrappers are also available:
 \itemize{
-\item \code{"gbHumanitarian"} files are mirrored from
-\href{https://www.unocha.org/}{UN OCHA}, but may have less open licensure.
-\item \code{"gbAuthoritative"} files are mirrored from
-\href{https://salb.un.org/en}{UN SALB}, and cannot  be used for commercial
-purposes, but are verified through in-country processes.
+\item \code{\link[=gb_get_adm0]{gb_get_adm0()}} returns the country boundary.
+\item \code{\link[=gb_get_adm1]{gb_get_adm1()}} returns first-level administration
+boundaries (e.g. States in the United States).
+\item \code{\link[=gb_get_adm2]{gb_get_adm2()}} returns second-level administration
+boundaries (e.g. Counties in the United States).
+\item \code{\link[=gb_get_adm3]{gb_get_adm3()}} returns third-level administration
+boundaries (e.g. towns or cities in some countries).
+\item \code{\link[=gb_get_adm4]{gb_get_adm4()}} returns fourth-level administration
+boundaries.
+\item \code{\link[=gb_get_adm5]{gb_get_adm5()}} returns fifth-level administration
+boundaries.
 }
 }
 \examples{
@@ -81,7 +96,7 @@ purposes, but are verified through in-country processes.
 # Map level 2 in Sri Lanka
 sri_lanka <- gb_get(
   "Sri Lanka",
-  adm_lvl = "ADM2",
+  adm_lvl = 2,
   simplified = TRUE
 )
 
@@ -95,17 +110,16 @@ ggplot(sri_lanka) +
 
 # Metadata
 library(dplyr)
-gb_get(
+gb_get_meta(
   "Sri Lanka",
-  adm_lvl = "ADM2",
-  metadata = TRUE
+  adm_lvl = 2,
 ) \%>\%
   glimpse()
 \dontshow{\}) # examplesIf}
 }
 \references{
 Runfola, D. et al. (2020) geoBoundaries: A global database of political
-administrative boundaries. \emph{PLOS ONE} 15(4): e0231866.
+administrative boundaries. \emph{PLoS ONE} 15(4): e0231866.
 \doi{10.1371/journal.pone.0231866}.
 }
 \seealso{

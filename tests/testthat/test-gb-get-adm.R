@@ -5,7 +5,7 @@ test_that("Test levels", {
   library(dplyr)
 
   # Get country with all levels
-  db <- gb_get(country = "ALL", adm_lvl = "ALL", metadata = TRUE)
+  db <- gb_get_metadata(country = "ALL", adm_lvl = "ALL")
 
   cnt <- db %>%
     group_by(boundaryISO) %>%
@@ -48,4 +48,50 @@ test_that("Test levels", {
   a <- gb_get(cnt, simplified = TRUE, adm_lvl = "ADM5")
   b <- gb_get_adm5(cnt, simplified = TRUE)
   expect_identical(a, b)
+})
+
+test_that("Release type", {
+  skip_on_cran()
+  skip_if_offline()
+
+  tmpd <- file.path(tempdir(), "testthat")
+  library(dplyr)
+  iso <- gb_get_metadata(release_type = "gbHumanitarian", adm_lvl = "adm0") %>%
+    slice_head(n = 1) %>%
+    pull(boundaryISO)
+
+  res <- gb_get_adm0(
+    iso,
+    simplified = TRUE,
+    release_type = "gbHumanitarian",
+    cache_dir = tmpd
+  )
+  expect_s3_class(res, "sf")
+
+  iso <- gb_get_meta(release_type = "gbAuthoritative", adm_lvl = "adm0") %>%
+    slice_head(n = 1) %>%
+    pull(boundaryISO)
+
+  res <- gb_get_adm0(
+    iso,
+    simplified = TRUE,
+    release_type = "gbAuthoritative",
+    cache_dir = tmpd
+  )
+  expect_s3_class(res, "sf")
+
+  unlink(tmpd, recursive = TRUE)
+  expect_false(dir.exists(tmpd))
+})
+
+test_that("type of object returned is as expected", {
+  skip_on_cran()
+  skip_if_offline()
+  tmpd <- file.path(tempdir(), "testthat")
+  p <- gb_get_adm0(country = c("Andorra", "Vatican"), cache_dir = tmpd)
+  expect_s3_class(p, "sf")
+  expect_true(all(sf::st_geometry_type(p) == "MULTIPOLYGON"))
+
+  unlink(tmpd, recursive = TRUE)
+  expect_false(dir.exists(tmpd))
 })

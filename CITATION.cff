@@ -12,7 +12,7 @@ version: 0.0.1.9000
 doi: 10.5281/zenodo.17554275
 abstract: 'Tools to download data from ''geoBoundaries'' <https://www.geoboundaries.org/>.
   Several administration levels available. See Runfola, D. et al. (2020) geoBoundaries:
-  A global database of political administrative boundaries. PLOS ONE 15(4): e0231866.
+  A global database of political administrative boundaries. PLoS ONE 15(4): e0231866.
   <https://doi.org/10.1371/journal.pone.0231866>.'
 authors:
 - family-names: Hernangómez
@@ -32,7 +32,7 @@ preferred-citation:
   url: https://dieghernan.github.io/geobounds/
   abstract: 'Tools to download data from geoBoundaries <https://www.geoboundaries.org/>.
     Several administration levels available. See Runfola, D. et al. (2020) geoBoundaries:
-    A global database of political administrative boundaries. PLOS ONE 15(4): e0231866.
+    A global database of political administrative boundaries. PLoS ONE 15(4): e0231866.
     <doi:10.1371/journal.pone.0231866>.'
   doi: 10.5281/zenodo.17554275
 repository-code: https://github.com/dieghernan/geobounds
@@ -92,7 +92,7 @@ references:
   - family-names: Hobbs
     given-names: Lauren
   doi: 10.1371/journal.pone.0231866
-  journal: PLOS ONE
+  journal: PLoS ONE
   publisher:
     name: Public Library of Science
   year: '2020'
@@ -308,6 +308,22 @@ references:
   year: '2025'
   doi: 10.32614/CRAN.package.rmarkdown
 - type: software
+  title: spelling
+  abstract: 'spelling: Tools for Spell Checking in R'
+  notes: Suggests
+  url: https://ropensci.r-universe.dev/spelling
+  repository: https://CRAN.R-project.org/package=spelling
+  authors:
+  - family-names: Ooms
+    given-names: Jeroen
+    email: jeroenooms@gmail.com
+    orcid: https://orcid.org/0000-0002-4035-0289
+  - family-names: Hester
+    given-names: Jim
+    email: james.hester@rstudio.com
+  year: '2025'
+  doi: 10.32614/CRAN.package.spelling
+- type: software
   title: testthat
   abstract: 'testthat: Unit Testing for R'
   notes: Suggests
@@ -320,4 +336,20 @@ references:
   year: '2025'
   doi: 10.32614/CRAN.package.testthat
   version: '>= 3.0.0'
+- type: software
+  title: tibble
+  abstract: 'tibble: Simple Data Frames'
+  notes: Suggests
+  url: https://tibble.tidyverse.org/
+  repository: https://CRAN.R-project.org/package=tibble
+  authors:
+  - family-names: Müller
+    given-names: Kirill
+    email: kirill@cynkra.com
+    orcid: https://orcid.org/0000-0002-1416-3412
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@rstudio.com
+  year: '2025'
+  doi: 10.32614/CRAN.package.tibble
 

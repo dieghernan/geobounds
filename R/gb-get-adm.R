@@ -20,33 +20,38 @@
 #' - `gb_get_adm5()` returns fifth-level administration
 #'   boundaries.
 #'
-#' Note that not all countries have the same number of levels.
+#' Note that not all countries have the same number of levels. Check
+#' [gb_get_max_adm_lvl].
 #'
 #' @rdname gb_get_adm
 #' @name gb_get_adm
 #'
 #' @return
-#'
-#' - With `metadata = FALSE`: A [`sf`][sf::st_sf] object.
-#' - With `metadata = TRUE`: A tibble.
+#' A [`sf`][sf::st_sf] object.
 #'
 #' @source
-#' geoboundaries API Service <https://www.geoboundaries.org/api.html>.
+#' geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
 #'
 #' @references
 #' Runfola, D. et al. (2020) geoBoundaries: A global database of political
-#' administrative boundaries. *PLOS ONE* 15(4): e0231866.
+#' administrative boundaries. *PLoS ONE* 15(4): e0231866.
 #' \doi{10.1371/journal.pone.0231866}.
 #'
 #' @family API functions
 #'
 #' @inheritParams gb_get
 #'
+#' @seealso [gb_get_max_adm_lvl()].
+#'
 #' @export
 #'
 #' @details
 #'
-#' See **Details** in [gb_get()].
+#' Individual data files in the geoBoundaries database are governed by the
+#' license or licenses identified within the metadata for each respective
+#' boundary (see [gb_get_metadata()]. Users using individual boundary files
+#' from geoBoundaries should additionally ensure that they are citing the
+#' sources provided in the metadata for each file.
 #'
 #' @examplesIf httr2::is_online()
 #'
@@ -72,7 +77,6 @@ gb_get_adm0 <- function(
   country,
   simplified = FALSE,
   release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative"),
-  metadata = FALSE,
   quiet = TRUE,
   overwrite = FALSE,
   cache_dir = NULL
@@ -82,7 +86,6 @@ gb_get_adm0 <- function(
     release_type = release_type,
     adm_lvl = "ADM0",
     simplified = simplified,
-    metadata = metadata,
     quiet = quiet,
     overwrite = overwrite,
     cache_dir = cache_dir
@@ -95,7 +98,6 @@ gb_get_adm1 <- function(
   country,
   simplified = FALSE,
   release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative"),
-  metadata = FALSE,
   quiet = TRUE,
   overwrite = FALSE,
   cache_dir = NULL
@@ -105,7 +107,6 @@ gb_get_adm1 <- function(
     release_type = release_type,
     adm_lvl = "ADM1",
     simplified = simplified,
-    metadata = metadata,
     quiet = quiet,
     overwrite = overwrite,
     cache_dir = cache_dir
@@ -118,7 +119,6 @@ gb_get_adm2 <- function(
   country,
   simplified = FALSE,
   release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative"),
-  metadata = FALSE,
   quiet = TRUE,
   overwrite = FALSE,
   cache_dir = NULL
@@ -128,7 +128,6 @@ gb_get_adm2 <- function(
     release_type = release_type,
     adm_lvl = "ADM2",
     simplified = simplified,
-    metadata = metadata,
     quiet = quiet,
     overwrite = overwrite,
     cache_dir = cache_dir
@@ -141,7 +140,6 @@ gb_get_adm3 <- function(
   country,
   simplified = FALSE,
   release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative"),
-  metadata = FALSE,
   quiet = TRUE,
   overwrite = FALSE,
   cache_dir = NULL
@@ -151,7 +149,6 @@ gb_get_adm3 <- function(
     release_type = release_type,
     adm_lvl = "ADM3",
     simplified = simplified,
-    metadata = metadata,
     quiet = quiet,
     overwrite = overwrite,
     cache_dir = cache_dir
@@ -164,7 +161,6 @@ gb_get_adm4 <- function(
   country,
   simplified = FALSE,
   release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative"),
-  metadata = FALSE,
   quiet = TRUE,
   overwrite = FALSE,
   cache_dir = NULL
@@ -174,7 +170,6 @@ gb_get_adm4 <- function(
     release_type = release_type,
     adm_lvl = "ADM4",
     simplified = simplified,
-    metadata = metadata,
     quiet = quiet,
     overwrite = overwrite,
     cache_dir = cache_dir
@@ -187,7 +182,6 @@ gb_get_adm5 <- function(
   country,
   simplified = FALSE,
   release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative"),
-  metadata = FALSE,
   quiet = TRUE,
   overwrite = FALSE,
   cache_dir = NULL
@@ -197,7 +191,6 @@ gb_get_adm5 <- function(
     release_type = release_type,
     adm_lvl = "ADM5",
     simplified = simplified,
-    metadata = metadata,
     quiet = quiet,
     overwrite = overwrite,
     cache_dir = cache_dir

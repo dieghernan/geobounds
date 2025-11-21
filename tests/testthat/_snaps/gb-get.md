@@ -1,18 +1,3 @@
-# Metadata errors
-
-    Code
-      err <- gb_get(country = c("AND", "ESP", "ATA"), adm_lvl = "ADM2", metadata = TRUE)
-    Message
-      x <https://www.geoboundaries.org/api/current/gbOpen/AND/ADM2> gives error 404 - Not Found
-      x <https://www.geoboundaries.org/api/current/gbOpen/ATA/ADM2> gives error 404 - Not Found
-
----
-
-    Code
-      err2 <- gb_get(country = "ATA", adm_lvl = "ADM2", metadata = TRUE)
-    Message
-      x <https://www.geoboundaries.org/api/current/gbOpen/ATA/ADM2> gives error 404 - Not Found
-
 # NULL output
 
     Code
@@ -25,7 +10,7 @@
 
     Code
       res_sf <- lapply(url_bound, function(x) {
-        hlp_gb_get_sf_single(url = x, subdir = "gbOpen", verbose = FALSE, overwrite = FALSE,
+        gbnds_dev_shp_query(url = x, subdir = "gbOpen", quiet = TRUE, overwrite = FALSE,
           cache_dir = tempdir())
       })
     Message
@@ -35,7 +20,7 @@
 
     Code
       res_sf <- lapply(url_bound, function(x) {
-        hlp_gb_get_sf_single(url = x, subdir = "gbOpen", verbose = FALSE, overwrite = FALSE,
+        gbnds_dev_shp_query(url = x, subdir = "gbOpen", quiet = TRUE, overwrite = FALSE,
           cache_dir = tempdir(), simplified = TRUE)
       })
     Message

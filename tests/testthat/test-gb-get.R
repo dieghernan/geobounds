@@ -1,81 +1,3 @@
-test_that("Metadata calls", {
-  skip_on_cran()
-  skip_if_offline()
-
-  # Single metadata
-  meta <- gb_get(
-    country = "Portugal",
-    adm_lvl = "ADM0",
-    metadata = TRUE
-  )
-
-  expect_s3_class(meta, "data.frame")
-  expect_equal(nrow(meta), 1L)
-
-  # One call, several sources
-  meta2 <- gb_get(
-    country = "Portugal",
-    adm_lvl = "ALL",
-    metadata = TRUE
-  )
-  expect_s3_class(meta2, "data.frame")
-  expect_gt(nrow(meta2), 1L)
-
-  # Several call, several sources
-  meta3 <- gb_get(
-    country = c("Portugal", "Italy"),
-    adm_lvl = "ALL",
-    metadata = TRUE
-  )
-
-  expect_s3_class(meta3, "data.frame")
-  expect_gt(nrow(meta3), nrow(meta2))
-
-  # Debug of ALL in countries
-  all1 <- gb_get(
-    country = "ALL",
-    adm_lvl = "ADM0",
-    metadata = TRUE
-  )
-  expect_s3_class(all1, "data.frame")
-  expect_gt(nrow(all1), 100)
-
-  all2 <- gb_get(
-    country = c("ALL", "Spain"),
-    adm_lvl = "ADM0",
-    metadata = TRUE
-  )
-  expect_s3_class(all2, "data.frame")
-  expect_identical(all1, all2)
-})
-
-test_that("Metadata errors", {
-  skip_on_cran()
-  skip_if_offline()
-  expect_snapshot(
-    err <- gb_get(
-      country = c("AND", "ESP", "ATA"),
-      adm_lvl = "ADM2",
-      metadata = TRUE
-    )
-  )
-
-  expect_s3_class(err, "data.frame")
-  expect_equal(nrow(err), 1)
-
-  expect_snapshot(
-    err2 <- gb_get(
-      country = "ATA",
-      adm_lvl = "ADM2",
-      metadata = TRUE
-    )
-  )
-
-  expect_s3_class(err2, "data.frame")
-  expect_equal(nrow(err2), 0)
-})
-
-
 test_that("NULL output", {
   skip_on_cran()
   skip_if_offline()
@@ -165,10 +87,10 @@ test_that("Fail gracefully single", {
 
   expect_snapshot(
     res_sf <- lapply(url_bound, function(x) {
-      hlp_gb_get_sf_single(
+      gbnds_dev_shp_query(
         url = x,
         subdir = "gbOpen",
-        verbose = FALSE,
+        quiet = TRUE,
         overwrite = FALSE,
         cache_dir = tempdir()
       )
@@ -199,10 +121,10 @@ test_that("Fail gracefully several", {
 
   expect_snapshot(
     res_sf <- lapply(url_bound, function(x) {
-      hlp_gb_get_sf_single(
+      gbnds_dev_shp_query(
         url = x,
         subdir = "gbOpen",
-        verbose = FALSE,
+        quiet = TRUE,
         overwrite = FALSE,
         cache_dir = tempdir(),
         simplified = TRUE
@@ -219,10 +141,10 @@ test_that("Fail gracefully several", {
   url_bound <- c(url, geoms)
 
   res_sf <- lapply(url_bound, function(x) {
-    hlp_gb_get_sf_single(
+    gbnds_dev_shp_query(
       url = x,
       subdir = "gbOpen",
-      verbose = FALSE,
+      quiet = TRUE,
       overwrite = FALSE,
       cache_dir = tempdir()
     )

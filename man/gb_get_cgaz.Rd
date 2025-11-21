@@ -4,12 +4,12 @@
 \alias{gb_get_cgaz}
 \title{Get global composites data (CGAZ) from geoBoundaries}
 \source{
-geoboundaries API Service \url{https://www.geoboundaries.org/api.html}.
+geoBoundaries API Service \url{https://www.geoboundaries.org/api.html}.
 }
 \usage{
 gb_get_cgaz(
-  country = "ALL",
-  adm_lvl = c("ADM0", "ADM1", "ADM2"),
+  country = "all",
+  adm_lvl = "adm0",
   quiet = TRUE,
   overwrite = FALSE,
   cache_dir = NULL
@@ -17,24 +17,25 @@ gb_get_cgaz(
 }
 \arguments{
 \item{country}{A character vector of country codes. It could be either
-\code{"ALL"} (that would return the data for all countries), a vector of country
+\code{"all"} (that would return the data for all countries), a vector of country
 names or ISO3 country codes. See also \code{\link[countrycode:countrycode]{countrycode::countrycode()}}.}
 
-\item{adm_lvl}{Type of boundary Accepted values are the ADM level
-(\code{"ADM0"} is the country boundary, \code{"ADM1"} is the first level of sub
-national boundaries, \code{"ADM2"} is the second level).}
+\item{adm_lvl}{Type of boundary Accepted values are administrative
+levels 0, 1 and 2 (\code{"adm0"} is the country boundary,
+\code{"adm1"} is the first level of sub national boundaries, \code{"adm2"} is the
+second level and so on. Upper case version (\code{"ADM1"}) and the number of
+the level (\verb{0, 1, 2}) and also accepted.}
 
-\item{quiet}{Logical, on \code{FALSE} it displays information of the call. Useful
-for debugging, default is no messages \code{quiet = TRUE}.}
+\item{quiet}{logical. If \code{TRUE} suppresses informational messages.}
 
-\item{overwrite}{A logical whether to update cache. Default is \code{FALSE}.
-When set to \code{TRUE} it would force a fresh download of the source
-\code{.gpkg} file.}
+\item{overwrite}{logical. When set to \code{TRUE} it would force a fresh
+download of the source \code{.zip} file.}
 
 \item{cache_dir}{A path to a cache directory. If not set (the default
 \code{NULL}), the data would be stored in the default cache directory (see
 \code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}). If no cache directory has been set, files would be
-stored in the temporary directory (see \code{base::tempdir()}).}
+stored in the temporary directory (see \code{base::tempdir()}). See caching
+strategies in \code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}.}
 }
 \value{
 A \code{\link[sf:sf]{sf}} object.
@@ -76,7 +77,7 @@ ggplot(world) +
 }
 \references{
 Runfola, D. et al. (2020) geoBoundaries: A global database of political
-administrative boundaries. \emph{PLOS ONE} 15(4): e0231866.
+administrative boundaries. \emph{PLoS ONE} 15(4): e0231866.
 \doi{10.1371/journal.pone.0231866}.
 }
 \seealso{

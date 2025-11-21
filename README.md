@@ -118,6 +118,7 @@ details.
 ## Citation
 
 <p>
+
 Hernangómez D (2025). <em>geobounds: Download Map Data from
 geoBoundaries</em>.
 <a href="https://doi.org/10.5281/zenodo.17554275">doi:10.5281/zenodo.17554275</a>,
@@ -132,7 +133,7 @@ A BibTeX entry for LaTeX users:
       year = {2025},
       version = {0.0.1.9000},
       url = {https://dieghernan.github.io/geobounds/},
-      abstract = {Tools to download data from geoBoundaries <https://www.geoboundaries.org/>. Several administration levels available. See Runfola, D. et al. (2020) geoBoundaries: A global database of political administrative boundaries. PLOS ONE 15(4): e0231866. <doi:10.1371/journal.pone.0231866>.},
+      abstract = {Tools to download data from geoBoundaries <https://www.geoboundaries.org/>. Several administration levels available. See Runfola, D. et al. (2020) geoBoundaries: A global database of political administrative boundaries. PLoS ONE 15(4): e0231866. <doi:10.1371/journal.pone.0231866>.},
       doi = {10.5281/zenodo.17554275},
     }
 
@@ -146,7 +147,7 @@ entry-spacing="0">
 Runfola, Daniel, Austin Anderson, Heather Baier, Matt Crittenden,
 Elizabeth Dowker, Sydney Fuhrig, Seth Goodman, et al. 2020.
 “geoBoundaries: A Global Database of Political Administrative
-Boundaries.” *PLOS ONE* 15 (4): 1–9.
+Boundaries.” *PLoS ONE* 15 (4): 1–9.
 <https://doi.org/10.1371/journal.pone.0231866>.
 
 </div>
