@@ -54,6 +54,6 @@ all \%>\%
 }
 \seealso{
 Other metadata functions: 
-\code{\link{gb_get_meta}()}
+\code{\link{gb_get_metadata}()}
 }
 \concept{metadata functions}

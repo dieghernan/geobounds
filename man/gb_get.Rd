@@ -110,7 +110,7 @@ ggplot(sri_lanka) +
 
 # Metadata
 library(dplyr)
-gb_get_meta(
+gb_get_metadata(
   "Sri Lanka",
   adm_lvl = 2
 ) \%>\%

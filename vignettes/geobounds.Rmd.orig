@@ -109,7 +109,7 @@ Note that individual data files are governed by the license or licenses
 identified within the metadata for each respective boundary.
 
 ```{r meta}
-gb_get_meta(c("India", "Pakistan"), adm_lvl = "ADM0") %>%
+gb_get_metadata(c("India", "Pakistan"), adm_lvl = "ADM0") %>%
   select(boundaryName, boundaryLicense, boundarySource)
 
 ```
@@ -202,7 +202,7 @@ individual files and the boundaries data of CGAZ:
 ```{r choro, fig.cap="World Bank Income Group: Latin America and the Caribbean "}
 # Metadata
 
-latam_meta <- gb_get_meta(adm_lvl = "ADM0") %>%
+latam_meta <- gb_get_metadata(adm_lvl = "ADM0") %>%
   select(boundaryISO, boundaryName, Continent, worldBankIncomeGroup) %>%
   filter(Continent == "Latin America and the Caribbean") %>%
   glimpse()

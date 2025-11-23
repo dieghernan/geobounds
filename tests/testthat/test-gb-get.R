@@ -108,7 +108,7 @@ test_that("Fail gracefully several", {
   skip_if_offline()
   # Replicate internal logic
 
-  sev <- gb_get_meta(c("Andorra", "Vatican"), adm_lvl = "ADM0")
+  sev <- gb_get_metadata(c("Andorra", "Vatican"), adm_lvl = "ADM0")
   geoms <- sev$staticDownloadLink
 
   # Mock a fake call
@@ -161,14 +161,14 @@ test_that("Release type", {
   skip_on_cran()
   skip_if_offline()
   library(dplyr)
-  iso <- gb_get_meta(release_type = "gbHumanitarian", adm_lvl = "ADM0") %>%
+  iso <- gb_get_metadata(release_type = "gbHumanitarian", adm_lvl = "ADM0") %>%
     slice_head(n = 1) %>%
     pull(boundaryISO)
 
   res <- gb_get_adm0(iso, simplified = TRUE, release_type = "gbHumanitarian")
   expect_s3_class(res, "sf")
 
-  iso <- gb_get_meta(release_type = "gbAuthoritative", adm_lvl = "ADM0") %>%
+  iso <- gb_get_metadata(release_type = "gbAuthoritative", adm_lvl = "ADM0") %>%
     slice_head(n = 1) %>%
     pull(boundaryISO)
 

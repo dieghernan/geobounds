@@ -24,16 +24,14 @@
 #' [gb_get_max_adm_lvl].
 #'
 #' @rdname gb_get_adm
+#'
 #' @name gb_get_adm
 #'
-#' @return
-#' A [`sf`][sf::st_sf] object.
-#'
-#' @family API functions
+#' @inherit gb_get
 #'
 #' @inheritParams gb_get
 #'
-#' @inherit get_gb source references
+#' @family API functions
 #'
 #' @seealso [gb_get_max_adm_lvl()].
 #'

@@ -6,6 +6,7 @@
 #'
 #' @family metadata functions
 #'
+#' @inherit gb_get source
 #' @inheritParams gb_get_metadata
 #'
 #' @return
@@ -13,8 +14,6 @@
 #' A tibble with class [`tbl_df`][tibble::tbl_df-class]  with the country names
 #' and corresponding highest administrative level.
 #'
-#' @source
-#' geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
 #'
 #' @export
 #'

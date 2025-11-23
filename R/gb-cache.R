@@ -212,6 +212,7 @@ gb_detect_cache_dir <- function(x = NULL) {
 #' identical(my_cache, gb_detect_cache_dir())
 #' }
 #'
+#' @export
 gb_clear_cache <- function(
   config = FALSE,
   cached_data = TRUE,

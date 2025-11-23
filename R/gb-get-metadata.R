@@ -5,17 +5,18 @@
 #' This function returns metadata of the
 #' [geoBoundaries API](https://www.geoboundaries.org/api.html).
 #'
-#' @inherit get_gb source
+#' @return
+#' A tibble with class [`tbl_df`][tibble::tbl_df-class].
 #'
-#' @family metadata functions
+#' @inherit gb_get source
 #'
 #' @inheritParams gb_get
+#'
+#' @family metadata functions
 #'
 #' @export
 #'
 #' @seealso [gb_get()]
-#' @return
-#' A tibble with class [`tbl_df`][tibble::tbl_df-class].
 #'
 #' @details
 #'
@@ -84,10 +85,10 @@
 #'
 #' library(dplyr)
 #'
-#' gb_get_meta(adm_lvl = "ADM4") %>%
+#' gb_get_metadata(adm_lvl = "ADM4") %>%
 #'   glimpse()
 #'
-gb_get_meta <- function(
+gb_get_metadata <- function(
   country = "all",
   adm_lvl = "all",
   release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative")
@@ -188,7 +189,8 @@ gbnds_dev_meta_query <- function(url) {
 
   tb
 }
+
 #' @export
-#' @rdname gb_get_meta
+#' @rdname gb_get_metadata
 #' @usage NULL
-gb_get_metadata <- gb_get_meta
+gb_get_meta <- gb_get_metadata

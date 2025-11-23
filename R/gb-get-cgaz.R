@@ -9,20 +9,17 @@
 #' level, clipped to international boundaries, with gaps filled between
 #' borders.
 #'
-#' @inherit get_gb source references
-#'
-#' @family API functions
-#'
-#' @return
-#' A [`sf`][sf::st_sf] object.
-#'
-#' @inheritParams gb_get
-#'
 #' @param adm_lvl Type of boundary Accepted values are administrative
 #'  levels 0, 1 and 2 (`"adm0"` is the country boundary,
 #'  `"adm1"` is the first level of sub national boundaries, `"adm2"` is the
 #'  second level and so on. Upper case version (`"ADM1"`) and the number of
 #'  the level (`0, 1, 2`) and also accepted.
+#'
+#' @inherit gb_get
+#'
+#' @inheritParams gb_get
+#'
+#' @family API functions
 #'
 #' @export
 #'
@@ -86,3 +83,8 @@ gb_get_cgaz <- function(
 
   world
 }
+
+#' @export
+#' @rdname gb_get_cgaz
+#' @usage NULL
+gb_get_world <- gb_get_cgaz

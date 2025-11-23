@@ -9,6 +9,9 @@
 \alias{gb_get_adm4}
 \alias{gb_get_adm5}
 \title{Get country files from geoBoundaries for a given administration level}
+\source{
+geoBoundaries API Service \url{https://www.geoboundaries.org/api.html}.
+}
 \usage{
 gb_get_adm0(
   country,
@@ -149,6 +152,11 @@ ggplot(lev2) +
   )
 }
 \dontshow{\}) # examplesIf}
+}
+\references{
+Runfola, D. et al. (2020) geoBoundaries: A global database of political
+administrative boundaries. \emph{PLoS ONE} 15(4): e0231866.
+\doi{10.1371/journal.pone.0231866}.
 }
 \seealso{
 \code{\link[=gb_get_max_adm_lvl]{gb_get_max_adm_lvl()}}.

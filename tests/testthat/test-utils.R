@@ -53,7 +53,7 @@ test_that("Test full name conversion", {
   skip_on_cran()
   skip_if_offline()
 
-  allnames <- gb_get_meta(adm_lvl = "ADM0")
+  allnames <- gb_get_metadata(adm_lvl = "ADM0")
   nm <- unique(allnames$boundaryName)
   expect_silent(nm2 <- gbnds_dev_country2iso(nm))
   isos <- unique(allnames$boundaryISO)

@@ -103,7 +103,7 @@ ggplot(sri_lanka_adm3) +
 
 Get a map with the level of coverage of geoBoundaries by country:
 
-```{r map-coverage, echo=FALSE, fig.alt="World coverage of geoBoundaries (gbOpen)"}
+```{r map-coverage, fig.alt="World coverage of geoBoundaries (gbOpen)"}
 library(geobounds)
 library(ggplot2)
 library(dplyr)
@@ -138,7 +138,10 @@ ggplot(world_max) +
     legend.text.position = "right",
     legend.key.height = unit(1, "line"),
     legend.key.width = unit(1, "line"),
-    plot.caption = element_text(size = rel(0.7))
+    plot.caption = element_text(
+      size = rel(0.7),
+      margin = margin(r = 4)
+    )
   ) +
   labs(
     fill = "gbOpen: Administrative Divisions (ADMs)",
