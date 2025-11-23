@@ -19,6 +19,10 @@ gb_get_cgaz(
 )
 ```
 
+## Source
+
+geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
+
 ## Arguments
 
 - country:
@@ -72,6 +76,13 @@ downloads.
 
 - Disputed areas are removed and replaced with polygons following US
   Department of State definitions.
+
+## References
+
+Runfola, D. et al. (2020) geoBoundaries: A global database of political
+administrative boundaries. *PLoS ONE* 15(4): e0231866.
+[doi:10.1371/journal.pone.0231866](https://doi.org/10.1371/journal.pone.0231866)
+.
 
 ## See also
 

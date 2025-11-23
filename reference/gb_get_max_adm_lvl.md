@@ -48,7 +48,7 @@ with the country names and corresponding highest administrative level.
 ## See also
 
 Other metadata functions:
-[`gb_get_meta()`](https://dieghernan.github.io/geobounds/reference/gb_get_meta.md)
+[`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md)
 
 ## Examples
 

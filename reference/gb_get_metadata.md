@@ -6,12 +6,16 @@ API](https://www.geoboundaries.org/api.html).
 ## Usage
 
 ``` r
-gb_get_meta(
+gb_get_metadata(
   country = "all",
   adm_lvl = "all",
   release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative")
 )
 ```
+
+## Source
+
+geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
 
 ## Arguments
 
@@ -159,7 +163,7 @@ Other metadata functions:
 
 library(dplyr)
 
-gb_get_meta(adm_lvl = "ADM4") %>%
+gb_get_metadata(adm_lvl = "ADM4") %>%
   glimpse()
 #> Rows: 21
 #> Columns: 32

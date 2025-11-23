@@ -24,7 +24,7 @@ These functions return metadata in tibble format.
 
 - [`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/reference/gb_get_max_adm_lvl.md)
   : Get the highest administrative level available for a given country
-- [`gb_get_meta()`](https://dieghernan.github.io/geobounds/reference/gb_get_meta.md)
+- [`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md)
   : Get metadata of individual country files from geoBoundaries
 
 ## Cache management

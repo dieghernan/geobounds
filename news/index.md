@@ -14,12 +14,10 @@ convention `object_verb()` (see
 - `get_gb_cgaz()` -\>
   [`gb_get_cgaz()`](https://dieghernan.github.io/geobounds/reference/gb_get_cgaz.md).
 - `get_gb_meta()` -\>
-  [`gb_get_meta()`](https://dieghernan.github.io/geobounds/reference/gb_get_meta.md)
-  (or its alias
-  [`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_meta.md)).
+  [`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md).
 
 Additionally, the `metadata` argument has been removed. Use
-[`gb_get_meta()`](https://dieghernan.github.io/geobounds/reference/gb_get_meta.md)
+[`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md)
 instead.
 
 #### Other changes

@@ -93,7 +93,7 @@ A [`sf`](https://r-spatial.github.io/sf/reference/sf.html) object.
 Individual data files in the geoBoundaries database are governed by the
 license or licenses identified within the metadata for each respective
 boundary (see
-[`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_meta.md).
+[`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md).
 Users using individual boundary files from geoBoundaries should
 additionally ensure that they are citing the sources provided in the
 metadata for each file. See **Examples**.
@@ -183,7 +183,7 @@ library(dplyr)
 #> The following objects are masked from 'package:base':
 #> 
 #>     intersect, setdiff, setequal, union
-gb_get_meta(
+gb_get_metadata(
   "Sri Lanka",
   adm_lvl = 2
 ) %>%
