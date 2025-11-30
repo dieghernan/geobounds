@@ -36,7 +36,7 @@ Suggests:
 VignetteBuilder: 
     knitr
 Config/Needs/website: dieghernan/gitdevr, xfun, devtools, remotes,
-    geometries, rapidjsonr, sfheaders, jsonify, magick
+    reactable, magick
 Config/testthat/edition: 3
 Config/testthat/parallel: false
 Copyright: Attribution required. See file COPYRIGHTS for specific
