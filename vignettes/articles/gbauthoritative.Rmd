@@ -20,7 +20,7 @@ src <- "gbAuthoritative"
 ## `r src` coverage
 
 ```{r gautho-coverage, echo=FALSE,  fig.alt="World coverage"}
-library(rgeoboundaries)
+library(geobounds)
 library(ggplot2)
 library(dplyr)
 

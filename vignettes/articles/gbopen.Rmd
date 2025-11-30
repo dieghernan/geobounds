@@ -21,7 +21,7 @@ src <- "gbOpen"
 ## `r src` coverage
 
 ```{r map-coverage, echo=FALSE, fig.alt="World coverage"}
-library(rgeoboundaries)
+library(geobounds)
 library(ggplot2)
 library(dplyr)
 

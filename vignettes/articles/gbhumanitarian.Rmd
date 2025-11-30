@@ -21,7 +21,7 @@ src <- "gbHumanitarian"
 ## `r src` coverage
 
 ```{r ghuman-coverage, echo=FALSE,  fig.alt="World coverage"}
-library(rgeoboundaries)
+library(geobounds)
 library(ggplot2)
 library(dplyr)
 
