@@ -1,6 +1,10 @@
 # Articles
 
-### All vignettes
+### geoBoundaries coverage
 
-- [geobounds: Accessing Global Administrative Boundary Data in
-  R](https://dieghernan.github.io/geobounds/articles/geobounds.md):
+- [gbOpen coverage and
+  metadata](https://dieghernan.github.io/geobounds/articles/gbopen.md):
+- [gbHumanitarian coverage and
+  metadata](https://dieghernan.github.io/geobounds/articles/gbhumanitarian.md):
+- [gbAuthoritative coverage and
+  metadata](https://dieghernan.github.io/geobounds/articles/gbauthoritative.md):
