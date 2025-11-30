@@ -214,7 +214,7 @@
     "SystemRequirements": null
   },
   "keywords": ["administrative-boundaries", "api", "geoboundaries", "r", "r-package", "spatial-data"],
-  "fileSize": "353.535KB",
+  "fileSize": "353.985KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",

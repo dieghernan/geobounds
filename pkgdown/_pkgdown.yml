@@ -26,7 +26,7 @@ navbar:
       icon: fa-earth-americas
       href: https://www.geoboundaries.org/
       aria-label: geoBoundaries
- 
+
 development:
   mode: unreleased
 
@@ -57,7 +57,7 @@ reference:
   - title: About the package
     contents:
       - geobounds-package
- 
+
 articles:
 - title: geoBoundaries coverage
   navbar: geoBoundaries coverage
