@@ -27,3 +27,4 @@
 ^[.]?air[.]toml$
 ^\.vscode$
 ^vignettes/geobounds\.Rmd\.orig$
+^vignettes/articles$

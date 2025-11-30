@@ -18,6 +18,17 @@ authors:
     href: https://dieghernan.github.io/
   William and Mary geoLab:
     href: https://sites.google.com/view/wmgeolab/
+navbar:
+  structure:
+    right: [search, github, geoBoundaries, lightswitch]
+  components:
+    geoBoundaries:
+      icon: fa-earth-americas
+      href: https://www.geoboundaries.org/
+      aria-label: geoBoundaries
+ 
+development:
+  mode: unreleased
 
 home:
   title: geobounds | R package for download geodata from geoBoundaries
@@ -46,4 +57,13 @@ reference:
   - title: About the package
     contents:
       - geobounds-package
+ 
+articles:
+- title: geoBoundaries coverage
+  navbar: geoBoundaries coverage
+  contents:
+  - articles/gbopen
+  - articles/gbhumanitarian
+  - articles/gbauthoritative
+
 
