@@ -20,6 +20,9 @@ choropleth
 codecov
 doi
 et
+gbAuthoritative
+gbHumanitarian
+gbOpen
 geoBoundaries
 geoLab
 geojsonsf
@@ -31,4 +34,3 @@ pkgdown
 subregion
 tibble
 tidyverse
-zenodo

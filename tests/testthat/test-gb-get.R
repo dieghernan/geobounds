@@ -161,15 +161,15 @@ test_that("Release type", {
   skip_on_cran()
   skip_if_offline()
   library(dplyr)
-  iso <- gb_get_metadata(release_type = "gbHumanitarian", adm_lvl = "ADM0") %>%
-    slice_head(n = 1) %>%
+  iso <- gb_get_metadata(release_type = "gbHumanitarian", adm_lvl = "ADM0") |>
+    slice_head(n = 1) |>
     pull(boundaryISO)
 
   res <- gb_get_adm0(iso, simplified = TRUE, release_type = "gbHumanitarian")
   expect_s3_class(res, "sf")
 
-  iso <- gb_get_metadata(release_type = "gbAuthoritative", adm_lvl = "ADM0") %>%
-    slice_head(n = 1) %>%
+  iso <- gb_get_metadata(release_type = "gbAuthoritative", adm_lvl = "ADM0") |>
+    slice_head(n = 1) |>
     pull(boundaryISO)
 
   res <- gb_get_adm0(iso, simplified = TRUE, release_type = "gbAuthoritative")

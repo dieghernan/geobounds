@@ -27,8 +27,8 @@ library(dplyr)
 world <- gb_get_world()
 max_lvl <- gb_get_max_adm_lvl(release_type = src)
 
-unq <- max_lvl$maxBoundaryType %>%
-  sort() %>%
+unq <- max_lvl$maxBoundaryType |>
+  sort() |>
   unique()
 p <- world |>
   mutate(boundaryISO = shapeGroup) |>

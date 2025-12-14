@@ -112,7 +112,7 @@ simplified \code{geoJSON}.
 
 library(dplyr)
 
-gb_get_metadata(adm_lvl = "ADM4") \%>\%
+gb_get_metadata(adm_lvl = "ADM4") |>
   glimpse()
 \dontshow{\}) # examplesIf}
 }

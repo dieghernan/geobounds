@@ -98,9 +98,9 @@
 #' gb_get_metadata(
 #'   "Sri Lanka",
 #'   adm_lvl = 2
-#' ) %>%
+#' ) |>
 #'   # Check individual license
-#'   select(boundaryISO, boundaryType, licenseDetail, licenseSource) %>%
+#'   select(boundaryISO, boundaryType, licenseDetail, licenseSource) |>
 #'   glimpse()
 #'
 gb_get <- function(

@@ -7,16 +7,16 @@ test_that("Test levels", {
   # Get country with all levels
   db <- gb_get_metadata(country = "ALL", adm_lvl = "ALL")
 
-  cnt <- db %>%
-    group_by(boundaryISO) %>%
-    mutate(n = n()) %>%
+  cnt <- db |>
+    group_by(boundaryISO) |>
+    mutate(n = n()) |>
     # Countries with all levels
-    filter(n == 6) %>%
-    ungroup() %>%
-    filter(boundaryType == "ADM5") %>%
-    mutate(total = admUnitCount * meanVertices) %>%
+    filter(n == 6) |>
+    ungroup() |>
+    filter(boundaryType == "ADM5") |>
+    mutate(total = admUnitCount * meanVertices) |>
     # Minimum vertices
-    slice_min(order_by = total, n = 1) %>%
+    slice_min(order_by = total, n = 1) |>
     pull(boundaryISO)
 
   # Check 0
@@ -56,8 +56,8 @@ test_that("Release type", {
 
   tmpd <- file.path(tempdir(), "testthat")
   library(dplyr)
-  iso <- gb_get_metadata(release_type = "gbHumanitarian", adm_lvl = "adm0") %>%
-    slice_head(n = 1) %>%
+  iso <- gb_get_metadata(release_type = "gbHumanitarian", adm_lvl = "adm0") |>
+    slice_head(n = 1) |>
     pull(boundaryISO)
 
   res <- gb_get_adm0(
@@ -68,8 +68,8 @@ test_that("Release type", {
   )
   expect_s3_class(res, "sf")
 
-  iso <- gb_get_metadata(release_type = "gbAuthoritative", adm_lvl = "adm0") %>%
-    slice_head(n = 1) %>%
+  iso <- gb_get_metadata(release_type = "gbAuthoritative", adm_lvl = "adm0") |>
+    slice_head(n = 1) |>
     pull(boundaryISO)
 
   res <- gb_get_adm0(
