@@ -57,7 +57,7 @@ all <- gb_get_max_adm_lvl()
 library(dplyr)
 
 # Countries with only 1 level available
-all %>%
+all |>
   filter(maxBoundaryType == 1)
 #> # A tibble: 21 × 2
 #>    boundaryISO maxBoundaryType
@@ -75,7 +75,7 @@ all %>%
 #> # ℹ 11 more rows
 
 # Countries with level 4 available
-all %>%
+all |>
   filter(maxBoundaryType == 4)
 #> # A tibble: 18 × 2
 #>    boundaryISO maxBoundaryType

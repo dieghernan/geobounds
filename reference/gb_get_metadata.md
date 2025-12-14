@@ -163,7 +163,7 @@ Other metadata functions:
 
 library(dplyr)
 
-gb_get_metadata(adm_lvl = "ADM4") %>%
+gb_get_metadata(adm_lvl = "ADM4") |>
   glimpse()
 #> Rows: 21
 #> Columns: 32
