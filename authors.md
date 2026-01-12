@@ -14,14 +14,14 @@
 Source:
 [`inst/CITATION`](https://github.com/dieghernan/geobounds/blob/main/inst/CITATION)
 
-Hernangómez D (2025). *geobounds: Download Map Data from geoBoundaries*.
+Hernangómez D (2026). *geobounds: Download Map Data from geoBoundaries*.
 [doi:10.5281/zenodo.17554275](https://doi.org/10.5281/zenodo.17554275),
 <https://dieghernan.github.io/geobounds/>.
 
     @Manual{R-geobounds,
       title = {{geobounds}: Download Map Data from geoBoundaries},
       author = {Diego Hernangómez},
-      year = {2025},
+      year = {2026},
       version = {0.0.1.9000},
       url = {https://dieghernan.github.io/geobounds/},
       abstract = {Tools to download data from geoBoundaries <https://www.geoboundaries.org/>. Several administration levels available. See Runfola, D. et al. (2020) geoBoundaries: A global database of political administrative boundaries. PLoS ONE 15(4): e0231866. <doi:10.1371/journal.pone.0231866>.},
