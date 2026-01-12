@@ -114,7 +114,7 @@ gb_set_cache_dir <- function(
 
     geobounds_file <- file.path(config_dir, "GEOBOUNDS_CACHE_DIR")
 
-    if (!file.exists(geobounds_file) || overwrite == TRUE) {
+    if (!file.exists(geobounds_file) || overwrite) {
       # Create file if it doesn't exist
       writeLines(cache_dir, con = geobounds_file)
     } else {

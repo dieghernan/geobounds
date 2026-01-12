@@ -168,7 +168,7 @@ gbnds_dev_shp_query <- function(
 
   # Create destfile and clean
   file_local <- file.path(path, filename)
-  file_local <- gsub("//", "/", file_local)
+  file_local <- gsub("//", "/", file_local, fixed = TRUE)
 
   fileoncache <- file.exists(file_local)
 
@@ -221,14 +221,14 @@ gbnds_dev_shp_query <- function(
   shp_zip <- shp_zip$Name
   shp_zip <- shp_zip[grepl("shp$", shp_zip)]
   if (simplified) {
-    shp_end <- shp_zip[grepl("simplified", shp_zip)]
+    shp_end <- shp_zip[grepl("simplified", shp_zip, fixed = TRUE)]
   } else {
-    shp_end <- shp_zip[!grepl("simplified", shp_zip)]
+    shp_end <- shp_zip[!grepl("simplified", shp_zip, fixed = TRUE)]
   }
 
   # Read with vszip
   shp_read <- file.path("/vsizip/", file_local, shp_end)
-  shp_read <- gsub("//", "/", shp_read)
+  shp_read <- gsub("//", "/", shp_read, fixed = TRUE)
   outsf <- sf::read_sf(shp_read)
 
   if (subdir == "CGAZ" && !("ALL" %in% cgaz_country)) {

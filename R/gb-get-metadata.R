@@ -183,7 +183,7 @@ gbnds_dev_meta_query <- function(url) {
   for (i in iter) {
     bd <- gsub(mabb[i], mnum[i], bd)
   }
-  bd <- gsub(",", "", bd)
+  bd <- gsub(",", "", bd, fixed = TRUE)
   bdate <- as.Date(bd, "%m %d %Y")
   tb$buildDate <- bdate
 
