@@ -318,22 +318,6 @@ references:
   year: '2026'
   doi: 10.32614/CRAN.package.rmarkdown
 - type: software
-  title: spelling
-  abstract: 'spelling: Tools for Spell Checking in R'
-  notes: Suggests
-  url: https://ropensci.r-universe.dev/spelling
-  repository: https://CRAN.R-project.org/package=spelling
-  authors:
-  - family-names: Ooms
-    given-names: Jeroen
-    email: jeroenooms@gmail.com
-    orcid: https://orcid.org/0000-0002-4035-0289
-  - family-names: Hester
-    given-names: Jim
-    email: james.hester@rstudio.com
-  year: '2026'
-  doi: 10.32614/CRAN.package.spelling
-- type: software
   title: testthat
   abstract: 'testthat: Unit Testing for R'
   notes: Suggests
