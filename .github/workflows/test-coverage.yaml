@@ -8,6 +8,11 @@ on:
 name: test-coverage
 
 permissions: read-all
+# This will cancel running jobs once a new run is triggered
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
+
 
 jobs:
   test-coverage:
@@ -88,7 +93,7 @@ jobs:
 
       - name: Upload test results
         if: failure()
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: coverage-test-failures
           path: ${{ runner.temp }}/package
