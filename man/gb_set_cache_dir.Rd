@@ -2,19 +2,20 @@
 % Please edit documentation in R/gb-cache.R
 \name{gb_set_cache_dir}
 \alias{gb_set_cache_dir}
-\title{Set your \pkg{geobounds} cache dir}
+\title{Set your \pkg{geobounds} cache directory}
 \usage{
 gb_set_cache_dir(cache_dir, overwrite = FALSE, install = FALSE, quiet = FALSE)
 }
 \arguments{
-\item{cache_dir}{A path to a cache directory. On missing value the function
-would store the cached files on a temporary dir (See \code{\link[base:tempfile]{base::tempdir()}}).}
+\item{cache_dir}{A path to a cache directory. If missing, the function
+will store the cache files in a temporary directory (see
+\code{\link[base:tempfile]{base::tempdir()}}).}
 
 \item{overwrite}{Logical. If this is set to \code{TRUE}, it will overwrite an
 existing \code{cache_dir}.}
 
 \item{install}{Logical. If \code{TRUE}, will install the key in your local
-machine for use in future sessions.  Defaults to \code{FALSE.} If \code{cache_dir}
+machine for use in future sessions. Defaults to \code{FALSE}. If \code{cache_dir}
 is \code{FALSE} this parameter is set to \code{FALSE} automatically.}
 
 \item{quiet}{logical. If \code{TRUE} suppresses informational messages.}
@@ -23,26 +24,26 @@ is \code{FALSE} this parameter is set to \code{FALSE} automatically.}
 An (invisible) character with the path to your \code{cache_dir}.
 }
 \description{
-This function will store your \code{cache_dir} path on your local machine and
-would load it for future sessions. Type \code{gb_detect_cache_dir()} to find
-your cached path.
+This function stores your \code{cache_dir} path on your local machine and
+loads it for future sessions. Type \code{gb_detect_cache_dir()} to find
+your cache directory path.
 }
 \details{
-By default, when no cache \code{cache_dir} is set the package uses a folder inside
+By default, when no \code{cache_dir} is set the package uses a folder inside
 \code{\link[base:tempfile]{base::tempdir()}} (so files are temporary and are removed when the \strong{R}
 session ends). To persist a cache across \strong{R} sessions, use
-\code{gb_set_cache(path, install = TRUE)} which writes the chosen path to a small
-configuration file under \code{tools::R_user_dir("geobounds", "config")}.
+\code{gb_set_cache_dir(path, install = TRUE)}, which writes the chosen path to a
+small configuration file under \code{tools::R_user_dir("geobounds", "config")}.
 }
 \section{Caching strategies}{
 
 \itemize{
 \item For occasional use, rely on the default \code{\link[=tempdir]{tempdir()}}-based cache (no
 install).
-\item Modify the cache for a single session setting
-\verb{gb_set_cache_dir(cache_dir = "a/path/here)}.
+\item Modify the cache for a single session by setting
+\code{gb_set_cache_dir(cache_dir = "a/path/here")}.
 \item For reproducible workflows, install a persistent cache with
-\verb{gb_set_cache_dir(cache_dir = "a/path/here, install = TRUE)} that would be
+\code{gb_set_cache_dir(cache_dir = "a/path/here", install = TRUE)} that will be
 kept across \strong{R} sessions.
 \item For caching specific files, use the \code{cache_dir} argument in the
 corresponding function. See \code{\link[=gb_get]{gb_get()}}.

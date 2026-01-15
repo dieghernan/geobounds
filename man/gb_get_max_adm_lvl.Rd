@@ -13,7 +13,7 @@ gb_get_max_adm_lvl(
 )
 }
 \arguments{
-\item{country}{A character vector of country codes. It could be either
+\item{country}{A character vector of country codes. It can be either
 \code{"all"} (that would return the data for all countries), a vector of country
 names or ISO3 country codes. See also \code{\link[countrycode:countrycode]{countrycode::countrycode()}}.}
 
@@ -23,15 +23,16 @@ names or ISO3 country codes. See also \code{\link[countrycode:countrycode]{count
 purposes so long as attribution is provided:
 \itemize{
 \item \code{"gbHumanitarian"} files are mirrored from
-\href{https://www.unocha.org/}{UN OCHA}, but may have less open licensure.
+\href{https://www.unocha.org/}{UN OCHA}, but may have more restrictive
+licensing.
 \item \code{"gbAuthoritative"} files are mirrored from
 \href{https://salb.un.org/en}{UN SALB}, and cannot  be used for commercial
 purposes, but are verified through in-country processes.
 }}
 }
 \value{
-A tibble with class \code{\link[tibble:tbl_df-class]{tbl_df}}  with the country names
-and corresponding highest administrative level.
+A \link[tibble:tbl_df-class]{tibble} with the country names and corresponding highest
+administrative level.
 }
 \description{
 Get a summary of selected or all countries and their highest administrative

@@ -26,13 +26,11 @@ assert_adm_lvl <- function(
 
 #' Helper function to convert country names to codes
 #'
-#' Convert country codes
+#' @param names A vector of country names or codes.
 #'
-#' @param names vector of names or codes
+#' @param out The output code format.
 #'
-#' @param out out code
-#'
-#' @return a vector of names
+#' @return A vector of country codes.
 #'
 #' @noRd
 gbnds_dev_country2iso <- function(names, out = "iso3c") {

@@ -28,3 +28,4 @@
 ^\.vscode$
 ^vignettes/geobounds\.Rmd\.orig$
 ^vignettes/articles$
+^jarl\.toml$

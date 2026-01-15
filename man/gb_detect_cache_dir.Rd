@@ -2,7 +2,7 @@
 % Please edit documentation in R/gb-cache.R
 \name{gb_detect_cache_dir}
 \alias{gb_detect_cache_dir}
-\title{Detect cache dir for \pkg{geobounds}}
+\title{Detect cache directory for \pkg{geobounds}}
 \usage{
 gb_detect_cache_dir(x = NULL)
 }
@@ -10,7 +10,7 @@ gb_detect_cache_dir(x = NULL)
 \item{x}{Ignored.}
 }
 \value{
-A character with the path to your \code{cache_dir}. The same path would appear
+A character with the path to your \code{cache_dir}. The same path will appear
 also as a clickable message, see \code{\link[cli:inline-markup]{cli::inline-markup}}.
 }
 \description{

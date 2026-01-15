@@ -13,50 +13,49 @@ template:
     twitter:
       creator: "@dhernangomez"
       card: summary_large_image
+
 authors:
   Diego Hernangómez:
     href: https://dieghernan.github.io/
   William and Mary geoLab:
     href: https://sites.google.com/view/wmgeolab/
+
 navbar:
   structure:
-    right: [search, github, geoBoundaries, lightswitch]
+    right: [ search, github, geoBoundaries, lightswitch ]
   components:
     geoBoundaries:
       icon: fa-earth-americas
       href: https://www.geoboundaries.org/
       aria-label: geoBoundaries
 
-development:
-  mode: unreleased
-
 home:
   title: geobounds | R package for download geodata from geoBoundaries
-  description: >
+  description: |
     geobounds is a R API package that helps to retrieve data from geoBounds.
     Several administration levels available. See Runfola, D. et al. (2020)
     geoBoundaries: A global database of political administrative boundaries.
     PLoS ONE 15(4): e0231866. https://doi.org/10.1371/journal.pone.0231866
 
 reference:
-  - title: Boundaries
-    desc: >
-      These functions return <a href="https://CRAN.R-project.org/package=sf"
-      class="external-link"><span class="pkg">sf</span></a> objects with
-      political boundaries.
-    contents:
-      - has_concept("API functions")
-  - title: Metadata
-    desc: >
-      These functions return metadata in tibble format.
-    contents:
-      - has_concept("metadata functions")
-  - title: Cache management
-    contents:
-      - has_concept("cache utilities")
-  - title: About the package
-    contents:
-      - geobounds-package
+- title: Boundaries
+  desc: >
+    These functions return <a href="https://CRAN.R-project.org/package=sf"
+    class="external-link"><span class="pkg">sf</span></a> objects with political
+    boundaries.
+  contents:
+  - has_concept("API functions")
+- title: Metadata
+  desc: >
+    These functions return metadata in tibble format.
+  contents:
+  - has_concept("metadata functions")
+- title: Cache management
+  contents:
+  - has_concept("cache utilities")
+- title: About the package
+  contents:
+  - geobounds-package
 
 articles:
 - title: geoBoundaries coverage
@@ -65,5 +64,3 @@ articles:
   - articles/gbopen
   - articles/gbhumanitarian
   - articles/gbauthoritative
-
-

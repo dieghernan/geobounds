@@ -1,4 +1,4 @@
-#' Get country files from geoBoundaries for a given administration level
+#' Get country files from geoBoundaries for a given administrative level
 #'
 #' @description
 #'
@@ -6,18 +6,18 @@
 #' for all uses of this dataset.
 #'
 #' These functions are wrappers of [gb_get()] for extracting any
-#' given administration level:
+#' given administrative level:
 #'
 #' - `gb_get_adm0()` returns the country boundary.
-#' - `gb_get_adm1()` returns first-level administration
+#' - `gb_get_adm1()` returns first-level administrative
 #'   boundaries (e.g. States in the United States).
-#' - `gb_get_adm2()` returns second-level administration
+#' - `gb_get_adm2()` returns second-level administrative
 #'   boundaries (e.g. Counties in the United States).
-#' - `gb_get_adm3()` returns third-level administration
+#' - `gb_get_adm3()` returns third-level administrative
 #'   boundaries (e.g. towns or cities in some countries).
-#' - `gb_get_adm4()` returns fourth-level administration
+#' - `gb_get_adm4()` returns fourth-level administrative
 #'   boundaries.
-#' - `gb_get_adm5()` returns fifth-level administration
+#' - `gb_get_adm5()` returns fifth-level administrative
 #'   boundaries.
 #'
 #' Note that not all countries have the same number of levels. Check

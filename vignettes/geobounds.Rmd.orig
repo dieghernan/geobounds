@@ -38,7 +38,9 @@ and working with global political and administrative boundary data from the
 
 These datasets are openly licensed ([CC BY
 4.0](https://creativecommons.org/licenses/by/4.0/)) and cover countries
-worldwide across multiple administrative levels. With **geobounds**, you can
+worldwide across multiple administrative levels. The package supports different
+geoBoundaries release types: gbOpen, gbHumanitarian, and gbAuthoritative, which
+vary in validation levels and licensing. With **geobounds**, you can
 easily fetch boundary geometries as **sf** objects, explore metadata, cache
 datasets locally, and seamlessly integrate the boundaries into your spatial
 workflows.
@@ -117,18 +119,18 @@ gb_get_metadata(c("India", "Pakistan"), adm_lvl = "ADM0") |>
 
 ### Composite files
 
-If you would prefer data that explicitly includes disputed areas, please use
-`gb_get_cgaz()`. This function downloads global composite datasets for
-administrative boundaries, also known as CGAZ (Comprehensive Global
-Administrative Zones). There are three important distinctions between CGAZ and
-individual country downloads:
+If you would prefer data where disputed areas are explicitly handled (by
+removing overlaps and filling gaps), please use `gb_get_cgaz()`. This function
+downloads global composite datasets for administrative boundaries, also known
+as CGAZ (Comprehensive Global Administrative Zones). There are three important
+distinctions between CGAZ and individual country downloads:
 
 1.  Extensive simplification is performed to ensure that file sizes are small
     enough to be used in most traditional desktop software.
 
 2.  Disputed areas are removed and replaced with polygons following US
     Department of State definitions.
- 
+
 3.  Gaps between borders have been filled.
 
 ```{r cgaz, fig.cap="Map showing no overlapping in Kashmir, provided by CGAZ."}
@@ -183,7 +185,9 @@ current == gb_detect_cache_dir()
 gb_set_cache_dir(getcache)
 ```
 
-Specific cache directories on each function call can be set using the
+To clear the cache, use `gb_clear_cache()`.
+
+Specific cache directories for each function call can be set using the
 `cache_dir` argument of each function.
 
 ## Use in spatial analysis pipelines
@@ -243,7 +247,8 @@ ggplot(latam_sf) +
 
 The **geobounds** package makes it easy to fetch, manage and visualize
 administrative boundary data worldwide in a reproducible and efficient way.
-Whether you're doing mapping, spatial analysis, survey integration or geospatial
-modelling, it gives you a high-quality boundary dataset with minimal overhead.
+Whether you're doing mapping, spatial analysis, survey integration, or
+geospatial modelling, it gives you a high-quality boundary dataset with minimal
+overhead.
 
 ## References

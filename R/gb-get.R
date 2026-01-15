@@ -11,32 +11,32 @@
 #' [gb_get_cgaz()].
 #'
 #' @export
-#'
-#' @param country A character vector of country codes. It could be either
+#' @param country A character vector of country codes. It can be either
 #'   `"all"` (that would return the data for all countries), a vector of country
 #'   names or ISO3 country codes. See also [countrycode::countrycode()].
-#' @param adm_lvl Type of boundary Accepted values are `"all"` (all
+#' @param adm_lvl Type of boundary. Accepted values are `"all"` (all
 #'   available boundaries) or the ADM level (`"adm0"` is the country boundary,
-#'   `"adm1"` is the first level of sub national boundaries, `"adm2"` is the
-#'   second level and so on. Upper case version (`"ADM1"`) and the number of
-#'   the level (`1, 2, 3, 4, 5`) and also accepted.
+#'   `"adm1"` is the first level of sub-national boundaries, `"adm2"` is the
+#'   second level, and so on). Upper-case versions (`"ADM1"`) and the number of
+#'   the level (`1, 2, 3, 4, 5`) are also accepted.
 #' @param simplified logical. Return the simplified boundary or not. The default
-#'   `FALSE` would use the premier geoBoundaries release.
+#'   `FALSE` uses the premier geoBoundaries release.
 #' @param release_type One of `"gbOpen"`, `"gbHumanitarian"`,
 #'   `"gbAuthoritative"`. For most users, we suggest using `"gbOpen"`
 #'   (the default), as it is CC-BY 4.0 compliant and can be used for most
 #'   purposes so long as attribution is provided:
 #'  - `"gbHumanitarian"` files are mirrored from
-#'    [UN OCHA](https://www.unocha.org/), but may have less open licensure.
+#'    [UN OCHA](https://www.unocha.org/), but may have more restrictive
+#'    licensing.
 #'  - `"gbAuthoritative"` files are mirrored from
 #'    [UN SALB](https://salb.un.org/en), and cannot  be used for commercial
 #'    purposes, but are verified through in-country processes.
 #' @param quiet logical. If `TRUE` suppresses informational messages.
-#' @param overwrite logical. When set to `TRUE` it would force a fresh
+#' @param overwrite logical. When set to `TRUE` it will force a fresh
 #'    download of the source `.zip` file.
 #' @param cache_dir A path to a cache directory. If not set (the default
-#'   `NULL`), the data would be stored in the default cache directory (see
-#'   [gb_set_cache_dir()]). If no cache directory has been set, files would be
+#'   `NULL`), the data will be stored in the default cache directory (see
+#'   [gb_set_cache_dir()]). If no cache directory has been set, files will be
 #'   stored in the temporary directory (see `base::tempdir()`). See caching
 #'   strategies in [gb_set_cache_dir()].
 #'
@@ -45,21 +45,21 @@
 #' Individual data files in the geoBoundaries database are governed by the
 #' license or licenses identified within the metadata for each respective
 #' boundary (see [gb_get_metadata()]. Users using individual boundary files
-#' from geoBoundaries should additionally ensure that they are citing the
+#' from geoBoundaries should additionally ensure that they cite the
 #' sources provided in the metadata for each file. See **Examples**.
 #'
 #' The following wrappers are also available:
 #'
 #' - [gb_get_adm0()] returns the country boundary.
-#' - [gb_get_adm1()] returns first-level administration
+#' - [gb_get_adm1()] returns first-level administrative
 #'   boundaries (e.g. States in the United States).
-#' - [gb_get_adm2()] returns second-level administration
+#' - [gb_get_adm2()] returns second-level administrative
 #'   boundaries (e.g. Counties in the United States).
-#' - [gb_get_adm3()] returns third-level administration
+#' - [gb_get_adm3()] returns third-level administrative
 #'   boundaries (e.g. towns or cities in some countries).
-#' - [gb_get_adm4()] returns fourth-level administration
+#' - [gb_get_adm4()] returns fourth-level administrative
 #'   boundaries.
-#' - [gb_get_adm5()] returns fifth-level administration
+#' - [gb_get_adm5()] returns fifth-level administrative
 #'   boundaries.
 #'
 #' @return

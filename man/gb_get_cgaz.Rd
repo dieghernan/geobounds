@@ -17,24 +17,24 @@ gb_get_cgaz(
 )
 }
 \arguments{
-\item{country}{A character vector of country codes. It could be either
+\item{country}{A character vector of country codes. It can be either
 \code{"all"} (that would return the data for all countries), a vector of country
 names or ISO3 country codes. See also \code{\link[countrycode:countrycode]{countrycode::countrycode()}}.}
 
-\item{adm_lvl}{Type of boundary Accepted values are administrative
-levels 0, 1 and 2 (\code{"adm0"} is the country boundary,
-\code{"adm1"} is the first level of sub national boundaries, \code{"adm2"} is the
-second level and so on. Upper case version (\code{"ADM1"}) and the number of
-the level (\verb{0, 1, 2}) and also accepted.}
+\item{adm_lvl}{Type of boundary. Accepted values are administrative
+levels 0, 1, and 2 (\code{"adm0"} is the country boundary,
+\code{"adm1"} is the first level of sub-national boundaries, \code{"adm2"} is the
+second level, and so on). Upper-case versions (\code{"ADM1"}) and the number of
+the level (\verb{0, 1, 2}) are also accepted.}
 
 \item{quiet}{logical. If \code{TRUE} suppresses informational messages.}
 
-\item{overwrite}{logical. When set to \code{TRUE} it would force a fresh
+\item{overwrite}{logical. When set to \code{TRUE} it will force a fresh
 download of the source \code{.zip} file.}
 
 \item{cache_dir}{A path to a cache directory. If not set (the default
-\code{NULL}), the data would be stored in the default cache directory (see
-\code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}). If no cache directory has been set, files would be
+\code{NULL}), the data will be stored in the default cache directory (see
+\code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}). If no cache directory has been set, files will be
 stored in the temporary directory (see \code{base::tempdir()}). See caching
 strategies in \code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}.}
 }
@@ -45,12 +45,12 @@ A \code{\link[sf:sf]{sf}} object.
 \href{https://www.geoboundaries.org/index.html#usage}{Attribution} is required
 for all uses of this dataset.
 
-This function returns a global composite of the required administration
+This function returns a global composite of the required administrative
 level, clipped to international boundaries, with gaps filled between
 borders.
 }
 \details{
-Comprehensive Global Administrative Zones (CGAZ) is a set of global
+Comprehensive Global Administrative Zones (CGAZ) are a set of global
 composites for administrative boundaries. There are two important
 distinctions between our global product and individual country downloads.
 \itemize{

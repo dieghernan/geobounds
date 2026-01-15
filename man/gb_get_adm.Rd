@@ -8,7 +8,7 @@
 \alias{gb_get_adm3}
 \alias{gb_get_adm4}
 \alias{gb_get_adm5}
-\title{Get country files from geoBoundaries for a given administration level}
+\title{Get country files from geoBoundaries for a given administrative level}
 \source{
 geoBoundaries API Service \url{https://www.geoboundaries.org/api.html}.
 }
@@ -68,12 +68,12 @@ gb_get_adm5(
 )
 }
 \arguments{
-\item{country}{A character vector of country codes. It could be either
+\item{country}{A character vector of country codes. It can be either
 \code{"all"} (that would return the data for all countries), a vector of country
 names or ISO3 country codes. See also \code{\link[countrycode:countrycode]{countrycode::countrycode()}}.}
 
 \item{simplified}{logical. Return the simplified boundary or not. The default
-\code{FALSE} would use the premier geoBoundaries release.}
+\code{FALSE} uses the premier geoBoundaries release.}
 
 \item{release_type}{One of \code{"gbOpen"}, \code{"gbHumanitarian"},
 \code{"gbAuthoritative"}. For most users, we suggest using \code{"gbOpen"}
@@ -81,7 +81,8 @@ names or ISO3 country codes. See also \code{\link[countrycode:countrycode]{count
 purposes so long as attribution is provided:
 \itemize{
 \item \code{"gbHumanitarian"} files are mirrored from
-\href{https://www.unocha.org/}{UN OCHA}, but may have less open licensure.
+\href{https://www.unocha.org/}{UN OCHA}, but may have more restrictive
+licensing.
 \item \code{"gbAuthoritative"} files are mirrored from
 \href{https://salb.un.org/en}{UN SALB}, and cannot  be used for commercial
 purposes, but are verified through in-country processes.
@@ -89,12 +90,12 @@ purposes, but are verified through in-country processes.
 
 \item{quiet}{logical. If \code{TRUE} suppresses informational messages.}
 
-\item{overwrite}{logical. When set to \code{TRUE} it would force a fresh
+\item{overwrite}{logical. When set to \code{TRUE} it will force a fresh
 download of the source \code{.zip} file.}
 
 \item{cache_dir}{A path to a cache directory. If not set (the default
-\code{NULL}), the data would be stored in the default cache directory (see
-\code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}). If no cache directory has been set, files would be
+\code{NULL}), the data will be stored in the default cache directory (see
+\code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}). If no cache directory has been set, files will be
 stored in the temporary directory (see \code{base::tempdir()}). See caching
 strategies in \code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}.}
 }
@@ -106,18 +107,18 @@ A \code{\link[sf:sf]{sf}} object.
 for all uses of this dataset.
 
 These functions are wrappers of \code{\link[=gb_get]{gb_get()}} for extracting any
-given administration level:
+given administrative level:
 \itemize{
 \item \code{gb_get_adm0()} returns the country boundary.
-\item \code{gb_get_adm1()} returns first-level administration
+\item \code{gb_get_adm1()} returns first-level administrative
 boundaries (e.g. States in the United States).
-\item \code{gb_get_adm2()} returns second-level administration
+\item \code{gb_get_adm2()} returns second-level administrative
 boundaries (e.g. Counties in the United States).
-\item \code{gb_get_adm3()} returns third-level administration
+\item \code{gb_get_adm3()} returns third-level administrative
 boundaries (e.g. towns or cities in some countries).
-\item \code{gb_get_adm4()} returns fourth-level administration
+\item \code{gb_get_adm4()} returns fourth-level administrative
 boundaries.
-\item \code{gb_get_adm5()} returns fifth-level administration
+\item \code{gb_get_adm5()} returns fifth-level administrative
 boundaries.
 }
 

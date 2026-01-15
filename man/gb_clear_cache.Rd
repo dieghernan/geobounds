@@ -2,7 +2,7 @@
 % Please edit documentation in R/gb-cache.R
 \name{gb_clear_cache}
 \alias{gb_clear_cache}
-\title{Clear your \pkg{geobounds} cache dir}
+\title{Clear your \pkg{geobounds} cache directory}
 \usage{
 gb_clear_cache(config = FALSE, cached_data = TRUE, quiet = TRUE)
 }
@@ -19,18 +19,18 @@ all its content.}
 Invisible. This function is called for its side effects.
 }
 \description{
-\strong{Use this function with caution}. This function would clear your cached
+\strong{Use this function with caution}. This function will clear your cached
 data and configuration, specifically:
 \itemize{
 \item Deletes the \pkg{geobounds} config directory
 (\code{tools::R_user_dir("geobounds", "config")}).
 \item Deletes the \code{cache_dir} directory.
-\item Deletes the values on stored on \code{Sys.getenv("GEOBOUNDS_CACHE_DIR")}.
+\item Deletes the values stored in \code{Sys.getenv("GEOBOUNDS_CACHE_DIR")}.
 }
 }
 \details{
-This is an overkill function that is intended to reset your status
-as it you would never have installed and/or used \pkg{geobounds}.
+This is a comprehensive reset function that is intended to reset your status
+as if you had never installed or used \pkg{geobounds}.
 }
 \examples{
 

@@ -11,8 +11,8 @@
 #'
 #' @return
 #'
-#' A tibble with class [`tbl_df`][tibble::tbl_df-class]  with the country names
-#' and corresponding highest administrative level.
+#' A [tibble][tibble::tbl_df] with the country names and corresponding highest
+#' administrative level.
 #'
 #'
 #' @export

@@ -6,7 +6,7 @@
 #' [geoBoundaries API](https://www.geoboundaries.org/api.html).
 #'
 #' @return
-#' A tibble with class [`tbl_df`][tibble::tbl_df-class].
+#' A [tibble][tibble::tbl_df].
 #'
 #' @inherit gb_get source
 #'
@@ -20,7 +20,7 @@
 #'
 #' @details
 #'
-#' The result would be a tibble with the following columns:
+#' The result is a [tibble][tibble::tbl_df] with the following columns:
 #'
 #' - `boundaryID`: The ID for this layer, which is a combination of the ISO
 #'    code, the boundary type, and a unique identifier for the boundary

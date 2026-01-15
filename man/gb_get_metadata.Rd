@@ -15,15 +15,15 @@ gb_get_metadata(
 )
 }
 \arguments{
-\item{country}{A character vector of country codes. It could be either
+\item{country}{A character vector of country codes. It can be either
 \code{"all"} (that would return the data for all countries), a vector of country
 names or ISO3 country codes. See also \code{\link[countrycode:countrycode]{countrycode::countrycode()}}.}
 
-\item{adm_lvl}{Type of boundary Accepted values are \code{"all"} (all
+\item{adm_lvl}{Type of boundary. Accepted values are \code{"all"} (all
 available boundaries) or the ADM level (\code{"adm0"} is the country boundary,
-\code{"adm1"} is the first level of sub national boundaries, \code{"adm2"} is the
-second level and so on. Upper case version (\code{"ADM1"}) and the number of
-the level (\verb{1, 2, 3, 4, 5}) and also accepted.}
+\code{"adm1"} is the first level of sub-national boundaries, \code{"adm2"} is the
+second level, and so on). Upper-case versions (\code{"ADM1"}) and the number of
+the level (\verb{1, 2, 3, 4, 5}) are also accepted.}
 
 \item{release_type}{One of \code{"gbOpen"}, \code{"gbHumanitarian"},
 \code{"gbAuthoritative"}. For most users, we suggest using \code{"gbOpen"}
@@ -31,21 +31,22 @@ the level (\verb{1, 2, 3, 4, 5}) and also accepted.}
 purposes so long as attribution is provided:
 \itemize{
 \item \code{"gbHumanitarian"} files are mirrored from
-\href{https://www.unocha.org/}{UN OCHA}, but may have less open licensure.
+\href{https://www.unocha.org/}{UN OCHA}, but may have more restrictive
+licensing.
 \item \code{"gbAuthoritative"} files are mirrored from
 \href{https://salb.un.org/en}{UN SALB}, and cannot  be used for commercial
 purposes, but are verified through in-country processes.
 }}
 }
 \value{
-A tibble with class \code{\link[tibble:tbl_df-class]{tbl_df}}.
+A \link[tibble:tbl_df-class]{tibble}.
 }
 \description{
 This function returns metadata of the
 \href{https://www.geoboundaries.org/api.html}{geoBoundaries API}.
 }
 \details{
-The result would be a tibble with the following columns:
+The result is a \link[tibble:tbl_df-class]{tibble} with the following columns:
 \itemize{
 \item \code{boundaryID}: The ID for this layer, which is a combination of the ISO
 code, the boundary type, and a unique identifier for the boundary
