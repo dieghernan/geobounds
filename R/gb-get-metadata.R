@@ -1,12 +1,10 @@
 #' Get metadata of individual country files from geoBoundaries
 #'
 #' @description
-#'
 #' This function returns metadata of the
 #' [geoBoundaries API](https://www.geoboundaries.org/api.html).
 #'
-#' @return
-#' A [tibble][tibble::tbl_df].
+#' @return A [tibble][tibble::tbl_df].
 #'
 #' @inherit gb_get source
 #'
@@ -15,11 +13,11 @@
 #' @family metadata functions
 #'
 #' @export
+#' @encoding UTF-8
 #'
 #' @seealso [gb_get()]
 #'
 #' @details
-#'
 #' The result is a [tibble][tibble::tbl_df] with the following columns:
 #'
 #' - `boundaryID`: The ID for this layer, which is a combination of the ISO

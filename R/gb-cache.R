@@ -2,9 +2,10 @@
 #'
 #' @family cache utilities
 #' @seealso [tools::R_user_dir()]
+#' @encoding UTF-8
 #'
 #' @return
-#' An (invisible) character with the path to your `cache_dir`.
+#' An ([invisible()]) character with the path to your `cache_dir`.
 #'
 #' @description
 #' This function stores your `cache_dir` path on your local machine and
@@ -145,7 +146,6 @@ gb_set_cache_dir <- function(
 #' Detect cache directory for \pkg{geobounds}
 #'
 #' @description
-#'
 #' Helper function to detect the current cache folder. See
 #' [gb_set_cache_dir()].
 #'
@@ -157,6 +157,7 @@ gb_set_cache_dir <- function(
 #' also as a clickable message, see [`cli::inline-markup`].
 #'
 #' @export
+#' @encoding UTF-8
 #'
 #' @rdname gb_detect_cache_dir
 #' @family cache utilities
@@ -175,7 +176,8 @@ gb_detect_cache_dir <- function(x = NULL) {
 #'
 #' @family cache utilities
 #'
-#' @return Invisible. This function is called for its side effects.
+#' @return [invisible()] This function is called for its side effects.
+#' @encoding UTF-8
 #'
 #' @description
 #' **Use this function with caution**. This function will clear your cached

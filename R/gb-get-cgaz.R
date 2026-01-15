@@ -1,7 +1,6 @@
 #' Get global composites data (CGAZ) from geoBoundaries
 #'
 #' @description
-#'
 #' [Attribution](https://www.geoboundaries.org/index.html#usage) is required
 #' for all uses of this dataset.
 #'
@@ -22,6 +21,7 @@
 #' @family API functions
 #'
 #' @export
+#' @encoding UTF-8
 #'
 #' @details
 #' Comprehensive Global Administrative Zones (CGAZ) are a set of global
@@ -34,7 +34,6 @@
 #'   Department of State definitions.
 #'
 #' @examplesIf httr2::is_online()
-#'
 #' # This download may take some time
 #' \dontrun{
 #' world <- gb_get_cgaz()

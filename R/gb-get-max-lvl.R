@@ -8,17 +8,15 @@
 #'
 #' @inherit gb_get source
 #' @inheritParams gb_get_metadata
+#' @encoding UTF-8
 #'
 #' @return
-#'
 #' A [tibble][tibble::tbl_df] with the country names and corresponding highest
 #' administrative level.
-#'
 #'
 #' @export
 #'
 #' @examplesIf httr2::is_online()
-#'
 #' all <- gb_get_max_adm_lvl()
 #' library(dplyr)
 #'

@@ -24,11 +24,10 @@
 #' [gb_get_max_adm_lvl].
 #'
 #' @rdname gb_get_adm
-#'
 #' @name gb_get_adm
+#' @encoding UTF-8
 #'
 #' @inherit gb_get
-#'
 #' @inheritParams gb_get
 #'
 #' @family API functions
@@ -38,7 +37,6 @@
 #' @export
 #'
 #' @details
-#'
 #' Individual data files in the geoBoundaries database are governed by the
 #' license or licenses identified within the metadata for each respective
 #' boundary (see [gb_get_metadata()]. Users using individual boundary files
@@ -46,7 +44,6 @@
 #' sources provided in the metadata for each file.
 #'
 #' @examplesIf httr2::is_online()
-#'
 #' \donttest{
 #' lev2 <- gb_get_adm2(
 #'   c("Italia", "Suiza", "Austria"),

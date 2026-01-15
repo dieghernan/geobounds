@@ -28,9 +28,8 @@
 #'  - `"gbHumanitarian"` files are mirrored from
 #'    [UN OCHA](https://www.unocha.org/), but may have more restrictive
 #'    licensing.
-#'  - `"gbAuthoritative"` files are mirrored from
-#'    [UN SALB](https://salb.un.org/en), and cannot  be used for commercial
-#'    purposes, but are verified through in-country processes.
+#'  - `"gbAuthoritative"` files are mirrored from UN SALB, and cannot  be used
+#'    for commercial purposes, but are verified through in-country processes.
 #' @param quiet logical. If `TRUE` suppresses informational messages.
 #' @param overwrite logical. When set to `TRUE` it will force a fresh
 #'    download of the source `.zip` file.
@@ -41,7 +40,6 @@
 #'   strategies in [gb_set_cache_dir()].
 #'
 #' @details
-#'
 #' Individual data files in the geoBoundaries database are governed by the
 #' license or licenses identified within the metadata for each respective
 #' boundary (see [gb_get_metadata()]. Users using individual boundary files
@@ -62,8 +60,8 @@
 #' - [gb_get_adm5()] returns fifth-level administrative
 #'   boundaries.
 #'
-#' @return
-#' A [`sf`][sf::st_sf] object.
+#' @return A [`sf`][sf::st_sf] object.
+#' @encoding UTF-8
 #'
 #' @source
 #' geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
@@ -76,7 +74,6 @@
 #' @family API functions
 #'
 #' @examplesIf httr2::is_online()
-#'
 #' \donttest{
 #' # Map level 2 in Sri Lanka
 #' sri_lanka <- gb_get(
