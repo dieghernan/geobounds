@@ -25,7 +25,7 @@ gb_get_cgaz().'><meta property="og:image" content="https://dieghernan.github.io/
       <img src="../apple-touch-icon.png" alt="geobounds logo" height="34" width="34" class="d-inline-block me-1">
       geobounds</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.1.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -91,22 +91,22 @@ themselves", with no special identification of disputed areas.</p>
 
 
 <dl><dt id="arg-country">country<a class="anchor" aria-label="anchor" href="#arg-country"></a></dt>
-<dd><p>A character vector of country codes. It could be either
+<dd><p>A character vector of country codes. It can be either
 <code>"all"</code> (that would return the data for all countries), a vector of country
 names or ISO3 country codes. See also <code><a href="https://vincentarelbundock.github.io/countrycode/reference/countrycode.html" class="external-link">countrycode::countrycode()</a></code>.</p></dd>
 
 
 <dt id="arg-adm-lvl">adm_lvl<a class="anchor" aria-label="anchor" href="#arg-adm-lvl"></a></dt>
-<dd><p>Type of boundary Accepted values are <code>"all"</code> (all
+<dd><p>Type of boundary. Accepted values are <code>"all"</code> (all
 available boundaries) or the ADM level (<code>"adm0"</code> is the country boundary,
-<code>"adm1"</code> is the first level of sub national boundaries, <code>"adm2"</code> is the
-second level and so on. Upper case version (<code>"ADM1"</code>) and the number of
-the level (<code>1, 2, 3, 4, 5</code>) and also accepted.</p></dd>
+<code>"adm1"</code> is the first level of sub-national boundaries, <code>"adm2"</code> is the
+second level, and so on). Upper-case versions (<code>"ADM1"</code>) and the number of
+the level (<code>1, 2, 3, 4, 5</code>) are also accepted.</p></dd>
 
 
 <dt id="arg-simplified">simplified<a class="anchor" aria-label="anchor" href="#arg-simplified"></a></dt>
 <dd><p>logical. Return the simplified boundary or not. The default
-<code>FALSE</code> would use the premier geoBoundaries release.</p></dd>
+<code>FALSE</code> uses the premier geoBoundaries release.</p></dd>
 
 
 <dt id="arg-release-type">release_type<a class="anchor" aria-label="anchor" href="#arg-release-type"></a></dt>
@@ -114,7 +114,8 @@ the level (<code>1, 2, 3, 4, 5</code>) and also accepted.</p></dd>
 <code>"gbAuthoritative"</code>. For most users, we suggest using <code>"gbOpen"</code>
 (the default), as it is CC-BY 4.0 compliant and can be used for most
 purposes so long as attribution is provided:</p><ul><li><p><code>"gbHumanitarian"</code> files are mirrored from
-<a href="https://www.unocha.org/" class="external-link">UN OCHA</a>, but may have less open licensure.</p></li>
+<a href="https://www.unocha.org/" class="external-link">UN OCHA</a>, but may have more restrictive
+licensing.</p></li>
 <li><p><code>"gbAuthoritative"</code> files are mirrored from
 <a href="https://salb.un.org/en" class="external-link">UN SALB</a>, and cannot  be used for commercial
 purposes, but are verified through in-country processes.</p></li>
@@ -126,14 +127,14 @@ purposes, but are verified through in-country processes.</p></li>
 
 
 <dt id="arg-overwrite">overwrite<a class="anchor" aria-label="anchor" href="#arg-overwrite"></a></dt>
-<dd><p>logical. When set to <code>TRUE</code> it would force a fresh
+<dd><p>logical. When set to <code>TRUE</code> it will force a fresh
 download of the source <code>.zip</code> file.</p></dd>
 
 
 <dt id="arg-cache-dir">cache_dir<a class="anchor" aria-label="anchor" href="#arg-cache-dir"></a></dt>
 <dd><p>A path to a cache directory. If not set (the default
-<code>NULL</code>), the data would be stored in the default cache directory (see
-<code><a href="gb_set_cache_dir.html">gb_set_cache_dir()</a></code>). If no cache directory has been set, files would be
+<code>NULL</code>), the data will be stored in the default cache directory (see
+<code><a href="gb_set_cache_dir.html">gb_set_cache_dir()</a></code>). If no cache directory has been set, files will be
 stored in the temporary directory (see <code><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">base::tempdir()</a></code>). See caching
 strategies in <code><a href="gb_set_cache_dir.html">gb_set_cache_dir()</a></code>.</p></dd>
 
@@ -147,18 +148,18 @@ strategies in <code><a href="gb_set_cache_dir.html">gb_set_cache_dir()</a></code
     <p>Individual data files in the geoBoundaries database are governed by the
 license or licenses identified within the metadata for each respective
 boundary (see <code><a href="gb_get_metadata.html">gb_get_metadata()</a></code>. Users using individual boundary files
-from geoBoundaries should additionally ensure that they are citing the
+from geoBoundaries should additionally ensure that they cite the
 sources provided in the metadata for each file. See <strong>Examples</strong>.</p>
 <p>The following wrappers are also available:</p><ul><li><p><code><a href="gb_get_adm.html">gb_get_adm0()</a></code> returns the country boundary.</p></li>
-<li><p><code><a href="gb_get_adm.html">gb_get_adm1()</a></code> returns first-level administration
+<li><p><code><a href="gb_get_adm.html">gb_get_adm1()</a></code> returns first-level administrative
 boundaries (e.g. States in the United States).</p></li>
-<li><p><code><a href="gb_get_adm.html">gb_get_adm2()</a></code> returns second-level administration
+<li><p><code><a href="gb_get_adm.html">gb_get_adm2()</a></code> returns second-level administrative
 boundaries (e.g. Counties in the United States).</p></li>
-<li><p><code><a href="gb_get_adm.html">gb_get_adm3()</a></code> returns third-level administration
+<li><p><code><a href="gb_get_adm.html">gb_get_adm3()</a></code> returns third-level administrative
 boundaries (e.g. towns or cities in some countries).</p></li>
-<li><p><code><a href="gb_get_adm.html">gb_get_adm4()</a></code> returns fourth-level administration
+<li><p><code><a href="gb_get_adm.html">gb_get_adm4()</a></code> returns fourth-level administrative
 boundaries.</p></li>
-<li><p><code><a href="gb_get_adm.html">gb_get_adm5()</a></code> returns fifth-level administration
+<li><p><code><a href="gb_get_adm.html">gb_get_adm5()</a></code> returns fifth-level administrative
 boundaries.</p></li>
 </ul></div>
     <div class="section level2">

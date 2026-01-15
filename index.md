@@ -68,6 +68,23 @@ ggplot(sri_lanka_adm3) +
 ![Map of all administration levels for Sri
 Lanka](reference/figures/README-simple_plot-1.png)
 
+## Data Types
+
+geoBoundaries offers different release types with varying levels of
+validation and licensing:
+
+- **gbOpen**: Freely available boundaries under CC BY 4.0, suitable for
+  most applications
+- **gbHumanitarian**: Boundaries validated for humanitarian work,
+  ensuring accuracy for aid distribution
+- **gbAuthoritative**: Official government boundaries, highest accuracy
+  but may have restrictions
+
+Use the `release_type` parameter in functions to specify, e.g.,
+`gb_get_adm1("Sri Lanka", release_type = "gbHumanitarian")`.
+
+For detailed comparisons, see the vignettes.
+
 ## Advanced usage
 
 Get a map with the level of coverage of geoBoundaries by country:
@@ -125,9 +142,15 @@ ggplot(world_max) +
 
 - Visit the **pkgdown** site for full documentation:
   <https://dieghernan.github.io/geobounds/>
+- Vignettes on data releases:
+  - [gbOpen](https://dieghernan.github.io/geobounds/articles/gbopen.html)
+  - [gbHumanitarian](https://dieghernan.github.io/geobounds/articles/gbhumanitarian.html)
+  - [gbAuthoritative](https://dieghernan.github.io/geobounds/articles/gbauthoritative.html)
 - Explore the geoBoundaries homepage: <https://www.geoboundaries.org/>
 - Read the original paper describing the geoBoundaries dataset ([Runfola
   et al. 2020](#ref-geoboundaries)).
+- Report issues or contribute on
+  [GitHub](https://github.com/dieghernan/geobounds)
 
 ## License
 

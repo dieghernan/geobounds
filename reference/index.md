@@ -13,7 +13,7 @@ objects with political boundaries.
   [`gb_get_adm3()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
   [`gb_get_adm4()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
   [`gb_get_adm5()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
-  : Get country files from geoBoundaries for a given administration
+  : Get country files from geoBoundaries for a given administrative
   level
 - [`gb_get_cgaz()`](https://dieghernan.github.io/geobounds/reference/gb_get_cgaz.md)
   : Get global composites data (CGAZ) from geoBoundaries
@@ -32,17 +32,17 @@ These functions return metadata in tibble format.
 - [`gb_clear_cache()`](https://dieghernan.github.io/geobounds/reference/gb_clear_cache.md)
   :
 
-  Clear your geobounds cache dir
+  Clear your geobounds cache directory
 
 - [`gb_detect_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_detect_cache_dir.md)
   :
 
-  Detect cache dir for geobounds
+  Detect cache directory for geobounds
 
 - [`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_set_cache_dir.md)
   :
 
-  Set your geobounds cache dir
+  Set your geobounds cache directory
 
 ## About the package
 

@@ -20,7 +20,7 @@ geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
 
 - country:
 
-  A character vector of country codes. It could be either `"all"` (that
+  A character vector of country codes. It can be either `"all"` (that
   would return the data for all countries), a vector of country names or
   ISO3 country codes. See also
   [`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/reference/countrycode.html).
@@ -33,7 +33,8 @@ geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
   provided:
 
   - `"gbHumanitarian"` files are mirrored from [UN
-    OCHA](https://www.unocha.org/), but may have less open licensure.
+    OCHA](https://www.unocha.org/), but may have more restrictive
+    licensing.
 
   - `"gbAuthoritative"` files are mirrored from [UN
     SALB](https://salb.un.org/en), and cannot be used for commercial
@@ -41,8 +42,7 @@ geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
 
 ## Value
 
-A tibble with class
-[`tbl_df`](https://tibble.tidyverse.org/reference/tbl_df-class.html)
+A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)
 with the country names and corresponding highest administrative level.
 
 ## See also

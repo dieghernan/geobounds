@@ -16,9 +16,15 @@
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="geobounds | R package for download geodata from geoBoundaries">
-<meta name="description" content="geobounds is a R API package that helps to retrieve data from geoBounds. Several administration levels available. See Runfola, D. et al. (2020) geoBoundaries: A global database of political administrative boundaries. PLoS ONE 15(4): e0231866. https://doi.org/10.1371/journal.pone.0231866
+<meta name="description" content="geobounds is a R API package that helps to retrieve data from geoBounds.
+Several administration levels available. See Runfola, D. et al. (2020)
+geoBoundaries: A global database of political administrative boundaries.
+PLoS ONE 15(4): e0231866. https://doi.org/10.1371/journal.pone.0231866
 ">
-<meta property="og:description" content="geobounds is a R API package that helps to retrieve data from geoBounds. Several administration levels available. See Runfola, D. et al. (2020) geoBoundaries: A global database of political administrative boundaries. PLoS ONE 15(4): e0231866. https://doi.org/10.1371/journal.pone.0231866
+<meta property="og:description" content="geobounds is a R API package that helps to retrieve data from geoBounds.
+Several administration levels available. See Runfola, D. et al. (2020)
+geoBoundaries: A global database of political administrative boundaries.
+PLoS ONE 15(4): e0231866. https://doi.org/10.1371/journal.pone.0231866
 ">
 <meta property="og:image" content="https://dieghernan.github.io/geobounds/logo.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -45,7 +51,7 @@
       <img src="apple-touch-icon.png" alt="geobounds logo" height="34" width="34" class="d-inline-block me-1">
       geobounds</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.1.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -142,6 +148,21 @@
 <p><img src="reference/figures/README-simple_plot-1.png" alt="Map of all administration levels for Sri Lanka" width="100%"></p>
 </div>
 <div class="section level2">
+<h2 id="data-types">Data Types<a class="anchor" aria-label="anchor" href="#data-types"></a>
+</h2>
+<p>geoBoundaries offers different release types with varying levels of validation and licensing:</p>
+<ul>
+<li>
+<strong>gbOpen</strong>: Freely available boundaries under CC BY 4.0, suitable for most applications</li>
+<li>
+<strong>gbHumanitarian</strong>: Boundaries validated for humanitarian work, ensuring accuracy for aid distribution</li>
+<li>
+<strong>gbAuthoritative</strong>: Official government boundaries, highest accuracy but may have restrictions</li>
+</ul>
+<p>Use the <code>release_type</code> parameter in functions to specify, e.g., <code>gb_get_adm1("Sri Lanka", release_type = "gbHumanitarian")</code>.</p>
+<p>For detailed comparisons, see the vignettes.</p>
+</div>
+<div class="section level2">
 <h2 id="advanced-usage">Advanced usage<a class="anchor" aria-label="anchor" href="#advanced-usage"></a>
 </h2>
 <p>Get a map with the level of coverage of geoBoundaries by country:</p>
@@ -197,9 +218,18 @@
 <ul>
 <li>Visit the <strong>pkgdown</strong> site for full documentation: <a href="https://dieghernan.github.io/geobounds/" class="uri">https://dieghernan.github.io/geobounds/</a>
 </li>
+<li>Vignettes on data releases:
+<ul>
+<li><a href="https://dieghernan.github.io/geobounds/articles/gbopen.html">gbOpen</a></li>
+<li><a href="https://dieghernan.github.io/geobounds/articles/gbhumanitarian.html">gbHumanitarian</a></li>
+<li><a href="https://dieghernan.github.io/geobounds/articles/gbauthoritative.html">gbAuthoritative</a></li>
+</ul>
+</li>
 <li>Explore the geoBoundaries homepage: <a href="https://www.geoboundaries.org/" class="external-link uri">https://www.geoboundaries.org/</a>
 </li>
 <li>Read the original paper describing the geoBoundaries dataset (<a href="#ref-geoboundaries">Runfola et al. 2020</a>).</li>
+<li>Report issues or contribute on <a href="https://github.com/dieghernan/geobounds" class="external-link">GitHub</a>
+</li>
 </ul>
 </div>
 <div class="section level2">

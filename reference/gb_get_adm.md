@@ -1,26 +1,26 @@
-# Get country files from geoBoundaries for a given administration level
+# Get country files from geoBoundaries for a given administrative level
 
 [Attribution](https://www.geoboundaries.org/index.html#usage) is
 required for all uses of this dataset.
 
 These functions are wrappers of
 [`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md)
-for extracting any given administration level:
+for extracting any given administrative level:
 
 - `gb_get_adm0()` returns the country boundary.
 
-- `gb_get_adm1()` returns first-level administration boundaries (e.g.
+- `gb_get_adm1()` returns first-level administrative boundaries (e.g.
   States in the United States).
 
-- `gb_get_adm2()` returns second-level administration boundaries (e.g.
+- `gb_get_adm2()` returns second-level administrative boundaries (e.g.
   Counties in the United States).
 
-- `gb_get_adm3()` returns third-level administration boundaries (e.g.
+- `gb_get_adm3()` returns third-level administrative boundaries (e.g.
   towns or cities in some countries).
 
-- `gb_get_adm4()` returns fourth-level administration boundaries.
+- `gb_get_adm4()` returns fourth-level administrative boundaries.
 
-- `gb_get_adm5()` returns fifth-level administration boundaries.
+- `gb_get_adm5()` returns fifth-level administrative boundaries.
 
 Note that not all countries have the same number of levels. Check
 [gb_get_max_adm_lvl](https://dieghernan.github.io/geobounds/reference/gb_get_max_adm_lvl.md).
@@ -91,7 +91,7 @@ geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
 
 - country:
 
-  A character vector of country codes. It could be either `"all"` (that
+  A character vector of country codes. It can be either `"all"` (that
   would return the data for all countries), a vector of country names or
   ISO3 country codes. See also
   [`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/reference/countrycode.html).
@@ -99,7 +99,7 @@ geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
 - simplified:
 
   logical. Return the simplified boundary or not. The default `FALSE`
-  would use the premier geoBoundaries release.
+  uses the premier geoBoundaries release.
 
 - release_type:
 
@@ -109,7 +109,8 @@ geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
   provided:
 
   - `"gbHumanitarian"` files are mirrored from [UN
-    OCHA](https://www.unocha.org/), but may have less open licensure.
+    OCHA](https://www.unocha.org/), but may have more restrictive
+    licensing.
 
   - `"gbAuthoritative"` files are mirrored from [UN
     SALB](https://salb.un.org/en), and cannot be used for commercial
@@ -121,15 +122,15 @@ geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
 
 - overwrite:
 
-  logical. When set to `TRUE` it would force a fresh download of the
+  logical. When set to `TRUE` it will force a fresh download of the
   source `.zip` file.
 
 - cache_dir:
 
   A path to a cache directory. If not set (the default `NULL`), the data
-  would be stored in the default cache directory (see
+  will be stored in the default cache directory (see
   [`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_set_cache_dir.md)).
-  If no cache directory has been set, files would be stored in the
+  If no cache directory has been set, files will be stored in the
   temporary directory (see
   [`base::tempdir()`](https://rdrr.io/r/base/tempfile.html)). See
   caching strategies in

@@ -21,18 +21,18 @@ geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
 
 - country:
 
-  A character vector of country codes. It could be either `"all"` (that
+  A character vector of country codes. It can be either `"all"` (that
   would return the data for all countries), a vector of country names or
   ISO3 country codes. See also
   [`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/reference/countrycode.html).
 
 - adm_lvl:
 
-  Type of boundary Accepted values are `"all"` (all available
+  Type of boundary. Accepted values are `"all"` (all available
   boundaries) or the ADM level (`"adm0"` is the country boundary,
-  `"adm1"` is the first level of sub national boundaries, `"adm2"` is
-  the second level and so on. Upper case version (`"ADM1"`) and the
-  number of the level (`1, 2, 3, 4, 5`) and also accepted.
+  `"adm1"` is the first level of sub-national boundaries, `"adm2"` is
+  the second level, and so on). Upper-case versions (`"ADM1"`) and the
+  number of the level (`1, 2, 3, 4, 5`) are also accepted.
 
 - release_type:
 
@@ -42,7 +42,8 @@ geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
   provided:
 
   - `"gbHumanitarian"` files are mirrored from [UN
-    OCHA](https://www.unocha.org/), but may have less open licensure.
+    OCHA](https://www.unocha.org/), but may have more restrictive
+    licensing.
 
   - `"gbAuthoritative"` files are mirrored from [UN
     SALB](https://salb.un.org/en), and cannot be used for commercial
@@ -50,12 +51,13 @@ geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
 
 ## Value
 
-A tibble with class
-[`tbl_df`](https://tibble.tidyverse.org/reference/tbl_df-class.html).
+A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html).
 
 ## Details
 
-The result would be a tibble with the following columns:
+The result is a
+[tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) with
+the following columns:
 
 - `boundaryID`: The ID for this layer, which is a combination of the ISO
   code, the boundary type, and a unique identifier for the boundary

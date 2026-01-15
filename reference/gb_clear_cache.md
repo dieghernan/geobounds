@@ -1,14 +1,14 @@
-# Clear your geobounds cache dir
+# Clear your geobounds cache directory
 
-**Use this function with caution**. This function would clear your
-cached data and configuration, specifically:
+**Use this function with caution**. This function will clear your cached
+data and configuration, specifically:
 
 - Deletes the geobounds config directory
   (`tools::R_user_dir("geobounds", "config")`).
 
 - Deletes the `cache_dir` directory.
 
-- Deletes the values on stored on `Sys.getenv("GEOBOUNDS_CACHE_DIR")`.
+- Deletes the values stored in `Sys.getenv("GEOBOUNDS_CACHE_DIR")`.
 
 ## Usage
 
@@ -37,8 +37,8 @@ Invisible. This function is called for its side effects.
 
 ## Details
 
-This is an overkill function that is intended to reset your status as it
-you would never have installed and/or used geobounds.
+This is a comprehensive reset function that is intended to reset your
+status as if you had never installed or used geobounds.
 
 ## See also
 
@@ -53,20 +53,20 @@ Other cache utilities:
 
 # \dontrun{
 my_cache <- gb_detect_cache_dir()
-#> ℹ C:\Users\RUNNER~1\AppData\Local\Temp\RtmpIvw5vL/geobounds
+#> ℹ C:\Users\RUNNER~1\AppData\Local\Temp\Rtmpq6AhQU/geobounds
 # Set an example cache
 ex <- file.path(tempdir(), "example", "cache")
 gb_set_cache_dir(ex, quiet = TRUE)
 
 gb_clear_cache(quiet = FALSE)
-#> ! geobounds data deleted: C:\Users\RUNNER~1\AppData\Local\Temp\RtmpIvw5vL/example/cache
+#> ! geobounds data deleted: C:\Users\RUNNER~1\AppData\Local\Temp\Rtmpq6AhQU/example/cache
 
 # Restore initial cache
 gb_set_cache_dir(my_cache)
-#> ✔ geobounds cache dir is C:\Users\RUNNER~1\AppData\Local\Temp\RtmpIvw5vL/geobounds.
+#> ✔ geobounds cache dir is C:\Users\RUNNER~1\AppData\Local\Temp\Rtmpq6AhQU/geobounds.
 #> ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.
 identical(my_cache, gb_detect_cache_dir())
-#> ℹ C:\Users\RUNNER~1\AppData\Local\Temp\RtmpIvw5vL/geobounds
+#> ℹ C:\Users\RUNNER~1\AppData\Local\Temp\Rtmpq6AhQU/geobounds
 #> [1] TRUE
 # }
 ```

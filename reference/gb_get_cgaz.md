@@ -3,7 +3,7 @@
 [Attribution](https://www.geoboundaries.org/index.html#usage) is
 required for all uses of this dataset.
 
-This function returns a global composite of the required administration
+This function returns a global composite of the required administrative
 level, clipped to international boundaries, with gaps filled between
 borders.
 
@@ -27,18 +27,18 @@ geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
 
 - country:
 
-  A character vector of country codes. It could be either `"all"` (that
+  A character vector of country codes. It can be either `"all"` (that
   would return the data for all countries), a vector of country names or
   ISO3 country codes. See also
   [`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/reference/countrycode.html).
 
 - adm_lvl:
 
-  Type of boundary Accepted values are administrative levels 0, 1 and 2
-  (`"adm0"` is the country boundary, `"adm1"` is the first level of sub
-  national boundaries, `"adm2"` is the second level and so on. Upper
-  case version (`"ADM1"`) and the number of the level (`0, 1, 2`) and
-  also accepted.
+  Type of boundary. Accepted values are administrative levels 0, 1, and
+  2 (`"adm0"` is the country boundary, `"adm1"` is the first level of
+  sub-national boundaries, `"adm2"` is the second level, and so on).
+  Upper-case versions (`"ADM1"`) and the number of the level (`0, 1, 2`)
+  are also accepted.
 
 - quiet:
 
@@ -46,15 +46,15 @@ geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
 
 - overwrite:
 
-  logical. When set to `TRUE` it would force a fresh download of the
+  logical. When set to `TRUE` it will force a fresh download of the
   source `.zip` file.
 
 - cache_dir:
 
   A path to a cache directory. If not set (the default `NULL`), the data
-  would be stored in the default cache directory (see
+  will be stored in the default cache directory (see
   [`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_set_cache_dir.md)).
-  If no cache directory has been set, files would be stored in the
+  If no cache directory has been set, files will be stored in the
   temporary directory (see
   [`base::tempdir()`](https://rdrr.io/r/base/tempfile.html)). See
   caching strategies in
@@ -66,7 +66,7 @@ A [`sf`](https://r-spatial.github.io/sf/reference/sf.html) object.
 
 ## Details
 
-Comprehensive Global Administrative Zones (CGAZ) is a set of global
+Comprehensive Global Administrative Zones (CGAZ) are a set of global
 composites for administrative boundaries. There are two important
 distinctions between our global product and individual country
 downloads.
