@@ -36,9 +36,9 @@ geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
     OCHA](https://www.unocha.org/), but may have more restrictive
     licensing.
 
-  - `"gbAuthoritative"` files are mirrored from [UN
-    SALB](https://salb.un.org/en), and cannot be used for commercial
-    purposes, but are verified through in-country processes.
+  - `"gbAuthoritative"` files are mirrored from UN SALB, and cannot be
+    used for commercial purposes, but are verified through in-country
+    processes.
 
 ## Value
 

@@ -36,7 +36,8 @@ gb_set_cache_dir(cache_dir, overwrite = FALSE, install = FALSE, quiet = FALSE)
 
 ## Value
 
-An (invisible) character with the path to your `cache_dir`.
+An ([`invisible()`](https://rdrr.io/r/base/invisible.html)) character
+with the path to your `cache_dir`.
 
 ## Details
 
@@ -80,28 +81,28 @@ Other cache utilities:
 
 # \dontrun{
 my_cache <- gb_detect_cache_dir()
-#> ℹ C:\Users\RUNNER~1\AppData\Local\Temp\Rtmpq6AhQU/geobounds
+#> ℹ C:\Users\RUNNER~1\AppData\Local\Temp\Rtmpy4Fxch/geobounds
 
 # Set an example cache
 ex <- file.path(tempdir(), "example", "cachenew")
 gb_set_cache_dir(ex)
-#> ✔ geobounds cache dir is C:\Users\RUNNER~1\AppData\Local\Temp\Rtmpq6AhQU/example/cachenew.
+#> ✔ geobounds cache dir is C:\Users\RUNNER~1\AppData\Local\Temp\Rtmpy4Fxch/example/cachenew.
 #> ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.
 
 gb_detect_cache_dir()
-#> ℹ C:\Users\RUNNER~1\AppData\Local\Temp\Rtmpq6AhQU/example/cachenew
-#> [1] "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\Rtmpq6AhQU/example/cachenew"
+#> ℹ C:\Users\RUNNER~1\AppData\Local\Temp\Rtmpy4Fxch/example/cachenew
+#> [1] "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\Rtmpy4Fxch/example/cachenew"
 
 # Restore initial cache
 gb_set_cache_dir(my_cache)
-#> ✔ geobounds cache dir is C:\Users\RUNNER~1\AppData\Local\Temp\Rtmpq6AhQU/geobounds.
+#> ✔ geobounds cache dir is C:\Users\RUNNER~1\AppData\Local\Temp\Rtmpy4Fxch/geobounds.
 #> ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.
 identical(my_cache, gb_detect_cache_dir())
-#> ℹ C:\Users\RUNNER~1\AppData\Local\Temp\Rtmpq6AhQU/geobounds
+#> ℹ C:\Users\RUNNER~1\AppData\Local\Temp\Rtmpy4Fxch/geobounds
 #> [1] TRUE
 # }
 
 gb_detect_cache_dir()
-#> ℹ C:\Users\RUNNER~1\AppData\Local\Temp\Rtmpq6AhQU/geobounds
-#> [1] "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\Rtmpq6AhQU/geobounds"
+#> ℹ C:\Users\RUNNER~1\AppData\Local\Temp\Rtmpy4Fxch/geobounds
+#> [1] "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\Rtmpy4Fxch/geobounds"
 ```
