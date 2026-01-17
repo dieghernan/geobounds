@@ -54,20 +54,20 @@ Other cache utilities:
 
 # \dontrun{
 my_cache <- gb_detect_cache_dir()
-#> ℹ C:\Users\RUNNER~1\AppData\Local\Temp\Rtmpuw4Fbo/geobounds
+#> ℹ C:\Users\RUNNER~1\AppData\Local\Temp\RtmpkreWRc/geobounds
 # Set an example cache
 ex <- file.path(tempdir(), "example", "cache")
 gb_set_cache_dir(ex, quiet = TRUE)
 
 gb_clear_cache(quiet = FALSE)
-#> ! geobounds data deleted: C:\Users\RUNNER~1\AppData\Local\Temp\Rtmpuw4Fbo/example/cache
+#> ! geobounds data deleted: C:\Users\RUNNER~1\AppData\Local\Temp\RtmpkreWRc/example/cache
 
 # Restore initial cache
 gb_set_cache_dir(my_cache)
-#> ✔ geobounds cache dir is C:\Users\RUNNER~1\AppData\Local\Temp\Rtmpuw4Fbo/geobounds.
+#> ✔ geobounds cache dir is C:\Users\RUNNER~1\AppData\Local\Temp\RtmpkreWRc/geobounds.
 #> ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.
 identical(my_cache, gb_detect_cache_dir())
-#> ℹ C:\Users\RUNNER~1\AppData\Local\Temp\Rtmpuw4Fbo/geobounds
+#> ℹ C:\Users\RUNNER~1\AppData\Local\Temp\RtmpkreWRc/geobounds
 #> [1] TRUE
 # }
 ```
