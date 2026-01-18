@@ -92,7 +92,7 @@ gb_get_metadata <- function(
   release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative")
 ) {
   # Prepare inputs
-  release_type <- match.arg(release_type)
+  release_type <- match_arg_pretty(release_type)
   adm_lvl <- assert_adm_lvl(adm_lvl)
 
   country <- gbnds_dev_country2iso(country)

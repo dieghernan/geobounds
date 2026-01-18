@@ -110,7 +110,7 @@ gb_get <- function(
   cache_dir = NULL
 ) {
   # Input params
-  source <- match.arg(release_type)
+  source <- match_arg_pretty(release_type)
   adm_lvl <- assert_adm_lvl(adm_lvl)
   country <- gbnds_dev_country2iso(country)
 
