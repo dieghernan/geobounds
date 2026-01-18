@@ -81,7 +81,7 @@ files](https://www.geoboundaries.org/countryDownloads.html), whose aim is to
 represent every nation "as they would represent themselves", with no special
 identification of disputed areas.
 
-The download of this data is implemented in `gb_get()` and the `gb_get_adm`
+The download of this data is implemented in `gb_get()` and the `?gb_get_adm`
 family of functions. It is not guaranteed that borders align perfectly or that
 there are no gaps between countries. Additionally, these files do not include a
 special identification of disputed areas.
