@@ -10,7 +10,9 @@ convention `object_verb()` (see
 
 - `get_gb()` -\>
   [`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md).
-- `get_gb_adm` family -\> `gb_get_adm`.
+- `?get_gb_adm` family -\>
+  [`?gb_get_adm`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
+  family.
 - `get_gb_cgaz()` -\>
   [`gb_get_cgaz()`](https://dieghernan.github.io/geobounds/reference/gb_get_cgaz.md).
 - `get_gb_meta()` -\>
@@ -26,7 +28,6 @@ instead.
   added.
 - [`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/reference/gb_get_max_adm_lvl.md)
   added.
-- 
 - All functions:
   - Source files: Use of the `.zip/.shp` version of the dataset instead
     of `.geojson/.gpkg`. This implies that the **geojsonsf** dependency
