@@ -117,7 +117,8 @@ PLoS ONE 15(4): e0231866. https://doi.org/10.1371/journal.pone.0231866
 <p>Alternatively, you can install <strong>geobounds</strong> using the <a href="https://dieghernan.r-universe.dev/geobounds" class="external-link">r-universe</a>:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Install geobounds in R:</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"geobounds"</span>,</span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span></span>
+<span>  <span class="st">"geobounds"</span>,</span>
 <span>  repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
 <span>    <span class="st">"https://dieghernan.r-universe.dev"</span>,</span>
 <span>    <span class="st">"https://cloud.r-project.org"</span></span>
@@ -177,9 +178,7 @@ PLoS ONE 15(4): e0231866. https://doi.org/10.1371/journal.pone.0231866
 <span><span class="va">world_max</span> <span class="op">&lt;-</span> <span class="va">world</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>boundaryISO <span class="op">=</span> <span class="va">shapeGroup</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">max_lvl</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>max_lvl <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">maxBoundaryType</span>,</span>
-<span>    levels <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">5</span></span>
-<span>  <span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>max_lvl <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">maxBoundaryType</span>, levels <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">pal</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"#0e221b"</span>, <span class="st">"#0f4a38"</span>, <span class="st">"#0b6e4f"</span>, <span class="st">"#719384"</span>, <span class="st">"#b9975a"</span>, <span class="st">"#936e28"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">pal</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/levels.html" class="external-link">levels</a></span><span class="op">(</span><span class="va">world_max</span><span class="op">$</span><span class="va">max_lvl</span><span class="op">)</span></span>

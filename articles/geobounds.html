@@ -183,9 +183,9 @@ boundary.</p>
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/gb_get_metadata.html">gb_get_metadata</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"India"</span>, <span class="st">"Pakistan"</span><span class="op">)</span>, adm_lvl <span class="op">=</span> <span class="st">"ADM0"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">boundaryName</span>, <span class="va">boundaryLicense</span>, <span class="va">boundarySource</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 2 × 3</span></span>
-<span><span class="co">#&gt;   boundaryName boundaryLicense                                      boundarySource            </span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;        &lt;chr&gt;                                                &lt;chr&gt;                     </span></span>
-<span><span class="co">#&gt; 1 India        CC0 1.0 Universal (CC0 1.0) Public Domain Dedication geoBoundaries, Wikimedia …</span></span>
+<span><span class="co">#&gt;   boundaryName boundaryLicense                                      boundarySource              </span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;        &lt;chr&gt;                                                &lt;chr&gt;                       </span></span>
+<span><span class="co">#&gt; 1 India        CC0 1.0 Universal (CC0 1.0) Public Domain Dedication geoBoundaries, Wikimedia Co…</span></span>
 <span><span class="co">#&gt; 2 Pakistan     Open Data Commons Open Database License 1.0          OpenStreetMap, Wambacher</span></span></code></pre></div>
 </div>
 <div class="section level3">
@@ -236,7 +236,7 @@ version. For example:</p>
 <span><span class="co">#&gt; ℹ '</span></span>
 <span></span>
 <span><span class="va">current</span></span>
-<span><span class="co">#&gt; [1] "C:\\Users\\diego\\AppData\\Local\\Temp\\Rtmp65m814"</span></span>
+<span><span class="co">#&gt; [1] "C:\\Users\\diego\\AppData\\Local\\Temp\\Rtmp8KmqQk"</span></span>
 <span></span>
 <span><span class="co"># Change to new</span></span>
 <span><span class="va">newdir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"/geoboundvignette"</span><span class="op">)</span></span>
@@ -246,8 +246,7 @@ version. For example:</p>
 <span></span>
 <span><span class="co"># Download</span></span>
 <span><span class="va">example</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/gb_get_adm.html">gb_get_adm0</a></span><span class="op">(</span><span class="st">"Vatican City"</span>, quiet <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ℹ Downloading file from &lt;</span></span>
-<span><span class="co">#&gt; → Cache dir is '</span></span>
+<span><span class="co">#&gt; ✔ File '</span></span>
 <span></span>
 <span><span class="co"># Restore cache dir</span></span>
 <span><span class="fu"><a href="../reference/gb_set_cache_dir.html">gb_set_cache_dir</a></span><span class="op">(</span><span class="va">current</span><span class="op">)</span></span>
@@ -283,10 +282,10 @@ of the individual files and the boundaries data of CGAZ:</p>
 <span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Rows: 47</span></span>
 <span><span class="co">#&gt; Columns: 4</span></span>
-<span><span class="co">#&gt; $ boundaryISO          &lt;chr&gt; "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", "BLZ", "BOL", …</span></span>
-<span><span class="co">#&gt; $ boundaryName         &lt;chr&gt; "Aruba", "Anguilla", "Argentina", "Antigua and Barbuda", "Bonai…</span></span>
-<span><span class="co">#&gt; $ Continent            &lt;chr&gt; "Latin America and the Caribbean", "Latin America and the Carib…</span></span>
-<span><span class="co">#&gt; $ worldBankIncomeGroup &lt;chr&gt; "High-income Countries", "No income group available", "High-inc…</span></span>
+<span><span class="co">#&gt; $ boundaryISO          &lt;chr&gt; "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", "BLZ", "BOL", "B…</span></span>
+<span><span class="co">#&gt; $ boundaryName         &lt;chr&gt; "Aruba", "Anguilla", "Argentina", "Antigua and Barbuda", "Bonaire…</span></span>
+<span><span class="co">#&gt; $ Continent            &lt;chr&gt; "Latin America and the Caribbean", "Latin America and the Caribbe…</span></span>
+<span><span class="co">#&gt; $ worldBankIncomeGroup &lt;chr&gt; "High-income Countries", "No income group available", "High-incom…</span></span>
 <span></span>
 <span><span class="co"># Adjust factors</span></span>
 <span><span class="va">latam_meta</span><span class="op">$</span><span class="va">income_factor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">latam_meta</span><span class="op">$</span><span class="va">worldBankIncomeGroup</span>,</span>

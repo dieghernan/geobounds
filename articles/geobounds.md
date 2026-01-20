@@ -102,9 +102,9 @@ identified within the metadata for each respective boundary.
 gb_get_metadata(c("India", "Pakistan"), adm_lvl = "ADM0") |>
   select(boundaryName, boundaryLicense, boundarySource)
 #> # A tibble: 2 × 3
-#>   boundaryName boundaryLicense                                      boundarySource            
-#>   <chr>        <chr>                                                <chr>                     
-#> 1 India        CC0 1.0 Universal (CC0 1.0) Public Domain Dedication geoBoundaries, Wikimedia …
+#>   boundaryName boundaryLicense                                      boundarySource              
+#>   <chr>        <chr>                                                <chr>                       
+#> 1 India        CC0 1.0 Universal (CC0 1.0) Public Domain Dedication geoBoundaries, Wikimedia Co…
 #> 2 Pakistan     Open Data Commons Open Database License 1.0          OpenStreetMap, Wambacher
 ```
 
@@ -156,7 +156,7 @@ current <- gb_detect_cache_dir()
 #> ℹ '
 
 current
-#> [1] "C:\\Users\\diego\\AppData\\Local\\Temp\\Rtmp65m814"
+#> [1] "C:\\Users\\diego\\AppData\\Local\\Temp\\Rtmp8KmqQk"
 
 # Change to new
 newdir <- file.path(tempdir(), "/geoboundvignette")
@@ -166,8 +166,7 @@ gb_set_cache_dir(newdir)
 
 # Download
 example <- gb_get_adm0("Vatican City", quiet = FALSE)
-#> ℹ Downloading file from <
-#> → Cache dir is '
+#> ✔ File '
 
 # Restore cache dir
 gb_set_cache_dir(current)
@@ -207,10 +206,10 @@ latam_meta <- gb_get_metadata(adm_lvl = "ADM0") |>
   glimpse()
 #> Rows: 47
 #> Columns: 4
-#> $ boundaryISO          <chr> "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", "BLZ", "BOL", …
-#> $ boundaryName         <chr> "Aruba", "Anguilla", "Argentina", "Antigua and Barbuda", "Bonai…
-#> $ Continent            <chr> "Latin America and the Caribbean", "Latin America and the Carib…
-#> $ worldBankIncomeGroup <chr> "High-income Countries", "No income group available", "High-inc…
+#> $ boundaryISO          <chr> "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", "BLZ", "BOL", "B…
+#> $ boundaryName         <chr> "Aruba", "Anguilla", "Argentina", "Antigua and Barbuda", "Bonaire…
+#> $ Continent            <chr> "Latin America and the Caribbean", "Latin America and the Caribbe…
+#> $ worldBankIncomeGroup <chr> "High-income Countries", "No income group available", "High-incom…
 
 # Adjust factors
 latam_meta$income_factor <- factor(latam_meta$worldBankIncomeGroup,

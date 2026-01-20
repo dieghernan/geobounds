@@ -35,7 +35,8 @@ Alternatively, you can install **geobounds** using the
 
 ``` r
 # Install geobounds in R:
-install.packages("geobounds",
+install.packages(
+  "geobounds",
   repos = c(
     "https://dieghernan.r-universe.dev",
     "https://cloud.r-project.org"
@@ -100,9 +101,7 @@ max_lvl <- gb_get_max_adm_lvl(release_type = "gbOpen")
 world_max <- world |>
   mutate(boundaryISO = shapeGroup) |>
   left_join(max_lvl) |>
-  mutate(max_lvl = factor(maxBoundaryType,
-    levels = 0:5
-  ))
+  mutate(max_lvl = factor(maxBoundaryType, levels = 0:5))
 
 pal <- c("#0e221b", "#0f4a38", "#0b6e4f", "#719384", "#b9975a", "#936e28")
 names(pal) <- levels(world_max$max_lvl)
