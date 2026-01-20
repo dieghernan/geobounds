@@ -1,6 +1,7 @@
 on:
   workflow_dispatch:
 
+
 name: update-docs
 permissions: write-all
 # This will cancel running jobs once a new run is triggered
@@ -45,7 +46,7 @@ jobs:
 
     - name: Update docs
       run: |
-
+        
         pkgdev::update_docs(opt_dir = c("man/figures", "img", "vignettes"))
 
       shell: Rscript {0}

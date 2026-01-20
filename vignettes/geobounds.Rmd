@@ -1,7 +1,7 @@
 ---
 title: "geobounds: Accessing Global Administrative Boundary Data in R"
 bibliography: REFERENCES.bib
-link-citations: yes
+link-citations: true
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{geobounds: Accessing Global Administrative Boundary Data in R}
@@ -115,9 +115,9 @@ identified within the metadata for each respective boundary.
 gb_get_metadata(c("India", "Pakistan"), adm_lvl = "ADM0") |>
   select(boundaryName, boundaryLicense, boundarySource)
 #> # A tibble: 2 × 3
-#>   boundaryName boundaryLicense                                      boundarySource            
-#>   <chr>        <chr>                                                <chr>                     
-#> 1 India        CC0 1.0 Universal (CC0 1.0) Public Domain Dedication geoBoundaries, Wikimedia …
+#>   boundaryName boundaryLicense                                      boundarySource              
+#>   <chr>        <chr>                                                <chr>                       
+#> 1 India        CC0 1.0 Universal (CC0 1.0) Public Domain Dedication geoBoundaries, Wikimedia Co…
 #> 2 Pakistan     Open Data Commons Open Database License 1.0          OpenStreetMap, Wambacher
 ```
 
@@ -170,29 +170,28 @@ example:
 ``` r
 # Current folder
 current <- gb_detect_cache_dir()
-#> ℹ ']8;;file://C:\Users\diego\AppData\Local\Temp\Rtmp65m814C:\Users\diego\AppData\Local\Temp\Rtmp65m814]8;;'
+#> ℹ ']8;;file://C:\Users\diego\AppData\Local\Temp\Rtmp8KmqQkC:\Users\diego\AppData\Local\Temp\Rtmp8KmqQk]8;;'
 
 current
-#> [1] "C:\\Users\\diego\\AppData\\Local\\Temp\\Rtmp65m814"
+#> [1] "C:\\Users\\diego\\AppData\\Local\\Temp\\Rtmp8KmqQk"
 
 # Change to new
 newdir <- file.path(tempdir(), "/geoboundvignette")
 gb_set_cache_dir(newdir)
-#> ✔ geobounds cache dir is ']8;;file://C:\Users\diego\AppData\Local\Temp\Rtmp65m814//geoboundvignetteC:\Users\diego\AppData\Local\Temp\Rtmp65m814//geoboundvignette]8;;'.
+#> ✔ geobounds cache dir is ']8;;file://C:\Users\diego\AppData\Local\Temp\Rtmp8KmqQk//geoboundvignetteC:\Users\diego\AppData\Local\Temp\Rtmp8KmqQk//geoboundvignette]8;;'.
 #> ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.
 
 # Download
 example <- gb_get_adm0("Vatican City", quiet = FALSE)
-#> ℹ Downloading file from <]8;;https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/VAT/ADM0/geoBoundaries-VAT-ADM0-all.ziphttps://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/VAT/ADM0/geoBoundaries-VAT-ADM0-all.zip]8;;>
-#> → Cache dir is ']8;;file://C:\Users\diego\AppData\Local\Temp\Rtmp65m814//geoboundvignette/gbOpenC:\Users\diego\AppData\Local\Temp\Rtmp65m814//geoboundvignette/gbOpen]8;;'
+#> ✔ File ']8;;file://C:\Users\diego\AppData\Local\Temp\Rtmp8KmqQk/geoboundvignette/gbOpen/geoBoundaries-VAT-ADM0-all.zipC:\Users\diego\AppData\Local\Temp\Rtmp8KmqQk/geoboundvignette/gbOpen/geoBoundaries-VAT-ADM0-all.zip]8;;' already cached
 
 # Restore cache dir
 gb_set_cache_dir(current)
-#> ✔ geobounds cache dir is ']8;;file://C:\Users\diego\AppData\Local\Temp\Rtmp65m814C:\Users\diego\AppData\Local\Temp\Rtmp65m814]8;;'.
+#> ✔ geobounds cache dir is ']8;;file://C:\Users\diego\AppData\Local\Temp\Rtmp8KmqQkC:\Users\diego\AppData\Local\Temp\Rtmp8KmqQk]8;;'.
 #> ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.
 
 current == gb_detect_cache_dir()
-#> ℹ ']8;;file://C:\Users\diego\AppData\Local\Temp\Rtmp65m814C:\Users\diego\AppData\Local\Temp\Rtmp65m814]8;;'
+#> ℹ ']8;;file://C:\Users\diego\AppData\Local\Temp\Rtmp8KmqQkC:\Users\diego\AppData\Local\Temp\Rtmp8KmqQk]8;;'
 #> [1] TRUE
 ```
 
@@ -226,10 +225,10 @@ latam_meta <- gb_get_metadata(adm_lvl = "ADM0") |>
   glimpse()
 #> Rows: 47
 #> Columns: 4
-#> $ boundaryISO          <chr> "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", "BLZ", "BOL", …
-#> $ boundaryName         <chr> "Aruba", "Anguilla", "Argentina", "Antigua and Barbuda", "Bonai…
-#> $ Continent            <chr> "Latin America and the Caribbean", "Latin America and the Carib…
-#> $ worldBankIncomeGroup <chr> "High-income Countries", "No income group available", "High-inc…
+#> $ boundaryISO          <chr> "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", "BLZ", "BOL", "B…
+#> $ boundaryName         <chr> "Aruba", "Anguilla", "Argentina", "Antigua and Barbuda", "Bonaire…
+#> $ Continent            <chr> "Latin America and the Caribbean", "Latin America and the Caribbe…
+#> $ worldBankIncomeGroup <chr> "High-income Countries", "No income group available", "High-incom…
 
 # Adjust factors
 latam_meta$income_factor <- factor(latam_meta$worldBankIncomeGroup,

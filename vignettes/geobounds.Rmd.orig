@@ -1,7 +1,7 @@
 ---
 title: "geobounds: Accessing Global Administrative Boundary Data in R"
 bibliography: REFERENCES.bib
-link-citations: yes
+link-citations: true
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{geobounds: Accessing Global Administrative Boundary Data in R}
