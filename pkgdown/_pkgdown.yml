@@ -22,7 +22,7 @@ authors:
 
 navbar:
   structure:
-    right: [ search, github, geoBoundaries, lightswitch ]
+    right: [search, github, geoBoundaries, lightswitch]
   components:
     geoBoundaries:
       icon: fa-earth-americas

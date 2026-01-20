@@ -29,3 +29,5 @@
 ^vignettes/geobounds\.Rmd\.orig$
 ^vignettes/articles$
 ^jarl\.toml$
+/.quarto/
+[.]quarto_ipynb$
