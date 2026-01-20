@@ -179,20 +179,14 @@ Map showing overlapping in disputed area: Kashmir.
 <p>Note that individual data files are governed by the license or
 licenses identified within the metadata for each respective
 boundary.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">gb_get_metadata</span>(<span class="fu">c</span>(<span class="st">"India"</span>, <span class="st">"Pakistan"</span>), <span class="at">adm_lvl =</span> <span class="st">"ADM0"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>  <span class="fu">select</span>(boundaryName, boundaryLicense, boundarySource)</span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co">#&gt; # A tibble: 2 × 3</span></span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="sc">&lt;</span><span class="er">&lt;&lt;&lt;&lt;&lt;&lt;</span> HEAD</span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co">#&gt;   boundaryName boundaryLicense                                    boundarySource</span></span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;        &lt;chr&gt;                                              &lt;chr&gt;         </span></span>
-<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="co">#&gt; 1 India        CC0 1.0 Universal (CC0 1.0) Public Domain Dedicat… geoBoundaries…</span></span>
-<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="co">#&gt; 2 Pakistan     Open Data Commons Open Database License 1.0        OpenStreetMap…</span></span>
-<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="sc">==</span><span class="er">=====</span></span>
-<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="co">#&gt;   boundaryName boundaryLicense                                      boundarySource             </span></span>
-<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;        &lt;chr&gt;                                                &lt;chr&gt;                      </span></span>
-<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="co">#&gt; 1 India        CC0 1.0 Universal (CC0 1.0) Public Domain Dedication geoBoundaries, Wikimedia C…</span></span>
-<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="co">#&gt; 2 Pakistan     Open Data Commons Open Database License 1.0          OpenStreetMap, Wambacher</span></span>
-<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a><span class="er">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> <span class="fu">c25757e</span> (Pretty match arg)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/gb_get_metadata.html">gb_get_metadata</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"India"</span>, <span class="st">"Pakistan"</span><span class="op">)</span>, adm_lvl <span class="op">=</span> <span class="st">"ADM0"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">boundaryName</span>, <span class="va">boundaryLicense</span>, <span class="va">boundarySource</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 2 × 3</span></span>
+<span><span class="co">#&gt;   boundaryName boundaryLicense                                      boundarySource            </span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;        &lt;chr&gt;                                                &lt;chr&gt;                     </span></span>
+<span><span class="co">#&gt; 1 India        CC0 1.0 Universal (CC0 1.0) Public Domain Dedication geoBoundaries, Wikimedia …</span></span>
+<span><span class="co">#&gt; 2 Pakistan     Open Data Commons Open Database License 1.0          OpenStreetMap, Wambacher</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="composite-files">Composite files<a class="anchor" aria-label="anchor" href="#composite-files"></a>
@@ -236,55 +230,33 @@ Map showing no overlapping in Kashmir, provided by CGAZ.
 <p>The package provides a built-in mechanism to cache files locally so
 that repeated downloads for the same country/level will use the cached
 version. For example:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="co"># Current folder</span></span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>current <span class="ot">&lt;-</span> <span class="fu">gb_detect_cache_dir</span>()</span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="sc">&lt;</span><span class="er">&lt;&lt;&lt;&lt;&lt;&lt;</span> HEAD</span>
-<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="co">#&gt; ℹ 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpOgDOxA'</span></span>
-<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>current</span>
-<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="co">#&gt; [1] "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\RtmpOgDOxA"</span></span>
-<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="sc">==</span><span class="er">=====</span></span>
-<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="co">#&gt; ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpMByLR4'</span></span>
-<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a></span>
-<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a>current</span>
-<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a><span class="co">#&gt; [1] "C:\\Users\\diego\\AppData\\Local\\Temp\\RtmpMByLR4"</span></span>
-<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a><span class="sc">&gt;</span><span class="er">&gt;&gt;&gt;&gt;&gt;&gt;</span> <span class="fu">c25757e</span> (Pretty match arg)</span>
-<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a></span>
-<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a><span class="co"># Change to new</span></span>
-<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a>newdir <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="fu">tempdir</span>(), <span class="st">"/geoboundvignette"</span>)</span>
-<span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a><span class="fu">gb_set_cache_dir</span>(newdir)</span>
-<span id="cb5-18"><a href="#cb5-18" tabindex="-1"></a><span class="sc">&lt;</span><span class="er">&lt;&lt;&lt;&lt;&lt;&lt;</span> HEAD</span>
-<span id="cb5-19"><a href="#cb5-19" tabindex="-1"></a><span class="co">#&gt; ✔ geobounds cache dir is 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpOgDOxA//geoboundvignette'.</span></span>
-<span id="cb5-20"><a href="#cb5-20" tabindex="-1"></a><span class="sc">==</span><span class="er">=====</span></span>
-<span id="cb5-21"><a href="#cb5-21" tabindex="-1"></a><span class="co">#&gt; ✔ geobounds cache dir is 'C:\Users\diego\AppData\Local\Temp\RtmpMByLR4//geoboundvignette'.</span></span>
-<span id="cb5-22"><a href="#cb5-22" tabindex="-1"></a><span class="er">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> <span class="fu">c25757e</span> (Pretty match arg)</span>
-<span id="cb5-23"><a href="#cb5-23" tabindex="-1"></a><span class="co">#&gt; ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.</span></span>
-<span id="cb5-24"><a href="#cb5-24" tabindex="-1"></a></span>
-<span id="cb5-25"><a href="#cb5-25" tabindex="-1"></a><span class="co"># Download</span></span>
-<span id="cb5-26"><a href="#cb5-26" tabindex="-1"></a>example <span class="ot">&lt;-</span> <span class="fu">gb_get_adm0</span>(<span class="st">"Vatican City"</span>, <span class="at">quiet =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb5-27"><a href="#cb5-27" tabindex="-1"></a><span class="co">#&gt; ℹ Downloading file from &lt;https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/VAT/ADM0/geoBoundaries-VAT-ADM0-all.zip&gt;</span></span>
-<span id="cb5-28"><a href="#cb5-28" tabindex="-1"></a><span class="sc">&lt;</span><span class="er">&lt;&lt;&lt;&lt;&lt;&lt;</span> HEAD</span>
-<span id="cb5-29"><a href="#cb5-29" tabindex="-1"></a><span class="co">#&gt; → Cache dir is 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpOgDOxA//geoboundvignette/gbOpen'</span></span>
-<span id="cb5-30"><a href="#cb5-30" tabindex="-1"></a></span>
-<span id="cb5-31"><a href="#cb5-31" tabindex="-1"></a><span class="co"># Restore cache dir</span></span>
-<span id="cb5-32"><a href="#cb5-32" tabindex="-1"></a><span class="fu">gb_set_cache_dir</span>(current)</span>
-<span id="cb5-33"><a href="#cb5-33" tabindex="-1"></a><span class="co">#&gt; ✔ geobounds cache dir is 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpOgDOxA'.</span></span>
-<span id="cb5-34"><a href="#cb5-34" tabindex="-1"></a><span class="co">#&gt; ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.</span></span>
-<span id="cb5-35"><a href="#cb5-35" tabindex="-1"></a></span>
-<span id="cb5-36"><a href="#cb5-36" tabindex="-1"></a>current <span class="sc">==</span> <span class="fu">gb_detect_cache_dir</span>()</span>
-<span id="cb5-37"><a href="#cb5-37" tabindex="-1"></a><span class="co">#&gt; ℹ 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpOgDOxA'</span></span>
-<span id="cb5-38"><a href="#cb5-38" tabindex="-1"></a><span class="sc">==</span><span class="er">=====</span></span>
-<span id="cb5-39"><a href="#cb5-39" tabindex="-1"></a><span class="co">#&gt; → Cache dir is 'C:\Users\diego\AppData\Local\Temp\RtmpMByLR4//geoboundvignette/gbOpen'</span></span>
-<span id="cb5-40"><a href="#cb5-40" tabindex="-1"></a></span>
-<span id="cb5-41"><a href="#cb5-41" tabindex="-1"></a><span class="co"># Restore cache dir</span></span>
-<span id="cb5-42"><a href="#cb5-42" tabindex="-1"></a><span class="fu">gb_set_cache_dir</span>(current)</span>
-<span id="cb5-43"><a href="#cb5-43" tabindex="-1"></a><span class="co">#&gt; ✔ geobounds cache dir is 'C:\Users\diego\AppData\Local\Temp\RtmpMByLR4'.</span></span>
-<span id="cb5-44"><a href="#cb5-44" tabindex="-1"></a><span class="co">#&gt; ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.</span></span>
-<span id="cb5-45"><a href="#cb5-45" tabindex="-1"></a></span>
-<span id="cb5-46"><a href="#cb5-46" tabindex="-1"></a>current <span class="sc">==</span> <span class="fu">gb_detect_cache_dir</span>()</span>
-<span id="cb5-47"><a href="#cb5-47" tabindex="-1"></a><span class="co">#&gt; ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpMByLR4'</span></span>
-<span id="cb5-48"><a href="#cb5-48" tabindex="-1"></a><span class="sc">&gt;</span><span class="er">&gt;&gt;&gt;&gt;&gt;&gt;</span> <span class="fu">c25757e</span> (Pretty match arg)</span>
-<span id="cb5-49"><a href="#cb5-49" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Current folder</span></span>
+<span><span class="va">current</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/gb_detect_cache_dir.html">gb_detect_cache_dir</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; ℹ '</span></span>
+<span></span>
+<span><span class="va">current</span></span>
+<span><span class="co">#&gt; [1] "C:\\Users\\diego\\AppData\\Local\\Temp\\Rtmp65m814"</span></span>
+<span></span>
+<span><span class="co"># Change to new</span></span>
+<span><span class="va">newdir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"/geoboundvignette"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/gb_set_cache_dir.html">gb_set_cache_dir</a></span><span class="op">(</span><span class="va">newdir</span><span class="op">)</span></span>
+<span><span class="co">#&gt; ✔ geobounds cache dir is '</span></span>
+<span><span class="co">#&gt; ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.</span></span>
+<span></span>
+<span><span class="co"># Download</span></span>
+<span><span class="va">example</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/gb_get_adm.html">gb_get_adm0</a></span><span class="op">(</span><span class="st">"Vatican City"</span>, quiet <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; ℹ Downloading file from &lt;</span></span>
+<span><span class="co">#&gt; → Cache dir is '</span></span>
+<span></span>
+<span><span class="co"># Restore cache dir</span></span>
+<span><span class="fu"><a href="../reference/gb_set_cache_dir.html">gb_set_cache_dir</a></span><span class="op">(</span><span class="va">current</span><span class="op">)</span></span>
+<span><span class="co">#&gt; ✔ geobounds cache dir is '</span></span>
+<span><span class="co">#&gt; ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.</span></span>
+<span></span>
+<span><span class="va">current</span> <span class="op">==</span> <span class="fu"><a href="../reference/gb_detect_cache_dir.html">gb_detect_cache_dir</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; ℹ '</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
 <p>To clear the cache, use <code><a href="../reference/gb_clear_cache.html">gb_clear_cache()</a></code>.</p>
 <p>Specific cache directories for each function call can be set using
 the <code>cache_dir</code> argument of each function.</p>
@@ -302,56 +274,50 @@ you can easily use them in combination with other spatial data:</p>
 </ul>
 <p>In this example we would create a choropleth map using the meta data
 of the individual files and the boundaries data of CGAZ:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co"># Metadata</span></span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>latam_meta <span class="ot">&lt;-</span> <span class="fu">gb_get_metadata</span>(<span class="at">adm_lvl =</span> <span class="st">"ADM0"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>  <span class="fu">select</span>(boundaryISO, boundaryName, Continent, worldBankIncomeGroup) <span class="sc">|&gt;</span></span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>  <span class="fu">filter</span>(Continent <span class="sc">==</span> <span class="st">"Latin America and the Caribbean"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>  <span class="fu">glimpse</span>()</span>
-<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="co">#&gt; Rows: 47</span></span>
-<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a><span class="co">#&gt; Columns: 4</span></span>
-<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a><span class="sc">&lt;</span><span class="er">&lt;&lt;&lt;&lt;&lt;&lt;</span> HEAD</span>
-<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a><span class="co">#&gt; $ boundaryISO          &lt;chr&gt; "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", …</span></span>
-<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a><span class="co">#&gt; $ boundaryName         &lt;chr&gt; "Aruba", "Anguilla", "Argentina", "Antigua and Ba…</span></span>
-<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a><span class="co">#&gt; $ Continent            &lt;chr&gt; "Latin America and the Caribbean", "Latin America…</span></span>
-<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a><span class="co">#&gt; $ worldBankIncomeGroup &lt;chr&gt; "High-income Countries", "No income group availab…</span></span>
-<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a><span class="sc">==</span><span class="er">=====</span></span>
-<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a><span class="co">#&gt; $ boundaryISO          &lt;chr&gt; "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", "BLZ", "BOL", "…</span></span>
-<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a><span class="co">#&gt; $ boundaryName         &lt;chr&gt; "Aruba", "Anguilla", "Argentina", "Antigua and Barbuda", "Bonair…</span></span>
-<span id="cb6-17"><a href="#cb6-17" tabindex="-1"></a><span class="co">#&gt; $ Continent            &lt;chr&gt; "Latin America and the Caribbean", "Latin America and the Caribb…</span></span>
-<span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a><span class="co">#&gt; $ worldBankIncomeGroup &lt;chr&gt; "High-income Countries", "No income group available", "High-inco…</span></span>
-<span id="cb6-19"><a href="#cb6-19" tabindex="-1"></a><span class="er">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> <span class="fu">c25757e</span> (Pretty match arg)</span>
-<span id="cb6-20"><a href="#cb6-20" tabindex="-1"></a></span>
-<span id="cb6-21"><a href="#cb6-21" tabindex="-1"></a><span class="co"># Adjust factors</span></span>
-<span id="cb6-22"><a href="#cb6-22" tabindex="-1"></a>latam_meta<span class="sc">$</span>income_factor <span class="ot">&lt;-</span> <span class="fu">factor</span>(latam_meta<span class="sc">$</span>worldBankIncomeGroup,</span>
-<span id="cb6-23"><a href="#cb6-23" tabindex="-1"></a>  <span class="at">levels =</span> <span class="fu">c</span>(</span>
-<span id="cb6-24"><a href="#cb6-24" tabindex="-1"></a>    <span class="st">"High-income Countries"</span>,</span>
-<span id="cb6-25"><a href="#cb6-25" tabindex="-1"></a>    <span class="st">"Upper-middle-income Countries"</span>,</span>
-<span id="cb6-26"><a href="#cb6-26" tabindex="-1"></a>    <span class="st">"Lower-middle-income Countries"</span>,</span>
-<span id="cb6-27"><a href="#cb6-27" tabindex="-1"></a>    <span class="st">"Low-income Countries"</span></span>
-<span id="cb6-28"><a href="#cb6-28" tabindex="-1"></a>  )</span>
-<span id="cb6-29"><a href="#cb6-29" tabindex="-1"></a>)</span>
-<span id="cb6-30"><a href="#cb6-30" tabindex="-1"></a></span>
-<span id="cb6-31"><a href="#cb6-31" tabindex="-1"></a><span class="co"># Get the shapes from CGAZ</span></span>
-<span id="cb6-32"><a href="#cb6-32" tabindex="-1"></a>latam_sf <span class="ot">&lt;-</span> <span class="fu">gb_get_cgaz</span>(<span class="at">adm_lvl =</span> <span class="st">"ADM0"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb6-33"><a href="#cb6-33" tabindex="-1"></a>  <span class="fu">inner_join</span>(latam_meta,</span>
-<span id="cb6-34"><a href="#cb6-34" tabindex="-1"></a>    <span class="at">by =</span></span>
-<span id="cb6-35"><a href="#cb6-35" tabindex="-1"></a>      <span class="fu">c</span>(<span class="st">"shapeGroup"</span> <span class="ot">=</span> <span class="st">"boundaryISO"</span>)</span>
-<span id="cb6-36"><a href="#cb6-36" tabindex="-1"></a>  )</span>
-<span id="cb6-37"><a href="#cb6-37" tabindex="-1"></a></span>
-<span id="cb6-38"><a href="#cb6-38" tabindex="-1"></a><span class="fu">ggplot</span>(latam_sf) <span class="sc">+</span></span>
-<span id="cb6-39"><a href="#cb6-39" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> income_factor)) <span class="sc">+</span></span>
-<span id="cb6-40"><a href="#cb6-40" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Greens"</span>, <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb6-41"><a href="#cb6-41" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_legend</span>(<span class="at">position =</span> <span class="st">"bottom"</span>, <span class="at">nrow =</span> <span class="dv">2</span>)) <span class="sc">+</span></span>
-<span id="cb6-42"><a href="#cb6-42" tabindex="-1"></a>  <span class="fu">coord_sf</span>(</span>
-<span id="cb6-43"><a href="#cb6-43" tabindex="-1"></a>    <span class="at">crs =</span> <span class="st">"+proj=laea +lon_0=-75 +lat_0=-15"</span></span>
-<span id="cb6-44"><a href="#cb6-44" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb6-45"><a href="#cb6-45" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb6-46"><a href="#cb6-46" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"World Bank Income Group"</span>,</span>
-<span id="cb6-47"><a href="#cb6-47" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Latin America and the Caribbean"</span>,</span>
-<span id="cb6-48"><a href="#cb6-48" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">""</span>,</span>
-<span id="cb6-49"><a href="#cb6-49" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Source: www.geoboundaries.org"</span></span>
-<span id="cb6-50"><a href="#cb6-50" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Metadata</span></span>
+<span></span>
+<span><span class="va">latam_meta</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/gb_get_metadata.html">gb_get_metadata</a></span><span class="op">(</span>adm_lvl <span class="op">=</span> <span class="st">"ADM0"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">boundaryISO</span>, <span class="va">boundaryName</span>, <span class="va">Continent</span>, <span class="va">worldBankIncomeGroup</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">Continent</span> <span class="op">==</span> <span class="st">"Latin America and the Caribbean"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Rows: 47</span></span>
+<span><span class="co">#&gt; Columns: 4</span></span>
+<span><span class="co">#&gt; $ boundaryISO          &lt;chr&gt; "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", "BLZ", "BOL", …</span></span>
+<span><span class="co">#&gt; $ boundaryName         &lt;chr&gt; "Aruba", "Anguilla", "Argentina", "Antigua and Barbuda", "Bonai…</span></span>
+<span><span class="co">#&gt; $ Continent            &lt;chr&gt; "Latin America and the Caribbean", "Latin America and the Carib…</span></span>
+<span><span class="co">#&gt; $ worldBankIncomeGroup &lt;chr&gt; "High-income Countries", "No income group available", "High-inc…</span></span>
+<span></span>
+<span><span class="co"># Adjust factors</span></span>
+<span><span class="va">latam_meta</span><span class="op">$</span><span class="va">income_factor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">latam_meta</span><span class="op">$</span><span class="va">worldBankIncomeGroup</span>,</span>
+<span>  levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>    <span class="st">"High-income Countries"</span>,</span>
+<span>    <span class="st">"Upper-middle-income Countries"</span>,</span>
+<span>    <span class="st">"Lower-middle-income Countries"</span>,</span>
+<span>    <span class="st">"Low-income Countries"</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Get the shapes from CGAZ</span></span>
+<span><span class="va">latam_sf</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/gb_get_cgaz.html">gb_get_cgaz</a></span><span class="op">(</span>adm_lvl <span class="op">=</span> <span class="st">"ADM0"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">inner_join</a></span><span class="op">(</span><span class="va">latam_meta</span>,</span>
+<span>    by <span class="op">=</span></span>
+<span>      <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"shapeGroup"</span> <span class="op">=</span> <span class="st">"boundaryISO"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">latam_sf</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">income_factor</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html" class="external-link">scale_fill_brewer</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"Greens"</span>, direction <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html" class="external-link">guides</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_legend.html" class="external-link">guide_legend</a></span><span class="op">(</span>position <span class="op">=</span> <span class="st">"bottom"</span>, nrow <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span></span>
+<span>    crs <span class="op">=</span> <span class="st">"+proj=laea +lon_0=-75 +lat_0=-15"</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"World Bank Income Group"</span>,</span>
+<span>    subtitle <span class="op">=</span> <span class="st">"Latin America and the Caribbean"</span>,</span>
+<span>    fill <span class="op">=</span> <span class="st">""</span>,</span>
+<span>    caption <span class="op">=</span> <span class="st">"Source: www.geoboundaries.org"</span></span>
+<span>  <span class="op">)</span></span></code></pre></div>
 <div class="figure">
 <img src="choro-1.png" alt="World Bank Income Group: Latin America and the Caribbean " width="100%"><p class="caption">
 World Bank Income Group: Latin America and the Caribbean
