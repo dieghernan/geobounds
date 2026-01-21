@@ -188,7 +188,6 @@ details.
 ## Citation
 
 <p>
-
 Hernangómez D (2026). <em>geobounds: Download Map Data from
 geoBoundaries</em>.
 <a href="https://doi.org/10.5281/zenodo.17554275">doi:10.5281/zenodo.17554275</a>,

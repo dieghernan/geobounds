@@ -91,15 +91,16 @@ references:
     given-names: Rebecca
   - family-names: Hobbs
     given-names: Lauren
-  doi: 10.1371/journal.pone.0231866
+  year: '2020'
+  month: '4'
   journal: PLoS ONE
   publisher:
     name: Public Library of Science
-  year: '2020'
-  month: '4'
   volume: '15'
   issue: '4'
-  start: 1-9
+  doi: 10.1371/journal.pone.0231866
+  start: '1'
+  end: '9'
 - type: software
   title: 'R: A Language and Environment for Statistical Computing'
   notes: Depends

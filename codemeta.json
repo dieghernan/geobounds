@@ -14,7 +14,7 @@
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.5.1 (2025-06-13 ucrt)",
+  "runtimePlatform": "R version 4.5.2 (2025-10-31 ucrt)",
   "author": [
     {
       "@type": "Person",
@@ -202,7 +202,7 @@
     "SystemRequirements": null
   },
   "keywords": ["administrative-boundaries", "api", "geoboundaries", "r", "r-package", "spatial-data"],
-  "fileSize": "358.287KB",
+  "fileSize": "357.337KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -322,7 +322,7 @@
       ],
       "name": "geoBoundaries: A global database of political administrative boundaries",
       "identifier": "10.1371/journal.pone.0231866",
-      "pagination": "1-9",
+      "pagination": "1--9",
       "@id": "https://doi.org/10.1371/journal.pone.0231866",
       "sameAs": "https://doi.org/10.1371/journal.pone.0231866",
       "isPartOf": {
