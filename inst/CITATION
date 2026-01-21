@@ -22,7 +22,6 @@ bibentry(
 bibentry(
   "Article",
   header = "Please cite also:",
-  doi = "10.1371/journal.pone.0231866",
   author = c(
     person(
       given = "Daniel",
@@ -101,12 +100,13 @@ bibentry(
       family = "Hobbs"
     )
   ),
-  journal = "PLoS ONE",
-  publisher = "Public Library of Science",
   title = "geoBoundaries: A global database of political administrative boundaries",
   year = 2020,
   month = 4,
+  journal = "PLoS ONE",
+  publisher = "Public Library of Science",
   volume = 15,
-  pages = "1-9",
-  number = 4
+  number = 4,
+  pages = "1--9",
+  doi = "10.1371/journal.pone.0231866"
 )
