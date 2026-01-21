@@ -32,18 +32,18 @@ Runfola D, Anderson A, Baier H, Crittenden M, Dowker E, Fuhrig S,
 Goodman S, Grimsley G, Layko R, Melville G, Mulder M, Oberman R,
 Panganiban J, Peck A, Seitz L, Shea S, Slevin H, Youngerman R, Hobbs L
 (2020). “geoBoundaries: A global database of political administrative
-boundaries.” *PLoS ONE*, **15**(4), 1-9.
+boundaries.” *PLoS ONE*, **15**(4), 1–9.
 [doi:10.1371/journal.pone.0231866](https://doi.org/10.1371/journal.pone.0231866).
 
     @Article{,
-      doi = {10.1371/journal.pone.0231866},
       author = {Daniel Runfola and Austin Anderson and Heather Baier and Matt Crittenden and Elizabeth Dowker and Sydney Fuhrig and Seth Goodman and Grace Grimsley and Rachel Layko and Graham Melville and Maddy Mulder and Rachel Oberman and Joshua Panganiban and Andrew Peck and Leigh Seitz and Sylvia Shea and Hannah Slevin and Rebecca Youngerman and Lauren Hobbs},
-      journal = {PLoS ONE},
-      publisher = {Public Library of Science},
       title = {geoBoundaries: A global database of political administrative boundaries},
       year = {2020},
       month = {4},
+      journal = {PLoS ONE},
+      publisher = {Public Library of Science},
       volume = {15},
-      pages = {1-9},
       number = {4},
+      pages = {1--9},
+      doi = {10.1371/journal.pone.0231866},
     }
