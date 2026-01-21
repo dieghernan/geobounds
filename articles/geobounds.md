@@ -102,10 +102,10 @@ identified within the metadata for each respective boundary.
 gb_get_metadata(c("India", "Pakistan"), adm_lvl = "ADM0") |>
   select(boundaryName, boundaryLicense, boundarySource)
 #> # A tibble: 2 × 3
-#>   boundaryName boundaryLicense                                      boundarySource              
-#>   <chr>        <chr>                                                <chr>                       
-#> 1 India        CC0 1.0 Universal (CC0 1.0) Public Domain Dedication geoBoundaries, Wikimedia Co…
-#> 2 Pakistan     Open Data Commons Open Database License 1.0          OpenStreetMap, Wambacher
+#>   boundaryName boundaryLicense                                    boundarySource
+#>   <chr>        <chr>                                              <chr>         
+#> 1 India        CC0 1.0 Universal (CC0 1.0) Public Domain Dedicat… geoBoundaries…
+#> 2 Pakistan     Open Data Commons Open Database License 1.0        OpenStreetMap…
 ```
 
 ### Composite files
@@ -153,28 +153,29 @@ version. For example:
 ``` r
 # Current folder
 current <- gb_detect_cache_dir()
-#> ℹ '
+#> ℹ 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpiATGbk'
 
 current
-#> [1] "C:\\Users\\diego\\AppData\\Local\\Temp\\Rtmp8KmqQk"
+#> [1] "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\RtmpiATGbk"
 
 # Change to new
 newdir <- file.path(tempdir(), "/geoboundvignette")
 gb_set_cache_dir(newdir)
-#> ✔ geobounds cache dir is '
+#> ✔ geobounds cache dir is 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpiATGbk//geoboundvignette'.
 #> ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.
 
 # Download
 example <- gb_get_adm0("Vatican City", quiet = FALSE)
-#> ✔ File '
+#> ℹ Downloading file from <https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/VAT/ADM0/geoBoundaries-VAT-ADM0-all.zip>
+#> → Cache dir is 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpiATGbk//geoboundvignette/gbOpen'
 
 # Restore cache dir
 gb_set_cache_dir(current)
-#> ✔ geobounds cache dir is '
+#> ✔ geobounds cache dir is 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpiATGbk'.
 #> ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.
 
 current == gb_detect_cache_dir()
-#> ℹ '
+#> ℹ 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpiATGbk'
 #> [1] TRUE
 ```
 
@@ -206,10 +207,10 @@ latam_meta <- gb_get_metadata(adm_lvl = "ADM0") |>
   glimpse()
 #> Rows: 47
 #> Columns: 4
-#> $ boundaryISO          <chr> "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", "BLZ", "BOL", "B…
-#> $ boundaryName         <chr> "Aruba", "Anguilla", "Argentina", "Antigua and Barbuda", "Bonaire…
-#> $ Continent            <chr> "Latin America and the Caribbean", "Latin America and the Caribbe…
-#> $ worldBankIncomeGroup <chr> "High-income Countries", "No income group available", "High-incom…
+#> $ boundaryISO          <chr> "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", …
+#> $ boundaryName         <chr> "Aruba", "Anguilla", "Argentina", "Antigua and Ba…
+#> $ Continent            <chr> "Latin America and the Caribbean", "Latin America…
+#> $ worldBankIncomeGroup <chr> "High-income Countries", "No income group availab…
 
 # Adjust factors
 latam_meta$income_factor <- factor(latam_meta$worldBankIncomeGroup,
