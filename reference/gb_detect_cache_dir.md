@@ -31,6 +31,6 @@ Other cache utilities:
 
 ``` r
 gb_detect_cache_dir()
-#> ℹ C:\Users\RUNNER~1\AppData\Local\Temp\RtmpY9ui69/geobounds
-#> [1] "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\RtmpY9ui69/geobounds"
+#> ℹ C:\Users\RUNNER~1\AppData\Local\Temp\Rtmpmk9f9L/geobounds
+#> [1] "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\Rtmpmk9f9L/geobounds"
 ```
