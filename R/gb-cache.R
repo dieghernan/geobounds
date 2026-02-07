@@ -21,7 +21,6 @@
 #' @param overwrite Logical. If this is set to `TRUE`, it will overwrite an
 #'   existing `cache_dir`.
 #'
-#'
 #' @details
 #' By default, when no `cache_dir` is set the package uses a folder inside
 #' [base::tempdir()] (so files are temporary and are removed when the **R**
@@ -148,7 +147,6 @@ gb_set_cache_dir <- function(
 #' @description
 #' Helper function to detect the current cache folder. See
 #' [gb_set_cache_dir()].
-#'
 #'
 #' @param x Ignored.
 #'
@@ -291,7 +289,6 @@ gb_hlp_detect_cache_dir <- function() {
 
 
 #' Creates `cache_dir`
-#'
 #'
 #' @noRd
 gb_hlp_cachedir <- function(cache_dir = NULL) {

@@ -116,25 +116,22 @@ gb_get_metadata(c("India", "Pakistan"), adm_lvl = "ADM0") |>
 
 ```
 
-
 ### Composite files
 
 If you would prefer data where disputed areas are explicitly handled (by
-removing overlaps and filling gaps), please use `gb_get_cgaz()`. This function
+removing overlaps and filling gaps), please use `gb_get_world()`. This function
 downloads global composite datasets for administrative boundaries, also known
 as CGAZ (Comprehensive Global Administrative Zones). There are three important
 distinctions between CGAZ and individual country downloads:
 
 1.  Extensive simplification is performed to ensure that file sizes are small
     enough to be used in most traditional desktop software.
-
 2.  Disputed areas are removed and replaced with polygons following US
     Department of State definitions.
-
 3.  Gaps between borders have been filled.
 
 ```{r cgaz, fig.cap="Map showing no overlapping in Kashmir, provided by CGAZ."}
-cgaz_india_pak <- gb_get_cgaz(c("India", "Pakistan"))
+cgaz_india_pak <- gb_get_world(c("India", "Pakistan"))
 
 ggplot(cgaz_india_pak) +
   geom_sf(aes(fill = shapeName), alpha = 0.5) +
@@ -195,10 +192,10 @@ Specific cache directories for each function call can be set using the
 Because the boundaries are returned as **sf** objects, you can easily use them
 in combination with other spatial data:
 
--   Clip raster data to administrative units
--   Compute zonal statistics
--   Create choropleth maps
--   Perform spatial joins with survey or tabular data
+- Clip raster data to administrative units
+- Compute zonal statistics
+- Create choropleth maps
+- Perform spatial joins with survey or tabular data
 
 In this example we would create a choropleth map using the meta data of the
 individual files and the boundaries data of CGAZ:
@@ -222,7 +219,7 @@ latam_meta$income_factor <- factor(latam_meta$worldBankIncomeGroup,
 )
 
 # Get the shapes from CGAZ
-latam_sf <- gb_get_cgaz(adm_lvl = "ADM0") |>
+latam_sf <- gb_get_world(adm_lvl = "ADM0") |>
   inner_join(latam_meta,
     by =
       c("shapeGroup" = "boundaryISO")

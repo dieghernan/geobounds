@@ -34,7 +34,7 @@ purposes so long as attribution is provided:
 \item \code{"gbHumanitarian"} files are mirrored from
 \href{https://www.unocha.org/}{UN OCHA}, but may have more restrictive
 licensing.
-\item \code{"gbAuthoritative"} files are mirrored from UN SALB, and cannot  be used
+\item \code{"gbAuthoritative"} files are mirrored from UN SALB, and cannot be used
 for commercial purposes, but are verified through in-country processes.
 }}
 }

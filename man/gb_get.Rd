@@ -40,7 +40,7 @@ purposes so long as attribution is provided:
 \item \code{"gbHumanitarian"} files are mirrored from
 \href{https://www.unocha.org/}{UN OCHA}, but may have more restrictive
 licensing.
-\item \code{"gbAuthoritative"} files are mirrored from UN SALB, and cannot  be used
+\item \code{"gbAuthoritative"} files are mirrored from UN SALB, and cannot be used
 for commercial purposes, but are verified through in-country processes.
 }}
 
@@ -66,7 +66,7 @@ This function returns data of individual countries "as they would represent
 themselves", with no special identification of disputed areas.
 
 If you would prefer data that explicitly includes disputed areas, please use
-\code{\link[=gb_get_cgaz]{gb_get_cgaz()}}.
+\code{\link[=gb_get_world]{gb_get_world()}}.
 }
 \details{
 Individual data files in the geoBoundaries database are governed by the
@@ -127,6 +127,6 @@ administrative boundaries. \emph{PLoS ONE} 15(4): e0231866.
 \seealso{
 Other API functions: 
 \code{\link{gb_get_adm}},
-\code{\link{gb_get_cgaz}()}
+\code{\link{gb_get_world}()}
 }
 \concept{API functions}

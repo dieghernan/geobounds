@@ -55,7 +55,7 @@ gbnds_dev_country2iso <- function(names, out = "iso3c") {
       outnames <- countrycode::countrycode(x, "iso3c", out, warn = FALSE)
     } else {
       cli::cli_abort(
-        "Invalid country names. Try a vector of names or  ISO3 codes"
+        "Invalid country names. Try a vector of names or ISO3 codes"
       )
     }
     outnames

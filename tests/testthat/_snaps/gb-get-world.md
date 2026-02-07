@@ -1,7 +1,7 @@
 # sf output
 
     Code
-      gb_get_cgaz("Andorra", adm_lvl = "4")
+      gb_get_world("Andorra", adm_lvl = "4")
     Condition
       Error in `assert_adm_lvl()`:
       ! Not a valid `adm_lvl` level code ("4").

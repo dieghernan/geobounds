@@ -8,7 +8,7 @@
 #' themselves", with no special identification of disputed areas.
 #'
 #' If you would prefer data that explicitly includes disputed areas, please use
-#' [gb_get_cgaz()].
+#' [gb_get_world()].
 #'
 #' @export
 #' @param country A character vector of country codes. It can be either
@@ -28,7 +28,7 @@
 #'  - `"gbHumanitarian"` files are mirrored from
 #'    [UN OCHA](https://www.unocha.org/), but may have more restrictive
 #'    licensing.
-#'  - `"gbAuthoritative"` files are mirrored from UN SALB, and cannot  be used
+#'  - `"gbAuthoritative"` files are mirrored from UN SALB, and cannot be used
 #'    for commercial purposes, but are verified through in-country processes.
 #' @param quiet logical. If `TRUE` suppresses informational messages.
 #' @param overwrite logical. When set to `TRUE` it will force a fresh

@@ -50,7 +50,6 @@
 #'   simplified = TRUE
 #' )
 #'
-#'
 #' library(ggplot2)
 #'
 #' ggplot(lev2) +

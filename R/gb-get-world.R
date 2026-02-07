@@ -36,7 +36,7 @@
 #' @examplesIf httr2::is_online()
 #' # This download may take some time
 #' \dontrun{
-#' world <- gb_get_cgaz()
+#' world <- gb_get_world()
 #'
 #' library(ggplot2)
 #'
@@ -46,7 +46,7 @@
 #'   labs(caption = "Source: www.geoboundaries.org")
 #' }
 #'
-gb_get_cgaz <- function(
+gb_get_world <- function(
   country = "all",
   adm_lvl = "adm0",
   quiet = TRUE,
@@ -84,6 +84,6 @@ gb_get_cgaz <- function(
 }
 
 #' @export
-#' @rdname gb_get_cgaz
+#' @rdname gb_get_world
 #' @usage NULL
-gb_get_world <- gb_get_cgaz
+gb_get_cgaz <- gb_get_world

@@ -111,7 +111,7 @@ library(geobounds)
 library(ggplot2)
 library(dplyr)
 
-world <- gb_get_cgaz()
+world <- gb_get_world()
 max_lvl <- gb_get_max_adm_lvl(release_type = "gbOpen")
 
 world_max <- world |>
