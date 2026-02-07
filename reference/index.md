@@ -15,7 +15,7 @@ objects with political boundaries.
   [`gb_get_adm5()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
   : Get country files from geoBoundaries for a given administrative
   level
-- [`gb_get_cgaz()`](https://dieghernan.github.io/geobounds/reference/gb_get_cgaz.md)
+- [`gb_get_world()`](https://dieghernan.github.io/geobounds/reference/gb_get_world.md)
   : Get global composites data (CGAZ) from geoBoundaries
 
 ## Metadata

@@ -8,7 +8,7 @@ represent themselves", with no special identification of disputed areas.
 
 If you would prefer data that explicitly includes disputed areas, please
 use
-[`gb_get_cgaz()`](https://dieghernan.github.io/geobounds/reference/gb_get_cgaz.md).
+[`gb_get_world()`](https://dieghernan.github.io/geobounds/reference/gb_get_world.md).
 
 ## Usage
 
@@ -133,7 +133,7 @@ administrative boundaries. *PLoS ONE* 15(4): e0231866.
 
 Other API functions:
 [`gb_get_adm`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md),
-[`gb_get_cgaz()`](https://dieghernan.github.io/geobounds/reference/gb_get_cgaz.md)
+[`gb_get_world()`](https://dieghernan.github.io/geobounds/reference/gb_get_world.md)
 
 ## Examples
 

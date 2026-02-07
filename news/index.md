@@ -14,7 +14,10 @@ convention `object_verb()` (see
   [`?gb_get_adm`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
   family.
 - `get_gb_cgaz()` -\>
-  [`gb_get_cgaz()`](https://dieghernan.github.io/geobounds/reference/gb_get_cgaz.md).
+  [`gb_get_world()`](https://dieghernan.github.io/geobounds/reference/gb_get_world.md).
+  [`gb_get_cgaz()`](https://dieghernan.github.io/geobounds/reference/gb_get_world.md)
+  is also available for backwards compatibility, as an alias of
+  [`gb_get_world()`](https://dieghernan.github.io/geobounds/reference/gb_get_world.md).
 - `get_gb_meta()` -\>
   [`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md).
 
@@ -42,7 +45,7 @@ instead.
     implemented to avoid timeout / transient errors.
 - `gb_get*()`: In all functions now the `country` argument recognize
   mixed types (e.g. `gb_get(country = c("Germany", "USA"))` would work).
-- [`gb_get_cgaz()`](https://dieghernan.github.io/geobounds/reference/gb_get_cgaz.md)
+- [`gb_get_world()`](https://dieghernan.github.io/geobounds/reference/gb_get_world.md)
   get the latest data available on the repo
   <https://github.com/wmgeolab/geoBoundaries/tree/main/releaseData>.
 - Add DOI.

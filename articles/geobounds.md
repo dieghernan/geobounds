@@ -112,7 +112,7 @@ gb_get_metadata(c("India", "Pakistan"), adm_lvl = "ADM0") |>
 
 If you would prefer data where disputed areas are explicitly handled (by
 removing overlaps and filling gaps), please use
-[`gb_get_cgaz()`](https://dieghernan.github.io/geobounds/reference/gb_get_cgaz.md).
+[`gb_get_world()`](https://dieghernan.github.io/geobounds/reference/gb_get_world.md).
 This function downloads global composite datasets for administrative
 boundaries, also known as CGAZ (Comprehensive Global Administrative
 Zones). There are three important distinctions between CGAZ and
@@ -120,14 +120,12 @@ individual country downloads:
 
 1.  Extensive simplification is performed to ensure that file sizes are
     small enough to be used in most traditional desktop software.
-
 2.  Disputed areas are removed and replaced with polygons following US
     Department of State definitions.
-
 3.  Gaps between borders have been filled.
 
 ``` r
-cgaz_india_pak <- gb_get_cgaz(c("India", "Pakistan"))
+cgaz_india_pak <- gb_get_world(c("India", "Pakistan"))
 
 ggplot(cgaz_india_pak) +
   geom_sf(aes(fill = shapeName), alpha = 0.5) +
@@ -153,29 +151,28 @@ version. For example:
 ``` r
 # Current folder
 current <- gb_detect_cache_dir()
-#> ℹ 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpW0y9TG'
+#> ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpiCzLtM'
 
 current
-#> [1] "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\RtmpW0y9TG"
+#> [1] "C:\\Users\\diego\\AppData\\Local\\Temp\\RtmpiCzLtM"
 
 # Change to new
 newdir <- file.path(tempdir(), "/geoboundvignette")
 gb_set_cache_dir(newdir)
-#> ✔ geobounds cache dir is 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpW0y9TG//geoboundvignette'.
+#> ✔ geobounds cache dir is 'C:\Users\diego\AppData\Local\Temp\RtmpiCzLtM//geoboundvignette'.
 #> ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.
 
 # Download
 example <- gb_get_adm0("Vatican City", quiet = FALSE)
-#> ℹ Downloading file from <https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/VAT/ADM0/geoBoundaries-VAT-ADM0-all.zip>
-#> → Cache dir is 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpW0y9TG//geoboundvignette/gbOpen'
+#> ✔ File 'C:\Users\diego\AppData\Local\Temp\RtmpiCzLtM/geoboundvignette/gbOpen/geoBoundaries-VAT-ADM0-all.zip' already cached
 
 # Restore cache dir
 gb_set_cache_dir(current)
-#> ✔ geobounds cache dir is 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpW0y9TG'.
+#> ✔ geobounds cache dir is 'C:\Users\diego\AppData\Local\Temp\RtmpiCzLtM'.
 #> ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.
 
 current == gb_detect_cache_dir()
-#> ℹ 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpW0y9TG'
+#> ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpiCzLtM'
 #> [1] TRUE
 ```
 
@@ -223,7 +220,7 @@ latam_meta$income_factor <- factor(latam_meta$worldBankIncomeGroup,
 )
 
 # Get the shapes from CGAZ
-latam_sf <- gb_get_cgaz(adm_lvl = "ADM0") |>
+latam_sf <- gb_get_world(adm_lvl = "ADM0") |>
   inner_join(latam_meta,
     by =
       c("shapeGroup" = "boundaryISO")

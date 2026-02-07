@@ -163,7 +163,7 @@ administrative boundaries. *PLoS ONE* 15(4): e0231866.
 
 Other API functions:
 [`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md),
-[`gb_get_cgaz()`](https://dieghernan.github.io/geobounds/reference/gb_get_cgaz.md)
+[`gb_get_world()`](https://dieghernan.github.io/geobounds/reference/gb_get_world.md)
 
 ## Examples
 
@@ -173,7 +173,6 @@ lev2 <- gb_get_adm2(
   c("Italia", "Suiza", "Austria"),
   simplified = TRUE
 )
-
 
 library(ggplot2)
 

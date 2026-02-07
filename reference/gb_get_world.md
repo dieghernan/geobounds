@@ -10,7 +10,7 @@ borders.
 ## Usage
 
 ``` r
-gb_get_cgaz(
+gb_get_world(
   country = "all",
   adm_lvl = "adm0",
   quiet = TRUE,
@@ -95,7 +95,7 @@ Other API functions:
 ``` r
 # This download may take some time
 # \dontrun{
-world <- gb_get_cgaz()
+world <- gb_get_world()
 
 library(ggplot2)
 
