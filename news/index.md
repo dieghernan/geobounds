@@ -1,6 +1,6 @@
 # Changelog
 
-## geobounds (development version)
+## geobounds 0.1.0
 
 ### Breaking change
 

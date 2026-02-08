@@ -50,7 +50,7 @@ PLoS ONE 15(4): e0231866. https://doi.org/10.1371/journal.pone.0231866
 
     <a class="navbar-brand me-2" href="index.html"><img src="apple-touch-icon.png" alt="geobounds logo" height="34" width="34" class="d-inline-block me-1">geobounds</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -110,19 +110,22 @@ PLoS ONE 15(4): e0231866. https://doi.org/10.1371/journal.pone.0231866
 <ul>
 <li>Programmatically retrieve administrative boundary geometries (e.g., country → region → district) from geoBoundaries</li>
 <li>Use <strong>tidyverse</strong> / <strong>sf</strong> workflows in <strong>R</strong> to map, analyse and join these boundaries with your own data</li>
-<li>Work in an open-data context (geoBoundaries uses <a href="https://creativecommons.org/licenses/by/4.0/" class="external-link">CC BY-4.0</a>) / open licences)</li>
+<li>Work in an open-data context (geoBoundaries uses <a href="https://creativecommons.org/licenses/by/4.0/" class="external-link">CC BY-4.0</a>) / open licenses)</li>
 </ul>
 <p>In short: if you work with geospatial boundaries in <strong>R</strong> (shape files, polygons, join with other data), this package simplifies the process.</p>
 </div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install the developing version of <strong>geobounds</strong> with:</p>
+<p>Install <strong>geobounds</strong> from <strong>CRAN</strong> (when accepted):</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"geobounds"</span><span class="op">)</span></span></code></pre></div>
+<p>You can install the developing version of <strong>geobounds</strong> with:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("pak")</span></span>
 <span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"dieghernan/geobounds"</span><span class="op">)</span></span></code></pre></div>
 <p>Alternatively, you can install <strong>geobounds</strong> using the <a href="https://dieghernan.r-universe.dev/geobounds" class="external-link">r-universe</a>:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Install geobounds in R:</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span></span>
 <span>  <span class="st">"geobounds"</span>,</span>
@@ -135,7 +138,7 @@ PLoS ONE 15(4): e0231866. https://doi.org/10.1371/journal.pone.0231866
 <div class="section level2">
 <h2 id="example-usage">Example usage<a class="anchor" aria-label="anchor" href="#example-usage"></a>
 </h2>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/geobounds/">geobounds</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">sri_lanka_adm1</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/gb_get_adm.html">gb_get_adm1</a></span><span class="op">(</span><span class="st">"Sri Lanka"</span><span class="op">)</span></span>
@@ -174,7 +177,7 @@ PLoS ONE 15(4): e0231866. https://doi.org/10.1371/journal.pone.0231866
 <h2 id="advanced-usage">Advanced usage<a class="anchor" aria-label="anchor" href="#advanced-usage"></a>
 </h2>
 <p>Get a map with the level of coverage of geoBoundaries by country:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/geobounds/">geobounds</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
@@ -233,7 +236,7 @@ PLoS ONE 15(4): e0231866. https://doi.org/10.1371/journal.pone.0231866
 </li>
 <li>Explore the geoBoundaries homepage: <a href="https://www.geoboundaries.org/" class="external-link uri">https://www.geoboundaries.org/</a>
 </li>
-<li>Read the original paper describing the geoBoundaries dataset (<a href="#ref-geoboundaries">Runfola et al. 2020</a>).</li>
+<li>Read the original paper describing the geoBoundaries dataset (<a href="#ref-10.1371/journal.pone.0231866">Runfola et al. 2020</a>).</li>
 <li>Report issues or contribute on <a href="https://github.com/dieghernan/geobounds" class="external-link">GitHub</a>
 </li>
 </ul>
@@ -241,7 +244,7 @@ PLoS ONE 15(4): e0231866. https://doi.org/10.1371/journal.pone.0231866
 <div class="section level2">
 <h2 id="license">License<a class="anchor" aria-label="anchor" href="#license"></a>
 </h2>
-<p>This package is released under the <a href="https://creativecommons.org/licenses/by/4.0/" class="external-link">CC BY-4.0</a> license. Note that the boundary data being accessed (via geoBoundaries) also uses open licences; please check the specific dataset metadata for licensing details.</p>
+<p>This package is released under the <a href="https://creativecommons.org/licenses/by/4.0/" class="external-link">CC BY-4.0</a> license. Note that the boundary data being accessed (via geoBoundaries) also uses open licenses; please check the specific dataset metadata for licensing details.</p>
 </div>
 <div class="section level2">
 <h2 id="acknowledgements">Acknowledgements<a class="anchor" aria-label="anchor" href="#acknowledgements"></a>
@@ -249,7 +252,7 @@ PLoS ONE 15(4): e0231866. https://doi.org/10.1371/journal.pone.0231866
 <ul>
 <li>Many thanks to the geoBoundaries team and the <a href="https://sites.google.com/view/wmgeolab/" class="external-link">William &amp; Mary geoLab</a> for creating and maintaining the dataset.</li>
 <li>Thanks to the <strong>R</strong> package community and all contributors to this package’s development.</li>
-<li>If you use <strong>geobounds</strong> (and underlying geoBoundaries data) in your research or project, a citation and acknowledgement is greatly appreciated.</li>
+<li>If you use <strong>geobounds</strong> (and underlying geoBoundaries data) in your research or project, a citation and acknowledgment is greatly appreciated.</li>
 </ul>
 </div>
 <div class="section level2">
@@ -259,22 +262,22 @@ PLoS ONE 15(4): e0231866. https://doi.org/10.1371/journal.pone.0231866
 Hernangómez D (2026). <em>geobounds: Download Map Data from geoBoundaries</em>. <a href="https://doi.org/10.5281/zenodo.17554275" class="external-link">doi:10.5281/zenodo.17554275</a>, <a href="https://dieghernan.github.io/geobounds/">https://dieghernan.github.io/geobounds/</a>.
 </p>
 <p>A BibTeX entry for LaTeX users:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="sc">@</span>Manual{R<span class="sc">-</span>geobounds,</span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>  title <span class="ot">=</span> {{geobounds}<span class="sc">:</span> Download Map Data from geoBoundaries},</span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>  author <span class="ot">=</span> {Diego Hernangómez},</span>
-<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>  year <span class="ot">=</span> {<span class="dv">2026</span>},</span>
-<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>  version <span class="ot">=</span> {<span class="dv">0</span>.<span class="dv">0</span>.<span class="fl">1.9000</span>},</span>
-<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>  url <span class="ot">=</span> {https<span class="sc">:</span><span class="er">//</span>dieghernan.github.io<span class="sc">/</span>geobounds<span class="sc">/</span>},</span>
-<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>  abstract <span class="ot">=</span> {Tools to download data from geoBoundaries <span class="sc">&lt;</span>https<span class="sc">:</span><span class="er">//</span>www.geoboundaries.org<span class="sc">/</span><span class="er">&gt;</span>. Several administration levels available. See Runfola, D. et <span class="fu">al.</span> (<span class="dv">2020</span>) geoBoundaries<span class="sc">:</span> A global database of political administrative boundaries. PLoS ONE <span class="dv">15</span>(<span class="dv">4</span>)<span class="sc">:</span> e0231866. <span class="sc">&lt;</span>doi<span class="sc">:</span><span class="fl">10.1371</span><span class="sc">/</span>journal.pone<span class="fl">.0231866</span><span class="sc">&gt;</span>.},</span>
-<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>  doi <span class="ot">=</span> {<span class="fl">10.5281</span><span class="sc">/</span>zenodo<span class="fl">.17554275</span>},</span>
-<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="sc">@</span>Manual{R<span class="sc">-</span>geobounds,</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>  title <span class="ot">=</span> {{geobounds}<span class="sc">:</span> Download Map Data from geoBoundaries},</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>  author <span class="ot">=</span> {Diego Hernangómez},</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>  year <span class="ot">=</span> {<span class="dv">2026</span>},</span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>  version <span class="ot">=</span> {<span class="dv">0</span>.<span class="fl">1.0</span>},</span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>  url <span class="ot">=</span> {https<span class="sc">:</span><span class="er">//</span>dieghernan.github.io<span class="sc">/</span>geobounds<span class="sc">/</span>},</span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>  abstract <span class="ot">=</span> {Tools to download data from geoBoundaries <span class="sc">&lt;</span>https<span class="sc">:</span><span class="er">//</span>www.geoboundaries.org<span class="sc">/</span><span class="er">&gt;</span>. Several administration levels available. See Runfola, D. et <span class="fu">al.</span> (<span class="dv">2020</span>) geoBoundaries<span class="sc">:</span> A global database of political administrative boundaries. PLOS ONE <span class="dv">15</span>(<span class="dv">4</span>)<span class="sc">:</span> <span class="dv">1</span><span class="fl">-9.</span> <span class="sc">&lt;</span>doi<span class="sc">:</span><span class="fl">10.1371</span><span class="sc">/</span>journal.pone<span class="fl">.0231866</span><span class="sc">&gt;</span>.},</span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>  doi <span class="ot">=</span> {<span class="fl">10.5281</span><span class="sc">/</span>zenodo<span class="fl">.17554275</span>},</span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h2>
 <div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
-<div id="ref-geoboundaries" class="csl-entry">
-Runfola, Daniel, Austin Anderson, Heather Baier, Matt Crittenden, Elizabeth Dowker, Sydney Fuhrig, Seth Goodman, et al. 2020. “geoBoundaries: A Global Database of Political Administrative Boundaries.” <em>PLoS ONE</em> 15 (4): 1–9. <a href="https://doi.org/10.1371/journal.pone.0231866" class="external-link uri">https://doi.org/10.1371/journal.pone.0231866</a>.
+<div id="ref-10.1371/journal.pone.0231866" class="csl-entry">
+Runfola, Daniel, Austin Anderson, Heather Baier, Matt Crittenden, Elizabeth Dowker, Sydney Fuhrig, Seth Goodman, et al. 2020. “<span class="nocase">geoBoundaries</span>: A Global Database of Political Administrative Boundaries.” <em>PLOS ONE</em> 15 (4): 1–9. <a href="https://doi.org/10.1371/journal.pone.0231866" class="external-link uri">https://doi.org/10.1371/journal.pone.0231866</a>.
 </div>
 </div>
 </div>

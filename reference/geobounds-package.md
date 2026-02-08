@@ -3,8 +3,7 @@
 Tools to download data from 'geoBoundaries'
 <https://www.geoboundaries.org/>. Several administration levels
 available. See Runfola, D. et al. (2020) geoBoundaries: A global
-database of political administrative boundaries. PLoS ONE 15(4):
-e0231866.
+database of political administrative boundaries. PLOS ONE 15(4): 1-9.
 [doi:10.1371/journal.pone.0231866](https://doi.org/10.1371/journal.pone.0231866)
 .
 
