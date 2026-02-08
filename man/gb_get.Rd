@@ -121,7 +121,7 @@ gb_get_metadata(
 }
 \references{
 Runfola, D. et al. (2020) geoBoundaries: A global database of political
-administrative boundaries. \emph{PLoS ONE} 15(4): e0231866.
+administrative boundaries. \emph{PLOS ONE} \emph{15}(4), 1-9.
 \doi{10.1371/journal.pone.0231866}.
 }
 \seealso{

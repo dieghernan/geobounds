@@ -33,12 +33,18 @@ polygons). Using this package, you can:
   these boundaries with your own data
 - Work in an open-data context (geoBoundaries uses [CC
   BY-4.0](https://creativecommons.org/licenses/by/4.0/)) / open
-  licences)
+  licenses)
 
 In short: if you work with geospatial boundaries in **R** (shape files,
 polygons, join with other data), this package simplifies the process.
 
 ## Installation
+
+Install **geobounds** from **CRAN** (when accepted):
+
+``` r
+install.packages("geobounds")
+```
 
 You can install the developing version of **geobounds** with:
 
@@ -162,7 +168,7 @@ ggplot(world_max) +
   - [gbAuthoritative](https://dieghernan.github.io/geobounds/articles/gbauthoritative.html)
 - Explore the geoBoundaries homepage: <https://www.geoboundaries.org/>
 - Read the original paper describing the geoBoundaries dataset ([Runfola
-  et al. 2020](#ref-geoboundaries)).
+  et al. 2020](#ref-10.1371/journal.pone.0231866)).
 - Report issues or contribute on
   [GitHub](https://github.com/dieghernan/geobounds)
 
@@ -171,7 +177,7 @@ ggplot(world_max) +
 This package is released under the [CC
 BY-4.0](https://creativecommons.org/licenses/by/4.0/) license. Note that
 the boundary data being accessed (via geoBoundaries) also uses open
-licences; please check the specific dataset metadata for licensing
+licenses; please check the specific dataset metadata for licensing
 details.
 
 ## Acknowledgements
@@ -182,12 +188,13 @@ details.
 - Thanks to the **R** package community and all contributors to this
   package’s development.
 - If you use **geobounds** (and underlying geoBoundaries data) in your
-  research or project, a citation and acknowledgement is greatly
+  research or project, a citation and acknowledgment is greatly
   appreciated.
 
 ## Citation
 
 <p>
+
 Hernangómez D (2026). <em>geobounds: Download Map Data from
 geoBoundaries</em>.
 <a href="https://doi.org/10.5281/zenodo.17554275">doi:10.5281/zenodo.17554275</a>,
@@ -200,9 +207,9 @@ A BibTeX entry for LaTeX users:
       title = {{geobounds}: Download Map Data from geoBoundaries},
       author = {Diego Hernangómez},
       year = {2026},
-      version = {0.0.1.9000},
+      version = {0.1.0},
       url = {https://dieghernan.github.io/geobounds/},
-      abstract = {Tools to download data from geoBoundaries <https://www.geoboundaries.org/>. Several administration levels available. See Runfola, D. et al. (2020) geoBoundaries: A global database of political administrative boundaries. PLoS ONE 15(4): e0231866. <doi:10.1371/journal.pone.0231866>.},
+      abstract = {Tools to download data from geoBoundaries <https://www.geoboundaries.org/>. Several administration levels available. See Runfola, D. et al. (2020) geoBoundaries: A global database of political administrative boundaries. PLOS ONE 15(4): 1-9. <doi:10.1371/journal.pone.0231866>.},
       doi = {10.5281/zenodo.17554275},
     }
 
@@ -211,12 +218,12 @@ A BibTeX entry for LaTeX users:
 <div id="refs" class="references csl-bib-body hanging-indent"
 entry-spacing="0">
 
-<div id="ref-geoboundaries" class="csl-entry">
+<div id="ref-10.1371/journal.pone.0231866" class="csl-entry">
 
 Runfola, Daniel, Austin Anderson, Heather Baier, Matt Crittenden,
 Elizabeth Dowker, Sydney Fuhrig, Seth Goodman, et al. 2020.
-“geoBoundaries: A Global Database of Political Administrative
-Boundaries.” *PLoS ONE* 15 (4): 1–9.
+“<span class="nocase">geoBoundaries</span>: A Global Database of
+Political Administrative Boundaries.” *PLOS ONE* 15 (4): 1–9.
 <https://doi.org/10.1371/journal.pone.0231866>.
 
 </div>

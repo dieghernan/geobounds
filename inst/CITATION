@@ -20,93 +20,38 @@ bibentry(
 )
 
 bibentry(
-  "Article",
   header = "Please cite also:",
+  bibtype = "Article",
+  key = "10.1371/journal.pone.0231866",
+  title = "{geoBoundaries}: A global database of political administrative boundaries",
   author = c(
-    person(
-      given = "Daniel",
-      family = "Runfola"
-    ),
-    person(
-      given = "Austin",
-      family = "Anderson"
-    ),
-    person(
-      given = "Heather",
-      family = "Baier"
-    ),
-    person(
-      given = "Matt",
-      family = "Crittenden"
-    ),
-    person(
-      given = "Elizabeth",
-      family = "Dowker"
-    ),
-    person(
-      given = "Sydney",
-      family = "Fuhrig"
-    ),
-    person(
-      given = "Seth",
-      family = "Goodman"
-    ),
-    person(
-      given = "Grace",
-      family = "Grimsley"
-    ),
-    person(
-      given = "Rachel",
-      family = "Layko"
-    ),
-    person(
-      given = "Graham",
-      family = "Melville"
-    ),
-    person(
-      given = "Maddy",
-      family = "Mulder"
-    ),
-    person(
-      given = "Rachel",
-      family = "Oberman"
-    ),
-    person(
-      given = "Joshua",
-      family = "Panganiban"
-    ),
-    person(
-      given = "Andrew",
-      family = "Peck"
-    ),
-    person(
-      given = "Leigh",
-      family = "Seitz"
-    ),
-    person(
-      given = "Sylvia",
-      family = "Shea"
-    ),
-    person(
-      given = "Hannah",
-      family = "Slevin"
-    ),
-    person(
-      given = "Rebecca",
-      family = "Youngerman"
-    ),
-    person(
-      given = "Lauren",
-      family = "Hobbs"
-    )
+    person(given = "Daniel", family = "Runfola"),
+    person(given = "Austin", family = "Anderson"),
+    person(given = "Heather", family = "Baier"),
+    person(given = "Matt", family = "Crittenden"),
+    person(given = "Elizabeth", family = "Dowker"),
+    person(given = "Sydney", family = "Fuhrig"),
+    person(given = "Seth", family = "Goodman"),
+    person(given = "Grace", family = "Grimsley"),
+    person(given = "Rachel", family = "Layko"),
+    person(given = "Graham", family = "Melville"),
+    person(given = "Maddy", family = "Mulder"),
+    person(given = "Rachel", family = "Oberman"),
+    person(given = "Joshua", family = "Panganiban"),
+    person(given = "Andrew", family = "Peck"),
+    person(given = "Leigh", family = "Seitz"),
+    person(given = "Sylvia", family = "Shea"),
+    person(given = "Hannah", family = "Slevin"),
+    person(given = "Rebecca", family = "Youngerman"),
+    person(given = "Lauren", family = "Hobbs")
   ),
-  title = "geoBoundaries: A global database of political administrative boundaries",
-  year = 2020,
-  month = 4,
-  journal = "PLoS ONE",
+  year = "2020",
+  month = "04",
+  journal = "PLOS ONE",
   publisher = "Public Library of Science",
-  volume = 15,
-  number = 4,
+  volume = "15",
+  number = "4",
   pages = "1--9",
-  doi = "10.1371/journal.pone.0231866"
+  doi = "10.1371/journal.pone.0231866",
+  url = "https://doi.org/10.1371/journal.pone.0231866"
 )
