@@ -108,7 +108,7 @@ simplified \code{geoJSON}.
 }
 }
 \examples{
-\dontshow{if (identical(Sys.getenv("NOT_CRAN"), "true")) withAutoprint(\{ # examplesIf}
+\dontshow{if (identical(Sys.getenv("NOT_CRAN"), "true") || interactive()) withAutoprint(\{ # examplesIf}
 # Get metadata of ADM4 levels
 
 library(dplyr)

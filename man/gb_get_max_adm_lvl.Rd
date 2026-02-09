@@ -39,7 +39,7 @@ Get a summary of selected or all countries and their highest administrative
 level available in geoBoundaries.
 }
 \examples{
-\dontshow{if (identical(Sys.getenv("NOT_CRAN"), "true")) withAutoprint(\{ # examplesIf}
+\dontshow{if (identical(Sys.getenv("NOT_CRAN"), "true") || interactive()) withAutoprint(\{ # examplesIf}
 all <- gb_get_max_adm_lvl()
 library(dplyr)
 

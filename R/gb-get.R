@@ -73,7 +73,7 @@
 #'
 #' @family API functions
 #'
-#' @examplesIf identical(Sys.getenv("NOT_CRAN"), "true")
+#' @examplesIf identical(Sys.getenv("NOT_CRAN"), "true") || interactive()
 #' \donttest{
 #' # Map level 2 in Sri Lanka
 #' sri_lanka <- gb_get(

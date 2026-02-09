@@ -133,7 +133,7 @@ from geoBoundaries should additionally ensure that they are citing the
 sources provided in the metadata for each file.
 }
 \examples{
-\dontshow{if (identical(Sys.getenv("NOT_CRAN"), "true")) withAutoprint(\{ # examplesIf}
+\dontshow{if (identical(Sys.getenv("NOT_CRAN"), "true") || interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
 lev2 <- gb_get_adm2(
   c("Italia", "Suiza", "Austria"),

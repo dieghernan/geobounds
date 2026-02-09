@@ -16,7 +16,7 @@
 #'
 #' @export
 #'
-#' @examplesIf identical(Sys.getenv("NOT_CRAN"), "true")
+#' @examplesIf identical(Sys.getenv("NOT_CRAN"), "true") || interactive()
 #' all <- gb_get_max_adm_lvl()
 #' library(dplyr)
 #'

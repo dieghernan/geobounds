@@ -91,7 +91,7 @@ boundaries.
 }
 }
 \examples{
-\dontshow{if (identical(Sys.getenv("NOT_CRAN"), "true")) withAutoprint(\{ # examplesIf}
+\dontshow{if (identical(Sys.getenv("NOT_CRAN"), "true") || interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
 # Map level 2 in Sri Lanka
 sri_lanka <- gb_get(
