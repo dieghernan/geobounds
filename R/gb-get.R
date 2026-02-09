@@ -73,7 +73,7 @@
 #'
 #' @family API functions
 #'
-#' @examplesIf httr2::is_online()
+#' @examplesIf identical(Sys.getenv("NOT_CRAN"), "true")
 #' \donttest{
 #' # Map level 2 in Sri Lanka
 #' sri_lanka <- gb_get(

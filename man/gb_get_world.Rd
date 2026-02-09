@@ -62,7 +62,7 @@ Department of State definitions.
 }
 }
 \examples{
-\dontshow{if (httr2::is_online()) withAutoprint(\{ # examplesIf}
+\dontshow{if (identical(Sys.getenv("NOT_CRAN"), "true")) withAutoprint(\{ # examplesIf}
 # This download may take some time
 \dontrun{
 world <- gb_get_world()

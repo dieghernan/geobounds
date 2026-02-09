@@ -16,7 +16,7 @@
 #'
 #' @export
 #'
-#' @examplesIf httr2::is_online()
+#' @examplesIf identical(Sys.getenv("NOT_CRAN"), "true")
 #' all <- gb_get_max_adm_lvl()
 #' library(dplyr)
 #'

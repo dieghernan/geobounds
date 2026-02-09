@@ -43,7 +43,7 @@
 #' from geoBoundaries should additionally ensure that they are citing the
 #' sources provided in the metadata for each file.
 #'
-#' @examplesIf httr2::is_online()
+#' @examplesIf identical(Sys.getenv("NOT_CRAN"), "true")
 #' \donttest{
 #' lev2 <- gb_get_adm2(
 #'   c("Italia", "Suiza", "Austria"),

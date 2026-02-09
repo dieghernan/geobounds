@@ -78,7 +78,7 @@
 #' - `simplifiedGeometryGeoJSON`: The static download link for the
 #'    simplified `geoJSON`.
 #'
-#' @examplesIf httr2::is_online()
+#' @examplesIf identical(Sys.getenv("NOT_CRAN"), "true")
 #' # Get metadata of ADM4 levels
 #'
 #' library(dplyr)

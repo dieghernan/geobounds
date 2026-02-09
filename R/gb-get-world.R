@@ -33,7 +33,7 @@
 #' - Disputed areas are removed and replaced with polygons following US
 #'   Department of State definitions.
 #'
-#' @examplesIf httr2::is_online()
+#' @examplesIf identical(Sys.getenv("NOT_CRAN"), "true")
 #' # This download may take some time
 #' \dontrun{
 #' world <- gb_get_world()
