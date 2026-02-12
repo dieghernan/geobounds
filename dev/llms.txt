@@ -30,6 +30,9 @@ Install **geobounds** from
 install.packages("geobounds")
 ```
 
+Check the docs of the developing version in
+<https://dieghernan.github.io/geobounds/dev/>
+
 You can install the developing version of **geobounds** with:
 
 ``` r
