@@ -1,5 +1,6 @@
 ---
 title: "gbAuthoritative coverage and metadata"
+description: "Mirrored from UN SALB, cannot be used for commerical purposes"
 knitr:
   opts_chunk:
     collapse: true

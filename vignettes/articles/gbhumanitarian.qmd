@@ -1,5 +1,6 @@
 ---
 title: "gbHumanitarian coverage and metadata"
+description: "Mirrored from UN OCHA, may have less open licensure"
 knitr:
   opts_chunk:
     collapse: true

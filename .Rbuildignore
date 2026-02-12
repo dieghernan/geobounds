@@ -34,3 +34,5 @@
 ^vignettes/\.quarto$
 ^vignettes/articles/\.quarto$
 ^vignettes/articles/*_files$
+^vignettes/geobounds\.qmd\.orig$
+^vignettes/*_files$

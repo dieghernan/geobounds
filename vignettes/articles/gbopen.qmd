@@ -1,5 +1,6 @@
 ---
 title: "gbOpen coverage and metadata"
+description: "gbOpen is CC-BY 4.0 compliant and suitable for most users"
 knitr:
   opts_chunk:
     collapse: true

@@ -28,3 +28,4 @@ Rplots.pdf
 inst/doc
 /.quarto/
 **/*.quarto_ipynb
+**/.quarto/
