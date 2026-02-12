@@ -89,7 +89,8 @@ main img {
 .caption,
 .figure,
 .figcaption,
-figcaption {
+figcaption,
+caption {
 	color: var(--bs-secondary);
 	margin-left: auto;
 	margin-right: auto;
