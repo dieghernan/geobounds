@@ -12,7 +12,7 @@
 ## Citation
 
 Source:
-[`inst/CITATION`](https://github.com/dieghernan/geobounds/blob/main/inst/CITATION)
+[`inst/CITATION`](https://github.com/dieghernan/geobounds/blob/v0.1.0/inst/CITATION)
 
 Hernangómez D (2026). *geobounds: Download Map Data from geoBoundaries*.
 [doi:10.5281/zenodo.17554275](https://doi.org/10.5281/zenodo.17554275),
