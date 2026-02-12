@@ -19,7 +19,13 @@
 <link href="../deps/Roboto-0.4.10/font.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="geobounds: Accessing Global Administrative Boundary Data in R">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><script src="geobounds_files/libs/quarto-html/popper.min.js"></script><script src="geobounds_files/libs/quarto-html/tippy.umd.min.js"></script><link href="geobounds_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="geobounds_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="geobounds: Accessing Global Administrative Boundary Data in R">
+<meta property="og:image" content="https://dieghernan.github.io/geobounds/logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@dhernangomez">
+<meta name="twitter:site" content="@dhernangomez">
 <meta name="robots" content="noindex">
 <!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-LTNVYVLK36"></script><script>
   window.dataLayer = window.dataLayer || [];
@@ -79,52 +85,32 @@
 
 
   </div>
-</nav><div class="container template-article">
-
-
-
-
+</nav><div class="container template-quarto">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>geobounds: Accessing Global Administrative Boundary Data in R</h1>
-            
-      
-      <small class="dont-index">Source: <a href="https://github.com/dieghernan/geobounds/blob/main/vignettes/geobounds.Rmd" class="external-link"><code>vignettes/geobounds.Rmd</code></a></small>
-      <div class="d-none name"><code>geobounds.Rmd</code></div>
+
+
+
+
+      <small class="dont-index">Source: <a href="https://github.com/dieghernan/geobounds/blob/main/vignettes/geobounds.qmd" class="external-link"><code>vignettes/geobounds.qmd</code></a></small>
+      <div class="d-none name"><code></code></div>
     </div>
 
-    
-    
-<!-- geobounds.Rmd is generated from geobounds.Rmd.orig. Please edit that file -->
-<p><a href="https://www.geoboundaries.org/index.html#usage" class="external-link"><strong>Attribution</strong></a>
-<strong>is required when using geoBoundaries.</strong></p>
-<div class="section level2">
-<h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+
+
+
+
+
+    <!-- geobounds.qmd is generated from geobounds.qmd.orig. Please edit that file --><p><a href="https://www.geoboundaries.org/index.html#usage" class="external-link"><strong>Attribution</strong></a> <strong>is required when using geoBoundaries.</strong></p>
+<section class="level2"><h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
-<p>The <strong>geobounds</strong> package provides a straightforward
-interface for downloading and working with global political and
-administrative boundary data from the <a href="https://www.geoboundaries.org/" class="external-link">geoBoundaries</a> project <span class="citation">(<a href="#ref-10.1371/journal.pone.0231866">Runfola et
-al. 2020</a>)</span>.</p>
-<p>These datasets are openly licensed (<a href="https://creativecommons.org/licenses/by/4.0/" class="external-link">CC BY 4.0</a>) and
-cover countries worldwide across multiple administrative levels. The
-package supports different geoBoundaries release types: gbOpen,
-gbHumanitarian, and gbAuthoritative, which vary in validation levels and
-licensing. With <strong>geobounds</strong>, you can easily fetch
-boundary geometries as <strong>sf</strong> objects, explore metadata,
-cache datasets locally, and seamlessly integrate the boundaries into
-your spatial workflows.</p>
-</div>
-<div class="section level2">
-<h2 id="understanding-the-data">Understanding the data<a class="anchor" aria-label="anchor" href="#understanding-the-data"></a>
+<p>The <strong>geobounds</strong> package provides a straightforward interface for downloading and working with global political and administrative boundary data from the <a href="https://www.geoboundaries.org/" class="external-link">geoBoundaries</a> project <span class="citation" data-cites="10.1371/journal.pone.0231866">(<a href="#ref-10.1371/journal.pone.0231866" role="doc-biblioref">Runfola et al. 2020</a>)</span>.</p>
+<p>These datasets are openly licensed (<a href="https://creativecommons.org/licenses/by/4.0/" class="external-link">CC BY 4.0</a>) and cover countries worldwide across multiple administrative levels. The package supports different geoBoundaries release types: gbOpen, gbHumanitarian, and gbAuthoritative, which vary in validation levels and licensing. With <strong>geobounds</strong>, you can easily fetch boundary geometries as <strong>sf</strong> objects, explore metadata, cache datasets locally, and seamlessly integrate the boundaries into your spatial workflows.</p>
+</section><section class="level2"><h2 id="understanding-the-data">Understanding the data<a class="anchor" aria-label="anchor" href="#understanding-the-data"></a>
 </h2>
-<p>The geoBoundaries database undergoes a rigorous quality assurance
-process, including manual review and hand-digitization of physical maps
-where necessary. Its primary goal is to provide the highest possible
-level of spatial accuracy for scientific and academic applications.</p>
-<p>This precision comes at a cost: some files can be quite large and may
-take longer to download. For visualization or general mapping purposes,
-we recommend using the simplified datasets available by setting
-<code>simplified = TRUE</code>.</p>
+<p>The geoBoundaries database undergoes a rigorous quality assurance process, including manual review and hand-digitization of physical maps where necessary. Its primary goal is to provide the highest possible level of spatial accuracy for scientific and academic applications.</p>
+<p>This precision comes at a cost: some files can be quite large and may take longer to download. For visualization or general mapping purposes, we recommend using the simplified datasets available by setting <code>simplified = TRUE</code>.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/geobounds/">geobounds</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
@@ -150,22 +136,14 @@ we recommend using the simplified datasets available by setting
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>caption <span class="op">=</span> <span class="st">"Source: www.geoboundaries.org"</span><span class="op">)</span></span></code></pre></div>
 <div class="figure">
-<img src="norway-1.png" alt="Comparison between full vs. simplified map." width="100%"><p class="caption">
+<img src="./norway-1.png" alt="Comparison between full vs. simplified map." width="100%"><p class="caption">
 Comparison between full vs. simplified map.
 </p>
 </div>
-<div class="section level3">
-<h3 id="individual-country-files">Individual country files<a class="anchor" aria-label="anchor" href="#individual-country-files"></a>
+<section class="level3"><h3 id="individual-country-files">Individual country files<a class="anchor" aria-label="anchor" href="#individual-country-files"></a>
 </h3>
-<p>The geoBoundaries API provides <a href="https://www.geoboundaries.org/countryDownloads.html" class="external-link">individual
-country files</a>, whose aim is to represent every nation “as they would
-represent themselves”, with no special identification of disputed
-areas.</p>
-<p>The download of this data is implemented in <code><a href="../reference/gb_get.html">gb_get()</a></code> and
-the <code><a href="../reference/gb_get_adm.html">?gb_get_adm</a></code> family of functions. It is not guaranteed
-that borders align perfectly or that there are no gaps between
-countries. Additionally, these files do not include a special
-identification of disputed areas.</p>
+<p>The geoBoundaries API provides <a href="https://www.geoboundaries.org/countryDownloads.html" class="external-link">individual country files</a>, whose aim is to represent every nation “as they would represent themselves”, with no special identification of disputed areas.</p>
+<p>The download of this data is implemented in <code><a href="../reference/gb_get.html">gb_get()</a></code> and the <code><a href="../reference/gb_get_adm.html">?gb_get_adm</a></code> family of functions. It is not guaranteed that borders align perfectly or that there are no gaps between countries. Additionally, these files do not include a special identification of disputed areas.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">india_pak</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/gb_get_adm.html">gb_get_adm0</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"India"</span>, <span class="st">"Pakistan"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
@@ -180,36 +158,25 @@ identification of disputed areas.</p>
 <span>    caption <span class="op">=</span> <span class="st">"Source: www.geoboundaries.org"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <div class="figure">
-<img src="intersect-1.png" alt="Map showing overlapping in disputed area: Kashmir." width="100%"><p class="caption">
+<img src="./intersect-1.png" alt="Map showing overlapping in disputed area: Kashmir." width="100%"><p class="caption">
 Map showing overlapping in disputed area: Kashmir.
 </p>
 </div>
-<p>Note that individual data files are governed by the license or
-licenses identified within the metadata for each respective
-boundary.</p>
+<p>Note that individual data files are governed by the license or licenses identified within the metadata for each respective boundary.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/gb_get_metadata.html">gb_get_metadata</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"India"</span>, <span class="st">"Pakistan"</span><span class="op">)</span>, adm_lvl <span class="op">=</span> <span class="st">"ADM0"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">boundaryName</span>, <span class="va">boundaryLicense</span>, <span class="va">boundarySource</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 2 × 3</span></span>
-<span><span class="co">#&gt;   boundaryName boundaryLicense                                      boundarySource                  </span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;        &lt;chr&gt;                                                &lt;chr&gt;                           </span></span>
-<span><span class="co">#&gt; 1 India        CC0 1.0 Universal (CC0 1.0) Public Domain Dedication geoBoundaries, Wikimedia Commons</span></span>
+<span><span class="co">#&gt;   boundaryName boundaryLicense                                      boundarySource              </span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;        &lt;chr&gt;                                                &lt;chr&gt;                       </span></span>
+<span><span class="co">#&gt; 1 India        CC0 1.0 Universal (CC0 1.0) Public Domain Dedication geoBoundaries, Wikimedia Co…</span></span>
 <span><span class="co">#&gt; 2 Pakistan     Open Data Commons Open Database License 1.0          OpenStreetMap, Wambacher</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="composite-files">Composite files<a class="anchor" aria-label="anchor" href="#composite-files"></a>
+</section><section class="level3"><h3 id="composite-files">Composite files<a class="anchor" aria-label="anchor" href="#composite-files"></a>
 </h3>
-<p>If you would prefer data where disputed areas are explicitly handled
-(by removing overlaps and filling gaps), please use
-<code><a href="../reference/gb_get_world.html">gb_get_world()</a></code>. This function downloads global composite
-datasets for administrative boundaries, also known as CGAZ
-(Comprehensive Global Administrative Zones). There are three important
-distinctions between CGAZ and individual country downloads:</p>
-<ol style="list-style-type: decimal">
-<li>Extensive simplification is performed to ensure that file sizes are
-small enough to be used in most traditional desktop software.</li>
-<li>Disputed areas are removed and replaced with polygons following US
-Department of State definitions.</li>
+<p>If you would prefer data where disputed areas are explicitly handled (by removing overlaps and filling gaps), please use <code><a href="../reference/gb_get_world.html">gb_get_world()</a></code>. This function downloads global composite datasets for administrative boundaries, also known as CGAZ (Comprehensive Global Administrative Zones). There are three important distinctions between CGAZ and individual country downloads:</p>
+<ol type="1">
+<li>Extensive simplification is performed to ensure that file sizes are small enough to be used in most traditional desktop software.</li>
+<li>Disputed areas are removed and replaced with polygons following US Department of State definitions.</li>
 <li>Gaps between borders have been filled.</li>
 </ol>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
@@ -225,61 +192,51 @@ Department of State definitions.</li>
 <span>    caption <span class="op">=</span> <span class="st">"Source: www.geoboundaries.org"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <div class="figure">
-<img src="cgaz-1.png" alt="Map showing no overlapping in Kashmir, provided by CGAZ." width="100%"><p class="caption">
+<img src="./cgaz-1.png" alt="Map showing no overlapping in Kashmir, provided by CGAZ." width="100%"><p class="caption">
 Map showing no overlapping in Kashmir, provided by CGAZ.
 </p>
 </div>
-</div>
-</div>
-<div class="section level2">
-<h2 id="caching-and-performance">Caching and performance<a class="anchor" aria-label="anchor" href="#caching-and-performance"></a>
+</section></section><section class="level2"><h2 id="caching-and-performance">Caching and performance<a class="anchor" aria-label="anchor" href="#caching-and-performance"></a>
 </h2>
-<p>The package provides a built-in mechanism to cache files locally so
-that repeated downloads for the same country/level will use the cached
-version. For example:</p>
+<p>The package provides a built-in mechanism to cache files locally so that repeated downloads for the same country/level will use the cached version. For example:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Current folder</span></span>
 <span><span class="va">current</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/gb_detect_cache_dir.html">gb_detect_cache_dir</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpCUwfBG'</span></span>
+<span><span class="co">#&gt; ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpQPJqgl'</span></span>
 <span></span>
 <span><span class="va">current</span></span>
-<span><span class="co">#&gt; [1] "C:\\Users\\diego\\AppData\\Local\\Temp\\RtmpCUwfBG"</span></span>
+<span><span class="co">#&gt; [1] "C:\\Users\\diego\\AppData\\Local\\Temp\\RtmpQPJqgl"</span></span>
 <span></span>
 <span><span class="co"># Change to new</span></span>
 <span><span class="va">newdir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"/geoboundvignette"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/gb_set_cache_dir.html">gb_set_cache_dir</a></span><span class="op">(</span><span class="va">newdir</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ✔ geobounds cache dir is 'C:\Users\diego\AppData\Local\Temp\RtmpCUwfBG//geoboundvignette'.</span></span>
+<span><span class="co">#&gt; ✔ geobounds cache dir is 'C:\Users\diego\AppData\Local\Temp\RtmpQPJqgl//geoboundvignette'.</span></span>
 <span><span class="co">#&gt; ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.</span></span>
 <span></span>
 <span><span class="co"># Download</span></span>
 <span><span class="va">example</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/gb_get_adm.html">gb_get_adm0</a></span><span class="op">(</span><span class="st">"Vatican City"</span>, quiet <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ✔ File 'C:\Users\diego\AppData\Local\Temp\RtmpCUwfBG/geoboundvignette/gbOpen/geoBoundaries-VAT-ADM0-all.zip' already cached</span></span>
+<span><span class="co">#&gt; ✔ File 'C:\Users\diego\AppData\Local\Temp\RtmpQPJqgl/geoboundvignette/gbOpen/geoBoundaries-VAT-ADM0-all.zip' already cached</span></span>
 <span></span>
 <span><span class="co"># Restore cache dir</span></span>
 <span><span class="fu"><a href="../reference/gb_set_cache_dir.html">gb_set_cache_dir</a></span><span class="op">(</span><span class="va">current</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ✔ geobounds cache dir is 'C:\Users\diego\AppData\Local\Temp\RtmpCUwfBG'.</span></span>
+<span><span class="co">#&gt; ✔ geobounds cache dir is 'C:\Users\diego\AppData\Local\Temp\RtmpQPJqgl'.</span></span>
 <span><span class="co">#&gt; ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.</span></span>
 <span></span>
 <span><span class="va">current</span> <span class="op">==</span> <span class="fu"><a href="../reference/gb_detect_cache_dir.html">gb_detect_cache_dir</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpCUwfBG'</span></span>
+<span><span class="co">#&gt; ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpQPJqgl'</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
 <p>To clear the cache, use <code><a href="../reference/gb_clear_cache.html">gb_clear_cache()</a></code>.</p>
-<p>Specific cache directories for each function call can be set using
-the <code>cache_dir</code> argument of each function.</p>
-</div>
-<div class="section level2">
-<h2 id="use-in-spatial-analysis-pipelines">Use in spatial analysis pipelines<a class="anchor" aria-label="anchor" href="#use-in-spatial-analysis-pipelines"></a>
+<p>Specific cache directories for each function call can be set using the <code>cache_dir</code> argument of each function.</p>
+</section><section class="level2"><h2 id="use-in-spatial-analysis-pipelines">Use in spatial analysis pipelines<a class="anchor" aria-label="anchor" href="#use-in-spatial-analysis-pipelines"></a>
 </h2>
-<p>Because the boundaries are returned as <strong>sf</strong> objects,
-you can easily use them in combination with other spatial data:</p>
+<p>Because the boundaries are returned as <strong>sf</strong> objects, you can easily use them in combination with other spatial data:</p>
 <ul>
 <li>Clip raster data to administrative units</li>
 <li>Compute zonal statistics</li>
 <li>Create choropleth maps</li>
 <li>Perform spatial joins with survey or tabular data</li>
 </ul>
-<p>In this example we would create a choropleth map using the meta data
-of the individual files and the boundaries data of CGAZ:</p>
+<p>In this example we would create a choropleth map using the meta data of the individual files and the boundaries data of CGAZ:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Metadata</span></span>
 <span></span>
@@ -289,13 +246,14 @@ of the individual files and the boundaries data of CGAZ:</p>
 <span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Rows: 47</span></span>
 <span><span class="co">#&gt; Columns: 4</span></span>
-<span><span class="co">#&gt; $ boundaryISO          &lt;chr&gt; "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", "BLZ", "BOL", "BRA", …</span></span>
-<span><span class="co">#&gt; $ boundaryName         &lt;chr&gt; "Aruba", "Anguilla", "Argentina", "Antigua and Barbuda", "Bonaire Sint…</span></span>
-<span><span class="co">#&gt; $ Continent            &lt;chr&gt; "Latin America and the Caribbean", "Latin America and the Caribbean", …</span></span>
-<span><span class="co">#&gt; $ worldBankIncomeGroup &lt;chr&gt; "High-income Countries", "No income group available", "High-income Cou…</span></span>
+<span><span class="co">#&gt; $ boundaryISO          &lt;chr&gt; "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", "BLZ", "BOL", "B…</span></span>
+<span><span class="co">#&gt; $ boundaryName         &lt;chr&gt; "Aruba", "Anguilla", "Argentina", "Antigua and Barbuda", "Bonaire…</span></span>
+<span><span class="co">#&gt; $ Continent            &lt;chr&gt; "Latin America and the Caribbean", "Latin America and the Caribbe…</span></span>
+<span><span class="co">#&gt; $ worldBankIncomeGroup &lt;chr&gt; "High-income Countries", "No income group available", "High-incom…</span></span>
 <span></span>
 <span><span class="co"># Adjust factors</span></span>
-<span><span class="va">latam_meta</span><span class="op">$</span><span class="va">income_factor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">latam_meta</span><span class="op">$</span><span class="va">worldBankIncomeGroup</span>,</span>
+<span><span class="va">latam_meta</span><span class="op">$</span><span class="va">income_factor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span></span>
+<span>  <span class="va">latam_meta</span><span class="op">$</span><span class="va">worldBankIncomeGroup</span>,</span>
 <span>  levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
 <span>    <span class="st">"High-income Countries"</span>,</span>
 <span>    <span class="st">"Upper-middle-income Countries"</span>,</span>
@@ -306,10 +264,7 @@ of the individual files and the boundaries data of CGAZ:</p>
 <span></span>
 <span><span class="co"># Get the shapes from CGAZ</span></span>
 <span><span class="va">latam_sf</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/gb_get_world.html">gb_get_world</a></span><span class="op">(</span>adm_lvl <span class="op">=</span> <span class="st">"ADM0"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">inner_join</a></span><span class="op">(</span><span class="va">latam_meta</span>,</span>
-<span>    by <span class="op">=</span></span>
-<span>      <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"shapeGroup"</span> <span class="op">=</span> <span class="st">"boundaryISO"</span><span class="op">)</span></span>
-<span>  <span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">inner_join</a></span><span class="op">(</span><span class="va">latam_meta</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"shapeGroup"</span> <span class="op">=</span> <span class="st">"boundaryISO"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">latam_sf</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">income_factor</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -325,35 +280,106 @@ of the individual files and the boundaries data of CGAZ:</p>
 <span>    caption <span class="op">=</span> <span class="st">"Source: www.geoboundaries.org"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <div class="figure">
-<img src="choro-1.png" alt="World Bank Income Group: Latin America and the Caribbean " width="100%"><p class="caption">
-World Bank Income Group: Latin America and the Caribbean
+<img src="./choro-1.png" alt="World Bank Income Group: Latin America and the Caribbean." width="100%"><p class="caption">
+World Bank Income Group: Latin America and the Caribbean.
 </p>
 </div>
-</div>
-<div class="section level2">
-<h2 id="summary">Summary<a class="anchor" aria-label="anchor" href="#summary"></a>
+</section><section class="level2"><h2 id="summary">Summary<a class="anchor" aria-label="anchor" href="#summary"></a>
 </h2>
-<p>The <strong>geobounds</strong> package makes it easy to fetch, manage
-and visualize administrative boundary data worldwide in a reproducible
-and efficient way. Whether you’re doing mapping, spatial analysis,
-survey integration, or geospatial modelling, it gives you a high-quality
-boundary dataset with minimal overhead.</p>
-</div>
-<div class="section level2 unnumbered">
-<h2 class="unnumbered" id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
+<p>The <strong>geobounds</strong> package makes it easy to fetch, manage and visualize administrative boundary data worldwide in a reproducible and efficient way. Whether you’re doing mapping, spatial analysis, survey integration, or geospatial modelling, it gives you a high-quality boundary dataset with minimal overhead.</p>
+</section><section class="level2 unnumbered"><h2 class="unnumbered" id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h2>
-<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
-<div id="ref-10.1371/journal.pone.0231866" class="csl-entry">
-Runfola, Daniel, Austin Anderson, Heather Baier, Matt Crittenden,
-Elizabeth Dowker, Sydney Fuhrig, Seth Goodman, et al. 2020. <span>“<span class="nocase">geoBoundaries</span>: A Global Database of Political
-Administrative Boundaries.”</span> <em>PLOS ONE</em> 15 (4): 1–9. <a href="https://doi.org/10.1371/journal.pone.0231866" class="external-link">https://doi.org/10.1371/journal.pone.0231866</a>.
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-10.1371/journal.pone.0231866" class="csl-entry" role="listitem">
+Runfola, Daniel, Austin Anderson, Heather Baier, Matt Crittenden, Elizabeth Dowker, Sydney Fuhrig, Seth Goodman, et al. 2020. <span>“<span class="nocase">geoBoundaries</span>: A Global Database of Political Administrative Boundaries.”</span> <em>PLOS ONE</em> 15 (4): 1–9. <a href="https://doi.org/10.1371/journal.pone.0231866" class="external-link">https://doi.org/10.1371/journal.pone.0231866</a>.
 </div>
 </div>
-</div>
-  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
+</section><script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'light-border',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config);
+    }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script></main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
 </div>
-
 
 
     <footer><div class="pkgdown-footer-left">
