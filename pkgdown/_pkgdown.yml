@@ -7,6 +7,9 @@ figures:
 development:
   mode: auto
 
+repo:
+  branch: main
+
 template:
   bootstrap: 5
   package: gitdevr
