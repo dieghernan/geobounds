@@ -4,7 +4,7 @@
   "identifier": "geobounds",
   "description": "Tools to download data from 'geoBoundaries' <https://www.geoboundaries.org/>. Several administration levels available. See Runfola, D. et al. (2020) geoBoundaries: A global database of political administrative boundaries. PLOS ONE 15(4): 1-9. <doi:10.1371/journal.pone.0231866>.",
   "name": "geobounds: Download Map Data from 'geoBoundaries'",
-  "relatedLink": "https://dieghernan.github.io/geobounds/",
+  "relatedLink": ["https://dieghernan.github.io/geobounds/", "https://CRAN.R-project.org/package=geobounds"],
   "codeRepository": "https://github.com/dieghernan/geobounds",
   "issueTracker": "https://github.com/dieghernan/geobounds/issues",
   "license": "https://spdx.org/licenses/CC-BY-4.0",
@@ -15,6 +15,12 @@
     "url": "https://r-project.org"
   },
   "runtimePlatform": "R version 4.5.2 (2025-10-31 ucrt)",
+  "provider": {
+    "@id": "https://cran.r-project.org",
+    "@type": "Organization",
+    "name": "Comprehensive R Archive Network (CRAN)",
+    "url": "https://cran.r-project.org"
+  },
   "author": [
     {
       "@type": "Person",
@@ -85,15 +91,15 @@
     },
     {
       "@type": "SoftwareApplication",
-      "identifier": "rmarkdown",
-      "name": "rmarkdown",
+      "identifier": "quarto",
+      "name": "quarto",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
         "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
       },
-      "sameAs": "https://CRAN.R-project.org/package=rmarkdown"
+      "sameAs": "https://CRAN.R-project.org/package=quarto"
     },
     {
       "@type": "SoftwareApplication",
@@ -202,7 +208,7 @@
     "SystemRequirements": null
   },
   "keywords": ["administrative-boundaries", "api", "geoboundaries", "r", "r-package", "spatial-data"],
-  "fileSize": "356.392KB",
+  "fileSize": "424.696KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -215,10 +221,10 @@
         }
       ],
       "name": "{geobounds}: Download Map Data from geoBoundaries",
-      "identifier": "10.5281/zenodo.17554275",
+      "identifier": "10.32614/CRAN.package.geobounds",
       "url": "https://dieghernan.github.io/geobounds/",
-      "@id": "https://doi.org/10.5281/zenodo.17554275",
-      "sameAs": "https://doi.org/10.5281/zenodo.17554275"
+      "@id": "https://doi.org/10.32614/CRAN.package.geobounds",
+      "sameAs": "https://doi.org/10.32614/CRAN.package.geobounds"
     },
     {
       "@type": "ScholarlyArticle",

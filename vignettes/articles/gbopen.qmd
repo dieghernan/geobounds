@@ -1,26 +1,31 @@
 ---
-title: "gbHumanitarian coverage and metadata"
+title: "gbOpen coverage and metadata"
+description: "gbOpen is CC-BY 4.0 compliant and suitable for most users"
+knitr:
+  opts_chunk:
+    collapse: true
+    comment: "#>"
+    warning: false
+    message: false
+    tidy: "styler"
+    dev: "ragg_png"
+    dpi: 300
+    out.width: "100%"
 ---
 
-```{r setup, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  warning = FALSE,
-  message = FALSE,
-  tidy = "styler",
-  dev = "ragg_png",
-  dpi = 300,
-  out.width = "100%"
-)
+```{r}
+#| label: setup
+#| include: false
 
-
-src <- "gbHumanitarian"
+src <- "gbOpen"
 ```
 
 ## `r src` coverage
 
-```{r ghuman-coverage, echo=FALSE,  fig.alt="World coverage"}
+```{r}
+#| label: map-coverage
+#| echo: false
+#| fig-cap: "World coverage: gbOpen"
 library(geobounds)
 library(ggplot2)
 library(dplyr)
@@ -67,7 +72,9 @@ ggplot(p) +
 
 ## `r src` metadata
 
-```{r metadata, echo=FALSE}
+```{r}
+#| label: metadata
+#| echo: false
 meta <- gb_get_metadata(release_type = src)
 meta$staticDownloadLink <- paste0(
   '<a href="', meta$staticDownloadLink,
@@ -93,7 +100,6 @@ meta$imagePreview <- paste0(
   '<img src="', meta$imagePreview,
   '" alt="Map preview" class="img-thumbnail mx-auto d-block">'
 )
-
 
 library(reactable)
 reactable::reactable(meta,

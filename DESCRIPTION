@@ -29,13 +29,13 @@ Suggests:
     ggplot2,
     jsonlite,
     knitr,
-    rmarkdown,
+    quarto,
     testthat (>= 3.0.0),
     tibble
 VignetteBuilder: 
-    knitr
+    quarto
 Config/Needs/website: dieghernan/gitdevr, xfun, devtools, remotes,
-    reactable, magick
+    reactable
 Config/testthat/edition: 3
 Config/testthat/parallel: false
 Copyright: Attribution required. See file COPYRIGHTS for specific
