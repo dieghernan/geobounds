@@ -51,6 +51,11 @@ Install **geobounds** from
 install.packages("geobounds")
 ```
 
+<div class="pkgdown-devel">
+
+Check the docs of the developing version in
+<https://dieghernan.github.io/geobounds/dev/>
+
 You can install the developing version of **geobounds** with:
 
 ``` r
@@ -71,6 +76,8 @@ install.packages(
   )
 )
 ```
+
+</div>
 
 ## Example usage
 
