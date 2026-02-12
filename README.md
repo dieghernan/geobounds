@@ -1,7 +1,8 @@
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# geobounds <img src="man/figures/logo.png" align="right" height="139"/>
+<!-- README.md is generated from README.qmd. Please edit that file -->
+
+# geobounds <a href="https://dieghernan.github.io/geobounds/"><img src="man/figures/logo.png" alt="geobounds website" align="right" height="139"/></a>
 
 <!-- badges: start -->
 
@@ -93,7 +94,8 @@ ggplot(sri_lanka_adm3) +
   theme_void()
 ```
 
-<img src="man/figures/README-simple_plot-1.png" alt="Map of all administration levels for Sri Lanka" width="100%" />
+<img src="man/figures/README-simple_plot-1.png" style="width:100.0%"
+alt="Map of all administration levels for Sri Lanka" />
 
 ## Data Types
 
@@ -160,7 +162,8 @@ ggplot(world_max) +
   )
 ```
 
-<img src="man/figures/README-map-coverage-1.png" alt="World coverage of geoBoundaries (gbOpen)" width="100%" />
+<img src="man/figures/README-map-coverage-1.png" style="width:100.0%"
+alt="World coverage of geoBoundaries (gbOpen)" />
 
 ## Documentation & Resources
 

@@ -29,3 +29,5 @@ inst/doc
 /.quarto/
 **/*.quarto_ipynb
 **/.quarto/
+README_files/
+README.html
