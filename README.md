@@ -5,15 +5,18 @@
 
 <!-- badges: start -->
 
+[![CRAN-status](https://www.r-pkg.org/badges/version/geobounds)](https://CRAN.R-project.org/package=geobounds)
+[![CRAN-results](https://badges.cranchecks.info/worst/geobounds.svg)](https://cran.r-project.org/web/checks/check_results_geobounds.html)
+[![Downloads](https://cranlogs.r-pkg.org/badges/geobounds)](https://CRAN.R-project.org/package=geobounds)
+[![r-universe](https://dieghernan.r-universe.dev/badges/geobounds)](https://dieghernan.r-universe.dev/geobounds)
 [![R-CMD-check](https://github.com/dieghernan/geobounds/actions/workflows/check-full.yaml/badge.svg)](https://github.com/dieghernan/geobounds/actions/workflows/check-full.yaml)
 [![R-hub](https://github.com/dieghernan/geobounds/actions/workflows/rhub.yaml/badge.svg)](https://github.com/dieghernan/geobounds/actions/workflows/rhub.yaml)
 [![codecov](https://codecov.io/gh/dieghernan/geobounds/graph/badge.svg)](https://app.codecov.io/gh/dieghernan/geobounds)
-[![r-universe](https://dieghernan.r-universe.dev/badges/geobounds)](https://dieghernan.r-universe.dev/geobounds)
 [![CodeFactor](https://www.codefactor.io/repository/github/dieghernan/geobounds/badge)](https://www.codefactor.io/repository/github/dieghernan/geobounds)
-[![Project Status: Active – The project has reached a stable, usable
+[![DOI](https://img.shields.io/badge/DOI-%2010.32614/CRAN.package.geobounds%20-blue)](https://doi.org/10.32614/CRAN.package.geobounds)
+[![Project Status: Active - The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![DOI](https://img.shields.io/badge/DOI-10.5281/zenodo.17554275-blue)](https://doi.org/10.5281/zenodo.17554275)
 
 <!-- badges: end -->
 
@@ -40,7 +43,8 @@ polygons, join with other data), this package simplifies the process.
 
 ## Installation
 
-Install **geobounds** from **CRAN** (when accepted):
+Install **geobounds** from
+[**CRAN**](https://CRAN.R-project.org/package=geobounds):
 
 ``` r
 install.packages("geobounds")
@@ -197,7 +201,7 @@ details.
 
 Hernangómez D (2026). <em>geobounds: Download Map Data from
 geoBoundaries</em>.
-<a href="https://doi.org/10.5281/zenodo.17554275">doi:10.5281/zenodo.17554275</a>,
+<a href="https://doi.org/10.32614/CRAN.package.geobounds">doi:10.32614/CRAN.package.geobounds</a>,
 <a href="https://dieghernan.github.io/geobounds/">https://dieghernan.github.io/geobounds/</a>.
 </p>
 
@@ -207,10 +211,10 @@ A BibTeX entry for LaTeX users:
       title = {{geobounds}: Download Map Data from geoBoundaries},
       author = {Diego Hernangómez},
       year = {2026},
-      version = {0.1.0},
+      version = {0.1.0.9000},
       url = {https://dieghernan.github.io/geobounds/},
       abstract = {Tools to download data from geoBoundaries <https://www.geoboundaries.org/>. Several administration levels available. See Runfola, D. et al. (2020) geoBoundaries: A global database of political administrative boundaries. PLOS ONE 15(4): 1-9. <doi:10.1371/journal.pone.0231866>.},
-      doi = {10.5281/zenodo.17554275},
+      doi = {10.32614/CRAN.package.geobounds},
     }
 
 ## References

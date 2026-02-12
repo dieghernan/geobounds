@@ -11,7 +11,8 @@ vignette: >
 
 <!-- geobounds.Rmd is generated from geobounds.Rmd.orig. Please edit that file -->
 
-```{r, include = FALSE}
+```{r}
+#| include: false
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
@@ -56,7 +57,10 @@ This precision comes at a cost: some files can be quite large and may take
 longer to download. For visualization or general mapping purposes, we recommend
 using the simplified datasets available by setting `simplified = TRUE`.
 
-```{r norway, fig.cap='Comparison between full vs. simplified map.', crop=TRUE}
+```{r}
+#| label: norway
+#| crop: true
+#| fig-cap: Comparison between full vs. simplified map.
 library(geobounds)
 library(ggplot2)
 library(dplyr)
@@ -92,7 +96,9 @@ family of functions. It is not guaranteed that borders align perfectly or that
 there are no gaps between countries. Additionally, these files do not include a
 special identification of disputed areas.
 
-```{r intersect, fig.cap="Map showing overlapping in disputed area: Kashmir."}
+```{r}
+#| label: intersect
+#| fig-cap: 'Map showing overlapping in disputed area: Kashmir.'
 india_pak <- gb_get_adm0(c("India", "Pakistan"))
 
 # Disputed area: Kashmir
@@ -110,7 +116,8 @@ ggplot(india_pak) +
 Note that individual data files are governed by the license or licenses
 identified within the metadata for each respective boundary.
 
-```{r meta}
+```{r}
+#| label: meta
 gb_get_metadata(c("India", "Pakistan"), adm_lvl = "ADM0") |>
   select(boundaryName, boundaryLicense, boundarySource)
 
@@ -130,7 +137,9 @@ distinctions between CGAZ and individual country downloads:
     Department of State definitions.
 3.  Gaps between borders have been filled.
 
-```{r cgaz, fig.cap="Map showing no overlapping in Kashmir, provided by CGAZ."}
+```{r}
+#| label: cgaz
+#| fig-cap: Map showing no overlapping in Kashmir, provided by CGAZ.
 cgaz_india_pak <- gb_get_world(c("India", "Pakistan"))
 
 ggplot(cgaz_india_pak) +
@@ -150,7 +159,8 @@ The package provides a built-in mechanism to cache files locally so that
 repeated downloads for the same country/level will use the cached version. For
 example:
 
-```{r include = FALSE}
+```{r}
+#| include: false
 # Internal to not mess the vignette
 
 getcache <- gb_detect_cache_dir()
@@ -158,7 +168,8 @@ getcache <- gb_detect_cache_dir()
 gb_set_cache_dir(tempdir(), quiet = TRUE)
 ```
 
-```{r, message=TRUE}
+```{r}
+#| message: true
 # Current folder
 current <- gb_detect_cache_dir()
 
@@ -177,7 +188,8 @@ gb_set_cache_dir(current)
 current == gb_detect_cache_dir()
 ```
 
-```{r include = FALSE}
+```{r}
+#| include: false
 # Restore
 gb_set_cache_dir(getcache)
 ```
@@ -200,7 +212,9 @@ in combination with other spatial data:
 In this example we would create a choropleth map using the meta data of the
 individual files and the boundaries data of CGAZ:
 
-```{r choro, fig.cap="World Bank Income Group: Latin America and the Caribbean "}
+```{r}
+#| label: choro
+#| fig-cap: 'World Bank Income Group: Latin America and the Caribbean '
 # Metadata
 
 latam_meta <- gb_get_metadata(adm_lvl = "ADM0") |>

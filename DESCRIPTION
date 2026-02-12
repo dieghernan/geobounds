@@ -1,6 +1,6 @@
 Package: geobounds
 Title: Download Map Data from 'geoBoundaries'
-Version: 0.1.0
+Version: 0.1.0.9000
 Authors@R: c(
     person("Diego", "Hernangómez", , "diego.hernangomezherrero@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0001-8457-4658")),
@@ -29,6 +29,7 @@ Suggests:
     ggplot2,
     jsonlite,
     knitr,
+    quarto,
     rmarkdown,
     testthat (>= 3.0.0),
     tibble

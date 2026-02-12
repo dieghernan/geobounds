@@ -8,8 +8,11 @@ message: 'To cite package "geobounds" in publications use:'
 type: software
 license: CC-BY-4.0
 title: 'geobounds: Download Map Data from ''geoBoundaries'''
-version: 0.1.0
-doi: 10.5281/zenodo.17554275
+version: 0.1.0.9000
+doi: 10.32614/CRAN.package.geobounds
+identifiers:
+- type: doi
+  value: 10.32614/CRAN.package.geobounds
 abstract: 'Tools to download data from ''geoBoundaries'' <https://www.geoboundaries.org/>.
   Several administration levels available. See Runfola, D. et al. (2020) geoBoundaries:
   A global database of political administrative boundaries. PLOS ONE 15(4): 1-9. <https://doi.org/10.1371/journal.pone.0231866>.'
@@ -27,13 +30,14 @@ preferred-citation:
     email: diego.hernangomezherrero@gmail.com
     orcid: https://orcid.org/0000-0001-8457-4658
   year: '2026'
-  version: 0.1.0
+  version: 0.1.0.9000
   url: https://dieghernan.github.io/geobounds/
   abstract: 'Tools to download data from geoBoundaries <https://www.geoboundaries.org/>.
     Several administration levels available. See Runfola, D. et al. (2020) geoBoundaries:
     A global database of political administrative boundaries. PLOS ONE 15(4): 1-9.
     <doi:10.1371/journal.pone.0231866>.'
-  doi: 10.5281/zenodo.17554275
+  doi: 10.32614/CRAN.package.geobounds
+repository: https://CRAN.R-project.org/package=geobounds
 repository-code: https://github.com/dieghernan/geobounds
 url: https://dieghernan.github.io/geobounds/
 contact:
@@ -274,6 +278,23 @@ references:
     orcid: https://orcid.org/0000-0003-0645-5666
   year: '2026'
   doi: 10.32614/CRAN.package.knitr
+- type: software
+  title: quarto
+  abstract: 'quarto: R Interface to ''Quarto'' Markdown Publishing System'
+  notes: Suggests
+  url: https://quarto-dev.github.io/quarto-r/
+  repository: https://CRAN.R-project.org/package=quarto
+  authors:
+  - family-names: Allaire
+    given-names: JJ
+    email: jj@posit.co
+    orcid: https://orcid.org/0000-0003-0174-9868
+  - family-names: Dervieux
+    given-names: Christophe
+    email: cderv@posit.co
+    orcid: https://orcid.org/0000-0003-4474-2498
+  year: '2026'
+  doi: 10.32614/CRAN.package.quarto
 - type: software
   title: rmarkdown
   abstract: 'rmarkdown: Dynamic Documents for R'

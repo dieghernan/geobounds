@@ -7,7 +7,10 @@ on:
   schedule:
   - cron: "01 18 10 * *"
   workflow_dispatch:
-
+  workflow_run:
+    workflows: [update-docs]
+    types: completed
+    branches: [main, master]
 
 name: pkgdown-gh-pages
 permissions: write-all
@@ -18,7 +21,10 @@ concurrency:
 
 jobs:
   pkgdown-gh-pages:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
+    if: >
+      github.event_name != 'workflow_run' ||
+      github.event.workflow_run.conclusion == 'success'
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:

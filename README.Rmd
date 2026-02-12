@@ -7,7 +7,8 @@ nocite: '@*'
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-```{r, include = FALSE}
+```{r}
+#| include: false
 knitr::opts_chunk$set(
   collapse = TRUE,
   message = FALSE,
@@ -23,15 +24,18 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 
+[![CRAN-status](https://www.r-pkg.org/badges/version/geobounds)](https://CRAN.R-project.org/package=geobounds)
+[![CRAN-results](https://badges.cranchecks.info/worst/geobounds.svg)](https://cran.r-project.org/web/checks/check_results_geobounds.html)
+[![Downloads](https://cranlogs.r-pkg.org/badges/geobounds)](https://CRAN.R-project.org/package=geobounds)
+[![r-universe](https://dieghernan.r-universe.dev/badges/geobounds)](https://dieghernan.r-universe.dev/geobounds)
 [![R-CMD-check](https://github.com/dieghernan/geobounds/actions/workflows/check-full.yaml/badge.svg)](https://github.com/dieghernan/geobounds/actions/workflows/check-full.yaml)
 [![R-hub](https://github.com/dieghernan/geobounds/actions/workflows/rhub.yaml/badge.svg)](https://github.com/dieghernan/geobounds/actions/workflows/rhub.yaml)
 [![codecov](https://codecov.io/gh/dieghernan/geobounds/graph/badge.svg)](https://app.codecov.io/gh/dieghernan/geobounds)
-[![r-universe](https://dieghernan.r-universe.dev/badges/geobounds)](https://dieghernan.r-universe.dev/geobounds)
 [![CodeFactor](https://www.codefactor.io/repository/github/dieghernan/geobounds/badge)](https://www.codefactor.io/repository/github/dieghernan/geobounds)
-[![Project Status: Active – The project has reached a stable, usable state and
+[![DOI](https://img.shields.io/badge/DOI-%2010.32614/CRAN.package.geobounds%20-blue)](https://doi.org/10.32614/CRAN.package.geobounds)
+[![Project Status: Active - The project has reached a stable, usable state and
 is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![DOI](https://img.shields.io/badge/DOI-10.5281/zenodo.17554275-blue)](https://doi.org/10.5281/zenodo.17554275)
 
 <!-- badges: end -->
 
@@ -57,15 +61,18 @@ polygons, join with other data), this package simplifies the process.
 
 ## Installation
 
-Install **geobounds** from **CRAN** (when accepted):
+Install **geobounds** from
+[**CRAN**](https://CRAN.R-project.org/package=geobounds):
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 install.packages("geobounds")
 ```
 
 You can install the developing version of **geobounds** with:
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 # install.packages("pak")
 pak::pak("dieghernan/geobounds")
 ```
@@ -73,7 +80,8 @@ pak::pak("dieghernan/geobounds")
 Alternatively, you can install **geobounds** using the
 [r-universe](https://dieghernan.r-universe.dev/geobounds):
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 # Install geobounds in R:
 install.packages(
   "geobounds",
@@ -86,7 +94,9 @@ install.packages(
 
 ## Example usage
 
-```{r simple_plot, fig.alt="Map of all administration levels for Sri Lanka"}
+```{r}
+#| label: simple_plot
+#| fig-alt: Map of all administration levels for Sri Lanka
 library(geobounds)
 
 sri_lanka_adm1 <- gb_get_adm1("Sri Lanka")
@@ -127,7 +137,9 @@ For detailed comparisons, see the vignettes.
 
 Get a map with the level of coverage of geoBoundaries by country:
 
-```{r map-coverage, fig.alt="World coverage of geoBoundaries (gbOpen)"}
+```{r}
+#| label: map-coverage
+#| fig-alt: World coverage of geoBoundaries (gbOpen)
 library(geobounds)
 library(ggplot2)
 library(dplyr)
@@ -204,13 +216,18 @@ check the specific dataset metadata for licensing details.
 
 ## Citation
 
-```{r cit, echo=FALSE, results='asis'}
+```{r}
+#| label: cit
+#| echo: false
+#| results: asis
 print(citation("geobounds")[1], style = "html")
 ```
 
 A BibTeX entry for LaTeX users:
 
-```{r, echo=FALSE, comment = ''}
+```{r}
+#| echo: false
+#| comment: ''
 toBibtex(citation("geobounds")[1])
 ```
 

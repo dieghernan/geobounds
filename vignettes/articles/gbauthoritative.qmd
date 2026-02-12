@@ -1,25 +1,30 @@
 ---
 title: "gbAuthoritative coverage and metadata"
+knitr:
+  opts_chunk:
+    collapse: true
+    comment: "#>"
+    warning: false
+    message: false
+    tidy: "styler"
+    dev: "ragg_png"
+    dpi: 300
+    out.width: "100%"
 ---
 
-```{r setup, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  warning = FALSE,
-  message = FALSE,
-  tidy = "styler",
-  dev = "ragg_png",
-  dpi = 300,
-  out.width = "100%"
-)
+```{r}
+#| label: setup
+#| include: false
 
 src <- "gbAuthoritative"
 ```
 
 ## `r src` coverage
 
-```{r gautho-coverage, echo=FALSE,  fig.alt="World coverage"}
+```{r}
+#| label: gautho-coverage
+#| echo: false
+#| fig-cap: "World coverage: gbAuthoritative"
 library(geobounds)
 library(ggplot2)
 library(dplyr)
@@ -64,7 +69,9 @@ ggplot(p) +
 
 ## `r src` metadata
 
-```{r metadata, echo=FALSE}
+```{r}
+#| label: metadata
+#| echo: false
 meta <- gb_get_metadata(release_type = src)
 meta$staticDownloadLink <- paste0(
   '<a href="', meta$staticDownloadLink,
