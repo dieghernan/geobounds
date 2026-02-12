@@ -1,26 +1,26 @@
 ---
-output: github_document
+format: gfm
 bibliography: inst/REFERENCES.bib
 link-citations: true
 nocite: '@*'
+default-image-extension: ''
+tbl-cap-location: bottom
+knitr:
+  opts_chunk:
+    collapse: true
+    comment: "#>"
+    warning: false
+    message: false
+    dev: "ragg_png"
+    tidy: "styler"
+    fig.path: "man/figures/README-"
+    dpi: 150
+    out.width: "100%"
 ---
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+<!-- README.md is generated from README.qmd. Please edit that file -->
 
-```{r}
-#| include: false
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  message = FALSE,
-  warning = FALSE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  dpi = 150,
-  out.width = "100%"
-)
-```
-
-# geobounds <img src="man/figures/logo.png" align="right" height="139"/>
+# geobounds <a href="https://dieghernan.github.io/geobounds/"><img src="man/figures/logo.png" alt="geobounds website" align="right" height="139"/></a>
 
 <!-- badges: start -->
 
@@ -96,7 +96,7 @@ install.packages(
 
 ```{r}
 #| label: simple_plot
-#| fig-alt: Map of all administration levels for Sri Lanka
+#| fig-cap: Map of all administration levels for Sri Lanka
 library(geobounds)
 
 sri_lanka_adm1 <- gb_get_adm1("Sri Lanka")
@@ -139,7 +139,7 @@ Get a map with the level of coverage of geoBoundaries by country:
 
 ```{r}
 #| label: map-coverage
-#| fig-alt: World coverage of geoBoundaries (gbOpen)
+#| fig-cap: World coverage of geoBoundaries (gbOpen)
 library(geobounds)
 library(ggplot2)
 library(dplyr)
