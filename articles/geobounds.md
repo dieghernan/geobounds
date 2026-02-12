@@ -57,7 +57,7 @@ ggplot(norway_all) +
   labs(caption = "Source: www.geoboundaries.org")
 ```
 
-![Comparison between full vs. simplified map.](norway-1.png)
+![Comparison between full vs. simplified map.](./norway-1.png)
 
 Comparison between full vs. simplified map.
 
@@ -91,7 +91,7 @@ ggplot(india_pak) +
   )
 ```
 
-![Map showing overlapping in disputed area: Kashmir.](intersect-1.png)
+![Map showing overlapping in disputed area: Kashmir.](./intersect-1.png)
 
 Map showing overlapping in disputed area: Kashmir.
 
@@ -102,10 +102,10 @@ identified within the metadata for each respective boundary.
 gb_get_metadata(c("India", "Pakistan"), adm_lvl = "ADM0") |>
   select(boundaryName, boundaryLicense, boundarySource)
 #> # A tibble: 2 × 3
-#>   boundaryName boundaryLicense                                      boundarySource                
-#>   <chr>        <chr>                                                <chr>                         
-#> 1 India        CC0 1.0 Universal (CC0 1.0) Public Domain Dedication geoBoundaries, Wikimedia Comm…
-#> 2 Pakistan     Open Data Commons Open Database License 1.0          OpenStreetMap, Wambacher
+#>   boundaryName boundaryLicense                                      boundarySource 
+#>   <chr>        <chr>                                                <chr>          
+#> 1 India        CC0 1.0 Universal (CC0 1.0) Public Domain Dedication geoBoundaries,…
+#> 2 Pakistan     Open Data Commons Open Database License 1.0          OpenStreetMap,…
 ```
 
 ### Composite files
@@ -138,7 +138,8 @@ ggplot(cgaz_india_pak) +
   )
 ```
 
-![Map showing no overlapping in Kashmir, provided by CGAZ.](cgaz-1.png)
+![Map showing no overlapping in Kashmir, provided by
+CGAZ.](./cgaz-1.png)
 
 Map showing no overlapping in Kashmir, provided by CGAZ.
 
@@ -151,29 +152,28 @@ version. For example:
 ``` r
 # Current folder
 current <- gb_detect_cache_dir()
-#> ℹ 'C:\Users\diego\AppData\Local\Temp\Rtmp6BaCrq'
+#> ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpI98Slw'
 
 current
-#> [1] "C:\\Users\\diego\\AppData\\Local\\Temp\\Rtmp6BaCrq"
+#> [1] "C:\\Users\\diego\\AppData\\Local\\Temp\\RtmpI98Slw"
 
 # Change to new
 newdir <- file.path(tempdir(), "/geoboundvignette")
 gb_set_cache_dir(newdir)
-#> ✔ geobounds cache dir is 'C:\Users\diego\AppData\Local\Temp\Rtmp6BaCrq//geoboundvignette'.
+#> ✔ geobounds cache dir is 'C:\Users\diego\AppData\Local\Temp\RtmpI98Slw//geoboundvignette'.
 #> ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.
 
 # Download
 example <- gb_get_adm0("Vatican City", quiet = FALSE)
-#> ℹ Downloading file from <https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/VAT/ADM0/geoBoundaries-VAT-ADM0-all.zip>
-#> → Cache dir is 'C:\Users\diego\AppData\Local\Temp\Rtmp6BaCrq//geoboundvignette/gbOpen'
+#> ✔ File 'C:\Users\diego\AppData\Local\Temp\RtmpI98Slw/geoboundvignette/gbOpen/geoBoundaries-VAT-ADM0-all.zip' already cached
 
 # Restore cache dir
 gb_set_cache_dir(current)
-#> ✔ geobounds cache dir is 'C:\Users\diego\AppData\Local\Temp\Rtmp6BaCrq'.
+#> ✔ geobounds cache dir is 'C:\Users\diego\AppData\Local\Temp\RtmpI98Slw'.
 #> ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.
 
 current == gb_detect_cache_dir()
-#> ℹ 'C:\Users\diego\AppData\Local\Temp\Rtmp6BaCrq'
+#> ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpI98Slw'
 #> [1] TRUE
 ```
 
@@ -205,13 +205,14 @@ latam_meta <- gb_get_metadata(adm_lvl = "ADM0") |>
   glimpse()
 #> Rows: 47
 #> Columns: 4
-#> $ boundaryISO          <chr> "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", "BLZ", "BOL", "BRA…
-#> $ boundaryName         <chr> "Aruba", "Anguilla", "Argentina", "Antigua and Barbuda", "Bonaire S…
-#> $ Continent            <chr> "Latin America and the Caribbean", "Latin America and the Caribbean…
-#> $ worldBankIncomeGroup <chr> "High-income Countries", "No income group available", "High-income …
+#> $ boundaryISO          <chr> "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", "BL…
+#> $ boundaryName         <chr> "Aruba", "Anguilla", "Argentina", "Antigua and Barbu…
+#> $ Continent            <chr> "Latin America and the Caribbean", "Latin America an…
+#> $ worldBankIncomeGroup <chr> "High-income Countries", "No income group available"…
 
 # Adjust factors
-latam_meta$income_factor <- factor(latam_meta$worldBankIncomeGroup,
+latam_meta$income_factor <- factor(
+  latam_meta$worldBankIncomeGroup,
   levels = c(
     "High-income Countries",
     "Upper-middle-income Countries",
@@ -222,10 +223,7 @@ latam_meta$income_factor <- factor(latam_meta$worldBankIncomeGroup,
 
 # Get the shapes from CGAZ
 latam_sf <- gb_get_world(adm_lvl = "ADM0") |>
-  inner_join(latam_meta,
-    by =
-      c("shapeGroup" = "boundaryISO")
-  )
+  inner_join(latam_meta, by = c("shapeGroup" = "boundaryISO"))
 
 ggplot(latam_sf) +
   geom_sf(aes(fill = income_factor)) +
@@ -242,10 +240,10 @@ ggplot(latam_sf) +
   )
 ```
 
-![World Bank Income Group: Latin America and the Caribbean
-](choro-1.png)
+![World Bank Income Group: Latin America and the
+Caribbean.](./choro-1.png)
 
-World Bank Income Group: Latin America and the Caribbean
+World Bank Income Group: Latin America and the Caribbean.
 
 ## Summary
 
