@@ -1,0 +1,12 @@
+pandoc: 3.1.11
+pkgdown: 2.2.0
+pkgdown_sha: ~
+articles:
+  articles/gbauthoritative: gbauthoritative.html
+  articles/gbhumanitarian: gbhumanitarian.html
+  articles/gbopen: gbopen.html
+  geobounds: geobounds.html
+last_built: 2026-02-12T01:22Z
+urls:
+  reference: https://dieghernan.github.io/geobounds/reference
+  article: https://dieghernan.github.io/geobounds/articles
