@@ -121,7 +121,7 @@ ggplot(sri_lanka_adm3) +
   theme_void()
 ```
 
-## Data Types
+## Data types
 
 geoBoundaries offers different release types with varying levels of validation
 and licensing:
@@ -188,7 +188,7 @@ ggplot(world_max) +
   )
 ```
 
-## Documentation & Resources
+## Documentation and resources
 
 -   Visit the **pkgdown** site for full documentation:
     <https://dieghernan.github.io/geobounds/>
