@@ -55,7 +55,7 @@ ggplot(sri_lanka_adm3) +
 ![Map of all administration levels for Sri
 Lanka](reference/figures/README-simple_plot-1.png)
 
-## Data Types
+## Data types
 
 geoBoundaries offers different release types with varying levels of
 validation and licensing:
@@ -123,7 +123,7 @@ ggplot(world_max) +
 ![World coverage of geoBoundaries
 (gbOpen)](reference/figures/README-map-coverage-1.png)
 
-## Documentation & Resources
+## Documentation and resources
 
 - Visit the **pkgdown** site for full documentation:
   <https://dieghernan.github.io/geobounds/>
