@@ -1,5 +1,7 @@
 # geobounds 0.1.0
 
+Initial CRAN release.
+
 ## Breaking change
 
 Functions for downloading data have been renamed to follow the convention
