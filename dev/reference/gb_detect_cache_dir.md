@@ -31,6 +31,6 @@ Other cache utilities:
 
 ``` r
 gb_detect_cache_dir()
-#> ℹ /tmp/RtmpU1TeQd/geobounds
-#> [1] "/tmp/RtmpU1TeQd/geobounds"
+#> ℹ /tmp/RtmpMZLZRC/geobounds
+#> [1] "/tmp/RtmpMZLZRC/geobounds"
 ```
