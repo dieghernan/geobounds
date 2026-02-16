@@ -41,4 +41,3 @@
 ^README_files$
 ^README\.html$
 ^\.quarto$
-^\./vignettes/geobounds\.qmd\.orig$

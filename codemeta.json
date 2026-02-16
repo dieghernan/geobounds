@@ -208,7 +208,7 @@
     "SystemRequirements": null
   },
   "keywords": ["administrative-boundaries", "api", "geoboundaries", "r", "r-package", "spatial-data"],
-  "fileSize": "425.389KB",
+  "fileSize": "425.006KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -346,6 +346,6 @@
   ],
   "releaseNotes": "https://github.com/dieghernan/geobounds/blob/main/NEWS.md",
   "readme": "https://github.com/dieghernan/geobounds/blob/main/README.md",
-  "contIntegration": ["https://github.com/dieghernan/geobounds/actions/workflows/check-full.yaml", "https://github.com/dieghernan/geobounds/actions/workflows/rhub.yaml", "https://app.codecov.io/gh/dieghernan/geobounds"],
+  "contIntegration": ["https://github.com/dieghernan/geobounds/actions/workflows/check-full.yml", "https://app.codecov.io/gh/dieghernan/geobounds"],
   "developmentStatus": "https://www.repostatus.org/#active"
 }
