@@ -2,6 +2,8 @@
 
 ## geobounds 0.1.0
 
+CRAN release: 2026-02-11
+
 Initial CRAN release.
 
 ### Breaking change
