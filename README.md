@@ -1,5 +1,3 @@
-
-
 <!-- README.md is generated from README.qmd. Please edit that file -->
 
 # geobounds <a href="https://dieghernan.github.io/geobounds/"><img src="man/figures/logo.png" alt="geobounds website" align="right" height="139"/></a>
@@ -10,7 +8,7 @@
 [![CRAN-results](https://badges.cranchecks.info/worst/geobounds.svg)](https://cran.r-project.org/web/checks/check_results_geobounds.html)
 [![Downloads](https://cranlogs.r-pkg.org/badges/geobounds)](https://CRAN.R-project.org/package=geobounds)
 [![r-universe](https://dieghernan.r-universe.dev/badges/geobounds)](https://dieghernan.r-universe.dev/geobounds)
-[![R-CMD-check](https://github.com/dieghernan/geobounds/actions/workflows/check-full.yml/badge.svg)](https://github.com/dieghernan/geobounds/actions/workflows/check-full.yml)
+[![R-CMD-check](https://github.com/dieghernan/geobounds/actions/workflows/check-full.yaml/badge.svg)](https://github.com/dieghernan/geobounds/actions/workflows/check-full.yaml)
 [![codecov](https://codecov.io/gh/dieghernan/geobounds/graph/badge.svg)](https://app.codecov.io/gh/dieghernan/geobounds)
 [![CodeFactor](https://www.codefactor.io/repository/github/dieghernan/geobounds/badge)](https://www.codefactor.io/repository/github/dieghernan/geobounds)
 [![DOI](https://img.shields.io/badge/DOI-%2010.32614/CRAN.package.geobounds%20-blue)](https://doi.org/10.32614/CRAN.package.geobounds)
@@ -46,7 +44,7 @@ polygons, join with other data), this package simplifies the process.
 Install **geobounds** from
 [**CRAN**](https://CRAN.R-project.org/package=geobounds):
 
-``` r
+```r
 install.packages("geobounds")
 ```
 
@@ -57,7 +55,7 @@ Check the docs of the developing version in
 
 You can install the developing version of **geobounds** with:
 
-``` r
+```r
 # install.packages("pak")
 pak::pak("dieghernan/geobounds")
 ```
@@ -65,7 +63,7 @@ pak::pak("dieghernan/geobounds")
 Alternatively, you can install **geobounds** using the
 [r-universe](https://dieghernan.r-universe.dev/geobounds):
 
-``` r
+```r
 # Install geobounds in R:
 install.packages(
   "geobounds",
@@ -80,7 +78,7 @@ install.packages(
 
 ## Example usage
 
-``` r
+```r
 library(geobounds)
 
 sri_lanka_adm1 <- gb_get_adm1("Sri Lanka")
@@ -124,7 +122,7 @@ For detailed comparisons, see the vignettes.
 
 Get a map with the level of coverage of geoBoundaries by country:
 
-``` r
+```r
 library(geobounds)
 library(ggplot2)
 library(dplyr)
@@ -212,6 +210,7 @@ Hernangómez D (2026). <em>geobounds: Download Map Data from
 geoBoundaries</em>.
 <a href="https://doi.org/10.32614/CRAN.package.geobounds">doi:10.32614/CRAN.package.geobounds</a>,
 <a href="https://dieghernan.github.io/geobounds/">https://dieghernan.github.io/geobounds/</a>.
+
 </p>
 
 A BibTeX entry for LaTeX users:
@@ -236,7 +235,7 @@ entry-spacing="0">
 Runfola, Daniel, Austin Anderson, Heather Baier, Matt Crittenden,
 Elizabeth Dowker, Sydney Fuhrig, Seth Goodman, et al. 2020.
 “<span class="nocase">geoBoundaries</span>: A Global Database of
-Political Administrative Boundaries.” *PLOS ONE* 15 (4): 1–9.
+Political Administrative Boundaries.” _PLOS ONE_ 15 (4): 1–9.
 <https://doi.org/10.1371/journal.pone.0231866>.
 
 </div>
