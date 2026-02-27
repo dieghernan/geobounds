@@ -24,7 +24,7 @@ geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
   A character vector of country codes. It can be either `"all"` (that
   would return the data for all countries), a vector of country names or
   ISO3 country codes. See also
-  [`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/reference/countrycode.html).
+  [`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/man/countrycode.html).
 
 - adm_lvl:
 
