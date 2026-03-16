@@ -45,4 +45,4 @@ Language: en-US
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
 X-schema.org-keywords: administrative-boundaries, api, geoboundaries, r,
-    r-package, spatial-data
+    r-package, spatial-data, cran, cran-r

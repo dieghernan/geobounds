@@ -31,3 +31,6 @@ inst/doc
 **/.quarto/
 README_files/
 README.html
+index_files/
+*index.html
+pkgdown/*_files

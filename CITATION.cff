@@ -52,6 +52,8 @@ keywords:
 - r
 - r-package
 - spatial-data
+- cran
+- cran-r
 references:
 - type: article
   title: 'geoBoundaries: A global database of political administrative boundaries'
