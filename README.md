@@ -228,13 +228,11 @@ A BibTeX entry for LaTeX users:
 
 ## References
 
-<div id="refs" class="references csl-bib-body hanging-indent"
-entry-spacing="0">
+<div id="refs" class="references csl-bib-body hanging-indent">
 
 <div id="ref-10.1371/journal.pone.0231866" class="csl-entry">
 
-Runfola, Daniel, Austin Anderson, Heather Baier, Matt Crittenden,
-Elizabeth Dowker, Sydney Fuhrig, Seth Goodman, et al. 2020.
+Runfola, Daniel, Austin Anderson, Heather Baier, et al. 2020.
 “<span class="nocase">geoBoundaries</span>: A Global Database of
 Political Administrative Boundaries.” *PLOS ONE* 15 (4): 1–9.
 <https://doi.org/10.1371/journal.pone.0231866>.
