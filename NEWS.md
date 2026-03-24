@@ -1,6 +1,7 @@
-# geobounds (development version)
+# geobounds 0.1.1
 
 -   Adapt package to Quarto.
+-   Update documentation.
 
 # geobounds 0.1.0
 

@@ -134,7 +134,7 @@ gbnds_dev_sf_helper <- function(data_sf) {
 #' @param arg The argument to match.
 #' @param choices The possible choices for the argument.
 #'
-#' @returns
+#' @return
 #' The matched argument.
 #'
 #' @noRd

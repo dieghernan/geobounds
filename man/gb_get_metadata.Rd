@@ -60,8 +60,6 @@ format, which the boundary layers represent.
 \item \code{boundaryCanonical}: The canonical name of a given boundary.
 \item \code{boundarySource}: A comma-separated list of the primary sources for the
 boundary.
-\item \code{boundarySource}: A comma-separated list of the primary sources for the
-boundary.
 \item \code{boundaryLicense}: The original license that the dataset was released
 under by the primary source.
 \item \code{licenseDetail}: Any notes regarding the license.

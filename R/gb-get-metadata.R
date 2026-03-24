@@ -32,8 +32,6 @@
 #' - `boundaryCanonical`: The canonical name of a given boundary.
 #' - `boundarySource`: A comma-separated list of the primary sources for the
 #'    boundary.
-#' - `boundarySource`: A comma-separated list of the primary sources for the
-#'    boundary.
 #' - `boundaryLicense`: The original license that the dataset was released
 #'   under by the primary source.
 #' - `licenseDetail`: Any notes regarding the license.

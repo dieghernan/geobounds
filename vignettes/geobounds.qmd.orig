@@ -203,10 +203,10 @@ Specific cache directories for each function call can be set using the
 Because the boundaries are returned as **sf** objects, you can easily use them
 in combination with other spatial data:
 
--   Clip raster data to administrative units
--   Compute zonal statistics
--   Create choropleth maps
--   Perform spatial joins with survey or tabular data
+- Clip raster data to administrative units
+- Compute zonal statistics
+- Create choropleth maps
+- Perform spatial joins with survey or tabular data
 
 In this example we would create a choropleth map using the meta data of the
 individual files and the boundaries data of CGAZ:

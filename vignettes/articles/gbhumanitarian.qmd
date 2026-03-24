@@ -1,6 +1,6 @@
 ---
 title: "gbHumanitarian coverage and metadata"
-description: "Mirrored from UN OCHA, may have less open licensure"
+description: "Mirrored from UN OCHA, may have less open licensing"
 knitr:
   opts_chunk:
     collapse: true
@@ -39,9 +39,7 @@ unq <- max_lvl$maxBoundaryType |>
 p <- world |>
   mutate(boundaryISO = shapeGroup) |>
   left_join(max_lvl) |>
-  mutate(max_lvl = factor(maxBoundaryType,
-    levels = 0:5
-  ))
+  mutate(max_lvl = factor(maxBoundaryType, levels = 0:5))
 
 pal <- c("#0e221b", "#0f4a38", "#0b6e4f", "#719384", "#b9975a", "#936e28")
 
@@ -77,33 +75,39 @@ ggplot(p) +
 #| echo: false
 meta <- gb_get_metadata(release_type = src)
 meta$staticDownloadLink <- paste0(
-  '<a href="', meta$staticDownloadLink,
+  '<a href="',
+  meta$staticDownloadLink,
   '" class="external-link"><i class="fa-solid fa-download"></i></a>'
 )
 
 meta$gjDownloadURL <- paste0(
-  '<a href="', meta$gjDownloadURL,
+  '<a href="',
+  meta$gjDownloadURL,
   '" class="external-link"><i class="fa-solid fa-download"></i></a>'
 )
 
 meta$tjDownloadURL <- paste0(
-  '<a href="', meta$tjDownloadURL,
+  '<a href="',
+  meta$tjDownloadURL,
   '" class="external-link"><i class="fa-solid fa-download"></i></a>'
 )
 
 meta$simplifiedGeometryGeoJSON <- paste0(
-  '<a href="', meta$simplifiedGeometryGeoJSON,
+  '<a href="',
+  meta$simplifiedGeometryGeoJSON,
   '" class="external-link"><i class="fa-solid fa-download"></i></a>'
 )
 
 meta$imagePreview <- paste0(
-  '<img src="', meta$imagePreview,
+  '<img src="',
+  meta$imagePreview,
   '" alt="Map preview" class="img-thumbnail mx-auto d-block">'
 )
 
 
 library(reactable)
-reactable::reactable(meta,
+reactable::reactable(
+  meta,
   filterable = TRUE,
   defaultColDef = colDef(minWidth = 200),
   columns = list(

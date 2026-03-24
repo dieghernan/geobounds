@@ -92,7 +92,7 @@ gb_set_cache_dir <- function(
   # Expand
   cache_dir <- path.expand(cache_dir)
 
-  # Create cache dir if it doesn't exists
+  # Create cache dir if it does not exist
   if (!dir.exists(cache_dir)) {
     dir.create(cache_dir, recursive = TRUE)
   }
@@ -103,7 +103,7 @@ gb_set_cache_dir <- function(
     )
   }
 
-  # Install path on environ var.
+  # Install path in environment variable.
   # nocov start
 
   if (install) {

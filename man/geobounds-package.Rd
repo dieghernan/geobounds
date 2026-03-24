@@ -24,7 +24,7 @@ Useful links:
 
 Other contributors:
 \itemize{
-  \item William and Mary geoLab [copyright holder]
+  \item William and Mary geoLab (\href{https://ror.org/03hsf0573}{ROR}) [copyright holder]
 }
 
 }
