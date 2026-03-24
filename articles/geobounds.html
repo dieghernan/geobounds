@@ -102,7 +102,15 @@
 
 
 
-    <!-- geobounds.qmd is generated from geobounds.qmd.orig. Please edit that file --><p><a href="https://www.geoboundaries.org/index.html#usage" class="external-link"><strong>Attribution</strong></a> <strong>is required when using geoBoundaries.</strong></p>
+    <!-- geobounds.qmd is generated from geobounds.qmd.orig. Please edit that file --><div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container"><i class="callout-icon"></i></div>
+<div class="callout-title-container flex-fill">Important</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://www.geoboundaries.org/index.html#usage" class="external-link"><strong>Attribution</strong></a> <strong>is required when using geoBoundaries.</strong></p>
+</div>
+</div>
 <section class="level2"><h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
 <p>The <strong>geobounds</strong> package provides a straightforward interface for downloading and working with global political and administrative boundary data from the <a href="https://www.geoboundaries.org/" class="external-link">geoBoundaries</a> project <span class="citation" data-cites="10.1371/journal.pone.0231866">(<a href="#ref-10.1371/journal.pone.0231866" role="doc-biblioref">Runfola et al. 2020</a>)</span>.</p>
@@ -202,28 +210,29 @@ Map showing no overlapping in Kashmir, provided by CGAZ.
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Current folder</span></span>
 <span><span class="va">current</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/gb_detect_cache_dir.html">gb_detect_cache_dir</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpSMsQ7N'</span></span>
+<span><span class="co">#&gt; ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpWIvxr7'</span></span>
 <span></span>
 <span><span class="va">current</span></span>
-<span><span class="co">#&gt; [1] "C:\\Users\\diego\\AppData\\Local\\Temp\\RtmpSMsQ7N"</span></span>
+<span><span class="co">#&gt; [1] "C:\\Users\\diego\\AppData\\Local\\Temp\\RtmpWIvxr7"</span></span>
 <span></span>
 <span><span class="co"># Change to new</span></span>
 <span><span class="va">newdir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"/geoboundvignette"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/gb_set_cache_dir.html">gb_set_cache_dir</a></span><span class="op">(</span><span class="va">newdir</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ✔ geobounds cache dir is 'C:\Users\diego\AppData\Local\Temp\RtmpSMsQ7N//geoboundvignette'.</span></span>
+<span><span class="co">#&gt; ✔ geobounds cache dir is 'C:\Users\diego\AppData\Local\Temp\RtmpWIvxr7//geoboundvignette'.</span></span>
 <span><span class="co">#&gt; ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.</span></span>
 <span></span>
 <span><span class="co"># Download</span></span>
 <span><span class="va">example</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/gb_get_adm.html">gb_get_adm0</a></span><span class="op">(</span><span class="st">"Vatican City"</span>, quiet <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ✔ File 'C:\Users\diego\AppData\Local\Temp\RtmpSMsQ7N/geoboundvignette/gbOpen/geoBoundaries-VAT-ADM0-all.zip' already cached</span></span>
+<span><span class="co">#&gt; ℹ Downloading file from &lt;https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/VAT/ADM0/geoBoundaries-VAT-ADM0-all.zip&gt;</span></span>
+<span><span class="co">#&gt; → Cache dir is 'C:\Users\diego\AppData\Local\Temp\RtmpWIvxr7//geoboundvignette/gbOpen'</span></span>
 <span></span>
 <span><span class="co"># Restore cache dir</span></span>
 <span><span class="fu"><a href="../reference/gb_set_cache_dir.html">gb_set_cache_dir</a></span><span class="op">(</span><span class="va">current</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ✔ geobounds cache dir is 'C:\Users\diego\AppData\Local\Temp\RtmpSMsQ7N'.</span></span>
+<span><span class="co">#&gt; ✔ geobounds cache dir is 'C:\Users\diego\AppData\Local\Temp\RtmpWIvxr7'.</span></span>
 <span><span class="co">#&gt; ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.</span></span>
 <span></span>
 <span><span class="va">current</span> <span class="op">==</span> <span class="fu"><a href="../reference/gb_detect_cache_dir.html">gb_detect_cache_dir</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpSMsQ7N'</span></span>
+<span><span class="co">#&gt; ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpWIvxr7'</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
 <p>To clear the cache, use <code><a href="../reference/gb_clear_cache.html">gb_clear_cache()</a></code>.</p>
 <p>Specific cache directories for each function call can be set using the <code>cache_dir</code> argument of each function.</p>

@@ -1,5 +1,7 @@
 # geobounds
 
+Important
+
 [**Attribution**](https://www.geoboundaries.org/index.html#usage) **is
 required when using geoBoundaries.**
 
