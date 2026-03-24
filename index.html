@@ -11,7 +11,8 @@
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="icon" sizes="any" href="favicon.ico">
 <link rel="manifest" href="site.webmanifest">
-<script src="lightswitch.js"></script><script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- katex math --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script><script src="katex-auto.js"></script><script src="lightswitch.js"></script><script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/Inter-0.4.10/font.css" rel="stylesheet">
 <link href="deps/Inter_Tight-0.4.10/font.css" rel="stylesheet">
@@ -23,12 +24,12 @@
 <meta name="description" content="geobounds is a R API package that helps to retrieve data from geoBoundaries.
 Several administration levels available. See Runfola, D. et al. (2020)
 geoBoundaries: A global database of political administrative boundaries.
-PLoS ONE 15(4): e0231866. https://doi.org/10.1371/journal.pone.0231866
+PLOS ONE 15(4): e0231866. https://doi.org/10.1371/journal.pone.0231866
 ">
 <meta property="og:description" content="geobounds is a R API package that helps to retrieve data from geoBoundaries.
 Several administration levels available. See Runfola, D. et al. (2020)
 geoBoundaries: A global database of political administrative boundaries.
-PLoS ONE 15(4): e0231866. https://doi.org/10.1371/journal.pone.0231866
+PLOS ONE 15(4): e0231866. https://doi.org/10.1371/journal.pone.0231866
 ">
 <meta property="og:image" content="https://dieghernan.github.io/geobounds/logo.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -50,7 +51,7 @@ PLoS ONE 15(4): e0231866. https://doi.org/10.1371/journal.pone.0231866
 
     <a class="navbar-brand me-2" href="index.html"><img src="apple-touch-icon.png" alt="geobounds logo" height="34" width="34" class="d-inline-block me-1">geobounds</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -254,7 +255,7 @@ Hernangómez D (2026). <em>geobounds: Download Map Data from geoBoundaries</em>.
 <span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>  title <span class="ot">=</span> {{geobounds}<span class="sc">:</span> Download Map Data from geoBoundaries},</span>
 <span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>  author <span class="ot">=</span> {Diego Hernangómez},</span>
 <span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>  year <span class="ot">=</span> {<span class="dv">2026</span>},</span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>  version <span class="ot">=</span> {<span class="dv">0</span>.<span class="fl">1.0</span>},</span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>  version <span class="ot">=</span> {<span class="dv">0</span>.<span class="fl">1.1</span>},</span>
 <span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>  url <span class="ot">=</span> {https<span class="sc">:</span><span class="er">//</span>dieghernan.github.io<span class="sc">/</span>geobounds<span class="sc">/</span>},</span>
 <span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>  abstract <span class="ot">=</span> {Tools to download data from geoBoundaries <span class="sc">&lt;</span>https<span class="sc">:</span><span class="er">//</span>www.geoboundaries.org<span class="sc">/</span><span class="er">&gt;</span>. Several administration levels available. See Runfola, D. et <span class="fu">al.</span> (<span class="dv">2020</span>) geoBoundaries<span class="sc">:</span> A global database of political administrative boundaries. PLOS ONE <span class="dv">15</span>(<span class="dv">4</span>)<span class="sc">:</span> <span class="dv">1</span><span class="fl">-9.</span> <span class="sc">&lt;</span>doi<span class="sc">:</span><span class="fl">10.1371</span><span class="sc">/</span>journal.pone<span class="fl">.0231866</span><span class="sc">&gt;</span>.},</span>
 <span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>  doi <span class="ot">=</span> {<span class="fl">10.32614</span><span class="sc">/</span>CRAN.package.geobounds},</span>
@@ -263,9 +264,9 @@ Hernangómez D (2026). <em>geobounds: Download Map Data from geoBoundaries</em>.
 <div class="section level2">
 <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h2>
-<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-10.1371/journal.pone.0231866" class="csl-entry">
-Runfola, Daniel, Austin Anderson, Heather Baier, Matt Crittenden, Elizabeth Dowker, Sydney Fuhrig, Seth Goodman, et al. 2020. “<span class="nocase">geoBoundaries</span>: A Global Database of Political Administrative Boundaries.” <em>PLOS ONE</em> 15 (4): 1–9. <a href="https://doi.org/10.1371/journal.pone.0231866" class="external-link uri">https://doi.org/10.1371/journal.pone.0231866</a>.
+Runfola, Daniel, Austin Anderson, Heather Baier, et al. 2020. “<span class="nocase">geoBoundaries</span>: A Global Database of Political Administrative Boundaries.” <em>PLOS ONE</em> 15 (4): 1–9. <a href="https://doi.org/10.1371/journal.pone.0231866" class="external-link uri">https://doi.org/10.1371/journal.pone.0231866</a>.
 </div>
 </div>
 </div>

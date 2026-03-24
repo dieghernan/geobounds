@@ -24,4 +24,5 @@ Useful links:
 
 Other contributors:
 
-- William and Mary geoLab \[copyright holder\]
+- William and Mary geoLab ([ROR](https://ror.org/03hsf0573)) \[copyright
+  holder\]

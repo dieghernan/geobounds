@@ -169,7 +169,7 @@ A BibTeX entry for LaTeX users:
   title = {{geobounds}: Download Map Data from geoBoundaries},
   author = {Diego Hernangómez},
   year = {2026},
-  version = {0.1.0},
+  version = {0.1.1},
   url = {https://dieghernan.github.io/geobounds/},
   abstract = {Tools to download data from geoBoundaries <https://www.geoboundaries.org/>. Several administration levels available. See Runfola, D. et al. (2020) geoBoundaries: A global database of political administrative boundaries. PLOS ONE 15(4): 1-9. <doi:10.1371/journal.pone.0231866>.},
   doi = {10.32614/CRAN.package.geobounds},
@@ -178,8 +178,7 @@ A BibTeX entry for LaTeX users:
 
 ## References
 
-Runfola, Daniel, Austin Anderson, Heather Baier, Matt Crittenden,
-Elizabeth Dowker, Sydney Fuhrig, Seth Goodman, et al. 2020.
+Runfola, Daniel, Austin Anderson, Heather Baier, et al. 2020.
 “geoBoundaries: A Global Database of Political Administrative
 Boundaries.” *PLOS ONE* 15 (4): 1–9.
 <https://doi.org/10.1371/journal.pone.0231866>.
@@ -250,9 +249,9 @@ World coverage of different sources available when using geoBoundaries.
 - [gbHumanitarian coverage and
   metadata](https://dieghernan.github.io/geobounds/articles/gbhumanitarian.md):
 
-  Mirrored from UN OCHA, may have less open licensure
+  Mirrored from UN OCHA, may have less open licensing
 
 - [gbAuthoritative coverage and
   metadata](https://dieghernan.github.io/geobounds/articles/gbauthoritative.md):
 
-  Mirrored from UN SALB, cannot be used for commerical purposes
+  Mirrored from UN SALB; may have restrictions on commercial use

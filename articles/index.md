@@ -12,9 +12,9 @@ World coverage of different sources available when using geoBoundaries.
 - [gbHumanitarian coverage and
   metadata](https://dieghernan.github.io/geobounds/articles/gbhumanitarian.md):
 
-  Mirrored from UN OCHA, may have less open licensure
+  Mirrored from UN OCHA, may have less open licensing
 
 - [gbAuthoritative coverage and
   metadata](https://dieghernan.github.io/geobounds/articles/gbauthoritative.md):
 
-  Mirrored from UN SALB, cannot be used for commerical purposes
+  Mirrored from UN SALB; may have restrictions on commercial use

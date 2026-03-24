@@ -8,11 +8,12 @@
 
 - **[William and Mary
   geoLab](https://sites.google.com/view/wmgeolab/)**. Copyright holder.
+  [![ROR](https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg)](https://ror.org/03hsf0573)
 
 ## Citation
 
 Source:
-[`inst/CITATION`](https://github.com/dieghernan/geobounds/blob/release/inst/CITATION)
+[`inst/CITATION`](https://github.com/dieghernan/geobounds/blob/main/inst/CITATION)
 
 Hernangómez D (2026). *geobounds: Download Map Data from geoBoundaries*.
 [doi:10.32614/CRAN.package.geobounds](https://doi.org/10.32614/CRAN.package.geobounds),
@@ -22,7 +23,7 @@ Hernangómez D (2026). *geobounds: Download Map Data from geoBoundaries*.
       title = {{geobounds}: Download Map Data from geoBoundaries},
       author = {Diego Hernangómez},
       year = {2026},
-      version = {0.1.0},
+      version = {0.1.1},
       url = {https://dieghernan.github.io/geobounds/},
       abstract = {Tools to download data from geoBoundaries <https://www.geoboundaries.org/>. Several administration levels available. See Runfola, D. et al. (2020) geoBoundaries: A global database of political administrative boundaries. PLOS ONE 15(4): 1-9. <doi:10.1371/journal.pone.0231866>.},
       doi = {10.32614/CRAN.package.geobounds},

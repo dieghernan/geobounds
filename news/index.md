@@ -1,10 +1,15 @@
 # Changelog
 
+## geobounds 0.1.1
+
+- Adapt package to Quarto.
+- Update documentation.
+
 ## geobounds 0.1.0
 
 CRAN release: 2026-02-11
 
-Initial CRAN release.
+**First CRAN release**.
 
 ### Breaking change
 
