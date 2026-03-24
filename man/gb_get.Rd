@@ -20,8 +20,8 @@ gb_get(
 }
 \arguments{
 \item{country}{A character vector of country codes. It can be either
-\code{"all"} (that would return the data for all countries), a vector of country
-names or ISO3 country codes. See also \code{\link[countrycode:countrycode]{countrycode::countrycode()}}.}
+\code{"all"} (which returns the data for all countries), a vector of country
+names, or ISO3 country codes. See also \code{\link[countrycode:countrycode]{countrycode::countrycode()}}.}
 
 \item{adm_lvl}{Type of boundary. Accepted values are \code{"all"} (all
 available boundaries) or the ADM level (\code{"adm0"} is the country boundary,

@@ -12,8 +12,8 @@
 #'
 #' @export
 #' @param country A character vector of country codes. It can be either
-#'   `"all"` (that would return the data for all countries), a vector of country
-#'   names or ISO3 country codes. See also [countrycode::countrycode()].
+#'   `"all"` (which returns the data for all countries), a vector of country
+#'   names, or ISO3 country codes. See also [countrycode::countrycode()].
 #' @param adm_lvl Type of boundary. Accepted values are `"all"` (all
 #'   available boundaries) or the ADM level (`"adm0"` is the country boundary,
 #'   `"adm1"` is the first level of sub-national boundaries, `"adm2"` is the

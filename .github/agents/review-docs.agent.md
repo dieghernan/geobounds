@@ -13,7 +13,7 @@ following locations:
   - If you find two files with the same name but different extensions (e.g.,
     `a_file.qmd` and `a_file.qmd.orig`), review only the `.orig` file, as the
     other file is generated from it.
-- The `README.qmd`,`README.Rmd` and `index.qmd` files.
+- The `README.qmd`,`README.Rmd` and `index.qmd` files, if present.
 - The `NEWS.md` file.
 
 Additionally, ensure language and concepts consistency across files. Do not

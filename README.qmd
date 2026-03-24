@@ -50,13 +50,12 @@ package, you can:
 
 - Programmatically retrieve administrative boundary geometries (e.g., country →
   region → district) from geoBoundaries
-- Use **tidyverse** / **sf** workflows in **R** to map, analyse and join these
+- Use **tidyverse** / **sf** workflows in **R** to map, analyze, and join these
   boundaries with your own data
-- Work in an open-data context (geoBoundaries uses [CC
-  BY-4.0](https://creativecommons.org/licenses/by/4.0/)) / open licenses)
+- Work in an open-data context (geoBoundaries uses [CC BY-4.0](https://creativecommons.org/licenses/by/4.0/)) and open licenses.
 
-In short: if you work with geospatial boundaries in **R** (shape files,
-polygons, join with other data), this package simplifies the process.
+In short: if you work with geospatial boundaries in **R** (shapefiles, polygons,
+and joining with other data), this package simplifies the process.
 
 ## Installation
 

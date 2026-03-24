@@ -70,8 +70,8 @@ gb_get_adm5(
 }
 \arguments{
 \item{country}{A character vector of country codes. It can be either
-\code{"all"} (that would return the data for all countries), a vector of country
-names or ISO3 country codes. See also \code{\link[countrycode:countrycode]{countrycode::countrycode()}}.}
+\code{"all"} (which returns the data for all countries), a vector of country
+names, or ISO3 country codes. See also \code{\link[countrycode:countrycode]{countrycode::countrycode()}}.}
 
 \item{simplified}{logical. Return the simplified boundary or not. The default
 \code{FALSE} uses the premier geoBoundaries release.}
