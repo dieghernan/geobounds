@@ -17,4 +17,4 @@ World coverage of different sources available when using geoBoundaries.
 - [gbAuthoritative coverage and
   metadata](https://dieghernan.github.io/geobounds/articles/gbauthoritative.md):
 
-  Mirrored from UN SALB; may have restrictions on commercial use
+  Mirrored from UN SALB, may have restrictions on commercial use

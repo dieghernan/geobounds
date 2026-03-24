@@ -72,9 +72,9 @@ The download of this data is implemented in
 [`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md)
 and the
 [`?gb_get_adm`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
-family of functions. It is not guaranteed that borders align perfectly
-or that there are no gaps between countries. Additionally, these files
-do not include a special identification of disputed areas.
+family of functions. It is not guaranteed that borders align perfectly,
+that there are no gaps between countries, or that disputed territories
+are represented consistently.
 
 ``` r
 india_pak <- gb_get_adm0(c("India", "Pakistan"))

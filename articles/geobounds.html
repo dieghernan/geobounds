@@ -143,7 +143,7 @@ Comparison between full vs. simplified map.
 <section class="level3"><h3 id="individual-country-files">Individual country files<a class="anchor" aria-label="anchor" href="#individual-country-files"></a>
 </h3>
 <p>The geoBoundaries API provides <a href="https://www.geoboundaries.org/countryDownloads.html" class="external-link">individual country files</a>, whose aim is to represent every nation “as they would represent themselves”, with no special identification of disputed areas.</p>
-<p>The download of this data is implemented in <code><a href="../reference/gb_get.html">gb_get()</a></code> and the <code><a href="../reference/gb_get_adm.html">?gb_get_adm</a></code> family of functions. It is not guaranteed that borders align perfectly or that there are no gaps between countries. Additionally, these files do not include a special identification of disputed areas.</p>
+<p>The download of this data is implemented in <code><a href="../reference/gb_get.html">gb_get()</a></code> and the <code><a href="../reference/gb_get_adm.html">?gb_get_adm</a></code> family of functions. It is not guaranteed that borders align perfectly, that there are no gaps between countries, or that disputed territories are represented consistently.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">india_pak</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/gb_get_adm.html">gb_get_adm0</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"India"</span>, <span class="st">"Pakistan"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
