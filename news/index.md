@@ -2,6 +2,8 @@
 
 ## geobounds 0.1.1
 
+CRAN release: 2026-03-24
+
 - Adapt package to Quarto.
 - Update documentation.
 
