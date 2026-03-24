@@ -13,8 +13,22 @@ vignette: >
 
 
 
+```{=html}
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container"><i class="callout-icon"></i></div>
+<div class="callout-title-container flex-fill">Important</div>
+</div>
+<div class="callout-body-container callout-body">
+```
+
 [**Attribution**](https://www.geoboundaries.org/index.html#usage) **is required
 when using geoBoundaries.**
+
+```{=html}
+</div>
+</div>
+```
 
 ## Introduction
 
@@ -167,28 +181,29 @@ example:
 ``` r
 # Current folder
 current <- gb_detect_cache_dir()
-#> ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpSMsQ7N'
+#> ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpWIvxr7'
 
 current
-#> [1] "C:\\Users\\diego\\AppData\\Local\\Temp\\RtmpSMsQ7N"
+#> [1] "C:\\Users\\diego\\AppData\\Local\\Temp\\RtmpWIvxr7"
 
 # Change to new
 newdir <- file.path(tempdir(), "/geoboundvignette")
 gb_set_cache_dir(newdir)
-#> ✔ geobounds cache dir is 'C:\Users\diego\AppData\Local\Temp\RtmpSMsQ7N//geoboundvignette'.
+#> ✔ geobounds cache dir is 'C:\Users\diego\AppData\Local\Temp\RtmpWIvxr7//geoboundvignette'.
 #> ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.
 
 # Download
 example <- gb_get_adm0("Vatican City", quiet = FALSE)
-#> ✔ File 'C:\Users\diego\AppData\Local\Temp\RtmpSMsQ7N/geoboundvignette/gbOpen/geoBoundaries-VAT-ADM0-all.zip' already cached
+#> ℹ Downloading file from <https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/VAT/ADM0/geoBoundaries-VAT-ADM0-all.zip>
+#> → Cache dir is 'C:\Users\diego\AppData\Local\Temp\RtmpWIvxr7//geoboundvignette/gbOpen'
 
 # Restore cache dir
 gb_set_cache_dir(current)
-#> ✔ geobounds cache dir is 'C:\Users\diego\AppData\Local\Temp\RtmpSMsQ7N'.
+#> ✔ geobounds cache dir is 'C:\Users\diego\AppData\Local\Temp\RtmpWIvxr7'.
 #> ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.
 
 current == gb_detect_cache_dir()
-#> ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpSMsQ7N'
+#> ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpWIvxr7'
 #> [1] TRUE
 ```
 

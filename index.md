@@ -1,6 +1,6 @@
 
 
-<!-- README.md is generated from README.qmd. Please edit that file -->
+<!-- index.md is generated from index.qmd. Please edit that file -->
 
 # geobounds <a href="https://dieghernan.github.io/geobounds/"><img src="man/figures/logo.png" alt="geobounds website" align="right" height="139"/></a>
 
@@ -20,10 +20,18 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 
 <!-- badges: end -->
 
-> [!IMPORTANT]
->
-> [**Attribution**](https://www.geoboundaries.org/index.html#usage) **is
-> required when using geoBoundaries.**
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container"><i class="callout-icon"></i></div>
+<div class="callout-title-container flex-fill">Important</div>
+</div>
+<div class="callout-body-container callout-body">
+
+[**Attribution**](https://www.geoboundaries.org/index.html#usage) **is
+required when using geoBoundaries.**
+
+</div>
+</div>
 
 ## Why this package?
 
