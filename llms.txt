@@ -24,9 +24,14 @@ Important
 [Attribution](https://www.geoboundaries.org/index.html#usage) is
 required when using geoBoundaries.
 
-\## Installation Install \*\*geobounds\*\* from
-\[\*\*CRAN\*\*\](https://CRAN.R-project.org/package=geobounds): \`\`\`r
+## Installation
+
+Install **geobounds** from
+[**CRAN**](https://CRAN.R-project.org/package=geobounds):
+
+``` r
 install.packages("geobounds")
+```
 
 ## Example usage
 
