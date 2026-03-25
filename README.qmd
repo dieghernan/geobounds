@@ -39,8 +39,8 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 <!-- badges: end -->
 
 ::: callout-important
-[**Attribution**](https://www.geoboundaries.org/index.html#usage) **is required
-when using geoBoundaries.**
+[Attribution](https://www.geoboundaries.org/index.html#usage) is required when
+using geoBoundaries.
 :::
 
 ## Why this package?

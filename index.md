@@ -1,5 +1,3 @@
-
-
 <!-- index.md is generated from index.qmd. Please edit that file -->
 
 # geobounds <a href="https://dieghernan.github.io/geobounds/"><img src="man/figures/logo.png" alt="geobounds website" align="right" height="139"/></a>
@@ -20,19 +18,6 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 
 <!-- badges: end -->
 
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container"><i class="callout-icon"></i></div>
-<div class="callout-title-container flex-fill">Important</div>
-</div>
-<div class="callout-body-container callout-body">
-
-[**Attribution**](https://www.geoboundaries.org/index.html#usage) **is
-required when using geoBoundaries.**
-
-</div>
-</div>
-
 ## Why this package?
 
 The **geobounds** package provides an **R**-friendly interface to access
@@ -52,14 +37,30 @@ In short: if you work with geospatial boundaries in **R** (shapefiles,
 polygons, and joining with other data), this package simplifies the
 process.
 
+```{=html}
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container"><i class="callout-icon"></i></div>
+<div class="callout-title-container flex-fill">Important</div>
+</div>
+<div class="callout-body-container callout-body">
+```
+
+[Attribution](https://www.geoboundaries.org/index.html#usage) is required when
+using geoBoundaries.
+
+````{=html}
+</div>
+</div>
+
 ## Installation
 
 Install **geobounds** from
 [**CRAN**](https://CRAN.R-project.org/package=geobounds):
 
-``` r
+```r
 install.packages("geobounds")
-```
+````
 
 <div class="pkgdown-devel">
 
@@ -68,7 +69,7 @@ Check the docs of the developing version in
 
 You can install the developing version of **geobounds** with:
 
-``` r
+```r
 # install.packages("pak")
 pak::pak("dieghernan/geobounds")
 ```
@@ -76,7 +77,7 @@ pak::pak("dieghernan/geobounds")
 Alternatively, you can install **geobounds** using the
 [r-universe](https://dieghernan.r-universe.dev/geobounds):
 
-``` r
+```r
 # Install geobounds in R:
 install.packages(
   "geobounds",
@@ -91,7 +92,7 @@ install.packages(
 
 ## Example usage
 
-``` r
+```r
 library(geobounds)
 
 sri_lanka_adm1 <- gb_get_adm1("Sri Lanka")
@@ -135,7 +136,7 @@ For detailed comparisons, see the vignettes.
 
 Get a map with the level of coverage of geoBoundaries by country:
 
-``` r
+```r
 library(geobounds)
 library(ggplot2)
 library(dplyr)
@@ -223,6 +224,7 @@ Hernangómez D (2026). <em>geobounds: Download Map Data from
 geoBoundaries</em>.
 <a href="https://doi.org/10.32614/CRAN.package.geobounds">doi:10.32614/CRAN.package.geobounds</a>,
 <a href="https://dieghernan.github.io/geobounds/">https://dieghernan.github.io/geobounds/</a>.
+
 </p>
 
 A BibTeX entry for LaTeX users:
@@ -245,7 +247,7 @@ A BibTeX entry for LaTeX users:
 
 Runfola, Daniel, Austin Anderson, Heather Baier, et al. 2020.
 “<span class="nocase">geoBoundaries</span>: A Global Database of
-Political Administrative Boundaries.” *PLOS ONE* 15 (4): 1–9.
+Political Administrative Boundaries.” _PLOS ONE_ 15 (4): 1–9.
 <https://doi.org/10.1371/journal.pone.0231866>.
 
 </div>

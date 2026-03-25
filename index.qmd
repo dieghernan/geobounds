@@ -38,23 +38,6 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 
 <!-- badges: end -->
 
-```{=html}
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container"><i class="callout-icon"></i></div>
-<div class="callout-title-container flex-fill">Important</div>
-</div>
-<div class="callout-body-container callout-body">
-```
-
-[**Attribution**](https://www.geoboundaries.org/index.html#usage) **is required
-when using geoBoundaries.**
-
-```{=html}
-</div>
-</div>
-```
-
 ## Why this package?
 
 The **geobounds** package provides an **R**-friendly interface to access and
@@ -71,6 +54,23 @@ package, you can:
 
 In short: if you work with geospatial boundaries in **R** (shapefiles, polygons,
 and joining with other data), this package simplifies the process.
+
+```{=html}
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container"><i class="callout-icon"></i></div>
+<div class="callout-title-container flex-fill">Important</div>
+</div>
+<div class="callout-body-container callout-body">
+```
+
+[Attribution](https://www.geoboundaries.org/index.html#usage) is required when
+using geoBoundaries.
+
+```{=html}
+</div>
+</div>
+```
 
 ## Installation
 
