@@ -1,10 +1,5 @@
 # geobounds
 
-Important
-
-[**Attribution**](https://www.geoboundaries.org/index.html#usage) **is
-required when using geoBoundaries.**
-
 ## Why this package?
 
 The **geobounds** package provides an **R**-friendly interface to access
@@ -24,14 +19,14 @@ In short: if you work with geospatial boundaries in **R** (shapefiles,
 polygons, and joining with other data), this package simplifies the
 process.
 
-## Installation
+Important
 
-Install **geobounds** from
-[**CRAN**](https://CRAN.R-project.org/package=geobounds):
+[Attribution](https://www.geoboundaries.org/index.html#usage) is
+required when using geoBoundaries.
 
-``` r
+\## Installation Install \*\*geobounds\*\* from
+\[\*\*CRAN\*\*\](https://CRAN.R-project.org/package=geobounds): \`\`\`r
 install.packages("geobounds")
-```
 
 ## Example usage
 

@@ -2,8 +2,8 @@
 
 Important
 
-[**Attribution**](https://www.geoboundaries.org/index.html#usage) **is
-required when using geoBoundaries.**
+[Attribution](https://www.geoboundaries.org/index.html#usage) is
+required when using geoBoundaries.
 
 ## Introduction
 
@@ -104,8 +104,8 @@ identified within the metadata for each respective boundary.
 gb_get_metadata(c("India", "Pakistan"), adm_lvl = "ADM0") |>
   select(boundaryName, boundaryLicense, boundarySource)
 #> # A tibble: 2 × 3
-#>   boundaryName boundaryLicense                                      boundarySource     
-#>   <chr>        <chr>                                                <chr>              
+#>   boundaryName boundaryLicense                                      boundarySource
+#>   <chr>        <chr>                                                <chr>
 #> 1 India        CC0 1.0 Universal (CC0 1.0) Public Domain Dedication geoBoundaries, Wik…
 #> 2 Pakistan     Open Data Commons Open Database License 1.0          OpenStreetMap, Wam…
 ```
