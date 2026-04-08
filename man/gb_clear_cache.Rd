@@ -52,8 +52,8 @@ identical(my_cache, gb_detect_cache_dir())
 
 }
 \seealso{
-Other cache utilities: 
-\code{\link{gb_detect_cache_dir}()},
-\code{\link{gb_set_cache_dir}()}
+Other cache utilities:
+\code{\link[=gb_detect_cache_dir]{gb_detect_cache_dir()}},
+\code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}
 }
 \concept{cache utilities}

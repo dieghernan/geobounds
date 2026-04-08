@@ -31,7 +31,7 @@ for commercial purposes, but are verified through in-country processes.
 }}
 }
 \value{
-A \link[tibble:tbl_df-class]{tibble} with the country names and corresponding highest
+A \link[tibble:tbl_df]{tibble} with the country names and corresponding highest
 administrative level.
 }
 \description{
@@ -53,7 +53,7 @@ all |>
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-Other metadata functions: 
-\code{\link{gb_get_metadata}()}
+Other metadata functions:
+\code{\link[=gb_get_metadata]{gb_get_metadata()}}
 }
 \concept{metadata functions}

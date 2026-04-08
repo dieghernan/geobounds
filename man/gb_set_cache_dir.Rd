@@ -10,7 +10,7 @@ gb_set_cache_dir(cache_dir, overwrite = FALSE, install = FALSE, quiet = FALSE)
 \arguments{
 \item{cache_dir}{A path to a cache directory. If missing, the function
 will store the cache files in a temporary directory (see
-\code{\link[base:tempfile]{base::tempdir()}}).}
+\code{\link[base:tempdir]{base::tempdir()}}).}
 
 \item{overwrite}{Logical. If this is set to \code{TRUE}, it will overwrite an
 existing \code{cache_dir}.}
@@ -31,7 +31,7 @@ your cache directory path.
 }
 \details{
 By default, when no \code{cache_dir} is set the package uses a folder inside
-\code{\link[base:tempfile]{base::tempdir()}} (so files are temporary and are removed when the \strong{R}
+\code{\link[base:tempdir]{base::tempdir()}} (so files are temporary and are removed when the \strong{R}
 session ends). To persist a cache across \strong{R} sessions, use
 \code{gb_set_cache_dir(path, install = TRUE)}, which writes the chosen path to a
 small configuration file under \code{tools::R_user_dir("geobounds", "config")}.
@@ -72,10 +72,10 @@ identical(my_cache, gb_detect_cache_dir())
 gb_detect_cache_dir()
 }
 \seealso{
-\code{\link[tools:userdir]{tools::R_user_dir()}}
+\code{\link[tools:R_user_dir]{tools::R_user_dir()}}
 
-Other cache utilities: 
-\code{\link{gb_clear_cache}()},
-\code{\link{gb_detect_cache_dir}()}
+Other cache utilities:
+\code{\link[=gb_clear_cache]{gb_clear_cache()}},
+\code{\link[=gb_detect_cache_dir]{gb_detect_cache_dir()}}
 }
 \concept{cache utilities}

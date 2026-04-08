@@ -23,8 +23,8 @@ gb_detect_cache_dir()
 
 }
 \seealso{
-Other cache utilities: 
-\code{\link{gb_clear_cache}()},
-\code{\link{gb_set_cache_dir}()}
+Other cache utilities:
+\code{\link[=gb_clear_cache]{gb_clear_cache()}},
+\code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}
 }
 \concept{cache utilities}

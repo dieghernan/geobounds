@@ -39,14 +39,14 @@ for commercial purposes, but are verified through in-country processes.
 }}
 }
 \value{
-A \link[tibble:tbl_df-class]{tibble}.
+A \link[tibble:tbl_df]{tibble}.
 }
 \description{
 This function returns metadata of the
 \href{https://www.geoboundaries.org/api.html}{geoBoundaries API}.
 }
 \details{
-The result is a \link[tibble:tbl_df-class]{tibble} with the following columns:
+The result is a \link[tibble:tbl_df]{tibble} with the following columns:
 \itemize{
 \item \code{boundaryID}: The ID for this layer, which is a combination of the ISO
 code, the boundary type, and a unique identifier for the boundary
@@ -118,7 +118,7 @@ gb_get_metadata(adm_lvl = "ADM4") |>
 \seealso{
 \code{\link[=gb_get]{gb_get()}}
 
-Other metadata functions: 
-\code{\link{gb_get_max_adm_lvl}()}
+Other metadata functions:
+\code{\link[=gb_get_max_adm_lvl]{gb_get_max_adm_lvl()}}
 }
 \concept{metadata functions}

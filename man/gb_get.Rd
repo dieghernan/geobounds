@@ -56,7 +56,7 @@ stored in the temporary directory (see \code{base::tempdir()}). See caching
 strategies in \code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}.}
 }
 \value{
-A \code{\link[sf:sf]{sf}} object.
+A \code{\link[sf:st_sf]{sf}} object.
 }
 \description{
 \href{https://www.geoboundaries.org/index.html#usage}{Attribution} is required
@@ -125,8 +125,8 @@ administrative boundaries. \emph{PLOS ONE} \emph{15}(4), 1-9.
 \doi{10.1371/journal.pone.0231866}.
 }
 \seealso{
-Other API functions: 
+Other API functions:
 \code{\link{gb_get_adm}},
-\code{\link{gb_get_world}()}
+\code{\link[=gb_get_world]{gb_get_world()}}
 }
 \concept{API functions}
