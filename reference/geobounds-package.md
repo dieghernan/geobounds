@@ -22,6 +22,11 @@ Useful links:
 **Maintainer**: Diego Hernangómez <diego.hernangomezherrero@gmail.com>
 ([ORCID](https://orcid.org/0000-0001-8457-4658)) \[copyright holder\]
 
+Authors:
+
+- Diego Hernangómez <diego.hernangomezherrero@gmail.com>
+  ([ORCID](https://orcid.org/0000-0001-8457-4658)) \[copyright holder\]
+
 Other contributors:
 
 - William and Mary geoLab ([ROR](https://ror.org/03hsf0573)) \[copyright
