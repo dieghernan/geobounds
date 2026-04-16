@@ -208,7 +208,7 @@
     "SystemRequirements": null
   },
   "keywords": ["administrative-boundaries", "api", "geoboundaries", "r", "r-package", "spatial-data", "cran", "cran-r"],
-  "fileSize": "425.719KB",
+  "fileSize": "425.629KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
