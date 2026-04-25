@@ -162,7 +162,7 @@ details.
 ## Citation
 
 Hernangómez D (2026). *geobounds: Download Map Data from geoBoundaries*.
-[doi:10.32614/CRAN.package.geobounds](https://doi.org/10.32614/CRAN.package.geobounds),
+[doi:10.32614/CRAN.package.geobounds](https://doi.org/10.32614/CRAN.package.geobounds).
 <https://dieghernan.github.io/geobounds/>.
 
 A BibTeX entry for LaTeX users:

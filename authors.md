@@ -16,7 +16,7 @@ Source:
 [`inst/CITATION`](https://github.com/dieghernan/geobounds/blob/main/inst/CITATION)
 
 Hernangómez D (2026). *geobounds: Download Map Data from geoBoundaries*.
-[doi:10.32614/CRAN.package.geobounds](https://doi.org/10.32614/CRAN.package.geobounds),
+[doi:10.32614/CRAN.package.geobounds](https://doi.org/10.32614/CRAN.package.geobounds).
 <https://dieghernan.github.io/geobounds/>.
 
     @Manual{R-geobounds,
@@ -34,7 +34,7 @@ Goodman S, Grimsley G, Layko R, Melville G, Mulder M, Oberman R,
 Panganiban J, Peck A, Seitz L, Shea S, Slevin H, Youngerman R, Hobbs L
 (2020). “geoBoundaries: A global database of political administrative
 boundaries.” *PLOS ONE*, **15**(4), 1–9.
-[doi:10.1371/journal.pone.0231866](https://doi.org/10.1371/journal.pone.0231866),
+[doi:10.1371/journal.pone.0231866](https://doi.org/10.1371/journal.pone.0231866).
 <https://doi.org/10.1371/journal.pone.0231866>.
 
     @Article{10.1371/journal.pone.0231866,
