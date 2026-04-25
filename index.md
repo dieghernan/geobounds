@@ -221,7 +221,7 @@ details.
 
 Hernangómez D (2026). <em>geobounds: Download Map Data from
 geoBoundaries</em>.
-<a href="https://doi.org/10.32614/CRAN.package.geobounds">doi:10.32614/CRAN.package.geobounds</a>,
+<a href="https://doi.org/10.32614/CRAN.package.geobounds">doi:10.32614/CRAN.package.geobounds</a>.
 <a href="https://dieghernan.github.io/geobounds/">https://dieghernan.github.io/geobounds/</a>.
 </p>
 
