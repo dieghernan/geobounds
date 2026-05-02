@@ -30,12 +30,14 @@ Install **geobounds** from
 [**CRAN**](https://CRAN.R-project.org/package=geobounds):
 
 ``` r
+
 install.packages("geobounds")
 ```
 
 ## Example usage
 
 ``` r
+
 library(geobounds)
 
 sri_lanka_adm1 <- gb_get_adm1("Sri Lanka")
@@ -80,6 +82,7 @@ For detailed comparisons, see the vignettes.
 Get a map with the level of coverage of geoBoundaries by country:
 
 ``` r
+
 library(geobounds)
 library(ggplot2)
 library(dplyr)
