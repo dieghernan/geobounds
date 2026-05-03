@@ -37,13 +37,13 @@ VignetteBuilder:
     quarto
 Config/Needs/website: dieghernan/gitdevr, xfun, devtools, remotes,
     reactable
-Config/roxygen2/version: 8.0.0.9000
+Config/roxygen2/markdown: TRUE
+Config/roxygen2/version: 8.0.0
 Config/testthat/edition: 3
 Config/testthat/parallel: false
 Copyright: Attribution required. See file COPYRIGHTS for specific
     provisions.
 Encoding: UTF-8
 Language: en-US
-Roxygen: list(markdown = TRUE)
 X-schema.org-keywords: administrative-boundaries, api, geoboundaries, r,
     r-package, spatial-data, cran, cran-r
