@@ -126,10 +126,7 @@ gbnds_dev_meta_query <- function(url) {
   if (httr2::resp_is_error(resp)) {
     # nolint start: Error code for message
     err <- paste0(
-      c(
-        httr2::resp_status(resp),
-        httr2::resp_status_desc(resp)
-      ),
+      c(httr2::resp_status(resp), httr2::resp_status_desc(resp)),
       collapse = " - "
     )
 

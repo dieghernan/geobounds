@@ -2,9 +2,7 @@ test_that("sf output", {
   skip_on_cran()
   skip_if_offline()
 
-  expect_silent(
-    wrld <- gb_get_world()
-  )
+  expect_silent(wrld <- gb_get_world())
 
   expect_true(all(sf::st_geometry_type(wrld) == "MULTIPOLYGON"))
   expect_true(sf::st_is_longlat(wrld))

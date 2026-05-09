@@ -3,11 +3,7 @@
 # To replace with package functions when available
 library(geobounds)
 
-sri <- gb_get(
-  country = "Sri Lanka",
-  adm_lvl = "ADM3",
-  simplified = TRUE
-)
+sri <- gb_get(country = "Sri Lanka", adm_lvl = "ADM3", simplified = TRUE)
 
 library(hexSticker)
 library(sysfonts)

@@ -1,7 +1,4 @@
-assert_adm_lvl <- function(
-  adm_lvl,
-  dict = c("all", paste0("adm", 0:5), 0:5)
-) {
+assert_adm_lvl <- function(adm_lvl, dict = c("all", paste0("adm", 0:5), 0:5)) {
   if (length(adm_lvl) > 1) {
     cli::cli_abort(
       "You can't mix different {.arg adm_lvl}. You entered {.val {adm_lvl}}."
@@ -9,12 +6,10 @@ assert_adm_lvl <- function(
   }
   adm_lvl_clean <- tolower(as.character(adm_lvl))
   if (!adm_lvl_clean %in% dict) {
-    cli::cli_abort(
-      c(
-        "Not a valid {.arg adm_lvl} level code ({.val {adm_lvl_clean}}).",
-        "Accepted values are {.val {dict}}."
-      )
-    )
+    cli::cli_abort(c(
+      "Not a valid {.arg adm_lvl} level code ({.val {adm_lvl_clean}}).",
+      "Accepted values are {.val {dict}}."
+    ))
   }
 
   # Check if number and return correct adm_lvl format
@@ -189,10 +184,7 @@ match_arg_pretty <- function(arg, choices) {
     }
 
     cli::cli_abort(
-      c(
-        paste0("{.arg {arg_name}} should be ", msg),
-        "i" = reg_msg
-      ),
+      c(paste0("{.arg {arg_name}} should be ", msg), "i" = reg_msg),
       call = NULL
     )
   }

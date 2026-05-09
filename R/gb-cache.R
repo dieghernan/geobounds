@@ -71,12 +71,10 @@ gb_set_cache_dir <- function(
   # Default if not provided
   if (missing(cache_dir) || cache_dir == "") {
     if (verbose) {
-      cli::cli_alert_info(
-        paste0(
-          "Using a temporary cache directory. ",
-          "Set {.arg cache_dir} to a value to store permanently"
-        )
-      )
+      cli::cli_alert_info(paste0(
+        "Using a temporary cache directory. ",
+        "Set {.arg cache_dir} to a value to store permanently"
+      ))
     }
     # Create a folder on tempdir
     cache_dir <- file.path(tempdir(), "geobounds")
@@ -98,9 +96,7 @@ gb_set_cache_dir <- function(
   }
 
   if (verbose) {
-    cli::cli_alert_success(
-      "{.pkg geobounds} cache dir is {.path {cache_dir}}."
-    )
+    cli::cli_alert_success("{.pkg geobounds} cache dir is {.path {cache_dir}}.")
   }
 
   # Install path in environment variable.
@@ -119,22 +115,18 @@ gb_set_cache_dir <- function(
       # Create file if it doesn't exist
       writeLines(cache_dir, con = geobounds_file)
     } else {
-      cli::cli_abort(
-        c(
-          "A {.arg cache_dir}, path already exists. You can overwrite it with ",
-          "the argument {.arg overwrite = TRUE}"
-        )
-      )
+      cli::cli_abort(c(
+        "A {.arg cache_dir}, path already exists. You can overwrite it with ",
+        "the argument {.arg overwrite = TRUE}"
+      ))
     }
     # nocov end
   } else {
     if (verbose && !is_temp) {
-      cli::cli_alert_info(
-        paste0(
-          "To install your {.arg cache_dir} path for use in future sessions ",
-          "run this function with {.arg install = TRUE}."
-        )
-      )
+      cli::cli_alert_info(paste0(
+        "To install your {.arg cache_dir} path for use in future sessions ",
+        "run this function with {.arg install = TRUE}."
+      ))
     }
   }
 
@@ -214,11 +206,7 @@ gb_detect_cache_dir <- function(x = NULL) {
 #' }
 #'
 #' @export
-gb_clear_cache <- function(
-  config = FALSE,
-  cached_data = TRUE,
-  quiet = TRUE
-) {
+gb_clear_cache <- function(config = FALSE, cached_data = TRUE, quiet = TRUE) {
   verbose <- isFALSE(quiet)
 
   config_dir <- tools::R_user_dir("geobounds", "config")

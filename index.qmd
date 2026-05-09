@@ -45,12 +45,12 @@ work with the [**geoBoundaries**](https://www.geoboundaries.org/) dataset (an
 open-license global database of administrative boundary polygons). Using this
 package, you can:
 
--   Programmatically retrieve administrative boundary geometries (e.g., country
-    → region → district) from geoBoundaries
--   Use **tidyverse** / **sf** workflows in **R** to map, analyze, and join
-    these boundaries with your own data
--   Work in an open-data context (geoBoundaries uses [CC
-    BY-4.0](https://creativecommons.org/licenses/by/4.0/)) and open licenses.
+- Programmatically retrieve administrative boundary geometries (e.g., country →
+  region → district) from geoBoundaries
+- Use **tidyverse** / **sf** workflows in **R** to map, analyze, and join these
+  boundaries with your own data
+- Work in an open-data context (geoBoundaries uses [CC
+  BY-4.0](https://creativecommons.org/licenses/by/4.0/)) and open licenses.
 
 In short: if you work with geospatial boundaries in **R** (shapefiles, polygons,
 and joining with other data), this package simplifies the process.
@@ -139,12 +139,12 @@ ggplot(sri_lanka_adm3) +
 geoBoundaries offers different release types with varying levels of validation
 and licensing:
 
--   **gbOpen**: Freely available boundaries under CC BY 4.0, suitable for most
-    applications
--   **gbHumanitarian**: Boundaries validated for humanitarian work, ensuring
-    accuracy for aid distribution
--   **gbAuthoritative**: Official government boundaries, highest accuracy but
-    may have restrictions
+- **gbOpen**: Freely available boundaries under CC BY 4.0, suitable for most
+  applications
+- **gbHumanitarian**: Boundaries validated for humanitarian work, ensuring
+  accuracy for aid distribution
+- **gbAuthoritative**: Official government boundaries, highest accuracy but may
+  have restrictions
 
 Use the `release_type` parameter in functions to specify, e.g.,
 `gb_get_adm1("Sri Lanka", release_type = "gbHumanitarian")`.
@@ -203,17 +203,17 @@ ggplot(world_max) +
 
 ## Documentation and resources
 
--   Visit the **pkgdown** site for full documentation:
-    <https://dieghernan.github.io/geobounds/>
--   Vignettes on data releases:
-    -   [gbOpen](https://dieghernan.github.io/geobounds/articles/gbopen.html)
-    -   [gbHumanitarian](https://dieghernan.github.io/geobounds/articles/gbhumanitarian.html)
-    -   [gbAuthoritative](https://dieghernan.github.io/geobounds/articles/gbauthoritative.html)
--   Explore the geoBoundaries homepage: <https://www.geoboundaries.org/>
--   Read the original paper describing the geoBoundaries dataset
-    [@10.1371/journal.pone.0231866].
--   Report issues or contribute on
-    [GitHub](https://github.com/dieghernan/geobounds)
+- Visit the **pkgdown** site for full documentation:
+  <https://dieghernan.github.io/geobounds/>
+- Vignettes on data releases:
+  - [gbOpen](https://dieghernan.github.io/geobounds/articles/gbopen.html)
+  - [gbHumanitarian](https://dieghernan.github.io/geobounds/articles/gbhumanitarian.html)
+  - [gbAuthoritative](https://dieghernan.github.io/geobounds/articles/gbauthoritative.html)
+- Explore the geoBoundaries homepage: <https://www.geoboundaries.org/>
+- Read the original paper describing the geoBoundaries dataset
+  [@10.1371/journal.pone.0231866].
+- Report issues or contribute on
+  [GitHub](https://github.com/dieghernan/geobounds)
 
 ## License
 
@@ -224,13 +224,13 @@ check the specific dataset metadata for licensing details.
 
 ## Acknowledgements
 
--   Many thanks to the geoBoundaries team and the [William & Mary
-    geoLab](https://sites.google.com/view/wmgeolab/) for creating and
-    maintaining the dataset.
--   Thanks to the **R** package community and all contributors to this package’s
-    development.
--   If you use **geobounds** (and underlying geoBoundaries data) in your
-    research or project, a citation and acknowledgment is greatly appreciated.
+- Many thanks to the geoBoundaries team and the [William & Mary
+  geoLab](https://sites.google.com/view/wmgeolab/) for creating and maintaining
+  the dataset.
+- Thanks to the **R** package community and all contributors to this package’s
+  development.
+- If you use **geobounds** (and underlying geoBoundaries data) in your research
+  or project, a citation and acknowledgment is greatly appreciated.
 
 ## Citation
 

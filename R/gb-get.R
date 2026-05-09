@@ -199,10 +199,7 @@ gbnds_dev_shp_query <- function(
       unlink(file_local, force = TRUE)
       # nolint start: Error code for message
       err <- paste0(
-        c(
-          httr2::resp_status(get),
-          httr2::resp_status_desc(get)
-        ),
+        c(httr2::resp_status(get), httr2::resp_status_desc(get)),
         collapse = " - "
       )
 
