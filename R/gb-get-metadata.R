@@ -123,13 +123,13 @@ gbnds_dev_meta_query <- function(url) {
 
   # Report request errors and return `NULL`.
   if (httr2::resp_is_error(resp)) {
-    # nolint start: Error code for message.
+    # nolint start
     err <- paste0(
       c(httr2::resp_status(resp), httr2::resp_status_desc(resp)),
       collapse = " - "
     )
 
-    # nolint end.
+    # nolint end
     cli::cli_alert_danger("{.url {url}} returned error {err}.")
 
     return(NULL)

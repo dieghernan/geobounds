@@ -197,13 +197,13 @@ gbnds_dev_shp_query <- function(
     # Report download errors and return `NULL`.
     if (httr2::resp_is_error(get)) {
       unlink(file_local, force = TRUE)
-      # nolint start: Error code for message.
+      # nolint start
       err <- paste0(
         c(httr2::resp_status(get), httr2::resp_status_desc(get)),
         collapse = " - "
       )
 
-      # nolint end.
+      # nolint end
       cli::cli_alert_danger("{.url {url}} returned error {err}.")
 
       return(NULL)

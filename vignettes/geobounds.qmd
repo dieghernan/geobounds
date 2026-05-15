@@ -189,17 +189,16 @@ current
 # Change to new
 newdir <- file.path(tempdir(), "/geoboundvignette")
 gb_set_cache_dir(newdir)
-#> ✔ geobounds cache dir is 'C:\Users\diego\AppData\Local\Temp\RtmpKY9W8o//geoboundvignette'.
+#> ✔ geobounds cache directory is 'C:\Users\diego\AppData\Local\Temp\RtmpKY9W8o//geoboundvignette'.
 #> ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.
 
 # Download
 example <- gb_get_adm0("Vatican City", quiet = FALSE)
-#> ℹ Downloading file from <https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/VAT/ADM0/geoBoundaries-VAT-ADM0-all.zip>
-#> → Cache dir is 'C:\Users\diego\AppData\Local\Temp\RtmpKY9W8o//geoboundvignette/gbOpen'
+#> ✔ File 'C:\Users\diego\AppData\Local\Temp\RtmpKY9W8o/geoboundvignette/gbOpen/geoBoundaries-VAT-ADM0-all.zip' already cached.
 
 # Restore cache dir
 gb_set_cache_dir(current)
-#> ✔ geobounds cache dir is 'C:\Users\diego\AppData\Local\Temp\RtmpKY9W8o'.
+#> ✔ geobounds cache directory is 'C:\Users\diego\AppData\Local\Temp\RtmpKY9W8o'.
 #> ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.
 
 current == gb_detect_cache_dir()
