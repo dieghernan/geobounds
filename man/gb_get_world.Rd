@@ -23,15 +23,15 @@ gb_get_world(
 names, or ISO3 country codes. See also \code{\link[countrycode:countrycode]{countrycode::countrycode()}}.}
 
 \item{adm_lvl}{Type of boundary. Accepted values are administrative
-levels 0, 1, and 2 (\code{"adm0"} is the country boundary,
-\code{"adm1"} is the first level of sub-national boundaries, \code{"adm2"} is the
-second level, and so on). Upper-case versions (\code{"ADM1"}) and the number of
-the level (\verb{0, 1, 2}) are also accepted.}
+levels 0, 1, and 2 (\code{"adm0"} is the country boundary, \code{"adm1"} is the
+first level of sub-national boundaries, \code{"adm2"} is the second level, and
+so on). Upper-case versions (\code{"ADM1"}) and the number of the level
+(\verb{0, 1, 2}) are also accepted.}
 
-\item{quiet}{logical. If \code{TRUE} suppresses informational messages.}
+\item{quiet}{Logical. If \code{TRUE}, suppress informational messages.}
 
-\item{overwrite}{logical. When set to \code{TRUE} it will force a fresh
-download of the source \code{.zip} file.}
+\item{overwrite}{Logical. If \code{TRUE}, force a fresh download of the source
+\code{.zip} file.}
 
 \item{cache_dir}{A path to a cache directory. If not set (the default
 \code{NULL}), the data will be stored in the default cache directory (see
@@ -63,7 +63,7 @@ Department of State definitions.
 }
 \examples{
 \dontshow{if (identical(Sys.getenv("NOT_CRAN"), "true") || interactive()) withAutoprint(\{ # examplesIf}
-# This download may take some time
+# This download may take some time.
 \dontrun{
 world <- gb_get_world()
 

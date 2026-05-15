@@ -20,11 +20,11 @@
 #' all <- gb_get_max_adm_lvl()
 #' library(dplyr)
 #'
-#' # Countries with only 1 level available
+#' # Countries with only one level available.
 #' all |>
 #'   filter(maxBoundaryType == 1)
 #'
-#' # Countries with level 4 available
+#' # Countries with level 4 available.
 #' all |>
 #'   filter(maxBoundaryType == 4)
 #'

@@ -8,13 +8,13 @@
 gb_clear_cache(config = FALSE, cached_data = TRUE, quiet = TRUE)
 }
 \arguments{
-\item{config}{Logical. If \code{TRUE}, will delete the configuration folder of
+\item{config}{Logical. If \code{TRUE}, delete the configuration folder of
 \pkg{geobounds}.}
 
-\item{cached_data}{Logical. If \code{TRUE}, it will delete your \code{cache_dir} and
-all its content.}
+\item{cached_data}{Logical. If \code{TRUE}, delete your \code{cache_dir} and all its
+contents.}
 
-\item{quiet}{logical. If \code{TRUE} suppresses informational messages.}
+\item{quiet}{Logical. If \code{TRUE}, suppress informational messages.}
 }
 \value{
 \code{\link[=invisible]{invisible()}} This function is called for its side effects.
@@ -30,22 +30,22 @@ data and configuration, specifically:
 }
 }
 \details{
-This is a comprehensive reset function that is intended to reset your status
-as if you had never installed or used \pkg{geobounds}.
+This is a comprehensive reset function intended to reset your status as if
+you had never installed or used \pkg{geobounds}.
 }
 \examples{
 
-# Caution! This may modify your current state
+# Caution! This may modify your current state.
 
 \dontrun{
 my_cache <- gb_detect_cache_dir()
-# Set an example cache
+# Set an example cache.
 ex <- file.path(tempdir(), "example", "cache")
 gb_set_cache_dir(ex, quiet = TRUE)
 
 gb_clear_cache(quiet = FALSE)
 
-# Restore initial cache
+# Restore the initial cache.
 gb_set_cache_dir(my_cache)
 identical(my_cache, gb_detect_cache_dir())
 }

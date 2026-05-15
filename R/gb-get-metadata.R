@@ -20,26 +20,25 @@
 #' @details
 #' The result is a [tibble][tibble::tbl_df] with the following columns:
 #'
-#' - `boundaryID`: The ID for this layer, which is a combination of the ISO
-#'    code, the boundary type, and a unique identifier for the boundary
-#'    generated based on the input metadata and geometry. This only changes if
-#'    the underlying data changes.
+#' - `boundaryID`: The ID for this layer, which combines the ISO code, the
+#'   boundary type, and a unique identifier generated from the input metadata
+#'   and geometry. This only changes if the underlying data changes.
 #' - `boundaryName`: The name of the country the layer represents.
 #' - `boundaryISO`: ISO-3166-1 (Alpha 3) code for the country.
 #' - `boundaryYearRepresented`: The year, or range of years in `"START to END"`
-#'    format, which the boundary layers represent.
+#'   format, which the boundary layers represent.
 #' - `boundaryType`: The type of boundary.
 #' - `boundaryCanonical`: The canonical name of a given boundary.
 #' - `boundarySource`: A comma-separated list of the primary sources for the
-#'    boundary.
+#'   boundary.
 #' - `boundaryLicense`: The original license that the dataset was released
 #'   under by the primary source.
 #' - `licenseDetail`: Any notes regarding the license.
 #' - `licenseSource`: The URL of the primary source.
 #' - `sourceDataUpdateDate`: The date the source information was integrated
-#'    into the geoBoundaries repository.
+#'   into the geoBoundaries repository.
 #' - `buildDate`: The date the source data was most recently standardized and
-#'    built into a geoBoundaries release.
+#'   built into a geoBoundaries release.
 #' - `Continent`: The continent the country is associated with.
 #' - `UNSDG-region`: The United Nations Sustainable Development Goals (SDG)
 #'   region the country is associated with.
@@ -53,31 +52,31 @@
 #' - `minVertices`: Minimum number of vertices defining a boundary.
 #' - `maxVertices`: Maximum number of vertices defining a boundary.
 #' - `minPerimeterLengthKM`: The minimum perimeter length of an administrative
-#'    unit in the layer, measured in kilometers (based on a World Equidistant
-#'    Cylindrical projection).
+#'   unit in the layer, measured in kilometers (based on a World Equidistant
+#'   Cylindrical projection).
 #' - `meanPerimeterLengthKM`: The mean perimeter length of an administrative
-#'    unit in the layer, measured in kilometers (based on a World Equidistant
-#'    Cylindrical projection).
+#'   unit in the layer, measured in kilometers (based on a World Equidistant
+#'   Cylindrical projection).
 #' - `maxPerimeterLengthKM`: The maximum perimeter length of an administrative
-#'    unit in the layer, measured in kilometers (based on a World Equidistant
-#'    Cylindrical projection).
+#'   unit in the layer, measured in kilometers (based on a World Equidistant
+#'   Cylindrical projection).
 #' - `meanAreaSqKM`: The mean area of all administrative units in the layer,
-#'    measured in square kilometers (based on a EASE-GRID 2 projection).
+#'   measured in square kilometers (based on an EASE-GRID 2 projection).
 #' - `minAreaSqKM`: The minimum area of an administrative unit in the layer,
-#'    measured in square kilometers (based on a EASE-GRID 2 projection).
+#'   measured in square kilometers (based on an EASE-GRID 2 projection).
 #' - `maxAreaSqKM`: The maximum area of an administrative unit in the layer,
-#'    measured in square kilometers (based on a EASE-GRID 2 projection).
+#'   measured in square kilometers (based on an EASE-GRID 2 projection).
 #' - `staticDownloadLink`: The static download link for the aggregate zip file
-#'    containing all boundary information.
+#'   containing all boundary information.
 #' - `gjDownloadURL`: The static download link for the `geoJSON`.
 #' - `tjDownloadURL`: The static download link for the `topoJSON`.
 #' - `imagePreview`: The static download link for the automatically rendered
 #'   `PNG` of the layer.
 #' - `simplifiedGeometryGeoJSON`: The static download link for the
-#'    simplified `geoJSON`.
+#'   simplified `geoJSON`.
 #'
 #' @examplesIf identical(Sys.getenv("NOT_CRAN"), "true") || interactive()
-#' # Get metadata of ADM4 levels
+#' # Get metadata for ADM4 levels.
 #'
 #' library(dplyr)
 #'
@@ -89,13 +88,13 @@ gb_get_metadata <- function(
   adm_lvl = "all",
   release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative")
 ) {
-  # Prepare inputs
+  # Prepare inputs.
   release_type <- match_arg_pretty(release_type)
   adm_lvl <- assert_adm_lvl(adm_lvl)
 
   country <- gbnds_dev_country2iso(country)
 
-  # Prepare query urls
+  # Prepare query URLs.
   urls <- paste(
     "https://www.geoboundaries.org/api/current",
     release_type,
@@ -112,7 +111,7 @@ gb_get_metadata <- function(
 
 
 gbnds_dev_meta_query <- function(url) {
-  # Prepare query
+  # Prepare the request.
   q <- httr2::request(url)
   q <- httr2::req_error(q, is_error = function(x) {
     FALSE
@@ -122,24 +121,24 @@ gbnds_dev_meta_query <- function(url) {
   })
   resp <- httr2::req_perform(q)
 
-  # In error inform and return NULL
+  # Report request errors and return `NULL`.
   if (httr2::resp_is_error(resp)) {
-    # nolint start: Error code for message
+    # nolint start: Error code for message.
     err <- paste0(
       c(httr2::resp_status(resp), httr2::resp_status_desc(resp)),
       collapse = " - "
     )
 
-    # nolint end
-    cli::cli_alert_danger("{.url {url}} gives error {err}")
+    # nolint end.
+    cli::cli_alert_danger("{.url {url}} returned error {err}.")
 
     return(NULL)
   }
 
-  # Get the metadata
+  # Parse the metadata.
   resp_body <- httr2::resp_body_json(resp)
 
-  # Check if single or several responses
+  # Handle single-response and multi-response API payloads.
   if ("boundaryID" %in% names(resp_body)) {
     tb <- dplyr::as_tibble(resp_body)
   } else {
@@ -159,7 +158,7 @@ gbnds_dev_meta_query <- function(url) {
   tb$minAreaSqKM <- as.numeric(tb$minAreaSqKM)
   tb$maxAreaSqKM <- as.numeric(tb$maxAreaSqKM)
 
-  # Convert dates
+  # Convert date fields.
   up <- tb$sourceDataUpdateDate
   up <- trimws(gsub("Mon|Tue|Wed|Thu|Fri|Sat|Sun", "", up))
   mabb <- month.abb

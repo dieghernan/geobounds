@@ -48,10 +48,9 @@ This function returns metadata of the
 \details{
 The result is a \link[tibble:tbl_df]{tibble} with the following columns:
 \itemize{
-\item \code{boundaryID}: The ID for this layer, which is a combination of the ISO
-code, the boundary type, and a unique identifier for the boundary
-generated based on the input metadata and geometry. This only changes if
-the underlying data changes.
+\item \code{boundaryID}: The ID for this layer, which combines the ISO code, the
+boundary type, and a unique identifier generated from the input metadata
+and geometry. This only changes if the underlying data changes.
 \item \code{boundaryName}: The name of the country the layer represents.
 \item \code{boundaryISO}: ISO-3166-1 (Alpha 3) code for the country.
 \item \code{boundaryYearRepresented}: The year, or range of years in \code{"START to END"}
@@ -90,11 +89,11 @@ Cylindrical projection).
 unit in the layer, measured in kilometers (based on a World Equidistant
 Cylindrical projection).
 \item \code{meanAreaSqKM}: The mean area of all administrative units in the layer,
-measured in square kilometers (based on a EASE-GRID 2 projection).
+measured in square kilometers (based on an EASE-GRID 2 projection).
 \item \code{minAreaSqKM}: The minimum area of an administrative unit in the layer,
-measured in square kilometers (based on a EASE-GRID 2 projection).
+measured in square kilometers (based on an EASE-GRID 2 projection).
 \item \code{maxAreaSqKM}: The maximum area of an administrative unit in the layer,
-measured in square kilometers (based on a EASE-GRID 2 projection).
+measured in square kilometers (based on an EASE-GRID 2 projection).
 \item \code{staticDownloadLink}: The static download link for the aggregate zip file
 containing all boundary information.
 \item \code{gjDownloadURL}: The static download link for the \code{geoJSON}.
@@ -107,7 +106,7 @@ simplified \code{geoJSON}.
 }
 \examples{
 \dontshow{if (identical(Sys.getenv("NOT_CRAN"), "true") || interactive()) withAutoprint(\{ # examplesIf}
-# Get metadata of ADM4 levels
+# Get metadata for ADM4 levels.
 
 library(dplyr)
 

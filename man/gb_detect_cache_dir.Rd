@@ -11,8 +11,8 @@ gb_detect_cache_dir(x = NULL)
 \item{x}{Ignored.}
 }
 \value{
-A character with the path to your \code{cache_dir}. The same path will appear
-also as a clickable message, see \code{\link[cli:inline-markup]{cli::inline-markup}}.
+A character with the path to your \code{cache_dir}. The same path will also
+appear as a clickable message, see \code{\link[cli:inline-markup]{cli::inline-markup}}.
 }
 \description{
 Helper function to detect the current cache folder. See

@@ -73,8 +73,8 @@ gb_get_adm5(
 \code{"all"} (which returns the data for all countries), a vector of country
 names, or ISO3 country codes. See also \code{\link[countrycode:countrycode]{countrycode::countrycode()}}.}
 
-\item{simplified}{logical. Return the simplified boundary or not. The default
-\code{FALSE} uses the premier geoBoundaries release.}
+\item{simplified}{Logical. If \code{TRUE}, return the simplified boundary. The
+default \code{FALSE} uses the premier geoBoundaries release.}
 
 \item{release_type}{One of \code{"gbOpen"}, \code{"gbHumanitarian"},
 \code{"gbAuthoritative"}. For most users, we suggest using \code{"gbOpen"}
@@ -88,10 +88,10 @@ licensing.
 for commercial purposes, but are verified through in-country processes.
 }}
 
-\item{quiet}{logical. If \code{TRUE} suppresses informational messages.}
+\item{quiet}{Logical. If \code{TRUE}, suppress informational messages.}
 
-\item{overwrite}{logical. When set to \code{TRUE} it will force a fresh
-download of the source \code{.zip} file.}
+\item{overwrite}{Logical. If \code{TRUE}, force a fresh download of the source
+\code{.zip} file.}
 
 \item{cache_dir}{A path to a cache directory. If not set (the default
 \code{NULL}), the data will be stored in the default cache directory (see
@@ -105,15 +105,16 @@ A \code{\link[sf:st_sf]{sf}} object.
 \description{
 \href{https://www.geoboundaries.org/index.html#usage}{Attribution} is required
 for all uses of this dataset.
-
+}
+\details{
 These functions are wrappers of \code{\link[=gb_get]{gb_get()}} for extracting any
 given administrative level:
 \itemize{
 \item \code{gb_get_adm0()} returns the country boundary.
-\item \code{gb_get_adm1()} returns first-level administrative
-boundaries (e.g. States in the United States).
-\item \code{gb_get_adm2()} returns second-level administrative
-boundaries (e.g. Counties in the United States).
+\item \code{gb_get_adm1()} returns first-level administrative boundaries (e.g. states
+in the United States).
+\item \code{gb_get_adm2()} returns second-level administrative boundaries
+(e.g. counties in the United States).
 \item \code{gb_get_adm3()} returns third-level administrative
 boundaries (e.g. towns or cities in some countries).
 \item \code{gb_get_adm4()} returns fourth-level administrative
@@ -123,13 +124,12 @@ boundaries.
 }
 
 Note that not all countries have the same number of levels. Check
-\link{gb_get_max_adm_lvl}.
-}
-\details{
+\code{\link[=gb_get_max_adm_lvl]{gb_get_max_adm_lvl()}}.
+
 Individual data files in the geoBoundaries database are governed by the
 license or licenses identified within the metadata for each respective
-boundary (see \code{\link[=gb_get_metadata]{gb_get_metadata()}}. Users using individual boundary files
-from geoBoundaries should additionally ensure that they are citing the
+boundary (see \code{\link[=gb_get_metadata]{gb_get_metadata()}}). Users using individual boundary files
+from geoBoundaries should additionally ensure that they cite the
 sources provided in the metadata for each file.
 }
 \examples{

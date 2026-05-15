@@ -1,7 +1,7 @@
 assert_adm_lvl <- function(adm_lvl, dict = c("all", paste0("adm", 0:5), 0:5)) {
   if (length(adm_lvl) > 1) {
     cli::cli_abort(
-      "You can't mix different {.arg adm_lvl}. You entered {.val {adm_lvl}}."
+      "You cannot mix different {.arg adm_lvl}. You entered {.val {adm_lvl}}."
     )
   }
   adm_lvl_clean <- tolower(as.character(adm_lvl))
@@ -12,7 +12,7 @@ assert_adm_lvl <- function(adm_lvl, dict = c("all", paste0("adm", 0:5), 0:5)) {
     ))
   }
 
-  # Check if number and return correct adm_lvl format
+  # Convert numeric levels to the ADM code format.
   if (is.numeric(adm_lvl)) {
     adm_lvl <- paste0("ADM", adm_lvl)
   }
@@ -35,7 +35,7 @@ gbnds_dev_country2iso <- function(names, out = "iso3c") {
     return("ALL")
   }
 
-  # Vectorize
+  # Vectorize country name conversion.
   outnames <- lapply(names, function(x) {
     if (grepl("Kosovo", x, ignore.case = TRUE)) {
       return("XKX")
@@ -50,7 +50,7 @@ gbnds_dev_country2iso <- function(names, out = "iso3c") {
       outnames <- countrycode::countrycode(x, "iso3c", out, warn = FALSE)
     } else {
       cli::cli_abort(
-        "Invalid country names. Try a vector of names or ISO3 codes"
+        "Invalid country names. Try a vector of names or ISO3 codes."
       )
     }
     outnames
@@ -62,7 +62,7 @@ gbnds_dev_country2iso <- function(names, out = "iso3c") {
   lend <- length(outnames2)
   if (linit != lend) {
     ff <- names[is.na(outnames)] # nolint
-    cli::cli_alert_warning("Some values were not matched unambiguously: {ff}")
+    cli::cli_alert_warning("Some values were not matched unambiguously: {ff}.")
     cli::cli_alert_info("Review the names or switch to ISO3 codes.")
   }
 
@@ -70,7 +70,8 @@ gbnds_dev_country2iso <- function(names, out = "iso3c") {
 }
 
 gbnds_dev_sf_helper <- function(data_sf) {
-  # From sf/read.R - https://github.com/r-spatial/sf/blob/master/R/read.R
+  # Adapted from sf/read.R:
+  # https://github.com/r-spatial/sf/blob/master/R/read.R
   set_utf8 <- function(x) {
     n <- names(x)
     Encoding(n) <- "UTF-8"
@@ -82,12 +83,12 @@ gbnds_dev_sf_helper <- function(data_sf) {
     }
     structure(lapply(x, to_utf8), names = n)
   }
-  # end
+  # End adapted code.
 
-  # To UTF-8
+  # Convert names and character columns to UTF-8.
   names <- names(data_sf)
   g <- sf::st_geometry(data_sf)
-  # Everything as MULTIPOLYGON
+  # Cast polygon geometries to multipolygons.
 
   geomtype <- sf::st_geometry_type(g)
   # nocov start
@@ -112,10 +113,10 @@ gbnds_dev_sf_helper <- function(data_sf) {
   )
   data_utf8 <- dplyr::as_tibble(data_utf8)
 
-  # Regenerate with right encoding
+  # Regenerate the `sf` object with the corrected encoding.
   data_sf <- sf::st_as_sf(data_utf8, g)
 
-  # Rename geometry to original value
+  # Restore the original geometry column name.
   newnames <- names(data_sf)
   newnames[newnames == "g"] <- nm
   colnames(data_sf) <- newnames
@@ -156,18 +157,18 @@ match_arg_pretty <- function(arg, choices) {
   }
 
   lmatch <- match(arg, choices)
-  # Hint
+  # Compute a suggested match for the error message.
   aproxmatch <- pmatch(arg, choices)[1]
 
   if (length(arg) > 1 || is.na(lmatch)) {
-    # Create error message
+    # Create the expected-value error message.
     if (length(choices) == 1) {
       msg <- paste0("{.str ", choices, "}")
     } else {
       l_choices <- length(choices)
       msg <- paste0("{.str ", choices[-l_choices], "}", collapse = ", ")
       msg <- paste0(msg, " or {.str ", choices[l_choices], "}")
-      # Add one of at the beginning
+      # Add "one of" before multiple valid choices.
       msg <- paste0("one of ", msg)
     }
 
@@ -175,7 +176,7 @@ match_arg_pretty <- function(arg, choices) {
     bad_arg <- paste0("{.str ", arg, "}", collapse = " or ")
     msg <- paste0(msg, bad_arg, ".")
 
-    # Maybe is a regex?
+    # Suggest a partial match when possible.
     reg_msg <- NULL
     if (!is.na(aproxmatch)) {
       aprox <- choices[aproxmatch]

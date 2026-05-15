@@ -9,10 +9,10 @@
 #' borders.
 #'
 #' @param adm_lvl Type of boundary. Accepted values are administrative
-#'  levels 0, 1, and 2 (`"adm0"` is the country boundary,
-#'  `"adm1"` is the first level of sub-national boundaries, `"adm2"` is the
-#'  second level, and so on). Upper-case versions (`"ADM1"`) and the number of
-#'  the level (`0, 1, 2`) are also accepted.
+#'   levels 0, 1, and 2 (`"adm0"` is the country boundary, `"adm1"` is the
+#'   first level of sub-national boundaries, `"adm2"` is the second level, and
+#'   so on). Upper-case versions (`"ADM1"`) and the number of the level
+#'   (`0, 1, 2`) are also accepted.
 #'
 #' @inherit gb_get
 #'
@@ -34,7 +34,7 @@
 #'   Department of State definitions.
 #'
 #' @examplesIf identical(Sys.getenv("NOT_CRAN"), "true") || interactive()
-#' # This download may take some time
+#' # This download may take some time.
 #' \dontrun{
 #' world <- gb_get_world()
 #'
@@ -56,7 +56,7 @@ gb_get_world <- function(
   adm_lvl <- assert_adm_lvl(adm_lvl, dict = c(paste0("adm", 0:2), 0:2))
   country <- gbnds_dev_country2iso(country)
 
-  # Get from repo
+  # Build the CGAZ download URL.
   baseurl <- paste0(
     "https://github.com/wmgeolab/geoBoundaries/",
     "raw/main/releaseData"

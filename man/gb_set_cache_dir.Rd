@@ -12,22 +12,21 @@ gb_set_cache_dir(cache_dir, overwrite = FALSE, install = FALSE, quiet = FALSE)
 will store the cache files in a temporary directory (see
 \code{\link[base:tempdir]{base::tempdir()}}).}
 
-\item{overwrite}{Logical. If this is set to \code{TRUE}, it will overwrite an
-existing \code{cache_dir}.}
+\item{overwrite}{Logical. If \code{TRUE}, overwrite an existing \code{cache_dir}.}
 
-\item{install}{Logical. If \code{TRUE}, will install the key in your local
-machine for use in future sessions. Defaults to \code{FALSE}. If \code{cache_dir}
+\item{install}{Logical. If \code{TRUE}, install the key on your local machine
+for use in future sessions. Defaults to \code{FALSE}. If \code{cache_dir}
 is \code{FALSE} this parameter is set to \code{FALSE} automatically.}
 
-\item{quiet}{logical. If \code{TRUE} suppresses informational messages.}
+\item{quiet}{Logical. If \code{TRUE}, suppress informational messages.}
 }
 \value{
 An (\code{\link[=invisible]{invisible()}}) character with the path to your \code{cache_dir}.
 }
 \description{
 This function stores your \code{cache_dir} path on your local machine and
-loads it for future sessions. Type \code{gb_detect_cache_dir()} to find
-your cache directory path.
+loads it for future sessions. Type \code{gb_detect_cache_dir()} to find your
+cache directory path.
 }
 \details{
 By default, when no \code{cache_dir} is set the package uses a folder inside
@@ -41,7 +40,7 @@ small configuration file under \code{tools::R_user_dir("geobounds", "config")}.
 \itemize{
 \item For occasional use, rely on the default \code{\link[=tempdir]{tempdir()}}-based cache (no
 install).
-\item Modify the cache for a single session by setting
+\item Modify the cache for a single session with
 \code{gb_set_cache_dir(cache_dir = "a/path/here")}.
 \item For reproducible workflows, install a persistent cache with
 \code{gb_set_cache_dir(cache_dir = "a/path/here", install = TRUE)} that will be
@@ -53,18 +52,18 @@ corresponding function. See \code{\link[=gb_get]{gb_get()}}.
 
 \examples{
 
-# Caution! This may modify your current state
+# Caution! This may modify your current state.
 
 \dontrun{
 my_cache <- gb_detect_cache_dir()
 
-# Set an example cache
+# Set an example cache.
 ex <- file.path(tempdir(), "example", "cachenew")
 gb_set_cache_dir(ex)
 
 gb_detect_cache_dir()
 
-# Restore initial cache
+# Restore the initial cache.
 gb_set_cache_dir(my_cache)
 identical(my_cache, gb_detect_cache_dir())
 }
