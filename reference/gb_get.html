@@ -109,8 +109,8 @@ the level (<code>1, 2, 3, 4, 5</code>) are also accepted.</p></dd>
 
 
 <dt id="arg-simplified">simplified<a class="anchor" aria-label="anchor" href="#arg-simplified"></a></dt>
-<dd><p>logical. Return the simplified boundary or not. The default
-<code>FALSE</code> uses the premier geoBoundaries release.</p></dd>
+<dd><p>Logical. If <code>TRUE</code>, return the simplified boundary. The
+default <code>FALSE</code> uses the premier geoBoundaries release.</p></dd>
 
 
 <dt id="arg-release-type">release_type<a class="anchor" aria-label="anchor" href="#arg-release-type"></a></dt>
@@ -126,12 +126,12 @@ for commercial purposes, but are verified through in-country processes.</p></li>
 
 
 <dt id="arg-quiet">quiet<a class="anchor" aria-label="anchor" href="#arg-quiet"></a></dt>
-<dd><p>logical. If <code>TRUE</code> suppresses informational messages.</p></dd>
+<dd><p>Logical. If <code>TRUE</code>, suppress informational messages.</p></dd>
 
 
 <dt id="arg-overwrite">overwrite<a class="anchor" aria-label="anchor" href="#arg-overwrite"></a></dt>
-<dd><p>logical. When set to <code>TRUE</code> it will force a fresh
-download of the source <code>.zip</code> file.</p></dd>
+<dd><p>Logical. If <code>TRUE</code>, force a fresh download of the source
+<code>.zip</code> file.</p></dd>
 
 
 <dt id="arg-cache-dir">cache_dir<a class="anchor" aria-label="anchor" href="#arg-cache-dir"></a></dt>
@@ -150,14 +150,14 @@ strategies in <code><a href="gb_set_cache_dir.html">gb_set_cache_dir()</a></code
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>Individual data files in the geoBoundaries database are governed by the
 license or licenses identified within the metadata for each respective
-boundary (see <code><a href="gb_get_metadata.html">gb_get_metadata()</a></code>. Users using individual boundary files
+boundary (see <code><a href="gb_get_metadata.html">gb_get_metadata()</a></code>). Users using individual boundary files
 from geoBoundaries should additionally ensure that they cite the
 sources provided in the metadata for each file. See <strong>Examples</strong>.</p>
 <p>The following wrappers are also available:</p><ul><li><p><code><a href="gb_get_adm.html">gb_get_adm0()</a></code> returns the country boundary.</p></li>
-<li><p><code><a href="gb_get_adm.html">gb_get_adm1()</a></code> returns first-level administrative
-boundaries (e.g. States in the United States).</p></li>
-<li><p><code><a href="gb_get_adm.html">gb_get_adm2()</a></code> returns second-level administrative
-boundaries (e.g. Counties in the United States).</p></li>
+<li><p><code><a href="gb_get_adm.html">gb_get_adm1()</a></code> returns first-level administrative boundaries (e.g. states
+in the United States).</p></li>
+<li><p><code><a href="gb_get_adm.html">gb_get_adm2()</a></code> returns second-level administrative boundaries
+(e.g. counties in the United States).</p></li>
 <li><p><code><a href="gb_get_adm.html">gb_get_adm3()</a></code> returns third-level administrative
 boundaries (e.g. towns or cities in some countries).</p></li>
 <li><p><code><a href="gb_get_adm.html">gb_get_adm4()</a></code> returns fourth-level administrative
@@ -182,7 +182,7 @@ administrative boundaries. <em>PLOS ONE</em> <em>15</em>(4), 1-9.
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
-<span class="r-in"><span><span class="co"># Map level 2 in Sri Lanka</span></span></span>
+<span class="r-in"><span><span class="co"># Map level 2 in Sri Lanka.</span></span></span>
 <span class="r-in"><span><span class="va">sri_lanka</span> <span class="op">&lt;-</span> <span class="fu">gb_get</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  <span class="st">"Sri Lanka"</span>,</span></span>
 <span class="r-in"><span>  adm_lvl <span class="op">=</span> <span class="fl">2</span>,</span></span>
@@ -217,7 +217,7 @@ administrative boundaries. <em>PLOS ONE</em> <em>15</em>(4), 1-9.
 <span class="r-plt img"><img src="gb_get-1.png" alt="" width="2188" height="1352"></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Metadata</span></span></span>
+<span class="r-in"><span><span class="co"># Metadata.</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Attaching package: ‘dplyr’</span>
@@ -231,7 +231,7 @@ administrative boundaries. <em>PLOS ONE</em> <em>15</em>(4), 1-9.
 <span class="r-in"><span>  <span class="st">"Sri Lanka"</span>,</span></span>
 <span class="r-in"><span>  adm_lvl <span class="op">=</span> <span class="fl">2</span></span></span>
 <span class="r-in"><span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
-<span class="r-in"><span>  <span class="co"># Check individual license</span></span></span>
+<span class="r-in"><span>  <span class="co"># Check the individual license.</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">boundaryISO</span>, <span class="va">boundaryType</span>, <span class="va">licenseDetail</span>, <span class="va">licenseSource</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Rows: 1</span>

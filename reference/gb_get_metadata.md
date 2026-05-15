@@ -59,10 +59,10 @@ The result is a
 [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) with
 the following columns:
 
-- `boundaryID`: The ID for this layer, which is a combination of the ISO
-  code, the boundary type, and a unique identifier for the boundary
-  generated based on the input metadata and geometry. This only changes
-  if the underlying data changes.
+- `boundaryID`: The ID for this layer, which combines the ISO code, the
+  boundary type, and a unique identifier generated from the input
+  metadata and geometry. This only changes if the underlying data
+  changes.
 
 - `boundaryName`: The name of the country the layer represents.
 
@@ -124,15 +124,15 @@ the following columns:
   World Equidistant Cylindrical projection).
 
 - `meanAreaSqKM`: The mean area of all administrative units in the
-  layer, measured in square kilometers (based on a EASE-GRID 2
+  layer, measured in square kilometers (based on an EASE-GRID 2
   projection).
 
 - `minAreaSqKM`: The minimum area of an administrative unit in the
-  layer, measured in square kilometers (based on a EASE-GRID 2
+  layer, measured in square kilometers (based on an EASE-GRID 2
   projection).
 
 - `maxAreaSqKM`: The maximum area of an administrative unit in the
-  layer, measured in square kilometers (based on a EASE-GRID 2
+  layer, measured in square kilometers (based on an EASE-GRID 2
   projection).
 
 - `staticDownloadLink`: The static download link for the aggregate zip
@@ -158,7 +158,7 @@ Other metadata functions:
 ## Examples
 
 ``` r
-# Get metadata of ADM4 levels
+# Get metadata for ADM4 levels.
 
 library(dplyr)
 

@@ -56,7 +56,7 @@ Other metadata functions:
 all <- gb_get_max_adm_lvl()
 library(dplyr)
 
-# Countries with only 1 level available
+# Countries with only one level available.
 all |>
   filter(maxBoundaryType == 1)
 #> # A tibble: 21 × 2
@@ -74,7 +74,7 @@ all |>
 #> 10 LBY                       1
 #> # ℹ 11 more rows
 
-# Countries with level 4 available
+# Countries with level 4 available.
 all |>
   filter(maxBoundaryType == 4)
 #> # A tibble: 18 × 2

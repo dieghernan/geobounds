@@ -42,12 +42,11 @@ geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
 
 - quiet:
 
-  logical. If `TRUE` suppresses informational messages.
+  Logical. If `TRUE`, suppress informational messages.
 
 - overwrite:
 
-  logical. When set to `TRUE` it will force a fresh download of the
-  source `.zip` file.
+  Logical. If `TRUE`, force a fresh download of the source `.zip` file.
 
 - cache_dir:
 
@@ -93,7 +92,7 @@ Other API functions:
 ## Examples
 
 ``` r
-# This download may take some time
+# This download may take some time.
 # \dontrun{
 world <- gb_get_world()
 

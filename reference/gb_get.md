@@ -47,8 +47,8 @@ geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
 
 - simplified:
 
-  logical. Return the simplified boundary or not. The default `FALSE`
-  uses the premier geoBoundaries release.
+  Logical. If `TRUE`, return the simplified boundary. The default
+  `FALSE` uses the premier geoBoundaries release.
 
 - release_type:
 
@@ -67,12 +67,11 @@ geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
 
 - quiet:
 
-  logical. If `TRUE` suppresses informational messages.
+  Logical. If `TRUE`, suppress informational messages.
 
 - overwrite:
 
-  logical. When set to `TRUE` it will force a fresh download of the
-  source `.zip` file.
+  Logical. If `TRUE`, force a fresh download of the source `.zip` file.
 
 - cache_dir:
 
@@ -94,7 +93,7 @@ A [`sf`](https://r-spatial.github.io/sf/reference/sf.html) object.
 Individual data files in the geoBoundaries database are governed by the
 license or licenses identified within the metadata for each respective
 boundary (see
-[`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md).
+[`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md)).
 Users using individual boundary files from geoBoundaries should
 additionally ensure that they cite the sources provided in the metadata
 for each file. See **Examples**.
@@ -105,11 +104,11 @@ The following wrappers are also available:
   returns the country boundary.
 
 - [`gb_get_adm1()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
-  returns first-level administrative boundaries (e.g. States in the
+  returns first-level administrative boundaries (e.g. states in the
   United States).
 
 - [`gb_get_adm2()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
-  returns second-level administrative boundaries (e.g. Counties in the
+  returns second-level administrative boundaries (e.g. counties in the
   United States).
 
 - [`gb_get_adm3()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
@@ -139,7 +138,7 @@ Other API functions:
 
 ``` r
 # \donttest{
-# Map level 2 in Sri Lanka
+# Map level 2 in Sri Lanka.
 sri_lanka <- gb_get(
   "Sri Lanka",
   adm_lvl = 2,
@@ -174,7 +173,7 @@ ggplot(sri_lanka) +
 
 # }
 
-# Metadata
+# Metadata.
 library(dplyr)
 #> 
 #> Attaching package: ‘dplyr’
@@ -188,7 +187,7 @@ gb_get_metadata(
   "Sri Lanka",
   adm_lvl = 2
 ) |>
-  # Check individual license
+  # Check the individual license.
   select(boundaryISO, boundaryType, licenseDetail, licenseSource) |>
   glimpse()
 #> Rows: 1

@@ -3,28 +3,6 @@
 [Attribution](https://www.geoboundaries.org/index.html#usage) is
 required for all uses of this dataset.
 
-These functions are wrappers of
-[`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md)
-for extracting any given administrative level:
-
-- `gb_get_adm0()` returns the country boundary.
-
-- `gb_get_adm1()` returns first-level administrative boundaries (e.g.
-  States in the United States).
-
-- `gb_get_adm2()` returns second-level administrative boundaries (e.g.
-  Counties in the United States).
-
-- `gb_get_adm3()` returns third-level administrative boundaries (e.g.
-  towns or cities in some countries).
-
-- `gb_get_adm4()` returns fourth-level administrative boundaries.
-
-- `gb_get_adm5()` returns fifth-level administrative boundaries.
-
-Note that not all countries have the same number of levels. Check
-[gb_get_max_adm_lvl](https://dieghernan.github.io/geobounds/reference/gb_get_max_adm_lvl.md).
-
 ## Usage
 
 ``` r
@@ -98,8 +76,8 @@ geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
 
 - simplified:
 
-  logical. Return the simplified boundary or not. The default `FALSE`
-  uses the premier geoBoundaries release.
+  Logical. If `TRUE`, return the simplified boundary. The default
+  `FALSE` uses the premier geoBoundaries release.
 
 - release_type:
 
@@ -118,12 +96,11 @@ geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
 
 - quiet:
 
-  logical. If `TRUE` suppresses informational messages.
+  Logical. If `TRUE`, suppress informational messages.
 
 - overwrite:
 
-  logical. When set to `TRUE` it will force a fresh download of the
-  source `.zip` file.
+  Logical. If `TRUE`, force a fresh download of the source `.zip` file.
 
 - cache_dir:
 
@@ -142,13 +119,35 @@ A [`sf`](https://r-spatial.github.io/sf/reference/sf.html) object.
 
 ## Details
 
+These functions are wrappers of
+[`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md)
+for extracting any given administrative level:
+
+- `gb_get_adm0()` returns the country boundary.
+
+- `gb_get_adm1()` returns first-level administrative boundaries (e.g.
+  states in the United States).
+
+- `gb_get_adm2()` returns second-level administrative boundaries (e.g.
+  counties in the United States).
+
+- `gb_get_adm3()` returns third-level administrative boundaries (e.g.
+  towns or cities in some countries).
+
+- `gb_get_adm4()` returns fourth-level administrative boundaries.
+
+- `gb_get_adm5()` returns fifth-level administrative boundaries.
+
+Note that not all countries have the same number of levels. Check
+[`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/reference/gb_get_max_adm_lvl.md).
+
 Individual data files in the geoBoundaries database are governed by the
 license or licenses identified within the metadata for each respective
 boundary (see
-[`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md).
+[`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md)).
 Users using individual boundary files from geoBoundaries should
-additionally ensure that they are citing the sources provided in the
-metadata for each file.
+additionally ensure that they cite the sources provided in the metadata
+for each file.
 
 ## References
 

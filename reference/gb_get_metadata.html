@@ -110,10 +110,9 @@ for commercial purposes, but are verified through in-country processes.</p></li>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>The result is a <a href="https://tibble.tidyverse.org/reference/tbl_df-class.html" class="external-link">tibble</a> with the following columns:</p><ul><li><p><code>boundaryID</code>: The ID for this layer, which is a combination of the ISO
-code, the boundary type, and a unique identifier for the boundary
-generated based on the input metadata and geometry. This only changes if
-the underlying data changes.</p></li>
+    <p>The result is a <a href="https://tibble.tidyverse.org/reference/tbl_df-class.html" class="external-link">tibble</a> with the following columns:</p><ul><li><p><code>boundaryID</code>: The ID for this layer, which combines the ISO code, the
+boundary type, and a unique identifier generated from the input metadata
+and geometry. This only changes if the underlying data changes.</p></li>
 <li><p><code>boundaryName</code>: The name of the country the layer represents.</p></li>
 <li><p><code>boundaryISO</code>: ISO-3166-1 (Alpha 3) code for the country.</p></li>
 <li><p><code>boundaryYearRepresented</code>: The year, or range of years in <code>"START to END"</code>
@@ -152,11 +151,11 @@ Cylindrical projection).</p></li>
 unit in the layer, measured in kilometers (based on a World Equidistant
 Cylindrical projection).</p></li>
 <li><p><code>meanAreaSqKM</code>: The mean area of all administrative units in the layer,
-measured in square kilometers (based on a EASE-GRID 2 projection).</p></li>
+measured in square kilometers (based on an EASE-GRID 2 projection).</p></li>
 <li><p><code>minAreaSqKM</code>: The minimum area of an administrative unit in the layer,
-measured in square kilometers (based on a EASE-GRID 2 projection).</p></li>
+measured in square kilometers (based on an EASE-GRID 2 projection).</p></li>
 <li><p><code>maxAreaSqKM</code>: The maximum area of an administrative unit in the layer,
-measured in square kilometers (based on a EASE-GRID 2 projection).</p></li>
+measured in square kilometers (based on an EASE-GRID 2 projection).</p></li>
 <li><p><code>staticDownloadLink</code>: The static download link for the aggregate zip file
 containing all boundary information.</p></li>
 <li><p><code>gjDownloadURL</code>: The static download link for the <code>geoJSON</code>.</p></li>
@@ -175,7 +174,7 @@ simplified <code>geoJSON</code>.</p></li>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Get metadata of ADM4 levels</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Get metadata for ADM4 levels.</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
