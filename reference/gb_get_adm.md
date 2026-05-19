@@ -70,14 +70,14 @@ geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
 - country:
 
   A character vector of country codes. It can be either `"all"` (which
-  returns the data for all countries), a vector of country names, or
-  ISO3 country codes. See also
+  returns the data for all countries), a vector of country names or ISO3
+  country codes. See also
   [`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/man/countrycode.html).
 
 - simplified:
 
   Logical. If `TRUE`, return the simplified boundary. The default
-  `FALSE` uses the premier geoBoundaries release.
+  `FALSE` uses the primary geoBoundaries release.
 
 - release_type:
 
@@ -119,9 +119,9 @@ A [`sf`](https://r-spatial.github.io/sf/reference/sf.html) object.
 
 ## Details
 
-These functions are wrappers of
+These functions are wrappers around
 [`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md)
-for extracting any given administrative level:
+for extracting a given administrative level:
 
 - `gb_get_adm0()` returns the country boundary.
 
@@ -145,9 +145,8 @@ Individual data files in the geoBoundaries database are governed by the
 license or licenses identified within the metadata for each respective
 boundary (see
 [`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md)).
-Users using individual boundary files from geoBoundaries should
-additionally ensure that they cite the sources provided in the metadata
-for each file.
+Users of individual boundary files from geoBoundaries should also cite
+the sources provided in the metadata for each file.
 
 ## References
 

@@ -17,8 +17,8 @@ gb_detect_cache_dir(x = NULL)
 
 ## Value
 
-A character with the path to your `cache_dir`. The same path will also
-appear as a clickable message, see
+A character vector with the path to your `cache_dir`. The same path also
+appears as a clickable message. See
 [`cli::inline-markup`](https://cli.r-lib.org/reference/inline-markup.html).
 
 ## See also
@@ -31,6 +31,6 @@ Other cache utilities:
 
 ``` r
 gb_detect_cache_dir()
-#> ℹ /tmp/RtmpwQ7Saw/geobounds
-#> [1] "/tmp/RtmpwQ7Saw/geobounds"
+#> ℹ /tmp/RtmpYwYXFv/geobounds
+#> [1] "/tmp/RtmpYwYXFv/geobounds"
 ```

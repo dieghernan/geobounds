@@ -28,15 +28,15 @@ geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
 - country:
 
   A character vector of country codes. It can be either `"all"` (which
-  returns the data for all countries), a vector of country names, or
-  ISO3 country codes. See also
+  returns the data for all countries), a vector of country names or ISO3
+  country codes. See also
   [`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/man/countrycode.html).
 
 - adm_lvl:
 
-  Type of boundary. Accepted values are administrative levels 0, 1, and
-  2 (`"adm0"` is the country boundary, `"adm1"` is the first level of
-  sub-national boundaries, `"adm2"` is the second level, and so on).
+  Type of boundary. Accepted values are administrative levels 0, 1 and 2
+  (`"adm0"` is the country boundary, `"adm1"` is the first level of
+  sub-national boundaries, `"adm2"` is the second level and so on).
   Upper-case versions (`"ADM1"`) and the number of the level (`0, 1, 2`)
   are also accepted.
 

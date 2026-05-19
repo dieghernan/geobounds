@@ -109,11 +109,11 @@ PLOS ONE 15(4): e0231866. https://doi.org/10.1371/journal.pone.0231866
 </h2>
 <p>The <strong>geobounds</strong> package provides an <strong>R</strong>-friendly interface to access and work with the <a href="https://www.geoboundaries.org/" class="external-link"><strong>geoBoundaries</strong></a> dataset (an open-license global database of administrative boundary polygons). Using this package, you can:</p>
 <ul>
-<li>Programmatically retrieve administrative boundary geometries (e.g., country → region → district) from geoBoundaries</li>
-<li>Use <strong>tidyverse</strong> / <strong>sf</strong> workflows in <strong>R</strong> to map, analyze, and join these boundaries with your own data</li>
-<li>Work in an open-data context (geoBoundaries uses <a href="https://creativecommons.org/licenses/by/4.0/" class="external-link">CC BY-4.0</a>) and open licenses.</li>
+<li>Programmatically retrieve administrative boundary geometries (e.g., country → region → district) from <strong>geoBoundaries</strong>.</li>
+<li>Use <strong>tidyverse</strong> and <strong>sf</strong> workflows in <strong>R</strong> to map, analyze and join these boundaries with your own data.</li>
+<li>Work in an open-data context (geoBoundaries uses <a href="https://creativecommons.org/licenses/by/4.0/" class="external-link">CC BY-4.0</a>).</li>
 </ul>
-<p>In short: if you work with geospatial boundaries in <strong>R</strong> (shapefiles, polygons, and joining with other data), this package simplifies the process.</p>
+<p>In short: if you work with geospatial boundaries in <strong>R</strong> (shapefiles, polygons, and joins with other data), this package simplifies the process.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -165,13 +165,13 @@ Important
 <p>geoBoundaries offers different release types with varying levels of validation and licensing:</p>
 <ul>
 <li>
-<strong>gbOpen</strong>: Freely available boundaries under CC BY 4.0, suitable for most applications</li>
+<strong>gbOpen</strong>: Freely available boundaries under CC BY 4.0, suitable for most applications.</li>
 <li>
-<strong>gbHumanitarian</strong>: Boundaries validated for humanitarian work, ensuring accuracy for aid distribution</li>
+<strong>gbHumanitarian</strong>: Boundaries validated for humanitarian work, ensuring accuracy for aid distribution.</li>
 <li>
-<strong>gbAuthoritative</strong>: Official government boundaries, highest accuracy but may have restrictions</li>
+<strong>gbAuthoritative</strong>: Official government boundaries with the highest accuracy but possible restrictions.</li>
 </ul>
-<p>Use the <code>release_type</code> parameter in functions to specify, e.g., <code>gb_get_adm1("Sri Lanka", release_type = "gbHumanitarian")</code>.</p>
+<p>Use the <code>release_type</code> argument in functions to specify, for example, <code>gb_get_adm1("Sri Lanka", release_type = "gbHumanitarian")</code>.</p>
 <p>For detailed comparisons, see the vignettes.</p>
 </div>
 <div class="section level2">
@@ -235,25 +235,24 @@ Important
 <li><a href="https://dieghernan.github.io/geobounds/articles/gbauthoritative.html">gbAuthoritative</a></li>
 </ul>
 </li>
-<li>Explore the geoBoundaries homepage: <a href="https://www.geoboundaries.org/" class="external-link uri">https://www.geoboundaries.org/</a>
+<li>Explore the <strong>geoBoundaries</strong> homepage: <a href="https://www.geoboundaries.org/" class="external-link uri">https://www.geoboundaries.org/</a>
 </li>
 <li>Read the original paper describing the geoBoundaries dataset (<a href="#ref-10.1371/journal.pone.0231866">Runfola et al. 2020</a>).</li>
-<li>Report issues or contribute on <a href="https://github.com/dieghernan/geobounds" class="external-link">GitHub</a>
-</li>
+<li>Report issues or contribute on <a href="https://github.com/dieghernan/geobounds" class="external-link">GitHub</a>.</li>
 </ul>
 </div>
 <div class="section level2">
 <h2 id="license">License<a class="anchor" aria-label="anchor" href="#license"></a>
 </h2>
-<p>This package is released under the <a href="https://creativecommons.org/licenses/by/4.0/" class="external-link">CC BY-4.0</a> license. Note that the boundary data being accessed (via geoBoundaries) also uses open licenses; please check the specific dataset metadata for licensing details.</p>
+<p>This package is released under the <a href="https://creativecommons.org/licenses/by/4.0/" class="external-link">CC BY-4.0</a> license. Note that the boundary data accessed through <strong>geoBoundaries</strong> also uses open licenses, so check the specific dataset metadata for licensing details.</p>
 </div>
 <div class="section level2">
 <h2 id="acknowledgements">Acknowledgements<a class="anchor" aria-label="anchor" href="#acknowledgements"></a>
 </h2>
 <ul>
-<li>Many thanks to the geoBoundaries team and the <a href="https://sites.google.com/view/wmgeolab/" class="external-link">William &amp; Mary geoLab</a> for creating and maintaining the dataset.</li>
+<li>Many thanks to the <strong>geoBoundaries</strong> team and the <a href="https://sites.google.com/view/wmgeolab/" class="external-link">William &amp; Mary geoLab</a> for creating and maintaining the dataset.</li>
 <li>Thanks to the <strong>R</strong> package community and all contributors to this package’s development.</li>
-<li>If you use <strong>geobounds</strong> (and underlying geoBoundaries data) in your research or project, a citation and acknowledgment is greatly appreciated.</li>
+<li>If you use <strong>geobounds</strong> and the underlying <strong>geoBoundaries</strong> data in your research or project, a citation and acknowledgment is greatly appreciated.</li>
 </ul>
 </div>
 <div class="section level2">

@@ -6,9 +6,9 @@ required for all uses of this dataset.
 This function returns data of individual countries "as they would
 represent themselves", with no special identification of disputed areas.
 
-If you would prefer data that explicitly includes disputed areas, please
-use
-[`gb_get_world()`](https://dieghernan.github.io/geobounds/reference/gb_get_world.md).
+Use
+[`gb_get_world()`](https://dieghernan.github.io/geobounds/reference/gb_get_world.md)
+for data that explicitly includes disputed areas.
 
 ## Usage
 
@@ -33,8 +33,8 @@ geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
 - country:
 
   A character vector of country codes. It can be either `"all"` (which
-  returns the data for all countries), a vector of country names, or
-  ISO3 country codes. See also
+  returns the data for all countries), a vector of country names or ISO3
+  country codes. See also
   [`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/man/countrycode.html).
 
 - adm_lvl:
@@ -42,13 +42,13 @@ geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
   Type of boundary. Accepted values are `"all"` (all available
   boundaries) or the ADM level (`"adm0"` is the country boundary,
   `"adm1"` is the first level of sub-national boundaries, `"adm2"` is
-  the second level, and so on). Upper-case versions (`"ADM1"`) and the
+  the second level and so on). Upper-case versions (`"ADM1"`) and the
   number of the level (`1, 2, 3, 4, 5`) are also accepted.
 
 - simplified:
 
   Logical. If `TRUE`, return the simplified boundary. The default
-  `FALSE` uses the premier geoBoundaries release.
+  `FALSE` uses the primary geoBoundaries release.
 
 - release_type:
 
@@ -94,9 +94,8 @@ Individual data files in the geoBoundaries database are governed by the
 license or licenses identified within the metadata for each respective
 boundary (see
 [`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md)).
-Users using individual boundary files from geoBoundaries should
-additionally ensure that they cite the sources provided in the metadata
-for each file. See **Examples**.
+Users of individual boundary files from geoBoundaries should also cite
+the sources provided in the metadata for each file. See **Examples**.
 
 The following wrappers are also available:
 

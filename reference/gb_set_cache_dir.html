@@ -84,9 +84,9 @@ will store the cache files in a temporary directory (see
 
 
 <dt id="arg-install">install<a class="anchor" aria-label="anchor" href="#arg-install"></a></dt>
-<dd><p>Logical. If <code>TRUE</code>, install the key on your local machine
-for use in future sessions. Defaults to <code>FALSE</code>. If <code>cache_dir</code>
-is <code>FALSE</code> this parameter is set to <code>FALSE</code> automatically.</p></dd>
+<dd><p>Logical. If <code>TRUE</code>, install the cache path on your local
+machine for use in future sessions. Defaults to <code>FALSE</code>. If <code>cache_dir</code>
+is missing or empty, this parameter is set to <code>FALSE</code> automatically.</p></dd>
 
 
 <dt id="arg-quiet">quiet<a class="anchor" aria-label="anchor" href="#arg-quiet"></a></dt>
@@ -95,7 +95,7 @@ is <code>FALSE</code> this parameter is set to <code>FALSE</code> automatically.
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>An (<code><a href="https://rdrr.io/r/base/invisible.html" class="external-link">invisible()</a></code>) character with the path to your <code>cache_dir</code>.</p>
+    <p>An invisible character vector with the path to your <code>cache_dir</code>.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
@@ -134,30 +134,30 @@ corresponding function. See <code><a href="gb_get.html">gb_get()</a></code>.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span><span class="va">my_cache</span> <span class="op">&lt;-</span> <span class="fu"><a href="gb_detect_cache_dir.html">gb_detect_cache_dir</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> <span style="color: #0000BB;">/tmp/RtmpwQ7Saw/geobounds</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> <span style="color: #0000BB;">/tmp/RtmpYwYXFv/geobounds</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Set an example cache.</span></span></span>
 <span class="r-in"><span><span class="va">ex</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"example"</span>, <span class="st">"cachenew"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">gb_set_cache_dir</span><span class="op">(</span><span class="va">ex</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">geobounds</span> cache directory is <span style="color: #0000BB;">/tmp/RtmpwQ7Saw/example/cachenew</span>.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">geobounds</span> cache directory is <span style="color: #0000BB;">/tmp/RtmpYwYXFv/example/cachenew</span>.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="gb_detect_cache_dir.html">gb_detect_cache_dir</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> <span style="color: #0000BB;">/tmp/RtmpwQ7Saw/example/cachenew</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/tmp/RtmpwQ7Saw/example/cachenew"</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> <span style="color: #0000BB;">/tmp/RtmpYwYXFv/example/cachenew</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/tmp/RtmpYwYXFv/example/cachenew"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Restore the initial cache.</span></span></span>
 <span class="r-in"><span><span class="fu">gb_set_cache_dir</span><span class="op">(</span><span class="va">my_cache</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">geobounds</span> cache directory is <span style="color: #0000BB;">/tmp/RtmpwQ7Saw/geobounds</span>.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">geobounds</span> cache directory is <span style="color: #0000BB;">/tmp/RtmpYwYXFv/geobounds</span>.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/identical.html" class="external-link">identical</a></span><span class="op">(</span><span class="va">my_cache</span>, <span class="fu"><a href="gb_detect_cache_dir.html">gb_detect_cache_dir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> <span style="color: #0000BB;">/tmp/RtmpwQ7Saw/geobounds</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> <span style="color: #0000BB;">/tmp/RtmpYwYXFv/geobounds</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="gb_detect_cache_dir.html">gb_detect_cache_dir</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> <span style="color: #0000BB;">/tmp/RtmpwQ7Saw/geobounds</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/tmp/RtmpwQ7Saw/geobounds"</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> <span style="color: #0000BB;">/tmp/RtmpYwYXFv/geobounds</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/tmp/RtmpYwYXFv/geobounds"</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

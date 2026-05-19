@@ -4,8 +4,8 @@
 
 CRAN release: 2026-03-24
 
-- Adapt package to Quarto.
-- Update documentation.
+- Migrated package documentation to Quarto.
+- Updated documentation.
 
 ## geobounds 0.1.0
 
@@ -27,7 +27,7 @@ convention `object_verb()` (see
 - `get_gb_cgaz()` -\>
   [`gb_get_world()`](https://dieghernan.github.io/geobounds/reference/gb_get_world.md).
   [`gb_get_cgaz()`](https://dieghernan.github.io/geobounds/reference/gb_get_world.md)
-  is also available for backwards compatibility, as an alias of
+  is also available for backward compatibility as an alias of
   [`gb_get_world()`](https://dieghernan.github.io/geobounds/reference/gb_get_world.md).
 - `get_gb_meta()` -\>
   [`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md).
@@ -38,28 +38,27 @@ instead.
 
 #### Other changes
 
+- Added a DOI.
+- All download functions now use `.zip/.shp` datasets instead of
+  `.geojson/.gpkg`, removing the **geojsonsf** dependency from
+  `Imports`.
+- All download functions now return `MULTIPOLYGON` geometries.
+- All download functions now fail gracefully when a country file is
+  unavailable, without errors or warnings.
+- All download functions now retry transient request failures with
+  [`httr2::req_retry()`](https://httr2.r-lib.org/reference/req_retry.html).
+- Cached files from previous package versions are no longer reused
+  because the source file format changed.
+- Country matching now improves detection for Antarctica and Kosovo.
+- `gb_get*()` functions now allow mixed `country` argument types, such
+  as `gb_get(country = c("Germany", "USA"))`.
 - [`gb_get_adm5()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
-  added.
+  was added.
 - [`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/reference/gb_get_max_adm_lvl.md)
-  added.
-- All functions:
-  - Source files: Use of the `.zip/.shp` version of the dataset instead
-    of `.geojson/.gpkg`. This implies that the **geojsonsf** dependency
-    in `Imports` is removed as it is not needed any more. As a
-    consequence cached files with previous versions of the package are
-    not used any more.
-  - Improve detection for Antarctica and Kosovo.
-  - All functions return a `MULTIPOLYGON`.
-  - Function fails gracefully when the country file is not available
-    (with neither errors nor warnings).
-  - [`httr2::req_retry()`](https://httr2.r-lib.org/reference/req_retry.html)
-    implemented to avoid timeout / transient errors.
-- `gb_get*()`: In all functions now the `country` argument recognize
-  mixed types (e.g. `gb_get(country = c("Germany", "USA"))` would work).
+  was added.
 - [`gb_get_world()`](https://dieghernan.github.io/geobounds/reference/gb_get_world.md)
-  get the latest data available on the repo
+  now gets the latest data available from the repository at
   <https://github.com/wmgeolab/geoBoundaries/tree/main/releaseData>.
-- Add DOI.
 
 ## geobounds 0.0.1
 

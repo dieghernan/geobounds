@@ -1,4 +1,4 @@
-# geobounds: Accessing Global Administrative Boundary Data in R
+# geobounds: Accessing global administrative boundary data in R
 
 Important
 
@@ -15,11 +15,11 @@ project ([Runfola et al. 2020](#ref-10.1371/journal.pone.0231866)).
 These datasets are openly licensed ([CC BY
 4.0](https://creativecommons.org/licenses/by/4.0/)) and cover countries
 worldwide across multiple administrative levels. The package supports
-different geoBoundaries release types: gbOpen, gbHumanitarian, and
+different **geoBoundaries** release types: gbOpen, gbHumanitarian and
 gbAuthoritative, which vary in validation levels and licensing. With
 **geobounds**, you can easily fetch boundary geometries as **sf**
-objects, explore metadata, cache datasets locally, and seamlessly
-integrate the boundaries into your spatial workflows.
+objects, explore metadata, cache datasets locally and integrate the
+boundaries into your spatial workflows.
 
 ## Understanding the data
 
@@ -39,7 +39,7 @@ library(geobounds)
 library(ggplot2)
 library(dplyr)
 
-# Different resolutions
+# Compare resolutions.
 norway <- gb_get_adm0("NOR") |>
   mutate(res = "Full resolution")
 print(object.size(norway), units = "Mb")
@@ -52,7 +52,7 @@ print(object.size(norway_simp), units = "Mb")
 
 norway_all <- bind_rows(norway, norway_simp)
 
-# Plot ggplot2
+# Plot with ggplot2.
 ggplot(norway_all) +
   geom_sf(fill = "#BA0C2F", color = "#00205B") +
   facet_wrap(vars(res)) +
@@ -83,21 +83,21 @@ are represented consistently.
 
 india_pak <- gb_get_adm0(c("India", "Pakistan"))
 
-# Disputed area: Kashmir
+# Highlight the disputed Kashmir area.
 ggplot(india_pak) +
   geom_sf(aes(fill = shapeName), alpha = 0.5) +
   scale_fill_manual(values = c("#FF671F", "#00401A")) +
   labs(
     fill = "Country",
-    title = "Map of India & Pakistan",
-    subtitle = "Note overlapping in Kashmir region",
+    title = "Map of India and Pakistan",
+    subtitle = "Note the overlap in the Kashmir region",
     caption = "Source: www.geoboundaries.org"
   )
 ```
 
-![Map showing overlapping in disputed area: Kashmir.](./intersect-1.png)
+![Map showing overlap in the disputed Kashmir area.](./intersect-1.png)
 
-Map showing overlapping in disputed area: Kashmir.
+Map showing overlap in the disputed Kashmir area.
 
 Note that individual data files are governed by the license or licenses
 identified within the metadata for each respective boundary.
@@ -115,13 +115,13 @@ gb_get_metadata(c("India", "Pakistan"), adm_lvl = "ADM0") |>
 
 ### Composite files
 
-If you would prefer data where disputed areas are explicitly handled (by
-removing overlaps and filling gaps), please use
-[`gb_get_world()`](https://dieghernan.github.io/geobounds/reference/gb_get_world.md).
-This function downloads global composite datasets for administrative
-boundaries, also known as CGAZ (Comprehensive Global Administrative
-Zones). There are three important distinctions between CGAZ and
-individual country downloads:
+Use
+[`gb_get_world()`](https://dieghernan.github.io/geobounds/reference/gb_get_world.md)
+for data where disputed areas are explicitly handled by removing
+overlaps and filling gaps. This function downloads global composite
+datasets for administrative boundaries, also known as CGAZ
+(Comprehensive Global Administrative Zones). There are three important
+distinctions between CGAZ and individual country downloads:
 
 1.  Extensive simplification is performed to ensure that file sizes are
     small enough to be used in most traditional desktop software.
@@ -138,16 +138,15 @@ ggplot(cgaz_india_pak) +
   scale_fill_manual(values = c("#FF671F", "#00401A")) +
   labs(
     fill = "Country",
-    title = "Map of India & Pakistan",
+    title = "Map of India and Pakistan",
     subtitle = "CGAZ does not overlap",
     caption = "Source: www.geoboundaries.org"
   )
 ```
 
-![Map showing no overlapping in Kashmir, provided by
-CGAZ.](./cgaz-1.png)
+![Map showing no overlap in Kashmir, provided by CGAZ.](./cgaz-1.png)
 
-Map showing no overlapping in Kashmir, provided by CGAZ.
+Map showing no overlap in Kashmir, provided by CGAZ.
 
 ## Caching and performance
 
@@ -157,31 +156,31 @@ version. For example:
 
 ``` r
 
-# Current folder
+# Show the current folder.
 current <- gb_detect_cache_dir()
-#> ℹ 'C:\Users\diego\AppData\Local\Temp\Rtmp2tgspE'
+#> ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpwrZIjK'
 
 current
-#> [1] "C:\\Users\\diego\\AppData\\Local\\Temp\\Rtmp2tgspE"
+#> [1] "C:\\Users\\diego\\AppData\\Local\\Temp\\RtmpwrZIjK"
 
-# Change to new
+# Change to a new folder.
 newdir <- file.path(tempdir(), "/geoboundvignette")
 gb_set_cache_dir(newdir)
-#> ✔ geobounds cache directory is 'C:\Users\diego\AppData\Local\Temp\Rtmp2tgspE//geoboundvignette'.
+#> ✔ geobounds cache directory is 'C:\Users\diego\AppData\Local\Temp\RtmpwrZIjK//geoboundvignette'.
 #> ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.
 
-# Download
+# Download the example data.
 example <- gb_get_adm0("Vatican City", quiet = FALSE)
 #> ℹ Downloading file from <https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/VAT/ADM0/geoBoundaries-VAT-ADM0-all.zip>.
-#> → Cache directory is 'C:\Users\diego\AppData\Local\Temp\Rtmp2tgspE//geoboundvignette/gbOpen'.
+#> → Cache directory is 'C:\Users\diego\AppData\Local\Temp\RtmpwrZIjK//geoboundvignette/gbOpen'.
 
-# Restore cache dir
+# Restore the cache directory.
 gb_set_cache_dir(current)
-#> ✔ geobounds cache directory is 'C:\Users\diego\AppData\Local\Temp\Rtmp2tgspE'.
+#> ✔ geobounds cache directory is 'C:\Users\diego\AppData\Local\Temp\RtmpwrZIjK'.
 #> ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.
 
 current == gb_detect_cache_dir()
-#> ℹ 'C:\Users\diego\AppData\Local\Temp\Rtmp2tgspE'
+#> ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpwrZIjK'
 #> [1] TRUE
 ```
 
@@ -196,17 +195,17 @@ Specific cache directories for each function call can be set using the
 Because the boundaries are returned as **sf** objects, you can easily
 use them in combination with other spatial data:
 
-- Clip raster data to administrative units
-- Compute zonal statistics
-- Create choropleth maps
-- Perform spatial joins with survey or tabular data
+- Clip raster data to administrative units.
+- Compute zonal statistics.
+- Create choropleth maps.
+- Perform spatial joins with survey or tabular data.
 
-In this example we would create a choropleth map using the meta data of
-the individual files and the boundaries data of CGAZ:
+This example creates a choropleth map using metadata from the individual
+files and boundary data from CGAZ:
 
 ``` r
 
-# Metadata
+# Retrieve metadata.
 
 latam_meta <- gb_get_metadata(adm_lvl = "ADM0") |>
   select(boundaryISO, boundaryName, Continent, worldBankIncomeGroup) |>
@@ -219,7 +218,7 @@ latam_meta <- gb_get_metadata(adm_lvl = "ADM0") |>
 #> $ Continent            <chr> "Latin America and the Caribbean", "Latin America and the Caribb…
 #> $ worldBankIncomeGroup <chr> "High-income Countries", "No income group available", "High-inco…
 
-# Adjust factors
+# Adjust factors.
 latam_meta$income_factor <- factor(
   latam_meta$worldBankIncomeGroup,
   levels = c(
@@ -230,7 +229,7 @@ latam_meta$income_factor <- factor(
   )
 )
 
-# Get the shapes from CGAZ
+# Get the shapes from CGAZ.
 latam_sf <- gb_get_world(adm_lvl = "ADM0") |>
   inner_join(latam_meta, by = c("shapeGroup" = "boundaryISO"))
 
@@ -258,7 +257,7 @@ World Bank Income Group: Latin America and the Caribbean.
 
 The **geobounds** package makes it easy to fetch, manage and visualize
 administrative boundary data worldwide in a reproducible and efficient
-way. Whether you’re doing mapping, spatial analysis, survey integration,
+way. Whether you’re doing mapping, spatial analysis, survey integration
 or geospatial modelling, it gives you a high-quality boundary dataset
 with minimal overhead.
 

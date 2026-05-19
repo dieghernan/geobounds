@@ -22,8 +22,8 @@ geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
 - country:
 
   A character vector of country codes. It can be either `"all"` (which
-  returns the data for all countries), a vector of country names, or
-  ISO3 country codes. See also
+  returns the data for all countries), a vector of country names or ISO3
+  country codes. See also
   [`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/man/countrycode.html).
 
 - adm_lvl:
@@ -31,7 +31,7 @@ geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
   Type of boundary. Accepted values are `"all"` (all available
   boundaries) or the ADM level (`"adm0"` is the country boundary,
   `"adm1"` is the first level of sub-national boundaries, `"adm2"` is
-  the second level, and so on). Upper-case versions (`"ADM1"`) and the
+  the second level and so on). Upper-case versions (`"ADM1"`) and the
   number of the level (`1, 2, 3, 4, 5`) are also accepted.
 
 - release_type:
@@ -60,7 +60,7 @@ The result is a
 the following columns:
 
 - `boundaryID`: The ID for this layer, which combines the ISO code, the
-  boundary type, and a unique identifier generated from the input
+  boundary type and a unique identifier generated from the input
   metadata and geometry. This only changes if the underlying data
   changes.
 
@@ -68,7 +68,7 @@ the following columns:
 
 - `boundaryISO`: ISO-3166-1 (Alpha 3) code for the country.
 
-- `boundaryYearRepresented`: The year, or range of years in
+- `boundaryYearRepresented`: The year or range of years in
   `"START to END"` format, which the boundary layers represent.
 
 - `boundaryType`: The type of boundary.
