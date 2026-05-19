@@ -2,16 +2,36 @@
 
 # Binary files
 *.7z binary -eol
+*.bmp binary -eol
+*.bz2 binary -eol
+*.doc binary -eol
+*.docx binary -eol
+*.eot binary -eol
+*.exe binary -eol
+*.gif binary -eol
 *.gz binary -eol
 *.ico binary -eol
+*.jar binary -eol
 *.jpg binary -eol
 *.jpeg binary -eol
+*.otf binary -eol
+*.pdf binary -eol
 *.png binary -eol
 *.rda binary -eol
 *.RData binary -eol
+*.rdb binary -eol
+*.rdx binary -eol
 *.rds binary -eol
+*.so binary -eol
 *.tar binary -eol
+*.tif binary -eol
+*.tiff binary -eol
+*.ttf binary -eol
 *.tgz binary -eol
+*.webp binary -eol
+*.woff binary -eol
+*.woff2 binary -eol
+*.xls binary -eol
 *.xlsx binary -eol
 *.zip binary -eol
 
