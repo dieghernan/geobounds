@@ -21,11 +21,11 @@
 #' The result is a [tibble][tibble::tbl_df] with the following columns:
 #'
 #' - `boundaryID`: The ID for this layer, which combines the ISO code, the
-#'   boundary type, and a unique identifier generated from the input metadata
+#'   boundary type and a unique identifier generated from the input metadata
 #'   and geometry. This only changes if the underlying data changes.
 #' - `boundaryName`: The name of the country the layer represents.
 #' - `boundaryISO`: ISO-3166-1 (Alpha 3) code for the country.
-#' - `boundaryYearRepresented`: The year, or range of years in `"START to END"`
+#' - `boundaryYearRepresented`: The year or range of years in `"START to END"`
 #'   format, which the boundary layers represent.
 #' - `boundaryType`: The type of boundary.
 #' - `boundaryCanonical`: The canonical name of a given boundary.

@@ -1,6 +1,6 @@
 ---
 title: "gbHumanitarian coverage and metadata"
-description: "Mirrored from UN OCHA, may have less open licensing"
+description: "Mirrored from UN OCHA, with potentially less open licensing"
 knitr:
   opts_chunk:
     collapse: true
@@ -25,7 +25,7 @@ src <- "gbHumanitarian"
 ```{r}
 #| label: ghuman-coverage
 #| echo: false
-#| fig-cap: "World coverage: gbHumanitarian"
+#| fig-cap: "World coverage: gbHumanitarian."
 library(geobounds)
 library(ggplot2)
 library(dplyr)
@@ -103,7 +103,6 @@ meta$imagePreview <- paste0(
   meta$imagePreview,
   '" alt="Map preview" class="img-thumbnail mx-auto d-block">'
 )
-
 
 library(reactable)
 reactable::reactable(

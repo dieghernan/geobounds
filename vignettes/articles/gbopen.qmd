@@ -1,6 +1,6 @@
 ---
 title: "gbOpen coverage and metadata"
-description: "gbOpen is CC-BY 4.0 compliant and suitable for most users"
+description: "gbOpen is CC BY 4.0 compliant and suitable for most users"
 knitr:
   opts_chunk:
     collapse: true
@@ -25,7 +25,7 @@ src <- "gbOpen"
 ```{r}
 #| label: map-coverage
 #| echo: false
-#| fig-cap: "World coverage: gbOpen"
+#| fig-cap: "World coverage: gbOpen."
 library(geobounds)
 library(ggplot2)
 library(dplyr)

@@ -21,16 +21,16 @@ gb_get(
 \arguments{
 \item{country}{A character vector of country codes. It can be either
 \code{"all"} (which returns the data for all countries), a vector of country
-names, or ISO3 country codes. See also \code{\link[countrycode:countrycode]{countrycode::countrycode()}}.}
+names or ISO3 country codes. See also \code{\link[countrycode:countrycode]{countrycode::countrycode()}}.}
 
 \item{adm_lvl}{Type of boundary. Accepted values are \code{"all"} (all
 available boundaries) or the ADM level (\code{"adm0"} is the country boundary,
 \code{"adm1"} is the first level of sub-national boundaries, \code{"adm2"} is the
-second level, and so on). Upper-case versions (\code{"ADM1"}) and the number of
+second level and so on). Upper-case versions (\code{"ADM1"}) and the number of
 the level (\verb{1, 2, 3, 4, 5}) are also accepted.}
 
 \item{simplified}{Logical. If \code{TRUE}, return the simplified boundary. The
-default \code{FALSE} uses the premier geoBoundaries release.}
+default \code{FALSE} uses the primary geoBoundaries release.}
 
 \item{release_type}{One of \code{"gbOpen"}, \code{"gbHumanitarian"},
 \code{"gbAuthoritative"}. For most users, we suggest using \code{"gbOpen"}
@@ -65,15 +65,14 @@ for all uses of this dataset.
 This function returns data of individual countries "as they would represent
 themselves", with no special identification of disputed areas.
 
-If you would prefer data that explicitly includes disputed areas, please use
-\code{\link[=gb_get_world]{gb_get_world()}}.
+Use \code{\link[=gb_get_world]{gb_get_world()}} for data that explicitly includes disputed areas.
 }
 \details{
 Individual data files in the geoBoundaries database are governed by the
 license or licenses identified within the metadata for each respective
-boundary (see \code{\link[=gb_get_metadata]{gb_get_metadata()}}). Users using individual boundary files
-from geoBoundaries should additionally ensure that they cite the
-sources provided in the metadata for each file. See \strong{Examples}.
+boundary (see \code{\link[=gb_get_metadata]{gb_get_metadata()}}). Users of individual boundary files from
+geoBoundaries should also cite the sources provided in the metadata for each
+file. See \strong{Examples}.
 
 The following wrappers are also available:
 \itemize{

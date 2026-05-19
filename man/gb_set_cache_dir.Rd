@@ -14,14 +14,14 @@ will store the cache files in a temporary directory (see
 
 \item{overwrite}{Logical. If \code{TRUE}, overwrite an existing \code{cache_dir}.}
 
-\item{install}{Logical. If \code{TRUE}, install the key on your local machine
-for use in future sessions. Defaults to \code{FALSE}. If \code{cache_dir}
-is \code{FALSE} this parameter is set to \code{FALSE} automatically.}
+\item{install}{Logical. If \code{TRUE}, install the cache path on your local
+machine for use in future sessions. Defaults to \code{FALSE}. If \code{cache_dir}
+is missing or empty, this parameter is set to \code{FALSE} automatically.}
 
 \item{quiet}{Logical. If \code{TRUE}, suppress informational messages.}
 }
 \value{
-An (\code{\link[=invisible]{invisible()}}) character with the path to your \code{cache_dir}.
+An invisible character vector with the path to your \code{cache_dir}.
 }
 \description{
 This function stores your \code{cache_dir} path on your local machine and

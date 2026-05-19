@@ -7,7 +7,7 @@ assert_adm_lvl <- function(adm_lvl, dict = c("all", paste0("adm", 0:5), 0:5)) {
   adm_lvl_clean <- tolower(as.character(adm_lvl))
   if (!adm_lvl_clean %in% dict) {
     cli::cli_abort(c(
-      "Not a valid {.arg adm_lvl} level code ({.val {adm_lvl_clean}}).",
+      "Invalid {.arg adm_lvl} level code ({.val {adm_lvl_clean}}).",
       "Accepted values are {.val {dict}}."
     ))
   }
@@ -62,7 +62,7 @@ gbnds_dev_country2iso <- function(names, out = "iso3c") {
   lend <- length(outnames2)
   if (linit != lend) {
     ff <- names[is.na(outnames)] # nolint
-    cli::cli_alert_warning("Some values were not matched unambiguously: {ff}.")
+    cli::cli_alert_warning("Some values did not match unambiguously: {ff}.")
     cli::cli_alert_info("Review the names or switch to ISO3 codes.")
   }
 
@@ -125,7 +125,7 @@ gbnds_dev_sf_helper <- function(data_sf) {
   data_sf
 }
 
-#' Match argument with pretty error message
+#' Match argument with a clear error message
 #'
 #' @param arg The argument to match.
 #' @param choices The possible choices for the argument.
@@ -161,7 +161,7 @@ match_arg_pretty <- function(arg, choices) {
   aproxmatch <- pmatch(arg, choices)[1]
 
   if (length(arg) > 1 || is.na(lmatch)) {
-    # Create the expected-value error message.
+    # Create the expected value error message.
     if (length(choices) == 1) {
       msg <- paste0("{.str ", choices, "}")
     } else {

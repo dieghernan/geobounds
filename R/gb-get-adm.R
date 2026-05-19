@@ -3,8 +3,8 @@
 #' [Attribution](https://www.geoboundaries.org/index.html#usage) is required
 #' for all uses of this dataset.
 #'
-#' These functions are wrappers of [gb_get()] for extracting any
-#' given administrative level:
+#' These functions are wrappers around [gb_get()] for extracting a given
+#' administrative level:
 #'
 #' - `gb_get_adm0()` returns the country boundary.
 #' - `gb_get_adm1()` returns first-level administrative boundaries (e.g. states
@@ -37,9 +37,9 @@
 #' @details
 #' Individual data files in the geoBoundaries database are governed by the
 #' license or licenses identified within the metadata for each respective
-#' boundary (see [gb_get_metadata()]). Users using individual boundary files
-#' from geoBoundaries should additionally ensure that they cite the
-#' sources provided in the metadata for each file.
+#' boundary (see [gb_get_metadata()]). Users of individual boundary files from
+#' geoBoundaries should also cite the sources provided in the metadata for each
+#' file.
 #'
 #' @examplesIf identical(Sys.getenv("NOT_CRAN"), "true") || interactive()
 #' \donttest{

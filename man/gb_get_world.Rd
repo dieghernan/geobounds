@@ -20,11 +20,11 @@ gb_get_world(
 \arguments{
 \item{country}{A character vector of country codes. It can be either
 \code{"all"} (which returns the data for all countries), a vector of country
-names, or ISO3 country codes. See also \code{\link[countrycode:countrycode]{countrycode::countrycode()}}.}
+names or ISO3 country codes. See also \code{\link[countrycode:countrycode]{countrycode::countrycode()}}.}
 
 \item{adm_lvl}{Type of boundary. Accepted values are administrative
-levels 0, 1, and 2 (\code{"adm0"} is the country boundary, \code{"adm1"} is the
-first level of sub-national boundaries, \code{"adm2"} is the second level, and
+levels 0, 1 and 2 (\code{"adm0"} is the country boundary, \code{"adm1"} is the
+first level of sub-national boundaries, \code{"adm2"} is the second level and
 so on). Upper-case versions (\code{"ADM1"}) and the number of the level
 (\verb{0, 1, 2}) are also accepted.}
 

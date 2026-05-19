@@ -5,7 +5,7 @@
 #' @encoding UTF-8
 #'
 #' @return
-#' An ([invisible()]) character with the path to your `cache_dir`.
+#' An invisible character vector with the path to your `cache_dir`.
 #'
 #' @description
 #' This function stores your `cache_dir` path on your local machine and
@@ -15,9 +15,9 @@
 #' @param cache_dir A path to a cache directory. If missing, the function
 #'   will store the cache files in a temporary directory (see
 #'   [base::tempdir()]).
-#' @param install Logical. If `TRUE`, install the key on your local machine
-#'   for use in future sessions. Defaults to `FALSE`. If `cache_dir`
-#'   is `FALSE` this parameter is set to `FALSE` automatically.
+#' @param install Logical. If `TRUE`, install the cache path on your local
+#'   machine for use in future sessions. Defaults to `FALSE`. If `cache_dir`
+#'   is missing or empty, this parameter is set to `FALSE` automatically.
 #' @param overwrite Logical. If `TRUE`, overwrite an existing `cache_dir`.
 #'
 #' @details
@@ -144,8 +144,8 @@ gb_set_cache_dir <- function(
 #' @param x Ignored.
 #'
 #' @return
-#' A character with the path to your `cache_dir`. The same path will also
-#' appear as a clickable message, see [`cli::inline-markup`].
+#' A character vector with the path to your `cache_dir`. The same path also
+#' appears as a clickable message. See [`cli::inline-markup`].
 #'
 #' @export
 #' @encoding UTF-8
@@ -218,7 +218,7 @@ gb_clear_cache <- function(config = FALSE, cached_data = TRUE, quiet = TRUE) {
     unlink(config_dir, recursive = TRUE, force = TRUE)
 
     if (verbose) {
-      cli::cli_alert_warning("{.pkg geobounds} cache config deleted.")
+      cli::cli_alert_warning("{.pkg geobounds} cache configuration deleted.")
     }
   }
   # nocov end
@@ -227,7 +227,7 @@ gb_clear_cache <- function(config = FALSE, cached_data = TRUE, quiet = TRUE) {
     unlink(data_dir, recursive = TRUE, force = TRUE)
     if (verbose) {
       cli::cli_alert_warning(
-        "{.pkg geobounds} data deleted: {.file {data_dir}}."
+        "{.pkg geobounds} cached data deleted: {.file {data_dir}}."
       )
     }
   }
@@ -267,7 +267,6 @@ gb_hlp_detect_cache_dir <- function() {
       # nocov end
     } else {
       # Use the default cache location.
-
       cache_dir <- gb_set_cache_dir(overwrite = TRUE, quiet = TRUE)
       cache_dir
     }
@@ -275,7 +274,6 @@ gb_hlp_detect_cache_dir <- function() {
     getvar
   }
 }
-
 
 #' Create `cache_dir`
 #'

@@ -1,6 +1,6 @@
 ---
 title: "gbAuthoritative coverage and metadata"
-description: "Mirrored from UN SALB, may have restrictions on commercial use"
+description: "Mirrored from UN SALB, with possible commercial-use restrictions"
 knitr:
   opts_chunk:
     collapse: true
@@ -25,7 +25,7 @@ src <- "gbAuthoritative"
 ```{r}
 #| label: gautho-coverage
 #| echo: false
-#| fig-cap: "World coverage: gbAuthoritative"
+#| fig-cap: "World coverage: gbAuthoritative."
 library(geobounds)
 library(ggplot2)
 library(dplyr)
@@ -98,7 +98,6 @@ meta$imagePreview <- paste0(
   '<img src="', meta$imagePreview,
   '" alt="Map preview" class="img-thumbnail mx-auto d-block">'
 )
-
 
 library(reactable)
 reactable::reactable(meta,

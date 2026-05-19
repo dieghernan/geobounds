@@ -1,10 +1,10 @@
 ---
-title: "geobounds: Accessing Global Administrative Boundary Data in R"
-description: "Introduction to geobounds package"
+title: "geobounds: Accessing global administrative boundary data in R"
+description: "Introduction to the geobounds package"
 bibliography: REFERENCES.bib
 link-citations: true
 vignette: >
-  %\VignetteIndexEntry{geobounds: Accessing Global Administrative Boundary Data in R}
+  %\VignetteIndexEntry{geobounds: Accessing global administrative boundary data in R}
   %\VignetteEngine{quarto::html}
   %\VignetteEncoding{UTF-8}
 ---
@@ -54,11 +54,12 @@ and working with global political and administrative boundary data from the
 
 These datasets are openly licensed ([CC BY
 4.0](https://creativecommons.org/licenses/by/4.0/)) and cover countries
-worldwide across multiple administrative levels. The package supports different
-geoBoundaries release types: gbOpen, gbHumanitarian, and gbAuthoritative, which
-vary in validation levels and licensing. With **geobounds**, you can easily
+worldwide across multiple administrative levels. The package supports
+different **geoBoundaries** release types: gbOpen, gbHumanitarian and
+gbAuthoritative, which vary in validation levels and licensing. With
+**geobounds**, you can easily
 fetch boundary geometries as **sf** objects, explore metadata, cache datasets
-locally, and seamlessly integrate the boundaries into your spatial workflows.
+locally and integrate the boundaries into your spatial workflows.
 
 ## Understanding the data
 
@@ -79,7 +80,7 @@ library(geobounds)
 library(ggplot2)
 library(dplyr)
 
-# Different resolutions
+# Compare resolutions.
 norway <- gb_get_adm0("NOR") |>
   mutate(res = "Full resolution")
 print(object.size(norway), units = "Mb")
@@ -90,7 +91,7 @@ print(object.size(norway_simp), units = "Mb")
 
 norway_all <- bind_rows(norway, norway_simp)
 
-# Plot ggplot2
+# Plot with ggplot2.
 ggplot(norway_all) +
   geom_sf(fill = "#BA0C2F", color = "#00205B") +
   facet_wrap(vars(res)) +
@@ -112,17 +113,17 @@ consistently.
 
 ```{r}
 #| label: intersect
-#| fig-cap: "Map showing overlapping in disputed area: Kashmir."
+#| fig-cap: "Map showing overlap in the disputed Kashmir area."
 india_pak <- gb_get_adm0(c("India", "Pakistan"))
 
-# Disputed area: Kashmir
+# Highlight the disputed Kashmir area.
 ggplot(india_pak) +
   geom_sf(aes(fill = shapeName), alpha = 0.5) +
   scale_fill_manual(values = c("#FF671F", "#00401A")) +
   labs(
     fill = "Country",
-    title = "Map of India & Pakistan",
-    subtitle = "Note overlapping in Kashmir region",
+    title = "Map of India and Pakistan",
+    subtitle = "Note the overlap in the Kashmir region",
     caption = "Source: www.geoboundaries.org"
   )
 ```
@@ -138,8 +139,8 @@ gb_get_metadata(c("India", "Pakistan"), adm_lvl = "ADM0") |>
 
 ### Composite files
 
-If you would prefer data where disputed areas are explicitly handled (by
-removing overlaps and filling gaps), please use `gb_get_world()`. This function
+Use `gb_get_world()` for data where disputed areas are explicitly handled by
+removing overlaps and filling gaps. This function
 downloads global composite datasets for administrative boundaries, also known as
 CGAZ (Comprehensive Global Administrative Zones). There are three important
 distinctions between CGAZ and individual country downloads:
@@ -152,7 +153,7 @@ distinctions between CGAZ and individual country downloads:
 
 ```{r}
 #| label: cgaz
-#| fig-cap: "Map showing no overlapping in Kashmir, provided by CGAZ."
+#| fig-cap: "Map showing no overlap in Kashmir, provided by CGAZ."
 cgaz_india_pak <- gb_get_world(c("India", "Pakistan"))
 
 ggplot(cgaz_india_pak) +
@@ -160,7 +161,7 @@ ggplot(cgaz_india_pak) +
   scale_fill_manual(values = c("#FF671F", "#00401A")) +
   labs(
     fill = "Country",
-    title = "Map of India & Pakistan",
+    title = "Map of India and Pakistan",
     subtitle = "CGAZ does not overlap",
     caption = "Source: www.geoboundaries.org"
   )
@@ -174,7 +175,7 @@ example:
 
 ```{r}
 #| include: false
-# Internal to not mess the vignette
+# Set an isolated cache for this vignette.
 
 getcache <- gb_detect_cache_dir()
 
@@ -183,19 +184,19 @@ gb_set_cache_dir(tempdir(), quiet = TRUE)
 
 ```{r}
 #| message: true
-# Current folder
+# Show the current folder.
 current <- gb_detect_cache_dir()
 
 current
 
-# Change to new
+# Change to a new folder.
 newdir <- file.path(tempdir(), "/geoboundvignette")
 gb_set_cache_dir(newdir)
 
-# Download
+# Download the example data.
 example <- gb_get_adm0("Vatican City", quiet = FALSE)
 
-# Restore cache dir
+# Restore the cache directory.
 gb_set_cache_dir(current)
 
 current == gb_detect_cache_dir()
@@ -203,7 +204,7 @@ current == gb_detect_cache_dir()
 
 ```{r}
 #| include: false
-# Restore
+# Restore the original cache.
 gb_set_cache_dir(getcache)
 ```
 
@@ -217,25 +218,25 @@ Specific cache directories for each function call can be set using the
 Because the boundaries are returned as **sf** objects, you can easily use them
 in combination with other spatial data:
 
-- Clip raster data to administrative units
-- Compute zonal statistics
-- Create choropleth maps
-- Perform spatial joins with survey or tabular data
+- Clip raster data to administrative units.
+- Compute zonal statistics.
+- Create choropleth maps.
+- Perform spatial joins with survey or tabular data.
 
-In this example we would create a choropleth map using the meta data of the
-individual files and the boundaries data of CGAZ:
+This example creates a choropleth map using metadata from the individual files
+and boundary data from CGAZ:
 
 ```{r}
 #| label: choro
 #| fig-cap: "World Bank Income Group: Latin America and the Caribbean."
-# Metadata
+# Retrieve metadata.
 
 latam_meta <- gb_get_metadata(adm_lvl = "ADM0") |>
   select(boundaryISO, boundaryName, Continent, worldBankIncomeGroup) |>
   filter(Continent == "Latin America and the Caribbean") |>
   glimpse()
 
-# Adjust factors
+# Adjust factors.
 latam_meta$income_factor <- factor(
   latam_meta$worldBankIncomeGroup,
   levels = c(
@@ -246,7 +247,7 @@ latam_meta$income_factor <- factor(
   )
 )
 
-# Get the shapes from CGAZ
+# Get the shapes from CGAZ.
 latam_sf <- gb_get_world(adm_lvl = "ADM0") |>
   inner_join(latam_meta, by = c("shapeGroup" = "boundaryISO"))
 
@@ -269,7 +270,7 @@ ggplot(latam_sf) +
 
 The **geobounds** package makes it easy to fetch, manage and visualize
 administrative boundary data worldwide in a reproducible and efficient way.
-Whether you're doing mapping, spatial analysis, survey integration, or
+Whether you're doing mapping, spatial analysis, survey integration or
 geospatial modelling, it gives you a high-quality boundary dataset with minimal
 overhead.
 
