@@ -20,13 +20,13 @@ names or ISO3 country codes. See also \code{\link[countrycode:countrycode]{count
 
 \item{release_type}{One of \code{"gbOpen"}, \code{"gbHumanitarian"},
 \code{"gbAuthoritative"}. For most users, we suggest using \code{"gbOpen"}
-(the default), as it is CC-BY 4.0 compliant and can be used for most
+(the default), as it is CC BY 4.0 compliant and can be used for most
 purposes so long as attribution is provided:
 \itemize{
 \item \code{"gbHumanitarian"} files are mirrored from
 \href{https://www.unocha.org/}{UN OCHA}, but may have more restrictive
 licensing.
-\item \code{"gbAuthoritative"} files are mirrored from UN SALB, and cannot be used
+\item \code{"gbAuthoritative"} files are mirrored from UN SALB and cannot be used
 for commercial purposes, but are verified through in-country processes.
 }}
 }

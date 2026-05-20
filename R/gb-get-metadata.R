@@ -1,4 +1,4 @@
-#' Get metadata of individual country files from geoBoundaries
+#' Get metadata for individual country files from geoBoundaries
 #'
 #' @description
 #' This function returns metadata of the

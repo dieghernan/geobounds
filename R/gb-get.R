@@ -22,12 +22,12 @@
 #'   default `FALSE` uses the primary geoBoundaries release.
 #' @param release_type One of `"gbOpen"`, `"gbHumanitarian"`,
 #'   `"gbAuthoritative"`. For most users, we suggest using `"gbOpen"`
-#'   (the default), as it is CC-BY 4.0 compliant and can be used for most
+#'   (the default), as it is CC BY 4.0 compliant and can be used for most
 #'   purposes so long as attribution is provided:
 #' - `"gbHumanitarian"` files are mirrored from
 #'   [UN OCHA](https://www.unocha.org/), but may have more restrictive
 #'   licensing.
-#' - `"gbAuthoritative"` files are mirrored from UN SALB, and cannot be used
+#' - `"gbAuthoritative"` files are mirrored from UN SALB and cannot be used
 #'   for commercial purposes, but are verified through in-country processes.
 #' @param quiet Logical. If `TRUE`, suppress informational messages.
 #' @param overwrite Logical. If `TRUE`, force a fresh download of the source

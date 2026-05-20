@@ -4,7 +4,7 @@
 \name{gb_get_world}
 \alias{gb_get_world}
 \alias{gb_get_cgaz}
-\title{Get global composites data (CGAZ) from geoBoundaries}
+\title{Get global composite data (CGAZ) from geoBoundaries}
 \source{
 geoBoundaries API Service \url{https://www.geoboundaries.org/api.html}.
 }
@@ -59,6 +59,7 @@ distinctions between our global product and individual country downloads.
 small enough to be used in most traditional desktop software.
 \item Disputed areas are removed and replaced with polygons following US
 Department of State definitions.
+\item Gaps between borders are filled.
 }
 }
 \examples{

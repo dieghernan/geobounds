@@ -4,11 +4,11 @@
 \name{geobounds-package}
 \alias{geobounds}
 \alias{geobounds-package}
-\title{geobounds: Download Map Data from 'geoBoundaries'}
+\title{geobounds: Download Administrative Boundary Data from 'geoBoundaries'}
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Tools to download data from 'geoBoundaries' \url{https://www.geoboundaries.org/}. Several administration levels available. See Runfola, D. et al. (2020) geoBoundaries: A global database of political administrative boundaries. PLOS ONE 15(4): 1-9. \doi{10.1371/journal.pone.0231866}.
+Tools to download administrative boundary data from 'geoBoundaries' \url{https://www.geoboundaries.org/} across multiple administrative levels. Boundary data are returned as 'sf' objects for mapping and spatial analysis workflows. See Runfola, D. et al. (2020) "geoBoundaries: A global database of political administrative boundaries." PLOS ONE 15(4), e0231866. \doi{10.1371/journal.pone.0231866}.
 }
 \seealso{
 Useful links:

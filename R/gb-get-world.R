@@ -1,4 +1,4 @@
-#' Get global composites data (CGAZ) from geoBoundaries
+#' Get global composite data (CGAZ) from geoBoundaries
 #'
 #' @description
 #' [Attribution](https://www.geoboundaries.org/index.html#usage) is required
@@ -32,6 +32,7 @@
 #'   small enough to be used in most traditional desktop software.
 #' - Disputed areas are removed and replaced with polygons following US
 #'   Department of State definitions.
+#' - Gaps between borders are filled.
 #'
 #' @examplesIf identical(Sys.getenv("NOT_CRAN"), "true") || interactive()
 #' # This download may take some time.
