@@ -3,7 +3,7 @@
 ## Boundaries
 
 These functions return [sf](https://CRAN.R-project.org/package=sf)
-objects with political boundaries.
+objects with political and administrative boundaries.
 
 - [`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md)
   : Get individual country files from geoBoundaries
@@ -16,16 +16,16 @@ objects with political boundaries.
   : Get country files from geoBoundaries for a given administrative
   level
 - [`gb_get_world()`](https://dieghernan.github.io/geobounds/reference/gb_get_world.md)
-  : Get global composites data (CGAZ) from geoBoundaries
+  : Get global composite data (CGAZ) from geoBoundaries
 
 ## Metadata
 
-These functions return metadata in tibble format.
+These functions return boundary metadata in tibble format.
 
 - [`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/reference/gb_get_max_adm_lvl.md)
   : Get the highest administrative level available for a given country
 - [`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md)
-  : Get metadata of individual country files from geoBoundaries
+  : Get metadata for individual country files from geoBoundaries
 
 ## Cache management
 
@@ -48,4 +48,5 @@ These functions return metadata in tibble format.
 
 - [`geobounds`](https://dieghernan.github.io/geobounds/reference/geobounds-package.md)
   [`geobounds-package`](https://dieghernan.github.io/geobounds/reference/geobounds-package.md)
-  : geobounds: Download Map Data from 'geoBoundaries'
+  : geobounds: Download Administrative Boundary Data from
+  'geoBoundaries'

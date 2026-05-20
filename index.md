@@ -163,7 +163,8 @@ licenses, so check the specific dataset metadata for licensing details.
 
 ## Citation
 
-Hernangómez D (2026). *geobounds: Download Map Data from geoBoundaries*.
+Hernangómez D (2026). *geobounds: Download Administrative Boundary Data
+from geoBoundaries*.
 [doi:10.32614/CRAN.package.geobounds](https://doi.org/10.32614/CRAN.package.geobounds).
 <https://dieghernan.github.io/geobounds/>.
 
@@ -171,12 +172,12 @@ A BibTeX entry for LaTeX users:
 
 ``` R
 @Manual{R-geobounds,
-  title = {{geobounds}: Download Map Data from geoBoundaries},
+  title = {{geobounds}: Download Administrative Boundary Data from geoBoundaries},
   author = {Diego Hernangómez},
   year = {2026},
   version = {0.1.1},
   url = {https://dieghernan.github.io/geobounds/},
-  abstract = {Tools to download data from geoBoundaries <https://www.geoboundaries.org/>. Several administration levels available. See Runfola, D. et al. (2020) geoBoundaries: A global database of political administrative boundaries. PLOS ONE 15(4): 1-9. <doi:10.1371/journal.pone.0231866>.},
+  abstract = {Tools to download administrative boundary data from geoBoundaries <https://www.geoboundaries.org/> across multiple administrative levels. Boundary data are returned as sf objects for mapping and spatial analysis workflows. See Runfola, D. et al. (2020) "geoBoundaries: A global database of political administrative boundaries." PLOS ONE 15(4), e0231866. <doi:10.1371/journal.pone.0231866>.},
   doi = {10.32614/CRAN.package.geobounds},
 }
 ```

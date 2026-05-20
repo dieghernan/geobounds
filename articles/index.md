@@ -2,7 +2,7 @@
 
 ### geoBoundaries coverage
 
-World coverage of different sources available when using geoBoundaries.
+World coverage for the data sources available through geoBoundaries.
 
 - [gbOpen coverage and
   metadata](https://dieghernan.github.io/geobounds/articles/gbopen.md):

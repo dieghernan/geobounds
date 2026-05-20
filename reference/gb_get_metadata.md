@@ -1,4 +1,4 @@
-# Get metadata of individual country files from geoBoundaries
+# Get metadata for individual country files from geoBoundaries
 
 This function returns metadata of the [geoBoundaries
 API](https://www.geoboundaries.org/api.html).
@@ -37,7 +37,7 @@ geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
 - release_type:
 
   One of `"gbOpen"`, `"gbHumanitarian"`, `"gbAuthoritative"`. For most
-  users, we suggest using `"gbOpen"` (the default), as it is CC-BY 4.0
+  users, we suggest using `"gbOpen"` (the default), as it is CC BY 4.0
   compliant and can be used for most purposes so long as attribution is
   provided:
 
@@ -45,7 +45,7 @@ geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
     OCHA](https://www.unocha.org/), but may have more restrictive
     licensing.
 
-  - `"gbAuthoritative"` files are mirrored from UN SALB, and cannot be
+  - `"gbAuthoritative"` files are mirrored from UN SALB and cannot be
     used for commercial purposes, but are verified through in-country
     processes.
 
