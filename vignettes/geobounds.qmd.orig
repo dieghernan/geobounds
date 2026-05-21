@@ -52,14 +52,13 @@ and working with global political and administrative boundary data from the
 [geoBoundaries](https://www.geoboundaries.org/) project
 [@10.1371/journal.pone.0231866].
 
-These datasets are openly licensed ([CC BY
-4.0](https://creativecommons.org/licenses/by/4.0/)) and cover countries
-worldwide across multiple administrative levels. The package supports
-different **geoBoundaries** release types: gbOpen, gbHumanitarian and
-gbAuthoritative, which vary in validation levels and licensing. With
-**geobounds**, you can easily
-fetch boundary geometries as **sf** objects, explore metadata, cache datasets
-locally and integrate the boundaries into your spatial workflows.
+The default gbOpen release is openly licensed ([CC BY
+4.0](https://creativecommons.org/licenses/by/4.0/)) and covers countries
+worldwide across multiple administrative levels. The package also supports
+gbHumanitarian and gbAuthoritative releases, which vary in source, validation
+process and licensing. With **geobounds**, you can fetch boundary geometries as
+**sf** objects, explore metadata, cache datasets locally and integrate the
+boundaries into your spatial workflows.
 
 ## Understanding the data
 
@@ -70,7 +69,7 @@ for scientific and academic applications.
 
 This precision comes at a cost: some files can be quite large and may take
 longer to download. For visualization or general mapping purposes, we recommend
-using the simplified datasets available by setting `simplified = TRUE`.
+using the simplified datasets by setting `simplified = TRUE`.
 
 ```{r}
 #| label: norway
@@ -106,9 +105,9 @@ files](https://www.geoboundaries.org/countryDownloads.html), whose aim is to
 represent every nation "as they would represent themselves", with no special
 identification of disputed areas.
 
-The download of this data is implemented in `gb_get()` and the `?gb_get_adm`
-family of functions. It is not guaranteed that borders align perfectly, that
-there are no gaps between countries, or that disputed territories are represented
+The download of these data is implemented in `gb_get()` and the `?gb_get_adm`
+family of functions. Borders are not guaranteed to align perfectly, gaps may
+exist between countries and disputed territories may not be represented
 consistently.
 
 ```{r}
@@ -140,9 +139,9 @@ gb_get_metadata(c("India", "Pakistan"), adm_lvl = "ADM0") |>
 ### Composite files
 
 Use `gb_get_world()` for data where disputed areas are explicitly handled by
-removing overlaps and filling gaps. This function
-downloads global composite datasets for administrative boundaries, also known as
-CGAZ (Comprehensive Global Administrative Zones). There are three important
+removing overlaps and filling gaps. This function downloads global composite
+datasets for administrative boundaries, also known as CGAZ (Comprehensive
+Global Administrative Zones). There are three important
 distinctions between CGAZ and individual country downloads:
 
 1.  Extensive simplification is performed to ensure that file sizes are small
@@ -210,8 +209,8 @@ gb_set_cache_dir(getcache)
 
 To clear the cache, use `gb_clear_cache()`.
 
-Specific cache directories for each function call can be set using the
-`cache_dir` argument of each function.
+Set a specific cache directory for each function call with the `cache_dir`
+argument.
 
 ## Use in spatial analysis pipelines
 
@@ -270,8 +269,8 @@ ggplot(latam_sf) +
 
 The **geobounds** package makes it easy to fetch, manage and visualize
 administrative boundary data worldwide in a reproducible and efficient way.
-Whether you're doing mapping, spatial analysis, survey integration or
-geospatial modelling, it gives you a high-quality boundary dataset with minimal
-overhead.
+Whether you are mapping, doing spatial analysis, integrating survey data or
+modeling geospatial patterns, it gives you access to high-quality boundary data
+with minimal overhead.
 
 ## References

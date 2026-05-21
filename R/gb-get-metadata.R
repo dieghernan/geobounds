@@ -109,7 +109,6 @@ gb_get_metadata <- function(
   dplyr::as_tibble(meta_df)
 }
 
-
 gbnds_dev_meta_query <- function(url) {
   # Prepare the request.
   q <- httr2::request(url)

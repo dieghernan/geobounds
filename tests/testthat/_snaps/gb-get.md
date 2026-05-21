@@ -4,7 +4,7 @@
       err2 <- gb_get(country = "ATA", adm_lvl = "ADM2")
     Message
       x <https://www.geoboundaries.org/api/current/gbOpen/ATA/ADM2> returned error 404 - Not Found.
-      x Nothing to download, returning `NULL`.
+      x Nothing to download. Returning `NULL`.
 
 # Fail gracefully single
 

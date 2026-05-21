@@ -32,17 +32,13 @@ the level (\verb{1, 2, 3, 4, 5}) are also accepted.}
 \item{simplified}{Logical. If \code{TRUE}, return the simplified boundary. The
 default \code{FALSE} uses the primary geoBoundaries release.}
 
-\item{release_type}{One of \code{"gbOpen"}, \code{"gbHumanitarian"},
+\item{release_type}{One of \code{"gbOpen"}, \code{"gbHumanitarian"} or
 \code{"gbAuthoritative"}. For most users, we suggest using \code{"gbOpen"}
-(the default), as it is CC BY 4.0 compliant and can be used for most
-purposes so long as attribution is provided:
-\itemize{
-\item \code{"gbHumanitarian"} files are mirrored from
-\href{https://www.unocha.org/}{UN OCHA}, but may have more restrictive
-licensing.
-\item \code{"gbAuthoritative"} files are mirrored from UN SALB and cannot be used
-for commercial purposes, but are verified through in-country processes.
-}}
+(the default), as it is CC BY 4.0 compliant and suitable for most purposes
+so long as attribution is provided. \code{"gbHumanitarian"} files are mirrored
+from \href{https://www.unocha.org/}{UN OCHA} and may have less open licensing.
+\code{"gbAuthoritative"} files are mirrored from UN SALB, are verified through
+in-country processes and cannot be used for commercial purposes.}
 
 \item{quiet}{Logical. If \code{TRUE}, suppress informational messages.}
 
@@ -74,20 +70,9 @@ boundary (see \code{\link[=gb_get_metadata]{gb_get_metadata()}}). Users of indiv
 geoBoundaries should also cite the sources provided in the metadata for each
 file. See \strong{Examples}.
 
-The following wrappers are also available:
-\itemize{
-\item \code{\link[=gb_get_adm0]{gb_get_adm0()}} returns the country boundary.
-\item \code{\link[=gb_get_adm1]{gb_get_adm1()}} returns first-level administrative boundaries (e.g. states
-in the United States).
-\item \code{\link[=gb_get_adm2]{gb_get_adm2()}} returns second-level administrative boundaries
-(e.g. counties in the United States).
-\item \code{\link[=gb_get_adm3]{gb_get_adm3()}} returns third-level administrative
-boundaries (e.g. towns or cities in some countries).
-\item \code{\link[=gb_get_adm4]{gb_get_adm4()}} returns fourth-level administrative
-boundaries.
-\item \code{\link[=gb_get_adm5]{gb_get_adm5()}} returns fifth-level administrative
-boundaries.
-}
+The wrappers \code{\link[=gb_get_adm0]{gb_get_adm0()}}, \code{\link[=gb_get_adm1]{gb_get_adm1()}}, \code{\link[=gb_get_adm2]{gb_get_adm2()}},
+\code{\link[=gb_get_adm3]{gb_get_adm3()}}, \code{\link[=gb_get_adm4]{gb_get_adm4()}} and \code{\link[=gb_get_adm5]{gb_get_adm5()}} are also available
+for requesting a single administrative level.
 }
 \examples{
 \dontshow{if (identical(Sys.getenv("NOT_CRAN"), "true") || interactive()) withAutoprint(\{ # examplesIf}

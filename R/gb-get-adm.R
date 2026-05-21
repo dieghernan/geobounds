@@ -4,19 +4,13 @@
 #' for all uses of this dataset.
 #'
 #' These functions are wrappers around [gb_get()] for extracting a given
-#' administrative level:
-#'
-#' - `gb_get_adm0()` returns the country boundary.
-#' - `gb_get_adm1()` returns first-level administrative boundaries (e.g. states
-#'   in the United States).
-#' - `gb_get_adm2()` returns second-level administrative boundaries
-#'   (e.g. counties in the United States).
-#' - `gb_get_adm3()` returns third-level administrative
-#'   boundaries (e.g. towns or cities in some countries).
-#' - `gb_get_adm4()` returns fourth-level administrative
-#'   boundaries.
-#' - `gb_get_adm5()` returns fifth-level administrative
-#'   boundaries.
+#' administrative level. `gb_get_adm0()` returns the country boundary,
+#' `gb_get_adm1()` returns first-level administrative boundaries (e.g. states
+#' in the United States), `gb_get_adm2()` returns second-level administrative
+#' boundaries (e.g. counties in the United States), `gb_get_adm3()` returns
+#' third-level administrative boundaries (e.g. towns or cities in some
+#' countries), `gb_get_adm4()` returns fourth-level administrative boundaries
+#' and `gb_get_adm5()` returns fifth-level administrative boundaries.
 #'
 #' Note that not all countries have the same number of levels. Check
 #' [gb_get_max_adm_lvl()].

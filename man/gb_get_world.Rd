@@ -51,16 +51,12 @@ level, clipped to international boundaries, with gaps filled between
 borders.
 }
 \details{
-Comprehensive Global Administrative Zones (CGAZ) are a set of global
-composites for administrative boundaries. There are two important
-distinctions between our global product and individual country downloads.
-\itemize{
-\item Extensive simplification is performed to ensure that file sizes are
-small enough to be used in most traditional desktop software.
-\item Disputed areas are removed and replaced with polygons following US
-Department of State definitions.
-\item Gaps between borders are filled.
-}
+Comprehensive Global Administrative Zones (CGAZ) are global composites for
+administrative boundaries. Compared with individual country downloads, the
+global product uses extensive simplification so file sizes are small enough
+for most desktop software, removes disputed areas and replaces them with
+polygons following US Department of State definitions, and fills gaps between
+borders.
 }
 \examples{
 \dontshow{if (identical(Sys.getenv("NOT_CRAN"), "true") || interactive()) withAutoprint(\{ # examplesIf}

@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{gb_set_cache_dir}
 \alias{gb_set_cache_dir}
-\title{Set your \pkg{geobounds} cache directory}
+\title{Set the \pkg{geobounds} cache directory}
 \usage{
 gb_set_cache_dir(cache_dir, overwrite = FALSE, install = FALSE, quiet = FALSE)
 }
@@ -21,12 +21,12 @@ is missing or empty, this parameter is set to \code{FALSE} automatically.}
 \item{quiet}{Logical. If \code{TRUE}, suppress informational messages.}
 }
 \value{
-An invisible character vector with the path to your \code{cache_dir}.
+An invisible character vector with the path to \code{cache_dir}.
 }
 \description{
-This function stores your \code{cache_dir} path on your local machine and
-loads it for future sessions. Type \code{gb_detect_cache_dir()} to find your
-cache directory path.
+This function stores the \code{cache_dir} path on your local machine and loads it
+for future sessions. Use \code{gb_detect_cache_dir()} to find the cache directory
+path.
 }
 \details{
 By default, when no \code{cache_dir} is set the package uses a folder inside
@@ -42,9 +42,9 @@ small configuration file under \code{tools::R_user_dir("geobounds", "config")}.
 install).
 \item Modify the cache for a single session with
 \code{gb_set_cache_dir(cache_dir = "a/path/here")}.
-\item For reproducible workflows, install a persistent cache with
-\code{gb_set_cache_dir(cache_dir = "a/path/here", install = TRUE)} that will be
-kept across \strong{R} sessions.
+\item For reproducible workflows, install a persistent cache that is kept across
+\strong{R} sessions with
+\code{gb_set_cache_dir(cache_dir = "a/path/here", install = TRUE)}.
 \item For caching specific files, use the \code{cache_dir} argument in the
 corresponding function. See \code{\link[=gb_get]{gb_get()}}.
 }

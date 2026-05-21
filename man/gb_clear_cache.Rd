@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{gb_clear_cache}
 \alias{gb_clear_cache}
-\title{Clear your \pkg{geobounds} cache directory}
+\title{Clear the \pkg{geobounds} cache directory}
 \usage{
 gb_clear_cache(config = FALSE, cached_data = TRUE, quiet = TRUE)
 }
@@ -11,7 +11,7 @@ gb_clear_cache(config = FALSE, cached_data = TRUE, quiet = TRUE)
 \item{config}{Logical. If \code{TRUE}, delete the configuration folder of
 \pkg{geobounds}.}
 
-\item{cached_data}{Logical. If \code{TRUE}, delete your \code{cache_dir} and all its
+\item{cached_data}{Logical. If \code{TRUE}, delete \code{cache_dir} and all its
 contents.}
 
 \item{quiet}{Logical. If \code{TRUE}, suppress informational messages.}
@@ -30,8 +30,8 @@ data and configuration, specifically:
 }
 }
 \details{
-This is a comprehensive reset function intended to reset your status as if
-you had never installed or used \pkg{geobounds}.
+This is a comprehensive reset function that resets your status as if you had
+never installed or used \pkg{geobounds}.
 }
 \examples{
 

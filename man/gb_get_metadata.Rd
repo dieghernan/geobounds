@@ -26,17 +26,13 @@ available boundaries) or the ADM level (\code{"adm0"} is the country boundary,
 second level and so on). Upper-case versions (\code{"ADM1"}) and the number of
 the level (\verb{1, 2, 3, 4, 5}) are also accepted.}
 
-\item{release_type}{One of \code{"gbOpen"}, \code{"gbHumanitarian"},
+\item{release_type}{One of \code{"gbOpen"}, \code{"gbHumanitarian"} or
 \code{"gbAuthoritative"}. For most users, we suggest using \code{"gbOpen"}
-(the default), as it is CC BY 4.0 compliant and can be used for most
-purposes so long as attribution is provided:
-\itemize{
-\item \code{"gbHumanitarian"} files are mirrored from
-\href{https://www.unocha.org/}{UN OCHA}, but may have more restrictive
-licensing.
-\item \code{"gbAuthoritative"} files are mirrored from UN SALB and cannot be used
-for commercial purposes, but are verified through in-country processes.
-}}
+(the default), as it is CC BY 4.0 compliant and suitable for most purposes
+so long as attribution is provided. \code{"gbHumanitarian"} files are mirrored
+from \href{https://www.unocha.org/}{UN OCHA} and may have less open licensing.
+\code{"gbAuthoritative"} files are mirrored from UN SALB, are verified through
+in-country processes and cannot be used for commercial purposes.}
 }
 \value{
 A \link[tibble:tbl_df]{tibble}.

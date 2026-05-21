@@ -19,7 +19,7 @@ assert_adm_lvl <- function(adm_lvl, dict = c("all", paste0("adm", 0:5), 0:5)) {
   toupper(adm_lvl)
 }
 
-#' Helper function to convert country names to codes
+#' Convert country names to codes
 #'
 #' @param names A vector of country names or codes.
 #'
@@ -125,7 +125,7 @@ gbnds_dev_sf_helper <- function(data_sf) {
   data_sf
 }
 
-#' Match argument with a clear error message
+#' Match an argument with a clear error message
 #'
 #' @param arg The argument to match.
 #' @param choices The possible choices for the argument.

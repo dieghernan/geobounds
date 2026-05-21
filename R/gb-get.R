@@ -20,15 +20,13 @@
 #'   the level (`1, 2, 3, 4, 5`) are also accepted.
 #' @param simplified Logical. If `TRUE`, return the simplified boundary. The
 #'   default `FALSE` uses the primary geoBoundaries release.
-#' @param release_type One of `"gbOpen"`, `"gbHumanitarian"`,
+#' @param release_type One of `"gbOpen"`, `"gbHumanitarian"` or
 #'   `"gbAuthoritative"`. For most users, we suggest using `"gbOpen"`
-#'   (the default), as it is CC BY 4.0 compliant and can be used for most
-#'   purposes so long as attribution is provided:
-#' - `"gbHumanitarian"` files are mirrored from
-#'   [UN OCHA](https://www.unocha.org/), but may have more restrictive
-#'   licensing.
-#' - `"gbAuthoritative"` files are mirrored from UN SALB and cannot be used
-#'   for commercial purposes, but are verified through in-country processes.
+#'   (the default), as it is CC BY 4.0 compliant and suitable for most purposes
+#'   so long as attribution is provided. `"gbHumanitarian"` files are mirrored
+#'   from [UN OCHA](https://www.unocha.org/) and may have less open licensing.
+#'   `"gbAuthoritative"` files are mirrored from UN SALB, are verified through
+#'   in-country processes and cannot be used for commercial purposes.
 #' @param quiet Logical. If `TRUE`, suppress informational messages.
 #' @param overwrite Logical. If `TRUE`, force a fresh download of the source
 #'   `.zip` file.
@@ -45,19 +43,9 @@
 #' geoBoundaries should also cite the sources provided in the metadata for each
 #' file. See **Examples**.
 #'
-#' The following wrappers are also available:
-#'
-#' - [gb_get_adm0()] returns the country boundary.
-#' - [gb_get_adm1()] returns first-level administrative boundaries (e.g. states
-#'   in the United States).
-#' - [gb_get_adm2()] returns second-level administrative boundaries
-#'   (e.g. counties in the United States).
-#' - [gb_get_adm3()] returns third-level administrative
-#'   boundaries (e.g. towns or cities in some countries).
-#' - [gb_get_adm4()] returns fourth-level administrative
-#'   boundaries.
-#' - [gb_get_adm5()] returns fifth-level administrative
-#'   boundaries.
+#' The wrappers [gb_get_adm0()], [gb_get_adm1()], [gb_get_adm2()],
+#' [gb_get_adm3()], [gb_get_adm4()] and [gb_get_adm5()] are also available
+#' for requesting a single administrative level.
 #'
 #' @return A [`sf`][sf::st_sf] object.
 #' @encoding UTF-8
@@ -120,7 +108,7 @@ gb_get <- function(
   )
 
   if (nrow(meta_df) == 0) {
-    cli::cli_alert_danger("Nothing to download, returning {.code NULL}.")
+    cli::cli_alert_danger("Nothing to download. Returning {.code NULL}.")
     return(NULL)
   }
 

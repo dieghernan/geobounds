@@ -1,13 +1,13 @@
 # geobounds 0.1.1
 
 - Migrated package documentation to Quarto.
-- Updated documentation.
+- Updated package documentation.
 
 # geobounds 0.1.0
 
 **First CRAN release**.
 
-## Breaking change
+## Breaking changes
 
 Functions for downloading data have been renamed to follow the convention
 `object_verb()` (see <https://devguide.ropensci.org/pkg_building.html>):

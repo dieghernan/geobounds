@@ -76,17 +76,13 @@ names or ISO3 country codes. See also \code{\link[countrycode:countrycode]{count
 \item{simplified}{Logical. If \code{TRUE}, return the simplified boundary. The
 default \code{FALSE} uses the primary geoBoundaries release.}
 
-\item{release_type}{One of \code{"gbOpen"}, \code{"gbHumanitarian"},
+\item{release_type}{One of \code{"gbOpen"}, \code{"gbHumanitarian"} or
 \code{"gbAuthoritative"}. For most users, we suggest using \code{"gbOpen"}
-(the default), as it is CC BY 4.0 compliant and can be used for most
-purposes so long as attribution is provided:
-\itemize{
-\item \code{"gbHumanitarian"} files are mirrored from
-\href{https://www.unocha.org/}{UN OCHA}, but may have more restrictive
-licensing.
-\item \code{"gbAuthoritative"} files are mirrored from UN SALB and cannot be used
-for commercial purposes, but are verified through in-country processes.
-}}
+(the default), as it is CC BY 4.0 compliant and suitable for most purposes
+so long as attribution is provided. \code{"gbHumanitarian"} files are mirrored
+from \href{https://www.unocha.org/}{UN OCHA} and may have less open licensing.
+\code{"gbAuthoritative"} files are mirrored from UN SALB, are verified through
+in-country processes and cannot be used for commercial purposes.}
 
 \item{quiet}{Logical. If \code{TRUE}, suppress informational messages.}
 
@@ -108,20 +104,13 @@ for all uses of this dataset.
 }
 \details{
 These functions are wrappers around \code{\link[=gb_get]{gb_get()}} for extracting a given
-administrative level:
-\itemize{
-\item \code{gb_get_adm0()} returns the country boundary.
-\item \code{gb_get_adm1()} returns first-level administrative boundaries (e.g. states
-in the United States).
-\item \code{gb_get_adm2()} returns second-level administrative boundaries
-(e.g. counties in the United States).
-\item \code{gb_get_adm3()} returns third-level administrative
-boundaries (e.g. towns or cities in some countries).
-\item \code{gb_get_adm4()} returns fourth-level administrative
-boundaries.
-\item \code{gb_get_adm5()} returns fifth-level administrative
-boundaries.
-}
+administrative level. \code{gb_get_adm0()} returns the country boundary,
+\code{gb_get_adm1()} returns first-level administrative boundaries (e.g. states
+in the United States), \code{gb_get_adm2()} returns second-level administrative
+boundaries (e.g. counties in the United States), \code{gb_get_adm3()} returns
+third-level administrative boundaries (e.g. towns or cities in some
+countries), \code{gb_get_adm4()} returns fourth-level administrative boundaries
+and \code{gb_get_adm5()} returns fifth-level administrative boundaries.
 
 Note that not all countries have the same number of levels. Check
 \code{\link[=gb_get_max_adm_lvl]{gb_get_max_adm_lvl()}}.
