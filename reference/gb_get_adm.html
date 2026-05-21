@@ -138,15 +138,13 @@ default <code>FALSE</code> uses the primary geoBoundaries release.</p></dd>
 
 
 <dt id="arg-release-type">release_type<a class="anchor" aria-label="anchor" href="#arg-release-type"></a></dt>
-<dd><p>One of <code>"gbOpen"</code>, <code>"gbHumanitarian"</code>,
+<dd><p>One of <code>"gbOpen"</code>, <code>"gbHumanitarian"</code> or
 <code>"gbAuthoritative"</code>. For most users, we suggest using <code>"gbOpen"</code>
-(the default), as it is CC BY 4.0 compliant and can be used for most
-purposes so long as attribution is provided:</p><ul><li><p><code>"gbHumanitarian"</code> files are mirrored from
-<a href="https://www.unocha.org/" class="external-link">UN OCHA</a>, but may have more restrictive
-licensing.</p></li>
-<li><p><code>"gbAuthoritative"</code> files are mirrored from UN SALB and cannot be used
-for commercial purposes, but are verified through in-country processes.</p></li>
-</ul></dd>
+(the default), as it is CC BY 4.0 compliant and suitable for most purposes
+so long as attribution is provided. <code>"gbHumanitarian"</code> files are mirrored
+from <a href="https://www.unocha.org/" class="external-link">UN OCHA</a> and may have less open licensing.
+<code>"gbAuthoritative"</code> files are mirrored from UN SALB, are verified through
+in-country processes and cannot be used for commercial purposes.</p></dd>
 
 
 <dt id="arg-quiet">quiet<a class="anchor" aria-label="anchor" href="#arg-quiet"></a></dt>
@@ -173,18 +171,14 @@ strategies in <code><a href="gb_set_cache_dir.html">gb_set_cache_dir()</a></code
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>These functions are wrappers around <code><a href="gb_get.html">gb_get()</a></code> for extracting a given
-administrative level:</p><ul><li><p><code>gb_get_adm0()</code> returns the country boundary.</p></li>
-<li><p><code>gb_get_adm1()</code> returns first-level administrative boundaries (e.g. states
-in the United States).</p></li>
-<li><p><code>gb_get_adm2()</code> returns second-level administrative boundaries
-(e.g. counties in the United States).</p></li>
-<li><p><code>gb_get_adm3()</code> returns third-level administrative
-boundaries (e.g. towns or cities in some countries).</p></li>
-<li><p><code>gb_get_adm4()</code> returns fourth-level administrative
-boundaries.</p></li>
-<li><p><code>gb_get_adm5()</code> returns fifth-level administrative
-boundaries.</p></li>
-</ul><p>Note that not all countries have the same number of levels. Check
+administrative level. <code>gb_get_adm0()</code> returns the country boundary,
+<code>gb_get_adm1()</code> returns first-level administrative boundaries (e.g. states
+in the United States), <code>gb_get_adm2()</code> returns second-level administrative
+boundaries (e.g. counties in the United States), <code>gb_get_adm3()</code> returns
+third-level administrative boundaries (e.g. towns or cities in some
+countries), <code>gb_get_adm4()</code> returns fourth-level administrative boundaries
+and <code>gb_get_adm5()</code> returns fifth-level administrative boundaries.</p>
+<p>Note that not all countries have the same number of levels. Check
 <code><a href="gb_get_max_adm_lvl.html">gb_get_max_adm_lvl()</a></code>.</p>
 <p>Individual data files in the geoBoundaries database are governed by the
 license or licenses identified within the metadata for each respective

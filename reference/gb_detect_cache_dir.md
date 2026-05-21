@@ -1,6 +1,6 @@
-# Detect cache directory for geobounds
+# Detect the geobounds cache directory
 
-Helper function to detect the current cache folder. See
+Detect the current cache folder. See
 [`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_set_cache_dir.md).
 
 ## Usage
@@ -31,6 +31,6 @@ Other cache utilities:
 
 ``` r
 gb_detect_cache_dir()
-#> ℹ /tmp/RtmpWUJjNs/geobounds
-#> [1] "/tmp/RtmpWUJjNs/geobounds"
+#> ℹ /tmp/RtmpSYBB1D/geobounds
+#> [1] "/tmp/RtmpSYBB1D/geobounds"
 ```

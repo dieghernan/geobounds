@@ -5,7 +5,7 @@
 CRAN release: 2026-03-24
 
 - Migrated package documentation to Quarto.
-- Updated documentation.
+- Updated package documentation.
 
 ## geobounds 0.1.0
 
@@ -13,7 +13,7 @@ CRAN release: 2026-02-11
 
 **First CRAN release**.
 
-### Breaking change
+### Breaking changes
 
 Functions for downloading data have been renamed to follow the
 convention `object_verb()` (see

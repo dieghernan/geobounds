@@ -2,7 +2,8 @@
 
 ### geoBoundaries coverage
 
-World coverage for the data sources available through geoBoundaries.
+Compare world coverage and metadata for the geoBoundaries release types
+available through geobounds.
 
 - [gbOpen coverage and
   metadata](https://dieghernan.github.io/geobounds/articles/gbopen.md):
@@ -17,4 +18,5 @@ World coverage for the data sources available through geoBoundaries.
 - [gbAuthoritative coverage and
   metadata](https://dieghernan.github.io/geobounds/articles/gbauthoritative.md):
 
-  Mirrored from UN SALB, with possible commercial-use restrictions
+  Mirrored from UN SALB, verified through in-country processes and not
+  for commercial use

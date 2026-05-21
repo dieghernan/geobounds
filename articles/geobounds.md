@@ -12,14 +12,14 @@ downloading and working with global political and administrative
 boundary data from the [geoBoundaries](https://www.geoboundaries.org/)
 project ([Runfola et al. 2020](#ref-10.1371/journal.pone.0231866)).
 
-These datasets are openly licensed ([CC BY
-4.0](https://creativecommons.org/licenses/by/4.0/)) and cover countries
-worldwide across multiple administrative levels. The package supports
-different **geoBoundaries** release types: gbOpen, gbHumanitarian and
-gbAuthoritative, which vary in validation levels and licensing. With
-**geobounds**, you can easily fetch boundary geometries as **sf**
-objects, explore metadata, cache datasets locally and integrate the
-boundaries into your spatial workflows.
+The default gbOpen release is openly licensed ([CC BY
+4.0](https://creativecommons.org/licenses/by/4.0/)) and covers countries
+worldwide across multiple administrative levels. The package also
+supports gbHumanitarian and gbAuthoritative releases, which vary in
+source, validation process and licensing. With **geobounds**, you can
+fetch boundary geometries as **sf** objects, explore metadata, cache
+datasets locally and integrate the boundaries into your spatial
+workflows.
 
 ## Understanding the data
 
@@ -30,7 +30,7 @@ level of spatial accuracy for scientific and academic applications.
 
 This precision comes at a cost: some files can be quite large and may
 take longer to download. For visualization or general mapping purposes,
-we recommend using the simplified datasets available by setting
+we recommend using the simplified datasets by setting
 `simplified = TRUE`.
 
 ``` r
@@ -71,13 +71,13 @@ files](https://www.geoboundaries.org/countryDownloads.html), whose aim
 is to represent every nation “as they would represent themselves”, with
 no special identification of disputed areas.
 
-The download of this data is implemented in
+The download of these data is implemented in
 [`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md)
 and the
 [`?gb_get_adm`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
-family of functions. It is not guaranteed that borders align perfectly,
-that there are no gaps between countries, or that disputed territories
-are represented consistently.
+family of functions. Borders are not guaranteed to align perfectly, gaps
+may exist between countries and disputed territories may not be
+represented consistently.
 
 ``` r
 
@@ -158,37 +158,37 @@ version. For example:
 
 # Show the current folder.
 current <- gb_detect_cache_dir()
-#> ℹ 'C:\Users\diego\AppData\Local\Temp\Rtmpy6cdjO'
+#> ℹ 'C:\Users\diego\AppData\Local\Temp\Rtmpm81cjA'
 
 current
-#> [1] "C:\\Users\\diego\\AppData\\Local\\Temp\\Rtmpy6cdjO"
+#> [1] "C:\\Users\\diego\\AppData\\Local\\Temp\\Rtmpm81cjA"
 
 # Change to a new folder.
 newdir <- file.path(tempdir(), "/geoboundvignette")
 gb_set_cache_dir(newdir)
-#> ✔ geobounds cache directory is 'C:\Users\diego\AppData\Local\Temp\Rtmpy6cdjO//geoboundvignette'.
+#> ✔ geobounds cache directory is 'C:\Users\diego\AppData\Local\Temp\Rtmpm81cjA//geoboundvignette'.
 #> ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.
 
 # Download the example data.
 example <- gb_get_adm0("Vatican City", quiet = FALSE)
 #> ℹ Downloading file from <https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/VAT/ADM0/geoBoundaries-VAT-ADM0-all.zip>.
-#> → Cache directory is 'C:\Users\diego\AppData\Local\Temp\Rtmpy6cdjO//geoboundvignette/gbOpen'.
+#> → Cache directory is 'C:\Users\diego\AppData\Local\Temp\Rtmpm81cjA//geoboundvignette/gbOpen'.
 
 # Restore the cache directory.
 gb_set_cache_dir(current)
-#> ✔ geobounds cache directory is 'C:\Users\diego\AppData\Local\Temp\Rtmpy6cdjO'.
+#> ✔ geobounds cache directory is 'C:\Users\diego\AppData\Local\Temp\Rtmpm81cjA'.
 #> ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.
 
 current == gb_detect_cache_dir()
-#> ℹ 'C:\Users\diego\AppData\Local\Temp\Rtmpy6cdjO'
+#> ℹ 'C:\Users\diego\AppData\Local\Temp\Rtmpm81cjA'
 #> [1] TRUE
 ```
 
 To clear the cache, use
 [`gb_clear_cache()`](https://dieghernan.github.io/geobounds/reference/gb_clear_cache.md).
 
-Specific cache directories for each function call can be set using the
-`cache_dir` argument of each function.
+Set a specific cache directory for each function call with the
+`cache_dir` argument.
 
 ## Use in spatial analysis pipelines
 
@@ -257,9 +257,9 @@ World Bank Income Group: Latin America and the Caribbean.
 
 The **geobounds** package makes it easy to fetch, manage and visualize
 administrative boundary data worldwide in a reproducible and efficient
-way. Whether you’re doing mapping, spatial analysis, survey integration
-or geospatial modelling, it gives you a high-quality boundary dataset
-with minimal overhead.
+way. Whether you are mapping, doing spatial analysis, integrating survey
+data or modeling geospatial patterns, it gives you access to
+high-quality boundary data with minimal overhead.
 
 ## References
 

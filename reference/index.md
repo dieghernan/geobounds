@@ -2,8 +2,9 @@
 
 ## Boundaries
 
-These functions return [sf](https://CRAN.R-project.org/package=sf)
-objects with political and administrative boundaries.
+Download individual country boundaries or global composite boundaries as
+[sf](https://CRAN.R-project.org/package=sf) objects with political and
+administrative boundaries.
 
 - [`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md)
   : Get individual country files from geoBoundaries
@@ -20,7 +21,8 @@ objects with political and administrative boundaries.
 
 ## Metadata
 
-These functions return boundary metadata in tibble format.
+Inspect available administrative levels, boundary metadata and source
+details.
 
 - [`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/reference/gb_get_max_adm_lvl.md)
   : Get the highest administrative level available for a given country
@@ -29,20 +31,23 @@ These functions return boundary metadata in tibble format.
 
 ## Cache management
 
+Configure, inspect and clear the local cache used for downloaded
+boundary files.
+
 - [`gb_clear_cache()`](https://dieghernan.github.io/geobounds/reference/gb_clear_cache.md)
   :
 
-  Clear your geobounds cache directory
+  Clear the geobounds cache directory
 
 - [`gb_detect_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_detect_cache_dir.md)
   :
 
-  Detect cache directory for geobounds
+  Detect the geobounds cache directory
 
 - [`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_set_cache_dir.md)
   :
 
-  Set your geobounds cache directory
+  Set the geobounds cache directory
 
 ## About the package
 

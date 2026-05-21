@@ -81,18 +81,14 @@ geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
 
 - release_type:
 
-  One of `"gbOpen"`, `"gbHumanitarian"`, `"gbAuthoritative"`. For most
+  One of `"gbOpen"`, `"gbHumanitarian"` or `"gbAuthoritative"`. For most
   users, we suggest using `"gbOpen"` (the default), as it is CC BY 4.0
-  compliant and can be used for most purposes so long as attribution is
-  provided:
-
-  - `"gbHumanitarian"` files are mirrored from [UN
-    OCHA](https://www.unocha.org/), but may have more restrictive
-    licensing.
-
-  - `"gbAuthoritative"` files are mirrored from UN SALB and cannot be
-    used for commercial purposes, but are verified through in-country
-    processes.
+  compliant and suitable for most purposes so long as attribution is
+  provided. `"gbHumanitarian"` files are mirrored from [UN
+  OCHA](https://www.unocha.org/) and may have less open licensing.
+  `"gbAuthoritative"` files are mirrored from UN SALB, are verified
+  through in-country processes and cannot be used for commercial
+  purposes.
 
 - quiet:
 
@@ -121,22 +117,14 @@ A [`sf`](https://r-spatial.github.io/sf/reference/sf.html) object.
 
 These functions are wrappers around
 [`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md)
-for extracting a given administrative level:
-
-- `gb_get_adm0()` returns the country boundary.
-
-- `gb_get_adm1()` returns first-level administrative boundaries (e.g.
-  states in the United States).
-
-- `gb_get_adm2()` returns second-level administrative boundaries (e.g.
-  counties in the United States).
-
-- `gb_get_adm3()` returns third-level administrative boundaries (e.g.
-  towns or cities in some countries).
-
-- `gb_get_adm4()` returns fourth-level administrative boundaries.
-
-- `gb_get_adm5()` returns fifth-level administrative boundaries.
+for extracting a given administrative level. `gb_get_adm0()` returns the
+country boundary, `gb_get_adm1()` returns first-level administrative
+boundaries (e.g. states in the United States), `gb_get_adm2()` returns
+second-level administrative boundaries (e.g. counties in the United
+States), `gb_get_adm3()` returns third-level administrative boundaries
+(e.g. towns or cities in some countries), `gb_get_adm4()` returns
+fourth-level administrative boundaries and `gb_get_adm5()` returns
+fifth-level administrative boundaries.
 
 Note that not all countries have the same number of levels. Check
 [`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/reference/gb_get_max_adm_lvl.md).

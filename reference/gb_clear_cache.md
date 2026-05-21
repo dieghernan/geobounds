@@ -1,4 +1,4 @@
-# Clear your geobounds cache directory
+# Clear the geobounds cache directory
 
 **Use this function with caution**. This function will clear your cached
 data and configuration, specifically:
@@ -24,7 +24,7 @@ gb_clear_cache(config = FALSE, cached_data = TRUE, quiet = TRUE)
 
 - cached_data:
 
-  Logical. If `TRUE`, delete your `cache_dir` and all its contents.
+  Logical. If `TRUE`, delete `cache_dir` and all its contents.
 
 - quiet:
 
@@ -37,8 +37,8 @@ called for its side effects.
 
 ## Details
 
-This is a comprehensive reset function intended to reset your status as
-if you had never installed or used geobounds.
+This is a comprehensive reset function that resets your status as if you
+had never installed or used geobounds.
 
 ## See also
 
@@ -54,20 +54,20 @@ Other cache utilities:
 
 # \dontrun{
 my_cache <- gb_detect_cache_dir()
-#> ℹ /tmp/RtmpWUJjNs/geobounds
+#> ℹ /tmp/RtmpSYBB1D/geobounds
 # Set an example cache.
 ex <- file.path(tempdir(), "example", "cache")
 gb_set_cache_dir(ex, quiet = TRUE)
 
 gb_clear_cache(quiet = FALSE)
-#> ! geobounds cached data deleted: /tmp/RtmpWUJjNs/example/cache.
+#> ! geobounds cached data deleted: /tmp/RtmpSYBB1D/example/cache.
 
 # Restore the initial cache.
 gb_set_cache_dir(my_cache)
-#> ✔ geobounds cache directory is /tmp/RtmpWUJjNs/geobounds.
+#> ✔ geobounds cache directory is /tmp/RtmpSYBB1D/geobounds.
 #> ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.
 identical(my_cache, gb_detect_cache_dir())
-#> ℹ /tmp/RtmpWUJjNs/geobounds
+#> ℹ /tmp/RtmpSYBB1D/geobounds
 #> [1] TRUE
 # }
 ```

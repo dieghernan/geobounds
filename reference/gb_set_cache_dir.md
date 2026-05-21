@@ -1,9 +1,9 @@
-# Set your geobounds cache directory
+# Set the geobounds cache directory
 
-This function stores your `cache_dir` path on your local machine and
-loads it for future sessions. Type
+This function stores the `cache_dir` path on your local machine and
+loads it for future sessions. Use
 [`gb_detect_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_detect_cache_dir.md)
-to find your cache directory path.
+to find the cache directory path.
 
 ## Usage
 
@@ -35,7 +35,7 @@ gb_set_cache_dir(cache_dir, overwrite = FALSE, install = FALSE, quiet = FALSE)
 
 ## Value
 
-An invisible character vector with the path to your `cache_dir`.
+An invisible character vector with the path to `cache_dir`.
 
 ## Details
 
@@ -56,9 +56,9 @@ to a small configuration file under
 - Modify the cache for a single session with
   `gb_set_cache_dir(cache_dir = "a/path/here")`.
 
-- For reproducible workflows, install a persistent cache with
-  `gb_set_cache_dir(cache_dir = "a/path/here", install = TRUE)` that
-  will be kept across **R** sessions.
+- For reproducible workflows, install a persistent cache that is kept
+  across **R** sessions with
+  `gb_set_cache_dir(cache_dir = "a/path/here", install = TRUE)`.
 
 - For caching specific files, use the `cache_dir` argument in the
   corresponding function. See
@@ -80,28 +80,28 @@ Other cache utilities:
 
 # \dontrun{
 my_cache <- gb_detect_cache_dir()
-#> ℹ /tmp/RtmpWUJjNs/geobounds
+#> ℹ /tmp/RtmpSYBB1D/geobounds
 
 # Set an example cache.
 ex <- file.path(tempdir(), "example", "cachenew")
 gb_set_cache_dir(ex)
-#> ✔ geobounds cache directory is /tmp/RtmpWUJjNs/example/cachenew.
+#> ✔ geobounds cache directory is /tmp/RtmpSYBB1D/example/cachenew.
 #> ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.
 
 gb_detect_cache_dir()
-#> ℹ /tmp/RtmpWUJjNs/example/cachenew
-#> [1] "/tmp/RtmpWUJjNs/example/cachenew"
+#> ℹ /tmp/RtmpSYBB1D/example/cachenew
+#> [1] "/tmp/RtmpSYBB1D/example/cachenew"
 
 # Restore the initial cache.
 gb_set_cache_dir(my_cache)
-#> ✔ geobounds cache directory is /tmp/RtmpWUJjNs/geobounds.
+#> ✔ geobounds cache directory is /tmp/RtmpSYBB1D/geobounds.
 #> ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.
 identical(my_cache, gb_detect_cache_dir())
-#> ℹ /tmp/RtmpWUJjNs/geobounds
+#> ℹ /tmp/RtmpSYBB1D/geobounds
 #> [1] TRUE
 # }
 
 gb_detect_cache_dir()
-#> ℹ /tmp/RtmpWUJjNs/geobounds
-#> [1] "/tmp/RtmpWUJjNs/geobounds"
+#> ℹ /tmp/RtmpSYBB1D/geobounds
+#> [1] "/tmp/RtmpSYBB1D/geobounds"
 ```

@@ -52,18 +52,14 @@ geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
 
 - release_type:
 
-  One of `"gbOpen"`, `"gbHumanitarian"`, `"gbAuthoritative"`. For most
+  One of `"gbOpen"`, `"gbHumanitarian"` or `"gbAuthoritative"`. For most
   users, we suggest using `"gbOpen"` (the default), as it is CC BY 4.0
-  compliant and can be used for most purposes so long as attribution is
-  provided:
-
-  - `"gbHumanitarian"` files are mirrored from [UN
-    OCHA](https://www.unocha.org/), but may have more restrictive
-    licensing.
-
-  - `"gbAuthoritative"` files are mirrored from UN SALB and cannot be
-    used for commercial purposes, but are verified through in-country
-    processes.
+  compliant and suitable for most purposes so long as attribution is
+  provided. `"gbHumanitarian"` files are mirrored from [UN
+  OCHA](https://www.unocha.org/) and may have less open licensing.
+  `"gbAuthoritative"` files are mirrored from UN SALB, are verified
+  through in-country processes and cannot be used for commercial
+  purposes.
 
 - quiet:
 
@@ -97,28 +93,15 @@ boundary (see
 Users of individual boundary files from geoBoundaries should also cite
 the sources provided in the metadata for each file. See **Examples**.
 
-The following wrappers are also available:
-
-- [`gb_get_adm0()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
-  returns the country boundary.
-
-- [`gb_get_adm1()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
-  returns first-level administrative boundaries (e.g. states in the
-  United States).
-
-- [`gb_get_adm2()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
-  returns second-level administrative boundaries (e.g. counties in the
-  United States).
-
-- [`gb_get_adm3()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
-  returns third-level administrative boundaries (e.g. towns or cities in
-  some countries).
-
-- [`gb_get_adm4()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
-  returns fourth-level administrative boundaries.
-
-- [`gb_get_adm5()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
-  returns fifth-level administrative boundaries.
+The wrappers
+[`gb_get_adm0()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md),
+[`gb_get_adm1()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md),
+[`gb_get_adm2()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md),
+[`gb_get_adm3()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md),
+[`gb_get_adm4()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
+and
+[`gb_get_adm5()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
+are also available for requesting a single administrative level.
 
 ## References
 
