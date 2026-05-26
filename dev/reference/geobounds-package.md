@@ -1,9 +1,11 @@
-# geobounds: Download Map Data from 'geoBoundaries'
+# geobounds: Download Administrative Boundary Data from 'geoBoundaries'
 
-Tools to download data from 'geoBoundaries'
-<https://www.geoboundaries.org/>. Several administration levels
-available. See Runfola, D. et al. (2020) geoBoundaries: A global
-database of political administrative boundaries. PLOS ONE 15(4): 1-9.
+Tools for downloading administrative boundary data from 'geoBoundaries'
+<https://www.geoboundaries.org/> across multiple administrative levels.
+Boundary data are returned as 'sf' objects for mapping and spatial
+analysis. See Runfola, D. et al. (2020) "geoBoundaries: A global
+database of political administrative boundaries." PLOS ONE 15(4),
+e0231866.
 [doi:10.1371/journal.pone.0231866](https://doi.org/10.1371/journal.pone.0231866)
 .
 
@@ -22,6 +24,12 @@ Useful links:
 **Maintainer**: Diego Hernangómez <diego.hernangomezherrero@gmail.com>
 ([ORCID](https://orcid.org/0000-0001-8457-4658)) \[copyright holder\]
 
+Authors:
+
+- Diego Hernangómez <diego.hernangomezherrero@gmail.com>
+  ([ORCID](https://orcid.org/0000-0001-8457-4658)) \[copyright holder\]
+
 Other contributors:
 
-- William and Mary geoLab \[copyright holder\]
+- William and Mary geoLab ([ROR](https://ror.org/03hsf0573)) \[copyright
+  holder\]

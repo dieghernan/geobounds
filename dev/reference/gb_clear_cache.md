@@ -1,4 +1,4 @@
-# Clear your geobounds cache directory
+# Clear the geobounds cache directory
 
 **Use this function with caution**. This function will clear your cached
 data and configuration, specifically:
@@ -20,16 +20,15 @@ gb_clear_cache(config = FALSE, cached_data = TRUE, quiet = TRUE)
 
 - config:
 
-  Logical. If `TRUE`, will delete the configuration folder of geobounds.
+  Logical. If `TRUE`, delete the configuration folder of geobounds.
 
 - cached_data:
 
-  Logical. If `TRUE`, it will delete your `cache_dir` and all its
-  content.
+  Logical. If `TRUE`, delete `cache_dir` and all its contents.
 
 - quiet:
 
-  logical. If `TRUE` suppresses informational messages.
+  Logical. If `TRUE`, suppress informational messages.
 
 ## Value
 
@@ -38,8 +37,8 @@ called for its side effects.
 
 ## Details
 
-This is a comprehensive reset function that is intended to reset your
-status as if you had never installed or used geobounds.
+This is a comprehensive reset function that resets your status as if you
+had never installed or used geobounds.
 
 ## See also
 
@@ -50,24 +49,25 @@ Other cache utilities:
 ## Examples
 
 ``` r
-# Caution! This may modify your current state
+
+# Caution! This may modify your current state.
 
 # \dontrun{
 my_cache <- gb_detect_cache_dir()
-#> ℹ /tmp/RtmpSoGzAU/geobounds
-# Set an example cache
+#> ℹ /tmp/RtmpkQiknh/geobounds
+# Set an example cache.
 ex <- file.path(tempdir(), "example", "cache")
 gb_set_cache_dir(ex, quiet = TRUE)
 
 gb_clear_cache(quiet = FALSE)
-#> ! geobounds data deleted: /tmp/RtmpSoGzAU/example/cache
+#> ! geobounds cached data deleted: /tmp/RtmpkQiknh/example/cache.
 
-# Restore initial cache
+# Restore the initial cache.
 gb_set_cache_dir(my_cache)
-#> ✔ geobounds cache dir is /tmp/RtmpSoGzAU/geobounds.
+#> ✔ geobounds cache directory is /tmp/RtmpkQiknh/geobounds.
 #> ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.
 identical(my_cache, gb_detect_cache_dir())
-#> ℹ /tmp/RtmpSoGzAU/geobounds
+#> ℹ /tmp/RtmpkQiknh/geobounds
 #> [1] TRUE
 # }
 ```

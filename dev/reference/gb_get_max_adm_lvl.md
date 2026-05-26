@@ -14,31 +14,26 @@ gb_get_max_adm_lvl(
 
 ## Source
 
-geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
+geoBoundaries API service <https://www.geoboundaries.org/api.html>.
 
 ## Arguments
 
 - country:
 
-  A character vector of country codes. It can be either `"all"` (that
-  would return the data for all countries), a vector of country names or
-  ISO3 country codes. See also
+  A character vector of country codes. It can be either `"all"` (which
+  returns the data for all countries), a vector of country names or ISO
+  3166-1 alpha-3 country codes. See also
   [`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/man/countrycode.html).
 
 - release_type:
 
-  One of `"gbOpen"`, `"gbHumanitarian"`, `"gbAuthoritative"`. For most
-  users, we suggest using `"gbOpen"` (the default), as it is CC-BY 4.0
-  compliant and can be used for most purposes so long as attribution is
-  provided:
-
-  - `"gbHumanitarian"` files are mirrored from [UN
-    OCHA](https://www.unocha.org/), but may have more restrictive
-    licensing.
-
-  - `"gbAuthoritative"` files are mirrored from UN SALB, and cannot be
-    used for commercial purposes, but are verified through in-country
-    processes.
+  One of `"gbOpen"`, `"gbHumanitarian"` or `"gbAuthoritative"`. For most
+  users, we suggest using `"gbOpen"` (the default), as it is CC BY 4.0
+  compliant and suitable for most purposes so long as attribution is
+  provided. `"gbHumanitarian"` files are mirrored from [UN
+  OCHA](https://www.unocha.org/) and may have less open licensure.
+  `"gbAuthoritative"` files are mirrored from UN SALB, verified through
+  in-country processes and cannot be used for commercial purposes.
 
 ## Value
 
@@ -56,7 +51,7 @@ Other metadata functions:
 all <- gb_get_max_adm_lvl()
 library(dplyr)
 
-# Countries with only 1 level available
+# Countries with only one level available.
 all |>
   filter(maxBoundaryType == 1)
 #> # A tibble: 21 × 2
@@ -74,7 +69,7 @@ all |>
 #> 10 LBY                       1
 #> # ℹ 11 more rows
 
-# Countries with level 4 available
+# Countries with level 4 available.
 all |>
   filter(maxBoundaryType == 4)
 #> # A tibble: 18 × 2

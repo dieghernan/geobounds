@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>geobounds | R package for download geodata from geoBoundaries • geobounds</title>
+<title>geobounds | Download administrative boundary data from geoBoundaries • geobounds</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
 <link rel="icon" type="”image/svg+xml”" href="favicon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -13,23 +13,25 @@
 <link rel="manifest" href="site.webmanifest">
 <!-- katex math --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script><script src="katex-auto.js"></script><script src="lightswitch.js"></script><script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/Inter-0.4.10/font.css" rel="stylesheet">
+<link href="deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="deps/Inter-0.4.10/font.css" rel="stylesheet">
 <link href="deps/Inter_Tight-0.4.10/font.css" rel="stylesheet">
 <link href="deps/Fira_Code-0.4.10/font.css" rel="stylesheet">
 <link href="deps/Roboto-0.4.10/font.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="geobounds | R package for download geodata from geoBoundaries">
-<meta name="description" content="geobounds is a R API package that helps to retrieve data from geoBoundaries.
-Several administration levels available. See Runfola, D. et al. (2020)
-geoBoundaries: A global database of political administrative boundaries.
-PLoS ONE 15(4): e0231866. https://doi.org/10.1371/journal.pone.0231866
+<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="geobounds | Download administrative boundary data from geoBoundaries">
+<meta name="description" content="geobounds is an R package for retrieving administrative boundary data from
+geoBoundaries across multiple administrative levels as sf objects. See
+Runfola, D. et al. (2020) geoBoundaries: A global database of political
+administrative boundaries. PLOS ONE 15(4): e0231866.
+https://doi.org/10.1371/journal.pone.0231866
 ">
-<meta property="og:description" content="geobounds is a R API package that helps to retrieve data from geoBoundaries.
-Several administration levels available. See Runfola, D. et al. (2020)
-geoBoundaries: A global database of political administrative boundaries.
-PLoS ONE 15(4): e0231866. https://doi.org/10.1371/journal.pone.0231866
+<meta property="og:description" content="geobounds is an R package for retrieving administrative boundary data from
+geoBoundaries across multiple administrative levels as sf objects. See
+Runfola, D. et al. (2020) geoBoundaries: A global database of political
+administrative boundaries. PLOS ONE 15(4): e0231866.
+https://doi.org/10.1371/journal.pone.0231866
 ">
 <meta property="og:image" content="https://dieghernan.github.io/geobounds/logo.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -52,7 +54,7 @@ PLoS ONE 15(4): e0231866. https://doi.org/10.1371/journal.pone.0231866
 
     <a class="navbar-brand me-2" href="index.html"><img src="apple-touch-icon.png" alt="geobounds logo" height="34" width="34" class="d-inline-block me-1">geobounds</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.1.0.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.1.1.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -105,17 +107,29 @@ PLoS ONE 15(4): e0231866. https://doi.org/10.1371/journal.pone.0231866
 <!-- badges: start -->
 
 <!-- badges: end -->
-<p><a href="https://www.geoboundaries.org/index.html#usage" class="external-link"><strong>Attribution</strong></a> <strong>is required when using geoBoundaries.</strong></p>
 <div class="section level2">
 <h2 id="why-this-package">Why this package?<a class="anchor" aria-label="anchor" href="#why-this-package"></a>
 </h2>
-<p>The <strong>geobounds</strong> package provides an <strong>R</strong>-friendly interface to access and work with the <a href="https://www.geoboundaries.org/" class="external-link"><strong>geoBoundaries</strong></a> dataset (an open-license global database of administrative boundary polygons). Using this package, you can:</p>
+<p>The <strong>geobounds</strong> package provides an <strong>R</strong>-friendly interface for accessing and using the <a href="https://www.geoboundaries.org/" class="external-link"><strong>geoBoundaries</strong></a> dataset, a global database of administrative boundary polygons. Using this package, you can:</p>
 <ul>
-<li>Programmatically retrieve administrative boundary geometries (e.g., country → region → district) from geoBoundaries</li>
-<li>Use <strong>tidyverse</strong> / <strong>sf</strong> workflows in <strong>R</strong> to map, analyse and join these boundaries with your own data</li>
-<li>Work in an open-data context (geoBoundaries uses <a href="https://creativecommons.org/licenses/by/4.0/" class="external-link">CC BY-4.0</a>) / open licenses)</li>
+<li>Programmatically retrieve administrative boundary geometries, such as country boundaries and subnational administrative levels, from <strong>geoBoundaries</strong>.</li>
+<li>Use <strong>tidyverse</strong> and <strong>sf</strong> workflows in <strong>R</strong> to map, analyze and join these boundaries with your own data.</li>
+<li>Work in an open-data context where attribution to <strong>geoBoundaries</strong> is required.</li>
 </ul>
-<p>In short: if you work with geospatial boundaries in <strong>R</strong> (shape files, polygons, join with other data), this package simplifies the process.</p>
+<p>In short, if you work with administrative boundaries in <strong>R</strong>, this package simplifies downloads, caching and integration with other spatial data.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://www.geoboundaries.org/index.html#usage" class="external-link">Attribution</a> is required when using geoBoundaries.</p>
+</div>
+</div>
 </div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -124,8 +138,8 @@ PLoS ONE 15(4): e0231866. https://doi.org/10.1371/journal.pone.0231866
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"geobounds"</span><span class="op">)</span></span></code></pre></div>
 <div class="pkgdown-devel">
-<p>Check the docs of the developing version in <a href="https://dieghernan.github.io/geobounds/dev/" class="uri">https://dieghernan.github.io/geobounds/dev/</a></p>
-<p>You can install the developing version of <strong>geobounds</strong> with:</p>
+<p>Check the documentation for the development version at <a href="https://dieghernan.github.io/geobounds/dev/" class="uri">https://dieghernan.github.io/geobounds/dev/</a></p>
+<p>You can install the development version of <strong>geobounds</strong> with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("pak")</span></span>
 <span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"dieghernan/geobounds"</span><span class="op">)</span></span></code></pre></div>
@@ -162,27 +176,27 @@ PLoS ONE 15(4): e0231866. https://doi.org/10.1371/journal.pone.0231866
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">sri_lanka_adm1</span>, fill <span class="op">=</span> <span class="cn">NA</span>, color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>caption <span class="op">=</span> <span class="st">"Source: www.geoboundaries.org"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_void</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-simple_plot-1.png" style="width:100.0%" alt="Map of all administration levels for Sri Lanka"></p>
+<p><img src="reference/figures/README-simple_plot-1.png" style="width:100.0%" alt="Map of all administrative levels for Sri Lanka"></p>
 </div>
 <div class="section level2">
-<h2 id="data-types">Data types<a class="anchor" aria-label="anchor" href="#data-types"></a>
+<h2 id="release-types">Release types<a class="anchor" aria-label="anchor" href="#release-types"></a>
 </h2>
-<p>geoBoundaries offers different release types with varying levels of validation and licensing:</p>
+<p>geoBoundaries offers different release types with varying sources, validation processes and licensing:</p>
 <ul>
 <li>
-<strong>gbOpen</strong>: Freely available boundaries under CC BY 4.0, suitable for most applications</li>
+<strong>gbOpen</strong>: Freely available boundaries under CC BY 4.0, suitable for most uses when attribution is provided.</li>
 <li>
-<strong>gbHumanitarian</strong>: Boundaries validated for humanitarian work, ensuring accuracy for aid distribution</li>
+<strong>gbHumanitarian</strong>: Boundaries mirrored from UN OCHA for humanitarian use, which may have less open licensure.</li>
 <li>
-<strong>gbAuthoritative</strong>: Official government boundaries, highest accuracy but may have restrictions</li>
+<strong>gbAuthoritative</strong>: Boundaries mirrored from UN SALB and verified through in-country processes, and cannot be used for commercial purposes.</li>
 </ul>
-<p>Use the <code>release_type</code> parameter in functions to specify, e.g., <code>gb_get_adm1("Sri Lanka", release_type = "gbHumanitarian")</code>.</p>
+<p>Use the <code>release_type</code> argument in functions to specify, for example, <code>gb_get_adm1("Sri Lanka", release_type = "gbHumanitarian")</code>.</p>
 <p>For detailed comparisons, see the vignettes.</p>
 </div>
 <div class="section level2">
 <h2 id="advanced-usage">Advanced usage<a class="anchor" aria-label="anchor" href="#advanced-usage"></a>
 </h2>
-<p>Get a map with the level of coverage of geoBoundaries by country:</p>
+<p>Map the highest available administrative level in <strong>geoBoundaries</strong> by country:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/geobounds/">geobounds</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
@@ -222,7 +236,7 @@ PLoS ONE 15(4): e0231866. https://doi.org/10.1371/journal.pone.0231866
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
-<span>    fill <span class="op">=</span> <span class="st">"gbOpen: Administrative Divisions (ADMs)"</span>,</span>
+<span>    fill <span class="op">=</span> <span class="st">"gbOpen: Administrative levels (ADMs)"</span>,</span>
 <span>    caption <span class="op">=</span> <span class="st">"Source: www.geoboundaries.org"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-map-coverage-1.png" style="width:100.0%" alt="World coverage of geoBoundaries (gbOpen)"></p>
@@ -240,41 +254,40 @@ PLoS ONE 15(4): e0231866. https://doi.org/10.1371/journal.pone.0231866
 <li><a href="https://dieghernan.github.io/geobounds/articles/gbauthoritative.html">gbAuthoritative</a></li>
 </ul>
 </li>
-<li>Explore the geoBoundaries homepage: <a href="https://www.geoboundaries.org/" class="external-link uri">https://www.geoboundaries.org/</a>
+<li>Explore the <strong>geoBoundaries</strong> homepage: <a href="https://www.geoboundaries.org/" class="external-link uri">https://www.geoboundaries.org/</a>
 </li>
 <li>Read the original paper describing the geoBoundaries dataset (<a href="#ref-10.1371/journal.pone.0231866">Runfola et al. 2020</a>).</li>
-<li>Report issues or contribute on <a href="https://github.com/dieghernan/geobounds" class="external-link">GitHub</a>
-</li>
+<li>Report issues or contribute on <a href="https://github.com/dieghernan/geobounds" class="external-link">GitHub</a>.</li>
 </ul>
 </div>
 <div class="section level2">
 <h2 id="license">License<a class="anchor" aria-label="anchor" href="#license"></a>
 </h2>
-<p>This package is released under the <a href="https://creativecommons.org/licenses/by/4.0/" class="external-link">CC BY-4.0</a> license. Note that the boundary data being accessed (via geoBoundaries) also uses open licenses; please check the specific dataset metadata for licensing details.</p>
+<p>This package is released under the <a href="https://creativecommons.org/licenses/by/4.0/" class="external-link">CC BY 4.0</a> license. The default <strong>geoBoundaries</strong> release type, gbOpen, is CC BY 4.0 compliant when attribution is provided. Other release types may have additional licensing limits, so check the metadata returned by <code><a href="reference/gb_get_metadata.html">gb_get_metadata()</a></code> before reuse.</p>
 </div>
 <div class="section level2">
 <h2 id="acknowledgements">Acknowledgements<a class="anchor" aria-label="anchor" href="#acknowledgements"></a>
 </h2>
 <ul>
-<li>Many thanks to the geoBoundaries team and the <a href="https://sites.google.com/view/wmgeolab/" class="external-link">William &amp; Mary geoLab</a> for creating and maintaining the dataset.</li>
+<li>Many thanks to the <strong>geoBoundaries</strong> team and the <a href="https://sites.google.com/view/wmgeolab/" class="external-link">William &amp; Mary geoLab</a> for creating and maintaining the dataset.</li>
 <li>Thanks to the <strong>R</strong> package community and all contributors to this package’s development.</li>
-<li>If you use <strong>geobounds</strong> (and underlying geoBoundaries data) in your research or project, a citation and acknowledgment is greatly appreciated.</li>
+<li>If you use <strong>geobounds</strong> and the underlying <strong>geoBoundaries</strong> data in your research or projects, please cite and acknowledge them.</li>
 </ul>
 </div>
 <div class="section level2">
 <h2 id="citation">Citation<a class="anchor" aria-label="anchor" href="#citation"></a>
 </h2>
 <p>
-Hernangómez D (2026). <em>geobounds: Download Map Data from geoBoundaries</em>. <a href="https://doi.org/10.32614/CRAN.package.geobounds" class="external-link">doi:10.32614/CRAN.package.geobounds</a>, <a href="https://dieghernan.github.io/geobounds/">https://dieghernan.github.io/geobounds/</a>.
+Hernangómez D (2026). <em>geobounds: Download Administrative Boundary Data from geoBoundaries</em>. <a href="https://doi.org/10.32614/CRAN.package.geobounds" class="external-link">doi:10.32614/CRAN.package.geobounds</a>. <a href="https://dieghernan.github.io/geobounds/">https://dieghernan.github.io/geobounds/</a>.
 </p>
 <p>A BibTeX entry for LaTeX users:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="sc">@</span>Manual{R<span class="sc">-</span>geobounds,</span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>  title <span class="ot">=</span> {{geobounds}<span class="sc">:</span> Download Map Data from geoBoundaries},</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>  title <span class="ot">=</span> {{geobounds}<span class="sc">:</span> Download Administrative Boundary Data from geoBoundaries},</span>
 <span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>  author <span class="ot">=</span> {Diego Hernangómez},</span>
 <span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>  year <span class="ot">=</span> {<span class="dv">2026</span>},</span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>  version <span class="ot">=</span> {<span class="dv">0</span>.<span class="dv">1</span>.<span class="fl">0.9000</span>},</span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>  version <span class="ot">=</span> {<span class="dv">0</span>.<span class="dv">1</span>.<span class="fl">1.9000</span>},</span>
 <span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>  url <span class="ot">=</span> {https<span class="sc">:</span><span class="er">//</span>dieghernan.github.io<span class="sc">/</span>geobounds<span class="sc">/</span>},</span>
-<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>  abstract <span class="ot">=</span> {Tools to download data from geoBoundaries <span class="sc">&lt;</span>https<span class="sc">:</span><span class="er">//</span>www.geoboundaries.org<span class="sc">/</span><span class="er">&gt;</span>. Several administration levels available. See Runfola, D. et <span class="fu">al.</span> (<span class="dv">2020</span>) geoBoundaries<span class="sc">:</span> A global database of political administrative boundaries. PLOS ONE <span class="dv">15</span>(<span class="dv">4</span>)<span class="sc">:</span> <span class="dv">1</span><span class="fl">-9.</span> <span class="sc">&lt;</span>doi<span class="sc">:</span><span class="fl">10.1371</span><span class="sc">/</span>journal.pone<span class="fl">.0231866</span><span class="sc">&gt;</span>.},</span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>  abstract <span class="ot">=</span> {Tools <span class="cf">for</span> downloading administrative boundary data from geoBoundaries <span class="sc">&lt;</span>https<span class="sc">:</span><span class="er">//</span>www.geoboundaries.org<span class="sc">/</span><span class="er">&gt;</span> across multiple administrative levels. Boundary data are returned as sf objects <span class="cf">for</span> mapping and spatial analysis. See Runfola, D. et <span class="fu">al.</span> (<span class="dv">2020</span>) <span class="st">"geoBoundaries: A global database of political administrative boundaries."</span> PLOS ONE <span class="dv">15</span>(<span class="dv">4</span>), e0231866. <span class="sc">&lt;</span>doi<span class="sc">:</span><span class="fl">10.1371</span><span class="sc">/</span>journal.pone<span class="fl">.0231866</span><span class="sc">&gt;</span>.},</span>
 <span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>  doi <span class="ot">=</span> {<span class="fl">10.32614</span><span class="sc">/</span>CRAN.package.geobounds},</span>
 <span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a>}</span></code></pre></div>
 </div>

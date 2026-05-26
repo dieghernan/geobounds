@@ -1,6 +1,6 @@
-# Get metadata of individual country files from geoBoundaries
+# Get metadata for individual country files from geoBoundaries
 
-This function returns metadata of the [geoBoundaries
+This function returns metadata from the [geoBoundaries
 API](https://www.geoboundaries.org/api.html).
 
 ## Usage
@@ -15,39 +15,34 @@ gb_get_metadata(
 
 ## Source
 
-geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
+geoBoundaries API service <https://www.geoboundaries.org/api.html>.
 
 ## Arguments
 
 - country:
 
-  A character vector of country codes. It can be either `"all"` (that
-  would return the data for all countries), a vector of country names or
-  ISO3 country codes. See also
+  A character vector of country codes. It can be either `"all"` (which
+  returns the data for all countries), a vector of country names or ISO
+  3166-1 alpha-3 country codes. See also
   [`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/man/countrycode.html).
 
 - adm_lvl:
 
   Type of boundary. Accepted values are `"all"` (all available
   boundaries) or the ADM level (`"adm0"` is the country boundary,
-  `"adm1"` is the first level of sub-national boundaries, `"adm2"` is
-  the second level, and so on). Upper-case versions (`"ADM1"`) and the
-  number of the level (`1, 2, 3, 4, 5`) are also accepted.
+  `"adm1"` is the first level of subnational boundaries, `"adm2"` is the
+  second level and so on). Upper-case versions (`"ADM1"`) and the number
+  of the level (`1, 2, 3, 4, 5`) are also accepted.
 
 - release_type:
 
-  One of `"gbOpen"`, `"gbHumanitarian"`, `"gbAuthoritative"`. For most
-  users, we suggest using `"gbOpen"` (the default), as it is CC-BY 4.0
-  compliant and can be used for most purposes so long as attribution is
-  provided:
-
-  - `"gbHumanitarian"` files are mirrored from [UN
-    OCHA](https://www.unocha.org/), but may have more restrictive
-    licensing.
-
-  - `"gbAuthoritative"` files are mirrored from UN SALB, and cannot be
-    used for commercial purposes, but are verified through in-country
-    processes.
+  One of `"gbOpen"`, `"gbHumanitarian"` or `"gbAuthoritative"`. For most
+  users, we suggest using `"gbOpen"` (the default), as it is CC BY 4.0
+  compliant and suitable for most purposes so long as attribution is
+  provided. `"gbHumanitarian"` files are mirrored from [UN
+  OCHA](https://www.unocha.org/) and may have less open licensure.
+  `"gbAuthoritative"` files are mirrored from UN SALB, verified through
+  in-country processes and cannot be used for commercial purposes.
 
 ## Value
 
@@ -59,17 +54,17 @@ The result is a
 [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) with
 the following columns:
 
-- `boundaryID`: The ID for this layer, which is a combination of the ISO
-  code, the boundary type, and a unique identifier for the boundary
-  generated based on the input metadata and geometry. This only changes
-  if the underlying data changes.
+- `boundaryID`: The ID for this layer. It combines the ISO code,
+  boundary type and a unique identifier generated from the input
+  metadata and geometry. This only changes if the underlying data
+  changes.
 
 - `boundaryName`: The name of the country the layer represents.
 
-- `boundaryISO`: ISO-3166-1 (Alpha 3) code for the country.
+- `boundaryISO`: ISO 3166-1 alpha-3 code for the country.
 
-- `boundaryYearRepresented`: The year, or range of years in
-  `"START to END"` format, which the boundary layers represent.
+- `boundaryYearRepresented`: The year or range of years in
+  `"START to END"` format that the boundary layers represent.
 
 - `boundaryType`: The type of boundary.
 
@@ -78,11 +73,8 @@ the following columns:
 - `boundarySource`: A comma-separated list of the primary sources for
   the boundary.
 
-- `boundarySource`: A comma-separated list of the primary sources for
-  the boundary.
-
-- `boundaryLicense`: The original license that the dataset was released
-  under by the primary source.
+- `boundaryLicense`: The original license under which the primary source
+  released the dataset.
 
 - `licenseDetail`: Any notes regarding the license.
 
@@ -115,45 +107,45 @@ the following columns:
 - `maxVertices`: Maximum number of vertices defining a boundary.
 
 - `minPerimeterLengthKM`: The minimum perimeter length of an
-  administrative unit in the layer, measured in kilometers (based on a
-  World Equidistant Cylindrical projection).
+  administrative unit in the layer, measured in kilometers and based on
+  a World Equidistant Cylindrical projection).
 
 - `meanPerimeterLengthKM`: The mean perimeter length of an
-  administrative unit in the layer, measured in kilometers (based on a
-  World Equidistant Cylindrical projection).
+  administrative unit in the layer, measured in kilometers and based on
+  a World Equidistant Cylindrical projection).
 
 - `maxPerimeterLengthKM`: The maximum perimeter length of an
-  administrative unit in the layer, measured in kilometers (based on a
-  World Equidistant Cylindrical projection).
+  administrative unit in the layer, measured in kilometers and based on
+  a World Equidistant Cylindrical projection).
 
 - `meanAreaSqKM`: The mean area of all administrative units in the
-  layer, measured in square kilometers (based on a EASE-GRID 2
-  projection).
+  layer, measured in square kilometers and based on an EASE-GRID 2
+  projection.
 
 - `minAreaSqKM`: The minimum area of an administrative unit in the
-  layer, measured in square kilometers (based on a EASE-GRID 2
-  projection).
+  layer, measured in square kilometers and based on an EASE-GRID 2
+  projection.
 
 - `maxAreaSqKM`: The maximum area of an administrative unit in the
-  layer, measured in square kilometers (based on a EASE-GRID 2
-  projection).
+  layer, measured in square kilometers and based on an EASE-GRID 2
+  projection.
 
 - `staticDownloadLink`: The static download link for the aggregate zip
   file containing all boundary information.
 
-- `gjDownloadURL`: The static download link for the `geoJSON`.
+- `gjDownloadURL`: The static download link for the GeoJSON.
 
-- `tjDownloadURL`: The static download link for the `topoJSON`.
+- `tjDownloadURL`: The static download link for the TopoJSON.
 
 - `imagePreview`: The static download link for the automatically
-  rendered `PNG` of the layer.
+  rendered PNG of the layer.
 
 - `simplifiedGeometryGeoJSON`: The static download link for the
-  simplified `geoJSON`.
+  simplified GeoJSON.
 
 ## See also
 
-[`gb_get()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get.md)
+[`gb_get()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get.md).
 
 Other metadata functions:
 [`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_max_adm_lvl.md)
@@ -161,7 +153,7 @@ Other metadata functions:
 ## Examples
 
 ``` r
-# Get metadata of ADM4 levels
+# Get metadata for ADM4 levels.
 
 library(dplyr)
 

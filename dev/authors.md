@@ -8,23 +8,25 @@
 
 - **[William and Mary
   geoLab](https://sites.google.com/view/wmgeolab/)**. Copyright holder.
+  [![ROR](https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg)](https://ror.org/03hsf0573)
 
 ## Citation
 
 Source:
 [`inst/CITATION`](https://github.com/dieghernan/geobounds/blob/main/inst/CITATION)
 
-Hernangómez D (2026). *geobounds: Download Map Data from geoBoundaries*.
-[doi:10.32614/CRAN.package.geobounds](https://doi.org/10.32614/CRAN.package.geobounds),
+Hernangómez D (2026). *geobounds: Download Administrative Boundary Data
+from geoBoundaries*.
+[doi:10.32614/CRAN.package.geobounds](https://doi.org/10.32614/CRAN.package.geobounds).
 <https://dieghernan.github.io/geobounds/>.
 
     @Manual{R-geobounds,
-      title = {{geobounds}: Download Map Data from geoBoundaries},
+      title = {{geobounds}: Download Administrative Boundary Data from geoBoundaries},
       author = {Diego Hernangómez},
       year = {2026},
-      version = {0.1.0.9000},
+      version = {0.1.1.9000},
       url = {https://dieghernan.github.io/geobounds/},
-      abstract = {Tools to download data from geoBoundaries <https://www.geoboundaries.org/>. Several administration levels available. See Runfola, D. et al. (2020) geoBoundaries: A global database of political administrative boundaries. PLOS ONE 15(4): 1-9. <doi:10.1371/journal.pone.0231866>.},
+      abstract = {Tools for downloading administrative boundary data from geoBoundaries <https://www.geoboundaries.org/> across multiple administrative levels. Boundary data are returned as sf objects for mapping and spatial analysis. See Runfola, D. et al. (2020) "geoBoundaries: A global database of political administrative boundaries." PLOS ONE 15(4), e0231866. <doi:10.1371/journal.pone.0231866>.},
       doi = {10.32614/CRAN.package.geobounds},
     }
 
@@ -33,7 +35,7 @@ Goodman S, Grimsley G, Layko R, Melville G, Mulder M, Oberman R,
 Panganiban J, Peck A, Seitz L, Shea S, Slevin H, Youngerman R, Hobbs L
 (2020). “geoBoundaries: A global database of political administrative
 boundaries.” *PLOS ONE*, **15**(4), 1–9.
-[doi:10.1371/journal.pone.0231866](https://doi.org/10.1371/journal.pone.0231866),
+[doi:10.1371/journal.pone.0231866](https://doi.org/10.1371/journal.pone.0231866).
 <https://doi.org/10.1371/journal.pone.0231866>.
 
     @Article{10.1371/journal.pone.0231866,
