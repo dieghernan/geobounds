@@ -152,7 +152,7 @@ Comparison between full vs. simplified map.
 <section class="level3"><h3 id="individual-country-files">Individual country files<a class="anchor" aria-label="anchor" href="#individual-country-files"></a>
 </h3>
 <p>The <strong>geoBoundaries</strong> API provides <a href="https://www.geoboundaries.org/countryDownloads.html" class="external-link">individual country files</a>, whose aim is to represent every nation “as they would represent themselves”, without special identification of disputed areas.</p>
-<p>Download individual country files with <code><a href="../reference/gb_get.html">gb_get()</a></code> or the <code>gb_get_adm*()</code> wrappers. Borders are not guaranteed to align perfectly, gaps may exist between countries and disputed territories may not be represented consistently.</p>
+<p>Download individual country files with <code><a href="../reference/gb_get.html">gb_get()</a></code> or the <code><a href="../reference/gb_get_adm.html">?gb_get_adm</a></code> wrappers. Borders are not guaranteed to align perfectly, gaps may exist between countries and disputed territories may not be represented consistently.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">india_pak</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/gb_get_adm.html">gb_get_adm0</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"India"</span>, <span class="st">"Pakistan"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
@@ -176,9 +176,9 @@ Map showing overlap in the disputed Kashmir area.
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/gb_get_metadata.html">gb_get_metadata</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"India"</span>, <span class="st">"Pakistan"</span><span class="op">)</span>, adm_lvl <span class="op">=</span> <span class="st">"ADM0"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">boundaryName</span>, <span class="va">boundaryLicense</span>, <span class="va">boundarySource</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 2 × 3</span></span>
-<span><span class="co">#&gt;   boundaryName boundaryLicense                                      boundarySource                  </span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;        &lt;chr&gt;                                                &lt;chr&gt;                           </span></span>
-<span><span class="co">#&gt; 1 India        CC0 1.0 Universal (CC0 1.0) Public Domain Dedication geoBoundaries, Wikimedia Commons</span></span>
+<span><span class="co">#&gt;   boundaryName boundaryLicense                                      boundarySource            </span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;        &lt;chr&gt;                                                &lt;chr&gt;                     </span></span>
+<span><span class="co">#&gt; 1 India        CC0 1.0 Universal (CC0 1.0) Public Domain Dedication geoBoundaries, Wikimedia …</span></span>
 <span><span class="co">#&gt; 2 Pakistan     Open Data Commons Open Database License 1.0          OpenStreetMap, Wambacher</span></span></code></pre></div>
 </section><section class="level3"><h3 id="global-composite-files">Global composite files<a class="anchor" aria-label="anchor" href="#global-composite-files"></a>
 </h3>
@@ -211,29 +211,29 @@ Map showing no overlap in Kashmir, provided by CGAZ.
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Show the current folder.</span></span>
 <span><span class="va">current</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/gb_detect_cache_dir.html">gb_detect_cache_dir</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpSqrxyL'</span></span>
+<span><span class="co">#&gt; ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpspK2ix'</span></span>
 <span></span>
 <span><span class="va">current</span></span>
-<span><span class="co">#&gt; [1] "C:\\Users\\diego\\AppData\\Local\\Temp\\RtmpSqrxyL"</span></span>
+<span><span class="co">#&gt; [1] "C:\\Users\\diego\\AppData\\Local\\Temp\\RtmpspK2ix"</span></span>
 <span></span>
 <span><span class="co"># Change to a new folder.</span></span>
 <span><span class="va">newdir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"/geoboundvignette"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/gb_set_cache_dir.html">gb_set_cache_dir</a></span><span class="op">(</span><span class="va">newdir</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ✔ geobounds cache directory is 'C:\Users\diego\AppData\Local\Temp\RtmpSqrxyL//geoboundvignette'.</span></span>
+<span><span class="co">#&gt; ✔ geobounds cache directory is 'C:\Users\diego\AppData\Local\Temp\RtmpspK2ix//geoboundvignette'.</span></span>
 <span><span class="co">#&gt; ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.</span></span>
 <span></span>
 <span><span class="co"># Download the example data.</span></span>
 <span><span class="va">example</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/gb_get_adm.html">gb_get_adm0</a></span><span class="op">(</span><span class="st">"Vatican City"</span>, quiet <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ℹ Downloading file from &lt;https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/VAT/ADM0/geoBoundaries-VAT-ADM0-all.zip&gt;.</span></span>
-<span><span class="co">#&gt; → Cache directory is 'C:\Users\diego\AppData\Local\Temp\RtmpSqrxyL//geoboundvignette/gbOpen'.</span></span>
+<span><span class="co">#&gt; → Cache directory is 'C:\Users\diego\AppData\Local\Temp\RtmpspK2ix//geoboundvignette/gbOpen'.</span></span>
 <span></span>
 <span><span class="co"># Restore the cache directory.</span></span>
 <span><span class="fu"><a href="../reference/gb_set_cache_dir.html">gb_set_cache_dir</a></span><span class="op">(</span><span class="va">current</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ✔ geobounds cache directory is 'C:\Users\diego\AppData\Local\Temp\RtmpSqrxyL'.</span></span>
+<span><span class="co">#&gt; ✔ geobounds cache directory is 'C:\Users\diego\AppData\Local\Temp\RtmpspK2ix'.</span></span>
 <span><span class="co">#&gt; ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.</span></span>
 <span></span>
 <span><span class="va">current</span> <span class="op">==</span> <span class="fu"><a href="../reference/gb_detect_cache_dir.html">gb_detect_cache_dir</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpSqrxyL'</span></span>
+<span><span class="co">#&gt; ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpspK2ix'</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
 <p>To clear the cache, use <code><a href="../reference/gb_clear_cache.html">gb_clear_cache()</a></code>.</p>
 <p>Set a specific cache directory for each function call with the <code>cache_dir</code> argument.</p>
@@ -256,10 +256,10 @@ Map showing no overlap in Kashmir, provided by CGAZ.
 <span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Rows: 47</span></span>
 <span><span class="co">#&gt; Columns: 4</span></span>
-<span><span class="co">#&gt; $ boundaryISO          &lt;chr&gt; "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", "BLZ", "BOL", "BRA", "BRB", "CHL", …</span></span>
-<span><span class="co">#&gt; $ boundaryName         &lt;chr&gt; "Aruba", "Anguilla", "Argentina", "Antigua and Barbuda", "Bonaire Sint Eustatius and…</span></span>
-<span><span class="co">#&gt; $ Continent            &lt;chr&gt; "Latin America and the Caribbean", "Latin America and the Caribbean", "Latin America…</span></span>
-<span><span class="co">#&gt; $ worldBankIncomeGroup &lt;chr&gt; "High-income Countries", "No income group available", "High-income Countries", "High…</span></span>
+<span><span class="co">#&gt; $ boundaryISO          &lt;chr&gt; "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", "BLZ", "BOL", …</span></span>
+<span><span class="co">#&gt; $ boundaryName         &lt;chr&gt; "Aruba", "Anguilla", "Argentina", "Antigua and Barbuda", "Bonai…</span></span>
+<span><span class="co">#&gt; $ Continent            &lt;chr&gt; "Latin America and the Caribbean", "Latin America and the Carib…</span></span>
+<span><span class="co">#&gt; $ worldBankIncomeGroup &lt;chr&gt; "High-income Countries", "No income group available", "High-inc…</span></span>
 <span></span>
 <span><span class="co"># Adjust factors.</span></span>
 <span><span class="va">latam_meta</span><span class="op">$</span><span class="va">income_factor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span></span>
