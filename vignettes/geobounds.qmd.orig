@@ -104,9 +104,9 @@ files](https://www.geoboundaries.org/countryDownloads.html), whose aim is to
 represent every nation "as they would represent themselves", without special
 identification of disputed areas.
 
-Download individual country files with `gb_get()` or the `gb_get_adm*()`
-wrappers. Borders are not guaranteed to align perfectly, gaps may exist between
-countries and disputed territories may not be represented consistently.
+Download individual country files with `gb_get()` or the `?gb_get_adm` wrappers.
+Borders are not guaranteed to align perfectly, gaps may exist between countries
+and disputed territories may not be represented consistently.
 
 ```{r}
 #| label: intersect
