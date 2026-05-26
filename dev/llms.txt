@@ -258,17 +258,20 @@ boundary files.
 - [`gb_clear_cache()`](https://dieghernan.github.io/geobounds/dev/reference/gb_clear_cache.md)
   :
 
-  Clear the geobounds cache directory
+  Clear the [geobounds](https://CRAN.R-project.org/package=geobounds)
+  cache directory
 
 - [`gb_detect_cache_dir()`](https://dieghernan.github.io/geobounds/dev/reference/gb_detect_cache_dir.md)
   :
 
-  Detect the geobounds cache directory
+  Detect the [geobounds](https://CRAN.R-project.org/package=geobounds)
+  cache directory
 
 - [`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/dev/reference/gb_set_cache_dir.md)
   :
 
-  Set the geobounds cache directory
+  Set the [geobounds](https://CRAN.R-project.org/package=geobounds)
+  cache directory
 
 ## About the package
 
