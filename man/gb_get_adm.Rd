@@ -9,9 +9,9 @@
 \alias{gb_get_adm3}
 \alias{gb_get_adm4}
 \alias{gb_get_adm5}
-\title{Get country files from geoBoundaries for a given administrative level}
+\title{Get individual country files for a given administrative level}
 \source{
-geoBoundaries API Service \url{https://www.geoboundaries.org/api.html}.
+geoBoundaries API service \url{https://www.geoboundaries.org/api.html}.
 }
 \usage{
 gb_get_adm0(
@@ -71,17 +71,19 @@ gb_get_adm5(
 \arguments{
 \item{country}{A character vector of country codes. It can be either
 \code{"all"} (which returns the data for all countries), a vector of country
-names or ISO3 country codes. See also \code{\link[countrycode:countrycode]{countrycode::countrycode()}}.}
+names or ISO 3166-1 alpha-3 country codes. See also
+\code{\link[countrycode:countrycode]{countrycode::countrycode()}}.}
 
 \item{simplified}{Logical. If \code{TRUE}, return the simplified boundary. The
-default \code{FALSE} uses the primary geoBoundaries release.}
+default \code{FALSE} uses the primary geoBoundaries release. See simplified
+boundaries at \url{https://www.geoboundaries.org/}.}
 
 \item{release_type}{One of \code{"gbOpen"}, \code{"gbHumanitarian"} or
 \code{"gbAuthoritative"}. For most users, we suggest using \code{"gbOpen"}
 (the default), as it is CC BY 4.0 compliant and suitable for most purposes
 so long as attribution is provided. \code{"gbHumanitarian"} files are mirrored
-from \href{https://www.unocha.org/}{UN OCHA} and may have less open licensing.
-\code{"gbAuthoritative"} files are mirrored from UN SALB, are verified through
+from \href{https://www.unocha.org/}{UN OCHA} and may have less open licensure.
+\code{"gbAuthoritative"} files are mirrored from UN SALB, verified through
 in-country processes and cannot be used for commercial purposes.}
 
 \item{quiet}{Logical. If \code{TRUE}, suppress informational messages.}
@@ -92,7 +94,7 @@ in-country processes and cannot be used for commercial purposes.}
 \item{cache_dir}{A path to a cache directory. If not set (the default
 \code{NULL}), the data will be stored in the default cache directory (see
 \code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}). If no cache directory has been set, files will be
-stored in the temporary directory (see \code{base::tempdir()}). See caching
+stored in the temporary directory. See \code{\link[base:tempdir]{base::tempdir()}} and caching
 strategies in \code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}.}
 }
 \value{
@@ -101,12 +103,11 @@ A \code{\link[sf:st_sf]{sf}} object.
 \description{
 \href{https://www.geoboundaries.org/index.html#usage}{Attribution} is required
 for all uses of this dataset.
-}
-\details{
+
 These functions are wrappers around \code{\link[=gb_get]{gb_get()}} for extracting a given
 administrative level. \code{gb_get_adm0()} returns the country boundary,
-\code{gb_get_adm1()} returns first-level administrative boundaries (e.g. states
-in the United States), \code{gb_get_adm2()} returns second-level administrative
+\code{gb_get_adm1()} returns first-level subnational boundaries (e.g. states in
+the United States), \code{gb_get_adm2()} returns second-level subnational
 boundaries (e.g. counties in the United States), \code{gb_get_adm3()} returns
 third-level administrative boundaries (e.g. towns or cities in some
 countries), \code{gb_get_adm4()} returns fourth-level administrative boundaries
@@ -114,10 +115,11 @@ and \code{gb_get_adm5()} returns fifth-level administrative boundaries.
 
 Note that not all countries have the same number of levels. Check
 \code{\link[=gb_get_max_adm_lvl]{gb_get_max_adm_lvl()}}.
-
-Individual data files in the geoBoundaries database are governed by the
+}
+\details{
+Individual country files in the geoBoundaries database are governed by the
 license or licenses identified within the metadata for each respective
-boundary (see \code{\link[=gb_get_metadata]{gb_get_metadata()}}). Users of individual boundary files from
+boundary. See \code{\link[=gb_get_metadata]{gb_get_metadata()}}. Users of individual boundary files from
 geoBoundaries should also cite the sources provided in the metadata for each
 file.
 }
@@ -134,7 +136,7 @@ library(ggplot2)
 ggplot(lev2) +
   geom_sf(aes(fill = shapeGroup)) +
   labs(
-    title = "Second-level administration",
+    title = "Second-level administrative boundaries",
     subtitle = "Selected countries",
     caption = "Source: www.geoboundaries.org"
   )

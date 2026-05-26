@@ -1,16 +1,28 @@
 #' Set the \pkg{geobounds} cache directory
 #'
-#' @family cache utilities
-#' @seealso [tools::R_user_dir()]
-#' @encoding UTF-8
-#'
-#' @return
-#' An invisible character vector with the path to `cache_dir`.
-#'
 #' @description
 #' This function stores the `cache_dir` path on your local machine and loads it
 #' for future sessions. Use `gb_detect_cache_dir()` to find the cache directory
 #' path.
+#'
+#' @details
+#' By default, when no `cache_dir` is set the package uses a folder inside
+#' [base::tempdir()], so files are temporary and are removed when the **R**
+#' session ends. To persist a cache across **R** sessions, use
+#' `gb_set_cache_dir(path, install = TRUE)`, which writes the chosen path to a
+#' small configuration file under `tools::R_user_dir("geobounds", "config")`.
+#'
+#' @section Caching strategies:
+#'
+#' - For occasional use, rely on the default [tempdir()]-based cache with no
+#'   installation.
+#' - Modify the cache for a single session with
+#'   `gb_set_cache_dir(cache_dir = "a/path/here")`.
+#' - For reproducible workflows, install a persistent cache that is kept across
+#'   **R** sessions with
+#'   `gb_set_cache_dir(cache_dir = "a/path/here", install = TRUE)`.
+#' - To cache specific files, use the `cache_dir` argument in the corresponding
+#'   function. See [gb_get()].
 #'
 #' @param cache_dir A path to a cache directory. If missing, the function
 #'   will store the cache files in a temporary directory (see
@@ -20,26 +32,15 @@
 #'   is missing or empty, this parameter is set to `FALSE` automatically.
 #' @param overwrite Logical. If `TRUE`, overwrite an existing `cache_dir`.
 #'
-#' @details
-#' By default, when no `cache_dir` is set the package uses a folder inside
-#' [base::tempdir()] (so files are temporary and are removed when the **R**
-#' session ends). To persist a cache across **R** sessions, use
-#' `gb_set_cache_dir(path, install = TRUE)`, which writes the chosen path to a
-#' small configuration file under `tools::R_user_dir("geobounds", "config")`.
-#'
-#' @section Caching strategies:
-#'
-#' - For occasional use, rely on the default [tempdir()]-based cache (no
-#'   install).
-#' - Modify the cache for a single session with
-#'   `gb_set_cache_dir(cache_dir = "a/path/here")`.
-#' - For reproducible workflows, install a persistent cache that is kept across
-#'   **R** sessions with
-#'   `gb_set_cache_dir(cache_dir = "a/path/here", install = TRUE)`.
-#' - For caching specific files, use the `cache_dir` argument in the
-#'   corresponding function. See [gb_get()].
-#'
 #' @inheritParams gb_get
+#'
+#' @returns
+#' An invisible character vector with the path to `cache_dir`.
+#'
+#' @seealso [tools::R_user_dir()].
+#'
+#' @family cache utilities
+#'
 #' @examples
 #'
 #' # Caution! This may modify your current state.
@@ -60,6 +61,7 @@
 #'
 #' gb_detect_cache_dir()
 #' @export
+#' @encoding UTF-8
 gb_set_cache_dir <- function(
   cache_dir,
   overwrite = FALSE,
@@ -142,18 +144,18 @@ gb_set_cache_dir <- function(
 #'
 #' @param x Ignored.
 #'
-#' @return
+#' @returns
 #' A character vector with the path to your `cache_dir`. The same path also
 #' appears as a clickable message. See [`cli::inline-markup`].
 #'
-#' @export
-#' @encoding UTF-8
-#'
 #' @rdname gb_detect_cache_dir
 #' @family cache utilities
+#'
 #' @examples
 #' gb_detect_cache_dir()
 #'
+#' @export
+#' @encoding UTF-8
 gb_detect_cache_dir <- function(x = NULL) {
   # Keep the unused argument visible to linters.
   cd <- x
@@ -164,11 +166,6 @@ gb_detect_cache_dir <- function(x = NULL) {
 
 #' Clear the \pkg{geobounds} cache directory
 #'
-#' @family cache utilities
-#'
-#' @return [invisible()] This function is called for its side effects.
-#' @encoding UTF-8
-#'
 #' @description
 #' **Use this function with caution**. This function will clear your cached
 #' data and configuration, specifically:
@@ -178,15 +175,20 @@ gb_detect_cache_dir <- function(x = NULL) {
 #' - Deletes the `cache_dir` directory.
 #' - Deletes the values stored in `Sys.getenv("GEOBOUNDS_CACHE_DIR")`.
 #'
+#' @details
+#' This is a comprehensive reset function that resets your status as if you had
+#' never installed or used \pkg{geobounds}.
+#'
 #' @param config Logical. If `TRUE`, delete the configuration folder of
 #'   \pkg{geobounds}.
 #' @param cached_data Logical. If `TRUE`, delete `cache_dir` and all its
 #'   contents.
 #' @inheritParams gb_set_cache_dir
+#'
+#' @returns [invisible()] This function is called for its side effects.
+#'
 #' @rdname gb_clear_cache
-#' @details
-#' This is a comprehensive reset function that resets your status as if you had
-#' never installed or used \pkg{geobounds}.
+#' @family cache utilities
 #'
 #' @examples
 #'
@@ -206,6 +208,7 @@ gb_detect_cache_dir <- function(x = NULL) {
 #' }
 #'
 #' @export
+#' @encoding UTF-8
 gb_clear_cache <- function(config = FALSE, cached_data = TRUE, quiet = TRUE) {
   verbose <- isFALSE(quiet)
 

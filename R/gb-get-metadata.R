@@ -1,38 +1,25 @@
 #' Get metadata for individual country files from geoBoundaries
 #'
 #' @description
-#' This function returns metadata of the
+#' This function returns metadata from the
 #' [geoBoundaries API](https://www.geoboundaries.org/api.html).
-#'
-#' @return A [tibble][tibble::tbl_df].
-#'
-#' @inherit gb_get source
-#'
-#' @inheritParams gb_get
-#'
-#' @family metadata functions
-#'
-#' @export
-#' @encoding UTF-8
-#'
-#' @seealso [gb_get()]
 #'
 #' @details
 #' The result is a [tibble][tibble::tbl_df] with the following columns:
 #'
-#' - `boundaryID`: The ID for this layer, which combines the ISO code, the
-#'   boundary type and a unique identifier generated from the input metadata
-#'   and geometry. This only changes if the underlying data changes.
+#' - `boundaryID`: The ID for this layer. It combines the ISO code, boundary
+#'   type and a unique identifier generated from the input metadata and
+#'   geometry. This only changes if the underlying data changes.
 #' - `boundaryName`: The name of the country the layer represents.
-#' - `boundaryISO`: ISO-3166-1 (Alpha 3) code for the country.
+#' - `boundaryISO`: ISO 3166-1 alpha-3 code for the country.
 #' - `boundaryYearRepresented`: The year or range of years in `"START to END"`
-#'   format, which the boundary layers represent.
+#'   format that the boundary layers represent.
 #' - `boundaryType`: The type of boundary.
 #' - `boundaryCanonical`: The canonical name of a given boundary.
 #' - `boundarySource`: A comma-separated list of the primary sources for the
 #'   boundary.
-#' - `boundaryLicense`: The original license that the dataset was released
-#'   under by the primary source.
+#' - `boundaryLicense`: The original license under which the primary source
+#'   released the dataset.
 #' - `licenseDetail`: Any notes regarding the license.
 #' - `licenseSource`: The URL of the primary source.
 #' - `sourceDataUpdateDate`: The date the source information was integrated
@@ -52,28 +39,37 @@
 #' - `minVertices`: Minimum number of vertices defining a boundary.
 #' - `maxVertices`: Maximum number of vertices defining a boundary.
 #' - `minPerimeterLengthKM`: The minimum perimeter length of an administrative
-#'   unit in the layer, measured in kilometers (based on a World Equidistant
+#'   unit in the layer, measured in kilometers and based on a World Equidistant
 #'   Cylindrical projection).
 #' - `meanPerimeterLengthKM`: The mean perimeter length of an administrative
-#'   unit in the layer, measured in kilometers (based on a World Equidistant
+#'   unit in the layer, measured in kilometers and based on a World Equidistant
 #'   Cylindrical projection).
 #' - `maxPerimeterLengthKM`: The maximum perimeter length of an administrative
-#'   unit in the layer, measured in kilometers (based on a World Equidistant
+#'   unit in the layer, measured in kilometers and based on a World Equidistant
 #'   Cylindrical projection).
 #' - `meanAreaSqKM`: The mean area of all administrative units in the layer,
-#'   measured in square kilometers (based on an EASE-GRID 2 projection).
+#'   measured in square kilometers and based on an EASE-GRID 2 projection.
 #' - `minAreaSqKM`: The minimum area of an administrative unit in the layer,
-#'   measured in square kilometers (based on an EASE-GRID 2 projection).
+#'   measured in square kilometers and based on an EASE-GRID 2 projection.
 #' - `maxAreaSqKM`: The maximum area of an administrative unit in the layer,
-#'   measured in square kilometers (based on an EASE-GRID 2 projection).
+#'   measured in square kilometers and based on an EASE-GRID 2 projection.
 #' - `staticDownloadLink`: The static download link for the aggregate zip file
 #'   containing all boundary information.
-#' - `gjDownloadURL`: The static download link for the `geoJSON`.
-#' - `tjDownloadURL`: The static download link for the `topoJSON`.
+#' - `gjDownloadURL`: The static download link for the GeoJSON.
+#' - `tjDownloadURL`: The static download link for the TopoJSON.
 #' - `imagePreview`: The static download link for the automatically rendered
-#'   `PNG` of the layer.
+#'   PNG of the layer.
 #' - `simplifiedGeometryGeoJSON`: The static download link for the
-#'   simplified `geoJSON`.
+#'   simplified GeoJSON.
+#'
+#' @inherit gb_get source
+#' @inheritParams gb_get
+#'
+#' @returns A [tibble][tibble::tbl_df].
+#'
+#' @seealso [gb_get()].
+#'
+#' @family metadata functions
 #'
 #' @examplesIf identical(Sys.getenv("NOT_CRAN"), "true") || interactive()
 #' # Get metadata for ADM4 levels.
@@ -83,6 +79,8 @@
 #' gb_get_metadata(adm_lvl = "ADM4") |>
 #'   glimpse()
 #'
+#' @export
+#' @encoding UTF-8
 gb_get_metadata <- function(
   country = "all",
   adm_lvl = "all",
@@ -110,26 +108,12 @@ gb_get_metadata <- function(
 }
 
 gbnds_dev_meta_query <- function(url) {
-  # Prepare the request.
-  q <- httr2::request(url)
-  q <- httr2::req_error(q, is_error = function(x) {
-    FALSE
-  })
-  q <- httr2::req_retry(q, max_tries = 3, is_transient = function(resp) {
-    httr2::resp_status(resp) %in% c(429, 500, 503)
-  })
+  q <- gb_hlp_request(url)
   resp <- httr2::req_perform(q)
 
   # Report request errors and return `NULL`.
   if (httr2::resp_is_error(resp)) {
-    # nolint start
-    err <- paste0(
-      c(httr2::resp_status(resp), httr2::resp_status_desc(resp)),
-      collapse = " - "
-    )
-
-    # nolint end
-    cli::cli_alert_danger("{.url {url}} returned error {err}.")
+    gb_hlp_alert_http_error(url, resp)
 
     return(NULL)
   }
@@ -145,43 +129,30 @@ gbnds_dev_meta_query <- function(url) {
     tb <- dplyr::bind_rows(tb)
   }
   tb[tb == "nan"] <- NA
-  tb$admUnitCount <- as.numeric(tb$admUnitCount)
-  tb$meanVertices <- as.numeric(tb$meanVertices)
-  tb$minVertices <- as.numeric(tb$minVertices)
-  tb$maxVertices <- as.numeric(tb$maxVertices)
-  tb$minVertices <- as.numeric(tb$minVertices)
-  tb$meanPerimeterLengthKM <- as.numeric(tb$meanPerimeterLengthKM)
-  tb$minPerimeterLengthKM <- as.numeric(tb$minPerimeterLengthKM)
-  tb$maxPerimeterLengthKM <- as.numeric(tb$maxPerimeterLengthKM)
-  tb$meanAreaSqKM <- as.numeric(tb$meanAreaSqKM)
-  tb$minAreaSqKM <- as.numeric(tb$minAreaSqKM)
-  tb$maxAreaSqKM <- as.numeric(tb$maxAreaSqKM)
+  numeric_cols <- c(
+    "admUnitCount",
+    "meanVertices",
+    "minVertices",
+    "maxVertices",
+    "meanPerimeterLengthKM",
+    "minPerimeterLengthKM",
+    "maxPerimeterLengthKM",
+    "meanAreaSqKM",
+    "minAreaSqKM",
+    "maxAreaSqKM"
+  )
+  tb <- gb_hlp_as_numeric(tb, numeric_cols)
 
   # Convert date fields.
-  up <- tb$sourceDataUpdateDate
-  up <- trimws(gsub("Mon|Tue|Wed|Thu|Fri|Sat|Sun", "", up))
-  mabb <- month.abb
-  iter <- seq_along(mabb)
-  mnum <- sprintf("%02d", iter)
-
-  for (i in iter) {
-    up <- gsub(mabb[i], mnum[i], up)
-  }
-  upconv <- strptime(up, "%m %d %H:%M:%S %Y", tz = "GMT")
-  tb$sourceDataUpdateDate <- upconv
-
-  bd <- tb$buildDate
-  for (i in iter) {
-    bd <- gsub(mabb[i], mnum[i], bd)
-  }
-  bd <- gsub(",", "", bd, fixed = TRUE)
-  bdate <- as.Date(bd, "%m %d %Y")
-  tb$buildDate <- bdate
+  tb$sourceDataUpdateDate <- gb_hlp_parse_api_datetime(
+    tb$sourceDataUpdateDate
+  )
+  tb$buildDate <- gb_hlp_parse_api_date(tb$buildDate)
 
   tb
 }
 
-#' @export
 #' @rdname gb_get_metadata
 #' @usage NULL
+#' @export
 gb_get_meta <- gb_get_metadata

@@ -1,6 +1,8 @@
 ---
 title: "gbAuthoritative coverage and metadata"
-description: "Mirrored from UN SALB, verified through in-country processes and not for commercial use"
+description: |
+  Mirrored from UN SALB, verified through in-country processes and cannot be 
+  used for commercial purposes
 knitr:
   opts_chunk:
     collapse: true
@@ -65,7 +67,10 @@ ggplot(p) +
     legend.key.height = unit(1, "line"),
     legend.key.width = unit(1, "line")
   ) +
-  labs(fill = "Administrative Divisions (ADMs)")
+  labs(
+    fill = "Administrative levels (ADMs)",
+    caption = "Source: www.geoboundaries.org"
+  )
 ```
 
 ## `r src` metadata

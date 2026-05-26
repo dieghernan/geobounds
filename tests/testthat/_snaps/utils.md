@@ -10,8 +10,8 @@
     Code
       gbnds_dev_country2iso(c("ESP", "POR", "RTA", "USA"))
     Message
-      ! Some values did not match unambiguously: POR and RTA.
-      i Review the names or switch to ISO3 codes.
+      ! Some values could not be matched unambiguously: POR and RTA.
+      i Review the names or switch to ISO 3166-1 alpha-3 codes.
     Output
       [1] "ESP" "USA"
 
@@ -55,8 +55,8 @@
     Code
       gbnds_dev_country2iso(c("Spain", "Rea", "Kosovo", "Antartica", "Murcua"))
     Message
-      ! Some values did not match unambiguously: Rea and Murcua.
-      i Review the names or switch to ISO3 codes.
+      ! Some values could not be matched unambiguously: Rea and Murcua.
+      i Review the names or switch to ISO 3166-1 alpha-3 codes.
     Output
       [1] "ESP" "XKX" "ATA"
 

@@ -4,28 +4,40 @@
 #' [Attribution](https://www.geoboundaries.org/index.html#usage) is required
 #' for all uses of this dataset.
 #'
-#' This function returns data of individual countries "as they would represent
-#' themselves", with no special identification of disputed areas.
+#' This function returns individual country files "as they would represent
+#' themselves", without special identification of disputed areas.
 #'
-#' Use [gb_get_world()] for data that explicitly includes disputed areas.
+#' Use [gb_get_world()] for global composite files that include disputed areas.
 #'
-#' @export
+#' @details
+#' Individual country files in the geoBoundaries database are governed by the
+#' license or licenses identified within the metadata for each respective
+#' boundary. See [gb_get_metadata()]. Users of individual boundary files from
+#' geoBoundaries should also cite the sources provided in the metadata for each
+#' file. See **Examples**.
+#'
+#' The wrappers [gb_get_adm0()], [gb_get_adm1()], [gb_get_adm2()],
+#' [gb_get_adm3()], [gb_get_adm4()] and [gb_get_adm5()] are also available for
+#' requesting a single administrative level.
+#'
 #' @param country A character vector of country codes. It can be either
 #'   `"all"` (which returns the data for all countries), a vector of country
-#'   names or ISO3 country codes. See also [countrycode::countrycode()].
+#'   names or ISO 3166-1 alpha-3 country codes. See also
+#'   [countrycode::countrycode()].
 #' @param adm_lvl Type of boundary. Accepted values are `"all"` (all
 #'   available boundaries) or the ADM level (`"adm0"` is the country boundary,
-#'   `"adm1"` is the first level of sub-national boundaries, `"adm2"` is the
+#'   `"adm1"` is the first level of subnational boundaries, `"adm2"` is the
 #'   second level and so on). Upper-case versions (`"ADM1"`) and the number of
 #'   the level (`1, 2, 3, 4, 5`) are also accepted.
 #' @param simplified Logical. If `TRUE`, return the simplified boundary. The
-#'   default `FALSE` uses the primary geoBoundaries release.
+#'   default `FALSE` uses the primary geoBoundaries release. See simplified
+#'   boundaries at <https://www.geoboundaries.org/>.
 #' @param release_type One of `"gbOpen"`, `"gbHumanitarian"` or
 #'   `"gbAuthoritative"`. For most users, we suggest using `"gbOpen"`
 #'   (the default), as it is CC BY 4.0 compliant and suitable for most purposes
 #'   so long as attribution is provided. `"gbHumanitarian"` files are mirrored
-#'   from [UN OCHA](https://www.unocha.org/) and may have less open licensing.
-#'   `"gbAuthoritative"` files are mirrored from UN SALB, are verified through
+#'   from [UN OCHA](https://www.unocha.org/) and may have less open licensure.
+#'   `"gbAuthoritative"` files are mirrored from UN SALB, verified through
 #'   in-country processes and cannot be used for commercial purposes.
 #' @param quiet Logical. If `TRUE`, suppress informational messages.
 #' @param overwrite Logical. If `TRUE`, force a fresh download of the source
@@ -33,25 +45,13 @@
 #' @param cache_dir A path to a cache directory. If not set (the default
 #'   `NULL`), the data will be stored in the default cache directory (see
 #'   [gb_set_cache_dir()]). If no cache directory has been set, files will be
-#'   stored in the temporary directory (see `base::tempdir()`). See caching
+#'   stored in the temporary directory. See [base::tempdir()] and caching
 #'   strategies in [gb_set_cache_dir()].
 #'
-#' @details
-#' Individual data files in the geoBoundaries database are governed by the
-#' license or licenses identified within the metadata for each respective
-#' boundary (see [gb_get_metadata()]). Users of individual boundary files from
-#' geoBoundaries should also cite the sources provided in the metadata for each
-#' file. See **Examples**.
-#'
-#' The wrappers [gb_get_adm0()], [gb_get_adm1()], [gb_get_adm2()],
-#' [gb_get_adm3()], [gb_get_adm4()] and [gb_get_adm5()] are also available
-#' for requesting a single administrative level.
-#'
-#' @return A [`sf`][sf::st_sf] object.
-#' @encoding UTF-8
+#' @returns A [`sf`][sf::st_sf] object.
 #'
 #' @source
-#' geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
+#' geoBoundaries API service <https://www.geoboundaries.org/api.html>.
 #'
 #' @references
 #' Runfola, D. et al. (2020) geoBoundaries: A global database of political
@@ -87,6 +87,8 @@
 #'   select(boundaryISO, boundaryType, licenseDetail, licenseSource) |>
 #'   glimpse()
 #'
+#' @export
+#' @encoding UTF-8
 gb_get <- function(
   country,
   adm_lvl = "adm0",
@@ -108,16 +110,13 @@ gb_get <- function(
   )
 
   if (nrow(meta_df) == 0) {
-    cli::cli_alert_danger("Nothing to download. Returning {.code NULL}.")
+    cli::cli_alert_danger(
+      "No matching boundary files found. Returning {.code NULL}."
+    )
     return(NULL)
   }
 
-  url_bound <- meta_df$staticDownloadLink
-
-  # Remove duplicate and empty download URLs.
-  url_bound <- unique(url_bound)
-  url_bound <- url_bound[!is.na(url_bound)]
-  url_bound <- url_bound[!is.null(url_bound)]
+  url_bound <- gb_hlp_unique_values(meta_df$staticDownloadLink)
 
   # Download and combine boundary files.
   res_sf <- lapply(url_bound, function(x) {
@@ -168,30 +167,13 @@ gbnds_dev_shp_query <- function(
       cli::cli_alert("Cache directory is {.path {path}}.")
     }
 
-    # Prepare the request.
-    q <- httr2::request(url)
-    q <- httr2::req_error(q, is_error = function(x) {
-      FALSE
-    })
-    q <- httr2::req_retry(q, max_tries = 3, is_transient = function(resp) {
-      httr2::resp_status(resp) %in% c(429, 500, 503)
-    })
-    if (!quiet) {
-      q <- httr2::req_progress(q)
-    }
+    q <- gb_hlp_request(url, quiet = quiet)
     get <- httr2::req_perform(q, path = file_local) # nolint
 
     # Report download errors and return `NULL`.
     if (httr2::resp_is_error(get)) {
       unlink(file_local, force = TRUE)
-      # nolint start
-      err <- paste0(
-        c(httr2::resp_status(get), httr2::resp_status_desc(get)),
-        collapse = " - "
-      )
-
-      # nolint end
-      cli::cli_alert_danger("{.url {url}} returned error {err}.")
+      gb_hlp_alert_http_error(url, get)
 
       return(NULL)
     }
@@ -199,13 +181,7 @@ gbnds_dev_shp_query <- function(
 
   # Select the requested shapefile from the archive.
   shp_zip <- unzip(file_local, list = TRUE)
-  shp_zip <- shp_zip$Name
-  shp_zip <- shp_zip[grepl("shp$", shp_zip)]
-  if (simplified) {
-    shp_end <- shp_zip[grepl("simplified", shp_zip, fixed = TRUE)]
-  } else {
-    shp_end <- shp_zip[!grepl("simplified", shp_zip, fixed = TRUE)]
-  }
+  shp_end <- gb_hlp_select_shapefile(shp_zip$Name, simplified = simplified)
 
   # Read through GDAL's `/vsizip/` virtual file system.
   shp_read <- file.path("/vsizip/", file_local, shp_end)

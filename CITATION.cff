@@ -8,7 +8,7 @@ message: 'To cite package "geobounds" in publications use:'
 type: software
 license: CC-BY-4.0
 title: 'geobounds: Download Administrative Boundary Data from ''geoBoundaries'''
-version: 0.1.1
+version: 0.1.1.9000
 doi: 10.32614/CRAN.package.geobounds
 identifiers:
 - type: doi
@@ -32,7 +32,7 @@ preferred-citation:
     email: diego.hernangomezherrero@gmail.com
     orcid: https://orcid.org/0000-0001-8457-4658
   year: '2026'
-  version: 0.1.1
+  version: 0.1.1.9000
   url: https://dieghernan.github.io/geobounds/
   abstract: 'Tools for downloading administrative boundary data from geoBoundaries
     <https://www.geoboundaries.org/> across multiple administrative levels. Boundary

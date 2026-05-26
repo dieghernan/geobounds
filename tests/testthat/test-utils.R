@@ -84,6 +84,49 @@ test_that("Assert admin levels", {
   expect_identical(vec_integers, paste0("ADM", 0:5))
 })
 
+test_that("Internal helpers clean and parse common API values", {
+  expect_identical(
+    gb_hlp_unique_values(c("a", "a", NA_character_, "b")),
+    c("a", "b")
+  )
+
+  tb <- dplyr::tibble(one = "1", two = "2", three = "three")
+  out <- gb_hlp_as_numeric(tb, c("one", "two", "missing"))
+  expect_identical(out$one, 1)
+  expect_identical(out$two, 2)
+  expect_identical(out$three, "three")
+
+  api_datetime <- "Mon Jan 02 03:04:05 2023"
+  parsed_datetime <- gb_hlp_parse_api_datetime(api_datetime)
+  expect_s3_class(parsed_datetime, "POSIXlt")
+  expect_identical(
+    strftime(parsed_datetime, "%Y-%m-%d %H:%M:%S", tz = "GMT"),
+    "2023-01-02 03:04:05"
+  )
+
+  expect_identical(
+    gb_hlp_parse_api_date("Jan 02, 2023"),
+    as.Date("2023-01-02")
+  )
+})
+
+test_that("Internal shapefile selection respects simplified files", {
+  shp_files <- c(
+    "folder/source.shp",
+    "folder/source.dbf",
+    "folder/source_simplified.shp"
+  )
+
+  expect_identical(
+    gb_hlp_select_shapefile(shp_files, simplified = FALSE),
+    "folder/source.shp"
+  )
+  expect_identical(
+    gb_hlp_select_shapefile(shp_files, simplified = TRUE),
+    "folder/source_simplified.shp"
+  )
+})
+
 test_that("UTF-8", {
   skip_on_cran()
   skip_if_offline()
