@@ -1,3 +1,9 @@
+# geobounds (development version)
+
+- Documentation and internal code were reviewed with AI assistance to improve
+  maintainability, align terminology across **roxygen2** and narrative
+  documentation, and clarify user-facing messages.
+
 # geobounds 0.1.1
 
 - Migrated package documentation to Quarto.

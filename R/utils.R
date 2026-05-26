@@ -19,13 +19,86 @@ assert_adm_lvl <- function(adm_lvl, dict = c("all", paste0("adm", 0:5), 0:5)) {
   toupper(adm_lvl)
 }
 
+gb_hlp_request <- function(url, quiet = TRUE) {
+  q <- httr2::request(url)
+  q <- httr2::req_error(q, is_error = function(x) {
+    FALSE
+  })
+  q <- httr2::req_retry(q, max_tries = 3, is_transient = function(resp) {
+    httr2::resp_status(resp) %in% c(429, 500, 503)
+  })
+
+  if (quiet) {
+    return(q)
+  }
+
+  httr2::req_progress(q)
+}
+
+gb_hlp_http_error <- function(resp) {
+  paste0(
+    c(httr2::resp_status(resp), httr2::resp_status_desc(resp)),
+    collapse = " - "
+  )
+}
+
+gb_hlp_alert_http_error <- function(url, resp) {
+  cli::cli_alert_danger(
+    "{.url {url}} returned HTTP error {gb_hlp_http_error(resp)}."
+  )
+}
+
+gb_hlp_unique_values <- function(x) {
+  x <- unique(x)
+  x[!is.na(x)]
+}
+
+gb_hlp_select_shapefile <- function(files, simplified = FALSE) {
+  shp_files <- files[grepl("shp$", files)]
+  simplified_file <- grepl("simplified", shp_files, fixed = TRUE)
+
+  if (simplified) {
+    return(shp_files[simplified_file])
+  }
+
+  shp_files[!simplified_file]
+}
+
+gb_hlp_as_numeric <- function(data, cols) {
+  cols <- intersect(cols, names(data))
+  data[cols] <- lapply(data[cols], as.numeric)
+  data
+}
+
+gb_hlp_parse_api_datetime <- function(x) {
+  x <- trimws(gsub("Mon|Tue|Wed|Thu|Fri|Sat|Sun", "", x))
+  x <- gb_hlp_replace_month_abbr(x)
+  strptime(x, "%m %d %H:%M:%S %Y", tz = "GMT")
+}
+
+gb_hlp_parse_api_date <- function(x) {
+  x <- gb_hlp_replace_month_abbr(x)
+  x <- gsub(",", "", x, fixed = TRUE)
+  as.Date(x, "%m %d %Y")
+}
+
+gb_hlp_replace_month_abbr <- function(x) {
+  mnum <- sprintf("%02d", seq_along(month.abb))
+
+  for (i in seq_along(month.abb)) {
+    x <- gsub(month.abb[i], mnum[i], x)
+  }
+
+  x
+}
+
 #' Convert country names to codes
 #'
 #' @param names A vector of country names or codes.
 #'
 #' @param out The output code format.
 #'
-#' @return A vector of country codes.
+#' @returns A vector of country codes.
 #'
 #' @noRd
 gbnds_dev_country2iso <- function(names, out = "iso3c") {
@@ -49,9 +122,10 @@ gbnds_dev_country2iso <- function(names, out = "iso3c") {
     } else if (maxname == 3) {
       outnames <- countrycode::countrycode(x, "iso3c", out, warn = FALSE)
     } else {
-      cli::cli_abort(
-        "Invalid country names. Try a vector of names or ISO3 codes."
-      )
+      cli::cli_abort(paste0(
+        "Invalid country values. Use country names or ",
+        "ISO 3166-1 alpha-3 codes."
+      ))
     }
     outnames
   })
@@ -62,8 +136,14 @@ gbnds_dev_country2iso <- function(names, out = "iso3c") {
   lend <- length(outnames2)
   if (linit != lend) {
     ff <- names[is.na(outnames)] # nolint
-    cli::cli_alert_warning("Some values did not match unambiguously: {ff}.")
-    cli::cli_alert_info("Review the names or switch to ISO3 codes.")
+    cli::cli_alert_warning(paste0(
+      "Some values could not be matched unambiguously: ",
+      "{ff}."
+    ))
+    cli::cli_alert_info(paste0(
+      "Review the names or switch to ISO 3166-1 alpha-3 ",
+      "codes."
+    ))
   }
 
   outnames2
@@ -130,7 +210,7 @@ gbnds_dev_sf_helper <- function(data_sf) {
 #' @param arg The argument to match.
 #' @param choices The possible choices for the argument.
 #'
-#' @return
+#' @returns
 #' The matched argument.
 #'
 #' @noRd

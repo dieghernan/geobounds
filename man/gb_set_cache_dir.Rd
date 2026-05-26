@@ -30,23 +30,23 @@ path.
 }
 \details{
 By default, when no \code{cache_dir} is set the package uses a folder inside
-\code{\link[base:tempdir]{base::tempdir()}} (so files are temporary and are removed when the \strong{R}
-session ends). To persist a cache across \strong{R} sessions, use
+\code{\link[base:tempdir]{base::tempdir()}}, so files are temporary and are removed when the \strong{R}
+session ends. To persist a cache across \strong{R} sessions, use
 \code{gb_set_cache_dir(path, install = TRUE)}, which writes the chosen path to a
 small configuration file under \code{tools::R_user_dir("geobounds", "config")}.
 }
 \section{Caching strategies}{
 
 \itemize{
-\item For occasional use, rely on the default \code{\link[=tempdir]{tempdir()}}-based cache (no
-install).
+\item For occasional use, rely on the default \code{\link[=tempdir]{tempdir()}}-based cache with no
+installation.
 \item Modify the cache for a single session with
 \code{gb_set_cache_dir(cache_dir = "a/path/here")}.
 \item For reproducible workflows, install a persistent cache that is kept across
 \strong{R} sessions with
 \code{gb_set_cache_dir(cache_dir = "a/path/here", install = TRUE)}.
-\item For caching specific files, use the \code{cache_dir} argument in the
-corresponding function. See \code{\link[=gb_get]{gb_get()}}.
+\item To cache specific files, use the \code{cache_dir} argument in the corresponding
+function. See \code{\link[=gb_get]{gb_get()}}.
 }
 }
 
@@ -71,7 +71,7 @@ identical(my_cache, gb_detect_cache_dir())
 gb_detect_cache_dir()
 }
 \seealso{
-\code{\link[tools:R_user_dir]{tools::R_user_dir()}}
+\code{\link[tools:R_user_dir]{tools::R_user_dir()}}.
 
 Other cache utilities:
 \code{\link[=gb_clear_cache]{gb_clear_cache()}},

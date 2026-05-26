@@ -1,6 +1,7 @@
 ---
 title: "gbOpen coverage and metadata"
-description: "gbOpen is CC BY 4.0 compliant and suitable for most users"
+description: |
+  gbOpen is CC BY 4.0 compliant when attribution is provided
 knitr:
   opts_chunk:
     collapse: true
@@ -66,7 +67,8 @@ ggplot(p) +
     legend.key.width = unit(1, "line")
   ) +
   labs(
-    fill = "Administrative Divisions (ADMs)"
+    fill = "Administrative levels (ADMs)",
+    caption = "Source: www.geoboundaries.org"
   )
 ```
 

@@ -47,10 +47,9 @@ home:
 reference:
 - title: Boundaries
   desc: >
-    Download individual country boundaries or global composite boundaries as
+    Download individual country files or global composite files as
     <a href="https://CRAN.R-project.org/package=sf"
-    class="external-link"><span class="pkg">sf</span></a> objects with political
-    and administrative boundaries.
+    class="external-link"><span class="pkg">sf</span></a> objects.
   contents:
   - has_concept("API functions")
 - title: Metadata
