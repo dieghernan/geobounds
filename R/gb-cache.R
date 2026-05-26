@@ -7,8 +7,8 @@
 #'
 #' @details
 #' By default, when no `cache_dir` is set the package uses a folder inside
-#' [base::tempdir()], so files are temporary and are removed when the **R**
-#' session ends. To persist a cache across **R** sessions, use
+#' [base::tempdir()], so files are temporary and are removed when the \R
+#' session ends. To persist a cache across \R sessions, use
 #' `gb_set_cache_dir(path, install = TRUE)`, which writes the chosen path to a
 #' small configuration file under `tools::R_user_dir("geobounds", "config")`.
 #'
@@ -19,7 +19,7 @@
 #' - Modify the cache for a single session with
 #'   `gb_set_cache_dir(cache_dir = "a/path/here")`.
 #' - For reproducible workflows, install a persistent cache that is kept across
-#'   **R** sessions with
+#'   \R sessions with
 #'   `gb_set_cache_dir(cache_dir = "a/path/here", install = TRUE)`.
 #' - To cache specific files, use the `cache_dir` argument in the corresponding
 #'   function. See [gb_get()].
