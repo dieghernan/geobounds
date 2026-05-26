@@ -1,4 +1,4 @@
-#' Set the \pkg{geobounds} cache directory
+#' Set the \CRANpkg{geobounds} cache directory
 #'
 #' @description
 #' This function stores the `cache_dir` path on your local machine and loads it
@@ -137,7 +137,7 @@ gb_set_cache_dir <- function(
   invisible(cache_dir)
 }
 
-#' Detect the \pkg{geobounds} cache directory
+#' Detect the \CRANpkg{geobounds} cache directory
 #'
 #' @description
 #' Detect the current cache folder. See [gb_set_cache_dir()].
@@ -164,23 +164,23 @@ gb_detect_cache_dir <- function(x = NULL) {
   cd
 }
 
-#' Clear the \pkg{geobounds} cache directory
+#' Clear the \CRANpkg{geobounds} cache directory
 #'
 #' @description
 #' **Use this function with caution**. This function will clear your cached
 #' data and configuration, specifically:
 #'
-#' - Deletes the \pkg{geobounds} config directory
+#' - Deletes the \CRANpkg{geobounds} config directory
 #'   (`tools::R_user_dir("geobounds", "config")`).
 #' - Deletes the `cache_dir` directory.
 #' - Deletes the values stored in `Sys.getenv("GEOBOUNDS_CACHE_DIR")`.
 #'
 #' @details
 #' This is a comprehensive reset function that resets your status as if you had
-#' never installed or used \pkg{geobounds}.
+#' never installed or used \CRANpkg{geobounds}.
 #'
 #' @param config Logical. If `TRUE`, delete the configuration folder of
-#'   \pkg{geobounds}.
+#'   \CRANpkg{geobounds}.
 #' @param cached_data Logical. If `TRUE`, delete `cache_dir` and all its
 #'   contents.
 #' @inheritParams gb_set_cache_dir

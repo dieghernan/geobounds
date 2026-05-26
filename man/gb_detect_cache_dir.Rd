@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{gb_detect_cache_dir}
 \alias{gb_detect_cache_dir}
-\title{Detect the \pkg{geobounds} cache directory}
+\title{Detect the \CRANpkg{geobounds} cache directory}
 \usage{
 gb_detect_cache_dir(x = NULL)
 }

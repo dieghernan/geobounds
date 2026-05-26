@@ -3,13 +3,13 @@
 \encoding{UTF-8}
 \name{gb_clear_cache}
 \alias{gb_clear_cache}
-\title{Clear the \pkg{geobounds} cache directory}
+\title{Clear the \CRANpkg{geobounds} cache directory}
 \usage{
 gb_clear_cache(config = FALSE, cached_data = TRUE, quiet = TRUE)
 }
 \arguments{
 \item{config}{Logical. If \code{TRUE}, delete the configuration folder of
-\pkg{geobounds}.}
+\CRANpkg{geobounds}.}
 
 \item{cached_data}{Logical. If \code{TRUE}, delete \code{cache_dir} and all its
 contents.}
@@ -23,7 +23,7 @@ contents.}
 \strong{Use this function with caution}. This function will clear your cached
 data and configuration, specifically:
 \itemize{
-\item Deletes the \pkg{geobounds} config directory
+\item Deletes the \CRANpkg{geobounds} config directory
 (\code{tools::R_user_dir("geobounds", "config")}).
 \item Deletes the \code{cache_dir} directory.
 \item Deletes the values stored in \code{Sys.getenv("GEOBOUNDS_CACHE_DIR")}.
@@ -31,7 +31,7 @@ data and configuration, specifically:
 }
 \details{
 This is a comprehensive reset function that resets your status as if you had
-never installed or used \pkg{geobounds}.
+never installed or used \CRANpkg{geobounds}.
 }
 \examples{
 

@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{gb_set_cache_dir}
 \alias{gb_set_cache_dir}
-\title{Set the \pkg{geobounds} cache directory}
+\title{Set the \CRANpkg{geobounds} cache directory}
 \usage{
 gb_set_cache_dir(cache_dir, overwrite = FALSE, install = FALSE, quiet = FALSE)
 }

@@ -192,8 +192,7 @@ gb_set_cache_dir(newdir)
 
 # Download the example data.
 example <- gb_get_adm0("Vatican City", quiet = FALSE)
-#> ℹ Downloading file from <https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/VAT/ADM0/geoBoundaries-VAT-ADM0-all.zip>.
-#> → Cache directory is 'C:\Users\diego\AppData\Local\Temp\RtmpspK2ix//geoboundvignette/gbOpen'.
+#> ✔ File 'C:\Users\diego\AppData\Local\Temp\RtmpspK2ix/geoboundvignette/gbOpen/geoBoundaries-VAT-ADM0-all.zip' already cached.
 
 # Restore the cache directory.
 gb_set_cache_dir(current)
