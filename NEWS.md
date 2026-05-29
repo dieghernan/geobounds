@@ -1,4 +1,4 @@
-# geobounds (development version)
+# geobounds 0.1.2
 
 - Documentation and internal code were reviewed with AI assistance to improve
   maintainability, align terminology across **roxygen2** and narrative
