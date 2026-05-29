@@ -2,9 +2,8 @@
 
 ## Boundaries
 
-Download individual country boundaries or global composite boundaries as
-[sf](https://CRAN.R-project.org/package=sf) objects with political and
-administrative boundaries.
+Download individual country files or global composite files as
+[sf](https://CRAN.R-project.org/package=sf) objects.
 
 - [`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md)
   : Get individual country files from geoBoundaries
@@ -14,10 +13,9 @@ administrative boundaries.
   [`gb_get_adm3()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
   [`gb_get_adm4()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
   [`gb_get_adm5()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
-  : Get country files from geoBoundaries for a given administrative
-  level
+  : Get individual country files for a given administrative level
 - [`gb_get_world()`](https://dieghernan.github.io/geobounds/reference/gb_get_world.md)
-  : Get global composite data (CGAZ) from geoBoundaries
+  : Get global composite files (CGAZ) from geoBoundaries
 
 ## Metadata
 
@@ -37,17 +35,20 @@ boundary files.
 - [`gb_clear_cache()`](https://dieghernan.github.io/geobounds/reference/gb_clear_cache.md)
   :
 
-  Clear the geobounds cache directory
+  Clear the [geobounds](https://CRAN.R-project.org/package=geobounds)
+  cache directory
 
 - [`gb_detect_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_detect_cache_dir.md)
   :
 
-  Detect the geobounds cache directory
+  Detect the [geobounds](https://CRAN.R-project.org/package=geobounds)
+  cache directory
 
 - [`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_set_cache_dir.md)
   :
 
-  Set the geobounds cache directory
+  Set the [geobounds](https://CRAN.R-project.org/package=geobounds)
+  cache directory
 
 ## About the package
 

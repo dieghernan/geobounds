@@ -14,15 +14,15 @@ gb_get_max_adm_lvl(
 
 ## Source
 
-geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
+geoBoundaries API service <https://www.geoboundaries.org/api.html>.
 
 ## Arguments
 
 - country:
 
   A character vector of country codes. It can be either `"all"` (which
-  returns the data for all countries), a vector of country names or ISO3
-  country codes. See also
+  returns the data for all countries), a vector of country names or ISO
+  3166-1 alpha-3 country codes. See also
   [`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/man/countrycode.html).
 
 - release_type:
@@ -31,10 +31,9 @@ geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
   users, we suggest using `"gbOpen"` (the default), as it is CC BY 4.0
   compliant and suitable for most purposes so long as attribution is
   provided. `"gbHumanitarian"` files are mirrored from [UN
-  OCHA](https://www.unocha.org/) and may have less open licensing.
-  `"gbAuthoritative"` files are mirrored from UN SALB, are verified
-  through in-country processes and cannot be used for commercial
-  purposes.
+  OCHA](https://www.unocha.org/) and may have less open licensure.
+  `"gbAuthoritative"` files are mirrored from UN SALB, verified through
+  in-country processes and cannot be used for commercial purposes.
 
 ## Value
 

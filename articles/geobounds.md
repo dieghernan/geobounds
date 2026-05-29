@@ -8,22 +8,21 @@ required when using geoBoundaries.
 ## Introduction
 
 The **geobounds** package provides a straightforward interface for
-downloading and working with global political and administrative
-boundary data from the [geoBoundaries](https://www.geoboundaries.org/)
-project ([Runfola et al. 2020](#ref-10.1371/journal.pone.0231866)).
+downloading and working with global administrative boundary data from
+the [**geoBoundaries**](https://www.geoboundaries.org/) project
+([Runfola et al. 2020](#ref-10.1371/journal.pone.0231866)).
 
-The default gbOpen release is openly licensed ([CC BY
-4.0](https://creativecommons.org/licenses/by/4.0/)) and covers countries
-worldwide across multiple administrative levels. The package also
-supports gbHumanitarian and gbAuthoritative releases, which vary in
-source, validation process and licensing. With **geobounds**, you can
-fetch boundary geometries as **sf** objects, explore metadata, cache
-datasets locally and integrate the boundaries into your spatial
-workflows.
+The default gbOpen release is CC BY 4.0 compliant when attribution is
+provided and covers countries worldwide across multiple administrative
+levels. The package also supports gbHumanitarian and gbAuthoritative
+release types, which vary in source, validation process and licensing.
+With **geobounds**, you can fetch boundary geometries as **sf** objects,
+explore metadata, cache datasets locally and integrate the boundaries
+into your spatial workflows.
 
 ## Understanding the data
 
-The geoBoundaries database undergoes a rigorous quality assurance
+The **geoBoundaries** database undergoes a rigorous quality assurance
 process, including manual review and hand-digitization of physical maps
 where necessary. Its primary goal is to provide the highest possible
 level of spatial accuracy for scientific and academic applications.
@@ -66,18 +65,18 @@ Comparison between full vs. simplified map.
 
 ### Individual country files
 
-The geoBoundaries API provides [individual country
+The **geoBoundaries** API provides [individual country
 files](https://www.geoboundaries.org/countryDownloads.html), whose aim
-is to represent every nation “as they would represent themselves”, with
-no special identification of disputed areas.
+is to represent every nation “as they would represent themselves”,
+without special identification of disputed areas.
 
-The download of these data is implemented in
+Download individual country files with
 [`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md)
-and the
+or the
 [`?gb_get_adm`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
-family of functions. Borders are not guaranteed to align perfectly, gaps
-may exist between countries and disputed territories may not be
-represented consistently.
+wrappers. Borders are not guaranteed to align perfectly, gaps may exist
+between countries and disputed territories may not be represented
+consistently.
 
 ``` r
 
@@ -99,29 +98,29 @@ ggplot(india_pak) +
 
 Map showing overlap in the disputed Kashmir area.
 
-Note that individual data files are governed by the license or licenses
-identified within the metadata for each respective boundary.
+Note that individual country files are governed by the license or
+licenses identified within the metadata for each respective boundary.
 
 ``` r
 
 gb_get_metadata(c("India", "Pakistan"), adm_lvl = "ADM0") |>
   select(boundaryName, boundaryLicense, boundarySource)
 #> # A tibble: 2 × 3
-#>   boundaryName boundaryLicense                                      boundarySource             
-#>   <chr>        <chr>                                                <chr>                      
-#> 1 India        CC0 1.0 Universal (CC0 1.0) Public Domain Dedication geoBoundaries, Wikimedia C…
-#> 2 Pakistan     Open Data Commons Open Database License 1.0          OpenStreetMap, Wambacher
+#>   boundaryName boundaryLicense                      boundarySource
+#>   <chr>        <chr>                                <chr>         
+#> 1 India        CC0 1.0 Universal (CC0 1.0) Public … geoBoundaries…
+#> 2 Pakistan     Open Data Commons Open Database Lic… OpenStreetMap…
 ```
 
-### Composite files
+### Global composite files
 
 Use
 [`gb_get_world()`](https://dieghernan.github.io/geobounds/reference/gb_get_world.md)
 for data where disputed areas are explicitly handled by removing
 overlaps and filling gaps. This function downloads global composite
-datasets for administrative boundaries, also known as CGAZ
-(Comprehensive Global Administrative Zones). There are three important
-distinctions between CGAZ and individual country downloads:
+files for administrative boundaries, also known as Comprehensive Global
+Administrative Zones (CGAZ). There are three important distinctions
+between CGAZ and individual country files:
 
 1.  Extensive simplification is performed to ensure that file sizes are
     small enough to be used in most traditional desktop software.
@@ -151,36 +150,36 @@ Map showing no overlap in Kashmir, provided by CGAZ.
 ## Caching and performance
 
 The package provides a built-in mechanism to cache files locally so that
-repeated downloads for the same country/level will use the cached
-version. For example:
+repeated downloads for the same country and administrative level use the
+cached version. For example:
 
 ``` r
 
 # Show the current folder.
 current <- gb_detect_cache_dir()
-#> ℹ 'C:\Users\diego\AppData\Local\Temp\Rtmpm81cjA'
+#> ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpoLuvEM'
 
 current
-#> [1] "C:\\Users\\diego\\AppData\\Local\\Temp\\Rtmpm81cjA"
+#> [1] "C:\\Users\\diego\\AppData\\Local\\Temp\\RtmpoLuvEM"
 
 # Change to a new folder.
 newdir <- file.path(tempdir(), "/geoboundvignette")
 gb_set_cache_dir(newdir)
-#> ✔ geobounds cache directory is 'C:\Users\diego\AppData\Local\Temp\Rtmpm81cjA//geoboundvignette'.
+#> ✔ geobounds cache directory is 'C:\Users\diego\AppData\Local\Temp\RtmpoLuvEM//geoboundvignette'.
 #> ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.
 
 # Download the example data.
 example <- gb_get_adm0("Vatican City", quiet = FALSE)
 #> ℹ Downloading file from <https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/VAT/ADM0/geoBoundaries-VAT-ADM0-all.zip>.
-#> → Cache directory is 'C:\Users\diego\AppData\Local\Temp\Rtmpm81cjA//geoboundvignette/gbOpen'.
+#> → Cache directory is 'C:\Users\diego\AppData\Local\Temp\RtmpoLuvEM//geoboundvignette/gbOpen'.
 
 # Restore the cache directory.
 gb_set_cache_dir(current)
-#> ✔ geobounds cache directory is 'C:\Users\diego\AppData\Local\Temp\Rtmpm81cjA'.
+#> ✔ geobounds cache directory is 'C:\Users\diego\AppData\Local\Temp\RtmpoLuvEM'.
 #> ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.
 
 current == gb_detect_cache_dir()
-#> ℹ 'C:\Users\diego\AppData\Local\Temp\Rtmpm81cjA'
+#> ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpoLuvEM'
 #> [1] TRUE
 ```
 
@@ -192,16 +191,16 @@ Set a specific cache directory for each function call with the
 
 ## Use in spatial analysis pipelines
 
-Because the boundaries are returned as **sf** objects, you can easily
-use them in combination with other spatial data:
+Because the boundaries are returned as **sf** objects, you can use them
+with other spatial data:
 
 - Clip raster data to administrative units.
 - Compute zonal statistics.
 - Create choropleth maps.
 - Perform spatial joins with survey or tabular data.
 
-This example creates a choropleth map using metadata from the individual
-files and boundary data from CGAZ:
+This example creates a choropleth map using metadata from individual
+country files and boundary data from CGAZ:
 
 ``` r
 
@@ -213,10 +212,10 @@ latam_meta <- gb_get_metadata(adm_lvl = "ADM0") |>
   glimpse()
 #> Rows: 47
 #> Columns: 4
-#> $ boundaryISO          <chr> "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", "BLZ", "BOL", "…
-#> $ boundaryName         <chr> "Aruba", "Anguilla", "Argentina", "Antigua and Barbuda", "Bonair…
-#> $ Continent            <chr> "Latin America and the Caribbean", "Latin America and the Caribb…
-#> $ worldBankIncomeGroup <chr> "High-income Countries", "No income group available", "High-inco…
+#> $ boundaryISO          <chr> "ABW", "AIA", "ARG", "ATG", "BES", …
+#> $ boundaryName         <chr> "Aruba", "Anguilla", "Argentina", "…
+#> $ Continent            <chr> "Latin America and the Caribbean", …
+#> $ worldBankIncomeGroup <chr> "High-income Countries", "No income…
 
 # Adjust factors.
 latam_meta$income_factor <- factor(
@@ -256,10 +255,10 @@ World Bank Income Group: Latin America and the Caribbean.
 ## Summary
 
 The **geobounds** package makes it easy to fetch, manage and visualize
-administrative boundary data worldwide in a reproducible and efficient
-way. Whether you are mapping, doing spatial analysis, integrating survey
-data or modeling geospatial patterns, it gives you access to
-high-quality boundary data with minimal overhead.
+administrative boundary data worldwide in a reproducible way. Whether
+you are mapping, doing spatial analysis, integrating survey data or
+modeling geospatial patterns, it gives you access to high-quality
+boundary data with minimal overhead.
 
 ## References
 

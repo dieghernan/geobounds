@@ -43,7 +43,7 @@
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="geobounds logo" height="34" width="34" class="d-inline-block me-1">geobounds</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -113,11 +113,11 @@
 </div>
 <section class="level2"><h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
-<p>The <strong>geobounds</strong> package provides a straightforward interface for downloading and working with global political and administrative boundary data from the <a href="https://www.geoboundaries.org/" class="external-link">geoBoundaries</a> project <span class="citation" data-cites="10.1371/journal.pone.0231866">(<a href="#ref-10.1371/journal.pone.0231866" role="doc-biblioref">Runfola et al. 2020</a>)</span>.</p>
-<p>The default gbOpen release is openly licensed (<a href="https://creativecommons.org/licenses/by/4.0/" class="external-link">CC BY 4.0</a>) and covers countries worldwide across multiple administrative levels. The package also supports gbHumanitarian and gbAuthoritative releases, which vary in source, validation process and licensing. With <strong>geobounds</strong>, you can fetch boundary geometries as <strong>sf</strong> objects, explore metadata, cache datasets locally and integrate the boundaries into your spatial workflows.</p>
+<p>The <strong>geobounds</strong> package provides a straightforward interface for downloading and working with global administrative boundary data from the <a href="https://www.geoboundaries.org/" class="external-link"><strong>geoBoundaries</strong></a> project <span class="citation" data-cites="10.1371/journal.pone.0231866">(<a href="#ref-10.1371/journal.pone.0231866" role="doc-biblioref">Runfola et al. 2020</a>)</span>.</p>
+<p>The default gbOpen release is CC BY 4.0 compliant when attribution is provided and covers countries worldwide across multiple administrative levels. The package also supports gbHumanitarian and gbAuthoritative release types, which vary in source, validation process and licensing. With <strong>geobounds</strong>, you can fetch boundary geometries as <strong>sf</strong> objects, explore metadata, cache datasets locally and integrate the boundaries into your spatial workflows.</p>
 </section><section class="level2"><h2 id="understanding-the-data">Understanding the data<a class="anchor" aria-label="anchor" href="#understanding-the-data"></a>
 </h2>
-<p>The geoBoundaries database undergoes a rigorous quality assurance process, including manual review and hand-digitization of physical maps where necessary. Its primary goal is to provide the highest possible level of spatial accuracy for scientific and academic applications.</p>
+<p>The <strong>geoBoundaries</strong> database undergoes a rigorous quality assurance process, including manual review and hand-digitization of physical maps where necessary. Its primary goal is to provide the highest possible level of spatial accuracy for scientific and academic applications.</p>
 <p>This precision comes at a cost: some files can be quite large and may take longer to download. For visualization or general mapping purposes, we recommend using the simplified datasets by setting <code>simplified = TRUE</code>.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/geobounds/">geobounds</a></span><span class="op">)</span></span>
@@ -150,8 +150,8 @@ Comparison between full vs. simplified map.
 </div>
 <section class="level3"><h3 id="individual-country-files">Individual country files<a class="anchor" aria-label="anchor" href="#individual-country-files"></a>
 </h3>
-<p>The geoBoundaries API provides <a href="https://www.geoboundaries.org/countryDownloads.html" class="external-link">individual country files</a>, whose aim is to represent every nation “as they would represent themselves”, with no special identification of disputed areas.</p>
-<p>The download of these data is implemented in <code><a href="../reference/gb_get.html">gb_get()</a></code> and the <code><a href="../reference/gb_get_adm.html">?gb_get_adm</a></code> family of functions. Borders are not guaranteed to align perfectly, gaps may exist between countries and disputed territories may not be represented consistently.</p>
+<p>The <strong>geoBoundaries</strong> API provides <a href="https://www.geoboundaries.org/countryDownloads.html" class="external-link">individual country files</a>, whose aim is to represent every nation “as they would represent themselves”, without special identification of disputed areas.</p>
+<p>Download individual country files with <code><a href="../reference/gb_get.html">gb_get()</a></code> or the <code><a href="../reference/gb_get_adm.html">?gb_get_adm</a></code> wrappers. Borders are not guaranteed to align perfectly, gaps may exist between countries and disputed territories may not be represented consistently.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">india_pak</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/gb_get_adm.html">gb_get_adm0</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"India"</span>, <span class="st">"Pakistan"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
@@ -170,18 +170,18 @@ Comparison between full vs. simplified map.
 Map showing overlap in the disputed Kashmir area.
 </p>
 </div>
-<p>Note that individual data files are governed by the license or licenses identified within the metadata for each respective boundary.</p>
+<p>Note that individual country files are governed by the license or licenses identified within the metadata for each respective boundary.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/gb_get_metadata.html">gb_get_metadata</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"India"</span>, <span class="st">"Pakistan"</span><span class="op">)</span>, adm_lvl <span class="op">=</span> <span class="st">"ADM0"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">boundaryName</span>, <span class="va">boundaryLicense</span>, <span class="va">boundarySource</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 2 × 3</span></span>
-<span><span class="co">#&gt;   boundaryName boundaryLicense                                      boundarySource             </span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;        &lt;chr&gt;                                                &lt;chr&gt;                      </span></span>
-<span><span class="co">#&gt; 1 India        CC0 1.0 Universal (CC0 1.0) Public Domain Dedication geoBoundaries, Wikimedia C…</span></span>
-<span><span class="co">#&gt; 2 Pakistan     Open Data Commons Open Database License 1.0          OpenStreetMap, Wambacher</span></span></code></pre></div>
-</section><section class="level3"><h3 id="composite-files">Composite files<a class="anchor" aria-label="anchor" href="#composite-files"></a>
+<span><span class="co">#&gt;   boundaryName boundaryLicense                      boundarySource</span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;        &lt;chr&gt;                                &lt;chr&gt;         </span></span>
+<span><span class="co">#&gt; 1 India        CC0 1.0 Universal (CC0 1.0) Public … geoBoundaries…</span></span>
+<span><span class="co">#&gt; 2 Pakistan     Open Data Commons Open Database Lic… OpenStreetMap…</span></span></code></pre></div>
+</section><section class="level3"><h3 id="global-composite-files">Global composite files<a class="anchor" aria-label="anchor" href="#global-composite-files"></a>
 </h3>
-<p>Use <code><a href="../reference/gb_get_world.html">gb_get_world()</a></code> for data where disputed areas are explicitly handled by removing overlaps and filling gaps. This function downloads global composite datasets for administrative boundaries, also known as CGAZ (Comprehensive Global Administrative Zones). There are three important distinctions between CGAZ and individual country downloads:</p>
+<p>Use <code><a href="../reference/gb_get_world.html">gb_get_world()</a></code> for data where disputed areas are explicitly handled by removing overlaps and filling gaps. This function downloads global composite files for administrative boundaries, also known as Comprehensive Global Administrative Zones (CGAZ). There are three important distinctions between CGAZ and individual country files:</p>
 <ol type="1">
 <li>Extensive simplification is performed to ensure that file sizes are small enough to be used in most traditional desktop software.</li>
 <li>Disputed areas are removed and replaced with polygons following US Department of State definitions.</li>
@@ -206,46 +206,46 @@ Map showing no overlap in Kashmir, provided by CGAZ.
 </div>
 </section></section><section class="level2"><h2 id="caching-and-performance">Caching and performance<a class="anchor" aria-label="anchor" href="#caching-and-performance"></a>
 </h2>
-<p>The package provides a built-in mechanism to cache files locally so that repeated downloads for the same country/level will use the cached version. For example:</p>
+<p>The package provides a built-in mechanism to cache files locally so that repeated downloads for the same country and administrative level use the cached version. For example:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Show the current folder.</span></span>
 <span><span class="va">current</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/gb_detect_cache_dir.html">gb_detect_cache_dir</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ℹ 'C:\Users\diego\AppData\Local\Temp\Rtmpm81cjA'</span></span>
+<span><span class="co">#&gt; ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpoLuvEM'</span></span>
 <span></span>
 <span><span class="va">current</span></span>
-<span><span class="co">#&gt; [1] "C:\\Users\\diego\\AppData\\Local\\Temp\\Rtmpm81cjA"</span></span>
+<span><span class="co">#&gt; [1] "C:\\Users\\diego\\AppData\\Local\\Temp\\RtmpoLuvEM"</span></span>
 <span></span>
 <span><span class="co"># Change to a new folder.</span></span>
 <span><span class="va">newdir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"/geoboundvignette"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/gb_set_cache_dir.html">gb_set_cache_dir</a></span><span class="op">(</span><span class="va">newdir</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ✔ geobounds cache directory is 'C:\Users\diego\AppData\Local\Temp\Rtmpm81cjA//geoboundvignette'.</span></span>
+<span><span class="co">#&gt; ✔ geobounds cache directory is 'C:\Users\diego\AppData\Local\Temp\RtmpoLuvEM//geoboundvignette'.</span></span>
 <span><span class="co">#&gt; ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.</span></span>
 <span></span>
 <span><span class="co"># Download the example data.</span></span>
 <span><span class="va">example</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/gb_get_adm.html">gb_get_adm0</a></span><span class="op">(</span><span class="st">"Vatican City"</span>, quiet <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ℹ Downloading file from &lt;https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/VAT/ADM0/geoBoundaries-VAT-ADM0-all.zip&gt;.</span></span>
-<span><span class="co">#&gt; → Cache directory is 'C:\Users\diego\AppData\Local\Temp\Rtmpm81cjA//geoboundvignette/gbOpen'.</span></span>
+<span><span class="co">#&gt; → Cache directory is 'C:\Users\diego\AppData\Local\Temp\RtmpoLuvEM//geoboundvignette/gbOpen'.</span></span>
 <span></span>
 <span><span class="co"># Restore the cache directory.</span></span>
 <span><span class="fu"><a href="../reference/gb_set_cache_dir.html">gb_set_cache_dir</a></span><span class="op">(</span><span class="va">current</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ✔ geobounds cache directory is 'C:\Users\diego\AppData\Local\Temp\Rtmpm81cjA'.</span></span>
+<span><span class="co">#&gt; ✔ geobounds cache directory is 'C:\Users\diego\AppData\Local\Temp\RtmpoLuvEM'.</span></span>
 <span><span class="co">#&gt; ℹ To install your `cache_dir` path for use in future sessions run this function with `install = TRUE`.</span></span>
 <span></span>
 <span><span class="va">current</span> <span class="op">==</span> <span class="fu"><a href="../reference/gb_detect_cache_dir.html">gb_detect_cache_dir</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ℹ 'C:\Users\diego\AppData\Local\Temp\Rtmpm81cjA'</span></span>
+<span><span class="co">#&gt; ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpoLuvEM'</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
 <p>To clear the cache, use <code><a href="../reference/gb_clear_cache.html">gb_clear_cache()</a></code>.</p>
 <p>Set a specific cache directory for each function call with the <code>cache_dir</code> argument.</p>
 </section><section class="level2"><h2 id="use-in-spatial-analysis-pipelines">Use in spatial analysis pipelines<a class="anchor" aria-label="anchor" href="#use-in-spatial-analysis-pipelines"></a>
 </h2>
-<p>Because the boundaries are returned as <strong>sf</strong> objects, you can easily use them in combination with other spatial data:</p>
+<p>Because the boundaries are returned as <strong>sf</strong> objects, you can use them with other spatial data:</p>
 <ul>
 <li>Clip raster data to administrative units.</li>
 <li>Compute zonal statistics.</li>
 <li>Create choropleth maps.</li>
 <li>Perform spatial joins with survey or tabular data.</li>
 </ul>
-<p>This example creates a choropleth map using metadata from the individual files and boundary data from CGAZ:</p>
+<p>This example creates a choropleth map using metadata from individual country files and boundary data from CGAZ:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Retrieve metadata.</span></span>
 <span></span>
@@ -255,10 +255,10 @@ Map showing no overlap in Kashmir, provided by CGAZ.
 <span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Rows: 47</span></span>
 <span><span class="co">#&gt; Columns: 4</span></span>
-<span><span class="co">#&gt; $ boundaryISO          &lt;chr&gt; "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", "BLZ", "BOL", "…</span></span>
-<span><span class="co">#&gt; $ boundaryName         &lt;chr&gt; "Aruba", "Anguilla", "Argentina", "Antigua and Barbuda", "Bonair…</span></span>
-<span><span class="co">#&gt; $ Continent            &lt;chr&gt; "Latin America and the Caribbean", "Latin America and the Caribb…</span></span>
-<span><span class="co">#&gt; $ worldBankIncomeGroup &lt;chr&gt; "High-income Countries", "No income group available", "High-inco…</span></span>
+<span><span class="co">#&gt; $ boundaryISO          &lt;chr&gt; "ABW", "AIA", "ARG", "ATG", "BES", …</span></span>
+<span><span class="co">#&gt; $ boundaryName         &lt;chr&gt; "Aruba", "Anguilla", "Argentina", "…</span></span>
+<span><span class="co">#&gt; $ Continent            &lt;chr&gt; "Latin America and the Caribbean", …</span></span>
+<span><span class="co">#&gt; $ worldBankIncomeGroup &lt;chr&gt; "High-income Countries", "No income…</span></span>
 <span></span>
 <span><span class="co"># Adjust factors.</span></span>
 <span><span class="va">latam_meta</span><span class="op">$</span><span class="va">income_factor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span></span>
@@ -295,7 +295,7 @@ World Bank Income Group: Latin America and the Caribbean.
 </div>
 </section><section class="level2"><h2 id="summary">Summary<a class="anchor" aria-label="anchor" href="#summary"></a>
 </h2>
-<p>The <strong>geobounds</strong> package makes it easy to fetch, manage and visualize administrative boundary data worldwide in a reproducible and efficient way. Whether you are mapping, doing spatial analysis, integrating survey data or modeling geospatial patterns, it gives you access to high-quality boundary data with minimal overhead.</p>
+<p>The <strong>geobounds</strong> package makes it easy to fetch, manage and visualize administrative boundary data worldwide in a reproducible way. Whether you are mapping, doing spatial analysis, integrating survey data or modeling geospatial patterns, it gives you access to high-quality boundary data with minimal overhead.</p>
 </section><section class="level2 unnumbered"><h2 class="unnumbered" id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h2>
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">

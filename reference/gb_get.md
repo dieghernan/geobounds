@@ -3,12 +3,12 @@
 [Attribution](https://www.geoboundaries.org/index.html#usage) is
 required for all uses of this dataset.
 
-This function returns data of individual countries "as they would
-represent themselves", with no special identification of disputed areas.
+This function returns individual country files "as they would represent
+themselves", without special identification of disputed areas.
 
 Use
 [`gb_get_world()`](https://dieghernan.github.io/geobounds/reference/gb_get_world.md)
-for data that explicitly includes disputed areas.
+for global composite files that include disputed areas.
 
 ## Usage
 
@@ -26,29 +26,30 @@ gb_get(
 
 ## Source
 
-geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
+geoBoundaries API service <https://www.geoboundaries.org/api.html>.
 
 ## Arguments
 
 - country:
 
   A character vector of country codes. It can be either `"all"` (which
-  returns the data for all countries), a vector of country names or ISO3
-  country codes. See also
+  returns the data for all countries), a vector of country names or ISO
+  3166-1 alpha-3 country codes. See also
   [`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/man/countrycode.html).
 
 - adm_lvl:
 
   Type of boundary. Accepted values are `"all"` (all available
   boundaries) or the ADM level (`"adm0"` is the country boundary,
-  `"adm1"` is the first level of sub-national boundaries, `"adm2"` is
-  the second level and so on). Upper-case versions (`"ADM1"`) and the
-  number of the level (`1, 2, 3, 4, 5`) are also accepted.
+  `"adm1"` is the first level of subnational boundaries, `"adm2"` is the
+  second level and so on). Upper-case versions (`"ADM1"`) and the number
+  of the level (`1, 2, 3, 4, 5`) are also accepted.
 
 - simplified:
 
   Logical. If `TRUE`, return the simplified boundary. The default
-  `FALSE` uses the primary geoBoundaries release.
+  `FALSE` uses the primary geoBoundaries release. See simplified
+  boundaries at <https://www.geoboundaries.org/>.
 
 - release_type:
 
@@ -56,10 +57,9 @@ geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
   users, we suggest using `"gbOpen"` (the default), as it is CC BY 4.0
   compliant and suitable for most purposes so long as attribution is
   provided. `"gbHumanitarian"` files are mirrored from [UN
-  OCHA](https://www.unocha.org/) and may have less open licensing.
-  `"gbAuthoritative"` files are mirrored from UN SALB, are verified
-  through in-country processes and cannot be used for commercial
-  purposes.
+  OCHA](https://www.unocha.org/) and may have less open licensure.
+  `"gbAuthoritative"` files are mirrored from UN SALB, verified through
+  in-country processes and cannot be used for commercial purposes.
 
 - quiet:
 
@@ -75,9 +75,9 @@ geoBoundaries API Service <https://www.geoboundaries.org/api.html>.
   will be stored in the default cache directory (see
   [`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_set_cache_dir.md)).
   If no cache directory has been set, files will be stored in the
-  temporary directory (see
-  [`base::tempdir()`](https://rdrr.io/r/base/tempfile.html)). See
-  caching strategies in
+  temporary directory. See
+  [`base::tempdir()`](https://rdrr.io/r/base/tempfile.html) and caching
+  strategies in
   [`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_set_cache_dir.md).
 
 ## Value
@@ -86,10 +86,10 @@ A [`sf`](https://r-spatial.github.io/sf/reference/sf.html) object.
 
 ## Details
 
-Individual data files in the geoBoundaries database are governed by the
-license or licenses identified within the metadata for each respective
-boundary (see
-[`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md)).
+Individual country files in the geoBoundaries database are governed by
+the license or licenses identified within the metadata for each
+respective boundary. See
+[`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md).
 Users of individual boundary files from geoBoundaries should also cite
 the sources provided in the metadata for each file. See **Examples**.
 
