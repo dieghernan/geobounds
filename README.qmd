@@ -30,6 +30,7 @@ knitr:
 [![r-universe](https://dieghernan.r-universe.dev/badges/geobounds)](https://dieghernan.r-universe.dev/geobounds)
 [![R-CMD-check](https://github.com/dieghernan/geobounds/actions/workflows/check-full.yaml/badge.svg)](https://github.com/dieghernan/geobounds/actions/workflows/check-full.yaml)
 [![codecov](https://codecov.io/gh/dieghernan/geobounds/graph/badge.svg)](https://app.codecov.io/gh/dieghernan/geobounds)
+[![coveralls](https://coveralls.io/repos/github/dieghernan/geobounds/badge.svg)](https://coveralls.io/github/dieghernan/geobounds)
 [![CodeFactor](https://www.codefactor.io/repository/github/dieghernan/geobounds/badge)](https://www.codefactor.io/repository/github/dieghernan/geobounds)
 [![DOI](https://img.shields.io/badge/DOI-%2010.32614/CRAN.package.geobounds%20-blue)](https://doi.org/10.32614/CRAN.package.geobounds)
 [![Project Status: Active - The project has reached a stable, usable state and
