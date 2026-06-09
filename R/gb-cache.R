@@ -70,7 +70,7 @@ gb_set_cache_dir <- function(
 ) {
   verbose <- isFALSE(quiet)
   # Use a temporary cache directory when no path is provided.
-  if (missing(cache_dir) || cache_dir == "") {
+  if (missing(cache_dir) || !nzchar(cache_dir)) {
     if (verbose) {
       cli::cli_alert_info(paste0(
         "Using a temporary cache directory. ",
@@ -246,7 +246,7 @@ gb_hlp_detect_cache_dir <- function() {
   # Try the environment variable first.
   getvar <- Sys.getenv("GEOBOUNDS_CACHE_DIR")
 
-  if (is.null(getvar) || is.na(getvar) || getvar == "") {
+  if (is.null(getvar) || is.na(getvar) || !nzchar(getvar)) {
     # Retrieve the cache directory from the config file when available.
     cache_config <- file.path(
       tools::R_user_dir("geobounds", "config"),
@@ -258,7 +258,7 @@ gb_hlp_detect_cache_dir <- function() {
       cached_path <- readLines(cache_config)
 
       # Fall back to the default cache when the config file is empty.
-      if (any(is.null(cached_path), is.na(cached_path), cached_path == "")) {
+      if (any(is.null(cached_path), is.na(cached_path), !nzchar(cached_path))) {
         cache_dir <- gb_set_cache_dir(overwrite = TRUE, quiet = TRUE)
         return(cache_dir)
       }
