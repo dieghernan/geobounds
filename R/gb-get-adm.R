@@ -17,11 +17,11 @@
 #' [gb_get_max_adm_lvl()].
 #'
 #' @details
-#' Individual country files in the geoBoundaries database are governed by the
-#' license or licenses identified within the metadata for each respective
+#' Individual country files in the **geoBoundaries** database are governed by
+#' the license or licenses identified within the metadata for each respective
 #' boundary. See [gb_get_metadata()]. Users of individual boundary files from
-#' geoBoundaries should also cite the sources provided in the metadata for each
-#' file.
+#' **geoBoundaries** should also cite the sources provided in the metadata for
+#' each file.
 #'
 #' @rdname gb_get_adm
 #' @name gb_get_adm

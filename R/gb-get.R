@@ -1,4 +1,4 @@
-#' Get individual country files from geoBoundaries
+#' Get individual country files from **geoBoundaries**
 #'
 #' @description
 #' [Attribution](https://www.geoboundaries.org/index.html#usage) is required
@@ -10,11 +10,11 @@
 #' Use [gb_get_world()] for global composite files that include disputed areas.
 #'
 #' @details
-#' Individual country files in the geoBoundaries database are governed by the
-#' license or licenses identified within the metadata for each respective
+#' Individual country files in the **geoBoundaries** database are governed by
+#' the license or licenses identified within the metadata for each respective
 #' boundary. See [gb_get_metadata()]. Users of individual boundary files from
-#' geoBoundaries should also cite the sources provided in the metadata for each
-#' file. See **Examples**.
+#' **geoBoundaries** should also cite the sources provided in the metadata for
+#' each file. See **Examples**.
 #'
 #' The wrappers [gb_get_adm0()], [gb_get_adm1()], [gb_get_adm2()],
 #' [gb_get_adm3()], [gb_get_adm4()] and [gb_get_adm5()] are also available for
@@ -29,7 +29,7 @@
 #'   second level and so on). Upper-case versions (`"ADM1"`) and the number of
 #'   the level (`1, 2, 3, 4, 5`) are also accepted.
 #' @param simplified Logical. If `TRUE`, return the simplified boundary. The
-#'   default `FALSE` uses the primary geoBoundaries file. See simplified
+#'   default `FALSE` uses the primary **geoBoundaries** file. See simplified
 #'   boundaries at <https://www.geoboundaries.org/>.
 #' @param release_type One of `"gbOpen"`, `"gbHumanitarian"` or
 #'   `"gbAuthoritative"`. For most users, we suggest using `"gbOpen"`
@@ -51,10 +51,10 @@
 #' An [`sf`][sf::st_sf] object.
 #'
 #' @source
-#' geoBoundaries API service <https://www.geoboundaries.org/api.html>.
+#' **geoBoundaries** API service <https://www.geoboundaries.org/api.html>.
 #'
 #' @references
-#' Runfola, D. et al. (2020) geoBoundaries: A global database of political
+#' Runfola, D. et al. (2020) **geoBoundaries**: A global database of political
 #' administrative boundaries. *PLOS ONE* *15*(4), 1-9.
 #' \doi{10.1371/journal.pone.0231866}.
 #'

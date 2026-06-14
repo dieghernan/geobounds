@@ -5,7 +5,7 @@
 \alias{gb_get_max_adm_lvl}
 \title{Get the highest available ADM level}
 \source{
-geoBoundaries API service \url{https://www.geoboundaries.org/api.html}.
+\strong{geoBoundaries} API service \url{https://www.geoboundaries.org/api.html}.
 }
 \usage{
 gb_get_max_adm_lvl(
@@ -32,7 +32,7 @@ ADM level.
 }
 \description{
 Get a summary of selected countries and their highest available
-ADM level in geoBoundaries.
+ADM level in \strong{geoBoundaries}.
 }
 \examples{
 \dontshow{if (identical(Sys.getenv("NOT_CRAN"), "true") || interactive()) withAutoprint(\{ # examplesIf}

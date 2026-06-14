@@ -36,11 +36,11 @@ navbar:
       aria-label: geoBoundaries
 
 home:
-  title: geobounds | Download administrative boundary data from geoBoundaries
+  title: geobounds | Download administrative boundary data from **geoBoundaries**
   description: |
     geobounds is an R package for retrieving individual country files and
-    global composite files from geoBoundaries as sf objects. See Runfola,
     D. et al. (2020) geoBoundaries: A global database of political
+    global composite files from **geoBoundaries** as sf objects. See Runfola,
     administrative boundaries. PLOS ONE 15(4): e0231866.
     https://doi.org/10.1371/journal.pone.0231866
 
@@ -68,10 +68,10 @@ reference:
   - geobounds-package
 
 articles:
-- title: geoBoundaries coverage
-  navbar: geoBoundaries coverage
+- title: **geoBoundaries** coverage
+  navbar: **geoBoundaries** coverage
   desc: >
-    Compare highest available ADM levels and metadata for the geoBoundaries
+    Compare highest available ADM levels and metadata for the **geoBoundaries**
     release types available through geobounds.
   contents:
   - articles/gbopen

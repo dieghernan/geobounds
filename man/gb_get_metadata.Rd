@@ -4,9 +4,9 @@
 \name{gb_get_metadata}
 \alias{gb_get_metadata}
 \alias{gb_get_meta}
-\title{Get metadata for individual country files from geoBoundaries}
+\title{Get metadata for individual country files from \strong{geoBoundaries}}
 \source{
-geoBoundaries API service \url{https://www.geoboundaries.org/api.html}.
+\strong{geoBoundaries} API service \url{https://www.geoboundaries.org/api.html}.
 }
 \usage{
 gb_get_metadata(
@@ -39,7 +39,7 @@ A \link[tibble:tbl_df]{tibble}.
 }
 \description{
 This function returns metadata from the
-\href{https://www.geoboundaries.org/api.html}{geoBoundaries API}.
+\href{https://www.geoboundaries.org/api.html}{\strong{geoBoundaries} API}.
 }
 \details{
 The result is a \link[tibble:tbl_df]{tibble} with the following columns:
@@ -60,9 +60,9 @@ released the dataset.
 \item \code{licenseDetail}: Any notes regarding the license.
 \item \code{licenseSource}: The URL of the primary source.
 \item \code{sourceDataUpdateDate}: The date the source information was integrated
-into the geoBoundaries repository.
+into the \strong{geoBoundaries} repository.
 \item \code{buildDate}: The date the source data was most recently standardized and
-built into a geoBoundaries release.
+built into a \strong{geoBoundaries} release.
 \item \code{Continent}: The continent the country is associated with.
 \item \code{UNSDG-region}: The United Nations Sustainable Development Goals (SDG)
 region the country is associated with.

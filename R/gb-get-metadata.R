@@ -1,8 +1,8 @@
-#' Get metadata for individual country files from geoBoundaries
+#' Get metadata for individual country files from **geoBoundaries**
 #'
 #' @description
 #' This function returns metadata from the
-#' [geoBoundaries API](https://www.geoboundaries.org/api.html).
+#' [**geoBoundaries** API](https://www.geoboundaries.org/api.html).
 #'
 #' @details
 #' The result is a [tibble][tibble::tbl_df] with the following columns:
@@ -23,9 +23,9 @@
 #' - `licenseDetail`: Any notes regarding the license.
 #' - `licenseSource`: The URL of the primary source.
 #' - `sourceDataUpdateDate`: The date the source information was integrated
-#'   into the geoBoundaries repository.
+#'   into the **geoBoundaries** repository.
 #' - `buildDate`: The date the source data was most recently standardized and
-#'   built into a geoBoundaries release.
+#'   built into a **geoBoundaries** release.
 #' - `Continent`: The continent the country is associated with.
 #' - `UNSDG-region`: The United Nations Sustainable Development Goals (SDG)
 #'   region the country is associated with.

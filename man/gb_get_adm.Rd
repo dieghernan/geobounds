@@ -11,7 +11,7 @@
 \alias{gb_get_adm5}
 \title{Get individual country files for a given ADM level}
 \source{
-geoBoundaries API service \url{https://www.geoboundaries.org/api.html}.
+\strong{geoBoundaries} API service \url{https://www.geoboundaries.org/api.html}.
 }
 \usage{
 gb_get_adm0(
@@ -74,7 +74,7 @@ country codes. Use \code{"all"} to return data for all countries. See also
 \code{\link[countrycode:countrycode]{countrycode::countrycode()}}.}
 
 \item{simplified}{Logical. If \code{TRUE}, return the simplified boundary. The
-default \code{FALSE} uses the primary geoBoundaries file. See simplified
+default \code{FALSE} uses the primary \strong{geoBoundaries} file. See simplified
 boundaries at \url{https://www.geoboundaries.org/}.}
 
 \item{release_type}{One of \code{"gbOpen"}, \code{"gbHumanitarian"} or
@@ -116,11 +116,11 @@ Note that not all countries have the same number of ADM levels. Check
 \code{\link[=gb_get_max_adm_lvl]{gb_get_max_adm_lvl()}}.
 }
 \details{
-Individual country files in the geoBoundaries database are governed by the
-license or licenses identified within the metadata for each respective
+Individual country files in the \strong{geoBoundaries} database are governed by
+the license or licenses identified within the metadata for each respective
 boundary. See \code{\link[=gb_get_metadata]{gb_get_metadata()}}. Users of individual boundary files from
-geoBoundaries should also cite the sources provided in the metadata for each
-file.
+\strong{geoBoundaries} should also cite the sources provided in the metadata for
+each file.
 }
 \examples{
 \dontshow{if (identical(Sys.getenv("NOT_CRAN"), "true") || interactive()) withAutoprint(\{ # examplesIf}
@@ -143,7 +143,7 @@ ggplot(lev2) +
 \dontshow{\}) # examplesIf}
 }
 \references{
-Runfola, D. et al. (2020) geoBoundaries: A global database of political
+Runfola, D. et al. (2020) \strong{geoBoundaries}: A global database of political
 administrative boundaries. \emph{PLOS ONE} \emph{15}(4), 1-9.
 \doi{10.1371/journal.pone.0231866}.
 }

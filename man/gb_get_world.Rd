@@ -4,9 +4,9 @@
 \name{gb_get_world}
 \alias{gb_get_world}
 \alias{gb_get_cgaz}
-\title{Get global composite files from geoBoundaries}
+\title{Get global composite files from \strong{geoBoundaries}}
 \source{
-geoBoundaries API service \url{https://www.geoboundaries.org/api.html}.
+\strong{geoBoundaries} API service \url{https://www.geoboundaries.org/api.html}.
 }
 \usage{
 gb_get_world(
@@ -74,7 +74,7 @@ ggplot(world) +
 \dontshow{\}) # examplesIf}
 }
 \references{
-Runfola, D. et al. (2020) geoBoundaries: A global database of political
+Runfola, D. et al. (2020) \strong{geoBoundaries}: A global database of political
 administrative boundaries. \emph{PLOS ONE} \emph{15}(4), 1-9.
 \doi{10.1371/journal.pone.0231866}.
 }

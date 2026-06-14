@@ -208,7 +208,7 @@
     "SystemRequirements": null
   },
   "keywords": ["administrative-boundaries", "api", "geoboundaries", "r", "r-package", "spatial-data", "cran", "cran-r"],
-  "fileSize": "423.777KB",
+  "fileSize": "424.206KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -346,6 +346,6 @@
   ],
   "releaseNotes": "https://github.com/dieghernan/geobounds/blob/main/NEWS.md",
   "readme": "https://github.com/dieghernan/geobounds/blob/main/README.md",
-  "contIntegration": ["https://github.com/dieghernan/geobounds/actions/workflows/check-full.yaml", "https://app.codecov.io/gh/dieghernan/geobounds"],
+  "contIntegration": ["https://github.com/dieghernan/geobounds/actions/workflows/check-full.yaml", "https://app.codecov.io/gh/dieghernan/geobounds", "https://coveralls.io/github/dieghernan/geobounds"],
   "developmentStatus": "https://www.repostatus.org/#active"
 }

@@ -38,7 +38,7 @@ knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
 ```
 
 [Attribution](https://www.geoboundaries.org/index.html#usage) is required when
-using geoBoundaries.
+using **geoBoundaries**.
 
 ```{=html}
 </div>

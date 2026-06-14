@@ -1,4 +1,4 @@
-#' Get global composite files from geoBoundaries
+#' Get global composite files from **geoBoundaries**
 #'
 #' @description
 #' [Attribution](https://www.geoboundaries.org/index.html#usage) is required

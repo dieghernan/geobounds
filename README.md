@@ -24,7 +24,7 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 > [!IMPORTANT]
 >
 > [Attribution](https://www.geoboundaries.org/index.html#usage) is
-> required when using geoBoundaries.
+> required when using **geoBoundaries**.
 
 ## Why this package?
 
@@ -108,7 +108,7 @@ alt="Map of ADM1, ADM2 and ADM3 boundaries for Sri Lanka" />
 
 ## Release types
 
-geoBoundaries provides three release types with different sources,
+**geoBoundaries** provides three release types with different sources,
 validation processes and licensing:
 
 - **gbOpen**: Freely available boundaries under CC BY 4.0, suitable for
@@ -185,7 +185,7 @@ alt="World coverage of geoBoundaries (gbOpen)" />
   - [gbAuthoritative](https://dieghernan.github.io/geobounds/articles/gbauthoritative.html)
 - Explore the **geoBoundaries** homepage:
   <https://www.geoboundaries.org/>
-- Read the original paper describing the geoBoundaries dataset ([Runfola
+- Read the original paper describing the **geoBoundaries** dataset ([Runfola
   et al. 2020](#ref-10.1371/journal.pone.0231866)).
 - Report issues or contribute on
   [GitHub](https://github.com/dieghernan/geobounds).

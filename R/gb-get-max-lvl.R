@@ -2,7 +2,7 @@
 #'
 #' @description
 #' Get a summary of selected countries and their highest available
-#' ADM level in geoBoundaries.
+#' ADM level in **geoBoundaries**.
 #'
 #' @inherit gb_get source
 #' @inheritParams gb_get_metadata

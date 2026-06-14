@@ -40,9 +40,9 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 
 ## Why this package?
 
-The **geobounds** package provides an **R**-friendly interface for accessing
-the [**geoBoundaries**](https://www.geoboundaries.org/) Global Database of
-Political Administrative Boundaries. Using this package, you can:
+The **geobounds** package provides an **R**-friendly interface for accessing the
+[**geoBoundaries**](https://www.geoboundaries.org/) Global Database of Political
+Administrative Boundaries. Using this package, you can:
 
 - Programmatically retrieve individual country files and global composite files
   from **geoBoundaries**.
@@ -61,12 +61,8 @@ simplifies downloads, caching and integration with spatial data workflows.
 <div class="callout-title-container flex-fill">Important</div>
 </div>
 <div class="callout-body-container callout-body">
-```
-
-[Attribution](https://www.geoboundaries.org/index.html#usage) is required when
-using geoBoundaries.
-
-```{=html}
+<p><a href="https://www.geoboundaries.org/index.html#usage" class="external-link">Attribution</a> is required when using 
+<strong>geoBoundaries</strong>.</p>
 </div>
 </div>
 ```
@@ -135,16 +131,15 @@ ggplot(sri_lanka_adm3) +
 
 ## Release types
 
-geoBoundaries provides three release types with different sources, validation
-processes and licensing:
+**geoBoundaries** provides three release types with different sources,
+validation processes and licensing:
 
 - **gbOpen**: Freely available boundaries under CC BY 4.0, suitable for most
   uses when attribution is provided.
 - **gbHumanitarian**: Boundaries mirrored from UN OCHA for humanitarian use,
   which may have less open licensure.
 - **gbAuthoritative**: Boundaries mirrored from UN SALB and verified through
-  in-country processes. These boundaries cannot be used for commercial
-  purposes.
+  in-country processes. These boundaries cannot be used for commercial purposes.
 
 Use the `release_type` argument to request a specific release type, for example,
 `gb_get_adm1("Sri Lanka", release_type = "gbHumanitarian")`.
@@ -157,7 +152,7 @@ Map the highest available ADM level in **geoBoundaries** by country:
 
 ```{r}
 #| label: map-coverage
-#| fig-cap: World coverage of geoBoundaries (gbOpen)
+#| fig-cap: World coverage of **geoBoundaries** (gbOpen)
 library(geobounds)
 library(ggplot2)
 library(dplyr)
@@ -210,7 +205,7 @@ ggplot(world_max) +
   - [gbHumanitarian](https://dieghernan.github.io/geobounds/articles/gbhumanitarian.html)
   - [gbAuthoritative](https://dieghernan.github.io/geobounds/articles/gbauthoritative.html)
 - Explore the **geoBoundaries** homepage: <https://www.geoboundaries.org/>
-- Read the original paper describing the geoBoundaries dataset
+- Read the original paper describing the **geoBoundaries** dataset
   [@10.1371/journal.pone.0231866].
 - Report issues or contribute on
   [GitHub](https://github.com/dieghernan/geobounds).

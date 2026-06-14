@@ -3,9 +3,9 @@
 \encoding{UTF-8}
 \name{gb_get}
 \alias{gb_get}
-\title{Get individual country files from geoBoundaries}
+\title{Get individual country files from \strong{geoBoundaries}}
 \source{
-geoBoundaries API service \url{https://www.geoboundaries.org/api.html}.
+\strong{geoBoundaries} API service \url{https://www.geoboundaries.org/api.html}.
 }
 \usage{
 gb_get(
@@ -30,7 +30,7 @@ second level and so on). Upper-case versions (\code{"ADM1"}) and the number of
 the level (\verb{1, 2, 3, 4, 5}) are also accepted.}
 
 \item{simplified}{Logical. If \code{TRUE}, return the simplified boundary. The
-default \code{FALSE} uses the primary geoBoundaries file. See simplified
+default \code{FALSE} uses the primary \strong{geoBoundaries} file. See simplified
 boundaries at \url{https://www.geoboundaries.org/}.}
 
 \item{release_type}{One of \code{"gbOpen"}, \code{"gbHumanitarian"} or
@@ -65,11 +65,11 @@ themselves, without special identification of disputed areas.
 Use \code{\link[=gb_get_world]{gb_get_world()}} for global composite files that include disputed areas.
 }
 \details{
-Individual country files in the geoBoundaries database are governed by the
-license or licenses identified within the metadata for each respective
+Individual country files in the \strong{geoBoundaries} database are governed by
+the license or licenses identified within the metadata for each respective
 boundary. See \code{\link[=gb_get_metadata]{gb_get_metadata()}}. Users of individual boundary files from
-geoBoundaries should also cite the sources provided in the metadata for each
-file. See \strong{Examples}.
+\strong{geoBoundaries} should also cite the sources provided in the metadata for
+each file. See \strong{Examples}.
 
 The wrappers \code{\link[=gb_get_adm0]{gb_get_adm0()}}, \code{\link[=gb_get_adm1]{gb_get_adm1()}}, \code{\link[=gb_get_adm2]{gb_get_adm2()}},
 \code{\link[=gb_get_adm3]{gb_get_adm3()}}, \code{\link[=gb_get_adm4]{gb_get_adm4()}} and \code{\link[=gb_get_adm5]{gb_get_adm5()}} are also available for
@@ -105,7 +105,7 @@ gb_get_metadata(
 \dontshow{\}) # examplesIf}
 }
 \references{
-Runfola, D. et al. (2020) geoBoundaries: A global database of political
+Runfola, D. et al. (2020) \strong{geoBoundaries}: A global database of political
 administrative boundaries. \emph{PLOS ONE} \emph{15}(4), 1-9.
 \doi{10.1371/journal.pone.0231866}.
 }
