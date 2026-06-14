@@ -2,11 +2,11 @@
 #'
 #' @description
 #' This function stores the `cache_dir` path on your local machine and loads it
-#' for future sessions. Use `gb_detect_cache_dir()` to find the cache directory
+#' in future sessions. Use `gb_detect_cache_dir()` to find the cache directory
 #' path.
 #'
 #' @details
-#' By default, when no `cache_dir` is set the package uses a folder inside
+#' By default, when no `cache_dir` is set the package uses a directory inside
 #' [base::tempdir()], so files are temporary and are removed when the \R
 #' session ends. To persist a cache across \R sessions, use
 #' `gb_set_cache_dir(path, install = TRUE)`, which writes the chosen path to a
@@ -31,7 +31,6 @@
 #'   machine for use in future sessions. Defaults to `FALSE`. If `cache_dir`
 #'   is missing or empty, this parameter is set to `FALSE` automatically.
 #' @param overwrite Logical. If `TRUE`, overwrite an existing `cache_dir`.
-#'
 #' @inheritParams gb_get
 #'
 #' @returns
@@ -74,10 +73,10 @@ gb_set_cache_dir <- function(
     if (verbose) {
       cli::cli_alert_info(paste0(
         "Using a temporary cache directory. ",
-        "Set {.arg cache_dir} to a value to store permanently."
+        "Set {.arg cache_dir} to keep files across sessions."
       ))
     }
-    # Create a folder in `tempdir()`.
+    # Create a directory in `tempdir()`.
     cache_dir <- file.path(tempdir(), "geobounds")
     is_temp <- TRUE
     install <- FALSE
@@ -119,7 +118,7 @@ gb_set_cache_dir <- function(
       writeLines(cache_dir, con = geobounds_file)
     } else {
       cli::cli_abort(c(
-        "A {.arg cache_dir} path already exists.",
+        "A {.arg cache_dir} path is already installed.",
         "Use {.arg overwrite = TRUE} to replace it."
       ))
     }
@@ -127,7 +126,7 @@ gb_set_cache_dir <- function(
   } else {
     if (verbose && !is_temp) {
       cli::cli_alert_info(paste0(
-        "To install your {.arg cache_dir} path for use in future sessions ",
+        "To use this {.arg cache_dir} path in future sessions, ",
         "run this function with {.arg install = TRUE}."
       ))
     }
@@ -140,7 +139,9 @@ gb_set_cache_dir <- function(
 #' Detect the \CRANpkg{geobounds} cache directory
 #'
 #' @description
-#' Detect the current cache folder. See [gb_set_cache_dir()].
+#' Detect the current cache directory. See [gb_set_cache_dir()].
+#'
+#' @rdname gb_detect_cache_dir
 #'
 #' @param x Ignored.
 #'
@@ -148,7 +149,6 @@ gb_set_cache_dir <- function(
 #' A character vector with the path to your `cache_dir`. The same path also
 #' appears as a clickable message. See [`cli::inline-markup`].
 #'
-#' @rdname gb_detect_cache_dir
 #' @family cache utilities
 #'
 #' @examples
@@ -167,27 +167,26 @@ gb_detect_cache_dir <- function(x = NULL) {
 #' Clear the \CRANpkg{geobounds} cache directory
 #'
 #' @description
-#' **Use this function with caution**. This function will clear your cached
-#' data and configuration, specifically:
-#'
-#' - Deletes the \CRANpkg{geobounds} config directory
-#'   (`tools::R_user_dir("geobounds", "config")`).
-#' - Deletes the `cache_dir` directory.
-#' - Deletes the values stored in `Sys.getenv("GEOBOUNDS_CACHE_DIR")`.
+#' **Use this function with caution**. This function clears cached data and
+#' configuration by deleting the \CRANpkg{geobounds} config directory
+#' (`tools::R_user_dir("geobounds", "config")`), deleting `cache_dir` and
+#' clearing the value stored in `Sys.getenv("GEOBOUNDS_CACHE_DIR")`.
 #'
 #' @details
-#' This is a comprehensive reset function that resets your status as if you had
-#' never installed or used \CRANpkg{geobounds}.
+#' This comprehensive reset restores the same cache state as a fresh
+#' \CRANpkg{geobounds} installation.
 #'
-#' @param config Logical. If `TRUE`, delete the configuration folder of
+#' @rdname gb_clear_cache
+#'
+#' @param config Logical. If `TRUE`, delete the configuration directory of
 #'   \CRANpkg{geobounds}.
 #' @param cached_data Logical. If `TRUE`, delete `cache_dir` and all its
 #'   contents.
 #' @inheritParams gb_set_cache_dir
 #'
-#' @returns [invisible()] This function is called for its side effects.
+#' @returns
+#' [invisible()]. This function is called for its side effects.
 #'
-#' @rdname gb_clear_cache
 #' @family cache utilities
 #'
 #' @examples
@@ -241,6 +240,7 @@ gb_clear_cache <- function(config = FALSE, cached_data = TRUE, quiet = TRUE) {
 }
 
 #' Internal, silent version of `gb_detect_cache_dir()`
+#'
 #' @noRd
 gb_hlp_detect_cache_dir <- function() {
   # Try the environment variable first.

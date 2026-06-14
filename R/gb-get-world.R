@@ -1,24 +1,25 @@
-#' Get global composite files (CGAZ) from geoBoundaries
+#' Get global composite files from geoBoundaries
 #'
 #' @description
 #' [Attribution](https://www.geoboundaries.org/index.html#usage) is required
 #' for all uses of this dataset.
 #'
-#' This function returns global composite files for the required administrative
-#' level, clipped to international boundaries, with gaps filled between borders.
+#' This function returns global composite files for the requested
+#' ADM level, clipped to international boundaries and with gaps filled between
+#' borders.
 #'
 #' @details
 #' Comprehensive Global Administrative Zones (CGAZ) are global composites for
 #' administrative boundaries. Compared with individual country files, the
-#' global product uses extensive simplification so file sizes are small enough
-#' for most desktop software, removes disputed areas and replaces them with
-#' polygons following US Department of State definitions, and fills gaps between
-#' borders.
+#' global composite files use extensive simplification so file sizes are small
+#' enough for most desktop software. They remove disputed areas, replace them
+#' with polygons following US Department of State definitions and fill gaps
+#' between borders.
 #'
 #' @inherit gb_get
 #' @inheritParams gb_get
-#' @param adm_lvl Type of boundary. Accepted values are administrative
-#'   levels 0, 1 and 2 (`"adm0"` is the country boundary, `"adm1"` is the
+#' @param adm_lvl ADM level. Accepted values are levels 0, 1 and 2
+#'   (`"adm0"` is the country boundary, `"adm1"` is the
 #'   first level of subnational boundaries, `"adm2"` is the second level and
 #'   so on). Upper-case versions (`"ADM1"`) and the number of the level
 #'   (`0, 1, 2`) are also accepted.

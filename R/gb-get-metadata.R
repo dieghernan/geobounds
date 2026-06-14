@@ -33,20 +33,20 @@
 #'   subregion the country is associated with.
 #' - `worldBankIncomeGroup`: The World Bank income group the country is
 #'   associated with.
-#' - `admUnitCount`: Count of administrative units in the file.
+#' - `admUnitCount`: The count of administrative units in the file.
 #' - `meanVertices`: Mean number of vertices defining the boundaries of each
 #'   administrative unit in the layer.
 #' - `minVertices`: Minimum number of vertices defining a boundary.
 #' - `maxVertices`: Maximum number of vertices defining a boundary.
 #' - `minPerimeterLengthKM`: The minimum perimeter length of an administrative
 #'   unit in the layer, measured in kilometers and based on a World Equidistant
-#'   Cylindrical projection).
+#'   Cylindrical projection.
 #' - `meanPerimeterLengthKM`: The mean perimeter length of an administrative
 #'   unit in the layer, measured in kilometers and based on a World Equidistant
-#'   Cylindrical projection).
+#'   Cylindrical projection.
 #' - `maxPerimeterLengthKM`: The maximum perimeter length of an administrative
 #'   unit in the layer, measured in kilometers and based on a World Equidistant
-#'   Cylindrical projection).
+#'   Cylindrical projection.
 #' - `meanAreaSqKM`: The mean area of all administrative units in the layer,
 #'   measured in square kilometers and based on an EASE-GRID 2 projection.
 #' - `minAreaSqKM`: The minimum area of an administrative unit in the layer,
@@ -65,14 +65,15 @@
 #' @inherit gb_get source
 #' @inheritParams gb_get
 #'
-#' @returns A [tibble][tibble::tbl_df].
+#' @returns
+#' A [tibble][tibble::tbl_df].
 #'
 #' @seealso [gb_get()].
 #'
 #' @family metadata functions
 #'
 #' @examplesIf identical(Sys.getenv("NOT_CRAN"), "true") || interactive()
-#' # Get metadata for ADM4 levels.
+#' # Get metadata for ADM4.
 #'
 #' library(dplyr)
 #'

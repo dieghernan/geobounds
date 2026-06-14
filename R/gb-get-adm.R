@@ -1,19 +1,19 @@
-#' Get individual country files for a given administrative level
+#' Get individual country files for a given ADM level
 #'
 #' @description
 #' [Attribution](https://www.geoboundaries.org/index.html#usage) is required
 #' for all uses of this dataset.
 #'
-#' These functions are wrappers around [gb_get()] for extracting a given
-#' administrative level. `gb_get_adm0()` returns the country boundary,
-#' `gb_get_adm1()` returns first-level subnational boundaries (e.g. states in
-#' the United States), `gb_get_adm2()` returns second-level subnational
-#' boundaries (e.g. counties in the United States), `gb_get_adm3()` returns
-#' third-level administrative boundaries (e.g. towns or cities in some
-#' countries), `gb_get_adm4()` returns fourth-level administrative boundaries
-#' and `gb_get_adm5()` returns fifth-level administrative boundaries.
+#' These functions wrap [gb_get()] for one ADM level.
+#' `gb_get_adm0()` returns the country boundary, `gb_get_adm1()` returns
+#' first-level subnational boundaries (e.g. states in the United States),
+#' `gb_get_adm2()` returns second-level subnational boundaries (e.g. counties
+#' in the United States), `gb_get_adm3()` returns third-level administrative
+#' boundaries (e.g. towns or cities in some countries), `gb_get_adm4()` returns
+#' fourth-level administrative boundaries and `gb_get_adm5()` returns
+#' fifth-level administrative boundaries.
 #'
-#' Note that not all countries have the same number of levels. Check
+#' Note that not all countries have the same number of ADM levels. Check
 #' [gb_get_max_adm_lvl()].
 #'
 #' @details
@@ -23,11 +23,11 @@
 #' geoBoundaries should also cite the sources provided in the metadata for each
 #' file.
 #'
-#' @inherit gb_get
-#' @inheritParams gb_get
-#'
 #' @rdname gb_get_adm
 #' @name gb_get_adm
+#'
+#' @inherit gb_get
+#' @inheritParams gb_get
 #'
 #' @seealso [gb_get_max_adm_lvl()].
 #'

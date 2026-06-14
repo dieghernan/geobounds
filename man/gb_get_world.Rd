@@ -4,7 +4,7 @@
 \name{gb_get_world}
 \alias{gb_get_world}
 \alias{gb_get_cgaz}
-\title{Get global composite files (CGAZ) from geoBoundaries}
+\title{Get global composite files from geoBoundaries}
 \source{
 geoBoundaries API service \url{https://www.geoboundaries.org/api.html}.
 }
@@ -18,13 +18,12 @@ gb_get_world(
 )
 }
 \arguments{
-\item{country}{A character vector of country codes. It can be either
-\code{"all"} (which returns the data for all countries), a vector of country
-names or ISO 3166-1 alpha-3 country codes. See also
+\item{country}{A character vector of country names or ISO 3166-1 alpha-3
+country codes. Use \code{"all"} to return data for all countries. See also
 \code{\link[countrycode:countrycode]{countrycode::countrycode()}}.}
 
-\item{adm_lvl}{Type of boundary. Accepted values are administrative
-levels 0, 1 and 2 (\code{"adm0"} is the country boundary, \code{"adm1"} is the
+\item{adm_lvl}{ADM level. Accepted values are levels 0, 1 and 2
+(\code{"adm0"} is the country boundary, \code{"adm1"} is the
 first level of subnational boundaries, \code{"adm2"} is the second level and
 so on). Upper-case versions (\code{"ADM1"}) and the number of the level
 (\verb{0, 1, 2}) are also accepted.}
@@ -41,22 +40,23 @@ stored in the temporary directory. See \code{\link[base:tempdir]{base::tempdir()
 strategies in \code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}.}
 }
 \value{
-A \code{\link[sf:st_sf]{sf}} object.
+An \code{\link[sf:st_sf]{sf}} object.
 }
 \description{
 \href{https://www.geoboundaries.org/index.html#usage}{Attribution} is required
 for all uses of this dataset.
 
-This function returns global composite files for the required administrative
-level, clipped to international boundaries, with gaps filled between borders.
+This function returns global composite files for the requested
+ADM level, clipped to international boundaries and with gaps filled between
+borders.
 }
 \details{
 Comprehensive Global Administrative Zones (CGAZ) are global composites for
 administrative boundaries. Compared with individual country files, the
-global product uses extensive simplification so file sizes are small enough
-for most desktop software, removes disputed areas and replaces them with
-polygons following US Department of State definitions, and fills gaps between
-borders.
+global composite files use extensive simplification so file sizes are small
+enough for most desktop software. They remove disputed areas, replace them
+with polygons following US Department of State definitions and fill gaps
+between borders.
 }
 \examples{
 \dontshow{if (identical(Sys.getenv("NOT_CRAN"), "true") || interactive()) withAutoprint(\{ # examplesIf}

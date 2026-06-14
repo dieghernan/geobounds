@@ -1,15 +1,15 @@
-#' Get the highest administrative level available for a given country
+#' Get the highest available ADM level
 #'
 #' @description
-#' Get a summary of selected or all countries and their highest administrative
-#' level available in geoBoundaries.
+#' Get a summary of selected countries and their highest available
+#' ADM level in geoBoundaries.
 #'
 #' @inherit gb_get source
 #' @inheritParams gb_get_metadata
 #'
 #' @returns
 #' A [tibble][tibble::tbl_df] with the country names and corresponding highest
-#' administrative level.
+#' ADM level.
 #'
 #' @family metadata functions
 #'
@@ -17,11 +17,11 @@
 #' all <- gb_get_max_adm_lvl()
 #' library(dplyr)
 #'
-#' # Countries with only one level available.
+#' # Countries with only one ADM level available.
 #' all |>
 #'   filter(maxBoundaryType == 1)
 #'
-#' # Countries with level 4 available.
+#' # Countries with ADM4 available.
 #' all |>
 #'   filter(maxBoundaryType == 4)
 #'

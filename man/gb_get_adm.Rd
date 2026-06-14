@@ -9,7 +9,7 @@
 \alias{gb_get_adm3}
 \alias{gb_get_adm4}
 \alias{gb_get_adm5}
-\title{Get individual country files for a given administrative level}
+\title{Get individual country files for a given ADM level}
 \source{
 geoBoundaries API service \url{https://www.geoboundaries.org/api.html}.
 }
@@ -69,19 +69,18 @@ gb_get_adm5(
 )
 }
 \arguments{
-\item{country}{A character vector of country codes. It can be either
-\code{"all"} (which returns the data for all countries), a vector of country
-names or ISO 3166-1 alpha-3 country codes. See also
+\item{country}{A character vector of country names or ISO 3166-1 alpha-3
+country codes. Use \code{"all"} to return data for all countries. See also
 \code{\link[countrycode:countrycode]{countrycode::countrycode()}}.}
 
 \item{simplified}{Logical. If \code{TRUE}, return the simplified boundary. The
-default \code{FALSE} uses the primary geoBoundaries release. See simplified
+default \code{FALSE} uses the primary geoBoundaries file. See simplified
 boundaries at \url{https://www.geoboundaries.org/}.}
 
 \item{release_type}{One of \code{"gbOpen"}, \code{"gbHumanitarian"} or
 \code{"gbAuthoritative"}. For most users, we suggest using \code{"gbOpen"}
 (the default), as it is CC BY 4.0 compliant and suitable for most purposes
-so long as attribution is provided. \code{"gbHumanitarian"} files are mirrored
+as long as attribution is provided. \code{"gbHumanitarian"} files are mirrored
 from \href{https://www.unocha.org/}{UN OCHA} and may have less open licensure.
 \code{"gbAuthoritative"} files are mirrored from UN SALB, verified through
 in-country processes and cannot be used for commercial purposes.}
@@ -98,22 +97,22 @@ stored in the temporary directory. See \code{\link[base:tempdir]{base::tempdir()
 strategies in \code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}.}
 }
 \value{
-A \code{\link[sf:st_sf]{sf}} object.
+An \code{\link[sf:st_sf]{sf}} object.
 }
 \description{
 \href{https://www.geoboundaries.org/index.html#usage}{Attribution} is required
 for all uses of this dataset.
 
-These functions are wrappers around \code{\link[=gb_get]{gb_get()}} for extracting a given
-administrative level. \code{gb_get_adm0()} returns the country boundary,
-\code{gb_get_adm1()} returns first-level subnational boundaries (e.g. states in
-the United States), \code{gb_get_adm2()} returns second-level subnational
-boundaries (e.g. counties in the United States), \code{gb_get_adm3()} returns
-third-level administrative boundaries (e.g. towns or cities in some
-countries), \code{gb_get_adm4()} returns fourth-level administrative boundaries
-and \code{gb_get_adm5()} returns fifth-level administrative boundaries.
+These functions wrap \code{\link[=gb_get]{gb_get()}} for one ADM level.
+\code{gb_get_adm0()} returns the country boundary, \code{gb_get_adm1()} returns
+first-level subnational boundaries (e.g. states in the United States),
+\code{gb_get_adm2()} returns second-level subnational boundaries (e.g. counties
+in the United States), \code{gb_get_adm3()} returns third-level administrative
+boundaries (e.g. towns or cities in some countries), \code{gb_get_adm4()} returns
+fourth-level administrative boundaries and \code{gb_get_adm5()} returns
+fifth-level administrative boundaries.
 
-Note that not all countries have the same number of levels. Check
+Note that not all countries have the same number of ADM levels. Check
 \code{\link[=gb_get_max_adm_lvl]{gb_get_max_adm_lvl()}}.
 }
 \details{

@@ -19,25 +19,24 @@ gb_get(
 )
 }
 \arguments{
-\item{country}{A character vector of country codes. It can be either
-\code{"all"} (which returns the data for all countries), a vector of country
-names or ISO 3166-1 alpha-3 country codes. See also
+\item{country}{A character vector of country names or ISO 3166-1 alpha-3
+country codes. Use \code{"all"} to return data for all countries. See also
 \code{\link[countrycode:countrycode]{countrycode::countrycode()}}.}
 
-\item{adm_lvl}{Type of boundary. Accepted values are \code{"all"} (all
-available boundaries) or the ADM level (\code{"adm0"} is the country boundary,
+\item{adm_lvl}{ADM level. Accepted values are \code{"all"} (all available
+boundaries) or the ADM level (\code{"adm0"} is the country boundary,
 \code{"adm1"} is the first level of subnational boundaries, \code{"adm2"} is the
 second level and so on). Upper-case versions (\code{"ADM1"}) and the number of
 the level (\verb{1, 2, 3, 4, 5}) are also accepted.}
 
 \item{simplified}{Logical. If \code{TRUE}, return the simplified boundary. The
-default \code{FALSE} uses the primary geoBoundaries release. See simplified
+default \code{FALSE} uses the primary geoBoundaries file. See simplified
 boundaries at \url{https://www.geoboundaries.org/}.}
 
 \item{release_type}{One of \code{"gbOpen"}, \code{"gbHumanitarian"} or
 \code{"gbAuthoritative"}. For most users, we suggest using \code{"gbOpen"}
 (the default), as it is CC BY 4.0 compliant and suitable for most purposes
-so long as attribution is provided. \code{"gbHumanitarian"} files are mirrored
+as long as attribution is provided. \code{"gbHumanitarian"} files are mirrored
 from \href{https://www.unocha.org/}{UN OCHA} and may have less open licensure.
 \code{"gbAuthoritative"} files are mirrored from UN SALB, verified through
 in-country processes and cannot be used for commercial purposes.}
@@ -54,14 +53,14 @@ stored in the temporary directory. See \code{\link[base:tempdir]{base::tempdir()
 strategies in \code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}.}
 }
 \value{
-A \code{\link[sf:st_sf]{sf}} object.
+An \code{\link[sf:st_sf]{sf}} object.
 }
 \description{
 \href{https://www.geoboundaries.org/index.html#usage}{Attribution} is required
 for all uses of this dataset.
 
-This function returns individual country files "as they would represent
-themselves", without special identification of disputed areas.
+This function returns individual country files as countries represent
+themselves, without special identification of disputed areas.
 
 Use \code{\link[=gb_get_world]{gb_get_world()}} for global composite files that include disputed areas.
 }
@@ -74,12 +73,12 @@ file. See \strong{Examples}.
 
 The wrappers \code{\link[=gb_get_adm0]{gb_get_adm0()}}, \code{\link[=gb_get_adm1]{gb_get_adm1()}}, \code{\link[=gb_get_adm2]{gb_get_adm2()}},
 \code{\link[=gb_get_adm3]{gb_get_adm3()}}, \code{\link[=gb_get_adm4]{gb_get_adm4()}} and \code{\link[=gb_get_adm5]{gb_get_adm5()}} are also available for
-requesting a single administrative level.
+requesting a single ADM level.
 }
 \examples{
 \dontshow{if (identical(Sys.getenv("NOT_CRAN"), "true") || interactive()) withAutoprint(\{ # examplesIf}
 \donttest{
-# Map level 2 in Sri Lanka.
+# Map ADM2 in Sri Lanka.
 sri_lanka <- gb_get(
   "Sri Lanka",
   adm_lvl = 2,
@@ -94,7 +93,7 @@ ggplot(sri_lanka) +
   labs(caption = "Source: www.geoboundaries.org")
 }
 
-# Metadata.
+# Inspect metadata.
 library(dplyr)
 gb_get_metadata(
   "Sri Lanka",

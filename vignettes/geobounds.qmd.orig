@@ -1,10 +1,10 @@
 ---
-title: "geobounds: Accessing global administrative boundary data in R"
+title: "geobounds: Accessing administrative boundary data in R"
 description: "Introduction to the geobounds package"
 bibliography: REFERENCES.bib
 link-citations: true
 vignette: >
-  %\VignetteIndexEntry{geobounds: Accessing global administrative boundary data in R}
+  %\VignetteIndexEntry{geobounds: Accessing administrative boundary data in R}
   %\VignetteEngine{quarto::html}
   %\VignetteEncoding{UTF-8}
 ---
@@ -48,23 +48,22 @@ using geoBoundaries.
 ## Introduction
 
 The **geobounds** package provides a straightforward interface for downloading
-and working with global administrative boundary data from the
-[**geoBoundaries**](https://www.geoboundaries.org/) project
-[@10.1371/journal.pone.0231866].
+and working with administrative boundary data from the
+[**geoBoundaries**](https://www.geoboundaries.org/) Global Database of
+Political Administrative Boundaries [@10.1371/journal.pone.0231866].
 
-The default gbOpen release is CC BY 4.0 compliant when attribution is provided
-and covers countries worldwide across multiple administrative levels. The
-package also supports gbHumanitarian and gbAuthoritative release types, which
-vary in source, validation process and licensing. With **geobounds**, you can
-fetch boundary geometries as **sf** objects, explore metadata, cache datasets
-locally and integrate the boundaries into your spatial workflows.
+The default **gbOpen** release type is CC BY 4.0 compliant when attribution is
+provided and covers countries worldwide across multiple ADM levels.
+The package also supports **gbHumanitarian** and **gbAuthoritative**, which vary
+in source, validation process and licensing. With **geobounds**, you can fetch
+boundary geometries as **sf** objects, explore metadata, cache datasets locally
+and integrate the boundaries into spatial workflows.
 
 ## Understanding the data
 
-The **geoBoundaries** database undergoes a rigorous quality assurance process,
-including manual review and hand-digitization of physical maps where necessary.
-Its primary goal is to provide the highest possible level of spatial accuracy
-for scientific and academic applications.
+The **geoBoundaries** database is designed for scientific and academic use,
+with quality assurance that includes manual review and hand digitization of
+physical maps where necessary.
 
 This precision comes at a cost: some files can be quite large and may take
 longer to download. For visualization or general mapping purposes, we recommend
@@ -73,7 +72,7 @@ using the simplified datasets by setting `simplified = TRUE`.
 ```{r}
 #| label: norway
 #| crop: true
-#| fig-cap: "Comparison between full vs. simplified map."
+#| fig-cap: "Comparison between full-resolution and simplified boundaries."
 library(geobounds)
 library(ggplot2)
 library(dplyr)
@@ -100,13 +99,13 @@ ggplot(norway_all) +
 ### Individual country files
 
 The **geoBoundaries** API provides [individual country
-files](https://www.geoboundaries.org/countryDownloads.html), whose aim is to
-represent every nation "as they would represent themselves", without special
-identification of disputed areas.
+files](https://www.geoboundaries.org/countryDownloads.html) that represent
+countries as they represent themselves, without special identification of
+disputed areas.
 
-Download individual country files with `gb_get()` or the `?gb_get_adm` wrappers.
-Borders are not guaranteed to align perfectly, gaps may exist between countries
-and disputed territories may not be represented consistently.
+Download individual country files with `gb_get()` or the `gb_get_adm*()`
+wrappers. Borders are not guaranteed to align perfectly, gaps may exist between
+countries and disputed territories may not be represented consistently.
 
 ```{r}
 #| label: intersect
@@ -136,17 +135,16 @@ gb_get_metadata(c("India", "Pakistan"), adm_lvl = "ADM0") |>
 
 ### Global composite files
 
-Use `gb_get_world()` for data where disputed areas are explicitly handled by
-removing overlaps and filling gaps. This function downloads global composite
-files for administrative boundaries, also known as Comprehensive Global
-Administrative Zones (CGAZ). There are three important distinctions between
-CGAZ and individual country files:
+Use `gb_get_world()` for global composite files where disputed areas are
+explicitly handled by removing overlaps and filling gaps. These files are also
+known as Comprehensive Global Administrative Zones (CGAZ). There are three
+important distinctions between CGAZ and individual country files:
 
-1.  Extensive simplification is performed to ensure that file sizes are small
-    enough to be used in most traditional desktop software.
+1.  Extensive simplification keeps file sizes small enough for most desktop
+    software.
 2.  Disputed areas are removed and replaced with polygons following US
     Department of State definitions.
-3.  Gaps between borders have been filled.
+3.  Gaps between borders are filled.
 
 ```{r}
 #| label: cgaz
@@ -166,9 +164,8 @@ ggplot(cgaz_india_pak) +
 
 ## Caching and performance
 
-The package provides a built-in mechanism to cache files locally so that
-repeated downloads for the same country and administrative level use the cached
-version. For example:
+The package can cache files locally so repeated downloads for the same country
+and ADM level use the cached version. For example:
 
 ```{r}
 #| include: false
@@ -181,12 +178,12 @@ gb_set_cache_dir(tempdir(), quiet = TRUE)
 
 ```{r}
 #| message: true
-# Show the current folder.
+# Show the current cache directory.
 current <- gb_detect_cache_dir()
 
 current
 
-# Change to a new folder.
+# Change to a new cache directory.
 newdir <- file.path(tempdir(), "/geoboundvignette")
 gb_set_cache_dir(newdir)
 
@@ -212,7 +209,7 @@ argument.
 
 ## Use in spatial analysis pipelines
 
-Because the boundaries are returned as **sf** objects, you can use them with
+Because boundary data are returned as **sf** objects, you can use them with
 other spatial data:
 
 - Clip raster data to administrative units.
@@ -221,13 +218,12 @@ other spatial data:
 - Perform spatial joins with survey or tabular data.
 
 This example creates a choropleth map using metadata from individual country
-files and boundary data from CGAZ:
+files and global composite files from CGAZ:
 
 ```{r}
 #| label: choro
 #| fig-cap: "World Bank Income Group: Latin America and the Caribbean."
 # Retrieve metadata.
-
 latam_meta <- gb_get_metadata(adm_lvl = "ADM0") |>
   select(boundaryISO, boundaryName, Continent, worldBankIncomeGroup) |>
   filter(Continent == "Latin America and the Caribbean") |>
@@ -244,7 +240,7 @@ latam_meta$income_factor <- factor(
   )
 )
 
-# Get the shapes from CGAZ.
+# Get global composite files from CGAZ.
 latam_sf <- gb_get_world(adm_lvl = "ADM0") |>
   inner_join(latam_meta, by = c("shapeGroup" = "boundaryISO"))
 
@@ -267,8 +263,8 @@ ggplot(latam_sf) +
 
 The **geobounds** package makes it easy to fetch, manage and visualize
 administrative boundary data worldwide in a reproducible way. Whether you are
-mapping, doing spatial analysis, integrating survey data or modeling
-geospatial patterns, it gives you access to high-quality boundary data with
-minimal overhead.
+mapping, doing spatial analysis, integrating survey data or modeling geospatial
+patterns, it gives you access to high-quality boundary data with minimal
+overhead.
 
 ## References

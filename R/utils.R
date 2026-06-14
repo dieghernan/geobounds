@@ -1,13 +1,13 @@
 assert_adm_lvl <- function(adm_lvl, dict = c("all", paste0("adm", 0:5), 0:5)) {
   if (length(adm_lvl) > 1) {
     cli::cli_abort(
-      "You cannot mix different {.arg adm_lvl}. You entered {.val {adm_lvl}}."
+      "Use a single {.arg adm_lvl} value. You supplied {.val {adm_lvl}}."
     )
   }
   adm_lvl_clean <- tolower(as.character(adm_lvl))
   if (!adm_lvl_clean %in% dict) {
     cli::cli_abort(c(
-      "Invalid {.arg adm_lvl} level code ({.val {adm_lvl_clean}}).",
+      "Invalid {.arg adm_lvl} value ({.val {adm_lvl_clean}}).",
       "Accepted values are {.val {dict}}."
     ))
   }
@@ -98,7 +98,8 @@ gb_hlp_replace_month_abbr <- function(x) {
 #'
 #' @param out The output code format.
 #'
-#' @returns A vector of country codes.
+#' @returns
+#' A vector of country codes.
 #'
 #' @noRd
 gbnds_dev_country2iso <- function(names, out = "iso3c") {
@@ -137,7 +138,7 @@ gbnds_dev_country2iso <- function(names, out = "iso3c") {
   if (linit != lend) {
     ff <- names[is.na(outnames)] # nolint
     cli::cli_alert_warning(paste0(
-      "Some values could not be matched unambiguously: ",
+      "Some country values could not be matched unambiguously: ",
       "{ff}."
     ))
     cli::cli_alert_info(paste0(

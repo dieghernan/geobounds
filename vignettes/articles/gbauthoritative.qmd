@@ -1,8 +1,8 @@
 ---
 title: "gbAuthoritative coverage and metadata"
 description: |
-  Mirrored from UN SALB, verified through in-country processes and cannot be 
-  used for commercial purposes
+  gbAuthoritative is mirrored from UN SALB, verified through in-country
+  processes and unavailable for commercial use.
 knitr:
   opts_chunk:
     collapse: true
@@ -27,7 +27,7 @@ src <- "gbAuthoritative"
 ```{r}
 #| label: gautho-coverage
 #| echo: false
-#| fig-cap: "World coverage: gbAuthoritative."
+#| fig-cap: "Highest available ADM level by country: gbAuthoritative."
 library(geobounds)
 library(ggplot2)
 library(dplyr)
@@ -68,7 +68,7 @@ ggplot(p) +
     legend.key.width = unit(1, "line")
   ) +
   labs(
-    fill = "Administrative levels (ADMs)",
+    fill = "Highest available ADM level",
     caption = "Source: www.geoboundaries.org"
   )
 ```

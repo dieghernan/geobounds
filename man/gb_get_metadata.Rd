@@ -16,13 +16,12 @@ gb_get_metadata(
 )
 }
 \arguments{
-\item{country}{A character vector of country codes. It can be either
-\code{"all"} (which returns the data for all countries), a vector of country
-names or ISO 3166-1 alpha-3 country codes. See also
+\item{country}{A character vector of country names or ISO 3166-1 alpha-3
+country codes. Use \code{"all"} to return data for all countries. See also
 \code{\link[countrycode:countrycode]{countrycode::countrycode()}}.}
 
-\item{adm_lvl}{Type of boundary. Accepted values are \code{"all"} (all
-available boundaries) or the ADM level (\code{"adm0"} is the country boundary,
+\item{adm_lvl}{ADM level. Accepted values are \code{"all"} (all available
+boundaries) or the ADM level (\code{"adm0"} is the country boundary,
 \code{"adm1"} is the first level of subnational boundaries, \code{"adm2"} is the
 second level and so on). Upper-case versions (\code{"ADM1"}) and the number of
 the level (\verb{1, 2, 3, 4, 5}) are also accepted.}
@@ -30,7 +29,7 @@ the level (\verb{1, 2, 3, 4, 5}) are also accepted.}
 \item{release_type}{One of \code{"gbOpen"}, \code{"gbHumanitarian"} or
 \code{"gbAuthoritative"}. For most users, we suggest using \code{"gbOpen"}
 (the default), as it is CC BY 4.0 compliant and suitable for most purposes
-so long as attribution is provided. \code{"gbHumanitarian"} files are mirrored
+as long as attribution is provided. \code{"gbHumanitarian"} files are mirrored
 from \href{https://www.unocha.org/}{UN OCHA} and may have less open licensure.
 \code{"gbAuthoritative"} files are mirrored from UN SALB, verified through
 in-country processes and cannot be used for commercial purposes.}
@@ -71,20 +70,20 @@ region the country is associated with.
 subregion the country is associated with.
 \item \code{worldBankIncomeGroup}: The World Bank income group the country is
 associated with.
-\item \code{admUnitCount}: Count of administrative units in the file.
+\item \code{admUnitCount}: The count of administrative units in the file.
 \item \code{meanVertices}: Mean number of vertices defining the boundaries of each
 administrative unit in the layer.
 \item \code{minVertices}: Minimum number of vertices defining a boundary.
 \item \code{maxVertices}: Maximum number of vertices defining a boundary.
 \item \code{minPerimeterLengthKM}: The minimum perimeter length of an administrative
 unit in the layer, measured in kilometers and based on a World Equidistant
-Cylindrical projection).
+Cylindrical projection.
 \item \code{meanPerimeterLengthKM}: The mean perimeter length of an administrative
 unit in the layer, measured in kilometers and based on a World Equidistant
-Cylindrical projection).
+Cylindrical projection.
 \item \code{maxPerimeterLengthKM}: The maximum perimeter length of an administrative
 unit in the layer, measured in kilometers and based on a World Equidistant
-Cylindrical projection).
+Cylindrical projection.
 \item \code{meanAreaSqKM}: The mean area of all administrative units in the layer,
 measured in square kilometers and based on an EASE-GRID 2 projection.
 \item \code{minAreaSqKM}: The minimum area of an administrative unit in the layer,
@@ -103,7 +102,7 @@ simplified GeoJSON.
 }
 \examples{
 \dontshow{if (identical(Sys.getenv("NOT_CRAN"), "true") || interactive()) withAutoprint(\{ # examplesIf}
-# Get metadata for ADM4 levels.
+# Get metadata for ADM4.
 
 library(dplyr)
 

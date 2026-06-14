@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{gb_get_max_adm_lvl}
 \alias{gb_get_max_adm_lvl}
-\title{Get the highest administrative level available for a given country}
+\title{Get the highest available ADM level}
 \source{
 geoBoundaries API service \url{https://www.geoboundaries.org/api.html}.
 }
@@ -14,37 +14,36 @@ gb_get_max_adm_lvl(
 )
 }
 \arguments{
-\item{country}{A character vector of country codes. It can be either
-\code{"all"} (which returns the data for all countries), a vector of country
-names or ISO 3166-1 alpha-3 country codes. See also
+\item{country}{A character vector of country names or ISO 3166-1 alpha-3
+country codes. Use \code{"all"} to return data for all countries. See also
 \code{\link[countrycode:countrycode]{countrycode::countrycode()}}.}
 
 \item{release_type}{One of \code{"gbOpen"}, \code{"gbHumanitarian"} or
 \code{"gbAuthoritative"}. For most users, we suggest using \code{"gbOpen"}
 (the default), as it is CC BY 4.0 compliant and suitable for most purposes
-so long as attribution is provided. \code{"gbHumanitarian"} files are mirrored
+as long as attribution is provided. \code{"gbHumanitarian"} files are mirrored
 from \href{https://www.unocha.org/}{UN OCHA} and may have less open licensure.
 \code{"gbAuthoritative"} files are mirrored from UN SALB, verified through
 in-country processes and cannot be used for commercial purposes.}
 }
 \value{
 A \link[tibble:tbl_df]{tibble} with the country names and corresponding highest
-administrative level.
+ADM level.
 }
 \description{
-Get a summary of selected or all countries and their highest administrative
-level available in geoBoundaries.
+Get a summary of selected countries and their highest available
+ADM level in geoBoundaries.
 }
 \examples{
 \dontshow{if (identical(Sys.getenv("NOT_CRAN"), "true") || interactive()) withAutoprint(\{ # examplesIf}
 all <- gb_get_max_adm_lvl()
 library(dplyr)
 
-# Countries with only one level available.
+# Countries with only one ADM level available.
 all |>
   filter(maxBoundaryType == 1)
 
-# Countries with level 4 available.
+# Countries with ADM4 available.
 all |>
   filter(maxBoundaryType == 4)
 \dontshow{\}) # examplesIf}

@@ -1,7 +1,7 @@
 ---
 title: "gbHumanitarian coverage and metadata"
 description: |
-  Mirrored from UN OCHA and potentially subject to less open licensure
+  gbHumanitarian is mirrored from UN OCHA and may have less open licensure.
 knitr:
   opts_chunk:
     collapse: true
@@ -26,7 +26,7 @@ src <- "gbHumanitarian"
 ```{r}
 #| label: ghuman-coverage
 #| echo: false
-#| fig-cap: "World coverage: gbHumanitarian."
+#| fig-cap: "Highest available ADM level by country: gbHumanitarian."
 library(geobounds)
 library(ggplot2)
 library(dplyr)
@@ -65,7 +65,7 @@ ggplot(p) +
     legend.key.width = unit(1, "line")
   ) +
   labs(
-    fill = "Administrative levels (ADMs)",
+    fill = "Highest available ADM level",
     caption = "Source: www.geoboundaries.org"
   )
 ```

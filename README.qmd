@@ -46,19 +46,19 @@ using geoBoundaries.
 
 ## Why this package?
 
-The **geobounds** package provides an **R**-friendly interface for accessing and
-using the [**geoBoundaries**](https://www.geoboundaries.org/) dataset, a global
-database of administrative boundary polygons. Using this package, you can:
+The **geobounds** package provides an **R**-friendly interface for accessing
+the [**geoBoundaries**](https://www.geoboundaries.org/) Global Database of
+Political Administrative Boundaries. Using this package, you can:
 
-- Programmatically retrieve administrative boundary geometries, such as country
-  boundaries and subnational administrative levels, from **geoBoundaries**.
-- Use **tidyverse** and **sf** workflows in **R** to map, analyze and join these
-  boundaries with your own data.
+- Programmatically retrieve individual country files and global composite files
+  from **geoBoundaries**.
+- Use **tidyverse** and **sf** workflows in **R** to map, analyze and join
+  administrative boundary data with your own data.
 - Work in an open-data context where attribution to **geoBoundaries** is
   required.
 
 In short, if you work with administrative boundaries in **R**, this package
-simplifies downloads, caching and integration with other spatial data.
+simplifies downloads, caching and integration with spatial data workflows.
 
 ## Installation
 
@@ -102,7 +102,7 @@ install.packages(
 
 ```{r}
 #| label: simple_plot
-#| fig-cap: Map of all administrative levels for Sri Lanka
+#| fig-cap: Map of ADM1, ADM2 and ADM3 boundaries for Sri Lanka
 library(geobounds)
 
 sri_lanka_adm1 <- gb_get_adm1("Sri Lanka")
@@ -124,7 +124,7 @@ ggplot(sri_lanka_adm3) +
 
 ## Release types
 
-geoBoundaries offers different release types with varying sources, validation
+geoBoundaries provides three release types with different sources, validation
 processes and licensing:
 
 - **gbOpen**: Freely available boundaries under CC BY 4.0, suitable for most
@@ -132,16 +132,17 @@ processes and licensing:
 - **gbHumanitarian**: Boundaries mirrored from UN OCHA for humanitarian use,
   which may have less open licensure.
 - **gbAuthoritative**: Boundaries mirrored from UN SALB and verified through
-  in-country processes, and cannot be used for commercial purposes.
+  in-country processes. These boundaries cannot be used for commercial
+  purposes.
 
-Use the `release_type` argument in functions to specify, for example,
+Use the `release_type` argument to request a specific release type, for example,
 `gb_get_adm1("Sri Lanka", release_type = "gbHumanitarian")`.
 
-For detailed comparisons, see the vignettes.
+For detailed coverage and metadata comparisons, see the articles.
 
 ## Advanced usage
 
-Map the highest available administrative level in **geoBoundaries** by country:
+Map the highest available ADM level in **geoBoundaries** by country:
 
 ```{r}
 #| label: map-coverage
@@ -184,7 +185,7 @@ ggplot(world_max) +
     )
   ) +
   labs(
-    fill = "gbOpen: Administrative levels (ADMs)",
+    fill = "gbOpen: Highest available ADM level",
     caption = "Source: www.geoboundaries.org"
   )
 ```
@@ -193,7 +194,7 @@ ggplot(world_max) +
 
 - Visit the **pkgdown** site for full documentation:
   <https://dieghernan.github.io/geobounds/>
-- Vignettes on data releases:
+- Articles on **geoBoundaries** release types:
   - [gbOpen](https://dieghernan.github.io/geobounds/articles/gbopen.html)
   - [gbHumanitarian](https://dieghernan.github.io/geobounds/articles/gbhumanitarian.html)
   - [gbAuthoritative](https://dieghernan.github.io/geobounds/articles/gbauthoritative.html)
@@ -207,9 +208,9 @@ ggplot(world_max) +
 
 This package is released under the [CC BY
 4.0](https://creativecommons.org/licenses/by/4.0/) license. The default
-**geoBoundaries** release type, gbOpen, is CC BY 4.0 compliant when attribution
-is provided. Other release types may have additional licensing limits, so check
-the metadata returned by `gb_get_metadata()` before reuse.
+**geoBoundaries** release type, **gbOpen**, is CC BY 4.0 compliant when
+attribution is provided. Other release types may have additional licensing
+limits, so check the metadata returned by `gb_get_metadata()` before reuse.
 
 ## Acknowledgements
 

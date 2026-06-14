@@ -67,7 +67,7 @@ test_that("sf output messages", {
       simplified = TRUE,
       quiet = FALSE
     ),
-    "already cached"
+    "Using cached file"
   )
 
   unlink(tmpd, recursive = TRUE)

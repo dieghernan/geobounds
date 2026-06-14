@@ -25,11 +25,11 @@ An invisible character vector with the path to \code{cache_dir}.
 }
 \description{
 This function stores the \code{cache_dir} path on your local machine and loads it
-for future sessions. Use \code{gb_detect_cache_dir()} to find the cache directory
+in future sessions. Use \code{gb_detect_cache_dir()} to find the cache directory
 path.
 }
 \details{
-By default, when no \code{cache_dir} is set the package uses a folder inside
+By default, when no \code{cache_dir} is set the package uses a directory inside
 \code{\link[base:tempdir]{base::tempdir()}}, so files are temporary and are removed when the \R
 session ends. To persist a cache across \R sessions, use
 \code{gb_set_cache_dir(path, install = TRUE)}, which writes the chosen path to a

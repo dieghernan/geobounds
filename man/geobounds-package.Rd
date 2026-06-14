@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Tools for downloading administrative boundary data from 'geoBoundaries' \url{https://www.geoboundaries.org/} across multiple administrative levels. Boundary data are returned as 'sf' objects for mapping and spatial analysis. See Runfola, D. et al. (2020) "geoBoundaries: A global database of political administrative boundaries." PLOS ONE 15(4), e0231866. \doi{10.1371/journal.pone.0231866}.
+Tools for downloading individual country files and global composite files from 'geoBoundaries' \url{https://www.geoboundaries.org/} across multiple administrative levels. Boundary data are returned as 'sf' objects for mapping and spatial analysis. See Runfola, D. et al. (2020) "geoBoundaries: A global database of political administrative boundaries." PLOS ONE 15(4), e0231866. \doi{10.1371/journal.pone.0231866}.
 }
 \seealso{
 Useful links:

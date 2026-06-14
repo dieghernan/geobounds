@@ -4,8 +4,8 @@
 #' [Attribution](https://www.geoboundaries.org/index.html#usage) is required
 #' for all uses of this dataset.
 #'
-#' This function returns individual country files "as they would represent
-#' themselves", without special identification of disputed areas.
+#' This function returns individual country files as countries represent
+#' themselves, without special identification of disputed areas.
 #'
 #' Use [gb_get_world()] for global composite files that include disputed areas.
 #'
@@ -18,24 +18,23 @@
 #'
 #' The wrappers [gb_get_adm0()], [gb_get_adm1()], [gb_get_adm2()],
 #' [gb_get_adm3()], [gb_get_adm4()] and [gb_get_adm5()] are also available for
-#' requesting a single administrative level.
+#' requesting a single ADM level.
 #'
-#' @param country A character vector of country codes. It can be either
-#'   `"all"` (which returns the data for all countries), a vector of country
-#'   names or ISO 3166-1 alpha-3 country codes. See also
+#' @param country A character vector of country names or ISO 3166-1 alpha-3
+#'   country codes. Use `"all"` to return data for all countries. See also
 #'   [countrycode::countrycode()].
-#' @param adm_lvl Type of boundary. Accepted values are `"all"` (all
-#'   available boundaries) or the ADM level (`"adm0"` is the country boundary,
+#' @param adm_lvl ADM level. Accepted values are `"all"` (all available
+#'   boundaries) or the ADM level (`"adm0"` is the country boundary,
 #'   `"adm1"` is the first level of subnational boundaries, `"adm2"` is the
 #'   second level and so on). Upper-case versions (`"ADM1"`) and the number of
 #'   the level (`1, 2, 3, 4, 5`) are also accepted.
 #' @param simplified Logical. If `TRUE`, return the simplified boundary. The
-#'   default `FALSE` uses the primary geoBoundaries release. See simplified
+#'   default `FALSE` uses the primary geoBoundaries file. See simplified
 #'   boundaries at <https://www.geoboundaries.org/>.
 #' @param release_type One of `"gbOpen"`, `"gbHumanitarian"` or
 #'   `"gbAuthoritative"`. For most users, we suggest using `"gbOpen"`
 #'   (the default), as it is CC BY 4.0 compliant and suitable for most purposes
-#'   so long as attribution is provided. `"gbHumanitarian"` files are mirrored
+#'   as long as attribution is provided. `"gbHumanitarian"` files are mirrored
 #'   from [UN OCHA](https://www.unocha.org/) and may have less open licensure.
 #'   `"gbAuthoritative"` files are mirrored from UN SALB, verified through
 #'   in-country processes and cannot be used for commercial purposes.
@@ -48,7 +47,8 @@
 #'   stored in the temporary directory. See [base::tempdir()] and caching
 #'   strategies in [gb_set_cache_dir()].
 #'
-#' @returns A [`sf`][sf::st_sf] object.
+#' @returns
+#' An [`sf`][sf::st_sf] object.
 #'
 #' @source
 #' geoBoundaries API service <https://www.geoboundaries.org/api.html>.
@@ -62,7 +62,7 @@
 #'
 #' @examplesIf identical(Sys.getenv("NOT_CRAN"), "true") || interactive()
 #' \donttest{
-#' # Map level 2 in Sri Lanka.
+#' # Map ADM2 in Sri Lanka.
 #' sri_lanka <- gb_get(
 #'   "Sri Lanka",
 #'   adm_lvl = 2,
@@ -77,7 +77,7 @@
 #'   labs(caption = "Source: www.geoboundaries.org")
 #' }
 #'
-#' # Metadata.
+#' # Inspect metadata.
 #' library(dplyr)
 #' gb_get_metadata(
 #'   "Sri Lanka",
@@ -158,7 +158,7 @@ gbnds_dev_shp_query <- function(
   # Reuse cached files when available.
   if (isFALSE(overwrite) && fileoncache) {
     if (!quiet) {
-      cli::cli_alert_success("File {.file {file_local}} already cached.")
+      cli::cli_alert_success("Using cached file {.file {file_local}}.")
     }
   } else {
     # Download the source archive.

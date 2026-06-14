@@ -1,7 +1,7 @@
 ---
 title: "gbOpen coverage and metadata"
 description: |
-  gbOpen is CC BY 4.0 compliant when attribution is provided
+  gbOpen is CC BY 4.0 compliant when attribution is provided.
 knitr:
   opts_chunk:
     collapse: true
@@ -26,7 +26,7 @@ src <- "gbOpen"
 ```{r}
 #| label: map-coverage
 #| echo: false
-#| fig-cap: "World coverage: gbOpen."
+#| fig-cap: "Highest available ADM level by country: gbOpen."
 library(geobounds)
 library(ggplot2)
 library(dplyr)
@@ -67,7 +67,7 @@ ggplot(p) +
     legend.key.width = unit(1, "line")
   ) +
   labs(
-    fill = "Administrative levels (ADMs)",
+    fill = "Highest available ADM level",
     caption = "Source: www.geoboundaries.org"
   )
 ```
