@@ -21,7 +21,7 @@ workflows.
 Important
 
 [Attribution](https://www.geoboundaries.org/index.html#usage) is
-required when using geoBoundaries.
+required when using **geoBoundaries**.
 
 ## Installation
 
@@ -61,7 +61,7 @@ Lanka](reference/figures/README-simple_plot-1.png)
 
 ## Release types
 
-geoBoundaries provides three release types with different sources,
+**geoBoundaries** provides three release types with different sources,
 validation processes and licensing:
 
 - **gbOpen**: Freely available boundaries under CC BY 4.0, suitable for
@@ -139,8 +139,8 @@ ggplot(world_max) +
   - [gbAuthoritative](https://dieghernan.github.io/geobounds/articles/gbauthoritative.html)
 - Explore the **geoBoundaries** homepage:
   <https://www.geoboundaries.org/>
-- Read the original paper describing the geoBoundaries dataset ([Runfola
-  et al. 2020](#ref-10.1371/journal.pone.0231866)).
+- Read the original paper describing the **geoBoundaries** dataset
+  ([Runfola et al. 2020](#ref-10.1371/journal.pone.0231866)).
 - Report issues or contribute on
   [GitHub](https://github.com/dieghernan/geobounds).
 
@@ -200,7 +200,10 @@ Download individual country files or global composite files as
 [sf](https://CRAN.R-project.org/package=sf) objects.
 
 - [`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md)
-  : Get individual country files from geoBoundaries
+  :
+
+  Get individual country files from **geoBoundaries**
+
 - [`gb_get_adm0()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
   [`gb_get_adm1()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
   [`gb_get_adm2()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
@@ -208,8 +211,11 @@ Download individual country files or global composite files as
   [`gb_get_adm4()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
   [`gb_get_adm5()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
   : Get individual country files for a given ADM level
+
 - [`gb_get_world()`](https://dieghernan.github.io/geobounds/reference/gb_get_world.md)
-  : Get global composite files from geoBoundaries
+  :
+
+  Get global composite files from **geoBoundaries**
 
 ## Metadata
 
@@ -217,8 +223,11 @@ Inspect available ADM levels, boundary metadata and source details.
 
 - [`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/reference/gb_get_max_adm_lvl.md)
   : Get the highest available ADM level
+
 - [`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md)
-  : Get metadata for individual country files from geoBoundaries
+  :
+
+  Get metadata for individual country files from **geoBoundaries**
 
 ## Cache management
 
@@ -254,8 +263,8 @@ boundary files.
 
 ### geoBoundaries coverage
 
-Compare highest available ADM levels and metadata for the geoBoundaries
-release types available through geobounds.
+Compare highest available ADM levels and metadata for the
+**geoBoundaries** release types available through geobounds.
 
 - [gbOpen coverage and
   metadata](https://dieghernan.github.io/geobounds/articles/gbopen.md):

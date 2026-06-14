@@ -3,7 +3,7 @@
 Important
 
 [Attribution](https://www.geoboundaries.org/index.html#usage) is
-required when using geoBoundaries.
+required when using **geoBoundaries**.
 
 ## Introduction
 
@@ -154,28 +154,29 @@ country and ADM level use the cached version. For example:
 
 # Show the current cache directory.
 current <- gb_detect_cache_dir()
-#> ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpaW4c7i'
+#> ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpI1a5yx'
 
 current
-#> [1] "C:\\Users\\diego\\AppData\\Local\\Temp\\RtmpaW4c7i"
+#> [1] "C:\\Users\\diego\\AppData\\Local\\Temp\\RtmpI1a5yx"
 
 # Change to a new cache directory.
 newdir <- file.path(tempdir(), "/geoboundvignette")
 gb_set_cache_dir(newdir)
-#> ✔ geobounds cache directory is 'C:\Users\diego\AppData\Local\Temp\RtmpaW4c7i//geoboundvignette'.
+#> ✔ geobounds cache directory is 'C:\Users\diego\AppData\Local\Temp\RtmpI1a5yx//geoboundvignette'.
 #> ℹ To use this `cache_dir` path in future sessions, run this function with `install = TRUE`.
 
 # Download the example data.
 example <- gb_get_adm0("Vatican City", quiet = FALSE)
-#> ✔ Using cached file 'C:\Users\diego\AppData\Local\Temp\RtmpaW4c7i/geoboundvignette/gbOpen/geoBoundaries-VAT-ADM0-all.zip'.
+#> ℹ Downloading file from <https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/VAT/ADM0/geoBoundaries-VAT-ADM0-all.zip>.
+#> → Cache directory is 'C:\Users\diego\AppData\Local\Temp\RtmpI1a5yx//geoboundvignette/gbOpen'.
 
 # Restore the cache directory.
 gb_set_cache_dir(current)
-#> ✔ geobounds cache directory is 'C:\Users\diego\AppData\Local\Temp\RtmpaW4c7i'.
+#> ✔ geobounds cache directory is 'C:\Users\diego\AppData\Local\Temp\RtmpI1a5yx'.
 #> ℹ To use this `cache_dir` path in future sessions, run this function with `install = TRUE`.
 
 current == gb_detect_cache_dir()
-#> ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpaW4c7i'
+#> ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpI1a5yx'
 #> [1] TRUE
 ```
 

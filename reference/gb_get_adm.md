@@ -77,7 +77,7 @@ gb_get_adm5(
 
 ## Source
 
-geoBoundaries API service <https://www.geoboundaries.org/api.html>.
+**geoBoundaries** API service <https://www.geoboundaries.org/api.html>.
 
 ## Arguments
 
@@ -90,8 +90,8 @@ geoBoundaries API service <https://www.geoboundaries.org/api.html>.
 - simplified:
 
   Logical. If `TRUE`, return the simplified boundary. The default
-  `FALSE` uses the primary geoBoundaries file. See simplified boundaries
-  at <https://www.geoboundaries.org/>.
+  `FALSE` uses the primary **geoBoundaries** file. See simplified
+  boundaries at <https://www.geoboundaries.org/>.
 
 - release_type:
 
@@ -128,17 +128,17 @@ An [`sf`](https://r-spatial.github.io/sf/reference/sf.html) object.
 
 ## Details
 
-Individual country files in the geoBoundaries database are governed by
-the license or licenses identified within the metadata for each
+Individual country files in the **geoBoundaries** database are governed
+by the license or licenses identified within the metadata for each
 respective boundary. See
 [`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md).
-Users of individual boundary files from geoBoundaries should also cite
-the sources provided in the metadata for each file.
+Users of individual boundary files from **geoBoundaries** should also
+cite the sources provided in the metadata for each file.
 
 ## References
 
-Runfola, D. et al. (2020) geoBoundaries: A global database of political
-administrative boundaries. *PLOS ONE* *15*(4), 1-9.
+Runfola, D. et al. (2020) **geoBoundaries**: A global database of
+political administrative boundaries. *PLOS ONE* *15*(4), 1-9.
 [doi:10.1371/journal.pone.0231866](https://doi.org/10.1371/journal.pone.0231866)
 .
 

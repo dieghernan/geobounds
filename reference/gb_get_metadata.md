@@ -1,6 +1,6 @@
-# Get metadata for individual country files from geoBoundaries
+# Get metadata for individual country files from **geoBoundaries**
 
-This function returns metadata from the [geoBoundaries
+This function returns metadata from the [**geoBoundaries**
 API](https://www.geoboundaries.org/api.html).
 
 ## Usage
@@ -15,7 +15,7 @@ gb_get_metadata(
 
 ## Source
 
-geoBoundaries API service <https://www.geoboundaries.org/api.html>.
+**geoBoundaries** API service <https://www.geoboundaries.org/api.html>.
 
 ## Arguments
 
@@ -80,10 +80,10 @@ the following columns:
 - `licenseSource`: The URL of the primary source.
 
 - `sourceDataUpdateDate`: The date the source information was integrated
-  into the geoBoundaries repository.
+  into the **geoBoundaries** repository.
 
 - `buildDate`: The date the source data was most recently standardized
-  and built into a geoBoundaries release.
+  and built into a **geoBoundaries** release.
 
 - `Continent`: The continent the country is associated with.
 

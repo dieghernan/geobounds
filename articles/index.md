@@ -2,8 +2,8 @@
 
 ### geoBoundaries coverage
 
-Compare highest available ADM levels and metadata for the geoBoundaries
-release types available through geobounds.
+Compare highest available ADM levels and metadata for the
+**geoBoundaries** release types available through geobounds.
 
 - [gbOpen coverage and
   metadata](https://dieghernan.github.io/geobounds/articles/gbopen.md):

@@ -108,7 +108,7 @@
 <div class="callout-title-container flex-fill">Important</div>
 </div>
 <div class="callout-body-container callout-body">
-<p><a href="https://www.geoboundaries.org/index.html#usage" class="external-link">Attribution</a> is required when using geoBoundaries.</p>
+<p><a href="https://www.geoboundaries.org/index.html#usage" class="external-link">Attribution</a> is required when using <strong>geoBoundaries</strong>.</p>
 </div>
 </div>
 <section class="level2"><h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
@@ -210,28 +210,29 @@ Map showing no overlap in Kashmir, provided by CGAZ.
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Show the current cache directory.</span></span>
 <span><span class="va">current</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/gb_detect_cache_dir.html">gb_detect_cache_dir</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpaW4c7i'</span></span>
+<span><span class="co">#&gt; ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpI1a5yx'</span></span>
 <span></span>
 <span><span class="va">current</span></span>
-<span><span class="co">#&gt; [1] "C:\\Users\\diego\\AppData\\Local\\Temp\\RtmpaW4c7i"</span></span>
+<span><span class="co">#&gt; [1] "C:\\Users\\diego\\AppData\\Local\\Temp\\RtmpI1a5yx"</span></span>
 <span></span>
 <span><span class="co"># Change to a new cache directory.</span></span>
 <span><span class="va">newdir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"/geoboundvignette"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/gb_set_cache_dir.html">gb_set_cache_dir</a></span><span class="op">(</span><span class="va">newdir</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ✔ geobounds cache directory is 'C:\Users\diego\AppData\Local\Temp\RtmpaW4c7i//geoboundvignette'.</span></span>
+<span><span class="co">#&gt; ✔ geobounds cache directory is 'C:\Users\diego\AppData\Local\Temp\RtmpI1a5yx//geoboundvignette'.</span></span>
 <span><span class="co">#&gt; ℹ To use this `cache_dir` path in future sessions, run this function with `install = TRUE`.</span></span>
 <span></span>
 <span><span class="co"># Download the example data.</span></span>
 <span><span class="va">example</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/gb_get_adm.html">gb_get_adm0</a></span><span class="op">(</span><span class="st">"Vatican City"</span>, quiet <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ✔ Using cached file 'C:\Users\diego\AppData\Local\Temp\RtmpaW4c7i/geoboundvignette/gbOpen/geoBoundaries-VAT-ADM0-all.zip'.</span></span>
+<span><span class="co">#&gt; ℹ Downloading file from &lt;https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/VAT/ADM0/geoBoundaries-VAT-ADM0-all.zip&gt;.</span></span>
+<span><span class="co">#&gt; → Cache directory is 'C:\Users\diego\AppData\Local\Temp\RtmpI1a5yx//geoboundvignette/gbOpen'.</span></span>
 <span></span>
 <span><span class="co"># Restore the cache directory.</span></span>
 <span><span class="fu"><a href="../reference/gb_set_cache_dir.html">gb_set_cache_dir</a></span><span class="op">(</span><span class="va">current</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ✔ geobounds cache directory is 'C:\Users\diego\AppData\Local\Temp\RtmpaW4c7i'.</span></span>
+<span><span class="co">#&gt; ✔ geobounds cache directory is 'C:\Users\diego\AppData\Local\Temp\RtmpI1a5yx'.</span></span>
 <span><span class="co">#&gt; ℹ To use this `cache_dir` path in future sessions, run this function with `install = TRUE`.</span></span>
 <span></span>
 <span><span class="va">current</span> <span class="op">==</span> <span class="fu"><a href="../reference/gb_detect_cache_dir.html">gb_detect_cache_dir</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpaW4c7i'</span></span>
+<span><span class="co">#&gt; ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpI1a5yx'</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
 <p>To clear the cache, use <code><a href="../reference/gb_clear_cache.html">gb_clear_cache()</a></code>.</p>
 <p>Set a specific cache directory for each function call with the <code>cache_dir</code> argument.</p>

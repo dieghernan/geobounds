@@ -1,4 +1,4 @@
-# Get global composite files from geoBoundaries
+# Get global composite files from **geoBoundaries**
 
 [Attribution](https://www.geoboundaries.org/index.html#usage) is
 required for all uses of this dataset.
@@ -21,7 +21,7 @@ gb_get_world(
 
 ## Source
 
-geoBoundaries API service <https://www.geoboundaries.org/api.html>.
+**geoBoundaries** API service <https://www.geoboundaries.org/api.html>.
 
 ## Arguments
 
@@ -73,8 +73,8 @@ and fill gaps between borders.
 
 ## References
 
-Runfola, D. et al. (2020) geoBoundaries: A global database of political
-administrative boundaries. *PLOS ONE* *15*(4), 1-9.
+Runfola, D. et al. (2020) **geoBoundaries**: A global database of
+political administrative boundaries. *PLOS ONE* *15*(4), 1-9.
 [doi:10.1371/journal.pone.0231866](https://doi.org/10.1371/journal.pone.0231866)
 .
 

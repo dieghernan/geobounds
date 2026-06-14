@@ -1,7 +1,7 @@
 # Get the highest available ADM level
 
 Get a summary of selected countries and their highest available ADM
-level in geoBoundaries.
+level in **geoBoundaries**.
 
 ## Usage
 
@@ -14,7 +14,7 @@ gb_get_max_adm_lvl(
 
 ## Source
 
-geoBoundaries API service <https://www.geoboundaries.org/api.html>.
+**geoBoundaries** API service <https://www.geoboundaries.org/api.html>.
 
 ## Arguments
 

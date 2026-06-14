@@ -21,7 +21,7 @@ workflows.
 Important
 
 [Attribution](https://www.geoboundaries.org/index.html#usage) is
-required when using geoBoundaries.
+required when using **geoBoundaries**.
 
 ## Installation
 
@@ -61,7 +61,7 @@ Lanka](reference/figures/README-simple_plot-1.png)
 
 ## Release types
 
-geoBoundaries provides three release types with different sources,
+**geoBoundaries** provides three release types with different sources,
 validation processes and licensing:
 
 - **gbOpen**: Freely available boundaries under CC BY 4.0, suitable for
@@ -139,8 +139,8 @@ ggplot(world_max) +
   - [gbAuthoritative](https://dieghernan.github.io/geobounds/articles/gbauthoritative.html)
 - Explore the **geoBoundaries** homepage:
   <https://www.geoboundaries.org/>
-- Read the original paper describing the geoBoundaries dataset ([Runfola
-  et al. 2020](#ref-10.1371/journal.pone.0231866)).
+- Read the original paper describing the **geoBoundaries** dataset
+  ([Runfola et al. 2020](#ref-10.1371/journal.pone.0231866)).
 - Report issues or contribute on
   [GitHub](https://github.com/dieghernan/geobounds).
 
