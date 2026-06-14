@@ -3,8 +3,8 @@
 [Attribution](https://www.geoboundaries.org/index.html#usage) is
 required for all uses of this dataset.
 
-This function returns individual country files "as they would represent
-themselves", without special identification of disputed areas.
+This function returns individual country files as countries represent
+themselves, without special identification of disputed areas.
 
 Use
 [`gb_get_world()`](https://dieghernan.github.io/geobounds/reference/gb_get_world.md)
@@ -32,30 +32,29 @@ geoBoundaries API service <https://www.geoboundaries.org/api.html>.
 
 - country:
 
-  A character vector of country codes. It can be either `"all"` (which
-  returns the data for all countries), a vector of country names or ISO
-  3166-1 alpha-3 country codes. See also
+  A character vector of country names or ISO 3166-1 alpha-3 country
+  codes. Use `"all"` to return data for all countries. See also
   [`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/man/countrycode.html).
 
 - adm_lvl:
 
-  Type of boundary. Accepted values are `"all"` (all available
-  boundaries) or the ADM level (`"adm0"` is the country boundary,
-  `"adm1"` is the first level of subnational boundaries, `"adm2"` is the
-  second level and so on). Upper-case versions (`"ADM1"`) and the number
-  of the level (`1, 2, 3, 4, 5`) are also accepted.
+  ADM level. Accepted values are `"all"` (all available boundaries) or
+  the ADM level (`"adm0"` is the country boundary, `"adm1"` is the first
+  level of subnational boundaries, `"adm2"` is the second level and so
+  on). Upper-case versions (`"ADM1"`) and the number of the level
+  (`1, 2, 3, 4, 5`) are also accepted.
 
 - simplified:
 
   Logical. If `TRUE`, return the simplified boundary. The default
-  `FALSE` uses the primary geoBoundaries release. See simplified
-  boundaries at <https://www.geoboundaries.org/>.
+  `FALSE` uses the primary geoBoundaries file. See simplified boundaries
+  at <https://www.geoboundaries.org/>.
 
 - release_type:
 
   One of `"gbOpen"`, `"gbHumanitarian"` or `"gbAuthoritative"`. For most
   users, we suggest using `"gbOpen"` (the default), as it is CC BY 4.0
-  compliant and suitable for most purposes so long as attribution is
+  compliant and suitable for most purposes as long as attribution is
   provided. `"gbHumanitarian"` files are mirrored from [UN
   OCHA](https://www.unocha.org/) and may have less open licensure.
   `"gbAuthoritative"` files are mirrored from UN SALB, verified through
@@ -82,7 +81,7 @@ geoBoundaries API service <https://www.geoboundaries.org/api.html>.
 
 ## Value
 
-A [`sf`](https://r-spatial.github.io/sf/reference/sf.html) object.
+An [`sf`](https://r-spatial.github.io/sf/reference/sf.html) object.
 
 ## Details
 
@@ -101,7 +100,7 @@ The wrappers
 [`gb_get_adm4()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
 and
 [`gb_get_adm5()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
-are also available for requesting a single administrative level.
+are also available for requesting a single ADM level.
 
 ## References
 
@@ -120,7 +119,7 @@ Other API functions:
 
 ``` r
 # \donttest{
-# Map level 2 in Sri Lanka.
+# Map ADM2 in Sri Lanka.
 sri_lanka <- gb_get(
   "Sri Lanka",
   adm_lvl = 2,
@@ -155,7 +154,7 @@ ggplot(sri_lanka) +
 
 # }
 
-# Metadata.
+# Inspect metadata.
 library(dplyr)
 #> 
 #> Attaching package: ‘dplyr’

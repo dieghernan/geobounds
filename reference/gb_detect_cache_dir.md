@@ -1,6 +1,6 @@
 # Detect the [geobounds](https://CRAN.R-project.org/package=geobounds) cache directory
 
-Detect the current cache folder. See
+Detect the current cache directory. See
 [`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_set_cache_dir.md).
 
 ## Usage
@@ -31,6 +31,6 @@ Other cache utilities:
 
 ``` r
 gb_detect_cache_dir()
-#> ℹ /tmp/RtmpozntMk/geobounds
-#> [1] "/tmp/RtmpozntMk/geobounds"
+#> ℹ /tmp/RtmpIk7MuL/geobounds
+#> [1] "/tmp/RtmpIk7MuL/geobounds"
 ```

@@ -1,20 +1,20 @@
-# Get individual country files for a given administrative level
+# Get individual country files for a given ADM level
 
 [Attribution](https://www.geoboundaries.org/index.html#usage) is
 required for all uses of this dataset.
 
-These functions are wrappers around
+These functions wrap
 [`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md)
-for extracting a given administrative level. `gb_get_adm0()` returns the
-country boundary, `gb_get_adm1()` returns first-level subnational
-boundaries (e.g. states in the United States), `gb_get_adm2()` returns
-second-level subnational boundaries (e.g. counties in the United
-States), `gb_get_adm3()` returns third-level administrative boundaries
-(e.g. towns or cities in some countries), `gb_get_adm4()` returns
-fourth-level administrative boundaries and `gb_get_adm5()` returns
-fifth-level administrative boundaries.
+for one ADM level. `gb_get_adm0()` returns the country boundary,
+`gb_get_adm1()` returns first-level subnational boundaries (e.g. states
+in the United States), `gb_get_adm2()` returns second-level subnational
+boundaries (e.g. counties in the United States), `gb_get_adm3()` returns
+third-level administrative boundaries (e.g. towns or cities in some
+countries), `gb_get_adm4()` returns fourth-level administrative
+boundaries and `gb_get_adm5()` returns fifth-level administrative
+boundaries.
 
-Note that not all countries have the same number of levels. Check
+Note that not all countries have the same number of ADM levels. Check
 [`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/reference/gb_get_max_adm_lvl.md).
 
 ## Usage
@@ -83,22 +83,21 @@ geoBoundaries API service <https://www.geoboundaries.org/api.html>.
 
 - country:
 
-  A character vector of country codes. It can be either `"all"` (which
-  returns the data for all countries), a vector of country names or ISO
-  3166-1 alpha-3 country codes. See also
+  A character vector of country names or ISO 3166-1 alpha-3 country
+  codes. Use `"all"` to return data for all countries. See also
   [`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/man/countrycode.html).
 
 - simplified:
 
   Logical. If `TRUE`, return the simplified boundary. The default
-  `FALSE` uses the primary geoBoundaries release. See simplified
-  boundaries at <https://www.geoboundaries.org/>.
+  `FALSE` uses the primary geoBoundaries file. See simplified boundaries
+  at <https://www.geoboundaries.org/>.
 
 - release_type:
 
   One of `"gbOpen"`, `"gbHumanitarian"` or `"gbAuthoritative"`. For most
   users, we suggest using `"gbOpen"` (the default), as it is CC BY 4.0
-  compliant and suitable for most purposes so long as attribution is
+  compliant and suitable for most purposes as long as attribution is
   provided. `"gbHumanitarian"` files are mirrored from [UN
   OCHA](https://www.unocha.org/) and may have less open licensure.
   `"gbAuthoritative"` files are mirrored from UN SALB, verified through
@@ -125,7 +124,7 @@ geoBoundaries API service <https://www.geoboundaries.org/api.html>.
 
 ## Value
 
-A [`sf`](https://r-spatial.github.io/sf/reference/sf.html) object.
+An [`sf`](https://r-spatial.github.io/sf/reference/sf.html) object.
 
 ## Details
 

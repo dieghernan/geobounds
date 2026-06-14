@@ -21,24 +21,23 @@ geoBoundaries API service <https://www.geoboundaries.org/api.html>.
 
 - country:
 
-  A character vector of country codes. It can be either `"all"` (which
-  returns the data for all countries), a vector of country names or ISO
-  3166-1 alpha-3 country codes. See also
+  A character vector of country names or ISO 3166-1 alpha-3 country
+  codes. Use `"all"` to return data for all countries. See also
   [`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/man/countrycode.html).
 
 - adm_lvl:
 
-  Type of boundary. Accepted values are `"all"` (all available
-  boundaries) or the ADM level (`"adm0"` is the country boundary,
-  `"adm1"` is the first level of subnational boundaries, `"adm2"` is the
-  second level and so on). Upper-case versions (`"ADM1"`) and the number
-  of the level (`1, 2, 3, 4, 5`) are also accepted.
+  ADM level. Accepted values are `"all"` (all available boundaries) or
+  the ADM level (`"adm0"` is the country boundary, `"adm1"` is the first
+  level of subnational boundaries, `"adm2"` is the second level and so
+  on). Upper-case versions (`"ADM1"`) and the number of the level
+  (`1, 2, 3, 4, 5`) are also accepted.
 
 - release_type:
 
   One of `"gbOpen"`, `"gbHumanitarian"` or `"gbAuthoritative"`. For most
   users, we suggest using `"gbOpen"` (the default), as it is CC BY 4.0
-  compliant and suitable for most purposes so long as attribution is
+  compliant and suitable for most purposes as long as attribution is
   provided. `"gbHumanitarian"` files are mirrored from [UN
   OCHA](https://www.unocha.org/) and may have less open licensure.
   `"gbAuthoritative"` files are mirrored from UN SALB, verified through
@@ -97,7 +96,7 @@ the following columns:
 - `worldBankIncomeGroup`: The World Bank income group the country is
   associated with.
 
-- `admUnitCount`: Count of administrative units in the file.
+- `admUnitCount`: The count of administrative units in the file.
 
 - `meanVertices`: Mean number of vertices defining the boundaries of
   each administrative unit in the layer.
@@ -108,15 +107,15 @@ the following columns:
 
 - `minPerimeterLengthKM`: The minimum perimeter length of an
   administrative unit in the layer, measured in kilometers and based on
-  a World Equidistant Cylindrical projection).
+  a World Equidistant Cylindrical projection.
 
 - `meanPerimeterLengthKM`: The mean perimeter length of an
   administrative unit in the layer, measured in kilometers and based on
-  a World Equidistant Cylindrical projection).
+  a World Equidistant Cylindrical projection.
 
 - `maxPerimeterLengthKM`: The maximum perimeter length of an
   administrative unit in the layer, measured in kilometers and based on
-  a World Equidistant Cylindrical projection).
+  a World Equidistant Cylindrical projection.
 
 - `meanAreaSqKM`: The mean area of all administrative units in the
   layer, measured in square kilometers and based on an EASE-GRID 2
@@ -153,7 +152,7 @@ Other metadata functions:
 ## Examples
 
 ``` r
-# Get metadata for ADM4 levels.
+# Get metadata for ADM4.
 
 library(dplyr)
 

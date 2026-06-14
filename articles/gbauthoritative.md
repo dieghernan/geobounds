@@ -4,6 +4,6 @@
 
 ![](gbauthoritative_files/figure-html/gautho-coverage-1.png)
 
-World coverage: gbAuthoritative.
+Highest available ADM level by country: gbAuthoritative.
 
 ## gbAuthoritative metadata

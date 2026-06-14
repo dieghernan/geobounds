@@ -4,6 +4,6 @@
 
 ![](gbopen_files/figure-html/map-coverage-1.png)
 
-World coverage: gbOpen.
+Highest available ADM level by country: gbOpen.
 
 ## gbOpen metadata

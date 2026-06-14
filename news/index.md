@@ -4,9 +4,9 @@
 
 CRAN release: 2026-05-29
 
-- Documentation and internal code were reviewed with AI assistance to
-  improve maintainability, align terminology across **roxygen2** and
-  narrative documentation, and clarify user-facing messages.
+- Documentation and user-facing messages were reviewed with AI
+  assistance to align terminology across **roxygen2** and narrative
+  documentation, and to clarify package output.
 
 ## geobounds 0.1.1
 

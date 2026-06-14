@@ -79,15 +79,14 @@ geoBoundaries API."><meta property="og:image" content="https://dieghernan.github
 
 
 <dl><dt id="arg-country">country<a class="anchor" aria-label="anchor" href="#arg-country"></a></dt>
-<dd><p>A character vector of country codes. It can be either
-<code>"all"</code> (which returns the data for all countries), a vector of country
-names or ISO 3166-1 alpha-3 country codes. See also
+<dd><p>A character vector of country names or ISO 3166-1 alpha-3
+country codes. Use <code>"all"</code> to return data for all countries. See also
 <code><a href="https://vincentarelbundock.github.io/countrycode/man/countrycode.html" class="external-link">countrycode::countrycode()</a></code>.</p></dd>
 
 
 <dt id="arg-adm-lvl">adm_lvl<a class="anchor" aria-label="anchor" href="#arg-adm-lvl"></a></dt>
-<dd><p>Type of boundary. Accepted values are <code>"all"</code> (all
-available boundaries) or the ADM level (<code>"adm0"</code> is the country boundary,
+<dd><p>ADM level. Accepted values are <code>"all"</code> (all available
+boundaries) or the ADM level (<code>"adm0"</code> is the country boundary,
 <code>"adm1"</code> is the first level of subnational boundaries, <code>"adm2"</code> is the
 second level and so on). Upper-case versions (<code>"ADM1"</code>) and the number of
 the level (<code>1, 2, 3, 4, 5</code>) are also accepted.</p></dd>
@@ -97,7 +96,7 @@ the level (<code>1, 2, 3, 4, 5</code>) are also accepted.</p></dd>
 <dd><p>One of <code>"gbOpen"</code>, <code>"gbHumanitarian"</code> or
 <code>"gbAuthoritative"</code>. For most users, we suggest using <code>"gbOpen"</code>
 (the default), as it is CC BY 4.0 compliant and suitable for most purposes
-so long as attribution is provided. <code>"gbHumanitarian"</code> files are mirrored
+as long as attribution is provided. <code>"gbHumanitarian"</code> files are mirrored
 from <a href="https://www.unocha.org/" class="external-link">UN OCHA</a> and may have less open licensure.
 <code>"gbAuthoritative"</code> files are mirrored from UN SALB, verified through
 in-country processes and cannot be used for commercial purposes.</p></dd>
@@ -135,20 +134,20 @@ region the country is associated with.</p></li>
 subregion the country is associated with.</p></li>
 <li><p><code>worldBankIncomeGroup</code>: The World Bank income group the country is
 associated with.</p></li>
-<li><p><code>admUnitCount</code>: Count of administrative units in the file.</p></li>
+<li><p><code>admUnitCount</code>: The count of administrative units in the file.</p></li>
 <li><p><code>meanVertices</code>: Mean number of vertices defining the boundaries of each
 administrative unit in the layer.</p></li>
 <li><p><code>minVertices</code>: Minimum number of vertices defining a boundary.</p></li>
 <li><p><code>maxVertices</code>: Maximum number of vertices defining a boundary.</p></li>
 <li><p><code>minPerimeterLengthKM</code>: The minimum perimeter length of an administrative
 unit in the layer, measured in kilometers and based on a World Equidistant
-Cylindrical projection).</p></li>
+Cylindrical projection.</p></li>
 <li><p><code>meanPerimeterLengthKM</code>: The mean perimeter length of an administrative
 unit in the layer, measured in kilometers and based on a World Equidistant
-Cylindrical projection).</p></li>
+Cylindrical projection.</p></li>
 <li><p><code>maxPerimeterLengthKM</code>: The maximum perimeter length of an administrative
 unit in the layer, measured in kilometers and based on a World Equidistant
-Cylindrical projection).</p></li>
+Cylindrical projection.</p></li>
 <li><p><code>meanAreaSqKM</code>: The mean area of all administrative units in the layer,
 measured in square kilometers and based on an EASE-GRID 2 projection.</p></li>
 <li><p><code>minAreaSqKM</code>: The minimum area of an administrative unit in the layer,
@@ -173,7 +172,7 @@ simplified GeoJSON.</p></li>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Get metadata for ADM4 levels.</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Get metadata for ADM4.</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
