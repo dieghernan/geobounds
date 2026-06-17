@@ -44,10 +44,8 @@ workflows.
 <div class="callout-title-container flex-fill">Important</div>
 </div>
 <div class="callout-body-container callout-body">
-
-[Attribution](https://www.geoboundaries.org/index.html#usage) is
-required when using **geoBoundaries**.
-
+<p><a href="https://www.geoboundaries.org/index.html#usage" class="external-link">Attribution</a> is required when using 
+<strong>geoBoundaries</strong>.</p>
 </div>
 </div>
 
@@ -192,8 +190,8 @@ alt="World coverage of geoBoundaries (gbOpen)" />
   - [gbAuthoritative](https://dieghernan.github.io/geobounds/articles/gbauthoritative.html)
 - Explore the **geoBoundaries** homepage:
   <https://www.geoboundaries.org/>
-- Read the original paper describing the **geoBoundaries** dataset ([Runfola
-  et al. 2020](#ref-10.1371/journal.pone.0231866)).
+- Read the original paper describing the **geoBoundaries** dataset
+  ([Runfola et al. 2020](#ref-10.1371/journal.pone.0231866)).
 - Report issues or contribute on
   [GitHub](https://github.com/dieghernan/geobounds).
 
