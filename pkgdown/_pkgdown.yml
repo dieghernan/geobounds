@@ -50,24 +50,27 @@ reference:
     Download individual country files or global composite files as
     <a href="https://CRAN.R-project.org/package=sf"
     class="external-link"><span class="pkg">sf</span></a> objects.
-  contents:
+- contents:
   - has_concept("API functions")
 - title: Metadata
   desc: >
     Inspect available ADM levels, boundary metadata and source details.
-  contents:
+- contents:
   - has_concept("metadata functions")
 - title: Cache management
   desc: >
     Configure, inspect and clear the local cache used for downloaded boundary
     files.
-  contents:
+- contents:
   - has_concept("cache utilities")
 - title: About the package
-  contents:
+- contents:
   - geobounds-package
 
 articles:
+- title: First steps
+  contents:
+  - geobounds
 - title: geoBoundaries coverage
   navbar: geoBoundaries coverage
   desc: >
@@ -77,3 +80,15 @@ articles:
   - articles/gbopen
   - articles/gbhumanitarian
   - articles/gbauthoritative
+- title: From the blog
+  navbar: Blog posts
+  desc: >
+    Blog posts tagged with **geobounds** on One World.
+  contents:
+  - blog-introducing-geobounds
+
+external-articles:
+- name: blog-introducing-geobounds
+  title: "Introducing geobounds"
+  description: "A simple way to retrieve datasets from geoBoundaries"
+  href: https://dieghernan.github.io/202602_geobounds/
