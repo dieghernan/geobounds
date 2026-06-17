@@ -105,10 +105,10 @@ licenses identified within the metadata for each respective boundary.
 gb_get_metadata(c("India", "Pakistan"), adm_lvl = "ADM0") |>
   select(boundaryName, boundaryLicense, boundarySource)
 #> # A tibble: 2 × 3
-#>   boundaryName boundaryLicense                                      boundarySource         
-#>   <chr>        <chr>                                                <chr>                  
-#> 1 India        CC0 1.0 Universal (CC0 1.0) Public Domain Dedication geoBoundaries, Wikimed…
-#> 2 Pakistan     Open Data Commons Open Database License 1.0          OpenStreetMap, Wambach…
+#>   boundaryName boundaryLicense                                    boundarySource
+#>   <chr>        <chr>                                              <chr>         
+#> 1 India        CC0 1.0 Universal (CC0 1.0) Public Domain Dedicat… geoBoundaries…
+#> 2 Pakistan     Open Data Commons Open Database License 1.0        OpenStreetMap…
 ```
 
 ### Global composite files
@@ -154,29 +154,29 @@ country and ADM level use the cached version. For example:
 
 # Show the current cache directory.
 current <- gb_detect_cache_dir()
-#> ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpI1a5yx'
+#> ℹ 'C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp6LfQDv'
 
 current
-#> [1] "C:\\Users\\diego\\AppData\\Local\\Temp\\RtmpI1a5yx"
+#> [1] "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\Rtmp6LfQDv"
 
 # Change to a new cache directory.
 newdir <- file.path(tempdir(), "/geoboundvignette")
 gb_set_cache_dir(newdir)
-#> ✔ geobounds cache directory is 'C:\Users\diego\AppData\Local\Temp\RtmpI1a5yx//geoboundvignette'.
+#> ✔ geobounds cache directory is 'C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp6LfQDv//geoboundvignette'.
 #> ℹ To use this `cache_dir` path in future sessions, run this function with `install = TRUE`.
 
 # Download the example data.
 example <- gb_get_adm0("Vatican City", quiet = FALSE)
 #> ℹ Downloading file from <https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/VAT/ADM0/geoBoundaries-VAT-ADM0-all.zip>.
-#> → Cache directory is 'C:\Users\diego\AppData\Local\Temp\RtmpI1a5yx//geoboundvignette/gbOpen'.
+#> → Cache directory is 'C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp6LfQDv//geoboundvignette/gbOpen'.
 
 # Restore the cache directory.
 gb_set_cache_dir(current)
-#> ✔ geobounds cache directory is 'C:\Users\diego\AppData\Local\Temp\RtmpI1a5yx'.
+#> ✔ geobounds cache directory is 'C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp6LfQDv'.
 #> ℹ To use this `cache_dir` path in future sessions, run this function with `install = TRUE`.
 
 current == gb_detect_cache_dir()
-#> ℹ 'C:\Users\diego\AppData\Local\Temp\RtmpI1a5yx'
+#> ℹ 'C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp6LfQDv'
 #> [1] TRUE
 ```
 
@@ -208,10 +208,10 @@ latam_meta <- gb_get_metadata(adm_lvl = "ADM0") |>
   glimpse()
 #> Rows: 47
 #> Columns: 4
-#> $ boundaryISO          <chr> "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", "BLZ", "BOL…
-#> $ boundaryName         <chr> "Aruba", "Anguilla", "Argentina", "Antigua and Barbuda", "Bo…
-#> $ Continent            <chr> "Latin America and the Caribbean", "Latin America and the Ca…
-#> $ worldBankIncomeGroup <chr> "High-income Countries", "No income group available", "High-…
+#> $ boundaryISO          <chr> "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", …
+#> $ boundaryName         <chr> "Aruba", "Anguilla", "Argentina", "Antigua and Ba…
+#> $ Continent            <chr> "Latin America and the Caribbean", "Latin America…
+#> $ worldBankIncomeGroup <chr> "High-income Countries", "No income group availab…
 
 # Adjust factors.
 latam_meta$income_factor <- factor(
