@@ -1,6 +1,6 @@
 # Detect the [geobounds](https://CRAN.R-project.org/package=geobounds) cache directory
 
-Detect the current cache directory. See
+Detects the active cache directory. See
 [`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_set_cache_dir.md).
 
 ## Usage
@@ -17,13 +17,13 @@ gb_detect_cache_dir(x = NULL)
 
 ## Value
 
-A character vector with the path to your `cache_dir`. The same path also
-appears as a clickable message. See
-[`cli::inline-markup`](https://cli.r-lib.org/reference/inline-markup.html).
+A character vector containing the path to the active cache directory. It
+also appears in a clickable message. See
+[cli::inline-markup](https://cli.r-lib.org/reference/inline-markup.html).
 
 ## See also
 
-Other cache utilities:
+Cache utilities:
 [`gb_clear_cache()`](https://dieghernan.github.io/geobounds/reference/gb_clear_cache.md),
 [`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_set_cache_dir.md)
 
@@ -31,6 +31,6 @@ Other cache utilities:
 
 ``` r
 gb_detect_cache_dir()
-#> ℹ /tmp/RtmpyeGLNS/geobounds
-#> [1] "/tmp/RtmpyeGLNS/geobounds"
+#> ℹ /tmp/RtmpTW5jPS/geobounds
+#> [1] "/tmp/RtmpTW5jPS/geobounds"
 ```

@@ -26,7 +26,7 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><hr class="dropdown-divider"></li>
-    <li><h6 class="dropdown-header" data-toc-skip>geoBoundaries coverage</h6></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Release coverage</h6></li>
     <li><a class="dropdown-item" href="../articles/gbopen.html">gbOpen coverage and metadata</a></li>
     <li><a class="dropdown-item" href="../articles/gbhumanitarian.html">gbHumanitarian coverage and metadata</a></li>
     <li><a class="dropdown-item" href="../articles/gbauthoritative.html">gbAuthoritative coverage and metadata</a></li>
@@ -60,7 +60,7 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.2" id="geobounds-012">geobounds 0.1.2<a class="anchor" aria-label="anchor" href="#geobounds-012"></a></h2><p class="text-muted">CRAN release: 2026-05-29</p>
-<ul><li>Documentation and user-facing messages were reviewed with AI assistance to align terminology across <strong>roxygen2</strong> and narrative documentation, and to clarify package output.</li>
+<ul><li>Documentation and user-facing messages were reviewed with AI assistance to align terminology across <strong>roxygen2</strong> and narrative documentation and to clarify package output.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.1" id="geobounds-011">geobounds 0.1.1<a class="anchor" aria-label="anchor" href="#geobounds-011"></a></h2><p class="text-muted">CRAN release: 2026-03-24</p>
@@ -85,9 +85,9 @@
 <div class="section level4">
 <h4 id="other-changes-0-1-0">Other changes<a class="anchor" aria-label="anchor" href="#other-changes-0-1-0"></a></h4>
 <ul><li>Added a DOI.</li>
-<li>All download functions now use <code>.zip/.shp</code> datasets instead of <code>.geojson/.gpkg</code>, removing the <strong>geojsonsf</strong> dependency from <code>Imports</code>.</li>
+<li>All download functions now use <code>.zip</code> archives containing <code>.shp</code> files instead of <code>.geojson</code> or <code>.gpkg</code> files, removing the <strong>geojsonsf</strong> dependency from <code>Imports</code>.</li>
 <li>All download functions now return <code>MULTIPOLYGON</code> geometries.</li>
-<li>All download functions now fail gracefully when a country file is unavailable, without errors or warnings.</li>
+<li>All download functions now return <code>NULL</code> without an error or warning when a country file is unavailable.</li>
 <li>All download functions now retry transient request failures with <code><a href="https://httr2.r-lib.org/reference/req_retry.html" class="external-link">httr2::req_retry()</a></code>.</li>
 <li>Cached files from previous package versions are no longer reused because the source file format changed.</li>
 <li>Country matching now improves detection for Antarctica and Kosovo.</li>
@@ -98,7 +98,7 @@
 <li>
 <code><a href="../reference/gb_get_max_adm_lvl.html">gb_get_max_adm_lvl()</a></code> was added.</li>
 <li>
-<code><a href="../reference/gb_get_world.html">gb_get_world()</a></code> now gets the latest data available from the repository at <a href="https://github.com/wmgeolab/geoBoundaries/tree/main/releaseData" class="external-link uri">https://github.com/wmgeolab/geoBoundaries/tree/main/releaseData</a>.</li>
+<code><a href="../reference/gb_get_world.html">gb_get_world()</a></code> now retrieves the latest data available from the repository at <a href="https://github.com/wmgeolab/geoBoundaries/tree/main/releaseData" class="external-link uri">https://github.com/wmgeolab/geoBoundaries/tree/main/releaseData</a>.</li>
 </ul></div>
 </div>
 </div>

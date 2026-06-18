@@ -1,15 +1,17 @@
 # Articles
 
-### First steps
+### Get started
 
-- [geobounds: Accessing administrative boundary data in
+Learn how to download, inspect and map administrative boundary data.
+
+- [geobounds: Downloading administrative boundary data in
   R](https://dieghernan.github.io/geobounds/articles/geobounds.md):
 
-  Introduction to the geobounds package
+  Download, inspect and map administrative boundary data
 
-### geoBoundaries coverage
+### Coverage by release type
 
-Compare highest available ADM levels and metadata for the
+Compare highest available ADM levels and boundary metadata for the
 **geoBoundaries** release types available through geobounds.
 
 - [gbOpen coverage and
@@ -21,7 +23,7 @@ Compare highest available ADM levels and metadata for the
   metadata](https://dieghernan.github.io/geobounds/articles/gbhumanitarian.md):
 
   gbHumanitarian is mirrored from UN OCHA and may have less open
-  licensure.
+  licensing.
 
 - [gbAuthoritative coverage and
   metadata](https://dieghernan.github.io/geobounds/articles/gbauthoritative.md):
@@ -36,4 +38,4 @@ Blog posts tagged with **geobounds** on One World.
 - [Introducing
   geobounds](https://dieghernan.github.io/202602_geobounds/):
 
-  A simple way to retrieve datasets from geoBoundaries
+  Download administrative boundary data from geoBoundaries

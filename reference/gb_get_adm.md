@@ -1,21 +1,20 @@
-# Get individual country files for a given ADM level
-
-[Attribution](https://www.geoboundaries.org/index.html#usage) is
-required for all uses of this dataset.
+# Get individual country files for an ADM level
 
 These functions wrap
 [`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md)
-for one ADM level. `gb_get_adm0()` returns the country boundary,
-`gb_get_adm1()` returns first-level subnational boundaries (e.g. states
-in the United States), `gb_get_adm2()` returns second-level subnational
-boundaries (e.g. counties in the United States), `gb_get_adm3()` returns
-third-level administrative boundaries (e.g. towns or cities in some
-countries), `gb_get_adm4()` returns fourth-level administrative
-boundaries and `gb_get_adm5()` returns fifth-level administrative
-boundaries.
+for a single ADM level. `gb_get_adm0()` returns country boundaries,
+`gb_get_adm1()` returns first-level subnational boundaries (for example,
+states in the United States) and `gb_get_adm2()` returns second-level
+subnational boundaries (for example, counties in the United States).
+`gb_get_adm3()`, `gb_get_adm4()` and `gb_get_adm5()` return third-,
+fourth- and fifth-level administrative boundaries, respectively.
 
-Note that not all countries have the same number of ADM levels. Check
-[`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/reference/gb_get_max_adm_lvl.md).
+Not all countries have the same number of ADM levels. Use
+[`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/reference/gb_get_max_adm_lvl.md)
+to check availability.
+
+[Attribution](https://www.geoboundaries.org/index.html#usage) is
+required whenever these data are used.
 
 ## Usage
 
@@ -77,7 +76,7 @@ gb_get_adm5(
 
 ## Source
 
-**geoBoundaries** API service <https://www.geoboundaries.org/api.html>.
+[**geoBoundaries** API](https://www.geoboundaries.org/api.html).
 
 ## Arguments
 
@@ -89,17 +88,17 @@ gb_get_adm5(
 
 - simplified:
 
-  Logical. If `TRUE`, return the simplified boundary. The default
-  `FALSE` uses the primary **geoBoundaries** file. See simplified
-  boundaries at <https://www.geoboundaries.org/>.
+  Logical. If `TRUE`, return simplified boundaries. The default `FALSE`
+  uses the primary **geoBoundaries** file. See simplified boundaries at
+  <https://www.geoboundaries.org/>.
 
 - release_type:
 
   One of `"gbOpen"`, `"gbHumanitarian"` or `"gbAuthoritative"`. For most
-  users, we suggest using `"gbOpen"` (the default), as it is CC BY 4.0
-  compliant and suitable for most purposes as long as attribution is
-  provided. `"gbHumanitarian"` files are mirrored from [UN
-  OCHA](https://www.unocha.org/) and may have less open licensure.
+  users, use `"gbOpen"` (the default), which is CC BY 4.0 compliant and
+  suitable for most purposes when attribution is provided.
+  `"gbHumanitarian"` files are mirrored from [UN
+  OCHA](https://www.unocha.org/) and may have less open licensing.
   `"gbAuthoritative"` files are mirrored from UN SALB, verified through
   in-country processes and cannot be used for commercial purposes.
 
@@ -109,36 +108,37 @@ gb_get_adm5(
 
 - overwrite:
 
-  Logical. If `TRUE`, force a fresh download of the source `.zip` file.
+  Logical. If `TRUE`, force a fresh download of the source `.zip`
+  archive.
 
 - cache_dir:
 
   A path to a cache directory. If not set (the default `NULL`), the data
   will be stored in the default cache directory (see
   [`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_set_cache_dir.md)).
-  If no cache directory has been set, files will be stored in the
-  temporary directory. See
-  [`base::tempdir()`](https://rdrr.io/r/base/tempfile.html) and caching
-  strategies in
+  If no cache directory has been set, files are stored in a temporary
+  cache directory. See
+  [`base::tempdir()`](https://rdrr.io/r/base/tempfile.html) and the
+  cache strategies in
   [`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_set_cache_dir.md).
 
 ## Value
 
-An [`sf`](https://r-spatial.github.io/sf/reference/sf.html) object.
+An [sf](https://r-spatial.github.io/sf/reference/sf.html) object
+containing the requested boundaries.
 
 ## Details
 
-Individual country files in the **geoBoundaries** database are governed
-by the license or licenses identified within the metadata for each
-respective boundary. See
+Each individual country file is governed by the license identified in
+its boundary metadata. See
 [`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md).
-Users of individual boundary files from **geoBoundaries** should also
-cite the sources provided in the metadata for each file.
+Users should also cite the sources listed in the boundary metadata for
+each file.
 
 ## References
 
-Runfola, D. et al. (2020) **geoBoundaries**: A global database of
-political administrative boundaries. *PLOS ONE* *15*(4), 1-9.
+Runfola et al. (2020) **geoBoundaries**: A global database of political
+administrative boundaries. *PLOS ONE* **15**(4), e0231866.
 [doi:10.1371/journal.pone.0231866](https://doi.org/10.1371/journal.pone.0231866)
 .
 
@@ -146,7 +146,7 @@ political administrative boundaries. *PLOS ONE* *15*(4), 1-9.
 
 [`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/reference/gb_get_max_adm_lvl.md).
 
-Other API functions:
+API functions:
 [`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md),
 [`gb_get_world()`](https://dieghernan.github.io/geobounds/reference/gb_get_world.md)
 

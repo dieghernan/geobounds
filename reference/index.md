@@ -1,9 +1,9 @@
 # Package index
 
-## Boundaries
+## Boundary data
 
-Download individual country files or global composite files as
-[sf](https://CRAN.R-project.org/package=sf) objects.
+Download individual country files and global composite files as
+[**sf**](https://r-spatial.github.io/sf/) objects.
 
 - [`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md)
   :
@@ -16,16 +16,16 @@ Download individual country files or global composite files as
   [`gb_get_adm3()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
   [`gb_get_adm4()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
   [`gb_get_adm5()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
-  : Get individual country files for a given ADM level
+  : Get individual country files for an ADM level
 
 - [`gb_get_world()`](https://dieghernan.github.io/geobounds/reference/gb_get_world.md)
   :
 
   Get global composite files from **geoBoundaries**
 
-## Metadata
+## Availability and metadata
 
-Inspect available ADM levels, boundary metadata and source details.
+Inspect available ADM levels, boundary metadata and source information.
 
 - [`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/reference/gb_get_max_adm_lvl.md)
   : Get the highest available ADM level
@@ -33,7 +33,7 @@ Inspect available ADM levels, boundary metadata and source details.
 - [`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md)
   :
 
-  Get metadata for individual country files from **geoBoundaries**
+  Get boundary metadata from **geoBoundaries**
 
 ## Cache management
 

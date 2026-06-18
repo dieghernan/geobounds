@@ -1,4 +1,4 @@
-# geobounds: Accessing administrative boundary data in R
+# geobounds: Downloading administrative boundary data in R
 
 Important
 
@@ -7,8 +7,8 @@ required when using **geoBoundaries**.
 
 ## Introduction
 
-The **geobounds** package provides a straightforward interface for
-downloading and working with administrative boundary data from the
+The **geobounds** package provides an interface for downloading and
+working with administrative boundary data from the
 [**geoBoundaries**](https://www.geoboundaries.org/) Global Database of
 Political Administrative Boundaries ([Runfola et al.
 2020](#ref-10.1371/journal.pone.0231866)).
@@ -16,10 +16,10 @@ Political Administrative Boundaries ([Runfola et al.
 The default **gbOpen** release type is CC BY 4.0 compliant when
 attribution is provided and covers countries worldwide across multiple
 ADM levels. The package also supports **gbHumanitarian** and
-**gbAuthoritative**, which vary in source, validation process and
-licensing. With **geobounds**, you can fetch boundary geometries as
-**sf** objects, explore metadata, cache datasets locally and integrate
-the boundaries into spatial workflows.
+**gbAuthoritative**, which differ in their sources, validation processes
+and licensing. With **geobounds**, you can download boundaries as **sf**
+objects, inspect boundary metadata, cache downloaded files and integrate
+boundaries into spatial workflows.
 
 ## Understanding the data
 
@@ -29,8 +29,7 @@ digitization of physical maps where necessary.
 
 This precision comes at a cost: some files can be quite large and may
 take longer to download. For visualization or general mapping purposes,
-we recommend using the simplified datasets by setting
-`simplified = TRUE`.
+we recommend using simplified boundaries by setting `simplified = TRUE`.
 
 ``` r
 
@@ -67,8 +66,8 @@ Comparison between full-resolution and simplified boundaries.
 ### Individual country files
 
 The **geoBoundaries** API provides [individual country
-files](https://www.geoboundaries.org/countryDownloads.html) that
-represent countries as they represent themselves, without special
+files](https://www.geoboundaries.org/countryDownloads.html) that reflect
+how countries represent their own boundaries, without special
 identification of disputed areas.
 
 Download individual country files with
@@ -97,28 +96,28 @@ ggplot(india_pak) +
 
 Map showing overlap in the disputed Kashmir area.
 
-Note that individual country files are governed by the license or
-licenses identified within the metadata for each respective boundary.
+Each individual country file is governed by the license identified in
+its boundary metadata.
 
 ``` r
 
 gb_get_metadata(c("India", "Pakistan"), adm_lvl = "ADM0") |>
   select(boundaryName, boundaryLicense, boundarySource)
 #> # A tibble: 2 × 3
-#>   boundaryName boundaryLicense                                    boundarySource
-#>   <chr>        <chr>                                              <chr>         
-#> 1 India        CC0 1.0 Universal (CC0 1.0) Public Domain Dedicat… geoBoundaries…
-#> 2 Pakistan     Open Data Commons Open Database License 1.0        OpenStreetMap…
+#>   boundaryName boundaryLicense                                      boundarySource           
+#>   <chr>        <chr>                                                <chr>                    
+#> 1 India        CC0 1.0 Universal (CC0 1.0) Public Domain Dedication geoBoundaries, Wikimedia…
+#> 2 Pakistan     Open Data Commons Open Database License 1.0          OpenStreetMap, Wambacher
 ```
 
 ### Global composite files
 
 Use
 [`gb_get_world()`](https://dieghernan.github.io/geobounds/reference/gb_get_world.md)
-for global composite files where disputed areas are explicitly handled
-by removing overlaps and filling gaps. These files are also known as
-Comprehensive Global Administrative Zones (CGAZ). There are three
-important distinctions between CGAZ and individual country files:
+for global composite files that standardize disputed areas and fill gaps
+between borders. These files are also known as Comprehensive Global
+Administrative Zones (CGAZ). They differ from individual country files
+in three important ways:
 
 1.  Extensive simplification keeps file sizes small enough for most
     desktop software.
@@ -145,10 +144,11 @@ ggplot(cgaz_india_pak) +
 
 Map showing no overlap in Kashmir, provided by CGAZ.
 
-## Caching and performance
+## Cache management and performance
 
-The package can cache files locally so repeated downloads for the same
-country and ADM level use the cached version. For example:
+The package stores downloaded files in a cache directory so repeated
+requests for the same country and ADM level can reuse the cached file.
+For example:
 
 ``` r
 
@@ -163,7 +163,7 @@ current
 newdir <- file.path(tempdir(), "/geoboundvignette")
 gb_set_cache_dir(newdir)
 #> ✔ geobounds cache directory is 'C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp6LfQDv//geoboundvignette'.
-#> ℹ To use this `cache_dir` path in future sessions, run this function with `install = TRUE`.
+#> ℹ To use this cache_directory in future sessions, run this function with `install = TRUE`.
 
 # Download the example data.
 example <- gb_get_adm0("Vatican City", quiet = FALSE)
@@ -173,7 +173,7 @@ example <- gb_get_adm0("Vatican City", quiet = FALSE)
 # Restore the cache directory.
 gb_set_cache_dir(current)
 #> ✔ geobounds cache directory is 'C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp6LfQDv'.
-#> ℹ To use this `cache_dir` path in future sessions, run this function with `install = TRUE`.
+#> ℹ To use this cache_directory in future sessions, run this function with `install = TRUE`.
 
 current == gb_detect_cache_dir()
 #> ℹ 'C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp6LfQDv'
@@ -183,13 +183,13 @@ current == gb_detect_cache_dir()
 To clear the cache, use
 [`gb_clear_cache()`](https://dieghernan.github.io/geobounds/reference/gb_clear_cache.md).
 
-Set a specific cache directory for each function call with the
-`cache_dir` argument.
+Use the `cache_dir` argument to set a cache directory for an individual
+function call.
 
-## Use in spatial analysis pipelines
+## Spatial analysis workflows
 
-Because boundary data are returned as **sf** objects, you can use them
-with other spatial data:
+Because boundary data are returned as **sf** objects, you can combine
+them with other spatial data:
 
 - Clip raster data to administrative units.
 - Compute zonal statistics.
@@ -201,17 +201,17 @@ country files and global composite files from CGAZ:
 
 ``` r
 
-# Retrieve metadata.
+# Get boundary metadata.
 latam_meta <- gb_get_metadata(adm_lvl = "ADM0") |>
   select(boundaryISO, boundaryName, Continent, worldBankIncomeGroup) |>
   filter(Continent == "Latin America and the Caribbean") |>
   glimpse()
 #> Rows: 47
 #> Columns: 4
-#> $ boundaryISO          <chr> "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", …
-#> $ boundaryName         <chr> "Aruba", "Anguilla", "Argentina", "Antigua and Ba…
-#> $ Continent            <chr> "Latin America and the Caribbean", "Latin America…
-#> $ worldBankIncomeGroup <chr> "High-income Countries", "No income group availab…
+#> $ boundaryISO          <chr> "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", "BLZ", "BOL",…
+#> $ boundaryName         <chr> "Aruba", "Anguilla", "Argentina", "Antigua and Barbuda", "Bona…
+#> $ Continent            <chr> "Latin America and the Caribbean", "Latin America and the Cari…
+#> $ worldBankIncomeGroup <chr> "High-income Countries", "No income group available", "High-in…
 
 # Adjust factors.
 latam_meta$income_factor <- factor(
@@ -250,11 +250,10 @@ World Bank Income Group: Latin America and the Caribbean.
 
 ## Summary
 
-The **geobounds** package makes it easy to fetch, manage and visualize
-administrative boundary data worldwide in a reproducible way. Whether
-you are mapping, doing spatial analysis, integrating survey data or
-modeling geospatial patterns, it gives you access to high-quality
-boundary data with minimal overhead.
+The **geobounds** package supports reproducible workflows for
+downloading, caching and visualizing administrative boundary data. The
+returned **sf** objects can be used directly in mapping, spatial
+analysis and data integration workflows.
 
 ## References
 

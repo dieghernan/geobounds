@@ -6,7 +6,7 @@ CRAN release: 2026-05-29
 
 - Documentation and user-facing messages were reviewed with AI
   assistance to align terminology across **roxygen2** and narrative
-  documentation, and to clarify package output.
+  documentation and to clarify package output.
 
 ## geobounds 0.1.1
 
@@ -47,12 +47,12 @@ instead.
 #### Other changes
 
 - Added a DOI.
-- All download functions now use `.zip/.shp` datasets instead of
-  `.geojson/.gpkg`, removing the **geojsonsf** dependency from
-  `Imports`.
+- All download functions now use `.zip` archives containing `.shp` files
+  instead of `.geojson` or `.gpkg` files, removing the **geojsonsf**
+  dependency from `Imports`.
 - All download functions now return `MULTIPOLYGON` geometries.
-- All download functions now fail gracefully when a country file is
-  unavailable, without errors or warnings.
+- All download functions now return `NULL` without an error or warning
+  when a country file is unavailable.
 - All download functions now retry transient request failures with
   [`httr2::req_retry()`](https://httr2.r-lib.org/reference/req_retry.html).
 - Cached files from previous package versions are no longer reused
@@ -65,7 +65,7 @@ instead.
 - [`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/reference/gb_get_max_adm_lvl.md)
   was added.
 - [`gb_get_world()`](https://dieghernan.github.io/geobounds/reference/gb_get_world.md)
-  now gets the latest data available from the repository at
+  now retrieves the latest data available from the repository at
   <https://github.com/wmgeolab/geoBoundaries/tree/main/releaseData>.
 
 ## geobounds 0.0.1

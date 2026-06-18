@@ -1,6 +1,6 @@
-# Get metadata for individual country files from **geoBoundaries**
+# Get boundary metadata from **geoBoundaries**
 
-This function returns metadata from the [**geoBoundaries**
+Returns boundary metadata from the [**geoBoundaries**
 API](https://www.geoboundaries.org/api.html).
 
 ## Usage
@@ -15,7 +15,7 @@ gb_get_metadata(
 
 ## Source
 
-**geoBoundaries** API service <https://www.geoboundaries.org/api.html>.
+[**geoBoundaries** API](https://www.geoboundaries.org/api.html).
 
 ## Arguments
 
@@ -30,22 +30,24 @@ gb_get_metadata(
   ADM level. Accepted values are `"all"` (all available boundaries) or
   the ADM level (`"adm0"` is the country boundary, `"adm1"` is the first
   level of subnational boundaries, `"adm2"` is the second level and so
-  on). Upper-case versions (`"ADM1"`) and the number of the level
-  (`1, 2, 3, 4, 5`) are also accepted.
+  on). Uppercase versions (`"ADM1"`) and level numbers (`1`, `2`, `3`,
+  `4`, `5`) are also accepted.
 
 - release_type:
 
   One of `"gbOpen"`, `"gbHumanitarian"` or `"gbAuthoritative"`. For most
-  users, we suggest using `"gbOpen"` (the default), as it is CC BY 4.0
-  compliant and suitable for most purposes as long as attribution is
-  provided. `"gbHumanitarian"` files are mirrored from [UN
-  OCHA](https://www.unocha.org/) and may have less open licensure.
+  users, use `"gbOpen"` (the default), which is CC BY 4.0 compliant and
+  suitable for most purposes when attribution is provided.
+  `"gbHumanitarian"` files are mirrored from [UN
+  OCHA](https://www.unocha.org/) and may have less open licensing.
   `"gbAuthoritative"` files are mirrored from UN SALB, verified through
   in-country processes and cannot be used for commercial purposes.
 
 ## Value
 
-A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html).
+A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)
+with one row per matching boundary file and the columns described in
+**Details**.
 
 ## Details
 
@@ -58,7 +60,7 @@ the following columns:
   metadata and geometry. This only changes if the underlying data
   changes.
 
-- `boundaryName`: The name of the country the layer represents.
+- `boundaryName`: The name of the country represented by the layer.
 
 - `boundaryISO`: ISO 3166-1 alpha-3 code for the country.
 
@@ -67,13 +69,13 @@ the following columns:
 
 - `boundaryType`: The type of boundary.
 
-- `boundaryCanonical`: The canonical name of a given boundary.
+- `boundaryCanonical`: The canonical name of the boundary.
 
 - `boundarySource`: A comma-separated list of the primary sources for
   the boundary.
 
 - `boundaryLicense`: The original license under which the primary source
-  released the dataset.
+  released the boundary data.
 
 - `licenseDetail`: Any notes regarding the license.
 
@@ -96,7 +98,7 @@ the following columns:
 - `worldBankIncomeGroup`: The World Bank income group the country is
   associated with.
 
-- `admUnitCount`: The count of administrative units in the file.
+- `admUnitCount`: The number of administrative units in the file.
 
 - `meanVertices`: Mean number of vertices defining the boundaries of
   each administrative unit in the layer.
@@ -129,15 +131,15 @@ the following columns:
   layer, measured in square kilometers and based on an EASE-GRID 2
   projection.
 
-- `staticDownloadLink`: The static download link for the aggregate zip
+- `staticDownloadLink`: The static download link for the aggregate ZIP
   file containing all boundary information.
 
 - `gjDownloadURL`: The static download link for the GeoJSON.
 
 - `tjDownloadURL`: The static download link for the TopoJSON.
 
-- `imagePreview`: The static download link for the automatically
-  rendered PNG of the layer.
+- `imagePreview`: The static download link for an automatically rendered
+  PNG image of the layer.
 
 - `simplifiedGeometryGeoJSON`: The static download link for the
   simplified GeoJSON.
@@ -146,13 +148,13 @@ the following columns:
 
 [`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md).
 
-Other metadata functions:
+Metadata functions:
 [`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/reference/gb_get_max_adm_lvl.md)
 
 ## Examples
 
 ``` r
-# Get metadata for ADM4.
+# Get boundary metadata for ADM4.
 
 library(dplyr)
 
