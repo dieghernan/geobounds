@@ -7,13 +7,12 @@ Authors@R: c(
     person("William and Mary geoLab", role = "cph",
            comment = c(ROR = "03hsf0573"))
   )
-Description: Tools for downloading individual country files and global
-    composite files from 'geoBoundaries' <https://www.geoboundaries.org/>
-    across multiple administrative levels. Boundary data are returned as
-    'sf' objects for mapping and spatial analysis. See Runfola, D. et al.
-    (2020) "geoBoundaries: A global database of political administrative
-    boundaries." PLOS ONE 15(4), e0231866.
-    <doi:10.1371/journal.pone.0231866>.
+Description: Provides tools for downloading individual country files and
+    global composite files from 'geoBoundaries'
+    <https://www.geoboundaries.org/> across multiple administrative
+    ('ADM') levels. Returns boundary data as 'sf' objects for mapping and
+    spatial analysis. Runfola et al. (2020)
+    <doi:10.1371/journal.pone.0231866> describe the underlying database.
 License: CC BY 4.0
 URL: https://dieghernan.github.io/geobounds/,
     https://github.com/dieghernan/geobounds

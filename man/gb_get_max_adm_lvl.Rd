@@ -5,7 +5,7 @@
 \alias{gb_get_max_adm_lvl}
 \title{Get the highest available ADM level}
 \source{
-\strong{geoBoundaries} API service \url{https://www.geoboundaries.org/api.html}.
+\href{https://www.geoboundaries.org/api.html}{\strong{geoBoundaries} API}.
 }
 \usage{
 gb_get_max_adm_lvl(
@@ -19,20 +19,20 @@ country codes. Use \code{"all"} to return data for all countries. See also
 \code{\link[countrycode:countrycode]{countrycode::countrycode()}}.}
 
 \item{release_type}{One of \code{"gbOpen"}, \code{"gbHumanitarian"} or
-\code{"gbAuthoritative"}. For most users, we suggest using \code{"gbOpen"}
-(the default), as it is CC BY 4.0 compliant and suitable for most purposes
-as long as attribution is provided. \code{"gbHumanitarian"} files are mirrored
-from \href{https://www.unocha.org/}{UN OCHA} and may have less open licensure.
+\code{"gbAuthoritative"}. For most users, use \code{"gbOpen"} (the default), which is
+CC BY 4.0 compliant and suitable for most purposes when attribution is
+provided. \code{"gbHumanitarian"} files are mirrored
+from \href{https://www.unocha.org/}{UN OCHA} and may have less open licensing.
 \code{"gbAuthoritative"} files are mirrored from UN SALB, verified through
 in-country processes and cannot be used for commercial purposes.}
 }
 \value{
-A \link[tibble:tbl_df]{tibble} with the country names and corresponding highest
-ADM level.
+A \link[tibble:tbl_df]{tibble} containing ISO 3166-1 alpha-3 country codes and
+their highest available ADM levels.
 }
 \description{
-Get a summary of selected countries and their highest available
-ADM level in \strong{geoBoundaries}.
+Returns a summary of selected country codes and their highest available ADM
+level in \strong{geoBoundaries}.
 }
 \examples{
 \dontshow{if (identical(Sys.getenv("NOT_CRAN"), "true") || interactive()) withAutoprint(\{ # examplesIf}
@@ -49,7 +49,7 @@ all |>
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-Other metadata functions:
+Metadata functions:
 \code{\link[=gb_get_metadata]{gb_get_metadata()}}
 }
-\concept{metadata functions}
+\concept{metadata}

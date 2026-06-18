@@ -1,7 +1,7 @@
 ---
 title: "gbHumanitarian coverage and metadata"
 description: |
-  gbHumanitarian is mirrored from UN OCHA and may have less open licensure.
+  gbHumanitarian is mirrored from UN OCHA and may have less open licensing.
 knitr:
   opts_chunk:
     collapse: true
@@ -22,6 +22,9 @@ src <- "gbHumanitarian"
 ```
 
 ## `r src` coverage
+
+The map shows the highest ADM level available for each country in the
+**gbHumanitarian** release type.
 
 ```{r}
 #| label: ghuman-coverage
@@ -71,6 +74,9 @@ ggplot(p) +
 ```
 
 ## `r src` metadata
+
+The table lists boundary metadata and download links for **gbHumanitarian**.
+Use the filters or search box to find a country or boundary type.
 
 ```{r}
 #| label: metadata

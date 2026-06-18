@@ -24,6 +24,9 @@ src <- "gbAuthoritative"
 
 ## `r src` coverage
 
+The map shows the highest ADM level available for each country in the
+**gbAuthoritative** release type.
+
 ```{r}
 #| label: gautho-coverage
 #| echo: false
@@ -74,6 +77,9 @@ ggplot(p) +
 ```
 
 ## `r src` metadata
+
+The table lists boundary metadata and download links for **gbAuthoritative**.
+Use the filters or search box to find a country or boundary type.
 
 ```{r}
 #| label: metadata

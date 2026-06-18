@@ -1,7 +1,7 @@
-#' Get metadata for individual country files from **geoBoundaries**
+#' Get boundary metadata from **geoBoundaries**
 #'
 #' @description
-#' This function returns metadata from the
+#' Returns boundary metadata from the
 #' [**geoBoundaries** API](https://www.geoboundaries.org/api.html).
 #'
 #' @details
@@ -10,16 +10,16 @@
 #' - `boundaryID`: The ID for this layer. It combines the ISO code, boundary
 #'   type and a unique identifier generated from the input metadata and
 #'   geometry. This only changes if the underlying data changes.
-#' - `boundaryName`: The name of the country the layer represents.
+#' - `boundaryName`: The name of the country represented by the layer.
 #' - `boundaryISO`: ISO 3166-1 alpha-3 code for the country.
 #' - `boundaryYearRepresented`: The year or range of years in `"START to END"`
 #'   format that the boundary layers represent.
 #' - `boundaryType`: The type of boundary.
-#' - `boundaryCanonical`: The canonical name of a given boundary.
+#' - `boundaryCanonical`: The canonical name of the boundary.
 #' - `boundarySource`: A comma-separated list of the primary sources for the
 #'   boundary.
 #' - `boundaryLicense`: The original license under which the primary source
-#'   released the dataset.
+#'   released the boundary data.
 #' - `licenseDetail`: Any notes regarding the license.
 #' - `licenseSource`: The URL of the primary source.
 #' - `sourceDataUpdateDate`: The date the source information was integrated
@@ -33,7 +33,7 @@
 #'   subregion the country is associated with.
 #' - `worldBankIncomeGroup`: The World Bank income group the country is
 #'   associated with.
-#' - `admUnitCount`: The count of administrative units in the file.
+#' - `admUnitCount`: The number of administrative units in the file.
 #' - `meanVertices`: Mean number of vertices defining the boundaries of each
 #'   administrative unit in the layer.
 #' - `minVertices`: Minimum number of vertices defining a boundary.
@@ -53,12 +53,12 @@
 #'   measured in square kilometers and based on an EASE-GRID 2 projection.
 #' - `maxAreaSqKM`: The maximum area of an administrative unit in the layer,
 #'   measured in square kilometers and based on an EASE-GRID 2 projection.
-#' - `staticDownloadLink`: The static download link for the aggregate zip file
+#' - `staticDownloadLink`: The static download link for the aggregate ZIP file
 #'   containing all boundary information.
 #' - `gjDownloadURL`: The static download link for the GeoJSON.
 #' - `tjDownloadURL`: The static download link for the TopoJSON.
-#' - `imagePreview`: The static download link for the automatically rendered
-#'   PNG of the layer.
+#' - `imagePreview`: The static download link for an automatically rendered PNG
+#'   image of the layer.
 #' - `simplifiedGeometryGeoJSON`: The static download link for the
 #'   simplified GeoJSON.
 #'
@@ -66,22 +66,23 @@
 #' @inheritParams gb_get
 #'
 #' @returns
-#' A [tibble][tibble::tbl_df].
+#' A [tibble][tibble::tbl_df] with one row per matching boundary file and the
+#' columns described in **Details**.
 #'
 #' @seealso [gb_get()].
 #'
-#' @family metadata functions
+#' @family metadata
+#'
+#' @export
+#' @encoding UTF-8
 #'
 #' @examplesIf identical(Sys.getenv("NOT_CRAN"), "true") || interactive()
-#' # Get metadata for ADM4.
+#' # Get boundary metadata for ADM4.
 #'
 #' library(dplyr)
 #'
 #' gb_get_metadata(adm_lvl = "ADM4") |>
 #'   glimpse()
-#'
-#' @export
-#' @encoding UTF-8
 gb_get_metadata <- function(
   country = "all",
   adm_lvl = "all",

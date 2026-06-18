@@ -7,8 +7,8 @@ assert_adm_lvl <- function(adm_lvl, dict = c("all", paste0("adm", 0:5), 0:5)) {
   adm_lvl_clean <- tolower(as.character(adm_lvl))
   if (!adm_lvl_clean %in% dict) {
     cli::cli_abort(c(
-      "Invalid {.arg adm_lvl} value ({.val {adm_lvl_clean}}).",
-      "Accepted values are {.val {dict}}."
+      "Invalid {.arg adm_lvl} value: {.val {adm_lvl_clean}}.",
+      "Accepted values are {.or {.val {dict}}}."
     ))
   }
 
@@ -124,7 +124,7 @@ gbnds_dev_country2iso <- function(names, out = "iso3c") {
       outnames <- countrycode::countrycode(x, "iso3c", out, warn = FALSE)
     } else {
       cli::cli_abort(paste0(
-        "Invalid country values. Use country names or ",
+        "Invalid {.arg country} values. Use country names or ",
         "ISO 3166-1 alpha-3 codes."
       ))
     }
@@ -139,10 +139,10 @@ gbnds_dev_country2iso <- function(names, out = "iso3c") {
     ff <- names[is.na(outnames)] # nolint
     cli::cli_alert_warning(paste0(
       "Some country values could not be matched unambiguously: ",
-      "{ff}."
+      "{.val {ff}}."
     ))
     cli::cli_alert_info(paste0(
-      "Review the names or switch to ISO 3166-1 alpha-3 ",
+      "Review the country names or use ISO 3166-1 alpha-3 ",
       "codes."
     ))
   }
@@ -266,7 +266,7 @@ match_arg_pretty <- function(arg, choices) {
     }
 
     cli::cli_abort(
-      c(paste0("{.arg {arg_name}} should be ", msg), "i" = reg_msg),
+      c(paste0("{.arg {arg_name}} must be ", msg), "i" = reg_msg),
       call = NULL
     )
   }

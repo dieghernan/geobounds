@@ -1,17 +1,20 @@
 #' Get the highest available ADM level
 #'
 #' @description
-#' Get a summary of selected countries and their highest available
-#' ADM level in **geoBoundaries**.
+#' Returns a summary of selected country codes and their highest available ADM
+#' level in **geoBoundaries**.
 #'
 #' @inherit gb_get source
 #' @inheritParams gb_get_metadata
 #'
 #' @returns
-#' A [tibble][tibble::tbl_df] with the country names and corresponding highest
-#' ADM level.
+#' A [tibble][tibble::tbl_df] containing ISO 3166-1 alpha-3 country codes and
+#' their highest available ADM levels.
 #'
-#' @family metadata functions
+#' @family metadata
+#'
+#' @export
+#' @encoding UTF-8
 #'
 #' @examplesIf identical(Sys.getenv("NOT_CRAN"), "true") || interactive()
 #' all <- gb_get_max_adm_lvl()
@@ -24,9 +27,6 @@
 #' # Countries with ADM4 available.
 #' all |>
 #'   filter(maxBoundaryType == 4)
-#'
-#' @export
-#' @encoding UTF-8
 gb_get_max_adm_lvl <- function(
   country = "all",
   release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative")

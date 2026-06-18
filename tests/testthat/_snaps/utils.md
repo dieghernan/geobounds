@@ -10,8 +10,8 @@
     Code
       gbnds_dev_country2iso(c("ESP", "POR", "RTA", "USA"))
     Message
-      ! Some country values could not be matched unambiguously: POR and RTA.
-      i Review the names or switch to ISO 3166-1 alpha-3 codes.
+      ! Some country values could not be matched unambiguously: "POR" and "RTA".
+      i Review the country names or use ISO 3166-1 alpha-3 codes.
     Output
       [1] "ESP" "USA"
 
@@ -55,8 +55,8 @@
     Code
       gbnds_dev_country2iso(c("Spain", "Rea", "Kosovo", "Antartica", "Murcua"))
     Message
-      ! Some country values could not be matched unambiguously: Rea and Murcua.
-      i Review the names or switch to ISO 3166-1 alpha-3 codes.
+      ! Some country values could not be matched unambiguously: "Rea" and "Murcua".
+      i Review the country names or use ISO 3166-1 alpha-3 codes.
     Output
       [1] "ESP" "XKX" "ATA"
 
@@ -88,8 +88,8 @@
       assert_adm_lvl(adm_lvl = 10)
     Condition
       Error in `assert_adm_lvl()`:
-      ! Invalid `adm_lvl` value ("10").
-      Accepted values are "all", "adm0", "adm1", "adm2", "adm3", "adm4", "adm5", "0", "1", "2", "3", "4", and "5".
+      ! Invalid `adm_lvl` value: "10".
+      Accepted values are "all", "adm0", "adm1", "adm2", "adm3", "adm4", "adm5", "0", "1", "2", "3", "4", or "5".
 
 # Pretty match
 
@@ -97,7 +97,7 @@
       my_fun("error here")
     Condition
       Error:
-      ! `arg_one` should be one of "10", "1000", "3000" or "5000", not "error here".
+      ! `arg_one` must be one of "10", "1000", "3000" or "5000", not "error here".
 
 ---
 
@@ -105,7 +105,7 @@
       my_fun(c("an", "error"))
     Condition
       Error:
-      ! `arg_one` should be one of "10", "1000", "3000" or "5000", not "an" or "error".
+      ! `arg_one` must be one of "10", "1000", "3000" or "5000", not "an" or "error".
 
 ---
 
@@ -113,7 +113,7 @@
       my_fun("5")
     Condition
       Error:
-      ! `arg_one` should be one of "10", "1000", "3000" or "5000", not "5".
+      ! `arg_one` must be one of "10", "1000", "3000" or "5000", not "5".
       i Did you mean "5000"?
 
 ---
@@ -122,7 +122,7 @@
       my_fun("00")
     Condition
       Error:
-      ! `arg_one` should be one of "10", "1000", "3000" or "5000", not "00".
+      ! `arg_one` must be one of "10", "1000", "3000" or "5000", not "00".
 
 ---
 
@@ -130,7 +130,7 @@
       my_fun2(c(1, 2))
     Condition
       Error:
-      ! `year` should be "20", not "1" or "2".
+      ! `year` must be "20", not "1" or "2".
 
 ---
 
@@ -138,7 +138,7 @@
       my_fun3("3")
     Condition
       Error:
-      ! `an_arg` should be one of "30" or "20", not "3".
+      ! `an_arg` must be one of "30" or "20", not "3".
       i Did you mean "30"?
 
 ---
@@ -147,5 +147,5 @@
       my_fun2(c(1, 2))
     Condition
       Error:
-      ! `year` should be "20", not "1" or "2".
+      ! `year` must be "20", not "1" or "2".
 

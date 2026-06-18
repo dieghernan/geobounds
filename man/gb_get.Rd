@@ -5,7 +5,7 @@
 \alias{gb_get}
 \title{Get individual country files from \strong{geoBoundaries}}
 \source{
-\strong{geoBoundaries} API service \url{https://www.geoboundaries.org/api.html}.
+\href{https://www.geoboundaries.org/api.html}{\strong{geoBoundaries} API}.
 }
 \usage{
 gb_get(
@@ -26,50 +26,49 @@ country codes. Use \code{"all"} to return data for all countries. See also
 \item{adm_lvl}{ADM level. Accepted values are \code{"all"} (all available
 boundaries) or the ADM level (\code{"adm0"} is the country boundary,
 \code{"adm1"} is the first level of subnational boundaries, \code{"adm2"} is the
-second level and so on). Upper-case versions (\code{"ADM1"}) and the number of
-the level (\verb{1, 2, 3, 4, 5}) are also accepted.}
+second level and so on). Uppercase versions (\code{"ADM1"}) and level numbers
+(\code{1}, \code{2}, \code{3}, \code{4}, \code{5}) are also accepted.}
 
-\item{simplified}{Logical. If \code{TRUE}, return the simplified boundary. The
+\item{simplified}{Logical. If \code{TRUE}, return simplified boundaries. The
 default \code{FALSE} uses the primary \strong{geoBoundaries} file. See simplified
 boundaries at \url{https://www.geoboundaries.org/}.}
 
 \item{release_type}{One of \code{"gbOpen"}, \code{"gbHumanitarian"} or
-\code{"gbAuthoritative"}. For most users, we suggest using \code{"gbOpen"}
-(the default), as it is CC BY 4.0 compliant and suitable for most purposes
-as long as attribution is provided. \code{"gbHumanitarian"} files are mirrored
-from \href{https://www.unocha.org/}{UN OCHA} and may have less open licensure.
+\code{"gbAuthoritative"}. For most users, use \code{"gbOpen"} (the default), which is
+CC BY 4.0 compliant and suitable for most purposes when attribution is
+provided. \code{"gbHumanitarian"} files are mirrored
+from \href{https://www.unocha.org/}{UN OCHA} and may have less open licensing.
 \code{"gbAuthoritative"} files are mirrored from UN SALB, verified through
 in-country processes and cannot be used for commercial purposes.}
 
 \item{quiet}{Logical. If \code{TRUE}, suppress informational messages.}
 
 \item{overwrite}{Logical. If \code{TRUE}, force a fresh download of the source
-\code{.zip} file.}
+\code{.zip} archive.}
 
 \item{cache_dir}{A path to a cache directory. If not set (the default
 \code{NULL}), the data will be stored in the default cache directory (see
-\code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}). If no cache directory has been set, files will be
-stored in the temporary directory. See \code{\link[base:tempdir]{base::tempdir()}} and caching
+\code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}). If no cache directory has been set, files are stored
+in a temporary cache directory. See \code{\link[base:tempdir]{base::tempdir()}} and the cache
 strategies in \code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}.}
 }
 \value{
-An \code{\link[sf:st_sf]{sf}} object.
+An \link[sf:st_sf]{sf} object containing the requested boundaries.
 }
 \description{
+Returns individual country files that reflect how countries represent their
+own boundaries, without special identification of disputed areas.
+
+Use \code{\link[=gb_get_world]{gb_get_world()}} for global composite files that standardize disputed
+areas and fill gaps between borders.
+
 \href{https://www.geoboundaries.org/index.html#usage}{Attribution} is required
-for all uses of this dataset.
-
-This function returns individual country files as countries represent
-themselves, without special identification of disputed areas.
-
-Use \code{\link[=gb_get_world]{gb_get_world()}} for global composite files that include disputed areas.
+whenever these data are used.
 }
 \details{
-Individual country files in the \strong{geoBoundaries} database are governed by
-the license or licenses identified within the metadata for each respective
-boundary. See \code{\link[=gb_get_metadata]{gb_get_metadata()}}. Users of individual boundary files from
-\strong{geoBoundaries} should also cite the sources provided in the metadata for
-each file. See \strong{Examples}.
+Each individual country file is governed by the license identified in its
+boundary metadata. See \code{\link[=gb_get_metadata]{gb_get_metadata()}}. Users should also cite the
+sources listed in the boundary metadata for each file. See \strong{Examples}.
 
 The wrappers \code{\link[=gb_get_adm0]{gb_get_adm0()}}, \code{\link[=gb_get_adm1]{gb_get_adm1()}}, \code{\link[=gb_get_adm2]{gb_get_adm2()}},
 \code{\link[=gb_get_adm3]{gb_get_adm3()}}, \code{\link[=gb_get_adm4]{gb_get_adm4()}} and \code{\link[=gb_get_adm5]{gb_get_adm5()}} are also available for
@@ -93,7 +92,7 @@ ggplot(sri_lanka) +
   labs(caption = "Source: www.geoboundaries.org")
 }
 
-# Inspect metadata.
+# Inspect boundary metadata.
 library(dplyr)
 gb_get_metadata(
   "Sri Lanka",
@@ -105,13 +104,13 @@ gb_get_metadata(
 \dontshow{\}) # examplesIf}
 }
 \references{
-Runfola, D. et al. (2020) \strong{geoBoundaries}: A global database of political
-administrative boundaries. \emph{PLOS ONE} \emph{15}(4), 1-9.
+Runfola et al. (2020) \strong{geoBoundaries}: A global database of political
+administrative boundaries. \emph{PLOS ONE} \strong{15}(4), e0231866.
 \doi{10.1371/journal.pone.0231866}.
 }
 \seealso{
-Other API functions:
+API functions:
 \code{\link{gb_get_adm}},
 \code{\link[=gb_get_world]{gb_get_world()}}
 }
-\concept{API functions}
+\concept{api}

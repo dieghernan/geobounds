@@ -1,48 +1,49 @@
 #' Set the \CRANpkg{geobounds} cache directory
 #'
 #' @description
-#' This function stores the `cache_dir` path on your local machine and loads it
-#' in future sessions. Use `gb_detect_cache_dir()` to find the cache directory
-#' path.
+#' Sets the active cache directory and optionally saves it for future sessions.
+#' Use [gb_detect_cache_dir()] to find the active cache directory.
 #'
 #' @details
-#' By default, when no `cache_dir` is set the package uses a directory inside
-#' [base::tempdir()], so files are temporary and are removed when the \R
-#' session ends. To persist a cache across \R sessions, use
-#' `gb_set_cache_dir(path, install = TRUE)`, which writes the chosen path to a
-#' small configuration file under `tools::R_user_dir("geobounds", "config")`.
+#' By default, when no `cache_dir` is set, the package uses a directory inside
+#' [base::tempdir()]. Files in this directory are removed when the \R session
+#' ends. To reuse a cache directory across \R sessions, use
+#' `gb_set_cache_dir(cache_dir = "a/path/here", install = TRUE)`. This saves the
+#' directory in a configuration file under
+#' `tools::R_user_dir("geobounds", "config")`.
 #'
-#' @section Caching strategies:
+#' @section Cache strategies:
 #'
-#' - For occasional use, rely on the default [tempdir()]-based cache with no
-#'   installation.
-#' - Modify the cache for a single session with
+#' - For occasional use, use the default temporary cache directory.
+#' - Set the cache directory for the current session with
 #'   `gb_set_cache_dir(cache_dir = "a/path/here")`.
-#' - For reproducible workflows, install a persistent cache that is kept across
-#'   \R sessions with
+#' - Save a persistent cache directory for future \R sessions with
 #'   `gb_set_cache_dir(cache_dir = "a/path/here", install = TRUE)`.
-#' - To cache specific files, use the `cache_dir` argument in the corresponding
-#'   function. See [gb_get()].
+#' - Set the cache directory for an individual download with the `cache_dir`
+#'   argument. See [gb_get()].
 #'
-#' @param cache_dir A path to a cache directory. If missing, the function
-#'   will store the cache files in a temporary directory (see
-#'   [base::tempdir()]).
-#' @param install Logical. If `TRUE`, install the cache path on your local
-#'   machine for use in future sessions. Defaults to `FALSE`. If `cache_dir`
-#'   is missing or empty, this parameter is set to `FALSE` automatically.
-#' @param overwrite Logical. If `TRUE`, overwrite an existing `cache_dir`.
 #' @inheritParams gb_get
+#' @param cache_dir A path to a cache directory. If missing, the function stores
+#'   cache files in a temporary directory. See [base::tempdir()].
+#' @param install Logical. If `TRUE`, save the cache directory for use in future
+#'   sessions. Defaults to `FALSE`. If `cache_dir` is missing or empty, this
+#'   parameter is set to `FALSE` automatically.
+#' @param overwrite Logical. If `TRUE`, replace a cache directory already saved
+#'   in the configuration file.
 #'
 #' @returns
-#' An invisible character vector with the path to `cache_dir`.
+#' An invisible character vector containing the path to the cache directory.
 #'
 #' @seealso [tools::R_user_dir()].
 #'
-#' @family cache utilities
+#' @family cache
+#'
+#' @export
+#' @encoding UTF-8
 #'
 #' @examples
 #'
-#' # Caution! This may modify your current state.
+#' # Caution: this may modify your current state.
 #'
 #' \dontrun{
 #' my_cache <- gb_detect_cache_dir()
@@ -59,8 +60,6 @@
 #' }
 #'
 #' gb_detect_cache_dir()
-#' @export
-#' @encoding UTF-8
 gb_set_cache_dir <- function(
   cache_dir,
   overwrite = FALSE,
@@ -68,12 +67,12 @@ gb_set_cache_dir <- function(
   quiet = FALSE
 ) {
   verbose <- isFALSE(quiet)
-  # Use a temporary cache directory when no path is provided.
+  # Use a temporary cache directory when none is provided.
   if (missing(cache_dir) || !nzchar(cache_dir)) {
     if (verbose) {
       cli::cli_alert_info(paste0(
         "Using a temporary cache directory. ",
-        "Set {.arg cache_dir} to keep files across sessions."
+        "Set {.arg cache_dir} to choose where files are stored this session."
       ))
     }
     # Create a directory in `tempdir()`.
@@ -87,7 +86,7 @@ gb_set_cache_dir <- function(
   # Validate inputs.
   stopifnot(is.character(cache_dir), is.logical(overwrite), is.logical(install))
 
-  # Expand the cache path.
+  # Expand the cache directory path.
   cache_dir <- path.expand(cache_dir)
 
   # Create the cache directory if it does not exist.
@@ -101,7 +100,7 @@ gb_set_cache_dir <- function(
     )
   }
 
-  # Install the path in the user configuration.
+  # Save the cache directory in the user configuration.
   # nocov start
 
   if (install) {
@@ -118,16 +117,16 @@ gb_set_cache_dir <- function(
       writeLines(cache_dir, con = geobounds_file)
     } else {
       cli::cli_abort(c(
-        "A {.arg cache_dir} path is already installed.",
-        "Use {.arg overwrite = TRUE} to replace it."
+        "A value for {.arg cache_dir} is already saved.",
+        "Use {.code overwrite = TRUE} to replace it."
       ))
     }
     # nocov end
   } else {
     if (verbose && !is_temp) {
       cli::cli_alert_info(paste0(
-        "To use this {.arg cache_dir} path in future sessions, ",
-        "run this function with {.arg install = TRUE}."
+        "To use this cache directory in future sessions, ",
+        "run this function with {.code install = TRUE}."
       ))
     }
   }
@@ -139,23 +138,23 @@ gb_set_cache_dir <- function(
 #' Detect the \CRANpkg{geobounds} cache directory
 #'
 #' @description
-#' Detect the current cache directory. See [gb_set_cache_dir()].
+#' Detects the active cache directory. See [gb_set_cache_dir()].
 #'
 #' @rdname gb_detect_cache_dir
 #'
 #' @param x Ignored.
 #'
 #' @returns
-#' A character vector with the path to your `cache_dir`. The same path also
-#' appears as a clickable message. See [`cli::inline-markup`].
+#' A character vector containing the path to the active cache directory. It also
+#' appears in a clickable message. See [cli::inline-markup].
 #'
-#' @family cache utilities
-#'
-#' @examples
-#' gb_detect_cache_dir()
+#' @family cache
 #'
 #' @export
 #' @encoding UTF-8
+#'
+#' @examples
+#' gb_detect_cache_dir()
 gb_detect_cache_dir <- function(x = NULL) {
   # Keep the unused argument visible to linters.
   cd <- x
@@ -167,31 +166,34 @@ gb_detect_cache_dir <- function(x = NULL) {
 #' Clear the \CRANpkg{geobounds} cache directory
 #'
 #' @description
-#' **Use this function with caution**. This function clears cached data and
-#' configuration by deleting the \CRANpkg{geobounds} config directory
-#' (`tools::R_user_dir("geobounds", "config")`), deleting `cache_dir` and
-#' clearing the value stored in `Sys.getenv("GEOBOUNDS_CACHE_DIR")`.
+#' **Use this function with caution**. It clears cached data and configuration
+#' by deleting the \CRANpkg{geobounds} configuration directory
+#' (`tools::R_user_dir("geobounds", "config")`), deleting the active cache
+#' directory and clearing `Sys.getenv("GEOBOUNDS_CACHE_DIR")`.
 #'
 #' @details
-#' This comprehensive reset restores the same cache state as a fresh
-#' \CRANpkg{geobounds} installation.
+#' This reset restores the cache state of a fresh \CRANpkg{geobounds}
+#' installation.
 #'
 #' @rdname gb_clear_cache
 #'
-#' @param config Logical. If `TRUE`, delete the configuration directory of
-#'   \CRANpkg{geobounds}.
-#' @param cached_data Logical. If `TRUE`, delete `cache_dir` and all its
-#'   contents.
 #' @inheritParams gb_set_cache_dir
+#' @param config Logical. If `TRUE`, delete the \CRANpkg{geobounds}
+#'   configuration directory.
+#' @param cached_data Logical. If `TRUE`, delete the active cache directory and
+#'   all its contents.
 #'
 #' @returns
 #' [invisible()]. This function is called for its side effects.
 #'
-#' @family cache utilities
+#' @family cache
+#'
+#' @export
+#' @encoding UTF-8
 #'
 #' @examples
 #'
-#' # Caution! This may modify your current state.
+#' # Caution: this may modify your current state.
 #'
 #' \dontrun{
 #' my_cache <- gb_detect_cache_dir()
@@ -205,9 +207,6 @@ gb_detect_cache_dir <- function(x = NULL) {
 #' gb_set_cache_dir(my_cache)
 #' identical(my_cache, gb_detect_cache_dir())
 #' }
-#'
-#' @export
-#' @encoding UTF-8
 gb_clear_cache <- function(config = FALSE, cached_data = TRUE, quiet = TRUE) {
   verbose <- isFALSE(quiet)
 
@@ -219,7 +218,9 @@ gb_clear_cache <- function(config = FALSE, cached_data = TRUE, quiet = TRUE) {
     unlink(config_dir, recursive = TRUE, force = TRUE)
 
     if (verbose) {
-      cli::cli_alert_warning("{.pkg geobounds} cache configuration deleted.")
+      cli::cli_alert_warning(
+        "Deleted the {.pkg geobounds} cache configuration."
+      )
     }
   }
   # nocov end
@@ -228,7 +229,7 @@ gb_clear_cache <- function(config = FALSE, cached_data = TRUE, quiet = TRUE) {
     unlink(data_dir, recursive = TRUE, force = TRUE)
     if (verbose) {
       cli::cli_alert_warning(
-        "{.pkg geobounds} cached data deleted: {.file {data_dir}}."
+        "Deleted the {.pkg geobounds} cache directory {.path {data_dir}}."
       )
     }
   }
@@ -247,7 +248,7 @@ gb_hlp_detect_cache_dir <- function() {
   getvar <- Sys.getenv("GEOBOUNDS_CACHE_DIR")
 
   if (is.null(getvar) || is.na(getvar) || !nzchar(getvar)) {
-    # Retrieve the cache directory from the config file when available.
+    # Read the cache directory from the configuration file when available.
     cache_config <- file.path(
       tools::R_user_dir("geobounds", "config"),
       "GEOBOUNDS_CACHE_DIR"
@@ -268,7 +269,7 @@ gb_hlp_detect_cache_dir <- function() {
       cached_path
       # nocov end
     } else {
-      # Use the default cache location.
+      # Use the default cache directory.
       cache_dir <- gb_set_cache_dir(overwrite = TRUE, quiet = TRUE)
       cache_dir
     }
@@ -277,7 +278,7 @@ gb_hlp_detect_cache_dir <- function() {
   }
 }
 
-#' Create `cache_dir`
+#' Create the cache directory
 #'
 #' @noRd
 gb_hlp_cachedir <- function(cache_dir = NULL) {

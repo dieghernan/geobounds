@@ -29,20 +29,20 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 ## Why this package?
 
 The **geobounds** package provides an **R**-friendly interface for
-accessing the [**geoBoundaries**](https://www.geoboundaries.org/) Global
-Database of Political Administrative Boundaries. Using this package, you
-can:
+downloading administrative boundary data from
+[**geoBoundaries**](https://www.geoboundaries.org/), the Global Database
+of Political Administrative Boundaries. With **geobounds**, you can:
 
-- Programmatically retrieve individual country files and global
-  composite files from **geoBoundaries**.
+- Download individual country files and global composite files from
+  **geoBoundaries**.
 - Use **tidyverse** and **sf** workflows in **R** to map, analyze and
   join administrative boundary data with your own data.
 - Work in an open-data context where attribution to **geoBoundaries** is
   required.
 
 In short, if you work with administrative boundaries in **R**, this
-package simplifies downloads, caching and integration with spatial data
-workflows.
+package simplifies downloading, cache management and integration with
+spatial data workflows.
 
 ## Installation
 
@@ -65,11 +65,11 @@ You can install the development version of **geobounds** with:
 pak::pak("dieghernan/geobounds")
 ```
 
-Alternatively, you can install **geobounds** using the
-[r-universe](https://dieghernan.r-universe.dev/geobounds):
+Alternatively, you can install **geobounds** from
+[R-universe](https://dieghernan.r-universe.dev/geobounds):
 
 ``` r
-# Install geobounds in R:
+# Install geobounds.
 install.packages(
   "geobounds",
   repos = c(
@@ -104,7 +104,7 @@ ggplot(sri_lanka_adm3) +
 ```
 
 <img src="man/figures/README-simple_plot-1.png" style="width:100.0%"
-alt="Map of ADM1, ADM2 and ADM3 boundaries for Sri Lanka" />
+alt="ADM1, ADM2 and ADM3 boundaries for Sri Lanka." />
 
 ## Release types
 
@@ -114,7 +114,7 @@ validation processes and licensing:
 - **gbOpen**: Freely available boundaries under CC BY 4.0, suitable for
   most uses when attribution is provided.
 - **gbHumanitarian**: Boundaries mirrored from UN OCHA for humanitarian
-  use, which may have less open licensure.
+  use, which may have less open licensing.
 - **gbAuthoritative**: Boundaries mirrored from UN SALB and verified
   through in-country processes. These boundaries cannot be used for
   commercial purposes.
@@ -122,7 +122,8 @@ validation processes and licensing:
 Use the `release_type` argument to request a specific release type, for
 example, `gb_get_adm1("Sri Lanka", release_type = "gbHumanitarian")`.
 
-For detailed coverage and metadata comparisons, see the articles.
+For coverage and boundary metadata by release type, see the package
+articles.
 
 ## Advanced usage
 
@@ -173,7 +174,7 @@ ggplot(world_max) +
 ```
 
 <img src="man/figures/README-map-coverage-1.png" style="width:100.0%"
-alt="World coverage of geoBoundaries (gbOpen)" />
+alt="Highest available gbOpen ADM level by country." />
 
 ## Documentation and resources
 
@@ -196,18 +197,18 @@ This package is released under the [CC BY
 4.0](https://creativecommons.org/licenses/by/4.0/) license. The default
 **geoBoundaries** release type, **gbOpen**, is CC BY 4.0 compliant when
 attribution is provided. Other release types may have additional
-licensing limits, so check the metadata returned by `gb_get_metadata()`
-before reuse.
+licensing restrictions, so check the boundary metadata returned by
+`gb_get_metadata()` before reuse.
 
-## Acknowledgements
+## Acknowledgments
 
-- Many thanks to the **geoBoundaries** team and the [William & Mary
+- Thanks to the **geoBoundaries** team and the [William & Mary
   geoLab](https://sites.google.com/view/wmgeolab/) for creating and
   maintaining the dataset.
 - Thanks to the **R** package community and all contributors to this
   package’s development.
-- If you use **geobounds** and the underlying **geoBoundaries** data in
-  your research or projects, please cite and acknowledge them.
+- If you use **geobounds** and the underlying **geoBoundaries** data,
+  please cite both.
 
 ## Citation
 
@@ -227,7 +228,7 @@ A BibTeX entry for LaTeX users:
       year = {2026},
       version = {0.1.2},
       url = {https://dieghernan.github.io/geobounds/},
-      abstract = {Tools for downloading individual country files and global composite files from geoBoundaries <https://www.geoboundaries.org/> across multiple administrative levels. Boundary data are returned as sf objects for mapping and spatial analysis. See Runfola, D. et al. (2020) "geoBoundaries: A global database of political administrative boundaries." PLOS ONE 15(4), e0231866. <doi:10.1371/journal.pone.0231866>.},
+      abstract = {Provides tools for downloading individual country files and global composite files from geoBoundaries <https://www.geoboundaries.org/> across multiple administrative (ADM) levels. Returns boundary data as sf objects for mapping and spatial analysis. Runfola et al. (2020) <doi:10.1371/journal.pone.0231866> describe the underlying database.},
       doi = {10.32614/CRAN.package.geobounds},
     }
 

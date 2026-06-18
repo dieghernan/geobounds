@@ -1,20 +1,19 @@
 #' Get individual country files from **geoBoundaries**
 #'
 #' @description
+#' Returns individual country files that reflect how countries represent their
+#' own boundaries, without special identification of disputed areas.
+#'
+#' Use [gb_get_world()] for global composite files that standardize disputed
+#' areas and fill gaps between borders.
+#'
 #' [Attribution](https://www.geoboundaries.org/index.html#usage) is required
-#' for all uses of this dataset.
-#'
-#' This function returns individual country files as countries represent
-#' themselves, without special identification of disputed areas.
-#'
-#' Use [gb_get_world()] for global composite files that include disputed areas.
+#' whenever these data are used.
 #'
 #' @details
-#' Individual country files in the **geoBoundaries** database are governed by
-#' the license or licenses identified within the metadata for each respective
-#' boundary. See [gb_get_metadata()]. Users of individual boundary files from
-#' **geoBoundaries** should also cite the sources provided in the metadata for
-#' each file. See **Examples**.
+#' Each individual country file is governed by the license identified in its
+#' boundary metadata. See [gb_get_metadata()]. Users should also cite the
+#' sources listed in the boundary metadata for each file. See **Examples**.
 #'
 #' The wrappers [gb_get_adm0()], [gb_get_adm1()], [gb_get_adm2()],
 #' [gb_get_adm3()], [gb_get_adm4()] and [gb_get_adm5()] are also available for
@@ -26,39 +25,42 @@
 #' @param adm_lvl ADM level. Accepted values are `"all"` (all available
 #'   boundaries) or the ADM level (`"adm0"` is the country boundary,
 #'   `"adm1"` is the first level of subnational boundaries, `"adm2"` is the
-#'   second level and so on). Upper-case versions (`"ADM1"`) and the number of
-#'   the level (`1, 2, 3, 4, 5`) are also accepted.
-#' @param simplified Logical. If `TRUE`, return the simplified boundary. The
+#'   second level and so on). Uppercase versions (`"ADM1"`) and level numbers
+#'   (`1`, `2`, `3`, `4`, `5`) are also accepted.
+#' @param simplified Logical. If `TRUE`, return simplified boundaries. The
 #'   default `FALSE` uses the primary **geoBoundaries** file. See simplified
 #'   boundaries at <https://www.geoboundaries.org/>.
 #' @param release_type One of `"gbOpen"`, `"gbHumanitarian"` or
-#'   `"gbAuthoritative"`. For most users, we suggest using `"gbOpen"`
-#'   (the default), as it is CC BY 4.0 compliant and suitable for most purposes
-#'   as long as attribution is provided. `"gbHumanitarian"` files are mirrored
-#'   from [UN OCHA](https://www.unocha.org/) and may have less open licensure.
+#'   `"gbAuthoritative"`. For most users, use `"gbOpen"` (the default), which is
+#'   CC BY 4.0 compliant and suitable for most purposes when attribution is
+#'   provided. `"gbHumanitarian"` files are mirrored
+#'   from [UN OCHA](https://www.unocha.org/) and may have less open licensing.
 #'   `"gbAuthoritative"` files are mirrored from UN SALB, verified through
 #'   in-country processes and cannot be used for commercial purposes.
 #' @param quiet Logical. If `TRUE`, suppress informational messages.
 #' @param overwrite Logical. If `TRUE`, force a fresh download of the source
-#'   `.zip` file.
+#'   `.zip` archive.
 #' @param cache_dir A path to a cache directory. If not set (the default
 #'   `NULL`), the data will be stored in the default cache directory (see
-#'   [gb_set_cache_dir()]). If no cache directory has been set, files will be
-#'   stored in the temporary directory. See [base::tempdir()] and caching
+#'   [gb_set_cache_dir()]). If no cache directory has been set, files are stored
+#'   in a temporary cache directory. See [base::tempdir()] and the cache
 #'   strategies in [gb_set_cache_dir()].
 #'
 #' @returns
-#' An [`sf`][sf::st_sf] object.
+#' An [sf][sf::st_sf] object containing the requested boundaries.
 #'
 #' @source
-#' **geoBoundaries** API service <https://www.geoboundaries.org/api.html>.
+#' [**geoBoundaries** API](https://www.geoboundaries.org/api.html).
 #'
 #' @references
-#' Runfola, D. et al. (2020) **geoBoundaries**: A global database of political
-#' administrative boundaries. *PLOS ONE* *15*(4), 1-9.
+#' Runfola et al. (2020) **geoBoundaries**: A global database of political
+#' administrative boundaries. *PLOS ONE* **15**(4), e0231866.
 #' \doi{10.1371/journal.pone.0231866}.
 #'
-#' @family API functions
+#' @family api
+#'
+#' @export
+#' @encoding UTF-8
 #'
 #' @examplesIf identical(Sys.getenv("NOT_CRAN"), "true") || interactive()
 #' \donttest{
@@ -77,7 +79,7 @@
 #'   labs(caption = "Source: www.geoboundaries.org")
 #' }
 #'
-#' # Inspect metadata.
+#' # Inspect boundary metadata.
 #' library(dplyr)
 #' gb_get_metadata(
 #'   "Sri Lanka",
@@ -86,9 +88,6 @@
 #'   # Check the individual license.
 #'   select(boundaryISO, boundaryType, licenseDetail, licenseSource) |>
 #'   glimpse()
-#'
-#' @export
-#' @encoding UTF-8
 gb_get <- function(
   country,
   adm_lvl = "adm0",

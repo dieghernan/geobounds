@@ -23,6 +23,9 @@ src <- "gbOpen"
 
 ## `r src` coverage
 
+The map shows the highest ADM level available for each country in the
+**gbOpen** release type.
+
 ```{r}
 #| label: map-coverage
 #| echo: false
@@ -73,6 +76,9 @@ ggplot(p) +
 ```
 
 ## `r src` metadata
+
+The table lists boundary metadata and download links for **gbOpen**. Use the
+filters or search box to find a country or boundary type.
 
 ```{r}
 #| label: metadata

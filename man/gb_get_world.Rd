@@ -6,7 +6,7 @@
 \alias{gb_get_cgaz}
 \title{Get global composite files from \strong{geoBoundaries}}
 \source{
-\strong{geoBoundaries} API service \url{https://www.geoboundaries.org/api.html}.
+\href{https://www.geoboundaries.org/api.html}{\strong{geoBoundaries} API}.
 }
 \usage{
 gb_get_world(
@@ -22,33 +22,31 @@ gb_get_world(
 country codes. Use \code{"all"} to return data for all countries. See also
 \code{\link[countrycode:countrycode]{countrycode::countrycode()}}.}
 
-\item{adm_lvl}{ADM level. Accepted values are levels 0, 1 and 2
-(\code{"adm0"} is the country boundary, \code{"adm1"} is the
-first level of subnational boundaries, \code{"adm2"} is the second level and
-so on). Upper-case versions (\code{"ADM1"}) and the number of the level
-(\verb{0, 1, 2}) are also accepted.}
+\item{adm_lvl}{ADM level. Accepted values are levels 0, 1 and 2 (\code{"adm0"} is
+the country boundary, \code{"adm1"} is the first level of subnational
+boundaries and \code{"adm2"} is the second level). Uppercase versions
+(\code{"ADM1"}) and level numbers (\code{0}, \code{1}, \code{2}) are also accepted.}
 
 \item{quiet}{Logical. If \code{TRUE}, suppress informational messages.}
 
 \item{overwrite}{Logical. If \code{TRUE}, force a fresh download of the source
-\code{.zip} file.}
+\code{.zip} archive.}
 
 \item{cache_dir}{A path to a cache directory. If not set (the default
 \code{NULL}), the data will be stored in the default cache directory (see
-\code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}). If no cache directory has been set, files will be
-stored in the temporary directory. See \code{\link[base:tempdir]{base::tempdir()}} and caching
+\code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}). If no cache directory has been set, files are stored
+in a temporary cache directory. See \code{\link[base:tempdir]{base::tempdir()}} and the cache
 strategies in \code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}.}
 }
 \value{
-An \code{\link[sf:st_sf]{sf}} object.
+An \link[sf:st_sf]{sf} object containing the requested boundaries.
 }
 \description{
-\href{https://www.geoboundaries.org/index.html#usage}{Attribution} is required
-for all uses of this dataset.
+Returns global composite files for the requested ADM level. Files are clipped
+to international boundaries, with gaps between borders filled.
 
-This function returns global composite files for the requested
-ADM level, clipped to international boundaries and with gaps filled between
-borders.
+\href{https://www.geoboundaries.org/index.html#usage}{Attribution} is required
+whenever these data are used.
 }
 \details{
 Comprehensive Global Administrative Zones (CGAZ) are global composites for
@@ -74,13 +72,13 @@ ggplot(world) +
 \dontshow{\}) # examplesIf}
 }
 \references{
-Runfola, D. et al. (2020) \strong{geoBoundaries}: A global database of political
-administrative boundaries. \emph{PLOS ONE} \emph{15}(4), 1-9.
+Runfola et al. (2020) \strong{geoBoundaries}: A global database of political
+administrative boundaries. \emph{PLOS ONE} \strong{15}(4), e0231866.
 \doi{10.1371/journal.pone.0231866}.
 }
 \seealso{
-Other API functions:
+API functions:
 \code{\link[=gb_get]{gb_get()}},
 \code{\link{gb_get_adm}}
 }
-\concept{API functions}
+\concept{api}

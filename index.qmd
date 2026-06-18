@@ -40,11 +40,12 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 
 ## Why this package?
 
-The **geobounds** package provides an **R**-friendly interface for accessing the
-[**geoBoundaries**](https://www.geoboundaries.org/) Global Database of Political
-Administrative Boundaries. Using this package, you can:
+The **geobounds** package provides an **R**-friendly interface for downloading
+administrative boundary data from
+[**geoBoundaries**](https://www.geoboundaries.org/), the Global Database of
+Political Administrative Boundaries. With **geobounds**, you can:
 
-- Programmatically retrieve individual country files and global composite files
+- Download individual country files and global composite files
   from **geoBoundaries**.
 - Use **tidyverse** and **sf** workflows in **R** to map, analyze and join
   administrative boundary data with your own data.
@@ -52,7 +53,8 @@ Administrative Boundaries. Using this package, you can:
   required.
 
 In short, if you work with administrative boundaries in **R**, this package
-simplifies downloads, caching and integration with spatial data workflows.
+simplifies downloading, cache management and integration with spatial data
+workflows.
 
 ```{=html}
 <div class="callout callout-style-default callout-important callout-titled">
@@ -89,12 +91,12 @@ You can install the development version of **geobounds** with:
 pak::pak("dieghernan/geobounds")
 ```
 
-Alternatively, you can install **geobounds** using the
-[r-universe](https://dieghernan.r-universe.dev/geobounds):
+Alternatively, you can install **geobounds** from
+[R-universe](https://dieghernan.r-universe.dev/geobounds):
 
 ```{r}
 #| eval: false
-# Install geobounds in R:
+# Install geobounds.
 install.packages(
   "geobounds",
   repos = c(
@@ -109,7 +111,7 @@ install.packages(
 
 ```{r}
 #| label: simple_plot
-#| fig-cap: Map of ADM1, ADM2 and ADM3 boundaries for Sri Lanka
+#| fig-cap: "ADM1, ADM2 and ADM3 boundaries for Sri Lanka."
 library(geobounds)
 
 sri_lanka_adm1 <- gb_get_adm1("Sri Lanka")
@@ -137,14 +139,14 @@ validation processes and licensing:
 - **gbOpen**: Freely available boundaries under CC BY 4.0, suitable for most
   uses when attribution is provided.
 - **gbHumanitarian**: Boundaries mirrored from UN OCHA for humanitarian use,
-  which may have less open licensure.
+  which may have less open licensing.
 - **gbAuthoritative**: Boundaries mirrored from UN SALB and verified through
   in-country processes. These boundaries cannot be used for commercial purposes.
 
 Use the `release_type` argument to request a specific release type, for example,
 `gb_get_adm1("Sri Lanka", release_type = "gbHumanitarian")`.
 
-For detailed coverage and metadata comparisons, see the articles.
+For coverage and boundary metadata by release type, see the package articles.
 
 ## Advanced usage
 
@@ -152,7 +154,7 @@ Map the highest available ADM level in **geoBoundaries** by country:
 
 ```{r}
 #| label: map-coverage
-#| fig-cap: World coverage of **geoBoundaries** (gbOpen)
+#| fig-cap: "Highest available gbOpen ADM level by country."
 library(geobounds)
 library(ggplot2)
 library(dplyr)
@@ -216,17 +218,18 @@ This package is released under the [CC BY
 4.0](https://creativecommons.org/licenses/by/4.0/) license. The default
 **geoBoundaries** release type, **gbOpen**, is CC BY 4.0 compliant when
 attribution is provided. Other release types may have additional licensing
-limits, so check the metadata returned by `gb_get_metadata()` before reuse.
+restrictions, so check the boundary metadata returned by `gb_get_metadata()`
+before reuse.
 
-## Acknowledgements
+## Acknowledgments
 
-- Many thanks to the **geoBoundaries** team and the [William & Mary
+- Thanks to the **geoBoundaries** team and the [William & Mary
   geoLab](https://sites.google.com/view/wmgeolab/) for creating and maintaining
   the dataset.
 - Thanks to the **R** package community and all contributors to this package’s
   development.
-- If you use **geobounds** and the underlying **geoBoundaries** data in your
-  research or projects, please cite and acknowledge them.
+- If you use **geobounds** and the underlying **geoBoundaries** data, please
+  cite both.
 
 ## Citation
 

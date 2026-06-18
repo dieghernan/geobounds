@@ -37,45 +37,43 @@ navbar:
 
 home:
   title: geobounds | Download administrative boundary data from geoBoundaries
-  description: |
-    geobounds is an R package for retrieving individual country files and
-    D. et al. (2020) geoBoundaries: A global database of political
-    global composite files from geoBoundaries as sf objects. See Runfola,
-    administrative boundaries. PLOS ONE 15(4): e0231866.
-    https://doi.org/10.1371/journal.pone.0231866
+  description: >
+    Download individual country files and global composite files from
+    geoBoundaries as sf objects for mapping and spatial analysis.
 
 reference:
-- title: Boundaries
+- title: Boundary data
   desc: >
-    Download individual country files or global composite files as
-    <a href="https://CRAN.R-project.org/package=sf"
-    class="external-link"><span class="pkg">sf</span></a> objects.
+    Download individual country files and global composite files as
+    [**sf**](https://r-spatial.github.io/sf/) objects.
 - contents:
-  - has_concept("API functions")
-- title: Metadata
+  - has_concept("api")
+- title: Availability and metadata
   desc: >
-    Inspect available ADM levels, boundary metadata and source details.
+    Inspect available ADM levels, boundary metadata and source information.
 - contents:
-  - has_concept("metadata functions")
+  - has_concept("metadata")
 - title: Cache management
   desc: >
     Configure, inspect and clear the local cache used for downloaded boundary
     files.
 - contents:
-  - has_concept("cache utilities")
+  - has_concept("cache")
 - title: About the package
 - contents:
   - geobounds-package
 
 articles:
-- title: First steps
+- title: Get started
+  desc: >
+    Learn how to download, inspect and map administrative boundary data.
   contents:
   - geobounds
-- title: geoBoundaries coverage
-  navbar: geoBoundaries coverage
+- title: Coverage by release type
+  navbar: Release coverage
   desc: >
-    Compare highest available ADM levels and metadata for the **geoBoundaries**
-    release types available through geobounds.
+    Compare highest available ADM levels and boundary metadata for the
+    **geoBoundaries** release types available through geobounds.
   contents:
   - articles/gbopen
   - articles/gbhumanitarian
@@ -90,5 +88,5 @@ articles:
 external-articles:
 - name: blog-introducing-geobounds
   title: "Introducing geobounds"
-  description: "A simple way to retrieve datasets from geoBoundaries"
+  description: "Download administrative boundary data from geoBoundaries"
   href: https://dieghernan.github.io/202602_geobounds/
