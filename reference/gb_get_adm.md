@@ -144,6 +144,7 @@ administrative boundaries. *PLOS ONE* **15**(4), e0231866.
 
 ## See also
 
+[`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md),
 [`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/reference/gb_get_max_adm_lvl.md).
 
 API functions:
