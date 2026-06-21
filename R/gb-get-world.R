@@ -49,6 +49,11 @@ gb_get_world <- function(
   adm_lvl <- assert_adm_lvl(adm_lvl, dict = c(paste0("adm", 0:2), 0:2))
   country <- gbnds_dev_country2iso(country)
 
+  cli_abort_if_not(
+    "{.arg overwrite} must be a {.cls logical}." = is.logical(overwrite),
+    "{.arg quiet} must be a {.cls logical}." = is.logical(quiet)
+  )
+
   # Build the CGAZ download URL.
   baseurl <- paste0(
     "https://github.com/wmgeolab/geoBoundaries/",

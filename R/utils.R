@@ -273,3 +273,24 @@ match_arg_pretty <- function(arg, choices) {
 
   choices[lmatch]
 }
+
+# https://github.com/r-lib/cli/issues/672
+# Thanks to https://github.com/wurli
+cli_abort_if_not <- function(
+  ...,
+  .call = .envir,
+  .envir = parent.frame(),
+  .frame = .envir
+) {
+  for (i in seq_len(...length())) {
+    if (!all(...elt(i))) {
+      cli::cli_abort(
+        ...names()[i],
+        .call = .call,
+        .envir = .envir,
+        .frame = .frame
+      )
+    }
+  }
+  invisible(NULL)
+}

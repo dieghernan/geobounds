@@ -66,6 +66,12 @@ gb_set_cache_dir <- function(
   install = FALSE,
   quiet = FALSE
 ) {
+  cli_abort_if_not(
+    "{.arg quiet} must be a {.cls logical}." = is.logical(quiet),
+    "{.arg overwrite} must be a {.cls logical}." = is.logical(overwrite),
+    "{.arg install} must be a {.cls logical}." = is.logical(install)
+  )
+
   verbose <- isFALSE(quiet)
   # Use a temporary cache directory when none is provided.
   if (missing(cache_dir) || !nzchar(cache_dir)) {
@@ -83,8 +89,10 @@ gb_set_cache_dir <- function(
     is_temp <- FALSE
   }
 
-  # Validate inputs.
-  stopifnot(is.character(cache_dir), is.logical(overwrite), is.logical(install))
+  # Validate `cache_dir` argument.
+  cli_abort_if_not(
+    "{.arg cache_dir} must be a {.cls character}." = is.character(cache_dir)
+  )
 
   # Expand the cache directory path.
   cache_dir <- path.expand(cache_dir)

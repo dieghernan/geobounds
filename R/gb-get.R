@@ -57,6 +57,7 @@
 #' administrative boundaries. *PLOS ONE* **15**(4), e0231866.
 #' \doi{10.1371/journal.pone.0231866}.
 #'
+#' @seealso [gb_get_metadata()], [gb_get_max_adm_lvl()].
 #' @family api
 #'
 #' @export
@@ -101,6 +102,12 @@ gb_get <- function(
   source <- match_arg_pretty(release_type)
   adm_lvl <- assert_adm_lvl(adm_lvl)
   country <- gbnds_dev_country2iso(country)
+
+  cli_abort_if_not(
+    "{.arg simplified} must be a {.cls logical}." = is.logical(simplified),
+    "{.arg overwrite} must be a {.cls logical}." = is.logical(overwrite),
+    "{.arg quiet} must be a {.cls logical}." = is.logical(quiet)
+  )
 
   meta_df <- gb_get_metadata(
     country = country,

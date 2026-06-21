@@ -149,3 +149,35 @@
       Error:
       ! `year` must be "20", not "1" or "2".
 
+# Test cli_abort_if_not
+
+    Code
+      gb_set_cache_dir(cache_dir = 34)
+    Condition
+      Error in `gb_set_cache_dir()`:
+      ! `cache_dir` must be a <character>.
+
+---
+
+    Code
+      gb_set_cache_dir(overwrite = "a")
+    Condition
+      Error in `gb_set_cache_dir()`:
+      ! `overwrite` must be a <logical>.
+
+---
+
+    Code
+      gb_set_cache_dir(install = "a")
+    Condition
+      Error in `gb_set_cache_dir()`:
+      ! `install` must be a <logical>.
+
+---
+
+    Code
+      gb_set_cache_dir(quiet = "a")
+    Condition
+      Error in `gb_set_cache_dir()`:
+      ! `quiet` must be a <logical>.
+

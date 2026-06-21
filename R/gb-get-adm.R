@@ -25,7 +25,7 @@
 #' @inherit gb_get return source references
 #' @inheritParams gb_get
 #'
-#' @seealso [gb_get_max_adm_lvl()].
+#' @seealso [gb_get_metadata()], [gb_get_max_adm_lvl()].
 #'
 #' @family api
 #'

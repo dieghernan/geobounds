@@ -174,3 +174,11 @@ test_that("Pretty match", {
   # Pass more options than expected
   expect_snapshot(my_fun2(c(1, 2)), error = TRUE)
 })
+
+test_that("Test cli_abort_if_not", {
+  skip_on_cran()
+  expect_snapshot(error = TRUE, gb_set_cache_dir(cache_dir = 34))
+  expect_snapshot(error = TRUE, gb_set_cache_dir(overwrite = "a"))
+  expect_snapshot(error = TRUE, gb_set_cache_dir(install = "a"))
+  expect_snapshot(error = TRUE, gb_set_cache_dir(quiet = "a"))
+})

@@ -109,6 +109,8 @@ administrative boundaries. \emph{PLOS ONE} \strong{15}(4), e0231866.
 \doi{10.1371/journal.pone.0231866}.
 }
 \seealso{
+\code{\link[=gb_get_metadata]{gb_get_metadata()}}, \code{\link[=gb_get_max_adm_lvl]{gb_get_max_adm_lvl()}}.
+
 API functions:
 \code{\link{gb_get_adm}},
 \code{\link[=gb_get_world]{gb_get_world()}}

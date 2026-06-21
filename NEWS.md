@@ -30,9 +30,9 @@ instead.
 ### Other changes
 
 - Added a DOI.
-- All download functions now use `.zip` archives containing `.shp` files
-  instead of `.geojson` or `.gpkg` files, removing the **geojsonsf** dependency
-  from `Imports`.
+- All download functions now use `.zip` archives containing `.shp` files instead
+  of `.geojson` or `.gpkg` files, removing the **geojsonsf** dependency from
+  `Imports`.
 - All download functions now return `MULTIPOLYGON` geometries.
 - All download functions now return `NULL` without an error or warning when a
   country file is unavailable.
