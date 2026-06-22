@@ -182,3 +182,25 @@ test_that("Test cli_abort_if_not", {
   expect_snapshot(error = TRUE, gb_set_cache_dir(install = "a"))
   expect_snapshot(error = TRUE, gb_set_cache_dir(quiet = "a"))
 })
+
+test_that("gbnds_dev_sf_helper casts to MULTIPOLYGON", {
+  skip_if_not_installed("sf")
+
+  poly <- sf::st_polygon(list(rbind(
+    c(0, 0),
+    c(1, 0),
+    c(1, 1),
+    c(0, 1),
+    c(0, 0)
+  )))
+
+  data_sf <- sf::st_sf(
+    name = "test",
+    geometry = sf::st_sfc(poly, crs = 4326)
+  )
+
+  out <- gbnds_dev_sf_helper(data_sf)
+
+  expect_s3_class(out, "sf")
+  expect_true(all(sf::st_geometry_type(out) == "MULTIPOLYGON"))
+})

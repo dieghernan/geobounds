@@ -172,11 +172,10 @@ gbnds_dev_sf_helper <- function(data_sf) {
   # Cast polygon geometries to multipolygons.
 
   geomtype <- sf::st_geometry_type(g)
-  # nocov start
+
   if (any(geomtype == "POLYGON")) {
     g <- sf::st_cast(g, "MULTIPOLYGON")
   }
-  # nocov end
 
   which_geom <- which(vapply(
     data_sf,
