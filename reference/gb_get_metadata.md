@@ -1,4 +1,4 @@
-# Get boundary metadata from **geoBoundaries**
+# Retrieve boundary metadata from **geoBoundaries**
 
 Returns boundary metadata from the [**geoBoundaries**
 API](https://www.geoboundaries.org/api.html).
@@ -30,30 +30,32 @@ gb_get_metadata(
   ADM level. Accepted values are `"all"` (all available boundaries) or
   the ADM level (`"adm0"` is the country boundary, `"adm1"` is the first
   level of subnational boundaries, `"adm2"` is the second level and so
-  on). Uppercase versions (`"ADM1"`) and level numbers (`1`, `2`, `3`,
-  `4`, `5`) are also accepted.
+  on). Uppercase versions (`"ADM1"`) and level numbers (`0`, `1`, `2`,
+  `3`, `4`, `5`) are also accepted.
 
 - release_type:
 
-  One of `"gbOpen"`, `"gbHumanitarian"` or `"gbAuthoritative"`. For most
-  users, use `"gbOpen"` (the default), which is CC BY 4.0 compliant and
-  suitable for most purposes when attribution is provided.
-  `"gbHumanitarian"` files are mirrored from [UN
-  OCHA](https://www.unocha.org/) and may have less open licensing.
-  `"gbAuthoritative"` files are mirrored from UN SALB, verified through
-  in-country processes and cannot be used for commercial purposes.
+  A character string, one of `"gbOpen"`, `"gbHumanitarian"` or
+  `"gbAuthoritative"`. For most users, use `"gbOpen"` (the default),
+  which is CC BY 4.0 compliant and suitable for most purposes when
+  attribution is provided. `"gbHumanitarian"` boundaries are mirrored
+  from [UN OCHA](https://www.unocha.org/) and may have less open
+  licensing. `"gbAuthoritative"` boundaries are mirrored from UN SALB,
+  verified through in-country processes and cannot be used for
+  commercial purposes.
 
 ## Value
 
 A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)
-with one row per matching boundary file and the columns described in
-**Details**.
+from [tibble](https://CRAN.R-project.org/package=tibble) with one row
+per matching boundary file and the columns described in **Details**.
 
 ## Details
 
 The result is a
-[tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) with
-the following columns:
+[tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) from
+[tibble](https://CRAN.R-project.org/package=tibble) with the following
+columns:
 
 - `boundaryID`: The ID for this layer. It combines the ISO code,
   boundary type and a unique identifier generated from the input
@@ -62,7 +64,7 @@ the following columns:
 
 - `boundaryName`: The name of the country represented by the layer.
 
-- `boundaryISO`: ISO 3166-1 alpha-3 code for the country.
+- `boundaryISO`: The ISO 3166-1 alpha-3 code for the country.
 
 - `boundaryYearRepresented`: The year or range of years in
   `"START to END"` format that the boundary layers represent.
@@ -77,7 +79,7 @@ the following columns:
 - `boundaryLicense`: The original license under which the primary source
   released the boundary data.
 
-- `licenseDetail`: Any notes regarding the license.
+- `licenseDetail`: Notes about the license.
 
 - `licenseSource`: The URL of the primary source.
 
@@ -100,12 +102,12 @@ the following columns:
 
 - `admUnitCount`: The number of administrative units in the file.
 
-- `meanVertices`: Mean number of vertices defining the boundaries of
+- `meanVertices`: The mean number of vertices defining the boundaries of
   each administrative unit in the layer.
 
-- `minVertices`: Minimum number of vertices defining a boundary.
+- `minVertices`: The minimum number of vertices defining a boundary.
 
-- `maxVertices`: Maximum number of vertices defining a boundary.
+- `maxVertices`: The maximum number of vertices defining a boundary.
 
 - `minPerimeterLengthKM`: The minimum perimeter length of an
   administrative unit in the layer, measured in kilometers and based on
@@ -146,9 +148,10 @@ the following columns:
 
 ## See also
 
-[`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md).
+[`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md)
+downloads the boundaries described by the metadata.
 
-Metadata functions:
+Metadata and availability functions:
 [`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/reference/gb_get_max_adm_lvl.md)
 
 ## Examples

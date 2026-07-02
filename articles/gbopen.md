@@ -1,4 +1,4 @@
-# gbOpen coverage and metadata
+# gbOpen coverage and boundary metadata
 
 ## gbOpen coverage
 

@@ -1,6 +1,6 @@
-# Get individual country files for an ADM level
+# Download country boundaries for one ADM level
 
-These functions wrap
+These functions call
 [`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md)
 for a single ADM level. `gb_get_adm0()` returns country boundaries,
 `gb_get_adm1()` returns first-level subnational boundaries (for example,
@@ -88,28 +88,29 @@ gb_get_adm5(
 
 - simplified:
 
-  Logical. If `TRUE`, return simplified boundaries. The default `FALSE`
-  uses the primary **geoBoundaries** file. See simplified boundaries at
-  <https://www.geoboundaries.org/>.
+  A logical value. If `TRUE`, return simplified boundaries. The default
+  `FALSE` uses the primary **geoBoundaries** file. See simplified
+  boundaries at <https://www.geoboundaries.org/>.
 
 - release_type:
 
-  One of `"gbOpen"`, `"gbHumanitarian"` or `"gbAuthoritative"`. For most
-  users, use `"gbOpen"` (the default), which is CC BY 4.0 compliant and
-  suitable for most purposes when attribution is provided.
-  `"gbHumanitarian"` files are mirrored from [UN
-  OCHA](https://www.unocha.org/) and may have less open licensing.
-  `"gbAuthoritative"` files are mirrored from UN SALB, verified through
-  in-country processes and cannot be used for commercial purposes.
+  A character string, one of `"gbOpen"`, `"gbHumanitarian"` or
+  `"gbAuthoritative"`. For most users, use `"gbOpen"` (the default),
+  which is CC BY 4.0 compliant and suitable for most purposes when
+  attribution is provided. `"gbHumanitarian"` boundaries are mirrored
+  from [UN OCHA](https://www.unocha.org/) and may have less open
+  licensing. `"gbAuthoritative"` boundaries are mirrored from UN SALB,
+  verified through in-country processes and cannot be used for
+  commercial purposes.
 
 - quiet:
 
-  Logical. If `TRUE`, suppress informational messages.
+  A logical value. If `TRUE`, suppress informational messages.
 
 - overwrite:
 
-  Logical. If `TRUE`, force a fresh download of the source `.zip`
-  archive.
+  A logical value. If `TRUE`, force a fresh download of the source
+  `.zip` archive.
 
 - cache_dir:
 
@@ -124,13 +125,15 @@ gb_get_adm5(
 
 ## Value
 
-An [sf](https://r-spatial.github.io/sf/reference/sf.html) object
-containing the requested boundaries.
+An [sf](https://r-spatial.github.io/sf/reference/sf.html) object from
+[sf](https://CRAN.R-project.org/package=sf) containing the requested
+boundaries. If no boundary files match the request, the function returns
+`NULL`.
 
 ## Details
 
-Each individual country file is governed by the license identified in
-its boundary metadata. See
+Each individual country boundary file is governed by the license
+identified in its boundary metadata. See
 [`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md).
 Users should also cite the sources listed in the boundary metadata for
 each file.
@@ -144,10 +147,13 @@ administrative boundaries. *PLOS ONE* **15**(4), e0231866.
 
 ## See also
 
-[`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md),
-[`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/reference/gb_get_max_adm_lvl.md).
+- [`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md)
+  inspects boundary metadata and licensing.
 
-API functions:
+- [`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/reference/gb_get_max_adm_lvl.md)
+  checks available ADM levels.
+
+Boundary download functions:
 [`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md),
 [`gb_get_world()`](https://dieghernan.github.io/geobounds/reference/gb_get_world.md)
 

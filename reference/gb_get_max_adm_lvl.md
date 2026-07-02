@@ -1,4 +1,4 @@
-# Get the highest available ADM level
+# Find the highest available ADM level
 
 Returns a summary of selected country codes and their highest available
 ADM level in **geoBoundaries**.
@@ -26,23 +26,27 @@ gb_get_max_adm_lvl(
 
 - release_type:
 
-  One of `"gbOpen"`, `"gbHumanitarian"` or `"gbAuthoritative"`. For most
-  users, use `"gbOpen"` (the default), which is CC BY 4.0 compliant and
-  suitable for most purposes when attribution is provided.
-  `"gbHumanitarian"` files are mirrored from [UN
-  OCHA](https://www.unocha.org/) and may have less open licensing.
-  `"gbAuthoritative"` files are mirrored from UN SALB, verified through
-  in-country processes and cannot be used for commercial purposes.
+  A character string, one of `"gbOpen"`, `"gbHumanitarian"` or
+  `"gbAuthoritative"`. For most users, use `"gbOpen"` (the default),
+  which is CC BY 4.0 compliant and suitable for most purposes when
+  attribution is provided. `"gbHumanitarian"` boundaries are mirrored
+  from [UN OCHA](https://www.unocha.org/) and may have less open
+  licensing. `"gbAuthoritative"` boundaries are mirrored from UN SALB,
+  verified through in-country processes and cannot be used for
+  commercial purposes.
 
 ## Value
 
 A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)
-containing ISO 3166-1 alpha-3 country codes and their highest available
-ADM levels.
+from [tibble](https://CRAN.R-project.org/package=tibble) containing ISO
+3166-1 alpha-3 country codes and their highest available ADM levels.
 
 ## See also
 
-Metadata functions:
+[`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md)
+downloads boundaries for the available ADM levels.
+
+Metadata and availability functions:
 [`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md)
 
 ## Examples

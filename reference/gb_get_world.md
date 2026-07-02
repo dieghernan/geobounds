@@ -1,7 +1,8 @@
-# Get global composite files from **geoBoundaries**
+# Download global composite boundaries from **geoBoundaries**
 
-Returns global composite files for the requested ADM level. Files are
-clipped to international boundaries, with gaps between borders filled.
+Returns global composite boundaries for the requested ADM level.
+Boundaries are clipped to international borders, with gaps between
+borders filled.
 
 [Attribution](https://www.geoboundaries.org/index.html#usage) is
 required whenever these data are used.
@@ -39,12 +40,12 @@ gb_get_world(
 
 - quiet:
 
-  Logical. If `TRUE`, suppress informational messages.
+  A logical value. If `TRUE`, suppress informational messages.
 
 - overwrite:
 
-  Logical. If `TRUE`, force a fresh download of the source `.zip`
-  archive.
+  A logical value. If `TRUE`, force a fresh download of the source
+  `.zip` archive.
 
 - cache_dir:
 
@@ -59,17 +60,19 @@ gb_get_world(
 
 ## Value
 
-An [sf](https://r-spatial.github.io/sf/reference/sf.html) object
-containing the requested boundaries.
+An [sf](https://r-spatial.github.io/sf/reference/sf.html) object from
+[sf](https://CRAN.R-project.org/package=sf) containing the requested
+boundaries. If no boundary files match the request, the function returns
+`NULL`.
 
 ## Details
 
 Comprehensive Global Administrative Zones (CGAZ) are global composites
-for administrative boundaries. Compared with individual country files,
-the global composite files use extensive simplification so file sizes
-are small enough for most desktop software. They remove disputed areas,
-replace them with polygons following US Department of State definitions
-and fill gaps between borders.
+for administrative boundaries. Compared with individual country boundary
+files, global composite boundaries use extensive simplification so file
+sizes are small enough for most desktop software. They remove disputed
+areas, replace them with polygons following US Department of State
+definitions and fill gaps between borders.
 
 ## References
 
@@ -80,7 +83,13 @@ administrative boundaries. *PLOS ONE* **15**(4), e0231866.
 
 ## See also
 
-API functions:
+- [`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md)
+  inspects boundary metadata and licensing.
+
+- [`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/reference/gb_get_max_adm_lvl.md)
+  checks the ADM levels available for individual country boundaries.
+
+Boundary download functions:
 [`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md),
 [`gb_get_adm`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
 

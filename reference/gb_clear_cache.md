@@ -16,23 +16,22 @@ gb_clear_cache(config = FALSE, cached_data = TRUE, quiet = TRUE)
 
 - config:
 
-  Logical. If `TRUE`, delete the
+  A logical value. If `TRUE`, delete the
   [geobounds](https://CRAN.R-project.org/package=geobounds)
   configuration directory.
 
 - cached_data:
 
-  Logical. If `TRUE`, delete the active cache directory and all its
-  contents.
+  A logical value. If `TRUE`, delete the active cache directory and all
+  its contents.
 
 - quiet:
 
-  Logical. If `TRUE`, suppress informational messages.
+  A logical value. If `TRUE`, suppress informational messages.
 
 ## Value
 
-[`invisible()`](https://rdrr.io/r/base/invisible.html). This function is
-called for its side effects.
+Invisibly returns `NULL`. This function is called for its side effects.
 
 ## Details
 
@@ -41,7 +40,7 @@ This reset restores the cache state of a fresh
 
 ## See also
 
-Cache utilities:
+Cache management functions:
 [`gb_detect_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_detect_cache_dir.md),
 [`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_set_cache_dir.md)
 
@@ -53,20 +52,20 @@ Cache utilities:
 
 # \dontrun{
 my_cache <- gb_detect_cache_dir()
-#> ℹ /tmp/RtmpIJ3pji/geobounds
+#> ℹ /tmp/Rtmp5u0WhH/geobounds
 # Set an example cache.
 ex <- file.path(tempdir(), "example", "cache")
 gb_set_cache_dir(ex, quiet = TRUE)
 
 gb_clear_cache(quiet = FALSE)
-#> ! Deleted the geobounds cache directory /tmp/RtmpIJ3pji/example/cache.
+#> ! Deleted the geobounds cache directory /tmp/Rtmp5u0WhH/example/cache.
 
 # Restore the initial cache.
 gb_set_cache_dir(my_cache)
-#> ✔ geobounds cache directory is /tmp/RtmpIJ3pji/geobounds.
-#> ℹ To use this cache directory in future sessions, run this function with `install = TRUE`.
+#> ✔ geobounds cache directory is /tmp/Rtmp5u0WhH/geobounds.
+#> ℹ To use this cache directory in future sessions, call `gb_set_cache_dir()` with `install = TRUE`.
 identical(my_cache, gb_detect_cache_dir())
-#> ℹ /tmp/RtmpIJ3pji/geobounds
+#> ℹ /tmp/Rtmp5u0WhH/geobounds
 #> [1] TRUE
 # }
 ```

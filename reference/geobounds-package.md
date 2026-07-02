@@ -1,9 +1,10 @@
 # geobounds: Download Administrative Boundary Data from 'geoBoundaries'
 
-Provides tools for downloading individual country files and global
-composite files from 'geoBoundaries' <https://www.geoboundaries.org/>
-across multiple administrative ('ADM') levels. Returns boundary data as
-'sf' objects for mapping and spatial analysis. Runfola et al. (2020)
+Provides tools for downloading individual country boundaries and global
+composite boundaries from 'geoBoundaries'
+<https://www.geoboundaries.org/> across multiple administrative ('ADM')
+levels. Returns boundary data as 'sf' objects for mapping and spatial
+analysis. Runfola et al. (2020)
 [doi:10.1371/journal.pone.0231866](https://doi.org/10.1371/journal.pone.0231866)
 describe the underlying database.
 

@@ -1,4 +1,4 @@
-# gbAuthoritative coverage and metadata
+# gbAuthoritative coverage and boundary metadata
 
 ## gbAuthoritative coverage
 

@@ -1,4 +1,4 @@
-# gbHumanitarian coverage and metadata
+# gbHumanitarian coverage and boundary metadata
 
 ## gbHumanitarian coverage
 

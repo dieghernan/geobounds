@@ -1,12 +1,13 @@
-# Get individual country files from **geoBoundaries**
+# Download individual country boundaries from **geoBoundaries**
 
-Returns individual country files that reflect how countries represent
-their own boundaries, without special identification of disputed areas.
+Returns individual country boundaries that reflect how countries
+represent their own boundaries, without special identification of
+disputed areas.
 
 Use
 [`gb_get_world()`](https://dieghernan.github.io/geobounds/reference/gb_get_world.md)
-for global composite files that standardize disputed areas and fill gaps
-between borders.
+for global composite boundaries that standardize disputed areas and fill
+gaps between borders.
 
 [Attribution](https://www.geoboundaries.org/index.html#usage) is
 required whenever these data are used.
@@ -42,33 +43,34 @@ gb_get(
   ADM level. Accepted values are `"all"` (all available boundaries) or
   the ADM level (`"adm0"` is the country boundary, `"adm1"` is the first
   level of subnational boundaries, `"adm2"` is the second level and so
-  on). Uppercase versions (`"ADM1"`) and level numbers (`1`, `2`, `3`,
-  `4`, `5`) are also accepted.
+  on). Uppercase versions (`"ADM1"`) and level numbers (`0`, `1`, `2`,
+  `3`, `4`, `5`) are also accepted.
 
 - simplified:
 
-  Logical. If `TRUE`, return simplified boundaries. The default `FALSE`
-  uses the primary **geoBoundaries** file. See simplified boundaries at
-  <https://www.geoboundaries.org/>.
+  A logical value. If `TRUE`, return simplified boundaries. The default
+  `FALSE` uses the primary **geoBoundaries** file. See simplified
+  boundaries at <https://www.geoboundaries.org/>.
 
 - release_type:
 
-  One of `"gbOpen"`, `"gbHumanitarian"` or `"gbAuthoritative"`. For most
-  users, use `"gbOpen"` (the default), which is CC BY 4.0 compliant and
-  suitable for most purposes when attribution is provided.
-  `"gbHumanitarian"` files are mirrored from [UN
-  OCHA](https://www.unocha.org/) and may have less open licensing.
-  `"gbAuthoritative"` files are mirrored from UN SALB, verified through
-  in-country processes and cannot be used for commercial purposes.
+  A character string, one of `"gbOpen"`, `"gbHumanitarian"` or
+  `"gbAuthoritative"`. For most users, use `"gbOpen"` (the default),
+  which is CC BY 4.0 compliant and suitable for most purposes when
+  attribution is provided. `"gbHumanitarian"` boundaries are mirrored
+  from [UN OCHA](https://www.unocha.org/) and may have less open
+  licensing. `"gbAuthoritative"` boundaries are mirrored from UN SALB,
+  verified through in-country processes and cannot be used for
+  commercial purposes.
 
 - quiet:
 
-  Logical. If `TRUE`, suppress informational messages.
+  A logical value. If `TRUE`, suppress informational messages.
 
 - overwrite:
 
-  Logical. If `TRUE`, force a fresh download of the source `.zip`
-  archive.
+  A logical value. If `TRUE`, force a fresh download of the source
+  `.zip` archive.
 
 - cache_dir:
 
@@ -83,13 +85,15 @@ gb_get(
 
 ## Value
 
-An [sf](https://r-spatial.github.io/sf/reference/sf.html) object
-containing the requested boundaries.
+An [sf](https://r-spatial.github.io/sf/reference/sf.html) object from
+[sf](https://CRAN.R-project.org/package=sf) containing the requested
+boundaries. If no boundary files match the request, the function returns
+`NULL`.
 
 ## Details
 
-Each individual country file is governed by the license identified in
-its boundary metadata. See
+Each individual country boundary file is governed by the license
+identified in its boundary metadata. See
 [`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md).
 Users should also cite the sources listed in the boundary metadata for
 each file. See **Examples**.
@@ -113,10 +117,13 @@ administrative boundaries. *PLOS ONE* **15**(4), e0231866.
 
 ## See also
 
-[`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md),
-[`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/reference/gb_get_max_adm_lvl.md).
+- [`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md)
+  inspects boundary metadata and licensing.
 
-API functions:
+- [`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/reference/gb_get_max_adm_lvl.md)
+  checks available ADM levels.
+
+Boundary download functions:
 [`gb_get_adm`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md),
 [`gb_get_world()`](https://dieghernan.github.io/geobounds/reference/gb_get_world.md)
 
