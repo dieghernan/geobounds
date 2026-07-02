@@ -4,7 +4,7 @@
 \name{gb_get_world}
 \alias{gb_get_world}
 \alias{gb_get_cgaz}
-\title{Get global composite files from \strong{geoBoundaries}}
+\title{Download global composite boundaries from \strong{geoBoundaries}}
 \source{
 \href{https://www.geoboundaries.org/api.html}{\strong{geoBoundaries} API}.
 }
@@ -27,10 +27,10 @@ the country boundary, \code{"adm1"} is the first level of subnational
 boundaries and \code{"adm2"} is the second level). Uppercase versions
 (\code{"ADM1"}) and level numbers (\code{0}, \code{1}, \code{2}) are also accepted.}
 
-\item{quiet}{Logical. If \code{TRUE}, suppress informational messages.}
+\item{quiet}{A logical value. If \code{TRUE}, suppress informational messages.}
 
-\item{overwrite}{Logical. If \code{TRUE}, force a fresh download of the source
-\code{.zip} archive.}
+\item{overwrite}{A logical value. If \code{TRUE}, force a fresh download of the
+source \code{.zip} archive.}
 
 \item{cache_dir}{A path to a cache directory. If not set (the default
 \code{NULL}), the data will be stored in the default cache directory (see
@@ -39,22 +39,24 @@ in a temporary cache directory. See \code{\link[base:tempdir]{base::tempdir()}} 
 strategies in \code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}.}
 }
 \value{
-An \link[sf:st_sf]{sf} object containing the requested boundaries.
+An \link[sf:st_sf]{sf} object from \CRANpkg{sf} containing the requested
+boundaries. If no boundary files match the request, the function returns
+\code{NULL}.
 }
 \description{
-Returns global composite files for the requested ADM level. Files are clipped
-to international boundaries, with gaps between borders filled.
+Returns global composite boundaries for the requested ADM level. Boundaries
+are clipped to international borders, with gaps between borders filled.
 
 \href{https://www.geoboundaries.org/index.html#usage}{Attribution} is required
 whenever these data are used.
 }
 \details{
 Comprehensive Global Administrative Zones (CGAZ) are global composites for
-administrative boundaries. Compared with individual country files, the
-global composite files use extensive simplification so file sizes are small
-enough for most desktop software. They remove disputed areas, replace them
-with polygons following US Department of State definitions and fill gaps
-between borders.
+administrative boundaries. Compared with individual country boundary files,
+global composite boundaries use extensive simplification so file sizes are
+small enough for most desktop software. They remove disputed areas, replace
+them with polygons following US Department of State definitions and fill
+gaps between borders.
 }
 \examples{
 \dontshow{if (identical(Sys.getenv("NOT_CRAN"), "true") || interactive()) withAutoprint(\{ # examplesIf}
@@ -77,7 +79,13 @@ administrative boundaries. \emph{PLOS ONE} \strong{15}(4), e0231866.
 \doi{10.1371/journal.pone.0231866}.
 }
 \seealso{
-API functions:
+\itemize{
+\item \code{\link[=gb_get_metadata]{gb_get_metadata()}} inspects boundary metadata and licensing.
+\item \code{\link[=gb_get_max_adm_lvl]{gb_get_max_adm_lvl()}} checks the ADM levels available for individual
+country boundaries.
+}
+
+Boundary download functions:
 \code{\link[=gb_get]{gb_get()}},
 \code{\link{gb_get_adm}}
 }

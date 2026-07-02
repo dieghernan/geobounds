@@ -3,7 +3,7 @@
     Code
       err2 <- gb_get(country = "ATA", adm_lvl = "ADM2")
     Message
-      x <https://www.geoboundaries.org/api/current/gbOpen/ATA/ADM2> returned HTTP error 404 - Not Found.
+      x Request to <https://www.geoboundaries.org/api/current/gbOpen/ATA/ADM2> failed with HTTP status 404 - Not Found.
       x No matching boundary files found. Returning `NULL`.
 
 # Fail gracefully single
@@ -14,7 +14,7 @@
           cache_dir = tempdir())
       })
     Message
-      x <https://github.com/wmgeolab/geoBoundaries/raw/FAKE/releaseData/gbOpen/ESP/ADM0/fakefile.geojson> returned HTTP error 404 - Not Found.
+      x Request to <https://github.com/wmgeolab/geoBoundaries/raw/FAKE/releaseData/gbOpen/ESP/ADM0/fakefile.geojson> failed with HTTP status 404 - Not Found.
 
 # Fail gracefully several
 
@@ -24,5 +24,5 @@
           cache_dir = tempdir(), simplified = TRUE)
       })
     Message
-      x <https://github.com/wmgeolab/geoBoundaries/raw/FAKE/releaseData/gbOpen/ESP/ADM0/fakefile.zip> returned HTTP error 404 - Not Found.
+      x Request to <https://github.com/wmgeolab/geoBoundaries/raw/FAKE/releaseData/gbOpen/ESP/ADM0/fakefile.zip> failed with HTTP status 404 - Not Found.
 

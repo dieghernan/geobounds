@@ -9,7 +9,7 @@
 \alias{gb_get_adm3}
 \alias{gb_get_adm4}
 \alias{gb_get_adm5}
-\title{Get individual country files for an ADM level}
+\title{Download country boundaries for one ADM level}
 \source{
 \href{https://www.geoboundaries.org/api.html}{\strong{geoBoundaries} API}.
 }
@@ -73,22 +73,22 @@ gb_get_adm5(
 country codes. Use \code{"all"} to return data for all countries. See also
 \code{\link[countrycode:countrycode]{countrycode::countrycode()}}.}
 
-\item{simplified}{Logical. If \code{TRUE}, return simplified boundaries. The
-default \code{FALSE} uses the primary \strong{geoBoundaries} file. See simplified
+\item{simplified}{A logical value. If \code{TRUE}, return simplified boundaries.
+The default \code{FALSE} uses the primary \strong{geoBoundaries} file. See simplified
 boundaries at \url{https://www.geoboundaries.org/}.}
 
-\item{release_type}{One of \code{"gbOpen"}, \code{"gbHumanitarian"} or
-\code{"gbAuthoritative"}. For most users, use \code{"gbOpen"} (the default), which is
-CC BY 4.0 compliant and suitable for most purposes when attribution is
-provided. \code{"gbHumanitarian"} files are mirrored
+\item{release_type}{A character string, one of \code{"gbOpen"},
+\code{"gbHumanitarian"} or \code{"gbAuthoritative"}. For most users, use \code{"gbOpen"}
+(the default), which is CC BY 4.0 compliant and suitable for most purposes
+when attribution is provided. \code{"gbHumanitarian"} boundaries are mirrored
 from \href{https://www.unocha.org/}{UN OCHA} and may have less open licensing.
-\code{"gbAuthoritative"} files are mirrored from UN SALB, verified through
+\code{"gbAuthoritative"} boundaries are mirrored from UN SALB, verified through
 in-country processes and cannot be used for commercial purposes.}
 
-\item{quiet}{Logical. If \code{TRUE}, suppress informational messages.}
+\item{quiet}{A logical value. If \code{TRUE}, suppress informational messages.}
 
-\item{overwrite}{Logical. If \code{TRUE}, force a fresh download of the source
-\code{.zip} archive.}
+\item{overwrite}{A logical value. If \code{TRUE}, force a fresh download of the
+source \code{.zip} archive.}
 
 \item{cache_dir}{A path to a cache directory. If not set (the default
 \code{NULL}), the data will be stored in the default cache directory (see
@@ -97,10 +97,12 @@ in a temporary cache directory. See \code{\link[base:tempdir]{base::tempdir()}} 
 strategies in \code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}.}
 }
 \value{
-An \link[sf:st_sf]{sf} object containing the requested boundaries.
+An \link[sf:st_sf]{sf} object from \CRANpkg{sf} containing the requested
+boundaries. If no boundary files match the request, the function returns
+\code{NULL}.
 }
 \description{
-These functions wrap \code{\link[=gb_get]{gb_get()}} for a single ADM level. \code{\link[=gb_get_adm0]{gb_get_adm0()}}
+These functions call \code{\link[=gb_get]{gb_get()}} for a single ADM level. \code{\link[=gb_get_adm0]{gb_get_adm0()}}
 returns country boundaries, \code{\link[=gb_get_adm1]{gb_get_adm1()}} returns first-level subnational
 boundaries (for example, states in the United States) and \code{\link[=gb_get_adm2]{gb_get_adm2()}}
 returns second-level subnational boundaries (for example, counties in the
@@ -114,8 +116,8 @@ Not all countries have the same number of ADM levels. Use
 whenever these data are used.
 }
 \details{
-Each individual country file is governed by the license identified in its
-boundary metadata. See \code{\link[=gb_get_metadata]{gb_get_metadata()}}. Users should also cite the
+Each individual country boundary file is governed by the license identified
+in its boundary metadata. See \code{\link[=gb_get_metadata]{gb_get_metadata()}}. Users should also cite the
 sources listed in the boundary metadata for each file.
 }
 \examples{
@@ -144,9 +146,12 @@ administrative boundaries. \emph{PLOS ONE} \strong{15}(4), e0231866.
 \doi{10.1371/journal.pone.0231866}.
 }
 \seealso{
-\code{\link[=gb_get_metadata]{gb_get_metadata()}}, \code{\link[=gb_get_max_adm_lvl]{gb_get_max_adm_lvl()}}.
+\itemize{
+\item \code{\link[=gb_get_metadata]{gb_get_metadata()}} inspects boundary metadata and licensing.
+\item \code{\link[=gb_get_max_adm_lvl]{gb_get_max_adm_lvl()}} checks available ADM levels.
+}
 
-API functions:
+Boundary download functions:
 \code{\link[=gb_get]{gb_get()}},
 \code{\link[=gb_get_world]{gb_get_world()}}
 }

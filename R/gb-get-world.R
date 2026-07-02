@@ -1,19 +1,19 @@
-#' Get global composite files from **geoBoundaries**
+#' Download global composite boundaries from **geoBoundaries**
 #'
 #' @description
-#' Returns global composite files for the requested ADM level. Files are clipped
-#' to international boundaries, with gaps between borders filled.
+#' Returns global composite boundaries for the requested ADM level. Boundaries
+#' are clipped to international borders, with gaps between borders filled.
 #'
 #' [Attribution](https://www.geoboundaries.org/index.html#usage) is required
 #' whenever these data are used.
 #'
 #' @details
 #' Comprehensive Global Administrative Zones (CGAZ) are global composites for
-#' administrative boundaries. Compared with individual country files, the
-#' global composite files use extensive simplification so file sizes are small
-#' enough for most desktop software. They remove disputed areas, replace them
-#' with polygons following US Department of State definitions and fill gaps
-#' between borders.
+#' administrative boundaries. Compared with individual country boundary files,
+#' global composite boundaries use extensive simplification so file sizes are
+#' small enough for most desktop software. They remove disputed areas, replace
+#' them with polygons following US Department of State definitions and fill
+#' gaps between borders.
 #'
 #' @inherit gb_get return source references
 #' @inheritParams gb_get
@@ -21,6 +21,11 @@
 #'   the country boundary, `"adm1"` is the first level of subnational
 #'   boundaries and `"adm2"` is the second level). Uppercase versions
 #'   (`"ADM1"`) and level numbers (`0`, `1`, `2`) are also accepted.
+#'
+#' @seealso
+#' - [gb_get_metadata()] inspects boundary metadata and licensing.
+#' - [gb_get_max_adm_lvl()] checks the ADM levels available for individual
+#'   country boundaries.
 #'
 #' @family api
 #'
@@ -49,7 +54,7 @@ gb_get_world <- function(
   adm_lvl <- assert_adm_lvl(adm_lvl, dict = c(paste0("adm", 0:2), 0:2))
   country <- gbnds_dev_country2iso(country)
 
-  cli_abort_if_not(
+  gb_abort_if_not(
     "{.arg overwrite} must be a {.cls logical}." = is.logical(overwrite),
     "{.arg quiet} must be a {.cls logical}." = is.logical(quiet)
   )

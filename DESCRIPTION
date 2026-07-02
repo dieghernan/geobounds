@@ -7,8 +7,8 @@ Authors@R: c(
     person("William and Mary geoLab", role = "cph",
            comment = c(ROR = "03hsf0573"))
   )
-Description: Provides tools for downloading individual country files and
-    global composite files from 'geoBoundaries'
+Description: Provides tools for downloading individual country boundaries
+    and global composite boundaries from 'geoBoundaries'
     <https://www.geoboundaries.org/> across multiple administrative
     ('ADM') levels. Returns boundary data as 'sf' objects for mapping and
     spatial analysis. Runfola et al. (2020)

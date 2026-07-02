@@ -1,18 +1,18 @@
-#' Get individual country files from **geoBoundaries**
+#' Download individual country boundaries from **geoBoundaries**
 #'
 #' @description
-#' Returns individual country files that reflect how countries represent their
-#' own boundaries, without special identification of disputed areas.
+#' Returns individual country boundaries that reflect how countries represent
+#' their own boundaries, without special identification of disputed areas.
 #'
-#' Use [gb_get_world()] for global composite files that standardize disputed
-#' areas and fill gaps between borders.
+#' Use [gb_get_world()] for global composite boundaries that standardize
+#' disputed areas and fill gaps between borders.
 #'
 #' [Attribution](https://www.geoboundaries.org/index.html#usage) is required
 #' whenever these data are used.
 #'
 #' @details
-#' Each individual country file is governed by the license identified in its
-#' boundary metadata. See [gb_get_metadata()]. Users should also cite the
+#' Each individual country boundary file is governed by the license identified
+#' in its boundary metadata. See [gb_get_metadata()]. Users should also cite the
 #' sources listed in the boundary metadata for each file. See **Examples**.
 #'
 #' The wrappers [gb_get_adm0()], [gb_get_adm1()], [gb_get_adm2()],
@@ -26,20 +26,20 @@
 #'   boundaries) or the ADM level (`"adm0"` is the country boundary,
 #'   `"adm1"` is the first level of subnational boundaries, `"adm2"` is the
 #'   second level and so on). Uppercase versions (`"ADM1"`) and level numbers
-#'   (`1`, `2`, `3`, `4`, `5`) are also accepted.
-#' @param simplified Logical. If `TRUE`, return simplified boundaries. The
-#'   default `FALSE` uses the primary **geoBoundaries** file. See simplified
+#'   (`0`, `1`, `2`, `3`, `4`, `5`) are also accepted.
+#' @param simplified A logical value. If `TRUE`, return simplified boundaries.
+#'   The default `FALSE` uses the primary **geoBoundaries** file. See simplified
 #'   boundaries at <https://www.geoboundaries.org/>.
-#' @param release_type One of `"gbOpen"`, `"gbHumanitarian"` or
-#'   `"gbAuthoritative"`. For most users, use `"gbOpen"` (the default), which is
-#'   CC BY 4.0 compliant and suitable for most purposes when attribution is
-#'   provided. `"gbHumanitarian"` files are mirrored
+#' @param release_type A character string, one of `"gbOpen"`,
+#'   `"gbHumanitarian"` or `"gbAuthoritative"`. For most users, use `"gbOpen"`
+#'   (the default), which is CC BY 4.0 compliant and suitable for most purposes
+#'   when attribution is provided. `"gbHumanitarian"` boundaries are mirrored
 #'   from [UN OCHA](https://www.unocha.org/) and may have less open licensing.
-#'   `"gbAuthoritative"` files are mirrored from UN SALB, verified through
+#'   `"gbAuthoritative"` boundaries are mirrored from UN SALB, verified through
 #'   in-country processes and cannot be used for commercial purposes.
-#' @param quiet Logical. If `TRUE`, suppress informational messages.
-#' @param overwrite Logical. If `TRUE`, force a fresh download of the source
-#'   `.zip` archive.
+#' @param quiet A logical value. If `TRUE`, suppress informational messages.
+#' @param overwrite A logical value. If `TRUE`, force a fresh download of the
+#'   source `.zip` archive.
 #' @param cache_dir A path to a cache directory. If not set (the default
 #'   `NULL`), the data will be stored in the default cache directory (see
 #'   [gb_set_cache_dir()]). If no cache directory has been set, files are stored
@@ -47,7 +47,9 @@
 #'   strategies in [gb_set_cache_dir()].
 #'
 #' @returns
-#' An [sf][sf::st_sf] object containing the requested boundaries.
+#' An [sf][sf::st_sf] object from \CRANpkg{sf} containing the requested
+#' boundaries. If no boundary files match the request, the function returns
+#' `NULL`.
 #'
 #' @source
 #' [**geoBoundaries** API](https://www.geoboundaries.org/api.html).
@@ -57,7 +59,10 @@
 #' administrative boundaries. *PLOS ONE* **15**(4), e0231866.
 #' \doi{10.1371/journal.pone.0231866}.
 #'
-#' @seealso [gb_get_metadata()], [gb_get_max_adm_lvl()].
+#' @seealso
+#' - [gb_get_metadata()] inspects boundary metadata and licensing.
+#' - [gb_get_max_adm_lvl()] checks available ADM levels.
+#'
 #' @family api
 #'
 #' @export
@@ -103,7 +108,7 @@ gb_get <- function(
   adm_lvl <- assert_adm_lvl(adm_lvl)
   country <- gbnds_dev_country2iso(country)
 
-  cli_abort_if_not(
+  gb_abort_if_not(
     "{.arg simplified} must be a {.cls logical}." = is.logical(simplified),
     "{.arg overwrite} must be a {.cls logical}." = is.logical(overwrite),
     "{.arg quiet} must be a {.cls logical}." = is.logical(quiet)

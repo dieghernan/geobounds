@@ -38,42 +38,41 @@ navbar:
 home:
   title: geobounds | Download administrative boundary data from geoBoundaries
   description: >
-    Download individual country files and global composite files from
-    geoBoundaries as sf objects for mapping and spatial analysis.
+    Download individual country boundaries and global composite boundaries
+    from geoBoundaries as sf objects for mapping and spatial analysis.
 
 reference:
-- title: Boundary data
+- title: Download boundaries
   desc: >
-    Download individual country files and global composite files as
+    Download individual country boundaries and global composite boundaries as
     [**sf**](https://r-spatial.github.io/sf/) objects.
 - contents:
   - has_concept("api")
-- title: Availability and metadata
+- title: Inspect metadata and availability
   desc: >
-    Inspect available ADM levels, boundary metadata and source information.
+    Inspect boundary metadata, available ADM levels and source information.
 - contents:
   - has_concept("metadata")
-- title: Cache management
+- title: Manage the cache
   desc: >
-    Configure, inspect and clear the local cache used for downloaded boundary
-    files.
+    Configure, inspect and clear cached boundary files.
 - contents:
   - has_concept("cache")
-- title: About the package
+- title: Learn about geobounds
 - contents:
   - geobounds-package
 
 articles:
 - title: Get started
   desc: >
-    Learn how to download, inspect and map administrative boundary data.
+    Learn to download, inspect and map administrative boundary data.
   contents:
   - geobounds
-- title: Coverage by release type
+- title: Release coverage
   navbar: Release coverage
   desc: >
-    Compare highest available ADM levels and boundary metadata for the
-    **geoBoundaries** release types available through geobounds.
+    Compare ADM-level availability and boundary metadata across
+    **geoBoundaries** release types.
   contents:
   - articles/gbopen
   - articles/gbhumanitarian
@@ -81,7 +80,7 @@ articles:
 - title: From the blog
   navbar: Blog posts
   desc: >
-    Blog posts tagged with **geobounds** on One World.
+    Read One World posts about **geobounds**.
   contents:
   - blog-introducing-geobounds
 

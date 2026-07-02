@@ -10,8 +10,8 @@
     Code
       gbnds_dev_country2iso(c("ESP", "POR", "RTA", "USA"))
     Message
-      ! Some country values could not be matched unambiguously: "POR" and "RTA".
-      i Review the country names or use ISO 3166-1 alpha-3 codes.
+      ! Some values supplied to `country` could not be matched unambiguously: "POR" and "RTA".
+      i Review the values or use ISO 3166-1 alpha-3 codes.
     Output
       [1] "ESP" "USA"
 
@@ -55,8 +55,8 @@
     Code
       gbnds_dev_country2iso(c("Spain", "Rea", "Kosovo", "Antartica", "Murcua"))
     Message
-      ! Some country values could not be matched unambiguously: "Rea" and "Murcua".
-      i Review the country names or use ISO 3166-1 alpha-3 codes.
+      ! Some values supplied to `country` could not be matched unambiguously: "Rea" and "Murcua".
+      i Review the values or use ISO 3166-1 alpha-3 codes.
     Output
       [1] "ESP" "XKX" "ATA"
 
@@ -149,7 +149,15 @@
       Error:
       ! `year` must be "20", not "1" or "2".
 
-# Test cli_abort_if_not
+# Test gb_abort_if_not
+
+    Code
+      gb_abort_if_not(isFALSE(TRUE))
+    Condition
+      Error:
+      ! Every condition supplied to `gb_abort_if_not()` must be named.
+
+---
 
     Code
       gb_set_cache_dir(cache_dir = 34)

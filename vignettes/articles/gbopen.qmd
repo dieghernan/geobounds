@@ -1,7 +1,7 @@
 ---
-title: "gbOpen coverage and metadata"
+title: "gbOpen coverage and boundary metadata"
 description: |
-  gbOpen is CC BY 4.0 compliant when attribution is provided.
+  gbOpen provides CC BY 4.0-compliant boundaries when attribution is provided.
 knitr:
   opts_chunk:
     collapse: true

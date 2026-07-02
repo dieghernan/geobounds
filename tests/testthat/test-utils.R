@@ -175,8 +175,12 @@ test_that("Pretty match", {
   expect_snapshot(my_fun2(c(1, 2)), error = TRUE)
 })
 
-test_that("Test cli_abort_if_not", {
+test_that("Test gb_abort_if_not", {
   skip_on_cran()
+  expect_invisible(gb_abort_if_not())
+  expect_snapshot(error = TRUE, gb_abort_if_not(isFALSE(TRUE)))
+  expect_invisible(gb_abort_if_not("A" = is.character("a")))
+
   expect_snapshot(error = TRUE, gb_set_cache_dir(cache_dir = 34))
   expect_snapshot(error = TRUE, gb_set_cache_dir(overwrite = "a"))
   expect_snapshot(error = TRUE, gb_set_cache_dir(install = "a"))

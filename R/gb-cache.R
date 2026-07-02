@@ -5,9 +5,9 @@
 #' Use [gb_detect_cache_dir()] to find the active cache directory.
 #'
 #' @details
-#' By default, when no `cache_dir` is set, the package uses a directory inside
-#' [base::tempdir()]. Files in this directory are removed when the \R session
-#' ends. To reuse a cache directory across \R sessions, use
+#' By default, when no `cache_dir` is set, \CRANpkg{geobounds} uses a directory
+#' inside [base::tempdir()]. Files in this directory are removed when the \R
+#' session ends. To reuse a cache directory across \R sessions, use
 #' `gb_set_cache_dir(cache_dir = "a/path/here", install = TRUE)`. This saves the
 #' directory in a configuration file under
 #' `tools::R_user_dir("geobounds", "config")`.
@@ -25,16 +25,17 @@
 #' @inheritParams gb_get
 #' @param cache_dir A path to a cache directory. If missing, the function stores
 #'   cache files in a temporary directory. See [base::tempdir()].
-#' @param install Logical. If `TRUE`, save the cache directory for use in future
-#'   sessions. Defaults to `FALSE`. If `cache_dir` is missing or empty, this
-#'   parameter is set to `FALSE` automatically.
-#' @param overwrite Logical. If `TRUE`, replace a cache directory already saved
-#'   in the configuration file.
+#' @param install A logical value. If `TRUE`, save the cache directory for use
+#'   in future sessions. Defaults to `FALSE`. If `cache_dir` is missing or
+#'   empty, this parameter is set to `FALSE` automatically.
+#' @param overwrite A logical value. If `TRUE`, replace a cache directory
+#'   already saved in the configuration file.
 #'
 #' @returns
-#' An invisible character vector containing the path to the cache directory.
+#' An invisible character scalar containing the path to the cache directory.
 #'
-#' @seealso [tools::R_user_dir()].
+#' @seealso [tools::R_user_dir()] identifies standard locations for
+#'   user-specific files.
 #'
 #' @family cache
 #'
@@ -66,7 +67,7 @@ gb_set_cache_dir <- function(
   install = FALSE,
   quiet = FALSE
 ) {
-  cli_abort_if_not(
+  gb_abort_if_not(
     "{.arg quiet} must be a {.cls logical}." = is.logical(quiet),
     "{.arg overwrite} must be a {.cls logical}." = is.logical(overwrite),
     "{.arg install} must be a {.cls logical}." = is.logical(install)
@@ -90,7 +91,7 @@ gb_set_cache_dir <- function(
   }
 
   # Validate `cache_dir` argument.
-  cli_abort_if_not(
+  gb_abort_if_not(
     "{.arg cache_dir} must be a {.cls character}." = is.character(cache_dir)
   )
 
@@ -126,7 +127,7 @@ gb_set_cache_dir <- function(
     } else {
       cli::cli_abort(c(
         "A value for {.arg cache_dir} is already saved.",
-        "Use {.code overwrite = TRUE} to replace it."
+        "i" = "Use {.code overwrite = TRUE} to replace it."
       ))
     }
     # nocov end
@@ -134,7 +135,7 @@ gb_set_cache_dir <- function(
     if (verbose && !is_temp) {
       cli::cli_alert_info(paste0(
         "To use this cache directory in future sessions, ",
-        "run this function with {.code install = TRUE}."
+        "call {.fn gb_set_cache_dir} with {.code install = TRUE}."
       ))
     }
   }
@@ -150,10 +151,10 @@ gb_set_cache_dir <- function(
 #'
 #' @rdname gb_detect_cache_dir
 #'
-#' @param x Ignored.
+#' @param x An object. Ignored.
 #'
 #' @returns
-#' A character vector containing the path to the active cache directory. It also
+#' A character scalar containing the path to the active cache directory. It also
 #' appears in a clickable message. See [cli::inline-markup].
 #'
 #' @family cache
@@ -186,13 +187,13 @@ gb_detect_cache_dir <- function(x = NULL) {
 #' @rdname gb_clear_cache
 #'
 #' @inheritParams gb_set_cache_dir
-#' @param config Logical. If `TRUE`, delete the \CRANpkg{geobounds}
+#' @param config A logical value. If `TRUE`, delete the \CRANpkg{geobounds}
 #'   configuration directory.
-#' @param cached_data Logical. If `TRUE`, delete the active cache directory and
-#'   all its contents.
+#' @param cached_data A logical value. If `TRUE`, delete the active cache
+#'   directory and all its contents.
 #'
 #' @returns
-#' [invisible()]. This function is called for its side effects.
+#' Invisibly returns `NULL`. This function is called for its side effects.
 #'
 #' @family cache
 #'
@@ -248,7 +249,7 @@ gb_clear_cache <- function(config = FALSE, cached_data = TRUE, quiet = TRUE) {
   invisible()
 }
 
-#' Internal, silent version of `gb_detect_cache_dir()`
+#' Detect the cache directory without messages
 #'
 #' @noRd
 gb_hlp_detect_cache_dir <- function() {

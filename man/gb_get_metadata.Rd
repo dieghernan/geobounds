@@ -4,7 +4,7 @@
 \name{gb_get_metadata}
 \alias{gb_get_metadata}
 \alias{gb_get_meta}
-\title{Get boundary metadata from \strong{geoBoundaries}}
+\title{Retrieve boundary metadata from \strong{geoBoundaries}}
 \source{
 \href{https://www.geoboundaries.org/api.html}{\strong{geoBoundaries} API}.
 }
@@ -24,32 +24,33 @@ country codes. Use \code{"all"} to return data for all countries. See also
 boundaries) or the ADM level (\code{"adm0"} is the country boundary,
 \code{"adm1"} is the first level of subnational boundaries, \code{"adm2"} is the
 second level and so on). Uppercase versions (\code{"ADM1"}) and level numbers
-(\code{1}, \code{2}, \code{3}, \code{4}, \code{5}) are also accepted.}
+(\code{0}, \code{1}, \code{2}, \code{3}, \code{4}, \code{5}) are also accepted.}
 
-\item{release_type}{One of \code{"gbOpen"}, \code{"gbHumanitarian"} or
-\code{"gbAuthoritative"}. For most users, use \code{"gbOpen"} (the default), which is
-CC BY 4.0 compliant and suitable for most purposes when attribution is
-provided. \code{"gbHumanitarian"} files are mirrored
+\item{release_type}{A character string, one of \code{"gbOpen"},
+\code{"gbHumanitarian"} or \code{"gbAuthoritative"}. For most users, use \code{"gbOpen"}
+(the default), which is CC BY 4.0 compliant and suitable for most purposes
+when attribution is provided. \code{"gbHumanitarian"} boundaries are mirrored
 from \href{https://www.unocha.org/}{UN OCHA} and may have less open licensing.
-\code{"gbAuthoritative"} files are mirrored from UN SALB, verified through
+\code{"gbAuthoritative"} boundaries are mirrored from UN SALB, verified through
 in-country processes and cannot be used for commercial purposes.}
 }
 \value{
-A \link[tibble:tbl_df]{tibble} with one row per matching boundary file and the
-columns described in \strong{Details}.
+A \link[tibble:tbl_df]{tibble} from \CRANpkg{tibble} with one row per matching
+boundary file and the columns described in \strong{Details}.
 }
 \description{
 Returns boundary metadata from the
 \href{https://www.geoboundaries.org/api.html}{\strong{geoBoundaries} API}.
 }
 \details{
-The result is a \link[tibble:tbl_df]{tibble} with the following columns:
+The result is a \link[tibble:tbl_df]{tibble} from \CRANpkg{tibble} with the
+following columns:
 \itemize{
 \item \code{boundaryID}: The ID for this layer. It combines the ISO code, boundary
 type and a unique identifier generated from the input metadata and
 geometry. This only changes if the underlying data changes.
 \item \code{boundaryName}: The name of the country represented by the layer.
-\item \code{boundaryISO}: ISO 3166-1 alpha-3 code for the country.
+\item \code{boundaryISO}: The ISO 3166-1 alpha-3 code for the country.
 \item \code{boundaryYearRepresented}: The year or range of years in \code{"START to END"}
 format that the boundary layers represent.
 \item \code{boundaryType}: The type of boundary.
@@ -58,7 +59,7 @@ format that the boundary layers represent.
 boundary.
 \item \code{boundaryLicense}: The original license under which the primary source
 released the boundary data.
-\item \code{licenseDetail}: Any notes regarding the license.
+\item \code{licenseDetail}: Notes about the license.
 \item \code{licenseSource}: The URL of the primary source.
 \item \code{sourceDataUpdateDate}: The date the source information was integrated
 into the \strong{geoBoundaries} repository.
@@ -72,10 +73,10 @@ subregion the country is associated with.
 \item \code{worldBankIncomeGroup}: The World Bank income group the country is
 associated with.
 \item \code{admUnitCount}: The number of administrative units in the file.
-\item \code{meanVertices}: Mean number of vertices defining the boundaries of each
+\item \code{meanVertices}: The mean number of vertices defining the boundaries of each
 administrative unit in the layer.
-\item \code{minVertices}: Minimum number of vertices defining a boundary.
-\item \code{maxVertices}: Maximum number of vertices defining a boundary.
+\item \code{minVertices}: The minimum number of vertices defining a boundary.
+\item \code{maxVertices}: The maximum number of vertices defining a boundary.
 \item \code{minPerimeterLengthKM}: The minimum perimeter length of an administrative
 unit in the layer, measured in kilometers and based on a World Equidistant
 Cylindrical projection.
@@ -112,9 +113,9 @@ gb_get_metadata(adm_lvl = "ADM4") |>
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-\code{\link[=gb_get]{gb_get()}}.
+\code{\link[=gb_get]{gb_get()}} downloads the boundaries described by the metadata.
 
-Metadata functions:
+Metadata and availability functions:
 \code{\link[=gb_get_max_adm_lvl]{gb_get_max_adm_lvl()}}
 }
 \concept{metadata}

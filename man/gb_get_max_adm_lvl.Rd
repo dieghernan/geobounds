@@ -3,7 +3,7 @@
 \encoding{UTF-8}
 \name{gb_get_max_adm_lvl}
 \alias{gb_get_max_adm_lvl}
-\title{Get the highest available ADM level}
+\title{Find the highest available ADM level}
 \source{
 \href{https://www.geoboundaries.org/api.html}{\strong{geoBoundaries} API}.
 }
@@ -18,17 +18,17 @@ gb_get_max_adm_lvl(
 country codes. Use \code{"all"} to return data for all countries. See also
 \code{\link[countrycode:countrycode]{countrycode::countrycode()}}.}
 
-\item{release_type}{One of \code{"gbOpen"}, \code{"gbHumanitarian"} or
-\code{"gbAuthoritative"}. For most users, use \code{"gbOpen"} (the default), which is
-CC BY 4.0 compliant and suitable for most purposes when attribution is
-provided. \code{"gbHumanitarian"} files are mirrored
+\item{release_type}{A character string, one of \code{"gbOpen"},
+\code{"gbHumanitarian"} or \code{"gbAuthoritative"}. For most users, use \code{"gbOpen"}
+(the default), which is CC BY 4.0 compliant and suitable for most purposes
+when attribution is provided. \code{"gbHumanitarian"} boundaries are mirrored
 from \href{https://www.unocha.org/}{UN OCHA} and may have less open licensing.
-\code{"gbAuthoritative"} files are mirrored from UN SALB, verified through
+\code{"gbAuthoritative"} boundaries are mirrored from UN SALB, verified through
 in-country processes and cannot be used for commercial purposes.}
 }
 \value{
-A \link[tibble:tbl_df]{tibble} containing ISO 3166-1 alpha-3 country codes and
-their highest available ADM levels.
+A \link[tibble:tbl_df]{tibble} from \CRANpkg{tibble} containing ISO 3166-1
+alpha-3 country codes and their highest available ADM levels.
 }
 \description{
 Returns a summary of selected country codes and their highest available ADM
@@ -49,7 +49,9 @@ all |>
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-Metadata functions:
+\code{\link[=gb_get]{gb_get()}} downloads boundaries for the available ADM levels.
+
+Metadata and availability functions:
 \code{\link[=gb_get_metadata]{gb_get_metadata()}}
 }
 \concept{metadata}

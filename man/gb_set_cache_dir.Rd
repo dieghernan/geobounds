@@ -11,26 +11,26 @@ gb_set_cache_dir(cache_dir, overwrite = FALSE, install = FALSE, quiet = FALSE)
 \item{cache_dir}{A path to a cache directory. If missing, the function stores
 cache files in a temporary directory. See \code{\link[base:tempdir]{base::tempdir()}}.}
 
-\item{overwrite}{Logical. If \code{TRUE}, replace a cache directory already saved
-in the configuration file.}
+\item{overwrite}{A logical value. If \code{TRUE}, replace a cache directory
+already saved in the configuration file.}
 
-\item{install}{Logical. If \code{TRUE}, save the cache directory for use in future
-sessions. Defaults to \code{FALSE}. If \code{cache_dir} is missing or empty, this
-parameter is set to \code{FALSE} automatically.}
+\item{install}{A logical value. If \code{TRUE}, save the cache directory for use
+in future sessions. Defaults to \code{FALSE}. If \code{cache_dir} is missing or
+empty, this parameter is set to \code{FALSE} automatically.}
 
-\item{quiet}{Logical. If \code{TRUE}, suppress informational messages.}
+\item{quiet}{A logical value. If \code{TRUE}, suppress informational messages.}
 }
 \value{
-An invisible character vector containing the path to the cache directory.
+An invisible character scalar containing the path to the cache directory.
 }
 \description{
 Sets the active cache directory and optionally saves it for future sessions.
 Use \code{\link[=gb_detect_cache_dir]{gb_detect_cache_dir()}} to find the active cache directory.
 }
 \details{
-By default, when no \code{cache_dir} is set, the package uses a directory inside
-\code{\link[base:tempdir]{base::tempdir()}}. Files in this directory are removed when the \R session
-ends. To reuse a cache directory across \R sessions, use
+By default, when no \code{cache_dir} is set, \CRANpkg{geobounds} uses a directory
+inside \code{\link[base:tempdir]{base::tempdir()}}. Files in this directory are removed when the \R
+session ends. To reuse a cache directory across \R sessions, use
 \code{gb_set_cache_dir(cache_dir = "a/path/here", install = TRUE)}. This saves the
 directory in a configuration file under
 \code{tools::R_user_dir("geobounds", "config")}.
@@ -69,9 +69,10 @@ identical(my_cache, gb_detect_cache_dir())
 gb_detect_cache_dir()
 }
 \seealso{
-\code{\link[tools:R_user_dir]{tools::R_user_dir()}}.
+\code{\link[tools:R_user_dir]{tools::R_user_dir()}} identifies standard locations for
+user-specific files.
 
-Cache utilities:
+Cache management functions:
 \code{\link[=gb_clear_cache]{gb_clear_cache()}},
 \code{\link[=gb_detect_cache_dir]{gb_detect_cache_dir()}}
 }

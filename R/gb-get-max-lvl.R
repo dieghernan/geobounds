@@ -1,4 +1,4 @@
-#' Get the highest available ADM level
+#' Find the highest available ADM level
 #'
 #' @description
 #' Returns a summary of selected country codes and their highest available ADM
@@ -8,8 +8,10 @@
 #' @inheritParams gb_get_metadata
 #'
 #' @returns
-#' A [tibble][tibble::tbl_df] containing ISO 3166-1 alpha-3 country codes and
-#' their highest available ADM levels.
+#' A [tibble][tibble::tbl_df] from \CRANpkg{tibble} containing ISO 3166-1
+#' alpha-3 country codes and their highest available ADM levels.
+#'
+#' @seealso [gb_get()] downloads boundaries for the available ADM levels.
 #'
 #' @family metadata
 #'

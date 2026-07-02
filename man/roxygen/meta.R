@@ -1,7 +1,7 @@
 list(
   rd_family_title = list(
-    api = "API functions:",
-    cache = "Cache utilities:",
-    metadata = "Metadata functions:"
+    api = "Boundary download functions:",
+    cache = "Cache management functions:",
+    metadata = "Metadata and availability functions:"
   )
 )

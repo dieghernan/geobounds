@@ -8,10 +8,10 @@
 gb_detect_cache_dir(x = NULL)
 }
 \arguments{
-\item{x}{Ignored.}
+\item{x}{An object. Ignored.}
 }
 \value{
-A character vector containing the path to the active cache directory. It also
+A character scalar containing the path to the active cache directory. It also
 appears in a clickable message. See \link[cli:inline-markup]{cli::inline-markup}.
 }
 \description{
@@ -21,7 +21,7 @@ Detects the active cache directory. See \code{\link[=gb_set_cache_dir]{gb_set_ca
 gb_detect_cache_dir()
 }
 \seealso{
-Cache utilities:
+Cache management functions:
 \code{\link[=gb_clear_cache]{gb_clear_cache()}},
 \code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}
 }

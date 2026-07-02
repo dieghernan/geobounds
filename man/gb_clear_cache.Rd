@@ -8,16 +8,16 @@
 gb_clear_cache(config = FALSE, cached_data = TRUE, quiet = TRUE)
 }
 \arguments{
-\item{config}{Logical. If \code{TRUE}, delete the \CRANpkg{geobounds}
+\item{config}{A logical value. If \code{TRUE}, delete the \CRANpkg{geobounds}
 configuration directory.}
 
-\item{cached_data}{Logical. If \code{TRUE}, delete the active cache directory and
-all its contents.}
+\item{cached_data}{A logical value. If \code{TRUE}, delete the active cache
+directory and all its contents.}
 
-\item{quiet}{Logical. If \code{TRUE}, suppress informational messages.}
+\item{quiet}{A logical value. If \code{TRUE}, suppress informational messages.}
 }
 \value{
-\code{\link[=invisible]{invisible()}}. This function is called for its side effects.
+Invisibly returns \code{NULL}. This function is called for its side effects.
 }
 \description{
 \strong{Use this function with caution}. It clears cached data and configuration
@@ -47,7 +47,7 @@ identical(my_cache, gb_detect_cache_dir())
 }
 }
 \seealso{
-Cache utilities:
+Cache management functions:
 \code{\link[=gb_detect_cache_dir]{gb_detect_cache_dir()}},
 \code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}
 }

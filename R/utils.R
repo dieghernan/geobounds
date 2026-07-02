@@ -43,9 +43,10 @@ gb_hlp_http_error <- function(resp) {
 }
 
 gb_hlp_alert_http_error <- function(url, resp) {
-  cli::cli_alert_danger(
-    "{.url {url}} returned HTTP error {gb_hlp_http_error(resp)}."
-  )
+  cli::cli_alert_danger(paste0(
+    "Request to {.url {url}} failed with HTTP status ",
+    "{.strong {gb_hlp_http_error(resp)}}."
+  ))
 }
 
 gb_hlp_unique_values <- function(x) {
@@ -124,7 +125,7 @@ gbnds_dev_country2iso <- function(names, out = "iso3c") {
       outnames <- countrycode::countrycode(x, "iso3c", out, warn = FALSE)
     } else {
       cli::cli_abort(paste0(
-        "Invalid {.arg country} values. Use country names or ",
+        "Invalid values for {.arg country}. Use country names or ",
         "ISO 3166-1 alpha-3 codes."
       ))
     }
@@ -138,11 +139,12 @@ gbnds_dev_country2iso <- function(names, out = "iso3c") {
   if (linit != lend) {
     ff <- names[is.na(outnames)] # nolint
     cli::cli_alert_warning(paste0(
-      "Some country values could not be matched unambiguously: ",
+      "Some values supplied to {.arg country} could not be matched ",
+      "unambiguously: ",
       "{.val {ff}}."
     ))
     cli::cli_alert_info(paste0(
-      "Review the country names or use ISO 3166-1 alpha-3 ",
+      "Review the values or use ISO 3166-1 alpha-3 ",
       "codes."
     ))
   }
@@ -273,23 +275,57 @@ match_arg_pretty <- function(arg, choices) {
   choices[lmatch]
 }
 
-# https://github.com/r-lib/cli/issues/672
-# Thanks to https://github.com/wurli
-cli_abort_if_not <- function(
+#' Abort when a condition is not true
+#'
+#' @param ... Named logical conditions. Each name is the error message emitted
+#'   when its condition is not true.
+#' @param .call The call to display in the error message.
+#' @param .envir The environment used to evaluate \CRANpkg{cli} expressions.
+#' @param .frame The throwing context passed to [cli::cli_abort()].
+#'
+#' @returns
+#' `NULL`, invisibly, when every condition is true.
+#'
+#' @noRd
+gb_abort_if_not <- function(
   ...,
   .call = .envir,
   .envir = parent.frame(),
   .frame = .envir
 ) {
-  for (i in seq_len(...length())) {
-    if (!all(...elt(i))) {
-      cli::cli_abort(
-        ...names()[i],
-        .call = .call,
-        .envir = .envir,
-        .frame = .frame
-      )
-    }
+  checks <- list(...)
+  messages <- names(checks)
+
+  if (length(checks) == 0L) {
+    return(invisible(NULL))
   }
+
+  if (is.null(messages) || !all(nzchar(messages))) {
+    cli::cli_abort(
+      "Every condition supplied to {.fn gb_abort_if_not} must be named.",
+      call = .call,
+      .envir = .envir,
+      .frame = .frame
+    )
+  }
+
+  passed <- vapply(
+    checks,
+    function(condition) {
+      length(condition) > 0L && isTRUE(all(condition))
+    },
+    logical(1)
+  )
+
+  failed <- which(!passed)
+  if (length(failed) > 0L) {
+    cli::cli_abort(
+      messages[[failed[[1L]]]],
+      call = .call,
+      .envir = .envir,
+      .frame = .frame
+    )
+  }
+
   invisible(NULL)
 }

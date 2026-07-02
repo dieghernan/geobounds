@@ -45,14 +45,14 @@ administrative boundary data from
 [**geoBoundaries**](https://www.geoboundaries.org/), the Global Database of
 Political Administrative Boundaries. With **geobounds**, you can:
 
-- Download individual country files and global composite files
-  from **geoBoundaries**.
+- Download individual country boundaries and global composite boundaries from
+  **geoBoundaries**.
 - Use **tidyverse** and **sf** workflows in **R** to map, analyze and join
   administrative boundary data with your own data.
 - Work in an open-data context where attribution to **geoBoundaries** is
   required.
 
-In short, if you work with administrative boundaries in **R**, this package
+In short, if you work with administrative boundaries in **R**, **geobounds**
 simplifies downloading, cache management and integration with spatial data
 workflows.
 
@@ -133,20 +133,22 @@ ggplot(sri_lanka_adm3) +
 
 ## Release types
 
-**geoBoundaries** provides three release types with different sources,
-validation processes and licensing:
+**geoBoundaries** provides three release types with different data sources,
+validation processes and licensing terms:
 
 - **gbOpen**: Freely available boundaries under CC BY 4.0, suitable for most
   uses when attribution is provided.
 - **gbHumanitarian**: Boundaries mirrored from UN OCHA for humanitarian use,
   which may have less open licensing.
 - **gbAuthoritative**: Boundaries mirrored from UN SALB and verified through
-  in-country processes. These boundaries cannot be used for commercial purposes.
+  in-country processes. These boundaries cannot be used for commercial
+  purposes.
 
 Use the `release_type` argument to request a specific release type, for example,
 `gb_get_adm1("Sri Lanka", release_type = "gbHumanitarian")`.
 
-For coverage and boundary metadata by release type, see the package articles.
+For coverage and boundary metadata by release type, see the **geobounds**
+articles.
 
 ## Advanced usage
 
@@ -214,7 +216,7 @@ ggplot(world_max) +
 
 ## License
 
-This package is released under the [CC BY
+**geobounds** is released under the [CC BY
 4.0](https://creativecommons.org/licenses/by/4.0/) license. The default
 **geoBoundaries** release type, **gbOpen**, is CC BY 4.0 compliant when
 attribution is provided. Other release types may have additional licensing
@@ -226,8 +228,7 @@ before reuse.
 - Thanks to the **geoBoundaries** team and the [William & Mary
   geoLab](https://sites.google.com/view/wmgeolab/) for creating and maintaining
   the dataset.
-- Thanks to the **R** package community and all contributors to this package’s
-  development.
+- Thanks to the **R** package community and all **geobounds** contributors.
 - If you use **geobounds** and the underlying **geoBoundaries** data, please
   cite both.
 

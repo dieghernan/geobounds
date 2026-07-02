@@ -1,7 +1,7 @@
-#' Get individual country files for an ADM level
+#' Download country boundaries for one ADM level
 #'
 #' @description
-#' These functions wrap [gb_get()] for a single ADM level. [gb_get_adm0()]
+#' These functions call [gb_get()] for a single ADM level. [gb_get_adm0()]
 #' returns country boundaries, [gb_get_adm1()] returns first-level subnational
 #' boundaries (for example, states in the United States) and [gb_get_adm2()]
 #' returns second-level subnational boundaries (for example, counties in the
@@ -15,8 +15,8 @@
 #' whenever these data are used.
 #'
 #' @details
-#' Each individual country file is governed by the license identified in its
-#' boundary metadata. See [gb_get_metadata()]. Users should also cite the
+#' Each individual country boundary file is governed by the license identified
+#' in its boundary metadata. See [gb_get_metadata()]. Users should also cite the
 #' sources listed in the boundary metadata for each file.
 #'
 #' @name gb_get_adm
@@ -25,7 +25,9 @@
 #' @inherit gb_get return source references
 #' @inheritParams gb_get
 #'
-#' @seealso [gb_get_metadata()], [gb_get_max_adm_lvl()].
+#' @seealso
+#' - [gb_get_metadata()] inspects boundary metadata and licensing.
+#' - [gb_get_max_adm_lvl()] checks available ADM levels.
 #'
 #' @family api
 #'

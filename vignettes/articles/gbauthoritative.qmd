@@ -1,8 +1,8 @@
 ---
-title: "gbAuthoritative coverage and metadata"
+title: "gbAuthoritative coverage and boundary metadata"
 description: |
-  gbAuthoritative is mirrored from UN SALB, verified through in-country
-  processes and unavailable for commercial use.
+  gbAuthoritative boundaries are mirrored from UN SALB, verified through
+  in-country processes and unavailable for commercial use.
 knitr:
   opts_chunk:
     collapse: true
