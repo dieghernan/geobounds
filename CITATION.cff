@@ -6,7 +6,7 @@
 cff-version: 1.2.0
 message: 'To cite package "geobounds" in publications use:'
 type: software
-license: CC-BY-4.0
+license: MIT
 title: 'geobounds: Download Administrative Boundary Data from ''geoBoundaries'''
 version: 0.1.2
 doi: 10.32614/CRAN.package.geobounds

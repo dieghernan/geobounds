@@ -7,7 +7,7 @@
   "relatedLink": ["https://dieghernan.github.io/geobounds/", "https://CRAN.R-project.org/package=geobounds"],
   "codeRepository": "https://github.com/dieghernan/geobounds",
   "issueTracker": "https://github.com/dieghernan/geobounds/issues",
-  "license": "https://spdx.org/licenses/CC-BY-4.0",
+  "license": "https://spdx.org/licenses/MIT",
   "version": "0.1.2",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
@@ -208,7 +208,7 @@
     "SystemRequirements": null
   },
   "keywords": ["administrative-boundaries", "api", "geoboundaries", "r", "r-package", "spatial-data", "cran", "cran-r"],
-  "fileSize": "430.49KB",
+  "fileSize": "430.395KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
