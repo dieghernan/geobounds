@@ -13,7 +13,7 @@ Description: Provides tools for downloading individual country boundaries
     ('ADM') levels. Returns boundary data as 'sf' objects for mapping and
     spatial analysis. Runfola et al. (2020)
     <doi:10.1371/journal.pone.0231866> describe the underlying database.
-License: CC BY 4.0
+License: MIT + file LICENSE
 URL: https://dieghernan.github.io/geobounds/,
     https://github.com/dieghernan/geobounds
 BugReports: https://github.com/dieghernan/geobounds/issues
