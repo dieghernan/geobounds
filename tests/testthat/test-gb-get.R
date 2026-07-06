@@ -7,6 +7,11 @@ test_that("NULL output", {
   expect_null(err2)
 })
 
+test_that("license notices", {
+  expect_silent(gb_hlp_license_notice("gbOpen"))
+  expect_snapshot(gb_hlp_license_notice("gbAuthoritative"))
+})
+
 test_that("sf output simplified", {
   skip_on_cran()
   skip_if_offline()

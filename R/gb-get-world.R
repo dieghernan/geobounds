@@ -4,8 +4,9 @@
 #' Returns global composite boundaries for the requested ADM level. Boundaries
 #' are clipped to international borders, with gaps between borders filled.
 #'
+#' CGAZ data are not covered by the package's MIT license.
 #' [Attribution](https://www.geoboundaries.org/index.html#usage) is required
-#' whenever these data are used.
+#' when sharing the data or derived products.
 #'
 #' @details
 #' Comprehensive Global Administrative Zones (CGAZ) are global composites for
@@ -14,6 +15,10 @@
 #' small enough for most desktop software. They remove disputed areas, replace
 #' them with polygons following US Department of State definitions and fill
 #' gaps between borders.
+#'
+#' Follow the citation and use information included in the downloaded CGAZ
+#' archive. CGAZ and figures derived from it are not relicensed under the
+#' package's MIT License.
 #'
 #' @inherit gb_get return source references
 #' @inheritParams gb_get
@@ -42,7 +47,7 @@
 #' ggplot(world) +
 #'   geom_sf() +
 #'   coord_sf(expand = FALSE) +
-#'   labs(caption = "Source: www.geoboundaries.org")
+#'   labs(caption = "Source: geoBoundaries (CGAZ)")
 #' }
 gb_get_world <- function(
   country = "all",

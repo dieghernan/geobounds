@@ -37,8 +37,9 @@ knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
 <div class="callout-body-container callout-body">
 ```
 
-[Attribution](https://www.geoboundaries.org/index.html#usage) is required when
-using **geoBoundaries**.
+The package code is MIT licensed. Downloaded data and figures derived from them
+retain the licenses and attribution requirements of **geoBoundaries** and their
+original sources. Check the boundary metadata before reuse.
 
 ```{=html}
 </div>
@@ -52,12 +53,13 @@ administrative boundary data from the
 [**geoBoundaries**](https://www.geoboundaries.org/) Global Database of Political
 Administrative Boundaries [@10.1371/journal.pone.0231866].
 
-The default **gbOpen** release type is CC BY 4.0 compliant when attribution is
-provided and covers countries worldwide across multiple ADM levels. The package
-also supports **gbHumanitarian** and **gbAuthoritative**, which differ in their
-sources, validation processes and licensing. With **geobounds**, you can
-download boundaries as `sf` objects, inspect boundary metadata, cache downloaded
-files and integrate boundaries into spatial workflows.
+The default **gbOpen** release type covers countries worldwide across multiple
+ADM levels. Its boundaries use multiple open licenses, including ODbL, CC BY
+and CC BY-SA. The package also supports **gbHumanitarian** and
+**gbAuthoritative**, which differ in their sources, validation processes and
+licensing. With **geobounds**, you can download boundaries as `sf` objects,
+inspect boundary metadata, cache downloaded files and integrate boundaries
+into spatial workflows.
 
 ## Understanding the data
 
@@ -93,7 +95,12 @@ ggplot(norway_all) +
   geom_sf(fill = "#BA0C2F", color = "#00205B") +
   facet_wrap(vars(res)) +
   theme_minimal() +
-  labs(caption = "Source: www.geoboundaries.org")
+  labs(
+    caption = paste(
+      "Sources: geoBoundaries and the original boundary provider,",
+      "check gb_get_metadata() for the license"
+    )
+  )
 ```
 
 ### Individual country boundaries
@@ -120,7 +127,10 @@ ggplot(india_pak) +
     fill = "Country",
     title = "Map of India and Pakistan",
     subtitle = "Note the overlap in the Kashmir region",
-    caption = "Source: www.geoboundaries.org"
+    caption = paste(
+      "Sources: geoBoundaries and the original boundary providers,",
+      "check gb_get_metadata() for licenses"
+    )
   )
 ```
 
@@ -130,8 +140,18 @@ boundary metadata.
 ```{r}
 #| label: meta
 gb_get_metadata(c("India", "Pakistan"), adm_lvl = "ADM0") |>
-  select(boundaryName, boundaryLicense, boundarySource)
+  select(
+    boundaryName,
+    boundaryLicense,
+    boundarySource,
+    licenseSource
+  )
 ```
+
+When sharing a boundary or a derived product, attribute **geoBoundaries** and
+the original providers shown in the metadata. Include the applicable license,
+link to its terms and indicate modifications when required. ODbL and CC BY-SA
+data may impose share-alike obligations beyond attribution.
 
 ### Global composite boundaries
 
@@ -146,6 +166,9 @@ country boundaries in three important ways:
     Department of State definitions.
 3.  Gaps between borders are filled.
 
+CGAZ data and figures are not covered by the package's MIT License. Follow the
+citation and use information included in each downloaded CGAZ archive.
+
 ```{r}
 #| label: cgaz
 #| fig-cap: "Map showing no overlap in Kashmir, provided by CGAZ."
@@ -158,7 +181,7 @@ ggplot(cgaz_india_pak) +
     fill = "Country",
     title = "Map of India and Pakistan",
     subtitle = "CGAZ does not overlap",
-    caption = "Source: www.geoboundaries.org"
+    caption = "Source: geoBoundaries (CGAZ)"
   )
 ```
 
@@ -251,7 +274,7 @@ ggplot(latam_sf) +
     title = "World Bank Income Group",
     subtitle = "Latin America and the Caribbean",
     fill = "",
-    caption = "Source: www.geoboundaries.org"
+    caption = "Source: geoBoundaries (CGAZ and gbOpen metadata)"
   )
 ```
 

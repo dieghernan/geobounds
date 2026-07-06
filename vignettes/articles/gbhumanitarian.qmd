@@ -1,8 +1,7 @@
 ---
 title: "gbHumanitarian coverage and boundary metadata"
 description: |
-  gbHumanitarian boundaries are mirrored from UN OCHA and may have less open
-  licensing.
+  gbHumanitarian boundaries are mirrored from UN OCHA, check current metadata.
 knitr:
   opts_chunk:
     collapse: true
@@ -26,6 +25,9 @@ src <- "gbHumanitarian"
 
 The map shows the highest ADM level available for each country in the
 **gbHumanitarian** release type.
+
+These data are not covered by the package's MIT License. Check the current
+boundary metadata for the original source, license and attribution terms.
 
 ```{r}
 #| label: ghuman-coverage
@@ -70,14 +72,14 @@ ggplot(p) +
   ) +
   labs(
     fill = "Highest available ADM level",
-    caption = "Source: www.geoboundaries.org"
+    caption = "Source: geoBoundaries (CGAZ and gbHumanitarian metadata)"
   )
 ```
 
 ## `r src` metadata
 
-The table lists boundary metadata and download links for **gbHumanitarian**.
-Use the filters or search box to find a country or boundary type.
+The table lists boundary metadata and download links for **gbHumanitarian**. Use
+the filters or search box to find a country or boundary type.
 
 ```{r}
 #| label: metadata

@@ -20,11 +20,13 @@ country codes. Use \code{"all"} to return data for all countries. See also
 
 \item{release_type}{A character string, one of \code{"gbOpen"},
 \code{"gbHumanitarian"} or \code{"gbAuthoritative"}. For most users, use \code{"gbOpen"}
-(the default), which is CC BY 4.0 compliant and suitable for most purposes
-when attribution is provided. \code{"gbHumanitarian"} boundaries are mirrored
-from \href{https://www.unocha.org/}{UN OCHA} and may have less open licensing.
-\code{"gbAuthoritative"} boundaries are mirrored from UN SALB, verified through
-in-country processes and cannot be used for commercial purposes.}
+(the default), which contains openly licensed boundaries suitable for most
+purposes when their individual license terms are followed.
+\code{"gbHumanitarian"} boundaries are mirrored from
+\href{https://www.unocha.org/}{UN OCHA} and may have additional conditions.
+\code{"gbAuthoritative"} boundaries are mirrored from
+\href{https://salb.un.org/en}{UN SALB}, verified through in-country processes
+and cannot be used for commercial purposes.}
 }
 \value{
 A \link[tibble:tbl_df]{tibble} from \CRANpkg{tibble} containing ISO 3166-1

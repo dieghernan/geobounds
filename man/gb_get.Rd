@@ -35,11 +35,13 @@ boundaries at \url{https://www.geoboundaries.org/}.}
 
 \item{release_type}{A character string, one of \code{"gbOpen"},
 \code{"gbHumanitarian"} or \code{"gbAuthoritative"}. For most users, use \code{"gbOpen"}
-(the default), which is CC BY 4.0 compliant and suitable for most purposes
-when attribution is provided. \code{"gbHumanitarian"} boundaries are mirrored
-from \href{https://www.unocha.org/}{UN OCHA} and may have less open licensing.
-\code{"gbAuthoritative"} boundaries are mirrored from UN SALB, verified through
-in-country processes and cannot be used for commercial purposes.}
+(the default), which contains openly licensed boundaries suitable for most
+purposes when their individual license terms are followed.
+\code{"gbHumanitarian"} boundaries are mirrored from
+\href{https://www.unocha.org/}{UN OCHA} and may have additional conditions.
+\code{"gbAuthoritative"} boundaries are mirrored from
+\href{https://salb.un.org/en}{UN SALB}, verified through in-country processes
+and cannot be used for commercial purposes.}
 
 \item{quiet}{A logical value. If \code{TRUE}, suppress informational messages.}
 
@@ -64,13 +66,18 @@ their own boundaries, without special identification of disputed areas.
 Use \code{\link[=gb_get_world]{gb_get_world()}} for global composite boundaries that standardize
 disputed areas and fill gaps between borders.
 
-\href{https://www.geoboundaries.org/index.html#usage}{Attribution} is required
-whenever these data are used.
+Data downloaded through this function are not covered by the package's MIT
+license. \href{https://www.geoboundaries.org/index.html#usage}{Attribution} to
+\strong{geoBoundaries} and the original sources is required when sharing the data
+or derived products.
 }
 \details{
-Each individual country boundary file is governed by the license identified
-in its boundary metadata. See \code{\link[=gb_get_metadata]{gb_get_metadata()}}. Users should also cite the
-sources listed in the boundary metadata for each file. See \strong{Examples}.
+Each individual country boundary file is governed by the original license
+identified in its boundary metadata. See \code{\link[=gb_get_metadata]{gb_get_metadata()}}. The
+\code{"gbOpen"} release contains multiple open licenses, including ODbL and
+CC BY-SA. It must not be assumed that every boundary is licensed only under
+CC BY 4.0. Users should cite the sources listed in the metadata and comply
+with any attribution, share-alike or non-commercial terms.
 
 The wrappers \code{\link[=gb_get_adm0]{gb_get_adm0()}}, \code{\link[=gb_get_adm1]{gb_get_adm1()}}, \code{\link[=gb_get_adm2]{gb_get_adm2()}},
 \code{\link[=gb_get_adm3]{gb_get_adm3()}}, \code{\link[=gb_get_adm4]{gb_get_adm4()}} and \code{\link[=gb_get_adm5]{gb_get_adm5()}} are also available for
@@ -91,7 +98,12 @@ sri_lanka
 library(ggplot2)
 ggplot(sri_lanka) +
   geom_sf() +
-  labs(caption = "Source: www.geoboundaries.org")
+  labs(
+    caption = paste(
+      "Sources: geoBoundaries, OpenStreetMap and Wambacher,",
+      "license: ODbL 1.0"
+    )
+  )
 }
 
 # Inspect boundary metadata.

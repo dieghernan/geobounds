@@ -147,9 +147,7 @@ gbnds_dev_meta_query <- function(url) {
   tb <- gb_hlp_as_numeric(tb, numeric_cols)
 
   # Convert date fields.
-  tb$sourceDataUpdateDate <- gb_hlp_parse_api_datetime(
-    tb$sourceDataUpdateDate
-  )
+  tb$sourceDataUpdateDate <- gb_hlp_parse_api_datetime(tb$sourceDataUpdateDate)
   tb$buildDate <- gb_hlp_parse_api_date(tb$buildDate)
 
   tb

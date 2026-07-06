@@ -99,7 +99,12 @@ ggplot(sri_lanka_adm3) +
   geom_sf(fill = "#DFDFDF", color = "white") +
   geom_sf(data = sri_lanka_adm2, fill = NA, color = "#F0B323") +
   geom_sf(data = sri_lanka_adm1, fill = NA, color = "black") +
-  labs(caption = "Source: www.geoboundaries.org") +
+  labs(
+    caption = paste(
+      "Sources: geoBoundaries, OpenStreetMap and Wambacher,",
+      "license: ODbL 1.0"
+    )
+  ) +
   theme_void()
 ```
 
@@ -111,10 +116,11 @@ alt="ADM1, ADM2 and ADM3 boundaries for Sri Lanka." />
 **geoBoundaries** provides three release types with different data
 sources, validation processes and licensing terms:
 
-- **gbOpen**: Freely available boundaries under CC BY 4.0, suitable for
-  most uses when attribution is provided.
-- **gbHumanitarian**: Boundaries mirrored from UN OCHA for humanitarian
-  use, which may have less open licensing.
+- **gbOpen**: Openly licensed boundaries suitable for most uses. The
+  original license varies by boundary and may include ODbL, CC BY or CC
+  BY-SA terms.
+- **gbHumanitarian**: Boundaries mirrored from UN OCHA. Check the
+  current metadata for the applicable license and source.
 - **gbAuthoritative**: Boundaries mirrored from UN SALB and verified
   through in-country processes. These boundaries cannot be used for
   commercial purposes.
@@ -169,7 +175,7 @@ ggplot(world_max) +
   ) +
   labs(
     fill = "gbOpen: Highest available ADM level",
-    caption = "Source: www.geoboundaries.org"
+    caption = "Source: geoBoundaries (CGAZ and gbOpen metadata)"
   )
 ```
 
@@ -193,12 +199,18 @@ alt="Highest available gbOpen ADM level by country." />
 
 ## License
 
-**geobounds** is released under the [CC BY
-4.0](https://creativecommons.org/licenses/by/4.0/) license. The default
-**geoBoundaries** release type, **gbOpen**, is CC BY 4.0 compliant when
-attribution is provided. Other release types may have additional
-licensing restrictions, so check the boundary metadata returned by
-`gb_get_metadata()` before reuse.
+The **geobounds** software is released under the [MIT
+License](https://opensource.org/license/mit). This license does not
+cover data downloaded through the package or figures derived from those
+data.
+
+Each boundary retains the original license reported by
+**geoBoundaries**. Before reusing or redistributing data, use
+`gb_get_metadata()` to check `boundaryLicense`, `licenseDetail`,
+`licenseSource`, `boundarySource` and `boundarySourceURL`. Attribute
+**geoBoundaries** and the original providers, include the applicable
+license and indicate modifications when required. `gbAuthoritative`
+contains UN SALB data restricted to non-commercial use.
 
 ## Acknowledgments
 
@@ -226,7 +238,7 @@ A BibTeX entry for LaTeX users:
       title = {{geobounds}: Download Administrative Boundary Data from geoBoundaries},
       author = {Diego Hernangómez},
       year = {2026},
-      version = {0.1.2},
+      version = {0.1.2.9000},
       url = {https://dieghernan.github.io/geobounds/},
       abstract = {Provides tools for downloading individual country boundaries and global composite boundaries from geoBoundaries <https://www.geoboundaries.org/> across multiple administrative (ADM) levels. Returns boundary data as sf objects for mapping and spatial analysis. Runfola et al. (2020) <doi:10.1371/journal.pone.0231866> describe the underlying database.},
       doi = {10.32614/CRAN.package.geobounds},

@@ -9,12 +9,12 @@ test_that("Check meta", {
   expect_equal(nrow(meta), 1L)
 
   # One call, several sources
-  meta2 <- gb_get_metadata(country = "Portugal", adm_lvl = "all", )
+  meta2 <- gb_get_metadata(country = "Portugal", adm_lvl = "all")
   expect_s3_class(meta2, "data.frame")
   expect_gt(nrow(meta2), 1L)
 
   # Several call, several sources
-  meta3 <- gb_get_metadata(country = c("Portugal", "Italy"), adm_lvl = "all", )
+  meta3 <- gb_get_metadata(country = c("Portugal", "Italy"), adm_lvl = "all")
 
   expect_s3_class(meta3, "data.frame")
   expect_gt(nrow(meta3), nrow(meta2))
@@ -47,7 +47,7 @@ test_that("Check meta errors", {
   skip_on_cran()
   skip_if_offline()
 
-  expect_snapshot(db <- gb_get_metadata(country = "ESP", adm_lvl = "ADM5"), )
+  expect_snapshot(db <- gb_get_metadata(country = "ESP", adm_lvl = "ADM5"))
   expect_s3_class(db, "tbl_df")
   expect_equal(nrow(db), 0)
 

@@ -1,3 +1,12 @@
+# geobounds (development version)
+
+- Changed the package software license from CC BY 4.0 to MIT and clarified that
+  downloaded boundaries and included figures retain the licenses and attribution
+  requirements of **geoBoundaries** and their original sources. Documentation
+  now distinguishes the varying `gbOpen` licenses, UN OCHA terms and the
+  non-commercial restriction on UN SALB data. Downloads from `gbAuthoritative`
+  now display a licensing notice.
+
 # geobounds 0.1.2
 
 - Improved documentation and user-facing messages to align terminology across

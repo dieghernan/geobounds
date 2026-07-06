@@ -1,65 +1,58 @@
 ========================================
-<https://www.geoboundaries.org/>
+geobounds software
 ========================================
 
-Individual data files in the geoBoundaries database are governed by the license
-or licenses identified within the metadata for each respective boundary. Users
-using individual boundary files from geoBoundaries should additionally
-ensure that they are citing the sources provided in the metadata for each file.
+The geobounds package code is licensed under the MIT License. See the package
+LICENSE file. This license does not apply to data downloaded through the
+package.
 
-## Citation of the geoBoundaries Data Product
+========================================
+geoBoundaries data and derived figures
+========================================
 
-geoBoundaries datasets are provided under the CC BY 4.0 license, which allows
-for most commercial, noncommercial and academic uses. Our license requires an
-acknowledgment in any products you produce which use this data.
-The geoBoundaries team is primarily judged on its citations: it is how our
-users, funders and peers track our progress and impact. Recommendations for
-how to cite us are provided here:
+<https://www.geoboundaries.org/>
 
-## Written Works
+Data downloaded through geobounds remain subject to the applicable
+geoBoundaries terms and to the original license reported for each boundary.
+Use gb_get_metadata() to inspect the boundaryLicense, licenseDetail,
+licenseSource, boundarySource and boundarySourceURL fields before reusing or
+redistributing a boundary.
 
-For written works that use geoBoundaries in analysis, we ask that you cite our
-PLOS ONE publication. We recommend either of the below (long or short form)
-citations, but feel free to adapt to your own citation style.
+The gbOpen release contains boundaries under multiple open licenses, including
+CC BY, ODbL, CC BY-SA, national open-data licenses and public-domain
+dedications. It must not be assumed that every gbOpen boundary is licensed only
+under CC BY 4.0. Attribution and share-alike requirements depend on the
+individual boundary.
 
-- Short Form:
+The gbHumanitarian release is mirrored from UN OCHA. Its licensing may change
+and must be checked in the current boundary metadata.
 
-  Runfola, D. et al. (2020) geoBoundaries: A global database of political
-  administrative boundaries. PLOS ONE 15(4): e0231866.
-  <https://doi.org/10.1371/journal.pone.0231866>
+The gbAuthoritative release is mirrored from the UN Second Administrative
+Level Boundaries (SALB) programme. SALB data may be used only for
+non-commercial purposes:
+<https://salb.un.org/sites/default/files/wysiwyg_uploads/docs_uploads/TermsOfUseSALB2021.pdf>
 
-- Long Form:
+Comprehensive Global Administrative Zones (CGAZ) and figures included with
+this package are derived from geoBoundaries data. They are not relicensed
+under the package's MIT License. Follow the citation and use information
+included in the downloaded CGAZ archive and on the geoBoundaries website.
 
-  Runfola, Daniel, Community Contributors, and [v4.0: Lindsey Rogers, Joshua
-  Habib, Sidonie Horn, Sean Murphy, Dorian Miller, Hadley Day, Lydia Troup,
-  Dominic Fornatora, Natalie Spage, Kristina Pupkiewicz, Michael Roth, Carolina
-  Rivera, Charlie Altman, Isabel Schruer, Tara McLaughlin, Russ Biddle, Renee
-  Ritchey, Emily Topness, James Turner, Sam Updike, Helena Buckman, Neel Simpson,
-  Jason Lin], [v2.0: Austin Anderson, Heather Baier, Matt Crittenden, Elizabeth
-  Dowker, Sydney Fuhrig, Seth Goodman, Grace Grimsley, Rachel Layko, Graham
-  Melville, Maddy Mulder, Rachel Oberman, Joshua Panganiban, Andrew Peck,
-  Leigh Seitz, Sylvia Shea, Hannah Slevin, Rebecca Yougerman, Lauren Hobbs].
-  "geoBoundaries: A global database of political administrative boundaries."
-  PLOS ONE 15, no. 4 (2020): e0231866.
+When sharing data or derived products, provide attribution to geoBoundaries and
+to the original sources identified in the boundary metadata. Include the
+applicable license, a link to its terms and an indication of modifications when
+required.
 
-## Online Usage
+For written works, cite:
 
-When using geoBoundaries on the web, we ask that you put the name
-"geoBoundaries" with a link back to this website, <www.geoboundaries.org>,
-somewhere prominent on the page that uses the boundaries. This can be a
-standalone link or within a sentence.
+Runfola, D. et al. (2020) geoBoundaries: A global database of political
+administrative boundaries. PLOS ONE 15(4): e0231866.
+<https://doi.org/10.1371/journal.pone.0231866>
 
-## Other
+See also:
 
-If you are using geoBoundaries in a product that is not written or a website
-(i.e., an application or movie), we ask that you put the name "geoBoundaries"
-somewhere prominent in the product, for example in the credits or as a link in
-the help menu. The full URL should be used if the user cannot click the name,
-for example, we prefer "www.geoboundaries.org" rather than "geoBoundaries" in
-those cases. We would also love to hear about unusual ways geoBoundaries
-is being used. If you have a moment, please email us and let us know
-what you're up to (<team@geoboundaries.org>)! If you have any cases that are not
-covered here, we recommend reading the Creative Commons best practices for
-attribution guide
-(<https://wiki.creativecommons.org/wiki/Recommended_practices_for_attribution>),
-which covers an even wider range of cases.
+- geoBoundaries usage guidance:
+  <https://www.geoboundaries.org/index.html#usage>
+- geoBoundaries API and metadata:
+  <https://www.geoboundaries.org/api.html>
+- Creative Commons attribution practices:
+  <https://wiki.creativecommons.org/wiki/Recommended_practices_for_attribution>

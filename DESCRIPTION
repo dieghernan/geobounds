@@ -1,11 +1,11 @@
 Package: geobounds
 Title: Download Administrative Boundary Data from 'geoBoundaries'
-Version: 0.1.2
+Version: 0.1.2.9000
 Authors@R: c(
     person("Diego", "Hernangómez", , "diego.hernangomezherrero@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0001-8457-4658")),
     person("William and Mary geoLab", role = "cph",
-           comment = c(ROR = "03hsf0573"))
+           comment = c(ROR = "03hsf0573", "for the geoBoundaries project"))
   )
 Description: Provides tools for downloading individual country boundaries
     and global composite boundaries from 'geoBoundaries'
@@ -42,8 +42,8 @@ Config/roxygen2/markdown: TRUE
 Config/roxygen2/version: 8.0.0
 Config/testthat/edition: 3
 Config/testthat/parallel: false
-Copyright: Attribution required. See file COPYRIGHTS for specific
-    provisions.
+Copyright: Package code is MIT licensed. See file COPYRIGHTS for data and
+    figure attribution.
 Encoding: UTF-8
 Language: en-US
 X-schema.org-keywords: administrative-boundaries, api, geoboundaries, r,

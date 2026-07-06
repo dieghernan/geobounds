@@ -11,13 +11,16 @@
 #' Not all countries have the same number of ADM levels. Use
 #' [gb_get_max_adm_lvl()] to check availability.
 #'
-#' [Attribution](https://www.geoboundaries.org/index.html#usage) is required
-#' whenever these data are used.
+#' Data downloaded through these functions are not covered by the package's MIT
+#' license. [Attribution](https://www.geoboundaries.org/index.html#usage) to
+#' **geoBoundaries** and the original sources is required when sharing the data
+#' or derived products.
 #'
 #' @details
-#' Each individual country boundary file is governed by the license identified
-#' in its boundary metadata. See [gb_get_metadata()]. Users should also cite the
-#' sources listed in the boundary metadata for each file.
+#' Each individual country boundary file is governed by the original license
+#' identified in its boundary metadata. See [gb_get_metadata()]. Users should
+#' cite the sources listed in the metadata and comply with any attribution,
+#' share-alike or non-commercial terms.
 #'
 #' @name gb_get_adm
 #' @rdname gb_get_adm
@@ -48,7 +51,10 @@
 #'   labs(
 #'     title = "Second-level administrative boundaries",
 #'     subtitle = "Selected countries",
-#'     caption = "Source: www.geoboundaries.org"
+#'     caption = paste(
+#'       "Sources: geoBoundaries and the original boundary providers,",
+#'       "check gb_get_metadata() for licenses"
+#'     )
 #'   )
 #' }
 gb_get_adm0 <- function(

@@ -27,6 +27,11 @@ src <- "gbAuthoritative"
 The map shows the highest ADM level available for each country in the
 **gbAuthoritative** release type.
 
+These UN SALB data are not covered by the package's MIT License and are
+restricted to non-commercial use. Review the [SALB terms of
+use](https://salb.un.org/sites/default/files/wysiwyg_uploads/docs_uploads/TermsOfUseSALB2021.pdf)
+before reuse.
+
 ```{r}
 #| label: gautho-coverage
 #| echo: false
@@ -72,7 +77,7 @@ ggplot(p) +
   ) +
   labs(
     fill = "Highest available ADM level",
-    caption = "Source: www.geoboundaries.org"
+    caption = "Source: geoBoundaries (CGAZ and gbAuthoritative metadata)"
   )
 ```
 

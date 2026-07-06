@@ -7,13 +7,18 @@
 #' Use [gb_get_world()] for global composite boundaries that standardize
 #' disputed areas and fill gaps between borders.
 #'
-#' [Attribution](https://www.geoboundaries.org/index.html#usage) is required
-#' whenever these data are used.
+#' Data downloaded through this function are not covered by the package's MIT
+#' license. [Attribution](https://www.geoboundaries.org/index.html#usage) to
+#' **geoBoundaries** and the original sources is required when sharing the data
+#' or derived products.
 #'
 #' @details
-#' Each individual country boundary file is governed by the license identified
-#' in its boundary metadata. See [gb_get_metadata()]. Users should also cite the
-#' sources listed in the boundary metadata for each file. See **Examples**.
+#' Each individual country boundary file is governed by the original license
+#' identified in its boundary metadata. See [gb_get_metadata()]. The
+#' `"gbOpen"` release contains multiple open licenses, including ODbL and
+#' CC BY-SA. It must not be assumed that every boundary is licensed only under
+#' CC BY 4.0. Users should cite the sources listed in the metadata and comply
+#' with any attribution, share-alike or non-commercial terms.
 #'
 #' The wrappers [gb_get_adm0()], [gb_get_adm1()], [gb_get_adm2()],
 #' [gb_get_adm3()], [gb_get_adm4()] and [gb_get_adm5()] are also available for
@@ -32,11 +37,13 @@
 #'   boundaries at <https://www.geoboundaries.org/>.
 #' @param release_type A character string, one of `"gbOpen"`,
 #'   `"gbHumanitarian"` or `"gbAuthoritative"`. For most users, use `"gbOpen"`
-#'   (the default), which is CC BY 4.0 compliant and suitable for most purposes
-#'   when attribution is provided. `"gbHumanitarian"` boundaries are mirrored
-#'   from [UN OCHA](https://www.unocha.org/) and may have less open licensing.
-#'   `"gbAuthoritative"` boundaries are mirrored from UN SALB, verified through
-#'   in-country processes and cannot be used for commercial purposes.
+#'   (the default), which contains openly licensed boundaries suitable for most
+#'   purposes when their individual license terms are followed.
+#'   `"gbHumanitarian"` boundaries are mirrored from
+#'   [UN OCHA](https://www.unocha.org/) and may have additional conditions.
+#'   `"gbAuthoritative"` boundaries are mirrored from
+#'   [UN SALB](https://salb.un.org/en), verified through in-country processes
+#'   and cannot be used for commercial purposes.
 #' @param quiet A logical value. If `TRUE`, suppress informational messages.
 #' @param overwrite A logical value. If `TRUE`, force a fresh download of the
 #'   source `.zip` archive.
@@ -82,7 +89,12 @@
 #' library(ggplot2)
 #' ggplot(sri_lanka) +
 #'   geom_sf() +
-#'   labs(caption = "Source: www.geoboundaries.org")
+#'   labs(
+#'     caption = paste(
+#'       "Sources: geoBoundaries, OpenStreetMap and Wambacher,",
+#'       "license: ODbL 1.0"
+#'     )
+#'   )
 #' }
 #'
 #' # Inspect boundary metadata.
@@ -107,6 +119,8 @@ gb_get <- function(
   source <- match_arg_pretty(release_type)
   adm_lvl <- assert_adm_lvl(adm_lvl)
   country <- gbnds_dev_country2iso(country)
+
+  gb_hlp_license_notice(source)
 
   gb_abort_if_not(
     "{.arg simplified} must be a {.cls logical}." = is.logical(simplified),
@@ -144,6 +158,24 @@ gb_get <- function(
   meta_sf <- dplyr::bind_rows(res_sf)
 
   meta_sf
+}
+
+gb_hlp_license_notice <- function(source) {
+  if (!identical(source, "gbAuthoritative")) {
+    return(invisible())
+  }
+
+  # nolint start
+  terms <- paste0(
+    "https://salb.un.org/sites/default/files/wysiwyg_uploads/",
+    "docs_uploads/TermsOfUseSALB2021.pdf"
+  )
+  # nolint end
+
+  cli::cli_bullets(c(
+    "!" = "{.strong UN SALB} data are restricted to non-commercial use.",
+    "i" = "Review the terms at {.url {terms}} before reusing the data."
+  ))
 }
 
 gbnds_dev_shp_query <- function(

@@ -79,11 +79,13 @@ boundaries at \url{https://www.geoboundaries.org/}.}
 
 \item{release_type}{A character string, one of \code{"gbOpen"},
 \code{"gbHumanitarian"} or \code{"gbAuthoritative"}. For most users, use \code{"gbOpen"}
-(the default), which is CC BY 4.0 compliant and suitable for most purposes
-when attribution is provided. \code{"gbHumanitarian"} boundaries are mirrored
-from \href{https://www.unocha.org/}{UN OCHA} and may have less open licensing.
-\code{"gbAuthoritative"} boundaries are mirrored from UN SALB, verified through
-in-country processes and cannot be used for commercial purposes.}
+(the default), which contains openly licensed boundaries suitable for most
+purposes when their individual license terms are followed.
+\code{"gbHumanitarian"} boundaries are mirrored from
+\href{https://www.unocha.org/}{UN OCHA} and may have additional conditions.
+\code{"gbAuthoritative"} boundaries are mirrored from
+\href{https://salb.un.org/en}{UN SALB}, verified through in-country processes
+and cannot be used for commercial purposes.}
 
 \item{quiet}{A logical value. If \code{TRUE}, suppress informational messages.}
 
@@ -112,13 +114,16 @@ third-, fourth- and fifth-level administrative boundaries, respectively.
 Not all countries have the same number of ADM levels. Use
 \code{\link[=gb_get_max_adm_lvl]{gb_get_max_adm_lvl()}} to check availability.
 
-\href{https://www.geoboundaries.org/index.html#usage}{Attribution} is required
-whenever these data are used.
+Data downloaded through these functions are not covered by the package's MIT
+license. \href{https://www.geoboundaries.org/index.html#usage}{Attribution} to
+\strong{geoBoundaries} and the original sources is required when sharing the data
+or derived products.
 }
 \details{
-Each individual country boundary file is governed by the license identified
-in its boundary metadata. See \code{\link[=gb_get_metadata]{gb_get_metadata()}}. Users should also cite the
-sources listed in the boundary metadata for each file.
+Each individual country boundary file is governed by the original license
+identified in its boundary metadata. See \code{\link[=gb_get_metadata]{gb_get_metadata()}}. Users should
+cite the sources listed in the metadata and comply with any attribution,
+share-alike or non-commercial terms.
 }
 \examples{
 \dontshow{if (identical(Sys.getenv("NOT_CRAN"), "true") || interactive()) withAutoprint(\{ # examplesIf}
@@ -135,7 +140,10 @@ ggplot(lev2) +
   labs(
     title = "Second-level administrative boundaries",
     subtitle = "Selected countries",
-    caption = "Source: www.geoboundaries.org"
+    caption = paste(
+      "Sources: geoBoundaries and the original boundary providers,",
+      "check gb_get_metadata() for licenses"
+    )
   )
 }
 \dontshow{\}) # examplesIf}

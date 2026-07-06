@@ -104,10 +104,7 @@ test_that("Internal helpers clean and parse common API values", {
     "2023-01-02 03:04:05"
   )
 
-  expect_identical(
-    gb_hlp_parse_api_date("Jan 02, 2023"),
-    as.Date("2023-01-02")
-  )
+  expect_identical(gb_hlp_parse_api_date("Jan 02, 2023"), as.Date("2023-01-02"))
 })
 
 test_that("Internal shapefile selection respects simplified files", {
@@ -198,10 +195,7 @@ test_that("gbnds_dev_sf_helper casts to MULTIPOLYGON", {
     c(0, 0)
   )))
 
-  data_sf <- sf::st_sf(
-    name = "test",
-    geometry = sf::st_sfc(poly, crs = 4326)
-  )
+  data_sf <- sf::st_sf(name = "test", geometry = sf::st_sfc(poly, crs = 4326))
 
   out <- gbnds_dev_sf_helper(data_sf)
 

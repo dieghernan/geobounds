@@ -6,6 +6,16 @@
       x Request to <https://www.geoboundaries.org/api/current/gbOpen/ATA/ADM2> failed with HTTP status 404 - Not Found.
       x No matching boundary files found. Returning `NULL`.
 
+# license notices
+
+    Code
+      gb_hlp_license_notice("gbAuthoritative")
+    Message
+      ! UN SALB data are restricted to non-commercial use.
+      i Review the terms at
+        <https://salb.un.org/sites/default/files/wysiwyg_uploads/docs_uploads/TermsOfUseSALB2021.pdf>
+        before reusing the data.
+
 # Fail gracefully single
 
     Code

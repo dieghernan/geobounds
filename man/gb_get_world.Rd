@@ -47,8 +47,9 @@ boundaries. If no boundary files match the request, the function returns
 Returns global composite boundaries for the requested ADM level. Boundaries
 are clipped to international borders, with gaps between borders filled.
 
+CGAZ data are not covered by the package's MIT license.
 \href{https://www.geoboundaries.org/index.html#usage}{Attribution} is required
-whenever these data are used.
+when sharing the data or derived products.
 }
 \details{
 Comprehensive Global Administrative Zones (CGAZ) are global composites for
@@ -57,6 +58,10 @@ global composite boundaries use extensive simplification so file sizes are
 small enough for most desktop software. They remove disputed areas, replace
 them with polygons following US Department of State definitions and fill
 gaps between borders.
+
+Follow the citation and use information included in the downloaded CGAZ
+archive. CGAZ and figures derived from it are not relicensed under the
+package's MIT License.
 }
 \examples{
 \dontshow{if (identical(Sys.getenv("NOT_CRAN"), "true") || interactive()) withAutoprint(\{ # examplesIf}
@@ -69,7 +74,7 @@ library(ggplot2)
 ggplot(world) +
   geom_sf() +
   coord_sf(expand = FALSE) +
-  labs(caption = "Source: www.geoboundaries.org")
+  labs(caption = "Source: geoBoundaries (CGAZ)")
 }
 \dontshow{\}) # examplesIf}
 }

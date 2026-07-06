@@ -1,7 +1,7 @@
 ---
 title: "gbOpen coverage and boundary metadata"
 description: |
-  gbOpen provides CC BY 4.0-compliant boundaries when attribution is provided.
+  gbOpen provides openly licensed boundaries with licenses reported in metadata.
 knitr:
   opts_chunk:
     collapse: true
@@ -23,8 +23,11 @@ src <- "gbOpen"
 
 ## `r src` coverage
 
-The map shows the highest ADM level available for each country in the
-**gbOpen** release type.
+The map shows the highest ADM level available for each country in the **gbOpen**
+release type.
+
+The original license varies by boundary and may include ODbL, CC BY, CC BY-SA or
+national open-data terms. Check the current metadata before reuse.
 
 ```{r}
 #| label: map-coverage
@@ -71,7 +74,7 @@ ggplot(p) +
   ) +
   labs(
     fill = "Highest available ADM level",
-    caption = "Source: www.geoboundaries.org"
+    caption = "Source: geoBoundaries (CGAZ and gbOpen metadata)"
   )
 ```
 
