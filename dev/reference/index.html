@@ -13,7 +13,7 @@
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="geobounds logo" height="34" width="34" class="d-inline-block me-1">geobounds</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.1.1.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.1.2.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,10 +26,15 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><hr class="dropdown-divider"></li>
-    <li><h6 class="dropdown-header" data-toc-skip>geoBoundaries coverage</h6></li>
-    <li><a class="dropdown-item" href="../articles/gbopen.html">gbOpen coverage and metadata</a></li>
-    <li><a class="dropdown-item" href="../articles/gbhumanitarian.html">gbHumanitarian coverage and metadata</a></li>
-    <li><a class="dropdown-item" href="../articles/gbauthoritative.html">gbAuthoritative coverage and metadata</a></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Release coverage</h6></li>
+    <li><a class="dropdown-item" href="../articles/gbopen.html">gbOpen coverage and boundary metadata</a></li>
+    <li><a class="dropdown-item" href="../articles/gbhumanitarian.html">gbHumanitarian coverage and boundary metadata</a></li>
+    <li><a class="dropdown-item" href="../articles/gbauthoritative.html">gbAuthoritative coverage and boundary metadata</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Blog posts</h6></li>
+    <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202602_geobounds/">Introducing geobounds</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="../articles/index.html">More articles...</a></li>
   </ul></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
@@ -53,9 +58,9 @@
     </div>
 
     <div class="section level2">
-      <h2 id="boundaries">Boundaries<a class="anchor" aria-label="anchor" href="#boundaries"></a></h2>
+      <h2 id="download-boundaries">Download boundaries<a class="anchor" aria-label="anchor" href="#download-boundaries"></a></h2>
 
-      <div class="section-desc"><p>Download individual country files or global composite files as <a href="https://CRAN.R-project.org/package=sf" class="external-link"><span class="pkg">sf</span></a> objects.</p></div>
+      <div class="section-desc"><p>Download individual country boundaries and global composite boundaries as <a href="https://r-spatial.github.io/sf/" class="external-link"><strong>sf</strong></a> objects.</p></div>
 
       <dl></dl></div><div class="section level2">
 
@@ -67,25 +72,25 @@
           <code><a href="gb_get.html">gb_get()</a></code>
 
         </dt>
-        <dd>Get individual country files from geoBoundaries</dd>
+        <dd>Download individual country boundaries from <strong>geoBoundaries</strong></dd>
 
         <dt>
 
           <code><a href="gb_get_adm.html">gb_get_adm0()</a></code> <code><a href="gb_get_adm.html">gb_get_adm1()</a></code> <code><a href="gb_get_adm.html">gb_get_adm2()</a></code> <code><a href="gb_get_adm.html">gb_get_adm3()</a></code> <code><a href="gb_get_adm.html">gb_get_adm4()</a></code> <code><a href="gb_get_adm.html">gb_get_adm5()</a></code>
 
         </dt>
-        <dd>Get individual country files for a given administrative level</dd>
+        <dd>Download country boundaries for one ADM level</dd>
 
         <dt>
 
           <code><a href="gb_get_world.html">gb_get_world()</a></code>
 
         </dt>
-        <dd>Get global composite files (CGAZ) from geoBoundaries</dd>
+        <dd>Download global composite boundaries from <strong>geoBoundaries</strong></dd>
       </dl></div><div class="section level2">
-      <h2 id="metadata">Metadata<a class="anchor" aria-label="anchor" href="#metadata"></a></h2>
+      <h2 id="inspect-metadata-and-availability">Inspect metadata and availability<a class="anchor" aria-label="anchor" href="#inspect-metadata-and-availability"></a></h2>
 
-      <div class="section-desc"><p>Inspect available administrative levels, boundary metadata and source details.</p></div>
+      <div class="section-desc"><p>Inspect boundary metadata, available ADM levels and source information.</p></div>
 
       <dl></dl></div><div class="section level2">
 
@@ -97,18 +102,18 @@
           <code><a href="gb_get_max_adm_lvl.html">gb_get_max_adm_lvl()</a></code>
 
         </dt>
-        <dd>Get the highest administrative level available for a given country</dd>
+        <dd>Find the highest available ADM level</dd>
 
         <dt>
 
           <code><a href="gb_get_metadata.html">gb_get_metadata()</a></code>
 
         </dt>
-        <dd>Get metadata for individual country files from geoBoundaries</dd>
+        <dd>Retrieve boundary metadata from <strong>geoBoundaries</strong></dd>
       </dl></div><div class="section level2">
-      <h2 id="cache-management">Cache management<a class="anchor" aria-label="anchor" href="#cache-management"></a></h2>
+      <h2 id="manage-the-cache">Manage the cache<a class="anchor" aria-label="anchor" href="#manage-the-cache"></a></h2>
 
-      <div class="section-desc"><p>Configure, inspect and clear the local cache used for downloaded boundary files.</p></div>
+      <div class="section-desc"><p>Configure, inspect and clear cached boundary files.</p></div>
 
       <dl></dl></div><div class="section level2">
 
@@ -136,7 +141,7 @@
         </dt>
         <dd>Set the <a href="https://CRAN.R-project.org/package=geobounds" class="external-link"><span class="pkg">geobounds</span></a> cache directory</dd>
       </dl></div><div class="section level2">
-      <h2 id="about-the-package">About the package<a class="anchor" aria-label="anchor" href="#about-the-package"></a></h2>
+      <h2 id="learn-about-geobounds">Learn about geobounds<a class="anchor" aria-label="anchor" href="#learn-about-geobounds"></a></h2>
 
 
 

@@ -1,22 +1,42 @@
 # Articles
 
-### geoBoundaries coverage
+### Get started
 
-Compare world coverage and metadata for the geoBoundaries release types
-available through geobounds.
+Learn to download, inspect and map administrative boundary data.
 
-- [gbOpen coverage and
+- [geobounds: Download administrative boundary data in
+  R](https://dieghernan.github.io/geobounds/dev/articles/geobounds.md):
+
+  Download, inspect and map administrative boundary data
+
+### Release coverage
+
+Compare ADM-level availability and boundary metadata across
+**geoBoundaries** release types.
+
+- [gbOpen coverage and boundary
   metadata](https://dieghernan.github.io/geobounds/dev/articles/gbopen.md):
 
-  gbOpen is CC BY 4.0 compliant when attribution is provided
+  gbOpen provides openly licensed boundaries with licenses reported in
+  metadata.
 
-- [gbHumanitarian coverage and
+- [gbHumanitarian coverage and boundary
   metadata](https://dieghernan.github.io/geobounds/dev/articles/gbhumanitarian.md):
 
-  Mirrored from UN OCHA and potentially subject to less open licensure
+  gbHumanitarian boundaries are mirrored from UN OCHA, check current
+  metadata.
 
-- [gbAuthoritative coverage and
+- [gbAuthoritative coverage and boundary
   metadata](https://dieghernan.github.io/geobounds/dev/articles/gbauthoritative.md):
 
-  Mirrored from UN SALB, verified through in-country processes and
-  cannot be used for commercial purposes
+  gbAuthoritative boundaries are mirrored from UN SALB, verified through
+  in-country processes and unavailable for commercial use.
+
+### From the blog
+
+Read One World posts about **geobounds**.
+
+- [Introducing
+  geobounds](https://dieghernan.github.io/202602_geobounds/):
+
+  Download administrative boundary data from geoBoundaries

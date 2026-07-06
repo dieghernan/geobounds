@@ -1,7 +1,7 @@
-# Get the highest administrative level available for a given country
+# Find the highest available ADM level
 
-Get a summary of selected or all countries and their highest
-administrative level available in geoBoundaries.
+Returns a summary of selected country codes and their highest available
+ADM level in **geoBoundaries**.
 
 ## Usage
 
@@ -14,35 +14,39 @@ gb_get_max_adm_lvl(
 
 ## Source
 
-geoBoundaries API service <https://www.geoboundaries.org/api.html>.
+[**geoBoundaries** API](https://www.geoboundaries.org/api.html).
 
 ## Arguments
 
 - country:
 
-  A character vector of country codes. It can be either `"all"` (which
-  returns the data for all countries), a vector of country names or ISO
-  3166-1 alpha-3 country codes. See also
+  A character vector of country names or ISO 3166-1 alpha-3 country
+  codes. Use `"all"` to return data for all countries. See also
   [`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/man/countrycode.html).
 
 - release_type:
 
-  One of `"gbOpen"`, `"gbHumanitarian"` or `"gbAuthoritative"`. For most
-  users, we suggest using `"gbOpen"` (the default), as it is CC BY 4.0
-  compliant and suitable for most purposes so long as attribution is
-  provided. `"gbHumanitarian"` files are mirrored from [UN
-  OCHA](https://www.unocha.org/) and may have less open licensure.
-  `"gbAuthoritative"` files are mirrored from UN SALB, verified through
+  A character string, one of `"gbOpen"`, `"gbHumanitarian"` or
+  `"gbAuthoritative"`. For most users, use `"gbOpen"` (the default),
+  which contains openly licensed boundaries suitable for most purposes
+  when their individual license terms are followed. `"gbHumanitarian"`
+  boundaries are mirrored from [UN OCHA](https://www.unocha.org/) and
+  may have additional conditions. `"gbAuthoritative"` boundaries are
+  mirrored from [UN SALB](https://salb.un.org/en), verified through
   in-country processes and cannot be used for commercial purposes.
 
 ## Value
 
 A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)
-with the country names and corresponding highest administrative level.
+from [tibble](https://CRAN.R-project.org/package=tibble) containing ISO
+3166-1 alpha-3 country codes and their highest available ADM levels.
 
 ## See also
 
-Other metadata functions:
+[`gb_get()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get.md)
+downloads boundaries for the available ADM levels.
+
+Metadata and availability functions:
 [`gb_get_metadata()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_metadata.md)
 
 ## Examples
@@ -51,7 +55,7 @@ Other metadata functions:
 all <- gb_get_max_adm_lvl()
 library(dplyr)
 
-# Countries with only one level available.
+# Countries with only one ADM level available.
 all |>
   filter(maxBoundaryType == 1)
 #> # A tibble: 21 × 2
@@ -69,7 +73,7 @@ all |>
 #> 10 LBY                       1
 #> # ℹ 11 more rows
 
-# Countries with level 4 available.
+# Countries with ADM4 available.
 all |>
   filter(maxBoundaryType == 4)
 #> # A tibble: 18 × 2

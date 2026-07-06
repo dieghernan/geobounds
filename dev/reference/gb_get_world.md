@@ -1,11 +1,12 @@
-# Get global composite files (CGAZ) from geoBoundaries
+# Download global composite boundaries from **geoBoundaries**
 
+Returns global composite boundaries for the requested ADM level.
+Boundaries are clipped to international borders, with gaps between
+borders filled.
+
+CGAZ data are not covered by the package's MIT license.
 [Attribution](https://www.geoboundaries.org/index.html#usage) is
-required for all uses of this dataset.
-
-This function returns global composite files for the required
-administrative level, clipped to international boundaries, with gaps
-filled between borders.
+required when sharing the data or derived products.
 
 ## Usage
 
@@ -21,67 +22,79 @@ gb_get_world(
 
 ## Source
 
-geoBoundaries API service <https://www.geoboundaries.org/api.html>.
+[**geoBoundaries** API](https://www.geoboundaries.org/api.html).
 
 ## Arguments
 
 - country:
 
-  A character vector of country codes. It can be either `"all"` (which
-  returns the data for all countries), a vector of country names or ISO
-  3166-1 alpha-3 country codes. See also
+  A character vector of country names or ISO 3166-1 alpha-3 country
+  codes. Use `"all"` to return data for all countries. See also
   [`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/man/countrycode.html).
 
 - adm_lvl:
 
-  Type of boundary. Accepted values are administrative levels 0, 1 and 2
-  (`"adm0"` is the country boundary, `"adm1"` is the first level of
-  subnational boundaries, `"adm2"` is the second level and so on).
-  Upper-case versions (`"ADM1"`) and the number of the level (`0, 1, 2`)
-  are also accepted.
+  ADM level. Accepted values are levels 0, 1 and 2 (`"adm0"` is the
+  country boundary, `"adm1"` is the first level of subnational
+  boundaries and `"adm2"` is the second level). Uppercase versions
+  (`"ADM1"`) and level numbers (`0`, `1`, `2`) are also accepted.
 
 - quiet:
 
-  Logical. If `TRUE`, suppress informational messages.
+  A logical value. If `TRUE`, suppress informational messages.
 
 - overwrite:
 
-  Logical. If `TRUE`, force a fresh download of the source `.zip` file.
+  A logical value. If `TRUE`, force a fresh download of the source
+  `.zip` archive.
 
 - cache_dir:
 
   A path to a cache directory. If not set (the default `NULL`), the data
   will be stored in the default cache directory (see
   [`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/dev/reference/gb_set_cache_dir.md)).
-  If no cache directory has been set, files will be stored in the
-  temporary directory. See
-  [`base::tempdir()`](https://rdrr.io/r/base/tempfile.html) and caching
-  strategies in
+  If no cache directory has been set, files are stored in a temporary
+  cache directory. See
+  [`base::tempdir()`](https://rdrr.io/r/base/tempfile.html) and the
+  cache strategies in
   [`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/dev/reference/gb_set_cache_dir.md).
 
 ## Value
 
-A [`sf`](https://r-spatial.github.io/sf/reference/sf.html) object.
+An [sf](https://r-spatial.github.io/sf/reference/sf.html) object from
+[sf](https://CRAN.R-project.org/package=sf) containing the requested
+boundaries. If no boundary files match the request, the function returns
+`NULL`.
 
 ## Details
 
 Comprehensive Global Administrative Zones (CGAZ) are global composites
-for administrative boundaries. Compared with individual country files,
-the global product uses extensive simplification so file sizes are small
-enough for most desktop software, removes disputed areas and replaces
-them with polygons following US Department of State definitions, and
-fills gaps between borders.
+for administrative boundaries. Compared with individual country boundary
+files, global composite boundaries use extensive simplification so file
+sizes are small enough for most desktop software. They remove disputed
+areas, replace them with polygons following US Department of State
+definitions and fill gaps between borders.
+
+Follow the citation and use information included in the downloaded CGAZ
+archive. CGAZ and figures derived from it are not relicensed under the
+package's MIT License.
 
 ## References
 
-Runfola, D. et al. (2020) geoBoundaries: A global database of political
-administrative boundaries. *PLOS ONE* *15*(4), 1-9.
+Runfola et al. (2020) **geoBoundaries**: A global database of political
+administrative boundaries. *PLOS ONE* **15**(4), e0231866.
 [doi:10.1371/journal.pone.0231866](https://doi.org/10.1371/journal.pone.0231866)
 .
 
 ## See also
 
-Other API functions:
+- [`gb_get_metadata()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_metadata.md)
+  inspects boundary metadata and licensing.
+
+- [`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_max_adm_lvl.md)
+  checks the ADM levels available for individual country boundaries.
+
+Boundary download functions:
 [`gb_get()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get.md),
 [`gb_get_adm`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_adm.md)
 
@@ -97,7 +110,7 @@ library(ggplot2)
 ggplot(world) +
   geom_sf() +
   coord_sf(expand = FALSE) +
-  labs(caption = "Source: www.geoboundaries.org")
+  labs(caption = "Source: geoBoundaries (CGAZ)")
 
 # }
 ```

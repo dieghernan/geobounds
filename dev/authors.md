@@ -8,7 +8,8 @@
 
 - **[William and Mary
   geoLab](https://sites.google.com/view/wmgeolab/)**. Copyright holder.
-  [![ROR](https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg)](https://ror.org/03hsf0573)
+  [![ROR](https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg)](https://ror.org/03hsf0573)  
+  for the geoBoundaries project
 
 ## Citation
 
@@ -24,9 +25,9 @@ from geoBoundaries*.
       title = {{geobounds}: Download Administrative Boundary Data from geoBoundaries},
       author = {Diego Hernangómez},
       year = {2026},
-      version = {0.1.1.9000},
+      version = {0.1.2.9000},
       url = {https://dieghernan.github.io/geobounds/},
-      abstract = {Tools for downloading administrative boundary data from geoBoundaries <https://www.geoboundaries.org/> across multiple administrative levels. Boundary data are returned as sf objects for mapping and spatial analysis. See Runfola, D. et al. (2020) "geoBoundaries: A global database of political administrative boundaries." PLOS ONE 15(4), e0231866. <doi:10.1371/journal.pone.0231866>.},
+      abstract = {Provides tools for downloading individual country boundaries and global composite boundaries from geoBoundaries <https://www.geoboundaries.org/> across multiple administrative (ADM) levels. Returns boundary data as sf objects for mapping and spatial analysis. Runfola et al. (2020) <doi:10.1371/journal.pone.0231866> describe the underlying database.},
       doi = {10.32614/CRAN.package.geobounds},
     }
 

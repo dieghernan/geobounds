@@ -2,9 +2,20 @@
 
 ## geobounds (development version)
 
-- Documentation and internal code were reviewed with AI assistance to
-  improve maintainability, align terminology across **roxygen2** and
-  narrative documentation, and clarify user-facing messages.
+- Changed the package software license from CC BY 4.0 to MIT and
+  clarified that downloaded boundaries and included figures retain the
+  licenses and attribution requirements of **geoBoundaries** and their
+  original sources. Documentation now distinguishes the varying `gbOpen`
+  licenses, UN OCHA terms and the non-commercial restriction on UN SALB
+  data. Downloads from `gbAuthoritative` now display a licensing notice.
+
+## geobounds 0.1.2
+
+CRAN release: 2026-05-29
+
+- Improved documentation and user-facing messages to align terminology
+  across **roxygen2** and narrative documentation and clarify package
+  output.
 
 ## geobounds 0.1.1
 
@@ -45,12 +56,12 @@ instead.
 #### Other changes
 
 - Added a DOI.
-- All download functions now use `.zip/.shp` datasets instead of
-  `.geojson/.gpkg`, removing the **geojsonsf** dependency from
-  `Imports`.
+- All download functions now use `.zip` archives containing `.shp` files
+  instead of `.geojson` or `.gpkg` files, removing the **geojsonsf**
+  dependency from `Imports`.
 - All download functions now return `MULTIPOLYGON` geometries.
-- All download functions now fail gracefully when a country file is
-  unavailable, without errors or warnings.
+- All download functions now return `NULL` without an error or warning
+  when a country file is unavailable.
 - All download functions now retry transient request failures with
   [`httr2::req_retry()`](https://httr2.r-lib.org/reference/req_retry.html).
 - Cached files from previous package versions are no longer reused
@@ -63,7 +74,7 @@ instead.
 - [`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_max_adm_lvl.md)
   was added.
 - [`gb_get_world()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_world.md)
-  now gets the latest data available from the repository at
+  now retrieves the latest data available from the repository at
   <https://github.com/wmgeolab/geoBoundaries/tree/main/releaseData>.
 
 ## geobounds 0.0.1
