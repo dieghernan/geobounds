@@ -32,6 +32,6 @@ Cache management functions:
 
 ``` r
 gb_detect_cache_dir()
-#> ℹ /tmp/RtmpYIeUgv/geobounds
-#> [1] "/tmp/RtmpYIeUgv/geobounds"
+#> ℹ /tmp/RtmpdzEHvs/geobounds
+#> [1] "/tmp/RtmpdzEHvs/geobounds"
 ```
