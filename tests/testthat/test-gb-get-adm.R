@@ -43,9 +43,7 @@ test_that("Test levels", {
   # Use mocks for heavier levels.
   testthat::local_mocked_bindings(
     gb_get = function(country,
-                      release_type = c("gbOpen",
-                      "gbHumanitarian",
-                      "gbAuthoritative"),
+                      release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative"),
                       adm_lvl = "ADM0",
                       simplified = FALSE,
                       quiet = TRUE,
