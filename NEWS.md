@@ -4,8 +4,11 @@
   downloaded boundaries and included figures retain the licenses and attribution
   requirements of **geoBoundaries** and their original sources. Documentation
   now distinguishes the varying `gbOpen` licenses, UN OCHA terms and the
-  non-commercial restriction on UN SALB data. Downloads from `gbAuthoritative`
-  now display a licensing notice.
+  non-commercial restriction on UN SALB boundaries. Downloads from
+  `gbAuthoritative` now display a licensing notice.
+- Made cache-related tests safer by isolating `GEOBOUNDS_CACHE_DIR` with
+  `withr::local_envvar()` and using test-owned temporary cache directories with
+  `withr::local_tempdir()`.
 
 # geobounds 0.1.2
 
@@ -23,7 +26,7 @@
 
 ## Breaking changes
 
-Functions for downloading data have been renamed to follow the convention
+Functions for downloading boundaries have been renamed to follow the convention
 `object_verb()` (see <https://devguide.ropensci.org/pkg_building.html>):
 
 - `get_gb()` -\> `gb_get()`.
@@ -47,14 +50,15 @@ instead.
 - All download functions now retry transient request failures with
   `httr2::req_retry()`.
 - Cached files from previous package versions are no longer reused because the
-  source file format changed.
+  source archive format changed.
 - Country matching now improves detection for Antarctica and Kosovo.
 - `gb_get*()` functions now allow mixed `country` argument types, such as
   `gb_get(country = c("Germany", "USA"))`.
 - `gb_get_adm5()` was added.
 - `gb_get_max_adm_lvl()` was added.
-- `gb_get_world()` now retrieves the latest data available from the repository
-  at <https://github.com/wmgeolab/geoBoundaries/tree/main/releaseData>.
+- `gb_get_world()` now retrieves the latest boundaries available from the
+  repository at
+  <https://github.com/wmgeolab/geoBoundaries/tree/main/releaseData>.
 
 # geobounds 0.0.1
 

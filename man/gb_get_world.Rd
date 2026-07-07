@@ -19,8 +19,8 @@ gb_get_world(
 }
 \arguments{
 \item{country}{A character vector of country names or ISO 3166-1 alpha-3
-country codes. Use \code{"all"} to return data for all countries. See also
-\code{\link[countrycode:countrycode]{countrycode::countrycode()}}.}
+country codes. Use \code{"all"} to return boundaries for all countries. See
+also \code{\link[countrycode:countrycode]{countrycode::countrycode()}} from \CRANpkg{countrycode}.}
 
 \item{adm_lvl}{ADM level. Accepted values are levels 0, 1 and 2 (\code{"adm0"} is
 the country boundary, \code{"adm1"} is the first level of subnational
@@ -33,35 +33,35 @@ boundaries and \code{"adm2"} is the second level). Uppercase versions
 source \code{.zip} archive.}
 
 \item{cache_dir}{A path to a cache directory. If not set (the default
-\code{NULL}), the data will be stored in the default cache directory (see
-\code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}). If no cache directory has been set, files are stored
-in a temporary cache directory. See \code{\link[base:tempdir]{base::tempdir()}} and the cache
+\code{NULL}), boundary archives are stored in the default cache directory (see
+\code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}). If no cache directory has been set, archives are
+stored in a temporary cache directory. See \code{\link[base:tempdir]{base::tempdir()}} and the cache
 strategies in \code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}.}
 }
 \value{
 An \link[sf:st_sf]{sf} object from \CRANpkg{sf} containing the requested
-boundaries. If no boundary files match the request, the function returns
+boundaries. If no boundaries match the request, the function returns
 \code{NULL}.
 }
 \description{
 Returns global composite boundaries for the requested ADM level. Boundaries
 are clipped to international borders, with gaps between borders filled.
 
-CGAZ data are not covered by the package's MIT license.
+CGAZ boundaries are not covered by the package's MIT license.
 \href{https://www.geoboundaries.org/index.html#usage}{Attribution} is required
-when sharing the data or derived products.
+when sharing the boundaries or derived products.
 }
 \details{
 Comprehensive Global Administrative Zones (CGAZ) are global composites for
-administrative boundaries. Compared with individual country boundary files,
+administrative boundaries. Compared with individual country boundaries,
 global composite boundaries use extensive simplification so file sizes are
 small enough for most desktop software. They remove disputed areas, replace
-them with polygons following US Department of State definitions and fill
-gaps between borders.
+them with polygons following United States Department of State definitions
+and fill gaps between borders.
 
 Follow the citation and use information included in the downloaded CGAZ
 archive. CGAZ and figures derived from it are not relicensed under the
-package's MIT License.
+package's MIT license.
 }
 \examples{
 \dontshow{if (identical(Sys.getenv("NOT_CRAN"), "true") || interactive()) withAutoprint(\{ # examplesIf}
@@ -79,8 +79,8 @@ ggplot(world) +
 \dontshow{\}) # examplesIf}
 }
 \references{
-Runfola et al. (2020) \strong{geoBoundaries}: A global database of political
-administrative boundaries. \emph{PLOS ONE} \strong{15}(4), e0231866.
+Runfola et al. (2020) "geoBoundaries: A global database of political
+administrative boundaries." \emph{PLOS ONE}, \strong{15}(4), 1--9.
 \doi{10.1371/journal.pone.0231866}.
 }
 \seealso{

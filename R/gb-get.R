@@ -7,34 +7,34 @@
 #' Use [gb_get_world()] for global composite boundaries that standardize
 #' disputed areas and fill gaps between borders.
 #'
-#' Data downloaded through this function are not covered by the package's MIT
-#' license. [Attribution](https://www.geoboundaries.org/index.html#usage) to
-#' **geoBoundaries** and the original sources is required when sharing the data
-#' or derived products.
+#' Boundaries downloaded through this function are not covered by the package's
+#' MIT license. [Attribution](https://www.geoboundaries.org/index.html#usage)
+#' to **geoBoundaries** and the original sources is required when sharing the
+#' boundaries or derived products.
 #'
 #' @details
-#' Each individual country boundary file is governed by the original license
+#' Each individual country boundary layer is governed by the original license
 #' identified in its boundary metadata. See [gb_get_metadata()]. The
 #' `"gbOpen"` release contains multiple open licenses, including ODbL and
-#' CC BY-SA. It must not be assumed that every boundary is licensed only under
-#' CC BY 4.0. Users should cite the sources listed in the metadata and comply
-#' with any attribution, share-alike or non-commercial terms.
+#' CC BY-SA. Do not assume every boundary is licensed only under CC BY 4.0.
+#' Users should cite the sources listed in the metadata and comply with any
+#' attribution, share-alike or non-commercial terms.
 #'
 #' The wrappers [gb_get_adm0()], [gb_get_adm1()], [gb_get_adm2()],
 #' [gb_get_adm3()], [gb_get_adm4()] and [gb_get_adm5()] are also available for
 #' requesting a single ADM level.
 #'
 #' @param country A character vector of country names or ISO 3166-1 alpha-3
-#'   country codes. Use `"all"` to return data for all countries. See also
-#'   [countrycode::countrycode()].
+#'   country codes. Use `"all"` to return boundaries for all countries. See
+#'   also [countrycode::countrycode()] from \CRANpkg{countrycode}.
 #' @param adm_lvl ADM level. Accepted values are `"all"` (all available
 #'   boundaries) or the ADM level (`"adm0"` is the country boundary,
 #'   `"adm1"` is the first level of subnational boundaries, `"adm2"` is the
 #'   second level and so on). Uppercase versions (`"ADM1"`) and level numbers
 #'   (`0`, `1`, `2`, `3`, `4`, `5`) are also accepted.
 #' @param simplified A logical value. If `TRUE`, return simplified boundaries.
-#'   The default `FALSE` uses the primary **geoBoundaries** file. See simplified
-#'   boundaries at <https://www.geoboundaries.org/>.
+#'   The default `FALSE` uses the primary **geoBoundaries** layer. See
+#'   simplified boundaries at <https://www.geoboundaries.org/>.
 #' @param release_type A character string, one of `"gbOpen"`,
 #'   `"gbHumanitarian"` or `"gbAuthoritative"`. For most users, use `"gbOpen"`
 #'   (the default), which contains openly licensed boundaries suitable for most
@@ -48,22 +48,22 @@
 #' @param overwrite A logical value. If `TRUE`, force a fresh download of the
 #'   source `.zip` archive.
 #' @param cache_dir A path to a cache directory. If not set (the default
-#'   `NULL`), the data will be stored in the default cache directory (see
-#'   [gb_set_cache_dir()]). If no cache directory has been set, files are stored
-#'   in a temporary cache directory. See [base::tempdir()] and the cache
+#'   `NULL`), boundary archives are stored in the default cache directory (see
+#'   [gb_set_cache_dir()]). If no cache directory has been set, archives are
+#'   stored in a temporary cache directory. See [base::tempdir()] and the cache
 #'   strategies in [gb_set_cache_dir()].
 #'
 #' @returns
 #' An [sf][sf::st_sf] object from \CRANpkg{sf} containing the requested
-#' boundaries. If no boundary files match the request, the function returns
+#' boundaries. If no boundaries match the request, the function returns
 #' `NULL`.
 #'
 #' @source
 #' [**geoBoundaries** API](https://www.geoboundaries.org/api.html).
 #'
 #' @references
-#' Runfola et al. (2020) **geoBoundaries**: A global database of political
-#' administrative boundaries. *PLOS ONE* **15**(4), e0231866.
+#' Runfola et al. (2020) "geoBoundaries: A global database of political
+#' administrative boundaries." *PLOS ONE*, **15**(4), 1--9.
 #' \doi{10.1371/journal.pone.0231866}.
 #'
 #' @seealso
@@ -136,14 +136,14 @@ gb_get <- function(
 
   if (nrow(meta_df) == 0) {
     cli::cli_alert_danger(
-      "No matching boundary files found. Returning {.code NULL}."
+      "No matching boundaries found. Returning {.code NULL}."
     )
     return(NULL)
   }
 
   url_bound <- gb_hlp_unique_values(meta_df$staticDownloadLink)
 
-  # Download and combine boundary files.
+  # Download and combine boundaries.
   res_sf <- lapply(url_bound, function(x) {
     gbnds_dev_shp_query(
       url = x,
@@ -160,6 +160,14 @@ gb_get <- function(
   meta_sf
 }
 
+#' Show the UN SALB license notice
+#'
+#' @param source The selected **geoBoundaries** release type.
+#'
+#' @returns
+#' Invisibly returns `NULL`. This function is called for its side effects.
+#'
+#' @noRd
 gb_hlp_license_notice <- function(source) {
   if (!identical(source, "gbAuthoritative")) {
     return(invisible())
@@ -173,11 +181,28 @@ gb_hlp_license_notice <- function(source) {
   # nolint end
 
   cli::cli_bullets(c(
-    "!" = "{.strong UN SALB} data are restricted to non-commercial use.",
-    "i" = "Review the terms at {.url {terms}} before reusing the data."
+    "!" = "{.strong UN SALB} boundaries are restricted to non-commercial use.",
+    "i" = "Review the terms at {.url {terms}} before reusing the boundaries."
   ))
 }
 
+#' Download and read one boundary archive
+#'
+#' @param url A boundary archive URL.
+#' @param subdir The cache subdirectory for the archive.
+#' @param quiet A logical value. If `TRUE`, suppress informational messages.
+#' @param overwrite A logical value. If `TRUE`, force a fresh download of the
+#'   source `.zip` archive.
+#' @param cache_dir A path to a cache directory.
+#' @param cgaz_country A character vector of country codes to keep for CGAZ
+#'   boundaries.
+#' @param simplified A logical value. If `TRUE`, read simplified boundaries.
+#'
+#' @returns
+#' An [sf][sf::st_sf] object from \CRANpkg{sf} or `NULL` when the archive
+#' download fails.
+#'
+#' @noRd
 gbnds_dev_shp_query <- function(
   url,
   subdir,
@@ -206,7 +231,7 @@ gbnds_dev_shp_query <- function(
   } else {
     # Download the source archive.
     if (!quiet) {
-      cli::cli_alert_info("Downloading file from {.url {url}}.")
+      cli::cli_alert_info("Downloading source archive from {.url {url}}.")
       cli::cli_alert("Cache directory is {.path {path}}.")
     }
 

@@ -11,13 +11,14 @@
 #' Not all countries have the same number of ADM levels. Use
 #' [gb_get_max_adm_lvl()] to check availability.
 #'
-#' Data downloaded through these functions are not covered by the package's MIT
-#' license. [Attribution](https://www.geoboundaries.org/index.html#usage) to
-#' **geoBoundaries** and the original sources is required when sharing the data
-#' or derived products.
+#' Boundaries downloaded through these functions are not covered by the
+#' package's MIT license.
+#' [Attribution](https://www.geoboundaries.org/index.html#usage) to
+#' **geoBoundaries** and the original sources is required when sharing the
+#' boundaries or derived products.
 #'
 #' @details
-#' Each individual country boundary file is governed by the original license
+#' Each individual country boundary layer is governed by the original license
 #' identified in its boundary metadata. See [gb_get_metadata()]. Users should
 #' cite the sources listed in the metadata and comply with any attribution,
 #' share-alike or non-commercial terms.

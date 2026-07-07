@@ -20,8 +20,8 @@ directory and all its contents.}
 Invisibly returns \code{NULL}. This function is called for its side effects.
 }
 \description{
-\strong{Use this function with caution}. It clears cached data and configuration
-by deleting the \CRANpkg{geobounds} configuration directory
+\strong{Use this function with caution}. It clears cached archives and
+configuration by deleting the \CRANpkg{geobounds} configuration directory
 (\code{tools::R_user_dir("geobounds", "config")}), deleting the active cache
 directory and clearing \code{Sys.getenv("GEOBOUNDS_CACHE_DIR")}.
 }
@@ -35,7 +35,7 @@ installation.
 
 \dontrun{
 my_cache <- gb_detect_cache_dir()
-# Set an example cache.
+# Set an example cache directory.
 ex <- file.path(tempdir(), "example", "cache")
 gb_set_cache_dir(ex, quiet = TRUE)
 

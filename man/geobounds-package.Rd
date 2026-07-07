@@ -9,11 +9,11 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Provides tools for downloading individual country boundaries and global composite boundaries from 'geoBoundaries' \url{https://www.geoboundaries.org/} across multiple administrative ('ADM') levels. Returns boundary data as 'sf' objects for mapping and spatial analysis. Runfola et al. (2020) \doi{10.1371/journal.pone.0231866} describe the underlying database.
+Provides tools to download individual country boundaries and global composite boundaries from 'geoBoundaries' \url{https://www.geoboundaries.org/} across multiple administrative ('ADM') levels. Returns boundaries as 'sf' objects for mapping and spatial analysis. Runfola et al. (2020) \doi{10.1371/journal.pone.0231866} describe the underlying database.
 }
 \references{
-Runfola et al. (2020) \strong{geoBoundaries}: A global database of political
-administrative boundaries. \emph{PLOS ONE} \strong{15}(4), e0231866.
+Runfola et al. (2020) "geoBoundaries: A global database of political
+administrative boundaries." \emph{PLOS ONE}, \strong{15}(4), 1--9.
 \doi{10.1371/journal.pone.0231866}.
 }
 \seealso{

@@ -1,6 +1,4 @@
 test_that("Utils names", {
-  skip_on_cran()
-
   expect_snapshot(gbnds_dev_country2iso(c("Espagne", "United Kingdom")))
   expect_error(gbnds_dev_country2iso("UA"))
   expect_snapshot(gbnds_dev_country2iso(c("ESP", "POR", "RTA", "USA")))
@@ -15,11 +13,12 @@ test_that("Utils names", {
 test_that("Problematic names", {
   skip_on_cran()
   skip_if_offline()
+  tmpd <- local_test_cache("geobounds-test-utils-names-")
 
   expect_snapshot(gbnds_dev_country2iso(c("Espagne", "Antartica")))
   expect_snapshot(gbnds_dev_country2iso(c("spain", "antartica")))
 
-  ata <- gb_get_adm0("Antartica", simplified = TRUE)
+  ata <- gb_get_adm0("Antartica", simplified = TRUE, cache_dir = tmpd)
   expect_s3_class(ata, "sf")
 
   # Special case for Kosovo
@@ -36,10 +35,14 @@ test_that("Problematic names", {
   expect_snapshot(gbnds_dev_country2iso("Kosovo"))
   expect_snapshot(gbnds_dev_country2iso("XKX"))
 
-  kos <- gb_get_adm0("Kosovo", simplified = TRUE)
+  kos <- gb_get_adm0("Kosovo", simplified = TRUE, cache_dir = tmpd)
   expect_s3_class(kos, "sf")
 
-  full <- gb_get_adm0(c("Antarctica", "Kosovo"), simplified = TRUE)
+  full <- gb_get_adm0(
+    c("Antarctica", "Kosovo"),
+    simplified = TRUE,
+    cache_dir = tmpd
+  )
   expect_s3_class(full, "sf")
   expect_identical(full$shapeGroup, c("ATA", "XKX"))
   expect_equal(nrow(full), 2)
@@ -57,10 +60,19 @@ test_that("Test full name conversion", {
   expect_identical(length(nm), length(isos2))
   expect_identical(length(nm), length(nm2))
 })
+
 test_that("Test mixed countries", {
   skip_on_cran()
   skip_if_offline()
-  expect_silent(cnt <- gb_get(country = c("Germany", "USA"), simplified = TRUE))
+  tmpd <- local_test_cache("geobounds-test-utils-mixed-")
+
+  expect_silent(
+    cnt <- gb_get(
+      country = c("Germany", "USA"),
+      simplified = TRUE,
+      cache_dir = tmpd
+    )
+  )
   expect_s3_class(cnt, "sf")
 })
 
@@ -68,6 +80,11 @@ test_that("Assert admin levels", {
   expect_snapshot(assert_adm_lvl(1:2), error = TRUE)
 
   expect_snapshot(assert_adm_lvl(adm_lvl = 10), error = TRUE)
+
+  my_fun <- function(adm_lvl = "adm0") {
+    assert_adm_lvl(adm_lvl)
+  }
+  expect_snapshot(my_fun("adm9"), error = TRUE)
 
   expect_identical(assert_adm_lvl(1), "ADM1")
 
@@ -107,6 +124,22 @@ test_that("Internal helpers clean and parse common API values", {
   expect_identical(gb_hlp_parse_api_date("Jan 02, 2023"), as.Date("2023-01-02"))
 })
 
+test_that("Internal HTTP helpers format requests and errors", {
+  req <- gb_hlp_request("https://example.com/data.zip", quiet = FALSE)
+  expect_s3_class(req, "httr2_request")
+
+  resp <- httr2::response(
+    status_code = 404,
+    url = "https://example.com/data.zip"
+  )
+
+  expect_identical(gb_hlp_http_error(resp), "404 - Not Found")
+  expect_message(
+    gb_hlp_alert_http_error("https://example.com/data.zip", resp),
+    "404 - Not Found"
+  )
+})
+
 test_that("Internal shapefile selection respects simplified files", {
   shp_files <- c(
     "folder/source.shp",
@@ -127,13 +160,13 @@ test_that("Internal shapefile selection respects simplified files", {
 test_that("UTF-8", {
   skip_on_cran()
   skip_if_offline()
+  tmpd <- local_test_cache("geobounds-test-utils-utf8-")
 
-  ff <- gb_get("CZE", "ADM1", simplified = TRUE)
+  ff <- gb_get("CZE", "ADM1", simplified = TRUE, cache_dir = tmpd)
   expect_true(all(Encoding(ff$shapeName) == "UTF-8"))
 })
 
 test_that("Pretty match", {
-  skip_on_cran()
   my_fun <- function(arg_one = c(10, 1000, 3000, 5000)) {
     match_arg_pretty(arg_one)
   }
@@ -173,7 +206,6 @@ test_that("Pretty match", {
 })
 
 test_that("Test gb_abort_if_not", {
-  skip_on_cran()
   expect_invisible(gb_abort_if_not())
   expect_snapshot(error = TRUE, gb_abort_if_not(isFALSE(TRUE)))
   expect_invisible(gb_abort_if_not("A" = is.character("a")))

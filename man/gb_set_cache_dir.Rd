@@ -5,18 +5,23 @@
 \alias{gb_set_cache_dir}
 \title{Set the \CRANpkg{geobounds} cache directory}
 \usage{
-gb_set_cache_dir(cache_dir, overwrite = FALSE, install = FALSE, quiet = FALSE)
+gb_set_cache_dir(
+  cache_dir = NULL,
+  overwrite = FALSE,
+  install = FALSE,
+  quiet = FALSE
+)
 }
 \arguments{
-\item{cache_dir}{A path to a cache directory. If missing, the function stores
-cache files in a temporary directory. See \code{\link[base:tempdir]{base::tempdir()}}.}
+\item{cache_dir}{A path to a cache directory. If \code{NULL}, the function stores
+cached archives in a temporary directory. See \code{\link[base:tempdir]{base::tempdir()}}.}
 
 \item{overwrite}{A logical value. If \code{TRUE}, replace a cache directory
 already saved in the configuration file.}
 
 \item{install}{A logical value. If \code{TRUE}, save the cache directory for use
-in future sessions. Defaults to \code{FALSE}. If \code{cache_dir} is missing or
-empty, this parameter is set to \code{FALSE} automatically.}
+in future sessions. Defaults to \code{FALSE}. If \code{cache_dir} is \code{NULL}, this
+parameter is set to \code{FALSE} automatically.}
 
 \item{quiet}{A logical value. If \code{TRUE}, suppress informational messages.}
 }
@@ -29,8 +34,8 @@ Use \code{\link[=gb_detect_cache_dir]{gb_detect_cache_dir()}} to find the active
 }
 \details{
 By default, when no \code{cache_dir} is set, \CRANpkg{geobounds} uses a directory
-inside \code{\link[base:tempdir]{base::tempdir()}}. Files in this directory are removed when the \R
-session ends. To reuse a cache directory across \R sessions, use
+inside \code{\link[base:tempdir]{base::tempdir()}}. Cached archives in this directory are removed when
+the \R session ends. To reuse a cache directory across \R sessions, use
 \code{gb_set_cache_dir(cache_dir = "a/path/here", install = TRUE)}. This saves the
 directory in a configuration file under
 \code{tools::R_user_dir("geobounds", "config")}.
@@ -55,7 +60,7 @@ argument. See \code{\link[=gb_get]{gb_get()}}.
 \dontrun{
 my_cache <- gb_detect_cache_dir()
 
-# Set an example cache.
+# Set an example cache directory.
 ex <- file.path(tempdir(), "example", "cachenew")
 gb_set_cache_dir(ex)
 

@@ -11,8 +11,9 @@ gb_detect_cache_dir(x = NULL)
 \item{x}{An object. Ignored.}
 }
 \value{
-A character scalar containing the path to the active cache directory. It also
-appears in a clickable message. See \link[cli:inline-markup]{cli::inline-markup}.
+A character scalar containing the path to the active cache directory. The
+path is also printed as a clickable message. See \link[cli:inline-markup]{cli::inline-markup} from
+\CRANpkg{cli}.
 }
 \description{
 Detects the active cache directory. See \code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}.

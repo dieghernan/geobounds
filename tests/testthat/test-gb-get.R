@@ -1,8 +1,11 @@
 test_that("NULL output", {
   skip_on_cran()
   skip_if_offline()
+  tmpd <- local_test_cache("geobounds-test-get-null-")
 
-  expect_snapshot(err2 <- gb_get(country = "ATA", adm_lvl = "ADM2"))
+  expect_snapshot(
+    err2 <- gb_get(country = "ATA", adm_lvl = "ADM2", cache_dir = tmpd)
+  )
 
   expect_null(err2)
 })
@@ -16,7 +19,7 @@ test_that("sf output simplified", {
   skip_on_cran()
   skip_if_offline()
 
-  tmpd <- file.path(tempdir(), "testthat")
+  tmpd <- local_test_cache("geobounds-test-get-")
   expect_silent(
     che <- gb_get(
       country = "San Marino",
@@ -40,16 +43,14 @@ test_that("sf output simplified", {
   )
 
   expect_true(object.size(che) < object.size(chefull))
-  unlink(tmpd, recursive = TRUE)
-  expect_false(dir.exists(tmpd))
 })
 
 test_that("sf output messages", {
   skip_on_cran()
   skip_if_offline()
 
-  tmpd <- file.path(tempdir(), "testthat2")
-  msg <- expect_message(
+  tmpd <- local_test_cache("geobounds-test-get-messages-")
+  expect_message(
     che <- gb_get(
       country = "San Marino",
       adm_lvl = "ADM0",
@@ -57,14 +58,14 @@ test_that("sf output messages", {
       simplified = TRUE,
       quiet = FALSE
     ),
-    "Downloading file"
+    "Downloading source archive"
   )
 
   expect_s3_class(che, "sf")
   expect_equal(nrow(che), 1)
 
   # Cached
-  msg <- expect_message(
+  expect_message(
     che <- gb_get(
       country = "San Marino",
       adm_lvl = "ADM0",
@@ -74,14 +75,12 @@ test_that("sf output messages", {
     ),
     "Using cached file"
   )
-
-  unlink(tmpd, recursive = TRUE)
-  expect_false(dir.exists(tmpd))
 })
 
 test_that("Fail gracefully single", {
   skip_on_cran()
   skip_if_offline()
+  tmpd <- local_test_cache("geobounds-test-get-fail-single-")
 
   # Mock a fake call
   url_bound <- paste0(
@@ -97,7 +96,7 @@ test_that("Fail gracefully single", {
         subdir = "gbOpen",
         quiet = TRUE,
         overwrite = FALSE,
-        cache_dir = tempdir()
+        cache_dir = tmpd
       )
     })
   )
@@ -107,10 +106,11 @@ test_that("Fail gracefully single", {
   expect_equal(nrow(meta_sf), 0)
 })
 
-
 test_that("Fail gracefully several", {
   skip_on_cran()
   skip_if_offline()
+  tmpd <- local_test_cache("geobounds-test-get-fail-several-")
+
   # Replicate internal logic
 
   sev <- gb_get_metadata(c("Andorra", "Vatican"), adm_lvl = "ADM0")
@@ -131,7 +131,7 @@ test_that("Fail gracefully several", {
         subdir = "gbOpen",
         quiet = TRUE,
         overwrite = FALSE,
-        cache_dir = tempdir(),
+        cache_dir = tmpd,
         simplified = TRUE
       )
     })
@@ -151,7 +151,7 @@ test_that("Fail gracefully several", {
       subdir = "gbOpen",
       quiet = TRUE,
       overwrite = FALSE,
-      cache_dir = tempdir()
+      cache_dir = tmpd
     )
   })
 
@@ -165,18 +165,30 @@ test_that("Fail gracefully several", {
 test_that("Release type", {
   skip_on_cran()
   skip_if_offline()
+  tmpd <- local_test_cache("geobounds-test-get-release-")
+
   library(dplyr)
   iso <- gb_get_metadata(release_type = "gbHumanitarian", adm_lvl = "ADM0") |>
     slice_head(n = 1) |>
     pull(boundaryISO)
 
-  res <- gb_get_adm0(iso, simplified = TRUE, release_type = "gbHumanitarian")
+  res <- gb_get_adm0(
+    iso,
+    simplified = TRUE,
+    release_type = "gbHumanitarian",
+    cache_dir = tmpd
+  )
   expect_s3_class(res, "sf")
 
   iso <- gb_get_metadata(release_type = "gbAuthoritative", adm_lvl = "ADM0") |>
     slice_head(n = 1) |>
     pull(boundaryISO)
 
-  res <- gb_get_adm0(iso, simplified = TRUE, release_type = "gbAuthoritative")
+  res <- gb_get_adm0(
+    iso,
+    simplified = TRUE,
+    release_type = "gbAuthoritative",
+    cache_dir = tmpd
+  )
   expect_s3_class(res, "sf")
 })

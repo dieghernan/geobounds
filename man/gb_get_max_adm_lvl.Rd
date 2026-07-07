@@ -15,8 +15,8 @@ gb_get_max_adm_lvl(
 }
 \arguments{
 \item{country}{A character vector of country names or ISO 3166-1 alpha-3
-country codes. Use \code{"all"} to return data for all countries. See also
-\code{\link[countrycode:countrycode]{countrycode::countrycode()}}.}
+country codes. Use \code{"all"} to return boundaries for all countries. See
+also \code{\link[countrycode:countrycode]{countrycode::countrycode()}} from \CRANpkg{countrycode}.}
 
 \item{release_type}{A character string, one of \code{"gbOpen"},
 \code{"gbHumanitarian"} or \code{"gbAuthoritative"}. For most users, use \code{"gbOpen"}
@@ -53,7 +53,7 @@ all |>
 \seealso{
 \code{\link[=gb_get]{gb_get()}} downloads boundaries for the available ADM levels.
 
-Metadata and availability functions:
+Metadata and licensing functions:
 \code{\link[=gb_get_metadata]{gb_get_metadata()}}
 }
 \concept{metadata}

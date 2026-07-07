@@ -2,7 +2,7 @@
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "geobounds",
-  "description": "Provides tools for downloading individual country boundaries and global composite boundaries from 'geoBoundaries' <https://www.geoboundaries.org/> across multiple administrative ('ADM') levels. Returns boundary data as 'sf' objects for mapping and spatial analysis. Runfola et al. (2020) <doi:10.1371/journal.pone.0231866> describe the underlying database.",
+  "description": "Provides tools to download individual country boundaries and global composite boundaries from 'geoBoundaries' <https://www.geoboundaries.org/> across multiple administrative ('ADM') levels. Returns boundaries as 'sf' objects for mapping and spatial analysis. Runfola et al. (2020) <doi:10.1371/journal.pone.0231866> describe the underlying database.",
   "name": "geobounds: Download Administrative Boundary Data from 'geoBoundaries'",
   "relatedLink": ["https://dieghernan.github.io/geobounds/", "https://CRAN.R-project.org/package=geobounds"],
   "codeRepository": "https://github.com/dieghernan/geobounds",
@@ -125,6 +125,18 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=tibble"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "withr",
+      "name": "withr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=withr"
     }
   ],
   "softwareRequirements": {
@@ -208,7 +220,7 @@
     "SystemRequirements": null
   },
   "keywords": ["administrative-boundaries", "api", "geoboundaries", "r", "r-package", "spatial-data", "cran", "cran-r"],
-  "fileSize": "442.07KB",
+  "fileSize": "453.998KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",

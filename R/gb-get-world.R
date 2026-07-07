@@ -4,21 +4,21 @@
 #' Returns global composite boundaries for the requested ADM level. Boundaries
 #' are clipped to international borders, with gaps between borders filled.
 #'
-#' CGAZ data are not covered by the package's MIT license.
+#' CGAZ boundaries are not covered by the package's MIT license.
 #' [Attribution](https://www.geoboundaries.org/index.html#usage) is required
-#' when sharing the data or derived products.
+#' when sharing the boundaries or derived products.
 #'
 #' @details
 #' Comprehensive Global Administrative Zones (CGAZ) are global composites for
-#' administrative boundaries. Compared with individual country boundary files,
+#' administrative boundaries. Compared with individual country boundaries,
 #' global composite boundaries use extensive simplification so file sizes are
 #' small enough for most desktop software. They remove disputed areas, replace
-#' them with polygons following US Department of State definitions and fill
-#' gaps between borders.
+#' them with polygons following United States Department of State definitions
+#' and fill gaps between borders.
 #'
 #' Follow the citation and use information included in the downloaded CGAZ
 #' archive. CGAZ and figures derived from it are not relicensed under the
-#' package's MIT License.
+#' package's MIT license.
 #'
 #' @inherit gb_get return source references
 #' @inheritParams gb_get

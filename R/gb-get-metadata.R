@@ -10,7 +10,7 @@
 #'
 #' - `boundaryID`: The ID for this layer. It combines the ISO code, boundary
 #'   type and a unique identifier generated from the input metadata and
-#'   geometry. This only changes if the underlying data changes.
+#'   geometry. This only changes if the underlying boundary changes.
 #' - `boundaryName`: The name of the country represented by the layer.
 #' - `boundaryISO`: The ISO 3166-1 alpha-3 code for the country.
 #' - `boundaryYearRepresented`: The year or range of years in `"START to END"`
@@ -20,13 +20,13 @@
 #' - `boundarySource`: A comma-separated list of the primary sources for the
 #'   boundary.
 #' - `boundaryLicense`: The original license under which the primary source
-#'   released the boundary data.
+#'   released the boundary.
 #' - `licenseDetail`: Notes about the license.
 #' - `licenseSource`: The URL of the primary source.
 #' - `sourceDataUpdateDate`: The date the source information was integrated
 #'   into the **geoBoundaries** repository.
-#' - `buildDate`: The date the source data was most recently standardized and
-#'   built into a **geoBoundaries** release.
+#' - `buildDate`: The date the source boundary was most recently standardized
+#'   and built into a **geoBoundaries** release.
 #' - `Continent`: The continent the country is associated with.
 #' - `UNSDG-region`: The United Nations Sustainable Development Goals (SDG)
 #'   region the country is associated with.
@@ -34,7 +34,7 @@
 #'   subregion the country is associated with.
 #' - `worldBankIncomeGroup`: The World Bank income group the country is
 #'   associated with.
-#' - `admUnitCount`: The number of administrative units in the file.
+#' - `admUnitCount`: The number of administrative units in the boundary.
 #' - `meanVertices`: The mean number of vertices defining the boundaries of each
 #'   administrative unit in the layer.
 #' - `minVertices`: The minimum number of vertices defining a boundary.
@@ -68,7 +68,7 @@
 #'
 #' @returns
 #' A [tibble][tibble::tbl_df] from \CRANpkg{tibble} with one row per matching
-#' boundary file and the columns described in **Details**.
+#' boundary and the columns described in **Details**.
 #'
 #' @seealso [gb_get()] downloads the boundaries described by the metadata.
 #'
@@ -110,6 +110,15 @@ gb_get_metadata <- function(
   dplyr::as_tibble(meta_df)
 }
 
+#' Query one **geoBoundaries** metadata endpoint
+#'
+#' @param url A **geoBoundaries** API metadata URL.
+#'
+#' @returns
+#' A [tibble][tibble::tbl_df] from \CRANpkg{tibble} or `NULL` when the request
+#' fails.
+#'
+#' @noRd
 gbnds_dev_meta_query <- function(url) {
   q <- gb_hlp_request(url)
   resp <- httr2::req_perform(q)

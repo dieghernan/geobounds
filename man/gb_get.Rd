@@ -20,8 +20,8 @@ gb_get(
 }
 \arguments{
 \item{country}{A character vector of country names or ISO 3166-1 alpha-3
-country codes. Use \code{"all"} to return data for all countries. See also
-\code{\link[countrycode:countrycode]{countrycode::countrycode()}}.}
+country codes. Use \code{"all"} to return boundaries for all countries. See
+also \code{\link[countrycode:countrycode]{countrycode::countrycode()}} from \CRANpkg{countrycode}.}
 
 \item{adm_lvl}{ADM level. Accepted values are \code{"all"} (all available
 boundaries) or the ADM level (\code{"adm0"} is the country boundary,
@@ -30,8 +30,8 @@ second level and so on). Uppercase versions (\code{"ADM1"}) and level numbers
 (\code{0}, \code{1}, \code{2}, \code{3}, \code{4}, \code{5}) are also accepted.}
 
 \item{simplified}{A logical value. If \code{TRUE}, return simplified boundaries.
-The default \code{FALSE} uses the primary \strong{geoBoundaries} file. See simplified
-boundaries at \url{https://www.geoboundaries.org/}.}
+The default \code{FALSE} uses the primary \strong{geoBoundaries} layer. See
+simplified boundaries at \url{https://www.geoboundaries.org/}.}
 
 \item{release_type}{A character string, one of \code{"gbOpen"},
 \code{"gbHumanitarian"} or \code{"gbAuthoritative"}. For most users, use \code{"gbOpen"}
@@ -49,14 +49,14 @@ and cannot be used for commercial purposes.}
 source \code{.zip} archive.}
 
 \item{cache_dir}{A path to a cache directory. If not set (the default
-\code{NULL}), the data will be stored in the default cache directory (see
-\code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}). If no cache directory has been set, files are stored
-in a temporary cache directory. See \code{\link[base:tempdir]{base::tempdir()}} and the cache
+\code{NULL}), boundary archives are stored in the default cache directory (see
+\code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}). If no cache directory has been set, archives are
+stored in a temporary cache directory. See \code{\link[base:tempdir]{base::tempdir()}} and the cache
 strategies in \code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}.}
 }
 \value{
 An \link[sf:st_sf]{sf} object from \CRANpkg{sf} containing the requested
-boundaries. If no boundary files match the request, the function returns
+boundaries. If no boundaries match the request, the function returns
 \code{NULL}.
 }
 \description{
@@ -66,18 +66,18 @@ their own boundaries, without special identification of disputed areas.
 Use \code{\link[=gb_get_world]{gb_get_world()}} for global composite boundaries that standardize
 disputed areas and fill gaps between borders.
 
-Data downloaded through this function are not covered by the package's MIT
-license. \href{https://www.geoboundaries.org/index.html#usage}{Attribution} to
-\strong{geoBoundaries} and the original sources is required when sharing the data
-or derived products.
+Boundaries downloaded through this function are not covered by the package's
+MIT license. \href{https://www.geoboundaries.org/index.html#usage}{Attribution}
+to \strong{geoBoundaries} and the original sources is required when sharing the
+boundaries or derived products.
 }
 \details{
-Each individual country boundary file is governed by the original license
+Each individual country boundary layer is governed by the original license
 identified in its boundary metadata. See \code{\link[=gb_get_metadata]{gb_get_metadata()}}. The
 \code{"gbOpen"} release contains multiple open licenses, including ODbL and
-CC BY-SA. It must not be assumed that every boundary is licensed only under
-CC BY 4.0. Users should cite the sources listed in the metadata and comply
-with any attribution, share-alike or non-commercial terms.
+CC BY-SA. Do not assume every boundary is licensed only under CC BY 4.0.
+Users should cite the sources listed in the metadata and comply with any
+attribution, share-alike or non-commercial terms.
 
 The wrappers \code{\link[=gb_get_adm0]{gb_get_adm0()}}, \code{\link[=gb_get_adm1]{gb_get_adm1()}}, \code{\link[=gb_get_adm2]{gb_get_adm2()}},
 \code{\link[=gb_get_adm3]{gb_get_adm3()}}, \code{\link[=gb_get_adm4]{gb_get_adm4()}} and \code{\link[=gb_get_adm5]{gb_get_adm5()}} are also available for
@@ -118,8 +118,8 @@ gb_get_metadata(
 \dontshow{\}) # examplesIf}
 }
 \references{
-Runfola et al. (2020) \strong{geoBoundaries}: A global database of political
-administrative boundaries. \emph{PLOS ONE} \strong{15}(4), e0231866.
+Runfola et al. (2020) "geoBoundaries: A global database of political
+administrative boundaries." \emph{PLOS ONE}, \strong{15}(4), 1--9.
 \doi{10.1371/journal.pone.0231866}.
 }
 \seealso{

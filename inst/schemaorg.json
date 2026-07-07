@@ -20,7 +20,7 @@
           "name": "William and Mary geoLab"
         }
       ],
-      "description": "Provides tools for downloading individual country boundaries and global composite boundaries from 'geoBoundaries' <https://www.geoboundaries.org/> across multiple administrative ('ADM') levels. Returns boundary data as 'sf' objects for mapping and spatial analysis. Runfola et al. (2020) <doi:10.1371/journal.pone.0231866> describe the underlying database.",
+      "description": "Provides tools to download individual country boundaries and global composite boundaries from 'geoBoundaries' <https://www.geoboundaries.org/> across multiple administrative ('ADM') levels. Returns boundaries as 'sf' objects for mapping and spatial analysis. Runfola et al. (2020) <doi:10.1371/journal.pone.0231866> describe the underlying database.",
       "license": "https://spdx.org/licenses/MIT",
       "name": "geobounds: Download Administrative Boundary Data from 'geoBoundaries'",
       "programmingLanguage": {

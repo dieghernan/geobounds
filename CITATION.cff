@@ -13,10 +13,10 @@ doi: 10.32614/CRAN.package.geobounds
 identifiers:
 - type: doi
   value: 10.32614/CRAN.package.geobounds
-abstract: Provides tools for downloading individual country boundaries and global
-  composite boundaries from 'geoBoundaries' <https://www.geoboundaries.org/> across
-  multiple administrative ('ADM') levels. Returns boundary data as 'sf' objects for
-  mapping and spatial analysis. Runfola et al. (2020) <https://doi.org/10.1371/journal.pone.0231866>
+abstract: Provides tools to download individual country boundaries and global composite
+  boundaries from 'geoBoundaries' <https://www.geoboundaries.org/> across multiple
+  administrative ('ADM') levels. Returns boundaries as 'sf' objects for mapping and
+  spatial analysis. Runfola et al. (2020) <https://doi.org/10.1371/journal.pone.0231866>
   describe the underlying database.
 authors:
 - family-names: Hernangómez
@@ -34,11 +34,11 @@ preferred-citation:
   year: '2026'
   version: 0.1.2.9000
   url: https://dieghernan.github.io/geobounds/
-  abstract: Provides tools for downloading individual country boundaries and global
-    composite boundaries from geoBoundaries <https://www.geoboundaries.org/> across
-    multiple administrative (ADM) levels. Returns boundary data as sf objects for
-    mapping and spatial analysis. Runfola et al. (2020) <doi:10.1371/journal.pone.0231866>
-    describe the underlying database.
+  abstract: Provides tools to download individual country boundaries and global composite
+    boundaries from geoBoundaries <https://www.geoboundaries.org/> across multiple
+    administrative (ADM) levels. Returns boundaries as sf objects for mapping and
+    spatial analysis. Runfola et al. (2020) <doi:10.1371/journal.pone.0231866> describe
+    the underlying database.
   doi: 10.32614/CRAN.package.geobounds
 repository: https://CRAN.R-project.org/package=geobounds
 repository-code: https://github.com/dieghernan/geobounds
@@ -338,4 +338,29 @@ references:
     email: hadley@rstudio.com
   year: '2026'
   doi: 10.32614/CRAN.package.tibble
+- type: software
+  title: withr
+  abstract: 'withr: Run Code ''With'' Temporarily Modified Global State'
+  notes: Suggests
+  url: https://withr.r-lib.org
+  repository: https://CRAN.R-project.org/package=withr
+  authors:
+  - family-names: Hester
+    given-names: Jim
+  - family-names: Henry
+    given-names: Lionel
+    email: lionel@posit.co
+  - family-names: Müller
+    given-names: Kirill
+    email: krlmlr+r@mailbox.org
+  - family-names: Ushey
+    given-names: Kevin
+    email: kevinushey@gmail.com
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  - family-names: Chang
+    given-names: Winston
+  year: '2026'
+  doi: 10.32614/CRAN.package.withr
 

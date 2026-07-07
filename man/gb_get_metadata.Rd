@@ -17,8 +17,8 @@ gb_get_metadata(
 }
 \arguments{
 \item{country}{A character vector of country names or ISO 3166-1 alpha-3
-country codes. Use \code{"all"} to return data for all countries. See also
-\code{\link[countrycode:countrycode]{countrycode::countrycode()}}.}
+country codes. Use \code{"all"} to return boundaries for all countries. See
+also \code{\link[countrycode:countrycode]{countrycode::countrycode()}} from \CRANpkg{countrycode}.}
 
 \item{adm_lvl}{ADM level. Accepted values are \code{"all"} (all available
 boundaries) or the ADM level (\code{"adm0"} is the country boundary,
@@ -38,7 +38,7 @@ and cannot be used for commercial purposes.}
 }
 \value{
 A \link[tibble:tbl_df]{tibble} from \CRANpkg{tibble} with one row per matching
-boundary file and the columns described in \strong{Details}.
+boundary and the columns described in \strong{Details}.
 }
 \description{
 Returns boundary metadata from the
@@ -50,7 +50,7 @@ following columns:
 \itemize{
 \item \code{boundaryID}: The ID for this layer. It combines the ISO code, boundary
 type and a unique identifier generated from the input metadata and
-geometry. This only changes if the underlying data changes.
+geometry. This only changes if the underlying boundary changes.
 \item \code{boundaryName}: The name of the country represented by the layer.
 \item \code{boundaryISO}: The ISO 3166-1 alpha-3 code for the country.
 \item \code{boundaryYearRepresented}: The year or range of years in \code{"START to END"}
@@ -60,13 +60,13 @@ format that the boundary layers represent.
 \item \code{boundarySource}: A comma-separated list of the primary sources for the
 boundary.
 \item \code{boundaryLicense}: The original license under which the primary source
-released the boundary data.
+released the boundary.
 \item \code{licenseDetail}: Notes about the license.
 \item \code{licenseSource}: The URL of the primary source.
 \item \code{sourceDataUpdateDate}: The date the source information was integrated
 into the \strong{geoBoundaries} repository.
-\item \code{buildDate}: The date the source data was most recently standardized and
-built into a \strong{geoBoundaries} release.
+\item \code{buildDate}: The date the source boundary was most recently standardized
+and built into a \strong{geoBoundaries} release.
 \item \code{Continent}: The continent the country is associated with.
 \item \code{UNSDG-region}: The United Nations Sustainable Development Goals (SDG)
 region the country is associated with.
@@ -74,7 +74,7 @@ region the country is associated with.
 subregion the country is associated with.
 \item \code{worldBankIncomeGroup}: The World Bank income group the country is
 associated with.
-\item \code{admUnitCount}: The number of administrative units in the file.
+\item \code{admUnitCount}: The number of administrative units in the boundary.
 \item \code{meanVertices}: The mean number of vertices defining the boundaries of each
 administrative unit in the layer.
 \item \code{minVertices}: The minimum number of vertices defining a boundary.
@@ -117,7 +117,7 @@ gb_get_metadata(adm_lvl = "ADM4") |>
 \seealso{
 \code{\link[=gb_get]{gb_get()}} downloads the boundaries described by the metadata.
 
-Metadata and availability functions:
+Metadata and licensing functions:
 \code{\link[=gb_get_max_adm_lvl]{gb_get_max_adm_lvl()}}
 }
 \concept{metadata}

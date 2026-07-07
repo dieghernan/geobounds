@@ -36,10 +36,10 @@ navbar:
       aria-label: geoBoundaries
 
 home:
-  title: geobounds | Download administrative boundary data from geoBoundaries
+  title: geobounds | Download administrative boundaries from geoBoundaries
   description: >
     Download individual country boundaries and global composite boundaries
-    from geoBoundaries as sf objects for mapping and spatial analysis.
+    from **geoBoundaries** as **sf** objects for mapping and spatial analysis.
 
 reference:
 - title: Download boundaries
@@ -50,12 +50,12 @@ reference:
   - has_concept("api")
 - title: Inspect metadata and availability
   desc: >
-    Inspect boundary metadata, available ADM levels and source information.
+    Inspect boundary metadata, available ADM levels and licensing.
 - contents:
   - has_concept("metadata")
 - title: Manage the cache
   desc: >
-    Configure, inspect and clear cached boundary files.
+    Configure, inspect and clear cached boundary archives.
 - contents:
   - has_concept("cache")
 - title: Learn about geobounds
@@ -65,7 +65,7 @@ reference:
 articles:
 - title: Get started
   desc: >
-    Learn to download, inspect and map administrative boundary data.
+    Learn to download, inspect and map administrative boundaries.
   contents:
   - geobounds
 - title: Release coverage
@@ -87,5 +87,5 @@ articles:
 external-articles:
 - name: blog-introducing-geobounds
   title: "Introducing geobounds"
-  description: "Download administrative boundary data from geoBoundaries"
+  description: "Download administrative boundaries from **geoBoundaries**"
   href: https://dieghernan.github.io/202602_geobounds/
