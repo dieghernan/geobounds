@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>geobounds | Download administrative boundary data from geoBoundaries • geobounds</title>
+<title>geobounds | Download administrative boundaries from geoBoundaries • geobounds</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
 <link rel="icon" type="”image/svg+xml”" href="favicon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -20,10 +20,10 @@
 <link href="deps/Roboto-0.4.10/font.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="geobounds | Download administrative boundary data from geoBoundaries">
-<meta name="description" content="Download individual country boundaries and global composite boundaries from geoBoundaries as sf objects for mapping and spatial analysis.
+<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="geobounds | Download administrative boundaries from geoBoundaries">
+<meta name="description" content="Download individual country boundaries and global composite boundaries from **geoBoundaries** as **sf** objects for mapping and spatial analysis.
 ">
-<meta property="og:description" content="Download individual country boundaries and global composite boundaries from geoBoundaries as sf objects for mapping and spatial analysis.
+<meta property="og:description" content="Download individual country boundaries and global composite boundaries from **geoBoundaries** as **sf** objects for mapping and spatial analysis.
 ">
 <meta property="og:image" content="https://dieghernan.github.io/geobounds/logo.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -107,10 +107,10 @@
 <div class="section level2">
 <h2 id="why-this-package">Why this package?<a class="anchor" aria-label="anchor" href="#why-this-package"></a>
 </h2>
-<p>The <strong>geobounds</strong> package provides an <strong>R</strong>-friendly interface for downloading administrative boundary data from <a href="https://www.geoboundaries.org/" class="external-link"><strong>geoBoundaries</strong></a>, the Global Database of Political Administrative Boundaries. With <strong>geobounds</strong>, you can:</p>
+<p>The <strong>geobounds</strong> package provides an <strong>R</strong>-friendly interface for downloading administrative boundaries from <a href="https://www.geoboundaries.org/" class="external-link"><strong>geoBoundaries</strong></a>, the Global Database of Political Administrative Boundaries. With <strong>geobounds</strong>, you can:</p>
 <ul>
 <li>Download individual country boundaries and global composite boundaries from <strong>geoBoundaries</strong>.</li>
-<li>Use <strong>tidyverse</strong> and <strong>sf</strong> workflows in <strong>R</strong> to map, analyze and join administrative boundary data with your own data.</li>
+<li>Use <strong>tidyverse</strong> and <strong>sf</strong> workflows in <strong>R</strong> to map, analyze and join administrative boundaries with your own data.</li>
 <li>Work in an open-data context where attribution to <strong>geoBoundaries</strong> is required.</li>
 </ul>
 <p>In short, if you work with administrative boundaries in <strong>R</strong>, <strong>geobounds</strong> simplifies downloading, cache management and integration with spatial data workflows.</p>
@@ -125,7 +125,7 @@ Important
 </div>
 <div class="callout-body-container callout-body">
 <p>
-<a href="https://www.geoboundaries.org/index.html#usage" class="external-link">Attribution</a> is required when using <strong>geoBoundaries</strong>.
+<a href="https://www.geoboundaries.org/index.html#usage" class="external-link">Attribution</a> is required when sharing <strong>geoBoundaries</strong> boundaries or derived products.
 </p>
 </div>
 </div>
@@ -190,7 +190,7 @@ Important
 <li>
 <strong>gbOpen</strong>: Openly licensed boundaries suitable for most uses. The original license varies by boundary and may include ODbL, CC BY or CC BY-SA terms.</li>
 <li>
-<strong>gbHumanitarian</strong>: Boundaries mirrored from UN OCHA. Check the current metadata for the applicable license and source.</li>
+<strong>gbHumanitarian</strong>: Boundaries mirrored from UN OCHA. Check the current metadata for the applicable source, license and attribution terms.</li>
 <li>
 <strong>gbAuthoritative</strong>: Boundaries mirrored from UN SALB and verified through in-country processes. These boundaries cannot be used for commercial purposes.</li>
 </ul>
@@ -267,8 +267,8 @@ Important
 <div class="section level2">
 <h2 id="license">License<a class="anchor" aria-label="anchor" href="#license"></a>
 </h2>
-<p>The <strong>geobounds</strong> software is released under the <a href="https://opensource.org/license/mit" class="external-link">MIT License</a>. This license does not cover data downloaded through the package or figures derived from those data.</p>
-<p>Each boundary retains the original license reported by <strong>geoBoundaries</strong>. Before reusing or redistributing data, use <code><a href="reference/gb_get_metadata.html">gb_get_metadata()</a></code> to check <code>boundaryLicense</code>, <code>licenseDetail</code>, <code>licenseSource</code>, <code>boundarySource</code> and <code>boundarySourceURL</code>. Attribute <strong>geoBoundaries</strong> and the original providers, include the applicable license and indicate modifications when required. <code>gbAuthoritative</code> contains UN SALB data restricted to non-commercial use.</p>
+<p>The <strong>geobounds</strong> software is released under the <a href="https://opensource.org/license/mit" class="external-link">MIT license</a>. This license does not cover boundaries downloaded through the package or figures derived from those boundaries.</p>
+<p>Each boundary retains the original license reported by <strong>geoBoundaries</strong>. Before reusing or redistributing boundaries, use <code><a href="reference/gb_get_metadata.html">gb_get_metadata()</a></code> to check <code>boundaryLicense</code>, <code>licenseDetail</code>, <code>licenseSource</code>, <code>boundarySource</code> and <code>boundarySourceURL</code>. Attribute <strong>geoBoundaries</strong> and the original providers, include the applicable license and indicate modifications when required. <code>gbAuthoritative</code> contains UN SALB boundaries restricted to non-commercial use.</p>
 </div>
 <div class="section level2">
 <h2 id="acknowledgments">Acknowledgments<a class="anchor" aria-label="anchor" href="#acknowledgments"></a>
@@ -276,7 +276,7 @@ Important
 <ul>
 <li>Thanks to the <strong>geoBoundaries</strong> team and the <a href="https://sites.google.com/view/wmgeolab/" class="external-link">William &amp; Mary geoLab</a> for creating and maintaining the dataset.</li>
 <li>Thanks to the <strong>R</strong> package community and all <strong>geobounds</strong> contributors.</li>
-<li>If you use <strong>geobounds</strong> and the underlying <strong>geoBoundaries</strong> data, please cite both.</li>
+<li>If you use <strong>geobounds</strong> with <strong>geoBoundaries</strong> boundaries, please cite both.</li>
 </ul>
 </div>
 <div class="section level2">
@@ -292,7 +292,7 @@ Hernangómez D (2026). <em>geobounds: Download Administrative Boundary Data from
 <span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>  year <span class="ot">=</span> {<span class="dv">2026</span>},</span>
 <span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>  version <span class="ot">=</span> {<span class="dv">0</span>.<span class="dv">1</span>.<span class="fl">2.9000</span>},</span>
 <span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>  url <span class="ot">=</span> {https<span class="sc">:</span><span class="er">//</span>dieghernan.github.io<span class="sc">/</span>geobounds<span class="sc">/</span>},</span>
-<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>  abstract <span class="ot">=</span> {Provides tools <span class="cf">for</span> downloading individual country boundaries and global composite boundaries from geoBoundaries <span class="sc">&lt;</span>https<span class="sc">:</span><span class="er">//</span>www.geoboundaries.org<span class="sc">/</span><span class="er">&gt;</span> across multiple <span class="fu">administrative</span> (ADM) levels. Returns boundary data as sf objects <span class="cf">for</span> mapping and spatial analysis. Runfola et <span class="fu">al.</span> (<span class="dv">2020</span>) <span class="sc">&lt;</span>doi<span class="sc">:</span><span class="fl">10.1371</span><span class="sc">/</span>journal.pone<span class="fl">.0231866</span><span class="sc">&gt;</span> describe the underlying database.},</span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>  abstract <span class="ot">=</span> {Provides tools to download individual country boundaries and global composite boundaries from geoBoundaries <span class="sc">&lt;</span>https<span class="sc">:</span><span class="er">//</span>www.geoboundaries.org<span class="sc">/</span><span class="er">&gt;</span> across multiple <span class="fu">administrative</span> (ADM) levels. Returns boundaries as sf objects <span class="cf">for</span> mapping and spatial analysis. Runfola et <span class="fu">al.</span> (<span class="dv">2020</span>) <span class="sc">&lt;</span>doi<span class="sc">:</span><span class="fl">10.1371</span><span class="sc">/</span>journal.pone<span class="fl">.0231866</span><span class="sc">&gt;</span> describe the underlying database.},</span>
 <span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>  doi <span class="ot">=</span> {<span class="fl">10.32614</span><span class="sc">/</span>CRAN.package.geobounds},</span>
 <span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a>}</span></code></pre></div>
 </div>

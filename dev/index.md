@@ -3,14 +3,14 @@
 ## Why this package?
 
 The **geobounds** package provides an **R**-friendly interface for
-downloading administrative boundary data from
+downloading administrative boundaries from
 [**geoBoundaries**](https://www.geoboundaries.org/), the Global Database
 of Political Administrative Boundaries. With **geobounds**, you can:
 
 - Download individual country boundaries and global composite boundaries
   from **geoBoundaries**.
 - Use **tidyverse** and **sf** workflows in **R** to map, analyze and
-  join administrative boundary data with your own data.
+  join administrative boundaries with your own data.
 - Work in an open-data context where attribution to **geoBoundaries** is
   required.
 
@@ -21,7 +21,7 @@ with spatial data workflows.
 Important
 
 [Attribution](https://www.geoboundaries.org/index.html#usage) is
-required when using **geoBoundaries**.
+required when sharing **geoBoundaries** boundaries or derived products.
 
 ## Installation
 
@@ -99,7 +99,8 @@ sources, validation processes and licensing terms:
   original license varies by boundary and may include ODbL, CC BY or CC
   BY-SA terms.
 - **gbHumanitarian**: Boundaries mirrored from UN OCHA. Check the
-  current metadata for the applicable license and source.
+  current metadata for the applicable source, license and attribution
+  terms.
 - **gbAuthoritative**: Boundaries mirrored from UN SALB and verified
   through in-country processes. These boundaries cannot be used for
   commercial purposes.
@@ -180,18 +181,18 @@ country.](reference/figures/README-map-coverage-1.png)
 ## License
 
 The **geobounds** software is released under the [MIT
-License](https://opensource.org/license/mit). This license does not
-cover data downloaded through the package or figures derived from those
-data.
+license](https://opensource.org/license/mit). This license does not
+cover boundaries downloaded through the package or figures derived from
+those boundaries.
 
 Each boundary retains the original license reported by
-**geoBoundaries**. Before reusing or redistributing data, use
+**geoBoundaries**. Before reusing or redistributing boundaries, use
 [`gb_get_metadata()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_metadata.md)
 to check `boundaryLicense`, `licenseDetail`, `licenseSource`,
 `boundarySource` and `boundarySourceURL`. Attribute **geoBoundaries**
 and the original providers, include the applicable license and indicate
-modifications when required. `gbAuthoritative` contains UN SALB data
-restricted to non-commercial use.
+modifications when required. `gbAuthoritative` contains UN SALB
+boundaries restricted to non-commercial use.
 
 ## Acknowledgments
 
@@ -200,8 +201,8 @@ restricted to non-commercial use.
   maintaining the dataset.
 - Thanks to the **R** package community and all **geobounds**
   contributors.
-- If you use **geobounds** and the underlying **geoBoundaries** data,
-  please cite both.
+- If you use **geobounds** with **geoBoundaries** boundaries, please
+  cite both.
 
 ## Citation
 
@@ -219,7 +220,7 @@ A BibTeX entry for LaTeX users:
   year = {2026},
   version = {0.1.2.9000},
   url = {https://dieghernan.github.io/geobounds/},
-  abstract = {Provides tools for downloading individual country boundaries and global composite boundaries from geoBoundaries <https://www.geoboundaries.org/> across multiple administrative (ADM) levels. Returns boundary data as sf objects for mapping and spatial analysis. Runfola et al. (2020) <doi:10.1371/journal.pone.0231866> describe the underlying database.},
+  abstract = {Provides tools to download individual country boundaries and global composite boundaries from geoBoundaries <https://www.geoboundaries.org/> across multiple administrative (ADM) levels. Returns boundaries as sf objects for mapping and spatial analysis. Runfola et al. (2020) <doi:10.1371/journal.pone.0231866> describe the underlying database.},
   doi = {10.32614/CRAN.package.geobounds},
 }
 ```

@@ -17,9 +17,10 @@ gb_detect_cache_dir(x = NULL)
 
 ## Value
 
-A character scalar containing the path to the active cache directory. It
-also appears in a clickable message. See
-[cli::inline-markup](https://cli.r-lib.org/reference/inline-markup.html).
+A character scalar containing the path to the active cache directory.
+The path is also printed as a clickable message. See
+[cli::inline-markup](https://cli.r-lib.org/reference/inline-markup.html)
+from [cli](https://CRAN.R-project.org/package=cli).
 
 ## See also
 
@@ -31,6 +32,6 @@ Cache management functions:
 
 ``` r
 gb_detect_cache_dir()
-#> ℹ /tmp/RtmpwUI0vF/geobounds
-#> [1] "/tmp/RtmpwUI0vF/geobounds"
+#> ℹ /tmp/RtmpYIeUgv/geobounds
+#> [1] "/tmp/RtmpYIeUgv/geobounds"
 ```

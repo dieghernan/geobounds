@@ -13,11 +13,11 @@ Not all countries have the same number of ADM levels. Use
 [`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_max_adm_lvl.md)
 to check availability.
 
-Data downloaded through these functions are not covered by the package's
-MIT license.
+Boundaries downloaded through these functions are not covered by the
+package's MIT license.
 [Attribution](https://www.geoboundaries.org/index.html#usage) to
 **geoBoundaries** and the original sources is required when sharing the
-data or derived products.
+boundaries or derived products.
 
 ## Usage
 
@@ -86,13 +86,14 @@ gb_get_adm5(
 - country:
 
   A character vector of country names or ISO 3166-1 alpha-3 country
-  codes. Use `"all"` to return data for all countries. See also
-  [`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/man/countrycode.html).
+  codes. Use `"all"` to return boundaries for all countries. See also
+  [`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/man/countrycode.html)
+  from [countrycode](https://CRAN.R-project.org/package=countrycode).
 
 - simplified:
 
   A logical value. If `TRUE`, return simplified boundaries. The default
-  `FALSE` uses the primary **geoBoundaries** file. See simplified
+  `FALSE` uses the primary **geoBoundaries** layer. See simplified
   boundaries at <https://www.geoboundaries.org/>.
 
 - release_type:
@@ -117,10 +118,10 @@ gb_get_adm5(
 
 - cache_dir:
 
-  A path to a cache directory. If not set (the default `NULL`), the data
-  will be stored in the default cache directory (see
+  A path to a cache directory. If not set (the default `NULL`), boundary
+  archives are stored in the default cache directory (see
   [`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/dev/reference/gb_set_cache_dir.md)).
-  If no cache directory has been set, files are stored in a temporary
+  If no cache directory has been set, archives are stored in a temporary
   cache directory. See
   [`base::tempdir()`](https://rdrr.io/r/base/tempfile.html) and the
   cache strategies in
@@ -130,12 +131,12 @@ gb_get_adm5(
 
 An [sf](https://r-spatial.github.io/sf/reference/sf.html) object from
 [sf](https://CRAN.R-project.org/package=sf) containing the requested
-boundaries. If no boundary files match the request, the function returns
+boundaries. If no boundaries match the request, the function returns
 `NULL`.
 
 ## Details
 
-Each individual country boundary file is governed by the original
+Each individual country boundary layer is governed by the original
 license identified in its boundary metadata. See
 [`gb_get_metadata()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_metadata.md).
 Users should cite the sources listed in the metadata and comply with any
@@ -143,8 +144,8 @@ attribution, share-alike or non-commercial terms.
 
 ## References
 
-Runfola et al. (2020) **geoBoundaries**: A global database of political
-administrative boundaries. *PLOS ONE* **15**(4), e0231866.
+Runfola et al. (2020) "geoBoundaries: A global database of political
+administrative boundaries." *PLOS ONE*, **15**(4), 1–9.
 [doi:10.1371/journal.pone.0231866](https://doi.org/10.1371/journal.pone.0231866)
 .
 

@@ -25,7 +25,7 @@ as [**sf**](https://r-spatial.github.io/sf/) objects.
 
 ## Inspect metadata and availability
 
-Inspect boundary metadata, available ADM levels and source information.
+Inspect boundary metadata, available ADM levels and licensing.
 
 - [`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_max_adm_lvl.md)
   : Find the highest available ADM level
@@ -37,7 +37,7 @@ Inspect boundary metadata, available ADM levels and source information.
 
 ## Manage the cache
 
-Configure, inspect and clear cached boundary files.
+Configure, inspect and clear cached boundary archives.
 
 - [`gb_clear_cache()`](https://dieghernan.github.io/geobounds/dev/reference/gb_clear_cache.md)
   :

@@ -15,5 +15,5 @@ Highest available ADM level by country: gbOpen.
 
 ## gbOpen metadata
 
-The table lists boundary metadata and download links for **gbOpen**. Use
+The table lists boundary metadata and archive links for **gbOpen**. Use
 the filters or search box to find a country or boundary type.

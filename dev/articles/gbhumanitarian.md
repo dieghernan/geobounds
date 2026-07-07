@@ -5,7 +5,7 @@
 The map shows the highest ADM level available for each country in the
 **gbHumanitarian** release type.
 
-These data are not covered by the package’s MIT License. Check the
+These boundaries are not covered by the package’s MIT license. Check the
 current boundary metadata for the original source, license and
 attribution terms.
 
@@ -15,6 +15,6 @@ Highest available ADM level by country: gbHumanitarian.
 
 ## gbHumanitarian metadata
 
-The table lists boundary metadata and download links for
+The table lists boundary metadata and archive links for
 **gbHumanitarian**. Use the filters or search box to find a country or
 boundary type.

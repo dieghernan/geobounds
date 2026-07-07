@@ -27,7 +27,7 @@ from geoBoundaries*.
       year = {2026},
       version = {0.1.2.9000},
       url = {https://dieghernan.github.io/geobounds/},
-      abstract = {Provides tools for downloading individual country boundaries and global composite boundaries from geoBoundaries <https://www.geoboundaries.org/> across multiple administrative (ADM) levels. Returns boundary data as sf objects for mapping and spatial analysis. Runfola et al. (2020) <doi:10.1371/journal.pone.0231866> describe the underlying database.},
+      abstract = {Provides tools to download individual country boundaries and global composite boundaries from geoBoundaries <https://www.geoboundaries.org/> across multiple administrative (ADM) levels. Returns boundaries as sf objects for mapping and spatial analysis. Runfola et al. (2020) <doi:10.1371/journal.pone.0231866> describe the underlying database.},
       doi = {10.32614/CRAN.package.geobounds},
     }
 
@@ -43,7 +43,7 @@ boundaries.” *PLOS ONE*, **15**(4), 1–9.
       title = {{geoBoundaries}: A global database of political administrative boundaries},
       author = {Daniel Runfola and Austin Anderson and Heather Baier and Matt Crittenden and Elizabeth Dowker and Sydney Fuhrig and Seth Goodman and Grace Grimsley and Rachel Layko and Graham Melville and Maddy Mulder and Rachel Oberman and Joshua Panganiban and Andrew Peck and Leigh Seitz and Sylvia Shea and Hannah Slevin and Rebecca Youngerman and Lauren Hobbs},
       year = {2020},
-      month = {04},
+      month = {apr},
       journal = {PLOS ONE},
       publisher = {Public Library of Science},
       volume = {15},

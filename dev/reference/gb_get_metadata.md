@@ -22,8 +22,9 @@ gb_get_metadata(
 - country:
 
   A character vector of country names or ISO 3166-1 alpha-3 country
-  codes. Use `"all"` to return data for all countries. See also
-  [`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/man/countrycode.html).
+  codes. Use `"all"` to return boundaries for all countries. See also
+  [`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/man/countrycode.html)
+  from [countrycode](https://CRAN.R-project.org/package=countrycode).
 
 - adm_lvl:
 
@@ -48,7 +49,7 @@ gb_get_metadata(
 
 A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)
 from [tibble](https://CRAN.R-project.org/package=tibble) with one row
-per matching boundary file and the columns described in **Details**.
+per matching boundary and the columns described in **Details**.
 
 ## Details
 
@@ -59,7 +60,7 @@ columns:
 
 - `boundaryID`: The ID for this layer. It combines the ISO code,
   boundary type and a unique identifier generated from the input
-  metadata and geometry. This only changes if the underlying data
+  metadata and geometry. This only changes if the underlying boundary
   changes.
 
 - `boundaryName`: The name of the country represented by the layer.
@@ -77,7 +78,7 @@ columns:
   the boundary.
 
 - `boundaryLicense`: The original license under which the primary source
-  released the boundary data.
+  released the boundary.
 
 - `licenseDetail`: Notes about the license.
 
@@ -86,8 +87,8 @@ columns:
 - `sourceDataUpdateDate`: The date the source information was integrated
   into the **geoBoundaries** repository.
 
-- `buildDate`: The date the source data was most recently standardized
-  and built into a **geoBoundaries** release.
+- `buildDate`: The date the source boundary was most recently
+  standardized and built into a **geoBoundaries** release.
 
 - `Continent`: The continent the country is associated with.
 
@@ -100,7 +101,7 @@ columns:
 - `worldBankIncomeGroup`: The World Bank income group the country is
   associated with.
 
-- `admUnitCount`: The number of administrative units in the file.
+- `admUnitCount`: The number of administrative units in the boundary.
 
 - `meanVertices`: The mean number of vertices defining the boundaries of
   each administrative unit in the layer.
@@ -151,7 +152,7 @@ columns:
 [`gb_get()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get.md)
 downloads the boundaries described by the metadata.
 
-Metadata and availability functions:
+Metadata and licensing functions:
 [`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_max_adm_lvl.md)
 
 ## Examples

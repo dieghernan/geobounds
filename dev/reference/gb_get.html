@@ -3,17 +3,17 @@
 their own boundaries, without special identification of disputed areas.
 Use gb_get_world() for global composite boundaries that standardize
 disputed areas and fill gaps between borders.
-Data downloaded through this function are not covered by the package's MIT
-license. Attribution to
-geoBoundaries and the original sources is required when sharing the data
-or derived products."><meta property="og:description" content="Returns individual country boundaries that reflect how countries represent
+Boundaries downloaded through this function are not covered by the package's
+MIT license. Attribution
+to geoBoundaries and the original sources is required when sharing the
+boundaries or derived products."><meta property="og:description" content="Returns individual country boundaries that reflect how countries represent
 their own boundaries, without special identification of disputed areas.
 Use gb_get_world() for global composite boundaries that standardize
 disputed areas and fill gaps between borders.
-Data downloaded through this function are not covered by the package's MIT
-license. Attribution to
-geoBoundaries and the original sources is required when sharing the data
-or derived products."><meta property="og:image" content="https://dieghernan.github.io/geobounds/logo.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@dhernangomez"><meta name="twitter:site" content="@dhernangomez"><meta name="robots" content="noindex"><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-LTNVYVLK36"></script><script>
+Boundaries downloaded through this function are not covered by the package's
+MIT license. Attribution
+to geoBoundaries and the original sources is required when sharing the
+boundaries or derived products."><meta property="og:image" content="https://dieghernan.github.io/geobounds/logo.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@dhernangomez"><meta name="twitter:site" content="@dhernangomez"><meta name="robots" content="noindex"><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-LTNVYVLK36"></script><script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
@@ -78,10 +78,10 @@ or derived products."><meta property="og:image" content="https://dieghernan.gith
 their own boundaries, without special identification of disputed areas.</p>
 <p>Use <code><a href="gb_get_world.html">gb_get_world()</a></code> for global composite boundaries that standardize
 disputed areas and fill gaps between borders.</p>
-<p>Data downloaded through this function are not covered by the package's MIT
-license. <a href="https://www.geoboundaries.org/index.html#usage" class="external-link">Attribution</a> to
-<strong>geoBoundaries</strong> and the original sources is required when sharing the data
-or derived products.</p>
+<p>Boundaries downloaded through this function are not covered by the package's
+MIT license. <a href="https://www.geoboundaries.org/index.html#usage" class="external-link">Attribution</a>
+to <strong>geoBoundaries</strong> and the original sources is required when sharing the
+boundaries or derived products.</p>
     </div>
 
     <div class="section level2">
@@ -107,8 +107,8 @@ or derived products.</p>
 
 <dl><dt id="arg-country">country<a class="anchor" aria-label="anchor" href="#arg-country"></a></dt>
 <dd><p>A character vector of country names or ISO 3166-1 alpha-3
-country codes. Use <code>"all"</code> to return data for all countries. See also
-<code><a href="https://vincentarelbundock.github.io/countrycode/man/countrycode.html" class="external-link">countrycode::countrycode()</a></code>.</p></dd>
+country codes. Use <code>"all"</code> to return boundaries for all countries. See
+also <code><a href="https://vincentarelbundock.github.io/countrycode/man/countrycode.html" class="external-link">countrycode::countrycode()</a></code> from <a href="https://CRAN.R-project.org/package=countrycode" class="external-link"><span class="pkg">countrycode</span></a>.</p></dd>
 
 
 <dt id="arg-adm-lvl">adm_lvl<a class="anchor" aria-label="anchor" href="#arg-adm-lvl"></a></dt>
@@ -121,8 +121,8 @@ second level and so on). Uppercase versions (<code>"ADM1"</code>) and level numb
 
 <dt id="arg-simplified">simplified<a class="anchor" aria-label="anchor" href="#arg-simplified"></a></dt>
 <dd><p>A logical value. If <code>TRUE</code>, return simplified boundaries.
-The default <code>FALSE</code> uses the primary <strong>geoBoundaries</strong> file. See simplified
-boundaries at <a href="https://www.geoboundaries.org/" class="external-link">https://www.geoboundaries.org/</a>.</p></dd>
+The default <code>FALSE</code> uses the primary <strong>geoBoundaries</strong> layer. See
+simplified boundaries at <a href="https://www.geoboundaries.org/" class="external-link">https://www.geoboundaries.org/</a>.</p></dd>
 
 
 <dt id="arg-release-type">release_type<a class="anchor" aria-label="anchor" href="#arg-release-type"></a></dt>
@@ -148,34 +148,34 @@ source <code>.zip</code> archive.</p></dd>
 
 <dt id="arg-cache-dir">cache_dir<a class="anchor" aria-label="anchor" href="#arg-cache-dir"></a></dt>
 <dd><p>A path to a cache directory. If not set (the default
-<code>NULL</code>), the data will be stored in the default cache directory (see
-<code><a href="gb_set_cache_dir.html">gb_set_cache_dir()</a></code>). If no cache directory has been set, files are stored
-in a temporary cache directory. See <code><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">base::tempdir()</a></code> and the cache
+<code>NULL</code>), boundary archives are stored in the default cache directory (see
+<code><a href="gb_set_cache_dir.html">gb_set_cache_dir()</a></code>). If no cache directory has been set, archives are
+stored in a temporary cache directory. See <code><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">base::tempdir()</a></code> and the cache
 strategies in <code><a href="gb_set_cache_dir.html">gb_set_cache_dir()</a></code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>An <a href="https://r-spatial.github.io/sf/reference/sf.html" class="external-link">sf</a> object from <a href="https://CRAN.R-project.org/package=sf" class="external-link"><span class="pkg">sf</span></a> containing the requested
-boundaries. If no boundary files match the request, the function returns
+boundaries. If no boundaries match the request, the function returns
 <code>NULL</code>.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>Each individual country boundary file is governed by the original license
+    <p>Each individual country boundary layer is governed by the original license
 identified in its boundary metadata. See <code><a href="gb_get_metadata.html">gb_get_metadata()</a></code>. The
 <code>"gbOpen"</code> release contains multiple open licenses, including ODbL and
-CC BY-SA. It must not be assumed that every boundary is licensed only under
-CC BY 4.0. Users should cite the sources listed in the metadata and comply
-with any attribution, share-alike or non-commercial terms.</p>
+CC BY-SA. Do not assume every boundary is licensed only under CC BY 4.0.
+Users should cite the sources listed in the metadata and comply with any
+attribution, share-alike or non-commercial terms.</p>
 <p>The wrappers <code><a href="gb_get_adm.html">gb_get_adm0()</a></code>, <code><a href="gb_get_adm.html">gb_get_adm1()</a></code>, <code><a href="gb_get_adm.html">gb_get_adm2()</a></code>,
 <code><a href="gb_get_adm.html">gb_get_adm3()</a></code>, <code><a href="gb_get_adm.html">gb_get_adm4()</a></code> and <code><a href="gb_get_adm.html">gb_get_adm5()</a></code> are also available for
 requesting a single ADM level.</p>
     </div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
-    <p>Runfola et al. (2020) <strong>geoBoundaries</strong>: A global database of political
-administrative boundaries. <em>PLOS ONE</em> <strong>15</strong>(4), e0231866.
+    <p>Runfola et al. (2020) "geoBoundaries: A global database of political
+administrative boundaries." <em>PLOS ONE</em>, <strong>15</strong>(4), 1–9.
 <a href="https://doi.org/10.1371/journal.pone.0231866" class="external-link">doi:10.1371/journal.pone.0231866</a>
 .</p>
     </div>
