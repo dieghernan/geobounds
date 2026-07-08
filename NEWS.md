@@ -1,4 +1,4 @@
-# geobounds (development version)
+# geobounds 1.0.0
 
 - Changed the package software license from CC BY 4.0 to MIT and clarified that
   downloaded boundaries and included figures retain the licenses and attribution
