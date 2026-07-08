@@ -15,7 +15,7 @@ level in geoBoundaries."><meta property="og:image" content="https://dieghernan.g
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="geobounds logo" height="34" width="34" class="d-inline-block me-1">geobounds</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -84,18 +84,20 @@ level in <strong>geoBoundaries</strong>.</p>
 
 <dl><dt id="arg-country">country<a class="anchor" aria-label="anchor" href="#arg-country"></a></dt>
 <dd><p>A character vector of country names or ISO 3166-1 alpha-3
-country codes. Use <code>"all"</code> to return data for all countries. See also
-<code><a href="https://vincentarelbundock.github.io/countrycode/man/countrycode.html" class="external-link">countrycode::countrycode()</a></code>.</p></dd>
+country codes. Use <code>"all"</code> to return boundaries for all countries. See
+also <code><a href="https://vincentarelbundock.github.io/countrycode/man/countrycode.html" class="external-link">countrycode::countrycode()</a></code> from <a href="https://CRAN.R-project.org/package=countrycode" class="external-link"><span class="pkg">countrycode</span></a>.</p></dd>
 
 
 <dt id="arg-release-type">release_type<a class="anchor" aria-label="anchor" href="#arg-release-type"></a></dt>
 <dd><p>A character string, one of <code>"gbOpen"</code>,
 <code>"gbHumanitarian"</code> or <code>"gbAuthoritative"</code>. For most users, use <code>"gbOpen"</code>
-(the default), which is CC BY 4.0 compliant and suitable for most purposes
-when attribution is provided. <code>"gbHumanitarian"</code> boundaries are mirrored
-from <a href="https://www.unocha.org/" class="external-link">UN OCHA</a> and may have less open licensing.
-<code>"gbAuthoritative"</code> boundaries are mirrored from UN SALB, verified through
-in-country processes and cannot be used for commercial purposes.</p></dd>
+(the default), which contains openly licensed boundaries suitable for most
+purposes when their individual license terms are followed.
+<code>"gbHumanitarian"</code> boundaries are mirrored from
+<a href="https://www.unocha.org/" class="external-link">UN OCHA</a> and may have additional conditions.
+<code>"gbAuthoritative"</code> boundaries are mirrored from
+<a href="https://salb.un.org/en" class="external-link">UN SALB</a>, verified through in-country processes
+and cannot be used for commercial purposes.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -106,7 +108,7 @@ alpha-3 country codes and their highest available ADM levels.</p>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p><code><a href="gb_get.html">gb_get()</a></code> downloads boundaries for the available ADM levels.</p>
-<p>Metadata and availability functions:
+<p>Metadata and licensing functions:
 <code><a href="gb_get_metadata.html">gb_get_metadata()</a></code></p></div>
     </div>
 

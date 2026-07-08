@@ -21,19 +21,20 @@ gb_get_max_adm_lvl(
 - country:
 
   A character vector of country names or ISO 3166-1 alpha-3 country
-  codes. Use `"all"` to return data for all countries. See also
-  [`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/man/countrycode.html).
+  codes. Use `"all"` to return boundaries for all countries. See also
+  [`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/man/countrycode.html)
+  from [countrycode](https://CRAN.R-project.org/package=countrycode).
 
 - release_type:
 
   A character string, one of `"gbOpen"`, `"gbHumanitarian"` or
   `"gbAuthoritative"`. For most users, use `"gbOpen"` (the default),
-  which is CC BY 4.0 compliant and suitable for most purposes when
-  attribution is provided. `"gbHumanitarian"` boundaries are mirrored
-  from [UN OCHA](https://www.unocha.org/) and may have less open
-  licensing. `"gbAuthoritative"` boundaries are mirrored from UN SALB,
-  verified through in-country processes and cannot be used for
-  commercial purposes.
+  which contains openly licensed boundaries suitable for most purposes
+  when their individual license terms are followed. `"gbHumanitarian"`
+  boundaries are mirrored from [UN OCHA](https://www.unocha.org/) and
+  may have additional conditions. `"gbAuthoritative"` boundaries are
+  mirrored from [UN SALB](https://salb.un.org/en), verified through
+  in-country processes and cannot be used for commercial purposes.
 
 ## Value
 
@@ -46,7 +47,7 @@ from [tibble](https://CRAN.R-project.org/package=tibble) containing ISO
 [`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md)
 downloads boundaries for the available ADM levels.
 
-Metadata and availability functions:
+Metadata and licensing functions:
 [`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md)
 
 ## Examples

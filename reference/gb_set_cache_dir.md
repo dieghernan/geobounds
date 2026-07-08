@@ -8,15 +8,20 @@ to find the active cache directory.
 ## Usage
 
 ``` r
-gb_set_cache_dir(cache_dir, overwrite = FALSE, install = FALSE, quiet = FALSE)
+gb_set_cache_dir(
+  cache_dir = NULL,
+  overwrite = FALSE,
+  install = FALSE,
+  quiet = FALSE
+)
 ```
 
 ## Arguments
 
 - cache_dir:
 
-  A path to a cache directory. If missing, the function stores cache
-  files in a temporary directory. See
+  A path to a cache directory. If `NULL`, the function stores cached
+  archives in a temporary directory. See
   [`base::tempdir()`](https://rdrr.io/r/base/tempfile.html).
 
 - overwrite:
@@ -27,8 +32,8 @@ gb_set_cache_dir(cache_dir, overwrite = FALSE, install = FALSE, quiet = FALSE)
 - install:
 
   A logical value. If `TRUE`, save the cache directory for use in future
-  sessions. Defaults to `FALSE`. If `cache_dir` is missing or empty,
-  this parameter is set to `FALSE` automatically.
+  sessions. Defaults to `FALSE`. If `cache_dir` is `NULL`, this
+  parameter is set to `FALSE` automatically.
 
 - quiet:
 
@@ -44,9 +49,9 @@ directory.
 By default, when no `cache_dir` is set,
 [geobounds](https://CRAN.R-project.org/package=geobounds) uses a
 directory inside
-[`base::tempdir()`](https://rdrr.io/r/base/tempfile.html). Files in this
-directory are removed when the R session ends. To reuse a cache
-directory across R sessions, use
+[`base::tempdir()`](https://rdrr.io/r/base/tempfile.html). Cached
+archives in this directory are removed when the R session ends. To reuse
+a cache directory across R sessions, use
 `gb_set_cache_dir(cache_dir = "a/path/here", install = TRUE)`. This
 saves the directory in a configuration file under
 `tools::R_user_dir("geobounds", "config")`.
@@ -82,28 +87,28 @@ Cache management functions:
 
 # \dontrun{
 my_cache <- gb_detect_cache_dir()
-#> ℹ /tmp/RtmpKz3cqP/geobounds
+#> ℹ /tmp/RtmpXN8KS8/geobounds
 
-# Set an example cache.
+# Set an example cache directory.
 ex <- file.path(tempdir(), "example", "cachenew")
 gb_set_cache_dir(ex)
-#> ✔ geobounds cache directory is /tmp/RtmpKz3cqP/example/cachenew.
+#> ✔ geobounds cache directory is /tmp/RtmpXN8KS8/example/cachenew.
 #> ℹ To use this cache directory in future sessions, call `gb_set_cache_dir()` with `install = TRUE`.
 
 gb_detect_cache_dir()
-#> ℹ /tmp/RtmpKz3cqP/example/cachenew
-#> [1] "/tmp/RtmpKz3cqP/example/cachenew"
+#> ℹ /tmp/RtmpXN8KS8/example/cachenew
+#> [1] "/tmp/RtmpXN8KS8/example/cachenew"
 
 # Restore the initial cache.
 gb_set_cache_dir(my_cache)
-#> ✔ geobounds cache directory is /tmp/RtmpKz3cqP/geobounds.
+#> ✔ geobounds cache directory is /tmp/RtmpXN8KS8/geobounds.
 #> ℹ To use this cache directory in future sessions, call `gb_set_cache_dir()` with `install = TRUE`.
 identical(my_cache, gb_detect_cache_dir())
-#> ℹ /tmp/RtmpKz3cqP/geobounds
+#> ℹ /tmp/RtmpXN8KS8/geobounds
 #> [1] TRUE
 # }
 
 gb_detect_cache_dir()
-#> ℹ /tmp/RtmpKz3cqP/geobounds
-#> [1] "/tmp/RtmpKz3cqP/geobounds"
+#> ℹ /tmp/RtmpXN8KS8/geobounds
+#> [1] "/tmp/RtmpXN8KS8/geobounds"
 ```

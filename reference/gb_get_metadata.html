@@ -15,7 +15,7 @@ geoBoundaries API."><meta property="og:image" content="https://dieghernan.github
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="geobounds logo" height="34" width="34" class="d-inline-block me-1">geobounds</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -85,8 +85,8 @@ geoBoundaries API."><meta property="og:image" content="https://dieghernan.github
 
 <dl><dt id="arg-country">country<a class="anchor" aria-label="anchor" href="#arg-country"></a></dt>
 <dd><p>A character vector of country names or ISO 3166-1 alpha-3
-country codes. Use <code>"all"</code> to return data for all countries. See also
-<code><a href="https://vincentarelbundock.github.io/countrycode/man/countrycode.html" class="external-link">countrycode::countrycode()</a></code>.</p></dd>
+country codes. Use <code>"all"</code> to return boundaries for all countries. See
+also <code><a href="https://vincentarelbundock.github.io/countrycode/man/countrycode.html" class="external-link">countrycode::countrycode()</a></code> from <a href="https://CRAN.R-project.org/package=countrycode" class="external-link"><span class="pkg">countrycode</span></a>.</p></dd>
 
 
 <dt id="arg-adm-lvl">adm_lvl<a class="anchor" aria-label="anchor" href="#arg-adm-lvl"></a></dt>
@@ -100,24 +100,26 @@ second level and so on). Uppercase versions (<code>"ADM1"</code>) and level numb
 <dt id="arg-release-type">release_type<a class="anchor" aria-label="anchor" href="#arg-release-type"></a></dt>
 <dd><p>A character string, one of <code>"gbOpen"</code>,
 <code>"gbHumanitarian"</code> or <code>"gbAuthoritative"</code>. For most users, use <code>"gbOpen"</code>
-(the default), which is CC BY 4.0 compliant and suitable for most purposes
-when attribution is provided. <code>"gbHumanitarian"</code> boundaries are mirrored
-from <a href="https://www.unocha.org/" class="external-link">UN OCHA</a> and may have less open licensing.
-<code>"gbAuthoritative"</code> boundaries are mirrored from UN SALB, verified through
-in-country processes and cannot be used for commercial purposes.</p></dd>
+(the default), which contains openly licensed boundaries suitable for most
+purposes when their individual license terms are followed.
+<code>"gbHumanitarian"</code> boundaries are mirrored from
+<a href="https://www.unocha.org/" class="external-link">UN OCHA</a> and may have additional conditions.
+<code>"gbAuthoritative"</code> boundaries are mirrored from
+<a href="https://salb.un.org/en" class="external-link">UN SALB</a>, verified through in-country processes
+and cannot be used for commercial purposes.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>A <a href="https://tibble.tidyverse.org/reference/tbl_df-class.html" class="external-link">tibble</a> from <a href="https://CRAN.R-project.org/package=tibble" class="external-link"><span class="pkg">tibble</span></a> with one row per matching
-boundary file and the columns described in <strong>Details</strong>.</p>
+boundary and the columns described in <strong>Details</strong>.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>The result is a <a href="https://tibble.tidyverse.org/reference/tbl_df-class.html" class="external-link">tibble</a> from <a href="https://CRAN.R-project.org/package=tibble" class="external-link"><span class="pkg">tibble</span></a> with the
 following columns:</p><ul><li><p><code>boundaryID</code>: The ID for this layer. It combines the ISO code, boundary
 type and a unique identifier generated from the input metadata and
-geometry. This only changes if the underlying data changes.</p></li>
+geometry. This only changes if the underlying boundary changes.</p></li>
 <li><p><code>boundaryName</code>: The name of the country represented by the layer.</p></li>
 <li><p><code>boundaryISO</code>: The ISO 3166-1 alpha-3 code for the country.</p></li>
 <li><p><code>boundaryYearRepresented</code>: The year or range of years in <code>"START to END"</code>
@@ -127,13 +129,13 @@ format that the boundary layers represent.</p></li>
 <li><p><code>boundarySource</code>: A comma-separated list of the primary sources for the
 boundary.</p></li>
 <li><p><code>boundaryLicense</code>: The original license under which the primary source
-released the boundary data.</p></li>
+released the boundary.</p></li>
 <li><p><code>licenseDetail</code>: Notes about the license.</p></li>
 <li><p><code>licenseSource</code>: The URL of the primary source.</p></li>
 <li><p><code>sourceDataUpdateDate</code>: The date the source information was integrated
 into the <strong>geoBoundaries</strong> repository.</p></li>
-<li><p><code>buildDate</code>: The date the source data was most recently standardized and
-built into a <strong>geoBoundaries</strong> release.</p></li>
+<li><p><code>buildDate</code>: The date the source boundary was most recently standardized
+and built into a <strong>geoBoundaries</strong> release.</p></li>
 <li><p><code>Continent</code>: The continent the country is associated with.</p></li>
 <li><p><code>UNSDG-region</code>: The United Nations Sustainable Development Goals (SDG)
 region the country is associated with.</p></li>
@@ -141,7 +143,7 @@ region the country is associated with.</p></li>
 subregion the country is associated with.</p></li>
 <li><p><code>worldBankIncomeGroup</code>: The World Bank income group the country is
 associated with.</p></li>
-<li><p><code>admUnitCount</code>: The number of administrative units in the file.</p></li>
+<li><p><code>admUnitCount</code>: The number of administrative units in the boundary.</p></li>
 <li><p><code>meanVertices</code>: The mean number of vertices defining the boundaries of each
 administrative unit in the layer.</p></li>
 <li><p><code>minVertices</code>: The minimum number of vertices defining a boundary.</p></li>
@@ -173,7 +175,7 @@ simplified GeoJSON.</p></li>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p><code><a href="gb_get.html">gb_get()</a></code> downloads the boundaries described by the metadata.</p>
-<p>Metadata and availability functions:
+<p>Metadata and licensing functions:
 <code><a href="gb_get_max_adm_lvl.html">gb_get_max_adm_lvl()</a></code></p></div>
     </div>
 

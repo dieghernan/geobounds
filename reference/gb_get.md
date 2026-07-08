@@ -9,8 +9,11 @@ Use
 for global composite boundaries that standardize disputed areas and fill
 gaps between borders.
 
-[Attribution](https://www.geoboundaries.org/index.html#usage) is
-required whenever these data are used.
+Boundaries downloaded through this function are not covered by the
+package's MIT license.
+[Attribution](https://www.geoboundaries.org/index.html#usage) to
+**geoBoundaries** and the original sources is required when sharing the
+boundaries or derived products.
 
 ## Usage
 
@@ -35,8 +38,9 @@ gb_get(
 - country:
 
   A character vector of country names or ISO 3166-1 alpha-3 country
-  codes. Use `"all"` to return data for all countries. See also
-  [`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/man/countrycode.html).
+  codes. Use `"all"` to return boundaries for all countries. See also
+  [`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/man/countrycode.html)
+  from [countrycode](https://CRAN.R-project.org/package=countrycode).
 
 - adm_lvl:
 
@@ -49,19 +53,19 @@ gb_get(
 - simplified:
 
   A logical value. If `TRUE`, return simplified boundaries. The default
-  `FALSE` uses the primary **geoBoundaries** file. See simplified
+  `FALSE` uses the primary **geoBoundaries** layer. See simplified
   boundaries at <https://www.geoboundaries.org/>.
 
 - release_type:
 
   A character string, one of `"gbOpen"`, `"gbHumanitarian"` or
   `"gbAuthoritative"`. For most users, use `"gbOpen"` (the default),
-  which is CC BY 4.0 compliant and suitable for most purposes when
-  attribution is provided. `"gbHumanitarian"` boundaries are mirrored
-  from [UN OCHA](https://www.unocha.org/) and may have less open
-  licensing. `"gbAuthoritative"` boundaries are mirrored from UN SALB,
-  verified through in-country processes and cannot be used for
-  commercial purposes.
+  which contains openly licensed boundaries suitable for most purposes
+  when their individual license terms are followed. `"gbHumanitarian"`
+  boundaries are mirrored from [UN OCHA](https://www.unocha.org/) and
+  may have additional conditions. `"gbAuthoritative"` boundaries are
+  mirrored from [UN SALB](https://salb.un.org/en), verified through
+  in-country processes and cannot be used for commercial purposes.
 
 - quiet:
 
@@ -74,10 +78,10 @@ gb_get(
 
 - cache_dir:
 
-  A path to a cache directory. If not set (the default `NULL`), the data
-  will be stored in the default cache directory (see
+  A path to a cache directory. If not set (the default `NULL`), boundary
+  archives are stored in the default cache directory (see
   [`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_set_cache_dir.md)).
-  If no cache directory has been set, files are stored in a temporary
+  If no cache directory has been set, archives are stored in a temporary
   cache directory. See
   [`base::tempdir()`](https://rdrr.io/r/base/tempfile.html) and the
   cache strategies in
@@ -87,16 +91,18 @@ gb_get(
 
 An [sf](https://r-spatial.github.io/sf/reference/sf.html) object from
 [sf](https://CRAN.R-project.org/package=sf) containing the requested
-boundaries. If no boundary files match the request, the function returns
+boundaries. If no boundaries match the request, the function returns
 `NULL`.
 
 ## Details
 
-Each individual country boundary file is governed by the license
-identified in its boundary metadata. See
+Each individual country boundary layer is governed by the original
+license identified in its boundary metadata. See
 [`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md).
-Users should also cite the sources listed in the boundary metadata for
-each file. See **Examples**.
+The `"gbOpen"` release contains multiple open licenses, including ODbL
+and CC BY-SA. Do not assume every boundary is licensed only under CC BY
+4.0. Users should cite the sources listed in the metadata and comply
+with any attribution, share-alike or non-commercial terms.
 
 The wrappers
 [`gb_get_adm0()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md),
@@ -110,8 +116,8 @@ are also available for requesting a single ADM level.
 
 ## References
 
-Runfola et al. (2020) **geoBoundaries**: A global database of political
-administrative boundaries. *PLOS ONE* **15**(4), e0231866.
+Runfola et al. (2020) "geoBoundaries: A global database of political
+administrative boundaries." *PLOS ONE*, **15**(4), 1–9.
 [doi:10.1371/journal.pone.0231866](https://doi.org/10.1371/journal.pone.0231866)
 .
 
@@ -162,7 +168,12 @@ sri_lanka
 library(ggplot2)
 ggplot(sri_lanka) +
   geom_sf() +
-  labs(caption = "Source: www.geoboundaries.org")
+  labs(
+    caption = paste(
+      "Sources: geoBoundaries, OpenStreetMap and Wambacher,",
+      "license: ODbL 1.0"
+    )
+  )
 
 # }
 

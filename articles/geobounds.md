@@ -1,27 +1,34 @@
-# geobounds: Download administrative boundary data in R
+# geobounds: Download administrative boundaries in R
 
 Important
 
-[Attribution](https://www.geoboundaries.org/index.html#usage) is
-required when using **geoBoundaries**.
+The package code is MIT licensed. Downloaded boundaries and figures
+derived from them retain the licenses and attribution requirements of
+**geoBoundaries** and their original sources. Check the boundary
+metadata before reuse.
 
 ## Introduction
 
 The **geobounds** package provides an interface for downloading and
-working with administrative boundary data from the
+working with administrative boundaries from the
 [**geoBoundaries**](https://www.geoboundaries.org/) Global Database of
 Political Administrative Boundaries ([Runfola et al.
 2020](#ref-10.1371/journal.pone.0231866)).
 
-The default **gbOpen** release type is CC BY 4.0 compliant when
-attribution is provided and covers countries worldwide across multiple
-ADM levels. The package also supports **gbHumanitarian** and
-**gbAuthoritative**, which differ in their sources, validation processes
-and licensing. With **geobounds**, you can download boundaries as `sf`
-objects, inspect boundary metadata, cache downloaded files and integrate
-boundaries into spatial workflows.
+The default **gbOpen** release type covers countries worldwide across
+multiple ADM levels. Its boundaries use multiple open licenses,
+including ODbL, CC BY and CC BY-SA. The package also supports
+**gbHumanitarian** and **gbAuthoritative**, which differ in their
+sources, validation processes and licensing. With **geobounds**, you can
+download boundaries as **sf** objects, inspect boundary metadata, cache
+downloaded files and integrate boundaries into spatial workflows.
 
-## Understanding the data
+This vignette keeps the main workflow in one place. It first explains
+how to [choose the right boundary type](#understanding-the-boundaries),
+then covers [cache management](#cache-management-and-performance) and
+finishes with a [spatial analysis example](#spatial-analysis-workflows).
+
+## Understanding the boundaries
 
 The **geoBoundaries** database is designed for scientific and academic
 use, with quality assurance that includes manual review and hand
@@ -55,7 +62,12 @@ ggplot(norway_all) +
   geom_sf(fill = "#BA0C2F", color = "#00205B") +
   facet_wrap(vars(res)) +
   theme_minimal() +
-  labs(caption = "Source: www.geoboundaries.org")
+  labs(
+    caption = paste(
+      "Sources: geoBoundaries and the original boundary provider,",
+      "check gb_get_metadata() for the license"
+    )
+  )
 ```
 
 ![Comparison between full-resolution and simplified
@@ -66,8 +78,8 @@ Comparison between full-resolution and simplified boundaries.
 ### Individual country boundaries
 
 The **geoBoundaries** API provides [individual country
-files](https://www.geoboundaries.org/countryDownloads.html) that reflect
-how countries represent their own boundaries, without special
+boundaries](https://www.geoboundaries.org/countryDownloads.html) that
+reflect how countries represent their own boundaries, without special
 identification of disputed areas.
 
 Download individual country boundaries with
@@ -88,7 +100,10 @@ ggplot(india_pak) +
     fill = "Country",
     title = "Map of India and Pakistan",
     subtitle = "Note the overlap in the Kashmir region",
-    caption = "Source: www.geoboundaries.org"
+    caption = paste(
+      "Sources: geoBoundaries and the original boundary providers,",
+      "check gb_get_metadata() for licenses"
+    )
   )
 ```
 
@@ -102,13 +117,24 @@ in its boundary metadata.
 ``` r
 
 gb_get_metadata(c("India", "Pakistan"), adm_lvl = "ADM0") |>
-  select(boundaryName, boundaryLicense, boundarySource)
-#> # A tibble: 2 × 3
-#>   boundaryName boundaryLicense                                    boundarySource
-#>   <chr>        <chr>                                              <chr>         
-#> 1 India        CC0 1.0 Universal (CC0 1.0) Public Domain Dedicat… geoBoundaries…
-#> 2 Pakistan     Open Data Commons Open Database License 1.0        OpenStreetMap…
+  select(
+    boundaryName,
+    boundaryLicense,
+    boundarySource,
+    licenseSource
+  )
+#> # A tibble: 2 × 4
+#>   boundaryName boundaryLicense                                      boundarySource licenseSource
+#>   <chr>        <chr>                                                <chr>          <chr>        
+#> 1 India        CC0 1.0 Universal (CC0 1.0) Public Domain Dedication geoBoundaries… commons.wiki…
+#> 2 Pakistan     Open Data Commons Open Database License 1.0          OpenStreetMap… www.openstre…
 ```
+
+When sharing a boundary or a derived product, attribute
+**geoBoundaries** and the original providers shown in the metadata.
+Include the applicable license, link to its terms and indicate
+modifications when required. ODbL and CC BY-SA data may impose
+share-alike obligations beyond attribution.
 
 ### Global composite boundaries
 
@@ -121,9 +147,13 @@ boundaries in three important ways:
 
 1.  Extensive simplification keeps file sizes small enough for most
     desktop software.
-2.  Disputed areas are removed and replaced with polygons following US
-    Department of State definitions.
+2.  Disputed areas are removed and replaced with polygons following
+    United States Department of State definitions.
 3.  Gaps between borders are filled.
+
+CGAZ boundaries and figures are not covered by the package’s MIT
+license. Follow the citation and use information included in each
+downloaded CGAZ archive.
 
 ``` r
 
@@ -136,7 +166,7 @@ ggplot(cgaz_india_pak) +
     fill = "Country",
     title = "Map of India and Pakistan",
     subtitle = "CGAZ does not overlap",
-    caption = "Source: www.geoboundaries.org"
+    caption = "Source: geoBoundaries (CGAZ)"
   )
 ```
 
@@ -188,7 +218,7 @@ function call.
 
 ## Spatial analysis workflows
 
-Because boundary data are returned as `sf` objects, you can combine them
+Because boundaries are returned as **sf** objects, you can combine them
 with other spatial data:
 
 - Clip raster data to administrative units.
@@ -208,10 +238,10 @@ latam_meta <- gb_get_metadata(adm_lvl = "ADM0") |>
   glimpse()
 #> Rows: 47
 #> Columns: 4
-#> $ boundaryISO          <chr> "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", …
-#> $ boundaryName         <chr> "Aruba", "Anguilla", "Argentina", "Antigua and Ba…
-#> $ Continent            <chr> "Latin America and the Caribbean", "Latin America…
-#> $ worldBankIncomeGroup <chr> "High-income Countries", "No income group availab…
+#> $ boundaryISO          <chr> "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", "BLZ", "BOL", "B…
+#> $ boundaryName         <chr> "Aruba", "Anguilla", "Argentina", "Antigua and Barbuda", "Bonaire…
+#> $ Continent            <chr> "Latin America and the Caribbean", "Latin America and the Caribbe…
+#> $ worldBankIncomeGroup <chr> "High-income Countries", "No income group available", "High-incom…
 
 # Adjust factors.
 latam_meta$income_factor <- factor(
@@ -239,7 +269,7 @@ ggplot(latam_sf) +
     title = "World Bank Income Group",
     subtitle = "Latin America and the Caribbean",
     fill = "",
-    caption = "Source: www.geoboundaries.org"
+    caption = "Source: geoBoundaries (CGAZ and gbOpen metadata)"
   )
 ```
 
@@ -251,9 +281,9 @@ World Bank Income Group: Latin America and the Caribbean.
 ## Summary
 
 The **geobounds** package supports reproducible workflows for
-downloading, caching and visualizing administrative boundary data. The
-returned `sf` objects can be used directly in mapping, spatial analysis
-and data integration workflows.
+downloading, caching and visualizing administrative boundaries. The
+returned **sf** objects can be used directly in mapping, spatial
+analysis and data integration workflows.
 
 ## References
 

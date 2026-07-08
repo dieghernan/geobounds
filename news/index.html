@@ -13,7 +13,7 @@
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="geobounds logo" height="34" width="34" class="d-inline-block me-1">geobounds</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,6 +59,11 @@
     </div>
 
     <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.0.0" id="geobounds-100">geobounds 1.0.0<a class="anchor" aria-label="anchor" href="#geobounds-100"></a></h2>
+<ul><li>Changed the package software license from CC BY 4.0 to MIT and clarified that downloaded boundaries and included figures retain the licenses and attribution requirements of <strong>geoBoundaries</strong> and their original sources. Documentation now distinguishes the varying <code>gbOpen</code> licenses, UN OCHA terms and the non-commercial restriction on UN SALB boundaries. Downloads from <code>gbAuthoritative</code> now display a licensing notice.</li>
+<li>Made cache-related tests safer by isolating <code>GEOBOUNDS_CACHE_DIR</code> with <code><a href="https://withr.r-lib.org/reference/with_envvar.html" class="external-link">withr::local_envvar()</a></code> and using test-owned temporary cache directories with <code><a href="https://withr.r-lib.org/reference/with_tempfile.html" class="external-link">withr::local_tempdir()</a></code>.</li>
+</ul></div>
+    <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.2" id="geobounds-012">geobounds 0.1.2<a class="anchor" aria-label="anchor" href="#geobounds-012"></a></h2><p class="text-muted">CRAN release: 2026-05-29</p>
 <ul><li>Improved documentation and user-facing messages to align terminology across <strong>roxygen2</strong> and narrative documentation and clarify package output.</li>
 </ul></div>
@@ -72,7 +77,7 @@
 <p><strong>First CRAN release</strong>.</p>
 <div class="section level3">
 <h3 id="breaking-changes-0-1-0">Breaking changes<a class="anchor" aria-label="anchor" href="#breaking-changes-0-1-0"></a></h3>
-<p>Functions for downloading data have been renamed to follow the convention <code>object_verb()</code> (see <a href="https://devguide.ropensci.org/pkg_building.html" class="external-link uri">https://devguide.ropensci.org/pkg_building.html</a>):</p>
+<p>Functions for downloading boundaries have been renamed to follow the convention <code>object_verb()</code> (see <a href="https://devguide.ropensci.org/pkg_building.html" class="external-link uri">https://devguide.ropensci.org/pkg_building.html</a>):</p>
 <ul><li>
 <code>get_gb()</code> -&gt; <code><a href="../reference/gb_get.html">gb_get()</a></code>.</li>
 <li>
@@ -89,7 +94,7 @@
 <li>All download functions now return <code>MULTIPOLYGON</code> geometries.</li>
 <li>All download functions now return <code>NULL</code> without an error or warning when a country file is unavailable.</li>
 <li>All download functions now retry transient request failures with <code><a href="https://httr2.r-lib.org/reference/req_retry.html" class="external-link">httr2::req_retry()</a></code>.</li>
-<li>Cached files from previous package versions are no longer reused because the source file format changed.</li>
+<li>Cached files from previous package versions are no longer reused because the source archive format changed.</li>
 <li>Country matching now improves detection for Antarctica and Kosovo.</li>
 <li>
 <code>gb_get*()</code> functions now allow mixed <code>country</code> argument types, such as <code>gb_get(country = c("Germany", "USA"))</code>.</li>
@@ -98,7 +103,7 @@
 <li>
 <code><a href="../reference/gb_get_max_adm_lvl.html">gb_get_max_adm_lvl()</a></code> was added.</li>
 <li>
-<code><a href="../reference/gb_get_world.html">gb_get_world()</a></code> now retrieves the latest data available from the repository at <a href="https://github.com/wmgeolab/geoBoundaries/tree/main/releaseData" class="external-link uri">https://github.com/wmgeolab/geoBoundaries/tree/main/releaseData</a>.</li>
+<code><a href="../reference/gb_get_world.html">gb_get_world()</a></code> now retrieves the latest boundaries available from the repository at <a href="https://github.com/wmgeolab/geoBoundaries/tree/main/releaseData" class="external-link uri">https://github.com/wmgeolab/geoBoundaries/tree/main/releaseData</a>.</li>
 </ul></div>
 </div>
 </div>

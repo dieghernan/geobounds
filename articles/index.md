@@ -2,12 +2,12 @@
 
 ### Get started
 
-Learn to download, inspect and map administrative boundary data.
+Learn to download, inspect and map administrative boundaries.
 
-- [geobounds: Download administrative boundary data in
+- [geobounds: Download administrative boundaries in
   R](https://dieghernan.github.io/geobounds/articles/geobounds.md):
 
-  Download, inspect and map administrative boundary data
+  Download, inspect and map administrative boundaries
 
 ### Release coverage
 
@@ -17,14 +17,14 @@ Compare ADM-level availability and boundary metadata across
 - [gbOpen coverage and boundary
   metadata](https://dieghernan.github.io/geobounds/articles/gbopen.md):
 
-  gbOpen provides CC BY 4.0-compliant boundaries when attribution is
-  provided.
+  gbOpen provides openly licensed boundaries with licenses reported in
+  metadata.
 
 - [gbHumanitarian coverage and boundary
   metadata](https://dieghernan.github.io/geobounds/articles/gbhumanitarian.md):
 
-  gbHumanitarian boundaries are mirrored from UN OCHA and may have less
-  open licensing.
+  gbHumanitarian boundaries are mirrored from UN OCHA. Check current
+  metadata.
 
 - [gbAuthoritative coverage and boundary
   metadata](https://dieghernan.github.io/geobounds/articles/gbauthoritative.md):
@@ -39,4 +39,4 @@ Read One World posts about **geobounds**.
 - [Introducing
   geobounds](https://dieghernan.github.io/202602_geobounds/):
 
-  Download administrative boundary data from geoBoundaries
+  Download administrative boundaries from **geoBoundaries**
