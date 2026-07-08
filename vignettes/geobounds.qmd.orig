@@ -61,6 +61,11 @@ licensing. With **geobounds**, you can download boundaries as **sf** objects,
 inspect boundary metadata, cache downloaded files and integrate boundaries
 into spatial workflows.
 
+This vignette keeps the main workflow in one place. It first explains how to
+[choose the right boundary type](#understanding-the-boundaries), then covers
+[cache management](#cache-management-and-performance) and finishes with a
+[spatial analysis example](#spatial-analysis-workflows).
+
 ## Understanding the boundaries
 
 The **geoBoundaries** database is designed for scientific and academic use, with

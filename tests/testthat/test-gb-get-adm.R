@@ -41,9 +41,10 @@ test_that("Test levels", {
   expect_identical(a, b)
 
   # Use mocks for heavier levels.
+  rtypes <- c("gbOpen", "gbHumanitarian", "gbAuthoritative")
   testthat::local_mocked_bindings(
     gb_get = function(country,
-                      release_type = c("gbOpen", "gbHumanitarian", "gbAuthoritative"),
+                      release_type = rtypes,
                       adm_lvl = "ADM0",
                       simplified = FALSE,
                       quiet = TRUE,
