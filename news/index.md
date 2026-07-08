@@ -2,6 +2,8 @@
 
 ## geobounds 1.0.0
 
+CRAN release: 2026-07-08
+
 - Changed the package software license from CC BY 4.0 to MIT and
   clarified that downloaded boundaries and included figures retain the
   licenses and attribution requirements of **geoBoundaries** and their
