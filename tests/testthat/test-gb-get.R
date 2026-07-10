@@ -42,7 +42,7 @@ test_that("sf output simplified", {
     )
   )
 
-  expect_true(object.size(che) < object.size(chefull))
+  expect_lt(object.size(che), object.size(chefull))
 })
 
 test_that("sf output messages", {

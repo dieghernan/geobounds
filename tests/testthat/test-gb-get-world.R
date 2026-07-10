@@ -5,7 +5,10 @@ test_that("sf output", {
 
   expect_silent(wrld <- gb_get_world(cache_dir = tmpd))
 
-  expect_true(all(sf::st_geometry_type(wrld) == "MULTIPOLYGON"))
+  expect_identical(
+    unique(as.character(sf::st_geometry_type(wrld))),
+    "MULTIPOLYGON"
+  )
   expect_true(sf::st_is_longlat(wrld))
   expect_s3_class(wrld, "sf")
   expect_gt(nrow(wrld), 150)
@@ -21,8 +24,8 @@ test_that("sf output", {
   expect_true(sf::st_is_longlat(lvl2))
   expect_s3_class(lvl2, "sf")
   expect_gt(nrow(lvl2), 1)
-  expect_true(all(lvl2$shapeGroup == "AND"))
-  expect_true(all(lvl2$shapeType == "ADM1"))
+  expect_identical(unique(lvl2$shapeGroup), "AND")
+  expect_identical(unique(lvl2$shapeType), "ADM1")
 
   # And level 4?
   expect_snapshot(

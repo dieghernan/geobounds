@@ -163,7 +163,7 @@ test_that("UTF-8", {
   tmpd <- local_test_cache("geobounds-test-utils-utf8-")
 
   ff <- gb_get("CZE", "ADM1", simplified = TRUE, cache_dir = tmpd)
-  expect_true(all(Encoding(ff$shapeName) == "UTF-8"))
+  expect_identical(unique(Encoding(ff$shapeName)), "UTF-8")
 })
 
 test_that("Pretty match", {
@@ -232,5 +232,8 @@ test_that("gbnds_dev_sf_helper casts to MULTIPOLYGON", {
   out <- gbnds_dev_sf_helper(data_sf)
 
   expect_s3_class(out, "sf")
-  expect_true(all(sf::st_geometry_type(out) == "MULTIPOLYGON"))
+  expect_identical(
+    unique(as.character(sf::st_geometry_type(out))),
+    "MULTIPOLYGON"
+  )
 })

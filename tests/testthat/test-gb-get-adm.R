@@ -110,5 +110,8 @@ test_that("type of object returned is as expected", {
   tmpd <- local_test_cache("geobounds-test-adm-object-")
   p <- gb_get_adm0(country = c("Andorra", "Vatican"), cache_dir = tmpd)
   expect_s3_class(p, "sf")
-  expect_true(all(sf::st_geometry_type(p) == "MULTIPOLYGON"))
+  expect_identical(
+    unique(as.character(sf::st_geometry_type(p))),
+    "MULTIPOLYGON"
+  )
 })
