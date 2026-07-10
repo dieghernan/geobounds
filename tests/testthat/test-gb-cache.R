@@ -134,3 +134,35 @@ test_that("cache detection falls back when configuration file is empty", {
   expect_identical(gb_hlp_detect_cache_dir(), default_cache)
   expect_true(dir.exists(default_cache))
 })
+
+test_that("cache helpers can install", {
+  test_root <- file.path(tempfile("geobounds"))
+  withr::local_envvar(GEOBOUNDS_CACHE_DIR = "")
+
+  dir.exists(test_root)
+  # Mock an empty configuration directory.
+
+  local_mocked_bindings(
+    gb_hlp_user_dir = function(...) test_root
+  )
+
+  test_cache_dir <- withr::local_tempdir("mocked_cache")
+  # Mock a installed cache dir
+  expect_message(
+    gb_set_cache_dir(
+      test_cache_dir,
+      quiet = FALSE,
+      install = TRUE
+    ),
+    "cache directory is"
+  )
+
+  detected <- gb_hlp_detect_cache_dir()
+
+  expect_identical(detected, test_cache_dir)
+
+  config_file <- readLines(file.path(test_root, "GEOBOUNDS_CACHE_DIR"))
+
+  expect_identical(config_file, test_cache_dir)
+  unlink(test_root, force = TRUE, recursive = TRUE)
+})
