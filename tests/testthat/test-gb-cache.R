@@ -35,8 +35,6 @@ test_that("cache helpers stay inside test-owned directories", {
 })
 
 test_that("default cache stays isolated from user configuration", {
-  withr::local_envvar(GEOBOUNDS_CACHE_DIR = "")
-
   default_cache <- file.path(tempdir(), "geobounds")
   default_cache_existed <- dir.exists(default_cache)
   if (!default_cache_existed) {
@@ -50,28 +48,17 @@ test_that("default cache stays isolated from user configuration", {
   withr::local_envvar(GEOBOUNDS_CACHE_DIR = "")
 
   # Mock an empty configuration directory.
-  tmpdir <- withr::local_tempdir()
-  testthat::local_mocked_bindings(
-    gb_hlp_user_dir = function(...) {
-      tmpdir
-    }
-  )
+  local_test_user_config_dir()
   expect_identical(gb_hlp_detect_cache_dir(), default_cache)
   expect_true(dir.exists(default_cache))
 })
 
 test_that("persistent cache configuration stays inside mocked user directory", {
   test_root <- withr::local_tempdir("geobounds-test-config-")
-  config_dir <- file.path(test_root, "config")
+  config_dir <- local_test_user_config_dir(tmpdir = test_root)
   first_cache <- file.path(test_root, "first-cache")
   second_cache <- file.path(test_root, "second-cache")
   config_file <- file.path(config_dir, "GEOBOUNDS_CACHE_DIR")
-  withr::local_envvar(GEOBOUNDS_CACHE_DIR = "")
-  testthat::local_mocked_bindings(
-    gb_hlp_user_dir = function(...) {
-      config_dir
-    }
-  )
 
   expect_silent(gb_set_cache_dir(first_cache, install = TRUE, quiet = TRUE))
 
@@ -95,17 +82,11 @@ test_that("persistent cache configuration stays inside mocked user directory", {
 
 test_that("cache configuration can be cleared from mocked user directory", {
   test_root <- withr::local_tempdir("geobounds-test-clear-config-")
-  config_dir <- file.path(test_root, "config")
+  config_dir <- local_test_user_config_dir(tmpdir = test_root)
   cache_dir <- file.path(test_root, "cache")
-  dir.create(config_dir, recursive = TRUE)
   dir.create(cache_dir, recursive = TRUE)
   writeLines(cache_dir, file.path(config_dir, "GEOBOUNDS_CACHE_DIR"))
   withr::local_envvar(GEOBOUNDS_CACHE_DIR = cache_dir)
-  testthat::local_mocked_bindings(
-    gb_hlp_user_dir = function(...) {
-      config_dir
-    }
-  )
 
   expect_message(gb_clear_cache(
     config = TRUE,
@@ -129,40 +110,26 @@ test_that("cache directory helper creates the active cache directory", {
 })
 
 test_that("cache directory helper follows order", {
-  withr::local_envvar(GEOBOUNDS_CACHE_DIR = "")
-
-  tmpdir <- withr::local_tempdir()
-  testthat::local_mocked_bindings(
-    gb_hlp_user_dir = function(...) {
-      tmpdir
-    }
-  )
-  cache_dir <- file.path(tmpdir, "configured-cache")
+  config_dir <- local_test_user_config_dir("geobounds-test-config-order-")
+  cache_dir <- file.path(config_dir, "configured-cache")
 
   writeLines(
     cache_dir,
-    file.path(tmpdir, "GEOBOUNDS_CACHE_DIR")
+    file.path(config_dir, "GEOBOUNDS_CACHE_DIR")
   )
 
   expect_identical(gb_hlp_detect_cache_dir(), cache_dir)
 })
 
 test_that("cache detection falls back when configuration file is empty", {
-  withr::local_envvar(GEOBOUNDS_CACHE_DIR = "")
-
   default_cache <- file.path(tempdir(), "geobounds")
   default_cache_existed <- dir.exists(default_cache)
   if (!default_cache_existed) {
     withr::defer(unlink(default_cache, recursive = TRUE, force = TRUE))
   }
 
-  tmpdir <- withr::local_tempdir()
-  writeLines(character(), file.path(tmpdir, "GEOBOUNDS_CACHE_DIR"))
-  testthat::local_mocked_bindings(
-    gb_hlp_user_dir = function(...) {
-      tmpdir
-    }
-  )
+  config_dir <- local_test_user_config_dir("geobounds-test-empty-config-")
+  writeLines(character(), file.path(config_dir, "GEOBOUNDS_CACHE_DIR"))
 
   expect_identical(gb_hlp_detect_cache_dir(), default_cache)
   expect_true(dir.exists(default_cache))

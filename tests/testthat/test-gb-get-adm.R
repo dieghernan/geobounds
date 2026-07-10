@@ -43,13 +43,15 @@ test_that("Test levels", {
   # Use mocks for heavier levels.
   rtypes <- c("gbOpen", "gbHumanitarian", "gbAuthoritative")
   testthat::local_mocked_bindings(
-    gb_get = function(country,
-                      release_type = rtypes,
-                      adm_lvl = "ADM0",
-                      simplified = FALSE,
-                      quiet = TRUE,
-                      overwrite = FALSE,
-                      cache_dir = NULL) {
+    gb_get = function(
+      country,
+      release_type = rtypes,
+      adm_lvl = "ADM0",
+      simplified = FALSE,
+      quiet = TRUE,
+      overwrite = FALSE,
+      cache_dir = NULL
+    ) {
       list(
         country = country,
         release_type = release_type,
