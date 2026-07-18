@@ -2,7 +2,7 @@
 title: "gbAuthoritative coverage and boundary metadata"
 description: |
   gbAuthoritative boundaries are mirrored from UN SALB, verified through
-  in-country processes and unavailable for commercial use.
+  in-country processes and restricted to non-commercial use.
 knitr:
   opts_chunk:
     collapse: true

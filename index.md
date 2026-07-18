@@ -128,8 +128,8 @@ sources, validation processes and licensing terms:
   current metadata for the applicable source, license and attribution
   terms.
 - **gbAuthoritative**: Boundaries mirrored from UN SALB and verified
-  through in-country processes. These boundaries cannot be used for
-  commercial purposes.
+  through in-country processes. These boundaries are restricted to
+  non-commercial use.
 
 Use the `release_type` argument to request a specific release type, for
 example, `gb_get_adm1("Sri Lanka", release_type = "gbHumanitarian")`.

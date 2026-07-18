@@ -1,7 +1,8 @@
 ---
 title: "gbHumanitarian coverage and boundary metadata"
 description: |
-  gbHumanitarian boundaries are mirrored from UN OCHA. Check current metadata.
+  gbHumanitarian boundaries are mirrored from UN OCHA, with sources,
+  licenses and attribution terms reported in metadata.
 knitr:
   opts_chunk:
     collapse: true

@@ -6,9 +6,6 @@
   now distinguishes the varying `gbOpen` licenses, UN OCHA terms and the
   non-commercial restriction on UN SALB boundaries. Downloads from
   `gbAuthoritative` now display a licensing notice.
-- Made cache-related tests safer by isolating `GEOBOUNDS_CACHE_DIR` with
-  `withr::local_envvar()` and using test-owned temporary cache directories with
-  `withr::local_tempdir()`.
 
 # geobounds 0.1.2
 
