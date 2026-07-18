@@ -17,20 +17,19 @@ Compare ADM-level availability and boundary metadata across
 - [gbOpen coverage and boundary
   metadata](https://dieghernan.github.io/geobounds/articles/gbopen.md):
 
-  gbOpen provides openly licensed boundaries with licenses reported in
-  metadata.
+  gbOpen provides open boundaries with licenses reported in metadata.
 
 - [gbHumanitarian coverage and boundary
   metadata](https://dieghernan.github.io/geobounds/articles/gbhumanitarian.md):
 
-  gbHumanitarian boundaries are mirrored from UN OCHA. Check current
-  metadata.
+  gbHumanitarian boundaries are mirrored from UN OCHA, with sources,
+  licenses and attribution terms reported in metadata.
 
 - [gbAuthoritative coverage and boundary
   metadata](https://dieghernan.github.io/geobounds/articles/gbauthoritative.md):
 
   gbAuthoritative boundaries are mirrored from UN SALB, verified through
-  in-country processes and unavailable for commercial use.
+  in-country processes and restricted to non-commercial use.
 
 ### From the blog
 

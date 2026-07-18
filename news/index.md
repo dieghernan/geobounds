@@ -11,10 +11,6 @@ CRAN release: 2026-07-08
   licenses, UN OCHA terms and the non-commercial restriction on UN SALB
   boundaries. Downloads from `gbAuthoritative` now display a licensing
   notice.
-- Made cache-related tests safer by isolating `GEOBOUNDS_CACHE_DIR` with
-  [`withr::local_envvar()`](https://withr.r-lib.org/reference/with_envvar.html)
-  and using test-owned temporary cache directories with
-  [`withr::local_tempdir()`](https://withr.r-lib.org/reference/with_tempfile.html).
 
 ## geobounds 0.1.2
 

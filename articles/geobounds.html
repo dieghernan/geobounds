@@ -204,7 +204,7 @@ Map showing overlap in the disputed Kashmir area.
 <p>Use <code><a href="../reference/gb_get_world.html">gb_get_world()</a></code> for global composite boundaries that standardize disputed areas and fill gaps between borders. These boundaries are also known as Comprehensive Global Administrative Zones (CGAZ). They differ from individual country boundaries in three important ways:</p>
 <ol type="1">
 <li>Extensive simplification keeps file sizes small enough for most desktop software.</li>
-<li>Disputed areas are removed and replaced with polygons following United States Department of State definitions.</li>
+<li>Disputed areas are removed and replaced with polygons following the definitions used by the CGAZ product.</li>
 <li>Gaps between borders are filled.</li>
 </ol>
 <p>CGAZ boundaries and figures are not covered by the package’s MIT license. Follow the citation and use information included in each downloaded CGAZ archive.</p>
@@ -237,15 +237,15 @@ Map showing no overlap in Kashmir, provided by CGAZ.
 <span><span class="co">#&gt; [1] "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\Rtmp6LfQDv"</span></span>
 <span></span>
 <span><span class="co"># Change to a new cache directory.</span></span>
-<span><span class="va">newdir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"/geoboundvignette"</span><span class="op">)</span></span>
+<span><span class="va">newdir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"geoboundvignette"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/gb_set_cache_dir.html">gb_set_cache_dir</a></span><span class="op">(</span><span class="va">newdir</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ✔ geobounds cache directory is 'C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp6LfQDv//geoboundvignette'.</span></span>
+<span><span class="co">#&gt; ✔ geobounds cache directory is 'C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp6LfQDv/geoboundvignette'.</span></span>
 <span><span class="co">#&gt; ℹ To use this cache directory in future sessions, call `gb_set_cache_dir()` with `install = TRUE`.</span></span>
 <span></span>
 <span><span class="co"># Download the example data.</span></span>
 <span><span class="va">example</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/gb_get_adm.html">gb_get_adm0</a></span><span class="op">(</span><span class="st">"Vatican City"</span>, quiet <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ℹ Downloading file from &lt;https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/VAT/ADM0/geoBoundaries-VAT-ADM0-all.zip&gt;.</span></span>
-<span><span class="co">#&gt; → Cache directory is 'C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp6LfQDv//geoboundvignette/gbOpen'.</span></span>
+<span><span class="co">#&gt; → Cache directory is 'C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp6LfQDv/geoboundvignette/gbOpen'.</span></span>
 <span></span>
 <span><span class="co"># Restore the cache directory.</span></span>
 <span><span class="fu"><a href="../reference/gb_set_cache_dir.html">gb_set_cache_dir</a></span><span class="op">(</span><span class="va">current</span><span class="op">)</span></span>
