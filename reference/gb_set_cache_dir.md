@@ -87,28 +87,28 @@ Cache management functions:
 
 # \dontrun{
 my_cache <- gb_detect_cache_dir()
-#> ℹ /tmp/RtmpHecBl1/geobounds
+#> ℹ /tmp/RtmpMujlMf/geobounds
 
 # Set an example cache directory.
 ex <- file.path(tempdir(), "example", "cachenew")
 gb_set_cache_dir(ex)
-#> ✔ geobounds cache directory is /tmp/RtmpHecBl1/example/cachenew.
+#> ✔ geobounds cache directory is /tmp/RtmpMujlMf/example/cachenew.
 #> ℹ To use this cache directory in future sessions, call `gb_set_cache_dir()` with `install = TRUE`.
 
 gb_detect_cache_dir()
-#> ℹ /tmp/RtmpHecBl1/example/cachenew
-#> [1] "/tmp/RtmpHecBl1/example/cachenew"
+#> ℹ /tmp/RtmpMujlMf/example/cachenew
+#> [1] "/tmp/RtmpMujlMf/example/cachenew"
 
 # Restore the initial cache.
 gb_set_cache_dir(my_cache)
-#> ✔ geobounds cache directory is /tmp/RtmpHecBl1/geobounds.
+#> ✔ geobounds cache directory is /tmp/RtmpMujlMf/geobounds.
 #> ℹ To use this cache directory in future sessions, call `gb_set_cache_dir()` with `install = TRUE`.
 identical(my_cache, gb_detect_cache_dir())
-#> ℹ /tmp/RtmpHecBl1/geobounds
+#> ℹ /tmp/RtmpMujlMf/geobounds
 #> [1] TRUE
 # }
 
 gb_detect_cache_dir()
-#> ℹ /tmp/RtmpHecBl1/geobounds
-#> [1] "/tmp/RtmpHecBl1/geobounds"
+#> ℹ /tmp/RtmpMujlMf/geobounds
+#> [1] "/tmp/RtmpMujlMf/geobounds"
 ```
