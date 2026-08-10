@@ -30,7 +30,7 @@ gb_get_world(
 
   A character vector of country names or ISO 3166-1 alpha-3 country
   codes. Use `"all"` to return boundaries for all countries. See also
-  [`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/man/countrycode.html)
+  [`countrycode::countrycode()`](https://rdrr.io/pkg/countrycode/man/countrycode.html)
   from [countrycode](https://CRAN.R-project.org/package=countrycode).
 
 - adm_lvl:
