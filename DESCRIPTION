@@ -40,7 +40,7 @@ VignetteBuilder:
 Config/Needs/website: dieghernan/gitdevr, xfun, devtools, remotes,
     reactable
 Config/roxygen2/markdown: TRUE
-Config/roxygen2/version: 8.0.0
+Config/roxygen2/version: 8.1.0
 Config/testthat/edition: 3
 Config/testthat/parallel: true
 Copyright: Package code is MIT licensed. See file COPYRIGHTS for data and
