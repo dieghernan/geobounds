@@ -90,5 +90,5 @@ articles:
 external-articles:
 - name: blog-introducing-geobounds
   title: "Introducing geobounds"
-  description: "Download administrative boundaries from **geoBoundaries**"
+  description: "Easy access to administrative boundaries from **geoBoundaries**"
   href: https://dieghernan.github.io/202602_geobounds/
