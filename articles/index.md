@@ -38,4 +38,4 @@ Read One World posts about **geobounds**.
 - [Introducing
   geobounds](https://dieghernan.github.io/202602_geobounds/):
 
-  Download administrative boundaries from **geoBoundaries**
+  Easy access to administrative boundaries from **geoBoundaries**
