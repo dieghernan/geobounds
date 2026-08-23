@@ -67,7 +67,7 @@ pak::pak("dieghernan/geobounds")
 ```
 
 Alternatively, you can install **geobounds** from
-[R-universe](https://dieghernan.r-universe.dev/geobounds):
+[**r-universe**](https://dieghernan.r-universe.dev/geobounds):
 
 ``` r
 # Install geobounds.

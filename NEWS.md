@@ -1,6 +1,6 @@
 # geobounds 1.0.0
 
-- Changed the package software license from CC BY 4.0 to MIT and clarified that
+- Changed the software license from CC BY 4.0 to MIT and clarified that
   downloaded boundaries and included figures retain the licenses and attribution
   requirements of **geoBoundaries** and their original sources. Documentation
   now distinguishes the varying `gbOpen` licenses, UN OCHA terms and the
@@ -14,7 +14,7 @@
 
 # geobounds 0.1.1
 
-- Migrated package documentation to Quarto.
+- Migrated package documentation to **Quarto**.
 - Updated package documentation.
 
 # geobounds 0.1.0

@@ -49,9 +49,9 @@ their original sources. Check the boundary metadata before reuse.
 ## Introduction
 
 The **geobounds** package provides an interface for downloading and working with
-administrative boundaries from the
-[**geoBoundaries**](https://www.geoboundaries.org/) Global Database of Political
-Administrative Boundaries [@10.1371/journal.pone.0231866].
+administrative boundaries from the Global Database of Political Administrative
+Boundaries, maintained by [**geoBoundaries**](https://www.geoboundaries.org/)
+[@10.1371/journal.pone.0231866].
 
 The default **gbOpen** release type covers countries worldwide across multiple
 ADM levels. Its boundaries use multiple open licenses, including ODbL, CC BY
@@ -62,9 +62,9 @@ inspect boundary metadata, cache downloaded files and integrate boundaries
 into spatial workflows.
 
 This vignette keeps the main workflow in one place. It first explains how to
-[choose the right boundary type](#understanding-the-boundaries), then covers
-[cache management](#cache-management-and-performance) and finishes with a
-[spatial analysis example](#spatial-analysis-workflows).
+[choose a boundary type](#understanding-the-boundaries), then covers [cache
+management](#cache-management-and-performance) and finishes with a [spatial
+analysis example](#spatial-analysis-workflows).
 
 ## Understanding the boundaries
 

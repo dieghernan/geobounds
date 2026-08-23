@@ -28,6 +28,7 @@ authors:
 
 navbar:
   structure:
+    left: [intro, reference, articles, news]
     right: [search, github, geoBoundaries, lightswitch]
   components:
     geoBoundaries:
@@ -38,9 +39,11 @@ navbar:
 home:
   title: geobounds | Download administrative boundaries from geoBoundaries
   description: >
-    Download individual country boundaries and global composite boundaries
-    from **geoBoundaries** as **sf** objects for mapping and spatial analysis.
+    Download individual country boundaries and global composite boundaries from
+    **geoBoundaries** as **sf** objects for mapping and spatial analysis.
 
+# Reference sections map to the roxygen `@family` tags in man/roxygen/meta.R.
+# Use `has_concept()` so the reference index stays aligned with those families.
 reference:
 - title: Download boundaries
   desc: >
@@ -58,12 +61,13 @@ reference:
     Configure, inspect and clear cached boundary archives.
 - contents:
   - has_concept("cache")
-- title: Learn about geobounds
+- title: About the package
 - contents:
   - geobounds-package
 
 articles:
 - title: Get started
+  navbar: First steps
   desc: >
     Learn to download, inspect and map administrative boundaries.
   contents:

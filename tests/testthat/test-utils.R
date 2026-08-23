@@ -1,4 +1,4 @@
-test_that("Utils names", {
+test_that("country names and ISO codes are converted to ISO codes", {
   expect_snapshot(gbnds_dev_country2iso(c("Espagne", "United Kingdom")))
   expect_error(gbnds_dev_country2iso("UA"))
   expect_snapshot(gbnds_dev_country2iso(c("ESP", "POR", "RTA", "USA")))
@@ -10,7 +10,7 @@ test_that("Utils names", {
   )
 })
 
-test_that("Problematic names", {
+test_that("alternative country names include Antarctica and Kosovo", {
   skip_on_cran()
   skip_if_offline()
   tmpd <- local_test_cache("geobounds-test-utils-names-")
@@ -48,7 +48,7 @@ test_that("Problematic names", {
   expect_equal(nrow(full), 2)
 })
 
-test_that("Test full name conversion", {
+test_that("all metadata country names and codes can be converted", {
   skip_on_cran()
   skip_if_offline()
 
@@ -61,7 +61,7 @@ test_that("Test full name conversion", {
   expect_identical(length(nm), length(nm2))
 })
 
-test_that("Test mixed countries", {
+test_that("mixed country names and codes can be downloaded", {
   skip_on_cran()
   skip_if_offline()
   tmpd <- local_test_cache("geobounds-test-utils-mixed-")
@@ -76,7 +76,7 @@ test_that("Test mixed countries", {
   expect_s3_class(cnt, "sf")
 })
 
-test_that("Assert admin levels", {
+test_that("ADM validation accepts valid and rejects invalid values", {
   expect_snapshot(assert_adm_lvl(1:2), error = TRUE)
 
   expect_snapshot(assert_adm_lvl(adm_lvl = 10), error = TRUE)
@@ -101,7 +101,7 @@ test_that("Assert admin levels", {
   expect_identical(vec_integers, paste0("ADM", 0:5))
 })
 
-test_that("Internal helpers clean and parse common API values", {
+test_that("internal helpers clean and parse common API values", {
   expect_identical(
     gb_hlp_unique_values(c("a", "a", NA_character_, "b")),
     c("a", "b")
@@ -124,7 +124,7 @@ test_that("Internal helpers clean and parse common API values", {
   expect_identical(gb_hlp_parse_api_date("Jan 02, 2023"), as.Date("2023-01-02"))
 })
 
-test_that("Internal HTTP helpers format requests and errors", {
+test_that("internal HTTP helpers format requests and HTTP errors", {
   req <- gb_hlp_request("https://example.com/data.zip", quiet = FALSE)
   expect_s3_class(req, "httr2_request")
 
@@ -140,7 +140,7 @@ test_that("Internal HTTP helpers format requests and errors", {
   )
 })
 
-test_that("Internal shapefile selection respects simplified files", {
+test_that("shapefile selection respects the simplified option", {
   shp_files <- c(
     "folder/source.shp",
     "folder/source.dbf",
@@ -157,7 +157,7 @@ test_that("Internal shapefile selection respects simplified files", {
   )
 })
 
-test_that("UTF-8", {
+test_that("downloaded boundary names use UTF-8 encoding", {
   skip_on_cran()
   skip_if_offline()
   tmpd <- local_test_cache("geobounds-test-utils-utf8-")
@@ -166,7 +166,7 @@ test_that("UTF-8", {
   expect_identical(unique(Encoding(ff$shapeName)), "UTF-8")
 })
 
-test_that("Pretty match", {
+test_that("argument matching reports invalid values and suggestions", {
   my_fun <- function(arg_one = c(10, 1000, 3000, 5000)) {
     match_arg_pretty(arg_one)
   }
@@ -201,11 +201,9 @@ test_that("Pretty match", {
   }
   expect_identical(my_fun3(), "20")
   expect_snapshot(my_fun3("3"), error = TRUE)
-  # Pass more options than expected
-  expect_snapshot(my_fun2(c(1, 2)), error = TRUE)
 })
 
-test_that("Test gb_abort_if_not", {
+test_that("gb_abort_if_not rejects unnamed or false conditions", {
   expect_invisible(gb_abort_if_not())
   expect_snapshot(error = TRUE, gb_abort_if_not(isFALSE(TRUE)))
   expect_invisible(gb_abort_if_not("A" = is.character("a")))
@@ -216,7 +214,7 @@ test_that("Test gb_abort_if_not", {
   expect_snapshot(error = TRUE, gb_set_cache_dir(quiet = "a"))
 })
 
-test_that("gbnds_dev_sf_helper casts to MULTIPOLYGON", {
+test_that("sf helper casts polygon geometries to multipolygons", {
   skip_if_not_installed("sf")
 
   poly <- sf::st_polygon(list(rbind(

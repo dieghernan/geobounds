@@ -17,23 +17,18 @@
 #' **geoBoundaries** and the original sources is required when sharing the
 #' boundaries or derived products.
 #'
-#' @details
-#' Each individual country boundary layer is governed by the original license
-#' identified in its boundary metadata. See [gb_get_metadata()]. Users should
-#' cite the sources listed in the metadata and comply with any attribution,
-#' share-alike or non-commercial terms.
-#'
-#' @name gb_get_adm
-#' @rdname gb_get_adm
-#'
-#' @inherit gb_get return source references
 #' @inheritParams gb_get
+#'
+#' @inherit gb_get details return source references
 #'
 #' @seealso
 #' - [gb_get_metadata()] inspects boundary metadata and licensing.
 #' - [gb_get_max_adm_lvl()] checks available ADM levels.
 #'
 #' @family api
+#'
+#' @name gb_get_adm
+#' @rdname gb_get_adm
 #'
 #' @export
 #' @encoding UTF-8

@@ -1,4 +1,4 @@
-test_that("sf output", {
+test_that("world downloads return valid sf objects by level", {
   skip_on_cran()
   skip_if_offline()
   tmpd <- local_test_cache("geobounds-test-world-")

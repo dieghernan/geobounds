@@ -63,12 +63,13 @@
 #' - `simplifiedGeometryGeoJSON`: The static download link for the
 #'   simplified GeoJSON.
 #'
-#' @inherit gb_get source
 #' @inheritParams gb_get
 #'
 #' @returns
 #' A [tibble][tibble::tbl_df] from \CRANpkg{tibble} with one row per matching
 #' boundary and the columns described in **Details**.
+#'
+#' @inherit gb_get source
 #'
 #' @seealso [gb_get()] downloads the boundaries described by the metadata.
 #'

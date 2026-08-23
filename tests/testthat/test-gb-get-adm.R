@@ -1,4 +1,4 @@
-test_that("Test levels", {
+test_that("ADM wrappers forward levels zero through five", {
   skip_on_cran()
   skip_if_offline()
   tmpd <- local_test_cache("geobounds-test-adm-levels-")
@@ -73,7 +73,7 @@ test_that("Test levels", {
   expect_identical(a, b)
 })
 
-test_that("Release type", {
+test_that("ADM wrappers support humanitarian and authoritative releases", {
   skip_on_cran()
   skip_if_offline()
 
@@ -104,7 +104,7 @@ test_that("Release type", {
   expect_s3_class(res, "sf")
 })
 
-test_that("type of object returned is as expected", {
+test_that("ADM wrappers return multipolygon sf objects", {
   skip_on_cran()
   skip_if_offline()
   tmpd <- local_test_cache("geobounds-test-adm-object-")

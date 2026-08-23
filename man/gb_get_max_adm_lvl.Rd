@@ -51,7 +51,9 @@ all |>
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-\code{\link[=gb_get]{gb_get()}} downloads boundaries for the available ADM levels.
+\itemize{
+\item \code{\link[=gb_get]{gb_get()}} downloads boundaries for the available ADM levels.
+}
 
 Metadata and licensing functions:
 \code{\link[=gb_get_metadata]{gb_get_metadata()}}

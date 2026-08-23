@@ -1,4 +1,4 @@
-test_that("Check meta", {
+test_that("metadata filters countries, levels, and release types", {
   skip_on_cran()
   skip_if_offline()
 
@@ -43,7 +43,7 @@ test_that("Check meta", {
   expect_lt(nrow(aa), nrow(adm1))
 })
 
-test_that("Check meta errors", {
+test_that("metadata returns empty or partial results for missing boundaries", {
   skip_on_cran()
   skip_if_offline()
 

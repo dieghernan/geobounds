@@ -135,7 +135,7 @@ gb_get <- function(
   )
 
   if (nrow(meta_df) == 0) {
-    cli::cli_alert_danger(
+    cli::cli_alert_warning(
       "No matching boundaries found. Returning {.code NULL}."
     )
     return(NULL)
@@ -232,7 +232,7 @@ gbnds_dev_shp_query <- function(
     # Download the source archive.
     if (!quiet) {
       cli::cli_alert_info("Downloading source archive from {.url {url}}.")
-      cli::cli_alert("Cache directory is {.path {path}}.")
+      cli::cli_alert_info("Cache directory is {.path {path}}.")
     }
 
     q <- gb_hlp_request(url, quiet = quiet)

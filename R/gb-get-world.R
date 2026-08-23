@@ -20,12 +20,13 @@
 #' archive. CGAZ and figures derived from it are not relicensed under the
 #' package's MIT license.
 #'
-#' @inherit gb_get return source references
 #' @inheritParams gb_get
 #' @param adm_lvl ADM level. Accepted values are levels 0, 1 and 2 (`"adm0"` is
 #'   the country boundary, `"adm1"` is the first level of subnational
 #'   boundaries and `"adm2"` is the second level). Uppercase versions
 #'   (`"ADM1"`) and level numbers (`0`, `1`, `2`) are also accepted.
+#'
+#' @inherit gb_get return source references
 #'
 #' @seealso
 #' - [gb_get_metadata()] inspects boundary metadata and licensing.

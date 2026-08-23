@@ -34,8 +34,9 @@
 #' @returns
 #' An invisible character scalar containing the path to the cache directory.
 #'
-#' @seealso [tools::R_user_dir()] identifies standard locations for
-#'   user-specific files.
+#' @seealso
+#' - [tools::R_user_dir()] identifies standard locations for user-specific
+#'   files.
 #'
 #' @family cache
 #'
@@ -90,7 +91,7 @@ gb_set_cache_dir <- function(
     is_temp <- FALSE
   }
 
-  # Validate `cache_dir` argument.
+  # Validate the `cache_dir` argument.
   gb_abort_if_not(
     "{.arg cache_dir} must be a {.cls character}." = is.character(cache_dir)
   )
@@ -110,7 +111,6 @@ gb_set_cache_dir <- function(
   }
 
   # Save the cache directory in the user configuration.
-
   if (install) {
     config_dir <- gb_hlp_user_dir("geobounds", "config")
     # Create the config directory if needed.
@@ -125,8 +125,8 @@ gb_set_cache_dir <- function(
       writeLines(cache_dir, con = geobounds_file)
     } else {
       cli::cli_abort(c(
-        "A cache directory is already saved for {.arg cache_dir}.",
-        "i" = "Use {.code overwrite = TRUE} to replace it."
+        "A cache directory is already saved in the configuration file.",
+        "i" = "Set {.arg overwrite} to {.code TRUE} to replace it."
       ))
     }
   } else {
@@ -147,8 +147,6 @@ gb_set_cache_dir <- function(
 #' @description
 #' Detects the active cache directory. See [gb_set_cache_dir()].
 #'
-#' @rdname gb_detect_cache_dir
-#'
 #' @param x An object. Ignored.
 #'
 #' @returns
@@ -157,6 +155,8 @@ gb_set_cache_dir <- function(
 #' \CRANpkg{cli}.
 #'
 #' @family cache
+#'
+#' @rdname gb_detect_cache_dir
 #'
 #' @export
 #' @encoding UTF-8
@@ -183,9 +183,7 @@ gb_detect_cache_dir <- function(x = NULL) {
 #' This reset restores the cache state of a fresh \CRANpkg{geobounds}
 #' installation.
 #'
-#' @rdname gb_clear_cache
-#'
-#' @inheritParams gb_set_cache_dir
+#' @inheritParams gb_set_cache_dir quiet
 #' @param config A logical value. If `TRUE`, delete the \CRANpkg{geobounds}
 #'   configuration directory.
 #' @param cached_data A logical value. If `TRUE`, delete the active cache
@@ -195,6 +193,8 @@ gb_detect_cache_dir <- function(x = NULL) {
 #' Invisibly returns `NULL`. This function is called for its side effects.
 #'
 #' @family cache
+#'
+#' @rdname gb_clear_cache
 #'
 #' @export
 #' @encoding UTF-8
@@ -225,7 +225,7 @@ gb_clear_cache <- function(config = FALSE, cached_data = TRUE, quiet = TRUE) {
     unlink(config_dir, recursive = TRUE, force = TRUE)
 
     if (verbose) {
-      cli::cli_alert_warning(
+      cli::cli_alert_success(
         "Deleted the {.pkg geobounds} cache configuration."
       )
     }
@@ -234,7 +234,7 @@ gb_clear_cache <- function(config = FALSE, cached_data = TRUE, quiet = TRUE) {
   if (cached_data && dir.exists(data_dir)) {
     unlink(data_dir, recursive = TRUE, force = TRUE)
     if (verbose) {
-      cli::cli_alert_warning(
+      cli::cli_alert_success(
         "Deleted the {.pkg geobounds} cache directory {.path {data_dir}}."
       )
     }
@@ -242,7 +242,7 @@ gb_clear_cache <- function(config = FALSE, cached_data = TRUE, quiet = TRUE) {
 
   Sys.setenv(GEOBOUNDS_CACHE_DIR = "")
 
-  # Reset the active cache directory environment variable.
+  # Reset the cache directory environment variable.
   invisible()
 }
 

@@ -24,7 +24,7 @@ assert_adm_lvl <- function(
     cli::cli_abort(
       c(
         "Invalid {.arg adm_lvl} value: {.val {adm_lvl_clean}}.",
-        "Accepted values are {.or {.val {dict}}}."
+        "i" = "Accepted values are {.or {.val {dict}}}."
       ),
       call = call
     )
@@ -87,9 +87,9 @@ gb_hlp_http_error <- function(resp) {
 #'
 #' @noRd
 gb_hlp_alert_http_error <- function(url, resp) {
-  cli::cli_alert_danger(paste0(
+  cli::cli_alert_warning(paste0(
     "Request to {.url {url}} failed with HTTP status ",
-    "{.field {gb_hlp_http_error(resp)}}."
+    "{.code {gb_hlp_http_error(resp)}}."
   ))
 }
 
@@ -260,7 +260,7 @@ gbnds_dev_country2iso <- function(names, out = "iso3c", call = parent.frame()) {
 #'
 #' @noRd
 gbnds_dev_sf_helper <- function(data_sf) {
-  # Adapted from sf/read.R:
+  # Adapted from sf/read.R.
   # https://github.com/r-spatial/sf/blob/master/R/read.R
   set_utf8 <- function(x) {
     n <- names(x)
@@ -351,7 +351,7 @@ match_arg_pretty <- function(arg, choices, call = parent.frame()) {
   aproxmatch <- pmatch(arg, choices)[1]
 
   if (length(arg) > 1 || is.na(lmatch)) {
-    # Create the expected value error message.
+    # Create the error message for invalid values.
     if (length(choices) == 1) {
       msg <- paste0("{.str ", choices, "}")
     } else {

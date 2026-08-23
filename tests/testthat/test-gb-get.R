@@ -1,4 +1,4 @@
-test_that("NULL output", {
+test_that("missing boundaries return NULL", {
   skip_on_cran()
   skip_if_offline()
   tmpd <- local_test_cache("geobounds-test-get-null-")
@@ -10,12 +10,12 @@ test_that("NULL output", {
   expect_null(err2)
 })
 
-test_that("license notices", {
+test_that("authoritative boundaries display their license notice", {
   expect_silent(gb_hlp_license_notice("gbOpen"))
   expect_snapshot(gb_hlp_license_notice("gbAuthoritative"))
 })
 
-test_that("sf output simplified", {
+test_that("boundary downloads return simplified or full sf objects", {
   skip_on_cran()
   skip_if_offline()
 
@@ -45,7 +45,7 @@ test_that("sf output simplified", {
   expect_lt(object.size(che), object.size(chefull))
 })
 
-test_that("sf output messages", {
+test_that("boundary downloads report download and cache messages", {
   skip_on_cran()
   skip_if_offline()
 
@@ -77,7 +77,7 @@ test_that("sf output messages", {
   )
 })
 
-test_that("Fail gracefully single", {
+test_that("a failed single boundary download returns an empty table", {
   skip_on_cran()
   skip_if_offline()
   tmpd <- local_test_cache("geobounds-test-get-fail-single-")
@@ -106,7 +106,7 @@ test_that("Fail gracefully single", {
   expect_equal(nrow(meta_sf), 0)
 })
 
-test_that("Fail gracefully several", {
+test_that("mixed downloads return successful boundaries", {
   skip_on_cran()
   skip_if_offline()
   tmpd <- local_test_cache("geobounds-test-get-fail-several-")
@@ -162,7 +162,7 @@ test_that("Fail gracefully several", {
   expect_equal(nrow(meta_sf), 2)
 })
 
-test_that("Release type", {
+test_that("downloads support humanitarian and authoritative releases", {
   skip_on_cran()
   skip_if_offline()
   tmpd <- local_test_cache("geobounds-test-get-release-")

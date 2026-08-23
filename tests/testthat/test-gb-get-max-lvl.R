@@ -1,4 +1,4 @@
-test_that("Max levels", {
+test_that("maximum ADM levels are returned by country and release type", {
   skip_on_cran()
   skip_if_offline()
   all <- gb_get_max_adm_lvl()

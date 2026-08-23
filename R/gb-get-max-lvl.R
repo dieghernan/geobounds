@@ -4,14 +4,16 @@
 #' Returns a summary of selected country codes and their highest available ADM
 #' level in **geoBoundaries**.
 #'
-#' @inherit gb_get source
 #' @inheritParams gb_get_metadata
 #'
 #' @returns
 #' A [tibble][tibble::tbl_df] from \CRANpkg{tibble} containing ISO 3166-1
 #' alpha-3 country codes and their highest available ADM levels.
 #'
-#' @seealso [gb_get()] downloads boundaries for the available ADM levels.
+#' @inherit gb_get source
+#'
+#' @seealso
+#' - [gb_get()] downloads boundaries for the available ADM levels.
 #'
 #' @family metadata
 #'

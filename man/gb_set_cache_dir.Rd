@@ -74,8 +74,10 @@ identical(my_cache, gb_detect_cache_dir())
 gb_detect_cache_dir()
 }
 \seealso{
-\code{\link[tools:R_user_dir]{tools::R_user_dir()}} identifies standard locations for
-user-specific files.
+\itemize{
+\item \code{\link[tools:R_user_dir]{tools::R_user_dir()}} identifies standard locations for user-specific
+files.
+}
 
 Cache management functions:
 \code{\link[=gb_clear_cache]{gb_clear_cache()}},

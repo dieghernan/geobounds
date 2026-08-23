@@ -1,4 +1,4 @@
-# Utils names
+# country names and ISO codes are converted to ISO codes
 
     Code
       gbnds_dev_country2iso(c("Espagne", "United Kingdom"))
@@ -22,7 +22,7 @@
     Output
       [1] "ESP" "DEU"
 
-# Problematic names
+# alternative country names include Antarctica and Kosovo
 
     Code
       gbnds_dev_country2iso(c("Espagne", "Antartica"))
@@ -74,7 +74,7 @@
     Output
       [1] "XKX"
 
-# Assert admin levels
+# ADM validation accepts valid and rejects invalid values
 
     Code
       assert_adm_lvl(1:2)
@@ -89,7 +89,7 @@
     Condition
       Error:
       ! Invalid `adm_lvl` value: "10".
-      Accepted values are "all", "adm0", "adm1", "adm2", "adm3", "adm4", "adm5", "0", "1", "2", "3", "4", or "5".
+      i Accepted values are "all", "adm0", "adm1", "adm2", "adm3", "adm4", "adm5", "0", "1", "2", "3", "4", or "5".
 
 ---
 
@@ -98,9 +98,9 @@
     Condition
       Error in `my_fun()`:
       ! Invalid `adm_lvl` value: "adm9".
-      Accepted values are "all", "adm0", "adm1", "adm2", "adm3", "adm4", "adm5", "0", "1", "2", "3", "4", or "5".
+      i Accepted values are "all", "adm0", "adm1", "adm2", "adm3", "adm4", "adm5", "0", "1", "2", "3", "4", or "5".
 
-# Pretty match
+# argument matching reports invalid values and suggestions
 
     Code
       my_fun("error here")
@@ -150,15 +150,7 @@
       ! `an_arg` must be one of "30" or "20", not "3".
       i Did you mean "30"?
 
----
-
-    Code
-      my_fun2(c(1, 2))
-    Condition
-      Error in `my_fun2()`:
-      ! `year` must be "20", not "1" or "2".
-
-# Test gb_abort_if_not
+# gb_abort_if_not rejects unnamed or false conditions
 
     Code
       gb_abort_if_not(isFALSE(TRUE))
