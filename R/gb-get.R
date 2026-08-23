@@ -12,6 +12,10 @@
 #' to **geoBoundaries** and the original sources is required when sharing the
 #' boundaries or derived products.
 #'
+#' The wrappers [gb_get_adm0()], [gb_get_adm1()], [gb_get_adm2()],
+#' [gb_get_adm3()], [gb_get_adm4()] and [gb_get_adm5()] are also available for
+#' requesting a single ADM level.
+#'
 #' @details
 #' Each individual country boundary layer is governed by the original license
 #' identified in its boundary metadata. See [gb_get_metadata()]. The
@@ -19,10 +23,6 @@
 #' CC BY-SA. Do not assume every boundary is licensed only under CC BY 4.0.
 #' Users should cite the sources listed in the metadata and comply with any
 #' attribution, share-alike or non-commercial terms.
-#'
-#' The wrappers [gb_get_adm0()], [gb_get_adm1()], [gb_get_adm2()],
-#' [gb_get_adm3()], [gb_get_adm4()] and [gb_get_adm5()] are also available for
-#' requesting a single ADM level.
 #'
 #' @param country A character vector of country names or ISO 3166-1 alpha-3
 #'   country codes. Use `"all"` to return boundaries for all countries. See
