@@ -127,10 +127,6 @@ identified in its boundary metadata. See \code{\link[=gb_get_metadata]{gb_get_me
 CC BY-SA. Do not assume every boundary is licensed only under CC BY 4.0.
 Users should cite the sources listed in the metadata and comply with any
 attribution, share-alike or non-commercial terms.
-
-The wrappers \code{\link[=gb_get_adm0]{gb_get_adm0()}}, \code{\link[=gb_get_adm1]{gb_get_adm1()}}, \code{\link[=gb_get_adm2]{gb_get_adm2()}},
-\code{\link[=gb_get_adm3]{gb_get_adm3()}}, \code{\link[=gb_get_adm4]{gb_get_adm4()}} and \code{\link[=gb_get_adm5]{gb_get_adm5()}} are also available for
-requesting a single ADM level.
 }
 \examples{
 \dontshow{if (identical(Sys.getenv("NOT_CRAN"), "true") || interactive()) withAutoprint(\{ # examplesIf}
