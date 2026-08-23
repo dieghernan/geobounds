@@ -44,8 +44,8 @@ from [tibble](https://CRAN.R-project.org/package=tibble) containing ISO
 
 ## See also
 
-[`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md)
-downloads boundaries for the available ADM levels.
+- [`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md)
+  downloads boundaries for the available ADM levels.
 
 Metadata and licensing functions:
 [`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md)

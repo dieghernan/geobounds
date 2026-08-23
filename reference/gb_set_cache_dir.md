@@ -72,8 +72,8 @@ saves the directory in a configuration file under
 
 ## See also
 
-[`tools::R_user_dir()`](https://rdrr.io/r/tools/userdir.html) identifies
-standard locations for user-specific files.
+- [`tools::R_user_dir()`](https://rdrr.io/r/tools/userdir.html)
+  identifies standard locations for user-specific files.
 
 Cache management functions:
 [`gb_clear_cache()`](https://dieghernan.github.io/geobounds/reference/gb_clear_cache.md),
@@ -87,28 +87,28 @@ Cache management functions:
 
 # \dontrun{
 my_cache <- gb_detect_cache_dir()
-#> ℹ /tmp/Rtmps1OZ75/geobounds
+#> ℹ /tmp/RtmpwYGV3X/geobounds
 
 # Set an example cache directory.
 ex <- file.path(tempdir(), "example", "cachenew")
 gb_set_cache_dir(ex)
-#> ✔ geobounds cache directory is /tmp/Rtmps1OZ75/example/cachenew.
+#> ✔ geobounds cache directory is /tmp/RtmpwYGV3X/example/cachenew.
 #> ℹ To use this cache directory in future sessions, call `gb_set_cache_dir()` with `install = TRUE`.
 
 gb_detect_cache_dir()
-#> ℹ /tmp/Rtmps1OZ75/example/cachenew
-#> [1] "/tmp/Rtmps1OZ75/example/cachenew"
+#> ℹ /tmp/RtmpwYGV3X/example/cachenew
+#> [1] "/tmp/RtmpwYGV3X/example/cachenew"
 
 # Restore the initial cache.
 gb_set_cache_dir(my_cache)
-#> ✔ geobounds cache directory is /tmp/Rtmps1OZ75/geobounds.
+#> ✔ geobounds cache directory is /tmp/RtmpwYGV3X/geobounds.
 #> ℹ To use this cache directory in future sessions, call `gb_set_cache_dir()` with `install = TRUE`.
 identical(my_cache, gb_detect_cache_dir())
-#> ℹ /tmp/Rtmps1OZ75/geobounds
+#> ℹ /tmp/RtmpwYGV3X/geobounds
 #> [1] TRUE
 # }
 
 gb_detect_cache_dir()
-#> ℹ /tmp/Rtmps1OZ75/geobounds
-#> [1] "/tmp/Rtmps1OZ75/geobounds"
+#> ℹ /tmp/RtmpwYGV3X/geobounds
+#> [1] "/tmp/RtmpwYGV3X/geobounds"
 ```

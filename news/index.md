@@ -4,10 +4,10 @@
 
 CRAN release: 2026-07-08
 
-- Changed the package software license from CC BY 4.0 to MIT and
-  clarified that downloaded boundaries and included figures retain the
-  licenses and attribution requirements of **geoBoundaries** and their
-  original sources. Documentation now distinguishes the varying `gbOpen`
+- Changed the software license from CC BY 4.0 to MIT and clarified that
+  downloaded boundaries and included figures retain the licenses and
+  attribution requirements of **geoBoundaries** and their original
+  sources. Documentation now distinguishes the varying `gbOpen`
   licenses, UN OCHA terms and the non-commercial restriction on UN SALB
   boundaries. Downloads from `gbAuthoritative` now display a licensing
   notice.
@@ -24,7 +24,7 @@ CRAN release: 2026-05-29
 
 CRAN release: 2026-03-24
 
-- Migrated package documentation to Quarto.
+- Migrated package documentation to **Quarto**.
 - Updated package documentation.
 
 ## geobounds 0.1.0

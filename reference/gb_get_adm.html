@@ -50,6 +50,8 @@ boundaries or derived products."><meta property="og:image" content="https://dieg
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>First steps</h6></li>
+    <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Release coverage</h6></li>
     <li><a class="dropdown-item" href="../articles/gbopen.html">gbOpen coverage and boundary metadata</a></li>
     <li><a class="dropdown-item" href="../articles/gbhumanitarian.html">gbHumanitarian coverage and boundary metadata</a></li>
@@ -57,8 +59,6 @@ boundaries or derived products."><meta property="og:image" content="https://dieg
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Blog posts</h6></li>
     <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202602_geobounds/">Introducing geobounds</a></li>
-    <li><hr class="dropdown-divider"></li>
-    <li><a class="dropdown-item" href="../articles/index.html">More articles...</a></li>
   </ul></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
@@ -214,9 +214,14 @@ boundaries. If no boundaries match the request, the function returns
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>Each individual country boundary layer is governed by the original license
-identified in its boundary metadata. See <code><a href="gb_get_metadata.html">gb_get_metadata()</a></code>. Users should
-cite the sources listed in the metadata and comply with any attribution,
-share-alike or non-commercial terms.</p>
+identified in its boundary metadata. See <code><a href="gb_get_metadata.html">gb_get_metadata()</a></code>. The
+<code>"gbOpen"</code> release contains multiple open licenses, including ODbL and
+CC BY-SA. Do not assume every boundary is licensed only under CC BY 4.0.
+Users should cite the sources listed in the metadata and comply with any
+attribution, share-alike or non-commercial terms.</p>
+<p>The wrappers <code>gb_get_adm0()</code>, <code>gb_get_adm1()</code>, <code>gb_get_adm2()</code>,
+<code>gb_get_adm3()</code>, <code>gb_get_adm4()</code> and <code>gb_get_adm5()</code> are also available for
+requesting a single ADM level.</p>
     </div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>

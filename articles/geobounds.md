@@ -10,9 +10,9 @@ metadata before reuse.
 ## Introduction
 
 The **geobounds** package provides an interface for downloading and
-working with administrative boundaries from the
-[**geoBoundaries**](https://www.geoboundaries.org/) Global Database of
-Political Administrative Boundaries ([Runfola et al.
+working with administrative boundaries from the Global Database of
+Political Administrative Boundaries, maintained by
+[**geoBoundaries**](https://www.geoboundaries.org/) ([Runfola et al.
 2020](#ref-10.1371/journal.pone.0231866)).
 
 The default **gbOpen** release type covers countries worldwide across
@@ -24,8 +24,8 @@ download boundaries as **sf** objects, inspect boundary metadata, cache
 downloaded files and integrate boundaries into spatial workflows.
 
 This vignette keeps the main workflow in one place. It first explains
-how to [choose the right boundary type](#understanding-the-boundaries),
-then covers [cache management](#cache-management-and-performance) and
+how to [choose a boundary type](#understanding-the-boundaries), then
+covers [cache management](#cache-management-and-performance) and
 finishes with a [spatial analysis example](#spatial-analysis-workflows).
 
 ## Understanding the boundaries
@@ -124,10 +124,10 @@ gb_get_metadata(c("India", "Pakistan"), adm_lvl = "ADM0") |>
     licenseSource
   )
 #> # A tibble: 2 × 4
-#>   boundaryName boundaryLicense                      boundarySource licenseSource
-#>   <chr>        <chr>                                <chr>          <chr>        
-#> 1 India        CC0 1.0 Universal (CC0 1.0) Public … geoBoundaries… commons.wiki…
-#> 2 Pakistan     Open Data Commons Open Database Lic… OpenStreetMap… www.openstre…
+#>   boundaryName boundaryLicense                                   boundarySource licenseSource
+#>   <chr>        <chr>                                             <chr>          <chr>        
+#> 1 India        CC0 1.0 Universal (CC0 1.0) Public Domain Dedica… geoBoundaries… commons.wiki…
+#> 2 Pakistan     Open Data Commons Open Database License 1.0       OpenStreetMap… www.openstre…
 ```
 
 When sharing a boundary or a derived product, attribute
@@ -238,10 +238,10 @@ latam_meta <- gb_get_metadata(adm_lvl = "ADM0") |>
   glimpse()
 #> Rows: 47
 #> Columns: 4
-#> $ boundaryISO          <chr> "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", …
-#> $ boundaryName         <chr> "Aruba", "Anguilla", "Argentina", "Antigua and Ba…
-#> $ Continent            <chr> "Latin America and the Caribbean", "Latin America…
-#> $ worldBankIncomeGroup <chr> "High-income Countries", "No income group availab…
+#> $ boundaryISO          <chr> "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", "BLZ", "BOL",…
+#> $ boundaryName         <chr> "Aruba", "Anguilla", "Argentina", "Antigua and Barbuda", "Bona…
+#> $ Continent            <chr> "Latin America and the Caribbean", "Latin America and the Cari…
+#> $ worldBankIncomeGroup <chr> "High-income Countries", "No income group available", "High-in…
 
 # Adjust factors.
 latam_meta$income_factor <- factor(
