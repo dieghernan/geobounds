@@ -1,4 +1,4 @@
-test_that("metadata filters countries, levels, and release types", {
+test_that("metadata filters one or multiple countries", {
   skip_on_cran()
   skip_if_offline()
 
@@ -27,6 +27,11 @@ test_that("metadata filters countries, levels, and release types", {
   all2 <- gb_get_metadata(country = c("ALL", "Spain"), adm_lvl = "adm0")
   expect_s3_class(all2, "data.frame")
   expect_identical(all1, all2)
+})
+
+test_that("metadata filters ADM levels and release types", {
+  skip_on_cran()
+  skip_if_offline()
 
   adm1 <- gb_get_metadata(adm_lvl = "ADM1")
   expect_s3_class(adm1, "tbl")

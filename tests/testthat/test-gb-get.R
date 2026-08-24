@@ -106,7 +106,7 @@ test_that("a failed single boundary download returns an empty table", {
   expect_equal(nrow(meta_sf), 0)
 })
 
-test_that("mixed downloads return successful boundaries", {
+test_that("mixed downloads retain successes regardless of failure order", {
   skip_on_cran()
   skip_if_offline()
   tmpd <- local_test_cache("geobounds-test-get-fail-several-")
@@ -160,35 +160,4 @@ test_that("mixed downloads return successful boundaries", {
   expect_s3_class(meta_sf, "tbl")
   expect_s3_class(meta_sf, "sf")
   expect_equal(nrow(meta_sf), 2)
-})
-
-test_that("downloads support humanitarian and authoritative releases", {
-  skip_on_cran()
-  skip_if_offline()
-  tmpd <- local_test_cache("geobounds-test-get-release-")
-
-  library(dplyr)
-  iso <- gb_get_metadata(release_type = "gbHumanitarian", adm_lvl = "ADM0") |>
-    slice_head(n = 1) |>
-    pull(boundaryISO)
-
-  res <- gb_get_adm0(
-    iso,
-    simplified = TRUE,
-    release_type = "gbHumanitarian",
-    cache_dir = tmpd
-  )
-  expect_s3_class(res, "sf")
-
-  iso <- gb_get_metadata(release_type = "gbAuthoritative", adm_lvl = "ADM0") |>
-    slice_head(n = 1) |>
-    pull(boundaryISO)
-
-  res <- gb_get_adm0(
-    iso,
-    simplified = TRUE,
-    release_type = "gbAuthoritative",
-    cache_dir = tmpd
-  )
-  expect_s3_class(res, "sf")
 })

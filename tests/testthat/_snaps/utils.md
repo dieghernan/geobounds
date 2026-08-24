@@ -1,4 +1,4 @@
-# country names and ISO codes are converted to ISO codes
+# country names and ISO codes are normalized to ISO3 codes
 
     Code
       gbnds_dev_country2iso(c("Espagne", "United Kingdom"))
@@ -8,21 +8,52 @@
 ---
 
     Code
+      gbnds_dev_country2iso(c("ESP", "Alemania"))
+    Output
+      [1] "ESP" "DEU"
+
+# invalid country identifiers are rejected or omitted
+
+    Code
+      gbnds_dev_country2iso("UA")
+    Condition
+      Error:
+      ! Invalid value for `country`. Use a country name or an ISO 3166-1 alpha-3 code.
+
+---
+
+    Code
+      gbnds_dev_country2iso(c("ESP", "POR"))
+    Condition
+      Warning:
+      1 value supplied to `country` could not be matched unambiguously: "POR".
+      i Review the input or use ISO 3166-1 alpha-3 codes.
+    Output
+      [1] "ESP"
+
+---
+
+    Code
       gbnds_dev_country2iso(c("ESP", "POR", "RTA", "USA"))
-    Message
-      ! Some values supplied to `country` could not be matched unambiguously: "POR" and "RTA".
-      i Review the values or use ISO 3166-1 alpha-3 codes.
+    Condition
+      Warning:
+      2 values supplied to `country` could not be matched unambiguously: "POR" and "RTA".
+      i Review the input or use ISO 3166-1 alpha-3 codes.
     Output
       [1] "ESP" "USA"
 
 ---
 
     Code
-      gbnds_dev_country2iso(c("ESP", "Alemania"))
+      gbnds_dev_country2iso(c("Spain", "Rea", "Kosovo", "Antartica", "Murcua"))
+    Condition
+      Warning:
+      2 values supplied to `country` could not be matched unambiguously: "Rea" and "Murcua".
+      i Review the input or use ISO 3166-1 alpha-3 codes.
     Output
-      [1] "ESP" "DEU"
+      [1] "ESP" "XKX" "ATA"
 
-# alternative country names include Antarctica and Kosovo
+# Antarctica misspellings and Kosovo aliases are normalized
 
     Code
       gbnds_dev_country2iso(c("Espagne", "Antartica"))
@@ -49,16 +80,6 @@
       gbnds_dev_country2iso(c("ESP", "XKX", "DEU"))
     Output
       [1] "ESP" "XKX" "DEU"
-
----
-
-    Code
-      gbnds_dev_country2iso(c("Spain", "Rea", "Kosovo", "Antartica", "Murcua"))
-    Message
-      ! Some values supplied to `country` could not be matched unambiguously: "Rea" and "Murcua".
-      i Review the values or use ISO 3166-1 alpha-3 codes.
-    Output
-      [1] "ESP" "XKX" "ATA"
 
 ---
 
@@ -150,7 +171,7 @@
       ! `an_arg` must be one of "30" or "20", not "3".
       i Did you mean "30"?
 
-# gb_abort_if_not rejects unnamed or false conditions
+# gb_abort_if_not rejects unnamed conditions
 
     Code
       gb_abort_if_not(isFALSE(TRUE))
@@ -158,7 +179,15 @@
       Error:
       ! Every condition supplied to `gb_abort_if_not()` must be named.
 
----
+# gb_abort_if_not reports the first false condition
+
+    Code
+      gb_abort_if_not(`First condition failed.` = FALSE, `Second condition failed.` = FALSE)
+    Condition
+      Error:
+      ! First condition failed.
+
+# cache setup rejects invalid argument types
 
     Code
       gb_set_cache_dir(cache_dir = 34)

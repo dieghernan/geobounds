@@ -1,4 +1,4 @@
-# world downloads return valid sf objects by level
+# world downloads reject unsupported ADM levels
 
     Code
       gb_get_world("Andorra", adm_lvl = "4", cache_dir = tmpd)

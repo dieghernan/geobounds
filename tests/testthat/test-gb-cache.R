@@ -1,37 +1,37 @@
-test_that("cache helpers manage test directories", {
+test_that("setting a cache directory updates the active cache", {
   test_root <- withr::local_tempdir("geobounds-test-cache-")
+  cache_dir <- file.path(test_root, "active-cache")
+  withr::local_envvar(GEOBOUNDS_CACHE_DIR = "")
 
-  current <- file.path(test_root, "initial")
-  dir.create(current, recursive = TRUE)
-  withr::local_envvar(GEOBOUNDS_CACHE_DIR = current)
+  expect_message(detected <- gb_set_cache_dir(cache_dir, quiet = FALSE))
 
-  # Set a temporary cache directory without touching user configuration.
-  expect_message(gb_set_cache_dir(current, quiet = FALSE))
-  testdir <- file.path(test_root, "quiet-cache")
-  detected <- expect_silent(gb_set_cache_dir(testdir, quiet = TRUE))
+  expect_identical(detected, cache_dir)
+  expect_identical(gb_detect_cache_dir(), cache_dir)
+  expect_identical(Sys.getenv("GEOBOUNDS_CACHE_DIR"), cache_dir)
+  expect_true(dir.exists(cache_dir))
+})
 
-  expect_identical(detected, testdir)
-  expect_identical(gb_detect_cache_dir(), testdir)
+test_that("quiet cache operations suppress messages", {
+  test_root <- withr::local_tempdir("geobounds-test-cache-quiet-")
+  cache_dir <- file.path(test_root, "quiet-cache")
+  withr::local_envvar(GEOBOUNDS_CACHE_DIR = "")
 
-  # Clean only the test-owned cache directory.
+  expect_silent(gb_set_cache_dir(cache_dir, quiet = TRUE))
   expect_silent(gb_clear_cache(config = FALSE, quiet = TRUE))
-  expect_false(dir.exists(testdir))
 
-  # Exercise the verbose clear path on a second test-owned cache directory.
-  testdir <- file.path(test_root, "verbose-cache")
-  expect_message(gb_set_cache_dir(testdir))
+  expect_false(dir.exists(cache_dir))
+})
 
-  expect_true(dir.exists(testdir))
+test_that("clearing cached data removes the active cache directory", {
+  test_root <- withr::local_tempdir("geobounds-test-cache-clear-")
+  cache_dir <- file.path(test_root, "verbose-cache")
+  withr::local_envvar(GEOBOUNDS_CACHE_DIR = "")
 
+  expect_message(gb_set_cache_dir(cache_dir, quiet = FALSE))
   expect_message(gb_clear_cache(config = FALSE, quiet = FALSE))
 
-  expect_false(dir.exists(testdir))
-
-  # Restore the test-scoped initial cache before leaving the test.
-  expect_message(gb_set_cache_dir(current, quiet = FALSE))
-  expect_silent(gb_set_cache_dir(current, quiet = TRUE))
-  expect_equal(current, Sys.getenv("GEOBOUNDS_CACHE_DIR"))
-  expect_true(dir.exists(current))
+  expect_false(dir.exists(cache_dir))
+  expect_identical(Sys.getenv("GEOBOUNDS_CACHE_DIR"), "")
 })
 
 test_that("default cache is used when no user configuration exists", {
@@ -113,10 +113,7 @@ test_that("cache detection uses the configured directory", {
   config_dir <- local_test_user_config_dir("geobounds-test-config-order-")
   cache_dir <- file.path(config_dir, "configured-cache")
 
-  writeLines(
-    cache_dir,
-    file.path(config_dir, "GEOBOUNDS_CACHE_DIR")
-  )
+  writeLines(cache_dir, file.path(config_dir, "GEOBOUNDS_CACHE_DIR"))
 
   expect_identical(gb_hlp_detect_cache_dir(), cache_dir)
 })
@@ -135,25 +132,20 @@ test_that("cache detection falls back when configuration is empty", {
   expect_true(dir.exists(default_cache))
 })
 
-test_that("cache helpers install a persistent cache directory", {
+test_that("installed cache paths are detected from configuration", {
   test_root <- file.path(tempfile("geobounds"))
+  withr::defer(unlink(test_root, force = TRUE, recursive = TRUE))
   withr::local_envvar(GEOBOUNDS_CACHE_DIR = "")
 
   expect_false(dir.exists(test_root))
   # Mock an empty configuration directory.
 
-  local_mocked_bindings(
-    gb_hlp_user_dir = function(...) test_root
-  )
+  local_mocked_bindings(gb_hlp_user_dir = function(...) test_root)
 
   test_cache_dir <- withr::local_tempdir("mocked_cache")
   # Mock a installed cache dir
   expect_message(
-    gb_set_cache_dir(
-      test_cache_dir,
-      quiet = FALSE,
-      install = TRUE
-    ),
+    gb_set_cache_dir(test_cache_dir, quiet = FALSE, install = TRUE),
     "cache directory is"
   )
 
@@ -164,5 +156,4 @@ test_that("cache helpers install a persistent cache directory", {
   config_file <- readLines(file.path(test_root, "GEOBOUNDS_CACHE_DIR"))
 
   expect_identical(config_file, test_cache_dir)
-  unlink(test_root, force = TRUE, recursive = TRUE)
 })

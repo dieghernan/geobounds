@@ -221,8 +221,8 @@ gbnds_dev_country2iso <- function(names, out = "iso3c", call = parent.frame()) {
     } else {
       cli::cli_abort(
         paste0(
-          "Invalid values for {.arg country}. Use country names or ",
-          "ISO 3166-1 alpha-3 codes."
+          "Invalid value for {.arg country}. Use a country name or ",
+          "an ISO 3166-1 alpha-3 code."
         ),
         call = call
       )
@@ -236,14 +236,12 @@ gbnds_dev_country2iso <- function(names, out = "iso3c", call = parent.frame()) {
   lend <- length(outnames2)
   if (linit != lend) {
     ff <- names[is.na(outnames)] # nolint
-    cli::cli_alert_warning(paste0(
-      "Some values supplied to {.arg country} could not be matched ",
-      "unambiguously: ",
-      "{.val {ff}}."
-    ))
-    cli::cli_alert_info(paste0(
-      "Review the values or use ISO 3166-1 alpha-3 ",
-      "codes."
+    cli::cli_warn(c(
+      paste0(
+        "{length(ff)} value{?s} supplied to {.arg country} could not ",
+        "be matched unambiguously: {.val {ff}}."
+      ),
+      "i" = paste0("Review the input or use ISO 3166-1 alpha-3 ", "codes.")
     ))
   }
 

@@ -1,4 +1,4 @@
-test_that("world downloads return valid sf objects by level", {
+test_that("world downloads return valid sf objects and filter countries", {
   skip_on_cran()
   skip_if_offline()
   tmpd <- local_test_cache("geobounds-test-world-")
@@ -26,8 +26,11 @@ test_that("world downloads return valid sf objects by level", {
   expect_gt(nrow(lvl2), 1)
   expect_identical(unique(lvl2$shapeGroup), "AND")
   expect_identical(unique(lvl2$shapeType), "ADM1")
+})
 
-  # And level 4?
+test_that("world downloads reject unsupported ADM levels", {
+  tmpd <- local_test_cache("geobounds-test-world-levels-")
+
   expect_snapshot(
     gb_get_world("Andorra", adm_lvl = "4", cache_dir = tmpd),
     error = TRUE

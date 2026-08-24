@@ -26,7 +26,7 @@
     Message
       ! Request to <https://github.com/wmgeolab/geoBoundaries/raw/FAKE/releaseData/gbOpen/ESP/ADM0/fakefile.geojson> failed with HTTP status `404 - Not Found`.
 
-# mixed downloads return successful boundaries
+# mixed downloads retain successes regardless of failure order
 
     Code
       res_sf <- lapply(url_bound, function(x) {

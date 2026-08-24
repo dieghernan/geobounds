@@ -62,10 +62,14 @@ reference:
 - contents:
   - has_concept("cache")
 - title: About the package
+  desc: >
+    View package-level documentation, citation information and project links
+    for **geobounds**.
 - contents:
   - geobounds-package
 
 articles:
+# pkgdown promotes the package vignette to the top-level "Get started" link.
 - title: Get started
   desc: >
     Learn to download, inspect and map administrative boundaries.

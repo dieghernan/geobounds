@@ -37,8 +37,8 @@ By default, when no \code{cache_dir} is set, \CRANpkg{geobounds} uses a director
 inside \code{\link[base:tempdir]{base::tempdir()}}. Cached archives in this directory are removed when
 the \R session ends. To reuse a cache directory across \R sessions, use
 \code{gb_set_cache_dir(cache_dir = "a/path/here", install = TRUE)}. This saves the
-directory in a configuration file under
-\code{tools::R_user_dir("geobounds", "config")}.
+directory in the user configuration path returned by
+\code{\link[tools:R_user_dir]{tools::R_user_dir()}}.
 }
 \section{Cache strategies}{
 

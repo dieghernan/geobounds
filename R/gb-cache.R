@@ -9,18 +9,8 @@
 #' inside [base::tempdir()]. Cached archives in this directory are removed when
 #' the \R session ends. To reuse a cache directory across \R sessions, use
 #' `gb_set_cache_dir(cache_dir = "a/path/here", install = TRUE)`. This saves the
-#' directory in a configuration file under
-#' `tools::R_user_dir("geobounds", "config")`.
-#'
-#' @section Cache strategies:
-#'
-#' - For occasional use, use the default temporary cache directory.
-#' - Set the cache directory for the current session with
-#'   `gb_set_cache_dir(cache_dir = "a/path/here")`.
-#' - Save a persistent cache directory for future \R sessions with
-#'   `gb_set_cache_dir(cache_dir = "a/path/here", install = TRUE)`.
-#' - Set the cache directory for an individual download with the `cache_dir`
-#'   argument. See [gb_get()].
+#' directory in the user configuration path returned by
+#' [tools::R_user_dir()].
 #'
 #' @inheritParams gb_get
 #' @param cache_dir A path to a cache directory. If `NULL`, the function stores
@@ -33,6 +23,16 @@
 #'
 #' @returns
 #' An invisible character scalar containing the path to the cache directory.
+#'
+#' @section Cache strategies:
+#'
+#' - For occasional use, use the default temporary cache directory.
+#' - Set the cache directory for the current session with
+#'   `gb_set_cache_dir(cache_dir = "a/path/here")`.
+#' - Save a persistent cache directory for future \R sessions with
+#'   `gb_set_cache_dir(cache_dir = "a/path/here", install = TRUE)`.
+#' - Set the cache directory for an individual download with the `cache_dir`
+#'   argument. See [gb_get()].
 #'
 #' @seealso
 #' - [tools::R_user_dir()] identifies standard locations for user-specific
@@ -176,8 +176,9 @@ gb_detect_cache_dir <- function(x = NULL) {
 #' @description
 #' **Use this function with caution**. It clears cached archives and
 #' configuration by deleting the \CRANpkg{geobounds} configuration directory
-#' (`tools::R_user_dir("geobounds", "config")`), deleting the active cache
-#' directory and clearing `Sys.getenv("GEOBOUNDS_CACHE_DIR")`.
+#' returned by [tools::R_user_dir()], deleting the active cache directory and
+#' clearing the `GEOBOUNDS_CACHE_DIR` environment variable. See
+#' [base::Sys.getenv()].
 #'
 #' @details
 #' This reset restores the cache state of a fresh \CRANpkg{geobounds}
@@ -267,10 +268,7 @@ gb_hlp_detect_cache_dir <- function() {
       cached_path <- readLines(cache_config)
 
       # Fall back to the default cache when the config file is empty.
-      if (
-        length(cached_path) == 0L ||
-          anyNA(cached_path)
-      ) {
+      if (length(cached_path) == 0L || anyNA(cached_path)) {
         cache_dir <- gb_set_cache_dir(overwrite = TRUE, quiet = TRUE)
         return(cache_dir)
       }

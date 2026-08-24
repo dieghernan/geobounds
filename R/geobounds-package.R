@@ -1,4 +1,4 @@
-#' @inherit gb_get references
+#' @inherit gb_get source references
 #'
 #' @keywords internal
 #' @encoding UTF-8

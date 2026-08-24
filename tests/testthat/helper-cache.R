@@ -14,10 +14,7 @@ local_test_user_config_dir <- function(
     tmpdir = tmpdir,
     .local_envir = local_envir
   )
-  withr::local_envvar(
-    GEOBOUNDS_CACHE_DIR = "",
-    .local_envir = local_envir
-  )
+  withr::local_envvar(GEOBOUNDS_CACHE_DIR = "", .local_envir = local_envir)
   testthat::local_mocked_bindings(
     gb_hlp_user_dir = function(...) {
       config_dir

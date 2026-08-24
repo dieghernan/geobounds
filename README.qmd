@@ -209,7 +209,7 @@ ggplot(world_max) +
 - Read the original paper describing the **geoBoundaries** dataset
   [@10.1371/journal.pone.0231866].
 - Report issues or contribute on
-  [GitHub](https://github.com/dieghernan/geobounds).
+  [**GitHub**](https://github.com/dieghernan/geobounds).
 
 ## License
 
@@ -242,7 +242,7 @@ include the applicable license and indicate modifications when required.
 print(citation("geobounds")[1], style = "html")
 ```
 
-A BibTeX entry for LaTeX users:
+A **BibTeX** entry for **LaTeX** users:
 
 ```{r}
 #| echo: false

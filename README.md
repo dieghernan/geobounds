@@ -197,7 +197,7 @@ alt="Highest available gbOpen ADM level by country." />
 - Read the original paper describing the **geoBoundaries** dataset
   ([Runfola et al. 2020](#ref-10.1371/journal.pone.0231866)).
 - Report issues or contribute on
-  [GitHub](https://github.com/dieghernan/geobounds).
+  [**GitHub**](https://github.com/dieghernan/geobounds).
 
 ## License
 
@@ -234,7 +234,7 @@ Data from geoBoundaries</em>.
 <a href="https://dieghernan.github.io/geobounds/">https://dieghernan.github.io/geobounds/</a>.
 </p>
 
-A BibTeX entry for LaTeX users:
+A **BibTeX** entry for **LaTeX** users:
 
     @Manual{R-geobounds,
       title = {{geobounds}: Download Administrative Boundary Data from geoBoundaries},
