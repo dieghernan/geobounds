@@ -59,6 +59,9 @@ Configure, inspect and clear cached boundary archives.
 
 ## About the package
 
+View package-level documentation, citation information and project links
+for **geobounds**.
+
 - [`geobounds`](https://dieghernan.github.io/geobounds/reference/geobounds-package.md)
   [`geobounds-package`](https://dieghernan.github.io/geobounds/reference/geobounds-package.md)
   : geobounds: Download Administrative Boundary Data from

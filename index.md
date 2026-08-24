@@ -150,7 +150,7 @@ country.](reference/figures/README-map-coverage-1.png)
 - Read the original paper describing the **geoBoundaries** dataset
   ([Runfola et al. 2020](#ref-10.1371/journal.pone.0231866)).
 - Report issues or contribute on
-  [GitHub](https://github.com/dieghernan/geobounds).
+  [**GitHub**](https://github.com/dieghernan/geobounds).
 
 ## License
 
@@ -185,7 +185,7 @@ from geoBoundaries*.
 [doi:10.32614/CRAN.package.geobounds](https://doi.org/10.32614/CRAN.package.geobounds).
 <https://dieghernan.github.io/geobounds/>.
 
-A BibTeX entry for LaTeX users:
+A **BibTeX** entry for **LaTeX** users:
 
 ``` R
 @Manual{R-geobounds,

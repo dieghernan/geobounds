@@ -3,8 +3,11 @@
 **Use this function with caution**. It clears cached archives and
 configuration by deleting the
 [geobounds](https://CRAN.R-project.org/package=geobounds) configuration
-directory (`tools::R_user_dir("geobounds", "config")`), deleting the
-active cache directory and clearing `Sys.getenv("GEOBOUNDS_CACHE_DIR")`.
+directory returned by
+[`tools::R_user_dir()`](https://rdrr.io/r/tools/userdir.html), deleting
+the active cache directory and clearing the `GEOBOUNDS_CACHE_DIR`
+environment variable. See
+[`base::Sys.getenv()`](https://rdrr.io/r/base/Sys.getenv.html).
 
 ## Usage
 
@@ -52,20 +55,20 @@ Cache management functions:
 
 # \dontrun{
 my_cache <- gb_detect_cache_dir()
-#> ℹ /tmp/RtmpBa44JZ/geobounds
+#> ℹ /tmp/Rtmp6SofPl/geobounds
 # Set an example cache directory.
 ex <- file.path(tempdir(), "example", "cache")
 gb_set_cache_dir(ex, quiet = TRUE)
 
 gb_clear_cache(quiet = FALSE)
-#> ✔ Deleted the geobounds cache directory /tmp/RtmpBa44JZ/example/cache.
+#> ✔ Deleted the geobounds cache directory /tmp/Rtmp6SofPl/example/cache.
 
 # Restore the initial cache.
 gb_set_cache_dir(my_cache)
-#> ✔ geobounds cache directory is /tmp/RtmpBa44JZ/geobounds.
+#> ✔ geobounds cache directory is /tmp/Rtmp6SofPl/geobounds.
 #> ℹ To use this cache directory in future sessions, call `gb_set_cache_dir()` with `install = TRUE`.
 identical(my_cache, gb_detect_cache_dir())
-#> ℹ /tmp/RtmpBa44JZ/geobounds
+#> ℹ /tmp/Rtmp6SofPl/geobounds
 #> [1] TRUE
 # }
 ```

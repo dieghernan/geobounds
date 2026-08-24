@@ -52,7 +52,7 @@ great issue](https://code-review.tidyverse.org/issues/) for more advice.
   [**Air**](https://posit-dev.github.io/air/) to apply this style, but
   do not restyle code unrelated to your PR.
 - We use [**roxygen2**](https://cran.r-project.org/package=roxygen2)
-  with [Markdown
+  with [**Markdown**
   syntax](https://cran.r-project.org/web/packages/roxygen2/vignettes/rd-formatting.html)
   for documentation.
 - We use [**testthat**](https://cran.r-project.org/package=testthat) for
