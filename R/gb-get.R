@@ -259,5 +259,5 @@ gbnds_dev_shp_query <- function(
   if (subdir == "CGAZ" && !("ALL" %in% cgaz_country)) {
     outsf <- outsf[outsf$shapeGroup %in% cgaz_country, ]
   }
-  outsf <- gbnds_dev_sf_helper(outsf)
+  gbnds_dev_sf_helper(outsf)
 }

@@ -325,8 +325,9 @@ gbnds_dev_sf_helper <- function(data_sf) {
 match_arg_pretty <- function(arg, choices, call = parent.frame()) {
   arg_name <- as.character(substitute(arg)) # nolint
 
+  sys_par <- sys.parent()
   if (missing(choices)) {
-    formal_args <- formals(sys.function(sys_par <- sys.parent()))
+    formal_args <- formals(sys.function(sys_par))
     choices <- eval(
       formal_args[[as.character(substitute(arg))]],
       envir = sys.frame(sys_par)
