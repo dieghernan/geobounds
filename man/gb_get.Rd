@@ -29,9 +29,10 @@ boundaries) or the ADM level (\code{"adm0"} is the country boundary,
 second level and so on). Uppercase versions (\code{"ADM1"}) and level numbers
 (\code{0}, \code{1}, \code{2}, \code{3}, \code{4}, \code{5}) are also accepted.}
 
-\item{simplified}{A logical value. If \code{TRUE}, return simplified boundaries.
-The default \code{FALSE} uses the primary \strong{geoBoundaries} layer. See
-simplified boundaries at \url{https://www.geoboundaries.org/}.}
+\item{simplified}{A logical value. If \code{TRUE}, return boundaries that are less
+accurate but faster to render. The default \code{FALSE} uses the primary
+\strong{geoBoundaries} layer. See the simplified boundary downloads:
+\url{https://www.geoboundaries.org/simplifiedDownloads.html}.}
 
 \item{release_type}{A character string, one of \code{"gbOpen"},
 \code{"gbHumanitarian"} or \code{"gbAuthoritative"}. For most users, use \code{"gbOpen"}
@@ -67,9 +68,11 @@ Use \code{\link[=gb_get_world]{gb_get_world()}} for global composite boundaries 
 disputed areas and fill gaps between borders.
 
 Boundaries downloaded through this function are not covered by the package's
-MIT license. \href{https://www.geoboundaries.org/index.html#usage}{Attribution}
-to \strong{geoBoundaries} and the original sources is required when sharing the
-boundaries or derived products.
+MIT license. Always acknowledge \strong{geoBoundaries} when sharing the boundaries
+or derived products. See \url{https://www.geoboundaries.org/index.html#usage}.
+Consult the boundary metadata for any additional source attribution, license
+link, share-alike notice or modification statement required by the boundary's
+license.
 
 The wrappers \code{\link[=gb_get_adm0]{gb_get_adm0()}}, \code{\link[=gb_get_adm1]{gb_get_adm1()}}, \code{\link[=gb_get_adm2]{gb_get_adm2()}},
 \code{\link[=gb_get_adm3]{gb_get_adm3()}}, \code{\link[=gb_get_adm4]{gb_get_adm4()}} and \code{\link[=gb_get_adm5]{gb_get_adm5()}} are also available for

@@ -26,7 +26,13 @@
 #'   boundaries and `"adm2"` is the second level). Uppercase versions
 #'   (`"ADM1"`) and level numbers (`0`, `1`, `2`) are also accepted.
 #'
-#' @inherit gb_get return source references
+#' @inherit gb_get return references
+#'
+#' @source
+#' - **geoBoundaries** global downloads:
+#'   <https://www.geoboundaries.org/globalDownloads.html>.
+#' - CGAZ release files:
+#'   <https://github.com/wmgeolab/geoBoundaries/tree/main/releaseData/CGAZ>.
 #'
 #' @seealso
 #' - [gb_get_metadata()] inspects boundary metadata and licensing.

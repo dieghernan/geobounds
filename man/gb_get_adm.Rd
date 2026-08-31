@@ -73,9 +73,10 @@ gb_get_adm5(
 country codes. Use \code{"all"} to return boundaries for all countries. See
 also \code{\link[countrycode:countrycode]{countrycode::countrycode()}} from \CRANpkg{countrycode}.}
 
-\item{simplified}{A logical value. If \code{TRUE}, return simplified boundaries.
-The default \code{FALSE} uses the primary \strong{geoBoundaries} layer. See
-simplified boundaries at \url{https://www.geoboundaries.org/}.}
+\item{simplified}{A logical value. If \code{TRUE}, return boundaries that are less
+accurate but faster to render. The default \code{FALSE} uses the primary
+\strong{geoBoundaries} layer. See the simplified boundary downloads:
+\url{https://www.geoboundaries.org/simplifiedDownloads.html}.}
 
 \item{release_type}{A character string, one of \code{"gbOpen"},
 \code{"gbHumanitarian"} or \code{"gbAuthoritative"}. For most users, use \code{"gbOpen"}
@@ -115,10 +116,11 @@ Not all countries have the same number of ADM levels. Use
 \code{\link[=gb_get_max_adm_lvl]{gb_get_max_adm_lvl()}} to check availability.
 
 Boundaries downloaded through these functions are not covered by the
-package's MIT license.
-\href{https://www.geoboundaries.org/index.html#usage}{Attribution} to
-\strong{geoBoundaries} and the original sources is required when sharing the
-boundaries or derived products.
+package's MIT license. Always acknowledge \strong{geoBoundaries} when sharing the
+boundaries or derived products. See
+\url{https://www.geoboundaries.org/index.html#usage}. Consult the boundary
+metadata for any additional source attribution, license link, share-alike
+notice or modification statement required by the boundary's license.
 }
 \details{
 Each individual country boundary layer is governed by the original license

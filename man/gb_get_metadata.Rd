@@ -59,6 +59,7 @@ format that the boundary layers represent.
 \item \code{boundaryCanonical}: The canonical name of the boundary.
 \item \code{boundarySource}: A comma-separated list of the primary sources for the
 boundary.
+\item \code{boundarySourceURL}: The URL of the original boundary source.
 \item \code{boundaryLicense}: The original license under which the primary source
 released the boundary.
 \item \code{licenseDetail}: Notes about the license.

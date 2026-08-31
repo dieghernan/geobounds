@@ -38,7 +38,7 @@ Authors:
 
 Other contributors:
 \itemize{
-  \item William and Mary geoLab (\href{https://ror.org/03hsf0573}{ROR}) (for the geoBoundaries project) [copyright holder]
+  \item William & Mary geoLab (\href{https://ror.org/03hsf0573}{ROR}) (for the geoBoundaries project) [data contributor]
 }
 
 }

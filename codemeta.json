@@ -30,6 +30,12 @@
       "@id": "https://orcid.org/0000-0001-8457-4658"
     }
   ],
+  "contributor": [
+    {
+      "@type": "Organization",
+      "name": "William & Mary geoLab"
+    }
+  ],
   "copyrightHolder": [
     {
       "@type": "Person",
@@ -37,10 +43,6 @@
       "familyName": "Hernangómez",
       "email": "diego.hernangomezherrero@gmail.com",
       "@id": "https://orcid.org/0000-0001-8457-4658"
-    },
-    {
-      "@type": "Organization",
-      "name": "William and Mary geoLab"
     }
   ],
   "maintainer": [
@@ -220,7 +222,7 @@
     "SystemRequirements": null
   },
   "keywords": ["administrative-boundaries", "api", "geoboundaries", "r", "r-package", "spatial-data", "cran", "cran-r"],
-  "fileSize": "471.097KB",
+  "fileSize": "472.595KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",

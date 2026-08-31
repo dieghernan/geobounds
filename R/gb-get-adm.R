@@ -12,10 +12,11 @@
 #' [gb_get_max_adm_lvl()] to check availability.
 #'
 #' Boundaries downloaded through these functions are not covered by the
-#' package's MIT license.
-#' [Attribution](https://www.geoboundaries.org/index.html#usage) to
-#' **geoBoundaries** and the original sources is required when sharing the
-#' boundaries or derived products.
+#' package's MIT license. Always acknowledge **geoBoundaries** when sharing the
+#' boundaries or derived products. See
+#' <https://www.geoboundaries.org/index.html#usage>. Consult the boundary
+#' metadata for any additional source attribution, license link, share-alike
+#' notice or modification statement required by the boundary's license.
 #'
 #' @inheritParams gb_get
 #'

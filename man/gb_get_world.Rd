@@ -6,7 +6,12 @@
 \alias{gb_get_cgaz}
 \title{Download global composite boundaries from \strong{geoBoundaries}}
 \source{
-\href{https://www.geoboundaries.org/api.html}{\strong{geoBoundaries} API}.
+\itemize{
+\item \strong{geoBoundaries} global downloads:
+\url{https://www.geoboundaries.org/globalDownloads.html}.
+\item CGAZ release files:
+\url{https://github.com/wmgeolab/geoBoundaries/tree/main/releaseData/CGAZ}.
+}
 }
 \usage{
 gb_get_world(

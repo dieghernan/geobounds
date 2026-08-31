@@ -8,9 +8,11 @@
 #' disputed areas and fill gaps between borders.
 #'
 #' Boundaries downloaded through this function are not covered by the package's
-#' MIT license. [Attribution](https://www.geoboundaries.org/index.html#usage)
-#' to **geoBoundaries** and the original sources is required when sharing the
-#' boundaries or derived products.
+#' MIT license. Always acknowledge **geoBoundaries** when sharing the boundaries
+#' or derived products. See <https://www.geoboundaries.org/index.html#usage>.
+#' Consult the boundary metadata for any additional source attribution, license
+#' link, share-alike notice or modification statement required by the boundary's
+#' license.
 #'
 #' The wrappers [gb_get_adm0()], [gb_get_adm1()], [gb_get_adm2()],
 #' [gb_get_adm3()], [gb_get_adm4()] and [gb_get_adm5()] are also available for
@@ -32,9 +34,10 @@
 #'   `"adm1"` is the first level of subnational boundaries, `"adm2"` is the
 #'   second level and so on). Uppercase versions (`"ADM1"`) and level numbers
 #'   (`0`, `1`, `2`, `3`, `4`, `5`) are also accepted.
-#' @param simplified A logical value. If `TRUE`, return simplified boundaries.
-#'   The default `FALSE` uses the primary **geoBoundaries** layer. See
-#'   simplified boundaries at <https://www.geoboundaries.org/>.
+#' @param simplified A logical value. If `TRUE`, return boundaries that are less
+#'   accurate but faster to render. The default `FALSE` uses the primary
+#'   **geoBoundaries** layer. See the simplified boundary downloads:
+#'   <https://www.geoboundaries.org/simplifiedDownloads.html>.
 #' @param release_type A character string, one of `"gbOpen"`,
 #'   `"gbHumanitarian"` or `"gbAuthoritative"`. For most users, use `"gbOpen"`
 #'   (the default), which contains openly licensed boundaries suitable for most
