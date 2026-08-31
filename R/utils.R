@@ -111,19 +111,38 @@ gb_hlp_unique_values <- function(x) {
 #' @param files A character vector of file paths.
 #' @param simplified A logical value. If `TRUE`, select simplified shapefiles.
 #'
+#' @param call The call to display in the error message.
+#'
 #' @returns
-#' A character vector containing matching shapefile paths.
+#' A character scalar containing the matching shapefile path.
 #'
 #' @noRd
-gb_hlp_select_shapefile <- function(files, simplified = FALSE) {
-  shp_files <- files[grepl("shp$", files)]
-  simplified_file <- grepl("simplified", shp_files, fixed = TRUE)
+gb_hlp_select_shapefile <- function(
+  files,
+  simplified = FALSE,
+  call = parent.frame()
+) {
+  shp_files <- files[grepl("[.]shp$", files, ignore.case = TRUE)]
+  simplified_file <- grepl("simplified", shp_files, ignore.case = TRUE)
 
   if (simplified) {
-    return(shp_files[simplified_file])
+    shp_files <- shp_files[simplified_file]
+  } else {
+    shp_files <- shp_files[!simplified_file]
   }
 
-  shp_files[!simplified_file]
+  if (length(shp_files) != 1L) {
+    cli::cli_abort(
+      paste0(
+        "Expected exactly one ",
+        if (simplified) "simplified " else "",
+        "shapefile in the boundary archive; found {length(shp_files)}."
+      ),
+      call = call
+    )
+  }
+
+  shp_files
 }
 
 #' Convert selected columns to numeric
@@ -191,33 +210,45 @@ gb_hlp_replace_month_abbr <- function(x) {
 #' Convert country names to codes
 #'
 #' @param names A vector of country names or codes.
-#' @param out The output code format.
 #' @param call The call to display in the error message.
 #'
 #' @returns
 #' A vector of country codes.
 #'
 #' @noRd
-gbnds_dev_country2iso <- function(names, out = "iso3c", call = parent.frame()) {
+gbnds_dev_country2iso <- function(names, call = parent.frame()) {
+  valid_names <- is.character(names) && length(names) > 0L && !anyNA(names)
+  gb_abort_if_not(
+    "{.arg country} must be a non-empty character vector." = valid_names,
+    call = call
+  )
+
+  names <- trimws(names)
+  gb_abort_if_not(
+    "{.arg country} cannot contain empty strings." = all(nzchar(names)),
+    call = call
+  )
+
   names[tolower(names) == "antartica"] <- "Antarctica"
-  out <- "iso3c"
   if (any(tolower(names) == "all")) {
     return("ALL")
   }
 
   # Vectorize country name conversion.
   outnames <- lapply(names, function(x) {
-    if (grepl("Kosovo", x, ignore.case = TRUE)) {
-      return("XKX")
-    }
-    if (grepl("XKX", x, ignore.case = TRUE)) {
+    if (toupper(x) %in% c("KOSOVO", "XKX")) {
       return("XKX")
     }
     maxname <- max(nchar(x))
     if (maxname > 3) {
-      outnames <- countrycode::countryname(x, out, warn = FALSE)
+      outnames <- countrycode::countryname(x, "iso3c", warn = FALSE)
     } else if (maxname == 3) {
-      outnames <- countrycode::countrycode(x, "iso3c", out, warn = FALSE)
+      outnames <- countrycode::countrycode(
+        x,
+        "iso3c",
+        "iso3c",
+        warn = FALSE
+      )
     } else {
       cli::cli_abort(
         paste0(
@@ -234,6 +265,12 @@ gbnds_dev_country2iso <- function(names, out = "iso3c", call = parent.frame()) {
   linit <- length(outnames)
   outnames2 <- outnames[!is.na(outnames)]
   lend <- length(outnames2)
+  if (lend == 0L) {
+    cli::cli_abort(
+      "No value supplied to {.arg country} could be matched.",
+      call = call
+    )
+  }
   if (linit != lend) {
     ff <- names[is.na(outnames)] # nolint
     cli::cli_warn(c(

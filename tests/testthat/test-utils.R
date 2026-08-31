@@ -16,6 +16,25 @@ test_that("invalid country identifiers are rejected or omitted", {
   )))
 })
 
+test_that("country identifiers must contain usable text", {
+  expect_error(gbnds_dev_country2iso(NA_character_), class = "rlang_error")
+  expect_error(gbnds_dev_country2iso(character()), class = "rlang_error")
+  expect_error(gbnds_dev_country2iso("  "), class = "rlang_error")
+  expect_error(gbnds_dev_country2iso(123), class = "rlang_error")
+})
+
+test_that("Kosovo aliases require exact matches", {
+  expect_error(gbnds_dev_country2iso("NotKosovo"), class = "rlang_error")
+  expect_error(gbnds_dev_country2iso("XKX-invalid"), class = "rlang_error")
+})
+
+test_that("country identifiers error when every value is unmatched", {
+  expect_error(
+    gbnds_dev_country2iso(c("Murcua", "NotKosovo")),
+    class = "rlang_error"
+  )
+})
+
 test_that("ALL selects all countries", {
   expect_identical(
     gbnds_dev_country2iso(c("ESP", "POR", "RTA", "USA", "all")),
@@ -165,6 +184,28 @@ test_that("shapefile selection respects the simplified option", {
   expect_identical(
     gb_hlp_select_shapefile(shp_files, simplified = TRUE),
     "folder/source_simplified.shp"
+  )
+})
+
+test_that("shapefile selection accepts uppercase extensions", {
+  expect_identical(
+    gb_hlp_select_shapefile("folder/source.SHP"),
+    "folder/source.SHP"
+  )
+})
+
+test_that("shapefile selection requires exactly one matching file", {
+  expect_error(
+    gb_hlp_select_shapefile("folder/source.dbf"),
+    class = "rlang_error"
+  )
+  expect_error(
+    gb_hlp_select_shapefile(c("folder/first.shp", "folder/second.shp")),
+    class = "rlang_error"
+  )
+  expect_error(
+    gb_hlp_select_shapefile("folder/source.shp", simplified = TRUE),
+    class = "rlang_error"
   )
 })
 

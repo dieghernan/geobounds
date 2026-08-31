@@ -15,6 +15,50 @@ test_that("authoritative boundaries display their license notice", {
   expect_snapshot(gb_hlp_license_notice("gbAuthoritative"))
 })
 
+test_that("boundary downloads reject non-scalar options", {
+  expect_error(gb_get("ESP", simplified = NA), class = "rlang_error")
+  expect_error(gb_get("ESP", overwrite = logical()), class = "rlang_error")
+  expect_error(
+    gb_get("ESP", quiet = c(TRUE, FALSE)),
+    class = "rlang_error"
+  )
+  expect_error(
+    gb_get("ESP", cache_dir = c("first", "second")),
+    class = "rlang_error"
+  )
+  expect_error(gb_get("ESP", cache_dir = ""), class = "rlang_error")
+})
+
+test_that("invalid boundary archives are removed", {
+  archive <- withr::local_tempfile(lines = "not a ZIP archive")
+
+  expect_error(gb_hlp_list_archive(archive), class = "rlang_error")
+  expect_false(file.exists(archive))
+})
+
+test_that("invalid boundary archives report deletion failures", {
+  archive <- withr::local_tempfile(lines = "not a ZIP archive")
+  local_mocked_bindings(
+    gb_hlp_unlink = function(...) 1L
+  )
+
+  expect_error(
+    gb_hlp_list_archive(archive),
+    "could not be removed",
+    class = "rlang_error"
+  )
+})
+
+test_that("boundary archives reject malformed file listings", {
+  archive <- withr::local_tempfile(lines = "placeholder")
+  local_mocked_bindings(
+    gb_hlp_unzip_list = function(...) data.frame(Size = 1L)
+  )
+
+  expect_error(gb_hlp_list_archive(archive), class = "rlang_error")
+  expect_false(file.exists(archive))
+})
+
 test_that("boundary downloads return simplified or full sf objects", {
   skip_on_cran()
   skip_if_offline()

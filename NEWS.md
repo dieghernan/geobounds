@@ -1,3 +1,11 @@
+# geobounds (development version)
+
+- Country inputs now reject empty or wholly unmatched values, and Kosovo aliases must match `"Kosovo"` or `"XKX"` exactly.
+- `gb_clear_cache()` now rejects unsafe cache locations before recursively deleting cached data. Cache functions also validate scalar arguments, report directory creation failures clearly and confirm that requested deletions succeeded.
+- `gb_get()` now rejects missing or non-scalar download options and invalid cache directory values before requesting data. Invalid cached archives are removed with an actionable error so a subsequent request can download them again.
+- `gb_get_max_adm_lvl()` now derives the maximum level from each ADM label instead of assuming that available metadata levels are consecutive.
+- `gb_get_world()` now returns `NULL` when a download fails or no requested country is available, and validates download options before requesting data.
+
 # geobounds 1.0.0
 
 - Changed the software license from CC BY 4.0 to MIT and clarified that

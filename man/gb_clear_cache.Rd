@@ -28,7 +28,9 @@ clearing the \code{GEOBOUNDS_CACHE_DIR} environment variable. See
 }
 \details{
 This reset restores the cache state of a fresh \CRANpkg{geobounds}
-installation.
+installation. For safety, the function refuses to recursively delete a cache
+path that contains the home, working, temporary or package configuration
+directory. Use a dedicated cache subdirectory.
 }
 \examples{
 

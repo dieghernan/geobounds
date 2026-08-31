@@ -8,7 +8,7 @@
   "codeRepository": "https://github.com/dieghernan/geobounds",
   "issueTracker": "https://github.com/dieghernan/geobounds/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "1.0.0",
+  "version": "1.0.0.9000",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -220,7 +220,7 @@
     "SystemRequirements": null
   },
   "keywords": ["administrative-boundaries", "api", "geoboundaries", "r", "r-package", "spatial-data", "cran", "cran-r"],
-  "fileSize": "455.465KB",
+  "fileSize": "471.097KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",

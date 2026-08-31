@@ -58,12 +58,23 @@ gb_get_world <- function(
   cache_dir = NULL
 ) {
   adm_lvl <- assert_adm_lvl(adm_lvl, dict = c(paste0("adm", 0:2), 0:2))
-  country <- gbnds_dev_country2iso(country)
+  valid_cache_dir <- is.null(cache_dir)
+  if (!valid_cache_dir) {
+    valid_cache_dir <- is.character(cache_dir) &&
+      length(cache_dir) == 1L &&
+      !is.na(cache_dir) &&
+      nzchar(cache_dir)
+  }
+  valid_overwrite <- isTRUE(overwrite) || isFALSE(overwrite)
+  valid_quiet <- isTRUE(quiet) || isFALSE(quiet)
 
   gb_abort_if_not(
-    "{.arg overwrite} must be a {.cls logical}." = is.logical(overwrite),
-    "{.arg quiet} must be a {.cls logical}." = is.logical(quiet)
+    "{.arg overwrite} must be one logical value." = valid_overwrite,
+    "{.arg quiet} must be one logical value." = valid_quiet,
+    "{.arg cache_dir} must be {.code NULL} or one string." = valid_cache_dir
   )
+
+  country <- gbnds_dev_country2iso(country)
 
   # Build the CGAZ download URL.
   baseurl <- paste0(
@@ -84,6 +95,10 @@ gb_get_world <- function(
     cgaz_country = country,
     simplified = FALSE
   )
+
+  if (is.null(world) || nrow(world) == 0L) {
+    return(NULL)
+  }
 
   tokeep <- setdiff(names(world), "id")
 

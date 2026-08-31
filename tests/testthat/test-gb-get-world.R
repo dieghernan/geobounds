@@ -36,3 +36,35 @@ test_that("world downloads reject unsupported ADM levels", {
     error = TRUE
   )
 })
+
+test_that("world downloads reject non-scalar options", {
+  expect_error(gb_get_world(overwrite = NA), class = "rlang_error")
+  expect_error(
+    gb_get_world(quiet = c(TRUE, FALSE)),
+    class = "rlang_error"
+  )
+  expect_error(
+    gb_get_world(cache_dir = character()),
+    class = "rlang_error"
+  )
+})
+
+test_that("world downloads return NULL after a failed request", {
+  local_mocked_bindings(
+    gbnds_dev_shp_query = function(...) NULL
+  )
+
+  expect_null(gb_get_world("Andorra"))
+})
+
+test_that("world downloads return NULL when no country matches", {
+  empty_world <- sf::st_sf(
+    shapeGroup = character(),
+    geometry = sf::st_sfc(crs = 4326)
+  )
+  local_mocked_bindings(
+    gbnds_dev_shp_query = function(...) empty_world
+  )
+
+  expect_null(gb_get_world("Andorra"))
+})

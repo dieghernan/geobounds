@@ -42,9 +42,33 @@ gb_get_max_adm_lvl <- function(
     adm_lvl = "all",
     release_type = release_type
   )
-  df$rank <- as.integer(as.factor(df$boundaryType))
-  res <- tapply(df$rank, df$boundaryISO, max)
-  tib <- dplyr::tibble(boundaryISO = names(res), maxBoundaryType = res - 1)
-  tib$maxBoundaryType <- as.integer(tib$maxBoundaryType)
-  tib
+
+  if (nrow(df) == 0L) {
+    return(dplyr::tibble(
+      boundaryISO = character(),
+      maxBoundaryType = integer()
+    ))
+  }
+
+  required_cols <- c("boundaryISO", "boundaryType")
+  valid_cols <- all(required_cols %in% names(df))
+  valid_levels <- valid_cols &&
+    is.character(df$boundaryType) &&
+    !anyNA(df$boundaryType) &&
+    all(grepl("^ADM[0-9]+$", df$boundaryType))
+  valid_iso <- valid_cols &&
+    is.character(df$boundaryISO) &&
+    !anyNA(df$boundaryISO) &&
+    all(nzchar(df$boundaryISO))
+  gb_abort_if_not(
+    "Boundary metadata contains invalid country codes." = valid_iso,
+    "Boundary metadata contains invalid ADM levels." = valid_levels
+  )
+
+  adm_number <- as.integer(sub("^ADM", "", df$boundaryType))
+  max_level <- tapply(adm_number, df$boundaryISO, max)
+  dplyr::tibble(
+    boundaryISO = names(max_level),
+    maxBoundaryType = as.integer(max_level)
+  )
 }

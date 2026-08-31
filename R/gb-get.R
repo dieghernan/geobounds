@@ -118,15 +118,26 @@ gb_get <- function(
   # Prepare input parameters.
   source <- match_arg_pretty(release_type)
   adm_lvl <- assert_adm_lvl(adm_lvl)
-  country <- gbnds_dev_country2iso(country)
-
-  gb_hlp_license_notice(source)
+  valid_cache_dir <- is.null(cache_dir)
+  if (!valid_cache_dir) {
+    valid_cache_dir <- is.character(cache_dir) &&
+      length(cache_dir) == 1L &&
+      !is.na(cache_dir) &&
+      nzchar(cache_dir)
+  }
+  valid_simplified <- isTRUE(simplified) || isFALSE(simplified)
+  valid_overwrite <- isTRUE(overwrite) || isFALSE(overwrite)
+  valid_quiet <- isTRUE(quiet) || isFALSE(quiet)
 
   gb_abort_if_not(
-    "{.arg simplified} must be a {.cls logical}." = is.logical(simplified),
-    "{.arg overwrite} must be a {.cls logical}." = is.logical(overwrite),
-    "{.arg quiet} must be a {.cls logical}." = is.logical(quiet)
+    "{.arg simplified} must be one logical value." = valid_simplified,
+    "{.arg overwrite} must be one logical value." = valid_overwrite,
+    "{.arg quiet} must be one logical value." = valid_quiet,
+    "{.arg cache_dir} must be {.code NULL} or one string." = valid_cache_dir
   )
+
+  country <- gbnds_dev_country2iso(country)
+  gb_hlp_license_notice(source)
 
   meta_df <- gb_get_metadata(
     country = country,
@@ -248,7 +259,7 @@ gbnds_dev_shp_query <- function(
   }
 
   # Select the requested shapefile from the archive.
-  shp_zip <- unzip(file_local, list = TRUE)
+  shp_zip <- gb_hlp_list_archive(file_local)
   shp_end <- gb_hlp_select_shapefile(shp_zip$Name, simplified = simplified)
 
   # Read through GDAL's `/vsizip/` virtual file system.
@@ -260,4 +271,62 @@ gbnds_dev_shp_query <- function(
     outsf <- outsf[outsf$shapeGroup %in% cgaz_country, ]
   }
   gbnds_dev_sf_helper(outsf)
+}
+
+#' List a boundary archive or remove it when invalid
+#'
+#' @param path A path to a ZIP archive.
+#' @param call The call to display in the error message.
+#'
+#' @returns
+#' A data frame describing the files in the archive.
+#'
+#' @noRd
+gb_hlp_list_archive <- function(path, call = parent.frame()) {
+  invalid_archive <- function(cnd = NULL) {
+    status <- gb_hlp_unlink(path, recursive = FALSE, force = TRUE)
+    if (!identical(status, 0L) || file.exists(path)) {
+      cli::cli_abort(
+        c(
+          "Invalid boundary archive {.file {path}} could not be removed.",
+          "i" = "Delete the file manually before retrying the request."
+        ),
+        call = call,
+        parent = cnd
+      )
+    }
+
+    cli::cli_abort(
+      c(
+        "Boundary archive {.file {path}} is invalid and was removed.",
+        "i" = "Retry the request to download a fresh copy."
+      ),
+      call = call,
+      parent = cnd
+    )
+  }
+
+  archive <- tryCatch(
+    gb_hlp_unzip_list(path),
+    error = invalid_archive,
+    warning = invalid_archive
+  )
+
+  if (!is.data.frame(archive) || !("Name" %in% names(archive))) {
+    invalid_archive()
+  }
+
+  archive
+}
+
+#' List files in a ZIP archive
+#'
+#' @param path A path to a ZIP archive.
+#'
+#' @returns
+#' A data frame describing the files in the archive.
+#'
+#' @noRd
+gb_hlp_unzip_list <- function(path) {
+  unzip(path, list = TRUE)
 }

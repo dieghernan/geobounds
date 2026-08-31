@@ -109,6 +109,73 @@ test_that("cache directory helper creates the active directory", {
   expect_true(dir.exists(cache_dir))
 })
 
+test_that("cache functions reject non-scalar arguments", {
+  expect_error(gb_set_cache_dir(quiet = NA), class = "rlang_error")
+  expect_error(gb_set_cache_dir(overwrite = logical()), class = "rlang_error")
+  expect_error(
+    gb_set_cache_dir(cache_dir = c("first", "second")),
+    class = "rlang_error"
+  )
+  expect_error(gb_clear_cache(config = NA), class = "rlang_error")
+  expect_error(
+    gb_clear_cache(cached_data = c(TRUE, FALSE)),
+    class = "rlang_error"
+  )
+})
+
+test_that("cache setup reports directory creation failures", {
+  cache_file <- withr::local_tempfile(lines = "occupied")
+
+  expect_error(gb_set_cache_dir(cache_file), class = "rlang_error")
+})
+
+test_that("cache deletion rejects paths containing protected directories", {
+  expect_error(
+    gb_hlp_assert_safe_cache_dir(getwd()),
+    class = "rlang_error"
+  )
+})
+
+test_that("cache paths are compared case-insensitively on Windows", {
+  expect_identical(
+    gb_hlp_path_comparison("C:/Cache/Mixed", os_type = "windows"),
+    "c:/cache/mixed"
+  )
+})
+
+test_that("cache path case is preserved on other platforms", {
+  expect_identical(
+    gb_hlp_path_comparison("/cache/Mixed", os_type = "unix"),
+    "/cache/Mixed"
+  )
+})
+
+test_that("cache deletion checks safety before recursively deleting", {
+  cache_dir <- withr::local_tempdir("geobounds-test-cache-guard-")
+  sentinel <- withr::local_tempfile(tmpdir = cache_dir, lines = "keep")
+  withr::local_envvar(GEOBOUNDS_CACHE_DIR = cache_dir)
+  local_mocked_bindings(
+    gb_hlp_assert_safe_cache_dir = function(...) {
+      cli::cli_abort("Unsafe test cache.")
+    }
+  )
+
+  expect_error(gb_clear_cache(), class = "rlang_error")
+  expect_true(file.exists(sentinel))
+})
+
+test_that("cache deletion reports filesystem failures", {
+  cache_dir <- withr::local_tempdir("geobounds-test-cache-delete-")
+  local_mocked_bindings(
+    gb_hlp_unlink = function(...) 1L
+  )
+
+  expect_error(
+    gb_hlp_delete_dir(cache_dir, arg = "test cache"),
+    class = "rlang_error"
+  )
+})
+
 test_that("cache detection uses the configured directory", {
   config_dir <- local_test_user_config_dir("geobounds-test-config-order-")
   cache_dir <- file.path(config_dir, "configured-cache")
@@ -132,9 +199,22 @@ test_that("cache detection falls back when configuration is empty", {
   expect_true(dir.exists(default_cache))
 })
 
+test_that("cache detection ignores configuration with multiple paths", {
+  fallback_cache <- withr::local_tempdir("geobounds-test-fallback-")
+  config_dir <- local_test_user_config_dir("geobounds-test-multi-config-")
+  local_mocked_bindings(
+    gb_set_cache_dir = function(...) fallback_cache
+  )
+  writeLines(
+    c(file.path(config_dir, "first"), file.path(config_dir, "second")),
+    file.path(config_dir, "GEOBOUNDS_CACHE_DIR")
+  )
+
+  expect_identical(gb_hlp_detect_cache_dir(), fallback_cache)
+})
+
 test_that("installed cache paths are detected from configuration", {
-  test_root <- file.path(tempfile("geobounds"))
-  withr::defer(unlink(test_root, force = TRUE, recursive = TRUE))
+  test_root <- withr::local_tempfile(pattern = "geobounds")
   withr::local_envvar(GEOBOUNDS_CACHE_DIR = "")
 
   expect_false(dir.exists(test_root))
