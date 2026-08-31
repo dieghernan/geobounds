@@ -195,10 +195,10 @@ Map showing overlap in the disputed Kashmir area.
 <span>    <span class="va">licenseSource</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 2 × 4</span></span>
-<span><span class="co">#&gt;   boundaryName boundaryLicense                                      boundarySource    licenseSource</span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;        &lt;chr&gt;                                                &lt;chr&gt;             &lt;chr&gt;        </span></span>
-<span><span class="co">#&gt; 1 India        CC0 1.0 Universal (CC0 1.0) Public Domain Dedication geoBoundaries, W… commons.wiki…</span></span>
-<span><span class="co">#&gt; 2 Pakistan     Open Data Commons Open Database License 1.0          OpenStreetMap, W… www.openstre…</span></span></code></pre></div>
+<span><span class="co">#&gt;   boundaryName boundaryLicense                      boundarySource licenseSource</span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;        &lt;chr&gt;                                &lt;chr&gt;          &lt;chr&gt;        </span></span>
+<span><span class="co">#&gt; 1 India        CC0 1.0 Universal (CC0 1.0) Public … geoBoundaries… commons.wiki…</span></span>
+<span><span class="co">#&gt; 2 Pakistan     Open Data Commons Open Database Lic… OpenStreetMap… www.openstre…</span></span></code></pre></div>
 <p>Always acknowledge <strong>geoBoundaries</strong> when sharing a boundary or derived product. Consult the boundary metadata for any additional source attribution, license link, share-alike notice or modification statement required by that boundary’s license. ODbL and CC BY-SA data may impose share-alike obligations beyond attribution.</p>
 </section><section class="level3"><h3 id="global-composite-boundaries">Global composite boundaries<a class="anchor" aria-label="anchor" href="#global-composite-boundaries"></a>
 </h3>
@@ -211,6 +211,11 @@ Map showing overlap in the disputed Kashmir area.
 <p>CGAZ boundaries and figures are not covered by the package’s MIT license. Follow the citation and use information included in each downloaded CGAZ archive.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">cgaz_india_pak</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/gb_get_world.html">gb_get_world</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"India"</span>, <span class="st">"Pakistan"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Error in `httr2::req_perform()` at geobounds/R/gb-get.R:253:5:</span></span>
+<span><span class="co">#&gt; ! Failed to perform HTTP request.</span></span>
+<span><span class="co">#&gt; Caused by error in `curl::curl_fetch_disk()`:</span></span>
+<span><span class="co">#&gt; ! Stream error in the HTTP/2 framing layer [media.githubusercontent.com]:</span></span>
+<span><span class="co">#&gt; HTTP/2 stream 7 was not closed cleanly: PROTOCOL_ERROR (err 1)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">cgaz_india_pak</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">shapeName</span><span class="op">)</span>, alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span></span>
@@ -220,12 +225,9 @@ Map showing overlap in the disputed Kashmir area.
 <span>    title <span class="op">=</span> <span class="st">"Map of India and Pakistan"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="st">"CGAZ does not overlap"</span>,</span>
 <span>    caption <span class="op">=</span> <span class="st">"Source: geoBoundaries (CGAZ)"</span></span>
-<span>  <span class="op">)</span></span></code></pre></div>
-<div class="figure">
-<img src="./cgaz-1.png" alt="Map showing no overlap in Kashmir, provided by CGAZ." width="100%"><p class="caption">
-Map showing no overlap in Kashmir, provided by CGAZ.
-</p>
-</div>
+<span>  <span class="op">)</span></span>
+<span><span class="co">#&gt; Error:</span></span>
+<span><span class="co">#&gt; ! object 'cgaz_india_pak' not found</span></span></code></pre></div>
 </section></section><section class="level2"><h2 id="cache-management-and-performance">Cache management and performance<a class="anchor" aria-label="anchor" href="#cache-management-and-performance"></a>
 </h2>
 <p><strong>geobounds</strong> stores downloaded files in a cache directory so repeated requests for the same country and ADM level can reuse the cached file. For example:</p>
@@ -276,10 +278,10 @@ Map showing no overlap in Kashmir, provided by CGAZ.
 <span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Rows: 47</span></span>
 <span><span class="co">#&gt; Columns: 4</span></span>
-<span><span class="co">#&gt; $ boundaryISO          &lt;chr&gt; "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", "BLZ", "BOL", "BRA"…</span></span>
-<span><span class="co">#&gt; $ boundaryName         &lt;chr&gt; "Aruba", "Anguilla", "Argentina", "Antigua and Barbuda", "Bonaire Si…</span></span>
-<span><span class="co">#&gt; $ Continent            &lt;chr&gt; "Latin America and the Caribbean", "Latin America and the Caribbean"…</span></span>
-<span><span class="co">#&gt; $ worldBankIncomeGroup &lt;chr&gt; "High-income Countries", "No income group available", "High-income C…</span></span>
+<span><span class="co">#&gt; $ boundaryISO          &lt;chr&gt; "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", …</span></span>
+<span><span class="co">#&gt; $ boundaryName         &lt;chr&gt; "Aruba", "Anguilla", "Argentina", "Antigua and Ba…</span></span>
+<span><span class="co">#&gt; $ Continent            &lt;chr&gt; "Latin America and the Caribbean", "Latin America…</span></span>
+<span><span class="co">#&gt; $ worldBankIncomeGroup &lt;chr&gt; "High-income Countries", "No income group availab…</span></span>
 <span></span>
 <span><span class="co"># Adjust factors.</span></span>
 <span><span class="va">latam_meta</span><span class="op">$</span><span class="va">income_factor</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span></span>
@@ -295,6 +297,13 @@ Map showing no overlap in Kashmir, provided by CGAZ.
 <span><span class="co"># Get global composite boundaries from CGAZ.</span></span>
 <span><span class="va">latam_sf</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/gb_get_world.html">gb_get_world</a></span><span class="op">(</span>adm_lvl <span class="op">=</span> <span class="st">"ADM0"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">inner_join</a></span><span class="op">(</span><span class="va">latam_meta</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"shapeGroup"</span> <span class="op">=</span> <span class="st">"boundaryISO"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Error in `gbnds_dev_shp_query()` at geobounds/R/gb-get-world.R:95:3:</span></span>
+<span><span class="co">#&gt; ! Boundary archive</span></span>
+<span><span class="co">#&gt;   'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpMvFAbd/geobounds/CGAZ/geoBoundariesCGAZ_ADM0.zip'</span></span>
+<span><span class="co">#&gt;   is invalid and was removed.</span></span>
+<span><span class="co">#&gt; ℹ Retry the request to download a fresh copy.</span></span>
+<span><span class="co">#&gt; Caused by error in `unzip()`:</span></span>
+<span><span class="co">#&gt; ! zip file 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpMvFAbd/geobounds/CGAZ/geoBoundariesCGAZ_ADM0.zip' cannot be opened</span></span>
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">latam_sf</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">income_factor</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -308,12 +317,9 @@ Map showing no overlap in Kashmir, provided by CGAZ.
 <span>    subtitle <span class="op">=</span> <span class="st">"Latin America and the Caribbean"</span>,</span>
 <span>    fill <span class="op">=</span> <span class="st">""</span>,</span>
 <span>    caption <span class="op">=</span> <span class="st">"Source: geoBoundaries (CGAZ and gbOpen metadata)"</span></span>
-<span>  <span class="op">)</span></span></code></pre></div>
-<div class="figure">
-<img src="./choro-1.png" alt="World Bank Income Group: Latin America and the Caribbean." width="100%"><p class="caption">
-World Bank Income Group: Latin America and the Caribbean.
-</p>
-</div>
+<span>  <span class="op">)</span></span>
+<span><span class="co">#&gt; Error:</span></span>
+<span><span class="co">#&gt; ! object 'latam_sf' not found</span></span></code></pre></div>
 </section><section class="level2"><h2 id="summary">Summary<a class="anchor" aria-label="anchor" href="#summary"></a>
 </h2>
 <p>The <strong>geobounds</strong> package supports reproducible workflows for downloading, caching and visualizing administrative boundaries. The returned <strong>sf</strong> objects can be used directly in mapping, spatial analysis and data integration workflows.</p>
