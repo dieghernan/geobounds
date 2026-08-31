@@ -162,11 +162,6 @@ downloaded CGAZ archive.
 ``` r
 
 cgaz_india_pak <- gb_get_world(c("India", "Pakistan"))
-#> Error in `httr2::req_perform()` at geobounds/R/gb-get.R:253:5:
-#> ! Failed to perform HTTP request.
-#> Caused by error in `curl::curl_fetch_disk()`:
-#> ! Stream error in the HTTP/2 framing layer [media.githubusercontent.com]:
-#> HTTP/2 stream 7 was not closed cleanly: PROTOCOL_ERROR (err 1)
 
 ggplot(cgaz_india_pak) +
   geom_sf(aes(fill = shapeName), alpha = 0.5) +
@@ -177,9 +172,11 @@ ggplot(cgaz_india_pak) +
     subtitle = "CGAZ does not overlap",
     caption = "Source: geoBoundaries (CGAZ)"
   )
-#> Error:
-#> ! object 'cgaz_india_pak' not found
 ```
+
+![Map showing no overlap in Kashmir, provided by CGAZ.](./cgaz-1.png)
+
+Map showing no overlap in Kashmir, provided by CGAZ.
 
 ## Cache management and performance
 
@@ -264,13 +261,6 @@ latam_meta$income_factor <- factor(
 # Get global composite boundaries from CGAZ.
 latam_sf <- gb_get_world(adm_lvl = "ADM0") |>
   inner_join(latam_meta, by = c("shapeGroup" = "boundaryISO"))
-#> Error in `gbnds_dev_shp_query()` at geobounds/R/gb-get-world.R:95:3:
-#> ! Boundary archive
-#>   'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpMvFAbd/geobounds/CGAZ/geoBoundariesCGAZ_ADM0.zip'
-#>   is invalid and was removed.
-#> ℹ Retry the request to download a fresh copy.
-#> Caused by error in `unzip()`:
-#> ! zip file 'C:\Users\RUNNER~1\AppData\Local\Temp\RtmpMvFAbd/geobounds/CGAZ/geoBoundariesCGAZ_ADM0.zip' cannot be opened
 
 ggplot(latam_sf) +
   geom_sf(aes(fill = income_factor)) +
@@ -285,9 +275,12 @@ ggplot(latam_sf) +
     fill = "",
     caption = "Source: geoBoundaries (CGAZ and gbOpen metadata)"
   )
-#> Error:
-#> ! object 'latam_sf' not found
 ```
+
+![World Bank Income Group: Latin America and the
+Caribbean.](./choro-1.png)
+
+World Bank Income Group: Latin America and the Caribbean.
 
 ## Summary
 
