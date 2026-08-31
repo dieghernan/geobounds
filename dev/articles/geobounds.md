@@ -10,9 +10,9 @@ metadata before reuse.
 ## Introduction
 
 The **geobounds** package provides an interface for downloading and
-working with administrative boundaries from the
-[**geoBoundaries**](https://www.geoboundaries.org/) Global Database of
-Political Administrative Boundaries ([Runfola et al.
+working with administrative boundaries from the Global Database of
+Political Administrative Boundaries, maintained by
+[**geoBoundaries**](https://www.geoboundaries.org/) ([Runfola et al.
 2020](#ref-10.1371/journal.pone.0231866)).
 
 The default **gbOpen** release type covers countries worldwide across
@@ -24,8 +24,8 @@ download boundaries as **sf** objects, inspect boundary metadata, cache
 downloaded files and integrate boundaries into spatial workflows.
 
 This vignette keeps the main workflow in one place. It first explains
-how to [choose the right boundary type](#understanding-the-boundaries),
-then covers [cache management](#cache-management-and-performance) and
+how to [choose a boundary type](#understanding-the-boundaries), then
+covers [cache management](#cache-management-and-performance) and
 finishes with a [spatial analysis example](#spatial-analysis-workflows).
 
 ## Understanding the boundaries
@@ -124,10 +124,10 @@ gb_get_metadata(c("India", "Pakistan"), adm_lvl = "ADM0") |>
     licenseSource
   )
 #> # A tibble: 2 × 4
-#>   boundaryName boundaryLicense                                      boundarySource licenseSource
-#>   <chr>        <chr>                                                <chr>          <chr>        
-#> 1 India        CC0 1.0 Universal (CC0 1.0) Public Domain Dedication geoBoundaries… commons.wiki…
-#> 2 Pakistan     Open Data Commons Open Database License 1.0          OpenStreetMap… www.openstre…
+#>   boundaryName boundaryLicense                                      boundarySource    licenseSource
+#>   <chr>        <chr>                                                <chr>             <chr>        
+#> 1 India        CC0 1.0 Universal (CC0 1.0) Public Domain Dedication geoBoundaries, W… commons.wiki…
+#> 2 Pakistan     Open Data Commons Open Database License 1.0          OpenStreetMap, W… www.openstre…
 ```
 
 When sharing a boundary or a derived product, attribute
@@ -147,8 +147,8 @@ boundaries in three important ways:
 
 1.  Extensive simplification keeps file sizes small enough for most
     desktop software.
-2.  Disputed areas are removed and replaced with polygons following
-    United States Department of State definitions.
+2.  Disputed areas are removed and replaced with polygons following the
+    definitions used by the CGAZ product.
 3.  Gaps between borders are filled.
 
 CGAZ boundaries and figures are not covered by the package’s MIT
@@ -190,15 +190,15 @@ current
 #> [1] "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\Rtmp6LfQDv"
 
 # Change to a new cache directory.
-newdir <- file.path(tempdir(), "/geoboundvignette")
+newdir <- file.path(tempdir(), "geoboundvignette")
 gb_set_cache_dir(newdir)
-#> ✔ geobounds cache directory is 'C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp6LfQDv//geoboundvignette'.
+#> ✔ geobounds cache directory is 'C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp6LfQDv/geoboundvignette'.
 #> ℹ To use this cache directory in future sessions, call `gb_set_cache_dir()` with `install = TRUE`.
 
 # Download the example data.
 example <- gb_get_adm0("Vatican City", quiet = FALSE)
 #> ℹ Downloading file from <https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/VAT/ADM0/geoBoundaries-VAT-ADM0-all.zip>.
-#> → Cache directory is 'C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp6LfQDv//geoboundvignette/gbOpen'.
+#> → Cache directory is 'C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp6LfQDv/geoboundvignette/gbOpen'.
 
 # Restore the cache directory.
 gb_set_cache_dir(current)
@@ -238,10 +238,10 @@ latam_meta <- gb_get_metadata(adm_lvl = "ADM0") |>
   glimpse()
 #> Rows: 47
 #> Columns: 4
-#> $ boundaryISO          <chr> "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", "BLZ", "BOL", "B…
-#> $ boundaryName         <chr> "Aruba", "Anguilla", "Argentina", "Antigua and Barbuda", "Bonaire…
-#> $ Continent            <chr> "Latin America and the Caribbean", "Latin America and the Caribbe…
-#> $ worldBankIncomeGroup <chr> "High-income Countries", "No income group available", "High-incom…
+#> $ boundaryISO          <chr> "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", "BLZ", "BOL", "BRA"…
+#> $ boundaryName         <chr> "Aruba", "Anguilla", "Argentina", "Antigua and Barbuda", "Bonaire Si…
+#> $ Continent            <chr> "Latin America and the Caribbean", "Latin America and the Caribbean"…
+#> $ worldBankIncomeGroup <chr> "High-income Countries", "No income group available", "High-income C…
 
 # Adjust factors.
 latam_meta$income_factor <- factor(

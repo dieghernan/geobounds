@@ -57,7 +57,10 @@ Configure, inspect and clear cached boundary archives.
   Set the [geobounds](https://CRAN.R-project.org/package=geobounds)
   cache directory
 
-## Learn about geobounds
+## About the package
+
+View package-level documentation, citation information and project links
+for **geobounds**.
 
 - [`geobounds`](https://dieghernan.github.io/geobounds/dev/reference/geobounds-package.md)
   [`geobounds-package`](https://dieghernan.github.io/geobounds/dev/reference/geobounds-package.md)

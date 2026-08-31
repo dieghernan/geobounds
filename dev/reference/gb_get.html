@@ -6,14 +6,20 @@ disputed areas and fill gaps between borders.
 Boundaries downloaded through this function are not covered by the package's
 MIT license. Attribution
 to geoBoundaries and the original sources is required when sharing the
-boundaries or derived products."><meta property="og:description" content="Returns individual country boundaries that reflect how countries represent
+boundaries or derived products.
+The wrappers gb_get_adm0(), gb_get_adm1(), gb_get_adm2(),
+gb_get_adm3(), gb_get_adm4() and gb_get_adm5() are also available for
+requesting a single ADM level."><meta property="og:description" content="Returns individual country boundaries that reflect how countries represent
 their own boundaries, without special identification of disputed areas.
 Use gb_get_world() for global composite boundaries that standardize
 disputed areas and fill gaps between borders.
 Boundaries downloaded through this function are not covered by the package's
 MIT license. Attribution
 to geoBoundaries and the original sources is required when sharing the
-boundaries or derived products."><meta property="og:image" content="https://dieghernan.github.io/geobounds/logo.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@dhernangomez"><meta name="twitter:site" content="@dhernangomez"><meta name="robots" content="noindex"><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-LTNVYVLK36"></script><script>
+boundaries or derived products.
+The wrappers gb_get_adm0(), gb_get_adm1(), gb_get_adm2(),
+gb_get_adm3(), gb_get_adm4() and gb_get_adm5() are also available for
+requesting a single ADM level."><meta property="og:image" content="https://dieghernan.github.io/geobounds/logo.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@dhernangomez"><meta name="twitter:site" content="@dhernangomez"><meta name="robots" content="noindex"><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-LTNVYVLK36"></script><script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
@@ -27,7 +33,7 @@ boundaries or derived products."><meta property="og:image" content="https://dieg
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="geobounds logo" height="34" width="34" class="d-inline-block me-1">geobounds</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.1.2.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.0.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -82,6 +88,9 @@ disputed areas and fill gaps between borders.</p>
 MIT license. <a href="https://www.geoboundaries.org/index.html#usage" class="external-link">Attribution</a>
 to <strong>geoBoundaries</strong> and the original sources is required when sharing the
 boundaries or derived products.</p>
+<p>The wrappers <code><a href="gb_get_adm.html">gb_get_adm0()</a></code>, <code><a href="gb_get_adm.html">gb_get_adm1()</a></code>, <code><a href="gb_get_adm.html">gb_get_adm2()</a></code>,
+<code><a href="gb_get_adm.html">gb_get_adm3()</a></code>, <code><a href="gb_get_adm.html">gb_get_adm4()</a></code> and <code><a href="gb_get_adm.html">gb_get_adm5()</a></code> are also available for
+requesting a single ADM level.</p>
     </div>
 
     <div class="section level2">
@@ -108,7 +117,7 @@ boundaries or derived products.</p>
 <dl><dt id="arg-country">country<a class="anchor" aria-label="anchor" href="#arg-country"></a></dt>
 <dd><p>A character vector of country names or ISO 3166-1 alpha-3
 country codes. Use <code>"all"</code> to return boundaries for all countries. See
-also <code><a href="https://vincentarelbundock.github.io/countrycode/man/countrycode.html" class="external-link">countrycode::countrycode()</a></code> from <a href="https://CRAN.R-project.org/package=countrycode" class="external-link"><span class="pkg">countrycode</span></a>.</p></dd>
+also <code><a href="https://rdrr.io/pkg/countrycode/man/countrycode.html" class="external-link">countrycode::countrycode()</a></code> from <a href="https://CRAN.R-project.org/package=countrycode" class="external-link"><span class="pkg">countrycode</span></a>.</p></dd>
 
 
 <dt id="arg-adm-lvl">adm_lvl<a class="anchor" aria-label="anchor" href="#arg-adm-lvl"></a></dt>
@@ -168,9 +177,6 @@ identified in its boundary metadata. See <code><a href="gb_get_metadata.html">gb
 CC BY-SA. Do not assume every boundary is licensed only under CC BY 4.0.
 Users should cite the sources listed in the metadata and comply with any
 attribution, share-alike or non-commercial terms.</p>
-<p>The wrappers <code><a href="gb_get_adm.html">gb_get_adm0()</a></code>, <code><a href="gb_get_adm.html">gb_get_adm1()</a></code>, <code><a href="gb_get_adm.html">gb_get_adm2()</a></code>,
-<code><a href="gb_get_adm.html">gb_get_adm3()</a></code>, <code><a href="gb_get_adm.html">gb_get_adm4()</a></code> and <code><a href="gb_get_adm.html">gb_get_adm5()</a></code> are also available for
-requesting a single ADM level.</p>
     </div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>

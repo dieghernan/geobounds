@@ -37,7 +37,7 @@ boundaries or derived products."><meta property="og:image" content="https://dieg
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="geobounds logo" height="34" width="34" class="d-inline-block me-1">geobounds</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.1.2.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.0.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -167,7 +167,7 @@ boundaries or derived products.</p>
 <dl><dt id="arg-country">country<a class="anchor" aria-label="anchor" href="#arg-country"></a></dt>
 <dd><p>A character vector of country names or ISO 3166-1 alpha-3
 country codes. Use <code>"all"</code> to return boundaries for all countries. See
-also <code><a href="https://vincentarelbundock.github.io/countrycode/man/countrycode.html" class="external-link">countrycode::countrycode()</a></code> from <a href="https://CRAN.R-project.org/package=countrycode" class="external-link"><span class="pkg">countrycode</span></a>.</p></dd>
+also <code><a href="https://rdrr.io/pkg/countrycode/man/countrycode.html" class="external-link">countrycode::countrycode()</a></code> from <a href="https://CRAN.R-project.org/package=countrycode" class="external-link"><span class="pkg">countrycode</span></a>.</p></dd>
 
 
 <dt id="arg-simplified">simplified<a class="anchor" aria-label="anchor" href="#arg-simplified"></a></dt>
@@ -214,9 +214,11 @@ boundaries. If no boundaries match the request, the function returns
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>Each individual country boundary layer is governed by the original license
-identified in its boundary metadata. See <code><a href="gb_get_metadata.html">gb_get_metadata()</a></code>. Users should
-cite the sources listed in the metadata and comply with any attribution,
-share-alike or non-commercial terms.</p>
+identified in its boundary metadata. See <code><a href="gb_get_metadata.html">gb_get_metadata()</a></code>. The
+<code>"gbOpen"</code> release contains multiple open licenses, including ODbL and
+CC BY-SA. Do not assume every boundary is licensed only under CC BY 4.0.
+Users should cite the sources listed in the metadata and comply with any
+attribution, share-alike or non-commercial terms.</p>
     </div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>

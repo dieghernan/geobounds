@@ -87,7 +87,7 @@ gb_get_adm5(
 
   A character vector of country names or ISO 3166-1 alpha-3 country
   codes. Use `"all"` to return boundaries for all countries. See also
-  [`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/man/countrycode.html)
+  [`countrycode::countrycode()`](https://rdrr.io/pkg/countrycode/man/countrycode.html)
   from [countrycode](https://CRAN.R-project.org/package=countrycode).
 
 - simplified:
@@ -139,8 +139,10 @@ boundaries. If no boundaries match the request, the function returns
 Each individual country boundary layer is governed by the original
 license identified in its boundary metadata. See
 [`gb_get_metadata()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_metadata.md).
-Users should cite the sources listed in the metadata and comply with any
-attribution, share-alike or non-commercial terms.
+The `"gbOpen"` release contains multiple open licenses, including ODbL
+and CC BY-SA. Do not assume every boundary is licensed only under CC BY
+4.0. Users should cite the sources listed in the metadata and comply
+with any attribution, share-alike or non-commercial terms.
 
 ## References
 

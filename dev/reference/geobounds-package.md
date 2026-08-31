@@ -8,6 +8,10 @@ analysis. Runfola et al. (2020)
 [doi:10.1371/journal.pone.0231866](https://doi.org/10.1371/journal.pone.0231866)
 describe the underlying database.
 
+## Source
+
+[**geoBoundaries** API](https://www.geoboundaries.org/api.html).
+
 ## References
 
 Runfola et al. (2020) "geoBoundaries: A global database of political

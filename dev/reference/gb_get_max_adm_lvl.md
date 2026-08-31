@@ -22,7 +22,7 @@ gb_get_max_adm_lvl(
 
   A character vector of country names or ISO 3166-1 alpha-3 country
   codes. Use `"all"` to return boundaries for all countries. See also
-  [`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/man/countrycode.html)
+  [`countrycode::countrycode()`](https://rdrr.io/pkg/countrycode/man/countrycode.html)
   from [countrycode](https://CRAN.R-project.org/package=countrycode).
 
 - release_type:
@@ -44,8 +44,8 @@ from [tibble](https://CRAN.R-project.org/package=tibble) containing ISO
 
 ## See also
 
-[`gb_get()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get.md)
-downloads boundaries for the available ADM levels.
+- [`gb_get()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get.md)
+  downloads boundaries for the available ADM levels.
 
 Metadata and licensing functions:
 [`gb_get_metadata()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_metadata.md)

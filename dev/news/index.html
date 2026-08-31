@@ -13,7 +13,7 @@
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="geobounds logo" height="34" width="34" class="d-inline-block me-1">geobounds</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.1.2.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.0.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,8 +60,19 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="geobounds-development-version">geobounds (development version)<a class="anchor" aria-label="anchor" href="#geobounds-development-version"></a></h2>
-<ul><li>Changed the package software license from CC BY 4.0 to MIT and clarified that downloaded boundaries and included figures retain the licenses and attribution requirements of <strong>geoBoundaries</strong> and their original sources. Documentation now distinguishes the varying <code>gbOpen</code> licenses, UN OCHA terms and the non-commercial restriction on UN SALB boundaries. Downloads from <code>gbAuthoritative</code> now display a licensing notice.</li>
-<li>Made cache-related tests safer by isolating <code>GEOBOUNDS_CACHE_DIR</code> with <code><a href="https://withr.r-lib.org/reference/with_envvar.html" class="external-link">withr::local_envvar()</a></code> and using test-owned temporary cache directories with <code><a href="https://withr.r-lib.org/reference/with_tempfile.html" class="external-link">withr::local_tempdir()</a></code>.</li>
+<ul><li>Country inputs now reject empty or wholly unmatched values, and Kosovo aliases must match <code>"Kosovo"</code> or <code>"XKX"</code> exactly.</li>
+<li>
+<code><a href="../reference/gb_clear_cache.html">gb_clear_cache()</a></code> now rejects unsafe cache locations before recursively deleting cached data. Cache functions also validate scalar arguments, report directory creation failures clearly and confirm that requested deletions succeeded.</li>
+<li>
+<code><a href="../reference/gb_get.html">gb_get()</a></code> now rejects missing or non-scalar download options and invalid cache directory values before requesting data. Invalid cached archives are removed with an actionable error so a subsequent request can download them again.</li>
+<li>
+<code><a href="../reference/gb_get_max_adm_lvl.html">gb_get_max_adm_lvl()</a></code> now derives the maximum level from each ADM label instead of assuming that available metadata levels are consecutive.</li>
+<li>
+<code><a href="../reference/gb_get_world.html">gb_get_world()</a></code> now returns <code>NULL</code> when a download fails or no requested country is available, and validates download options before requesting data.</li>
+</ul></div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.0.0" id="geobounds-100">geobounds 1.0.0<a class="anchor" aria-label="anchor" href="#geobounds-100"></a></h2><p class="text-muted">CRAN release: 2026-07-08</p>
+<ul><li>Changed the software license from CC BY 4.0 to MIT and clarified that downloaded boundaries and included figures retain the licenses and attribution requirements of <strong>geoBoundaries</strong> and their original sources. Documentation now distinguishes the varying <code>gbOpen</code> licenses, UN OCHA terms and the non-commercial restriction on UN SALB boundaries. Downloads from <code>gbAuthoritative</code> now display a licensing notice.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.2" id="geobounds-012">geobounds 0.1.2<a class="anchor" aria-label="anchor" href="#geobounds-012"></a></h2><p class="text-muted">CRAN release: 2026-05-29</p>
@@ -69,7 +80,7 @@
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.1" id="geobounds-011">geobounds 0.1.1<a class="anchor" aria-label="anchor" href="#geobounds-011"></a></h2><p class="text-muted">CRAN release: 2026-03-24</p>
-<ul><li>Migrated package documentation to Quarto.</li>
+<ul><li>Migrated package documentation to <strong>Quarto</strong>.</li>
 <li>Updated package documentation.</li>
 </ul></div>
     <div class="section level2">

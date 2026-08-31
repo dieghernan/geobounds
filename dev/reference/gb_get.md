@@ -15,6 +15,16 @@ package's MIT license.
 **geoBoundaries** and the original sources is required when sharing the
 boundaries or derived products.
 
+The wrappers
+[`gb_get_adm0()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_adm.md),
+[`gb_get_adm1()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_adm.md),
+[`gb_get_adm2()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_adm.md),
+[`gb_get_adm3()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_adm.md),
+[`gb_get_adm4()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_adm.md)
+and
+[`gb_get_adm5()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_adm.md)
+are also available for requesting a single ADM level.
+
 ## Usage
 
 ``` r
@@ -39,7 +49,7 @@ gb_get(
 
   A character vector of country names or ISO 3166-1 alpha-3 country
   codes. Use `"all"` to return boundaries for all countries. See also
-  [`countrycode::countrycode()`](https://vincentarelbundock.github.io/countrycode/man/countrycode.html)
+  [`countrycode::countrycode()`](https://rdrr.io/pkg/countrycode/man/countrycode.html)
   from [countrycode](https://CRAN.R-project.org/package=countrycode).
 
 - adm_lvl:
@@ -103,16 +113,6 @@ The `"gbOpen"` release contains multiple open licenses, including ODbL
 and CC BY-SA. Do not assume every boundary is licensed only under CC BY
 4.0. Users should cite the sources listed in the metadata and comply
 with any attribution, share-alike or non-commercial terms.
-
-The wrappers
-[`gb_get_adm0()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_adm.md),
-[`gb_get_adm1()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_adm.md),
-[`gb_get_adm2()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_adm.md),
-[`gb_get_adm3()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_adm.md),
-[`gb_get_adm4()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_adm.md)
-and
-[`gb_get_adm5()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_adm.md)
-are also available for requesting a single ADM level.
 
 ## References
 

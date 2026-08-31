@@ -53,8 +53,8 @@ directory inside
 archives in this directory are removed when the R session ends. To reuse
 a cache directory across R sessions, use
 `gb_set_cache_dir(cache_dir = "a/path/here", install = TRUE)`. This
-saves the directory in a configuration file under
-`tools::R_user_dir("geobounds", "config")`.
+saves the directory in the user configuration path returned by
+[`tools::R_user_dir()`](https://rdrr.io/r/tools/userdir.html).
 
 ## Cache strategies
 
@@ -72,8 +72,8 @@ saves the directory in a configuration file under
 
 ## See also
 
-[`tools::R_user_dir()`](https://rdrr.io/r/tools/userdir.html) identifies
-standard locations for user-specific files.
+- [`tools::R_user_dir()`](https://rdrr.io/r/tools/userdir.html)
+  identifies standard locations for user-specific files.
 
 Cache management functions:
 [`gb_clear_cache()`](https://dieghernan.github.io/geobounds/dev/reference/gb_clear_cache.md),
@@ -87,28 +87,28 @@ Cache management functions:
 
 # \dontrun{
 my_cache <- gb_detect_cache_dir()
-#> ℹ /tmp/RtmpSiAiJs/geobounds
+#> ℹ /tmp/Rtmpv0m9RT/geobounds
 
 # Set an example cache directory.
 ex <- file.path(tempdir(), "example", "cachenew")
 gb_set_cache_dir(ex)
-#> ✔ geobounds cache directory is /tmp/RtmpSiAiJs/example/cachenew.
+#> ✔ geobounds cache directory is /tmp/Rtmpv0m9RT/example/cachenew.
 #> ℹ To use this cache directory in future sessions, call `gb_set_cache_dir()` with `install = TRUE`.
 
 gb_detect_cache_dir()
-#> ℹ /tmp/RtmpSiAiJs/example/cachenew
-#> [1] "/tmp/RtmpSiAiJs/example/cachenew"
+#> ℹ /tmp/Rtmpv0m9RT/example/cachenew
+#> [1] "/tmp/Rtmpv0m9RT/example/cachenew"
 
 # Restore the initial cache.
 gb_set_cache_dir(my_cache)
-#> ✔ geobounds cache directory is /tmp/RtmpSiAiJs/geobounds.
+#> ✔ geobounds cache directory is /tmp/Rtmpv0m9RT/geobounds.
 #> ℹ To use this cache directory in future sessions, call `gb_set_cache_dir()` with `install = TRUE`.
 identical(my_cache, gb_detect_cache_dir())
-#> ℹ /tmp/RtmpSiAiJs/geobounds
+#> ℹ /tmp/Rtmpv0m9RT/geobounds
 #> [1] TRUE
 # }
 
 gb_detect_cache_dir()
-#> ℹ /tmp/RtmpSiAiJs/geobounds
-#> [1] "/tmp/RtmpSiAiJs/geobounds"
+#> ℹ /tmp/Rtmpv0m9RT/geobounds
+#> [1] "/tmp/Rtmpv0m9RT/geobounds"
 ```

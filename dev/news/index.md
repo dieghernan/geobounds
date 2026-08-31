@@ -2,17 +2,36 @@
 
 ## geobounds (development version)
 
-- Changed the package software license from CC BY 4.0 to MIT and
-  clarified that downloaded boundaries and included figures retain the
-  licenses and attribution requirements of **geoBoundaries** and their
-  original sources. Documentation now distinguishes the varying `gbOpen`
+- Country inputs now reject empty or wholly unmatched values, and Kosovo
+  aliases must match `"Kosovo"` or `"XKX"` exactly.
+- [`gb_clear_cache()`](https://dieghernan.github.io/geobounds/dev/reference/gb_clear_cache.md)
+  now rejects unsafe cache locations before recursively deleting cached
+  data. Cache functions also validate scalar arguments, report directory
+  creation failures clearly and confirm that requested deletions
+  succeeded.
+- [`gb_get()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get.md)
+  now rejects missing or non-scalar download options and invalid cache
+  directory values before requesting data. Invalid cached archives are
+  removed with an actionable error so a subsequent request can download
+  them again.
+- [`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_max_adm_lvl.md)
+  now derives the maximum level from each ADM label instead of assuming
+  that available metadata levels are consecutive.
+- [`gb_get_world()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_world.md)
+  now returns `NULL` when a download fails or no requested country is
+  available, and validates download options before requesting data.
+
+## geobounds 1.0.0
+
+CRAN release: 2026-07-08
+
+- Changed the software license from CC BY 4.0 to MIT and clarified that
+  downloaded boundaries and included figures retain the licenses and
+  attribution requirements of **geoBoundaries** and their original
+  sources. Documentation now distinguishes the varying `gbOpen`
   licenses, UN OCHA terms and the non-commercial restriction on UN SALB
   boundaries. Downloads from `gbAuthoritative` now display a licensing
   notice.
-- Made cache-related tests safer by isolating `GEOBOUNDS_CACHE_DIR` with
-  [`withr::local_envvar()`](https://withr.r-lib.org/reference/with_envvar.html)
-  and using test-owned temporary cache directories with
-  [`withr::local_tempdir()`](https://withr.r-lib.org/reference/with_tempfile.html).
 
 ## geobounds 0.1.2
 
@@ -26,7 +45,7 @@ CRAN release: 2026-05-29
 
 CRAN release: 2026-03-24
 
-- Migrated package documentation to Quarto.
+- Migrated package documentation to **Quarto**.
 - Updated package documentation.
 
 ## geobounds 0.1.0

@@ -46,7 +46,7 @@
 
     <a class="navbar-brand me-2" href="index.html"><img src="apple-touch-icon.png" alt="geobounds logo" height="34" width="34" class="d-inline-block me-1">geobounds</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.1.2.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.0.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -142,7 +142,7 @@ Important
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("pak")</span></span>
 <span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"dieghernan/geobounds"</span><span class="op">)</span></span></code></pre></div>
-<p>Alternatively, you can install <strong>geobounds</strong> from <a href="https://dieghernan.r-universe.dev/geobounds" class="external-link">R-universe</a>:</p>
+<p>Alternatively, you can install <strong>geobounds</strong> from <a href="https://dieghernan.r-universe.dev/geobounds" class="external-link"><strong>r-universe</strong></a>:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Install geobounds.</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span></span>
@@ -192,7 +192,7 @@ Important
 <li>
 <strong>gbHumanitarian</strong>: Boundaries mirrored from UN OCHA. Check the current metadata for the applicable source, license and attribution terms.</li>
 <li>
-<strong>gbAuthoritative</strong>: Boundaries mirrored from UN SALB and verified through in-country processes. These boundaries cannot be used for commercial purposes.</li>
+<strong>gbAuthoritative</strong>: Boundaries mirrored from UN SALB and verified through in-country processes. These boundaries are restricted to non-commercial use.</li>
 </ul>
 <p>Use the <code>release_type</code> argument to request a specific release type, for example, <code>gb_get_adm1("Sri Lanka", release_type = "gbHumanitarian")</code>.</p>
 <p>For coverage and boundary metadata by release type, see the <strong>geobounds</strong> articles.</p>
@@ -261,7 +261,7 @@ Important
 <li>Explore the <strong>geoBoundaries</strong> homepage: <a href="https://www.geoboundaries.org/" class="external-link uri">https://www.geoboundaries.org/</a>
 </li>
 <li>Read the original paper describing the <strong>geoBoundaries</strong> dataset (<a href="#ref-10.1371/journal.pone.0231866">Runfola et al. 2020</a>).</li>
-<li>Report issues or contribute on <a href="https://github.com/dieghernan/geobounds" class="external-link">GitHub</a>.</li>
+<li>Report issues or contribute on <a href="https://github.com/dieghernan/geobounds" class="external-link"><strong>GitHub</strong></a>.</li>
 </ul>
 </div>
 <div class="section level2">
@@ -285,12 +285,12 @@ Important
 <p>
 Hernangómez D (2026). <em>geobounds: Download Administrative Boundary Data from geoBoundaries</em>. <a href="https://doi.org/10.32614/CRAN.package.geobounds" class="external-link">doi:10.32614/CRAN.package.geobounds</a>. <a href="https://dieghernan.github.io/geobounds/">https://dieghernan.github.io/geobounds/</a>.
 </p>
-<p>A BibTeX entry for LaTeX users:</p>
+<p>A <strong>BibTeX</strong> entry for <strong>LaTeX</strong> users:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="sc">@</span>Manual{R<span class="sc">-</span>geobounds,</span>
 <span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>  title <span class="ot">=</span> {{geobounds}<span class="sc">:</span> Download Administrative Boundary Data from geoBoundaries},</span>
 <span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>  author <span class="ot">=</span> {Diego Hernangómez},</span>
 <span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>  year <span class="ot">=</span> {<span class="dv">2026</span>},</span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>  version <span class="ot">=</span> {<span class="dv">0</span>.<span class="dv">1</span>.<span class="fl">2.9000</span>},</span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>  version <span class="ot">=</span> {<span class="dv">1</span>.<span class="dv">0</span>.<span class="fl">0.9000</span>},</span>
 <span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>  url <span class="ot">=</span> {https<span class="sc">:</span><span class="er">//</span>dieghernan.github.io<span class="sc">/</span>geobounds<span class="sc">/</span>},</span>
 <span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>  abstract <span class="ot">=</span> {Provides tools to download individual country boundaries and global composite boundaries from geoBoundaries <span class="sc">&lt;</span>https<span class="sc">:</span><span class="er">//</span>www.geoboundaries.org<span class="sc">/</span><span class="er">&gt;</span> across multiple <span class="fu">administrative</span> (ADM) levels. Returns boundaries as sf objects <span class="cf">for</span> mapping and spatial analysis. Runfola et <span class="fu">al.</span> (<span class="dv">2020</span>) <span class="sc">&lt;</span>doi<span class="sc">:</span><span class="fl">10.1371</span><span class="sc">/</span>journal.pone<span class="fl">.0231866</span><span class="sc">&gt;</span> describe the underlying database.},</span>
 <span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>  doi <span class="ot">=</span> {<span class="fl">10.32614</span><span class="sc">/</span>CRAN.package.geobounds},</span>
@@ -328,6 +328,7 @@ Runfola, Daniel, Austin Anderson, Heather Baier, et al. 2020. “<span class="n
 <ul class="list-unstyled">
 <li><a href="CONTRIBUTING.html">Contributing guide</a></li>
 <li><a href="CODE_OF_CONDUCT.html">Code of conduct</a></li>
+<li><a href="SUPPORT.html">Getting help</a></li>
 </ul>
 </div>
 
