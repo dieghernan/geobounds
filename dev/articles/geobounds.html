@@ -114,7 +114,7 @@
 <div class="callout-title-container flex-fill">Important</div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The package code is MIT licensed. Downloaded boundaries and figures derived from them retain the licenses and attribution requirements of <strong>geoBoundaries</strong> and their original sources. Check the boundary metadata before reuse.</p>
+<p>The package code is MIT licensed. Always acknowledge <strong>geoBoundaries</strong> when sharing downloaded boundaries or derived figures. Check the boundary metadata for any additional source attribution and licensing requirements before reuse.</p>
 </div>
 </div>
 <section class="level2"><h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
@@ -124,8 +124,8 @@
 <p>This vignette keeps the main workflow in one place. It first explains how to <a href="#understanding-the-boundaries">choose a boundary type</a>, then covers <a href="#cache-management-and-performance">cache management</a> and finishes with a <a href="#spatial-analysis-workflows">spatial analysis example</a>.</p>
 </section><section class="level2"><h2 id="understanding-the-boundaries">Understanding the boundaries<a class="anchor" aria-label="anchor" href="#understanding-the-boundaries"></a>
 </h2>
-<p>The <strong>geoBoundaries</strong> database is designed for scientific and academic use, with quality assurance that includes manual review and hand digitization of physical maps where necessary.</p>
-<p>This precision comes at a cost: some files can be quite large and may take longer to download. For visualization or general mapping purposes, we recommend using simplified boundaries by setting <code>simplified = TRUE</code>.</p>
+<p>The <strong>geoBoundaries</strong> database supports commercial, noncommercial and academic uses, subject to the license reported for each boundary. Its quality assurance includes manual review and hand digitization of physical maps where necessary.</p>
+<p>This precision comes at a cost: some files can be quite large and may take longer to download. For visualization or general mapping purposes, the <a href="https://www.geoboundaries.org/simplifiedDownloads.html" class="external-link">simplified boundaries</a> are less accurate but faster to render. Request them by setting <code>simplified = TRUE</code>.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/geobounds/">geobounds</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
@@ -199,13 +199,13 @@ Map showing overlap in the disputed Kashmir area.
 <span><span class="co">#&gt;   &lt;chr&gt;        &lt;chr&gt;                                                &lt;chr&gt;             &lt;chr&gt;        </span></span>
 <span><span class="co">#&gt; 1 India        CC0 1.0 Universal (CC0 1.0) Public Domain Dedication geoBoundaries, W… commons.wiki…</span></span>
 <span><span class="co">#&gt; 2 Pakistan     Open Data Commons Open Database License 1.0          OpenStreetMap, W… www.openstre…</span></span></code></pre></div>
-<p>When sharing a boundary or a derived product, attribute <strong>geoBoundaries</strong> and the original providers shown in the metadata. Include the applicable license, link to its terms and indicate modifications when required. ODbL and CC BY-SA data may impose share-alike obligations beyond attribution.</p>
+<p>Always acknowledge <strong>geoBoundaries</strong> when sharing a boundary or derived product. Consult the boundary metadata for any additional source attribution, license link, share-alike notice or modification statement required by that boundary’s license. ODbL and CC BY-SA data may impose share-alike obligations beyond attribution.</p>
 </section><section class="level3"><h3 id="global-composite-boundaries">Global composite boundaries<a class="anchor" aria-label="anchor" href="#global-composite-boundaries"></a>
 </h3>
 <p>Use <code><a href="../reference/gb_get_world.html">gb_get_world()</a></code> for global composite boundaries that standardize disputed areas and fill gaps between borders. These boundaries are also known as Comprehensive Global Administrative Zones (CGAZ). They differ from individual country boundaries in three important ways:</p>
 <ol type="1">
 <li>Extensive simplification keeps file sizes small enough for most desktop software.</li>
-<li>Disputed areas are removed and replaced with polygons following the definitions used by the CGAZ product.</li>
+<li>Disputed areas are removed and replaced with polygons following United States Department of State definitions.</li>
 <li>Gaps between borders are filled.</li>
 </ol>
 <p>CGAZ boundaries and figures are not covered by the package’s MIT license. Follow the citation and use information included in each downloaded CGAZ archive.</p>

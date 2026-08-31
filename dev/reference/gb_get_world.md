@@ -22,7 +22,11 @@ gb_get_world(
 
 ## Source
 
-[**geoBoundaries** API](https://www.geoboundaries.org/api.html).
+- **geoBoundaries** global downloads:
+  <https://www.geoboundaries.org/globalDownloads.html>.
+
+- CGAZ release files:
+  <https://github.com/wmgeolab/geoBoundaries/tree/main/releaseData/CGAZ>.
 
 ## Arguments
 

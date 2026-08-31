@@ -2,10 +2,10 @@
 
 Important
 
-The package code is MIT licensed. Downloaded boundaries and figures
-derived from them retain the licenses and attribution requirements of
-**geoBoundaries** and their original sources. Check the boundary
-metadata before reuse.
+The package code is MIT licensed. Always acknowledge **geoBoundaries**
+when sharing downloaded boundaries or derived figures. Check the
+boundary metadata for any additional source attribution and licensing
+requirements before reuse.
 
 ## Introduction
 
@@ -30,13 +30,17 @@ finishes with a [spatial analysis example](#spatial-analysis-workflows).
 
 ## Understanding the boundaries
 
-The **geoBoundaries** database is designed for scientific and academic
-use, with quality assurance that includes manual review and hand
-digitization of physical maps where necessary.
+The **geoBoundaries** database supports commercial, noncommercial and
+academic uses, subject to the license reported for each boundary. Its
+quality assurance includes manual review and hand digitization of
+physical maps where necessary.
 
 This precision comes at a cost: some files can be quite large and may
 take longer to download. For visualization or general mapping purposes,
-we recommend using simplified boundaries by setting `simplified = TRUE`.
+the [simplified
+boundaries](https://www.geoboundaries.org/simplifiedDownloads.html) are
+less accurate but faster to render. Request them by setting
+`simplified = TRUE`.
 
 ``` r
 
@@ -130,10 +134,10 @@ gb_get_metadata(c("India", "Pakistan"), adm_lvl = "ADM0") |>
 #> 2 Pakistan     Open Data Commons Open Database License 1.0          OpenStreetMap, W… www.openstre…
 ```
 
-When sharing a boundary or a derived product, attribute
-**geoBoundaries** and the original providers shown in the metadata.
-Include the applicable license, link to its terms and indicate
-modifications when required. ODbL and CC BY-SA data may impose
+Always acknowledge **geoBoundaries** when sharing a boundary or derived
+product. Consult the boundary metadata for any additional source
+attribution, license link, share-alike notice or modification statement
+required by that boundary’s license. ODbL and CC BY-SA data may impose
 share-alike obligations beyond attribution.
 
 ### Global composite boundaries
@@ -147,8 +151,8 @@ boundaries in three important ways:
 
 1.  Extensive simplification keeps file sizes small enough for most
     desktop software.
-2.  Disputed areas are removed and replaced with polygons following the
-    definitions used by the CGAZ product.
+2.  Disputed areas are removed and replaced with polygons following
+    United States Department of State definitions.
 3.  Gaps between borders are filled.
 
 CGAZ boundaries and figures are not covered by the package’s MIT

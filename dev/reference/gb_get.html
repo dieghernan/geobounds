@@ -4,9 +4,11 @@ their own boundaries, without special identification of disputed areas.
 Use gb_get_world() for global composite boundaries that standardize
 disputed areas and fill gaps between borders.
 Boundaries downloaded through this function are not covered by the package's
-MIT license. Attribution
-to geoBoundaries and the original sources is required when sharing the
-boundaries or derived products.
+MIT license. Always acknowledge geoBoundaries when sharing the boundaries
+or derived products. See https://www.geoboundaries.org/index.html#usage.
+Consult the boundary metadata for any additional source attribution, license
+link, share-alike notice or modification statement required by the boundary's
+license.
 The wrappers gb_get_adm0(), gb_get_adm1(), gb_get_adm2(),
 gb_get_adm3(), gb_get_adm4() and gb_get_adm5() are also available for
 requesting a single ADM level."><meta property="og:description" content="Returns individual country boundaries that reflect how countries represent
@@ -14,9 +16,11 @@ their own boundaries, without special identification of disputed areas.
 Use gb_get_world() for global composite boundaries that standardize
 disputed areas and fill gaps between borders.
 Boundaries downloaded through this function are not covered by the package's
-MIT license. Attribution
-to geoBoundaries and the original sources is required when sharing the
-boundaries or derived products.
+MIT license. Always acknowledge geoBoundaries when sharing the boundaries
+or derived products. See https://www.geoboundaries.org/index.html#usage.
+Consult the boundary metadata for any additional source attribution, license
+link, share-alike notice or modification statement required by the boundary's
+license.
 The wrappers gb_get_adm0(), gb_get_adm1(), gb_get_adm2(),
 gb_get_adm3(), gb_get_adm4() and gb_get_adm5() are also available for
 requesting a single ADM level."><meta property="og:image" content="https://dieghernan.github.io/geobounds/logo.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@dhernangomez"><meta name="twitter:site" content="@dhernangomez"><meta name="robots" content="noindex"><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-LTNVYVLK36"></script><script>
@@ -85,9 +89,11 @@ their own boundaries, without special identification of disputed areas.</p>
 <p>Use <code><a href="gb_get_world.html">gb_get_world()</a></code> for global composite boundaries that standardize
 disputed areas and fill gaps between borders.</p>
 <p>Boundaries downloaded through this function are not covered by the package's
-MIT license. <a href="https://www.geoboundaries.org/index.html#usage" class="external-link">Attribution</a>
-to <strong>geoBoundaries</strong> and the original sources is required when sharing the
-boundaries or derived products.</p>
+MIT license. Always acknowledge <strong>geoBoundaries</strong> when sharing the boundaries
+or derived products. See <a href="https://www.geoboundaries.org/index.html#usage" class="external-link">https://www.geoboundaries.org/index.html#usage</a>.
+Consult the boundary metadata for any additional source attribution, license
+link, share-alike notice or modification statement required by the boundary's
+license.</p>
 <p>The wrappers <code><a href="gb_get_adm.html">gb_get_adm0()</a></code>, <code><a href="gb_get_adm.html">gb_get_adm1()</a></code>, <code><a href="gb_get_adm.html">gb_get_adm2()</a></code>,
 <code><a href="gb_get_adm.html">gb_get_adm3()</a></code>, <code><a href="gb_get_adm.html">gb_get_adm4()</a></code> and <code><a href="gb_get_adm.html">gb_get_adm5()</a></code> are also available for
 requesting a single ADM level.</p>
@@ -129,9 +135,10 @@ second level and so on). Uppercase versions (<code>"ADM1"</code>) and level numb
 
 
 <dt id="arg-simplified">simplified<a class="anchor" aria-label="anchor" href="#arg-simplified"></a></dt>
-<dd><p>A logical value. If <code>TRUE</code>, return simplified boundaries.
-The default <code>FALSE</code> uses the primary <strong>geoBoundaries</strong> layer. See
-simplified boundaries at <a href="https://www.geoboundaries.org/" class="external-link">https://www.geoboundaries.org/</a>.</p></dd>
+<dd><p>A logical value. If <code>TRUE</code>, return boundaries that are less
+accurate but faster to render. The default <code>FALSE</code> uses the primary
+<strong>geoBoundaries</strong> layer. See the simplified boundary downloads:
+<a href="https://www.geoboundaries.org/simplifiedDownloads.html" class="external-link">https://www.geoboundaries.org/simplifiedDownloads.html</a>.</p></dd>
 
 
 <dt id="arg-release-type">release_type<a class="anchor" aria-label="anchor" href="#arg-release-type"></a></dt>

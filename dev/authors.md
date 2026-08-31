@@ -6,8 +6,7 @@
   maintainer, copyright holder.
   [](https://orcid.org/0000-0001-8457-4658)
 
-- **[William and Mary
-  geoLab](https://sites.google.com/view/wmgeolab/)**. Copyright holder.
+- **William & Mary geoLab**. Data contributor.
   [![ROR](https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg)](https://ror.org/03hsf0573)  
   for the geoBoundaries project
 

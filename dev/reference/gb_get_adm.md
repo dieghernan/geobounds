@@ -14,10 +14,12 @@ Not all countries have the same number of ADM levels. Use
 to check availability.
 
 Boundaries downloaded through these functions are not covered by the
-package's MIT license.
-[Attribution](https://www.geoboundaries.org/index.html#usage) to
-**geoBoundaries** and the original sources is required when sharing the
-boundaries or derived products.
+package's MIT license. Always acknowledge **geoBoundaries** when sharing
+the boundaries or derived products. See
+<https://www.geoboundaries.org/index.html#usage>. Consult the boundary
+metadata for any additional source attribution, license link,
+share-alike notice or modification statement required by the boundary's
+license.
 
 ## Usage
 
@@ -92,9 +94,10 @@ gb_get_adm5(
 
 - simplified:
 
-  A logical value. If `TRUE`, return simplified boundaries. The default
-  `FALSE` uses the primary **geoBoundaries** layer. See simplified
-  boundaries at <https://www.geoboundaries.org/>.
+  A logical value. If `TRUE`, return boundaries that are less accurate
+  but faster to render. The default `FALSE` uses the primary
+  **geoBoundaries** layer. See the simplified boundary downloads:
+  <https://www.geoboundaries.org/simplifiedDownloads.html>.
 
 - release_type:
 

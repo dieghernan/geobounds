@@ -10,10 +10,12 @@ for global composite boundaries that standardize disputed areas and fill
 gaps between borders.
 
 Boundaries downloaded through this function are not covered by the
-package's MIT license.
-[Attribution](https://www.geoboundaries.org/index.html#usage) to
-**geoBoundaries** and the original sources is required when sharing the
-boundaries or derived products.
+package's MIT license. Always acknowledge **geoBoundaries** when sharing
+the boundaries or derived products. See
+<https://www.geoboundaries.org/index.html#usage>. Consult the boundary
+metadata for any additional source attribution, license link,
+share-alike notice or modification statement required by the boundary's
+license.
 
 The wrappers
 [`gb_get_adm0()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_adm.md),
@@ -62,9 +64,10 @@ gb_get(
 
 - simplified:
 
-  A logical value. If `TRUE`, return simplified boundaries. The default
-  `FALSE` uses the primary **geoBoundaries** layer. See simplified
-  boundaries at <https://www.geoboundaries.org/>.
+  A logical value. If `TRUE`, return boundaries that are less accurate
+  but faster to render. The default `FALSE` uses the primary
+  **geoBoundaries** layer. See the simplified boundary downloads:
+  <https://www.geoboundaries.org/simplifiedDownloads.html>.
 
 - release_type:
 

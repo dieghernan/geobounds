@@ -77,6 +77,8 @@ columns:
 - `boundarySource`: A comma-separated list of the primary sources for
   the boundary.
 
+- `boundarySourceURL`: The URL of the original boundary source.
+
 - `boundaryLicense`: The original license under which the primary source
   released the boundary.
 

@@ -41,5 +41,5 @@ Authors:
 
 Other contributors:
 
-- William and Mary geoLab ([ROR](https://ror.org/03hsf0573)) (for the
-  geoBoundaries project) \[copyright holder\]
+- William & Mary geoLab ([ROR](https://ror.org/03hsf0573)) (for the
+  geoBoundaries project) \[data contributor\]

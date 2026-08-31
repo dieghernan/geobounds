@@ -189,9 +189,10 @@ Each boundary retains the original license reported by
 **geoBoundaries**. Before reusing or redistributing boundaries, use
 [`gb_get_metadata()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_metadata.md)
 to check `boundaryLicense`, `licenseDetail`, `licenseSource`,
-`boundarySource` and `boundarySourceURL`. Attribute **geoBoundaries**
-and the original providers, include the applicable license and indicate
-modifications when required. `gbAuthoritative` contains UN SALB
+`boundarySource` and `boundarySourceURL`. Always acknowledge
+**geoBoundaries**. Consult these fields for any additional source
+attribution, license link, share-alike notice or modification statement
+required by the boundary’s license. `gbAuthoritative` contains UN SALB
 boundaries restricted to non-commercial use.
 
 ## Acknowledgments
