@@ -193,7 +193,7 @@
       gb_set_cache_dir(cache_dir = 34)
     Condition
       Error in `gb_set_cache_dir()`:
-      ! `cache_dir` must be one non-empty string.
+      ! `cache_dir` must be a non-empty string, not NA.
 
 ---
 
@@ -201,7 +201,7 @@
       gb_set_cache_dir(overwrite = "a")
     Condition
       Error in `gb_set_cache_dir()`:
-      ! `overwrite` must be a single <logical> value.
+      ! `overwrite` must be TRUE or FALSE.
 
 ---
 
@@ -209,7 +209,7 @@
       gb_set_cache_dir(install = "a")
     Condition
       Error in `gb_set_cache_dir()`:
-      ! `install` must be a single <logical> value.
+      ! `install` must be TRUE or FALSE.
 
 ---
 
@@ -217,5 +217,5 @@
       gb_set_cache_dir(quiet = "a")
     Condition
       Error in `gb_set_cache_dir()`:
-      ! `quiet` must be a single <logical> value.
+      ! `quiet` must be TRUE or FALSE.
 

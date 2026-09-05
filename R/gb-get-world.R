@@ -75,9 +75,9 @@ gb_get_world <- function(
   valid_quiet <- isTRUE(quiet) || isFALSE(quiet)
 
   gb_abort_if_not(
-    "{.arg overwrite} must be one logical value." = valid_overwrite,
-    "{.arg quiet} must be one logical value." = valid_quiet,
-    "{.arg cache_dir} must be {.code NULL} or one string." = valid_cache_dir
+    "{.arg overwrite} must be TRUE or FALSE." = valid_overwrite,
+    "{.arg quiet} must be TRUE or FALSE." = valid_quiet,
+    "{.arg cache_dir} must be NULL or nonempty text, not NA." = valid_cache_dir
   )
 
   country <- gbnds_dev_country2iso(country)

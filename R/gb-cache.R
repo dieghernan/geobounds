@@ -70,13 +70,13 @@ gb_set_cache_dir <- function(
   quiet = FALSE
 ) {
   gb_abort_if_not(
-    "{.arg quiet} must be a single {.cls logical} value." = isTRUE(quiet) ||
+    "{.arg quiet} must be TRUE or FALSE." = isTRUE(quiet) ||
       isFALSE(quiet),
-    "{.arg overwrite} must be a single {.cls logical} value." = isTRUE(
+    "{.arg overwrite} must be TRUE or FALSE." = isTRUE(
       overwrite
     ) ||
       isFALSE(overwrite),
-    "{.arg install} must be a single {.cls logical} value." = isTRUE(install) ||
+    "{.arg install} must be TRUE or FALSE." = isTRUE(install) ||
       isFALSE(install)
   )
 
@@ -103,7 +103,7 @@ gb_set_cache_dir <- function(
     !is.na(cache_dir) &&
     nzchar(cache_dir)
   gb_abort_if_not(
-    "{.arg cache_dir} must be one non-empty string." = valid_cache_dir
+    "{.arg cache_dir} must be a non-empty string, not NA." = valid_cache_dir
   )
 
   # Expand the cache directory path.
@@ -228,13 +228,13 @@ gb_detect_cache_dir <- function(x = NULL) {
 #' }
 gb_clear_cache <- function(config = FALSE, cached_data = TRUE, quiet = TRUE) {
   gb_abort_if_not(
-    "{.arg config} must be a single {.cls logical} value." = isTRUE(config) ||
+    "{.arg config} must be TRUE or FALSE." = isTRUE(config) ||
       isFALSE(config),
-    "{.arg cached_data} must be a single {.cls logical} value." = isTRUE(
+    "{.arg cached_data} must be TRUE or FALSE." = isTRUE(
       cached_data
     ) ||
       isFALSE(cached_data),
-    "{.arg quiet} must be a single {.cls logical} value." = isTRUE(quiet) ||
+    "{.arg quiet} must be TRUE or FALSE." = isTRUE(quiet) ||
       isFALSE(quiet)
   )
 
@@ -344,7 +344,7 @@ gb_hlp_cachedir <- function(cache_dir = NULL) {
 #' @noRd
 gb_hlp_create_dir <- function(
   path,
-  arg = "cache_dir",
+  arg = "cache directory",
   call = parent.frame()
 ) {
   if (dir.exists(path)) {
@@ -354,7 +354,7 @@ gb_hlp_create_dir <- function(
   created <- dir.create(path, recursive = TRUE, showWarnings = FALSE)
   if (!isTRUE(created) || !dir.exists(path)) {
     cli::cli_abort(
-      "Cannot create the {.arg {arg}} at {.path {path}}.",
+      "Cannot create the {arg} at {.path {path}}.",
       call = call
     )
   }
@@ -437,7 +437,7 @@ gb_hlp_delete_dir <- function(path, arg, call = parent.frame()) {
   status <- gb_hlp_unlink(path, recursive = TRUE, force = TRUE)
   if (!identical(status, 0L) || dir.exists(path)) {
     cli::cli_abort(
-      "Cannot delete the {.arg {arg}} at {.path {path}}.",
+      "Cannot delete the {arg} at {.path {path}}.",
       call = call
     )
   }
