@@ -33,7 +33,8 @@
 #'   boundaries) or the ADM level (`"adm0"` is the country boundary,
 #'   `"adm1"` is the first level of subnational boundaries, `"adm2"` is the
 #'   second level and so on). Uppercase versions (`"ADM1"`) and level numbers
-#'   (`0`, `1`, `2`, `3`, `4`, `5`) are also accepted.
+#'   (`0`, `1`, `2`, `3`, `4`, `5`) are also accepted, including numbers
+#'   supplied as text (for example, `"1"`).
 #' @param simplified A logical value. If `TRUE`, return boundaries that are less
 #'   accurate but faster to render. The default `FALSE` uses the primary
 #'   **geoBoundaries** layer. See the simplified boundary downloads:
@@ -58,8 +59,8 @@
 #'
 #' @returns
 #' An [sf][sf::st_sf] object from \CRANpkg{sf} containing the requested
-#' boundaries. If no boundaries match the request, the function returns
-#' `NULL`.
+#' boundaries. Returns `NULL` if no boundaries match the request or the
+#' downloads return no geometries.
 #'
 #' @source
 #' [**geoBoundaries** API](https://www.geoboundaries.org/api.html).
@@ -169,6 +170,9 @@ gb_get <- function(
   })
 
   meta_sf <- dplyr::bind_rows(res_sf)
+  if (nrow(meta_sf) == 0L) {
+    return(NULL)
+  }
 
   meta_sf
 }

@@ -30,7 +30,8 @@ also \code{\link[countrycode:countrycode]{countrycode::countrycode()}} from \CRA
 \item{adm_lvl}{ADM level. Accepted values are levels 0, 1 and 2 (\code{"adm0"} is
 the country boundary, \code{"adm1"} is the first level of subnational
 boundaries and \code{"adm2"} is the second level). Uppercase versions
-(\code{"ADM1"}) and level numbers (\code{0}, \code{1}, \code{2}) are also accepted.}
+(\code{"ADM1"}) and level numbers (\code{0}, \code{1}, \code{2}) are also accepted, including
+numbers supplied as text (for example, \code{"1"}).}
 
 \item{quiet}{A logical value. If \code{TRUE}, suppress informational messages.}
 
@@ -45,8 +46,8 @@ strategies in \code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}.}
 }
 \value{
 An \link[sf:st_sf]{sf} object from \CRANpkg{sf} containing the requested
-boundaries. If no boundaries match the request, the function returns
-\code{NULL}.
+boundaries. Returns \code{NULL} if no boundaries match the request or the
+downloads return no geometries.
 }
 \description{
 Returns global composite boundaries for the requested ADM level. Boundaries

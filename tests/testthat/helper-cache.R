@@ -1,6 +1,10 @@
 local_test_cache <- function(pattern = "geobounds-test-cache-") {
-  cache_dir <- withr::local_tempdir(pattern)
-  withr::local_envvar(GEOBOUNDS_CACHE_DIR = cache_dir)
+  local_envir <- parent.frame()
+  cache_dir <- withr::local_tempdir(pattern, .local_envir = local_envir)
+  withr::local_envvar(
+    GEOBOUNDS_CACHE_DIR = cache_dir,
+    .local_envir = local_envir
+  )
   cache_dir
 }
 

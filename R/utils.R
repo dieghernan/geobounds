@@ -31,7 +31,7 @@ assert_adm_lvl <- function(
   }
 
   # Convert numeric levels to the ADM code format.
-  if (is.numeric(adm_lvl)) {
+  if (adm_lvl_clean %in% as.character(0:5)) {
     adm_lvl <- paste0("ADM", adm_lvl)
   }
   toupper(adm_lvl)
@@ -387,31 +387,42 @@ match_arg_pretty <- function(arg, choices, call = parent.frame()) {
   aproxmatch <- pmatch(arg, choices)[1]
 
   if (length(arg) > 1 || is.na(lmatch)) {
+    # Format values separately so braces in input remain literal.
+    formatted_choices <- vapply(
+      choices,
+      \(value) cli::format_inline("{.str {value}}"),
+      character(1)
+    )
     # Create the error message for invalid values.
     if (length(choices) == 1) {
-      msg <- paste0("{.str ", choices, "}")
+      msg <- formatted_choices
     } else {
       l_choices <- length(choices)
-      msg <- paste0("{.str ", choices[-l_choices], "}", collapse = ", ")
-      msg <- paste0(msg, " or {.str ", choices[l_choices], "}")
+      msg <- paste(formatted_choices[-l_choices], collapse = ", ")
+      msg <- paste0(msg, " or ", formatted_choices[l_choices])
       # Add "one of" before multiple valid choices.
       msg <- paste0("one of ", msg)
     }
 
     msg <- paste0(msg, ", not ")
-    bad_arg <- paste0("{.str ", arg, "}", collapse = " or ")
+    bad_arg <- paste(
+      vapply(arg, \(value) cli::format_inline("{.str {value}}"), character(1)),
+      collapse = " or "
+    )
     msg <- paste0(msg, bad_arg, ".")
 
     # Suggest a partial match when possible.
     reg_msg <- NULL
     if (!is.na(aproxmatch)) {
-      aprox <- choices[aproxmatch]
-      aprox_val <- paste0("{.str ", aprox, "}", collapse = " or ")
+      aprox_val <- cli::format_inline("{.str {choices[aproxmatch]}}")
       reg_msg <- paste0("Did you mean ", aprox_val, "?")
     }
 
     cli::cli_abort(
-      c(paste0("{.arg {arg_name}} must be ", msg), "i" = reg_msg),
+      c(
+        "{.arg {arg_name}} must be {msg}",
+        "i" = if (!is.null(reg_msg)) "{reg_msg}"
+      ),
       call = call
     )
   }

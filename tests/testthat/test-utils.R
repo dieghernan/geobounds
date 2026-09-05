@@ -303,3 +303,58 @@ test_that("sf helper casts polygon geometries to multipolygons", {
     "MULTIPOLYGON"
   )
 })
+
+test_that("sf standardization preserves text, attributes and geometry", {
+  polygon <- sf::st_polygon(list(rbind(
+    c(0, 0),
+    c(1, 0),
+    c(1, 1),
+    c(0, 1),
+    c(0, 0)
+  )))
+  input <- sf::st_sf(
+    name = "Hernang\u00f3mez",
+    population = 42L,
+    geometry = sf::st_sfc(polygon, crs = 4326)
+  )
+  names(input)[1] <- "regi\u00f3n"
+
+  result <- gbnds_dev_sf_helper(input)
+
+  expect_named(result, c("regi\u00f3n", "population", "geometry"))
+  expect_identical(result[["regi\u00f3n"]], "Hernang\u00f3mez")
+  expect_identical(result$population, 42L)
+  expect_identical(sf::st_crs(result), sf::st_crs(input))
+  expect_identical(as.character(sf::st_geometry_type(result)), "MULTIPOLYGON")
+  expect_identical(
+    unname(sf::st_coordinates(result)[, c("X", "Y")]),
+    polygon[[1]]
+  )
+})
+
+
+test_that("numeric text ADM levels are normalized", {
+  expect_identical(
+    vapply(as.character(0:5), assert_adm_lvl, character(1), USE.NAMES = FALSE),
+    paste0("ADM", 0:5)
+  )
+})
+
+test_that("argument errors preserve braces without evaluating input", {
+  executed <- 0L
+  value <- "{executed <- 1L}"
+  expect_error(
+    match_arg_pretty(value, "valid"),
+    regexp = value,
+    fixed = TRUE,
+    class = "rlang_error"
+  )
+  expect_identical(executed, 0L)
+
+  expect_error(
+    match_arg_pretty("{1", c("{1+1}", "other")),
+    regexp = 'Did you mean "{1+1}"?',
+    fixed = TRUE,
+    class = "rlang_error"
+  )
+})

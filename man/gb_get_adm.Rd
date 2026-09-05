@@ -101,8 +101,8 @@ strategies in \code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}.}
 }
 \value{
 An \link[sf:st_sf]{sf} object from \CRANpkg{sf} containing the requested
-boundaries. If no boundaries match the request, the function returns
-\code{NULL}.
+boundaries. Returns \code{NULL} if no boundaries match the request or the
+downloads return no geometries.
 }
 \description{
 These functions call \code{\link[=gb_get]{gb_get()}} for a single ADM level. \code{\link[=gb_get_adm0]{gb_get_adm0()}}

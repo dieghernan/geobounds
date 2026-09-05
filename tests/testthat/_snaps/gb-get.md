@@ -16,23 +16,3 @@
         <https://salb.un.org/sites/default/files/wysiwyg_uploads/docs_uploads/TermsOfUseSALB2021.pdf>
         before reusing the boundaries.
 
-# a failed single boundary download returns an empty table
-
-    Code
-      res_sf <- lapply(url_bound, function(x) {
-        gbnds_dev_shp_query(url = x, subdir = "gbOpen", quiet = TRUE, overwrite = FALSE,
-          cache_dir = tmpd)
-      })
-    Message
-      ! Request to <https://github.com/wmgeolab/geoBoundaries/raw/FAKE/releaseData/gbOpen/ESP/ADM0/fakefile.geojson> failed with HTTP status `404 - Not Found`.
-
-# mixed downloads retain successes regardless of failure order
-
-    Code
-      res_sf <- lapply(url_bound, function(x) {
-        gbnds_dev_shp_query(url = x, subdir = "gbOpen", quiet = TRUE, overwrite = FALSE,
-          cache_dir = tmpd, simplified = TRUE)
-      })
-    Message
-      ! Request to <https://github.com/wmgeolab/geoBoundaries/raw/FAKE/releaseData/gbOpen/ESP/ADM0/fakefile.zip> failed with HTTP status `404 - Not Found`.
-

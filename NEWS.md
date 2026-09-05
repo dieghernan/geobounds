@@ -1,8 +1,10 @@
-# geobounds (development version)
+# geobounds 1.0.1
 
+- Argument errors now display braces in supplied values literally instead of interpreting them as message formatting.
+- Numeric text ADM levels such as `"1"` now resolve to the corresponding code, such as `"ADM1"`.
 - Country inputs now reject empty or wholly unmatched values, and Kosovo aliases must match `"Kosovo"` or `"XKX"` exactly.
 - `gb_clear_cache()` now rejects unsafe cache locations before recursively deleting cached data. Cache functions also validate scalar arguments, report directory creation failures clearly and confirm that requested deletions succeeded.
-- `gb_get()` now rejects missing or non-scalar download options and invalid cache directory values before requesting data. Invalid cached archives are removed with an actionable error so a subsequent request can download them again.
+- `gb_get()` now returns `NULL` when no downloaded boundaries are available. It also rejects missing or non-scalar download options and invalid cache directory values before requesting data. Invalid cached archives are removed with an actionable error so a subsequent request can download them again.
 - `gb_get_max_adm_lvl()` now derives the maximum level from each ADM label instead of assuming that available metadata levels are consecutive.
 - `gb_get_world()` now returns `NULL` when a download fails or no requested country is available, and validates download options before requesting data.
 

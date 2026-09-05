@@ -121,87 +121,105 @@ test_that("boundary downloads report download and cache messages", {
   )
 })
 
-test_that("a failed single boundary download returns an empty table", {
-  skip_on_cran()
-  skip_if_offline()
-  tmpd <- local_test_cache("geobounds-test-get-fail-single-")
-
-  # Mock a fake call
-  url_bound <- paste0(
-    "https://github.com/wmgeolab/geoBoundaries/",
-    "raw/FAKE/releaseData/gbOpen/ESP/ADM0/",
-    "fakefile.geojson"
+test_that("failed boundary downloads return NULL", {
+  local_mocked_bindings(
+    gb_get_metadata = function(...) {
+      dplyr::tibble(staticDownloadLink = c("failed", "also-failed"))
+    },
+    gbnds_dev_shp_query = function(...) NULL
   )
 
-  expect_snapshot(
-    res_sf <- lapply(url_bound, function(x) {
-      gbnds_dev_shp_query(
-        url = x,
-        subdir = "gbOpen",
-        quiet = TRUE,
-        overwrite = FALSE,
-        cache_dir = tmpd
-      )
-    })
-  )
-  meta_sf <- dplyr::bind_rows(res_sf)
+  result <- gb_get("ESP")
 
-  expect_s3_class(meta_sf, "tbl")
-  expect_equal(nrow(meta_sf), 0)
+  expect_null(result)
 })
 
-test_that("mixed downloads retain successes regardless of failure order", {
-  skip_on_cran()
-  skip_if_offline()
-  tmpd <- local_test_cache("geobounds-test-get-fail-several-")
-
-  # Replicate internal logic
-
-  sev <- gb_get_metadata(c("Andorra", "Vatican"), adm_lvl = "ADM0")
-  geoms <- sev$staticDownloadLink
-
-  # Mock a fake call
-  url <- paste0(
-    "https://github.com/wmgeolab/geoBoundaries/",
-    "raw/FAKE/releaseData/gbOpen/ESP/ADM0/",
-    "fakefile.zip"
-  )
-  url_bound <- c(geoms, url)
-
-  expect_snapshot(
-    res_sf <- lapply(url_bound, function(x) {
-      gbnds_dev_shp_query(
-        url = x,
-        subdir = "gbOpen",
-        quiet = TRUE,
-        overwrite = FALSE,
-        cache_dir = tmpd,
-        simplified = TRUE
+test_that("failed HTTP downloads remove the archive and preserve other files", {
+  cache_dir <- local_test_cache("geobounds-test-http-failure-")
+  release_dir <- file.path(cache_dir, "gbOpen")
+  dir.create(release_dir)
+  archive <- file.path(release_dir, "boundary.zip")
+  writeLines("old archive", archive)
+  sentinel <- file.path(release_dir, "other.zip")
+  writeLines("keep", sentinel)
+  withr::local_options(
+    httr2_mock = function(req) {
+      httr2::response(
+        status_code = 404L,
+        url = req$url,
+        body = charToRaw("Not found")
       )
-    })
+    }
   )
-  meta_sf <- dplyr::bind_rows(res_sf)
 
-  expect_s3_class(meta_sf, "tbl")
-  expect_s3_class(meta_sf, "sf")
-  expect_equal(nrow(meta_sf), 2)
-
-  # If we change order...
-  url_bound <- c(url, geoms)
-
-  res_sf <- lapply(url_bound, function(x) {
-    gbnds_dev_shp_query(
-      url = x,
+  expect_message(
+    result <- gbnds_dev_shp_query(
+      url = "https://example.com/boundary.zip",
       subdir = "gbOpen",
       quiet = TRUE,
-      overwrite = FALSE,
-      cache_dir = tmpd
+      overwrite = TRUE,
+      cache_dir = cache_dir
+    ),
+    "failed with HTTP status.*404"
+  )
+
+  expect_null(result)
+  expect_false(file.exists(archive))
+  expect_identical(readLines(sentinel), "keep")
+})
+
+test_that("mixed downloads retain successes when the failure is first", {
+  expected <- sf::st_sf(
+    shapeGroup = c("AND", "VAT"),
+    geometry = sf::st_sfc(
+      sf::st_point(c(1, 2)),
+      sf::st_point(c(3, 4)),
+      crs = 4326
     )
-  })
+  )
+  local_mocked_bindings(
+    gb_get_metadata = function(...) {
+      dplyr::tibble(staticDownloadLink = c("failed", "AND", "VAT"))
+    },
+    gbnds_dev_shp_query = function(url, ...) {
+      if (url == "failed") {
+        return(NULL)
+      }
+      expected[expected$shapeGroup == url, ]
+    }
+  )
 
-  meta_sf <- dplyr::bind_rows(res_sf)
+  result <- gb_get(c("AND", "VAT", "ESP"), simplified = TRUE)
 
-  expect_s3_class(meta_sf, "tbl")
-  expect_s3_class(meta_sf, "sf")
-  expect_equal(nrow(meta_sf), 2)
+  expect_s3_class(result, "sf")
+  expect_identical(result$shapeGroup, c("AND", "VAT"))
+  expect_equal(sf::st_geometry(result), sf::st_geometry(expected))
+})
+
+test_that("mixed downloads retain successes when the failure is last", {
+  expected <- sf::st_sf(
+    shapeGroup = c("AND", "VAT"),
+    geometry = sf::st_sfc(
+      sf::st_point(c(1, 2)),
+      sf::st_point(c(3, 4)),
+      crs = 4326
+    )
+  )
+  local_mocked_bindings(
+    gb_get_metadata = function(...) {
+      dplyr::tibble(staticDownloadLink = c("AND", "VAT", "failed"))
+    },
+    gbnds_dev_shp_query = function(url, ...) {
+      if (url == "failed") {
+        return(NULL)
+      }
+      expected[expected$shapeGroup == url, ]
+    }
+  )
+
+  result <- gb_get(c("AND", "VAT", "ESP"), simplified = TRUE)
+
+  expect_s3_class(result, "sf")
+  expect_identical(result$shapeGroup, c("AND", "VAT"))
+  expect_equal(sf::st_geometry(result), sf::st_geometry(expected))
 })

@@ -41,6 +41,7 @@ test_that("default cache is used when no user configuration exists", {
     withr::defer(unlink(default_cache, recursive = TRUE, force = TRUE))
   }
 
+  withr::local_envvar(GEOBOUNDS_CACHE_DIR = "")
   expect_message(detected <- gb_set_cache_dir(quiet = FALSE))
 
   expect_identical(detected, default_cache)
@@ -67,7 +68,8 @@ test_that("persistent cache configuration supports overwrite", {
 
   expect_error(
     gb_set_cache_dir(second_cache, install = TRUE, quiet = TRUE),
-    "already saved"
+    "already saved",
+    class = "rlang_error"
   )
 
   expect_silent(gb_set_cache_dir(
@@ -161,7 +163,7 @@ test_that("cache deletion checks safety before recursively deleting", {
   )
 
   expect_error(gb_clear_cache(), class = "rlang_error")
-  expect_true(file.exists(sentinel))
+  expect_identical(readLines(sentinel), "keep")
 })
 
 test_that("cache deletion reports filesystem failures", {
@@ -223,7 +225,7 @@ test_that("installed cache paths are detected from configuration", {
   local_mocked_bindings(gb_hlp_user_dir = function(...) test_root)
 
   test_cache_dir <- withr::local_tempdir("mocked_cache")
-  # Mock a installed cache dir
+  # Mock an installed cache directory.
   expect_message(
     gb_set_cache_dir(test_cache_dir, quiet = FALSE, install = TRUE),
     "cache directory is"
@@ -236,4 +238,70 @@ test_that("installed cache paths are detected from configuration", {
   config_file <- readLines(file.path(test_root, "GEOBOUNDS_CACHE_DIR"))
 
   expect_identical(config_file, test_cache_dir)
+})
+
+test_that("test caches survive the helper and clean up with their caller", {
+  withr::local_envvar(GEOBOUNDS_CACHE_DIR = "original-cache")
+  cache_dir <- local({
+    path <- local_test_cache()
+    expect_true(dir.exists(path))
+    expect_identical(Sys.getenv("GEOBOUNDS_CACHE_DIR"), path)
+    writeLines("temporary", file.path(path, "sentinel"))
+    path
+  })
+
+  expect_false(dir.exists(cache_dir))
+  expect_identical(Sys.getenv("GEOBOUNDS_CACHE_DIR"), "original-cache")
+})
+
+test_that("cache deletion protects ancestors of the working directory", {
+  root <- withr::local_tempdir("geobounds-test-ancestor-")
+  work <- file.path(root, "work")
+  dir.create(work)
+  sentinel <- file.path(work, "sentinel")
+  writeLines("keep", sentinel)
+  withr::local_dir(work)
+  withr::local_envvar(GEOBOUNDS_CACHE_DIR = root)
+
+  expect_error(
+    gb_clear_cache(),
+    "unsafe cache directory",
+    class = "rlang_error"
+  )
+
+  expect_identical(readLines(sentinel), "keep")
+  expect_identical(Sys.getenv("GEOBOUNDS_CACHE_DIR"), root)
+})
+
+test_that("cache deletion permits a dedicated working-directory subdirectory", {
+  root <- withr::local_tempdir("geobounds-test-child-")
+  withr::local_dir(root)
+  cache <- file.path(root, "cache")
+  dir.create(cache)
+  writeLines("discard", file.path(cache, "cached-file"))
+  sentinel <- file.path(root, "sentinel")
+  writeLines("keep", sentinel)
+  withr::local_envvar(GEOBOUNDS_CACHE_DIR = cache)
+
+  expect_silent(gb_clear_cache())
+
+  expect_false(dir.exists(cache))
+  expect_identical(readLines(sentinel), "keep")
+})
+
+test_that("cache deletion distinguishes paths with similar prefixes", {
+  root <- withr::local_tempdir("geobounds-test-prefix-")
+  work <- file.path(root, "work")
+  cache <- file.path(root, "work-cache")
+  dir.create(work)
+  dir.create(cache)
+  sentinel <- file.path(work, "sentinel")
+  writeLines("keep", sentinel)
+  withr::local_dir(work)
+  withr::local_envvar(GEOBOUNDS_CACHE_DIR = cache)
+
+  expect_silent(gb_clear_cache())
+
+  expect_false(dir.exists(cache))
+  expect_identical(readLines(sentinel), "keep")
 })

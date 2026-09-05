@@ -27,7 +27,8 @@ also \code{\link[countrycode:countrycode]{countrycode::countrycode()}} from \CRA
 boundaries) or the ADM level (\code{"adm0"} is the country boundary,
 \code{"adm1"} is the first level of subnational boundaries, \code{"adm2"} is the
 second level and so on). Uppercase versions (\code{"ADM1"}) and level numbers
-(\code{0}, \code{1}, \code{2}, \code{3}, \code{4}, \code{5}) are also accepted.}
+(\code{0}, \code{1}, \code{2}, \code{3}, \code{4}, \code{5}) are also accepted, including numbers
+supplied as text (for example, \code{"1"}).}
 
 \item{simplified}{A logical value. If \code{TRUE}, return boundaries that are less
 accurate but faster to render. The default \code{FALSE} uses the primary
@@ -57,8 +58,8 @@ strategies in \code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}.}
 }
 \value{
 An \link[sf:st_sf]{sf} object from \CRANpkg{sf} containing the requested
-boundaries. If no boundaries match the request, the function returns
-\code{NULL}.
+boundaries. Returns \code{NULL} if no boundaries match the request or the
+downloads return no geometries.
 }
 \description{
 Returns individual country boundaries that reflect how countries represent

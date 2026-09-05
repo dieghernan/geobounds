@@ -24,7 +24,8 @@
 #' @param adm_lvl ADM level. Accepted values are levels 0, 1 and 2 (`"adm0"` is
 #'   the country boundary, `"adm1"` is the first level of subnational
 #'   boundaries and `"adm2"` is the second level). Uppercase versions
-#'   (`"ADM1"`) and level numbers (`0`, `1`, `2`) are also accepted.
+#'   (`"ADM1"`) and level numbers (`0`, `1`, `2`) are also accepted, including
+#'   numbers supplied as text (for example, `"1"`).
 #'
 #' @inherit gb_get return
 #'
