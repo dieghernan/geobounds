@@ -13,7 +13,7 @@
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="geobounds logo" height="34" width="34" class="d-inline-block me-1">geobounds</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +26,7 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><hr class="dropdown-divider"></li>
-    <li><h6 class="dropdown-header" data-toc-skip>Release coverage</h6></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Release types</h6></li>
     <li><a class="dropdown-item" href="../articles/gbopen.html">gbOpen coverage and boundary metadata</a></li>
     <li><a class="dropdown-item" href="../articles/gbhumanitarian.html">gbHumanitarian coverage and boundary metadata</a></li>
     <li><a class="dropdown-item" href="../articles/gbauthoritative.html">gbAuthoritative coverage and boundary metadata</a></li>
@@ -59,6 +59,20 @@
     </div>
 
     <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.0.1" id="geobounds-101">geobounds 1.0.1<a class="anchor" aria-label="anchor" href="#geobounds-101"></a></h2>
+<ul><li>Argument errors now display braces in supplied values literally instead of interpreting them as message formatting.</li>
+<li>Numeric text ADM levels such as <code>"1"</code> now resolve to the corresponding code, such as <code>"ADM1"</code>.</li>
+<li>Country inputs now reject empty or wholly unmatched values, and Kosovo aliases must match <code>"Kosovo"</code> or <code>"XKX"</code> exactly.</li>
+<li>
+<code><a href="../reference/gb_clear_cache.html">gb_clear_cache()</a></code> now rejects unsafe cache locations before recursively deleting cached data. Cache functions also validate scalar arguments, report directory creation failures clearly and confirm that requested deletions succeeded.</li>
+<li>
+<code><a href="../reference/gb_get.html">gb_get()</a></code> now returns <code>NULL</code> when no downloaded boundaries are available. It also rejects missing or non-scalar download options and invalid cache directory values before requesting data. Invalid cached archives are removed with an actionable error so a subsequent request can download them again.</li>
+<li>
+<code><a href="../reference/gb_get_max_adm_lvl.html">gb_get_max_adm_lvl()</a></code> now derives the maximum level from each ADM label instead of assuming that available metadata levels are consecutive.</li>
+<li>
+<code><a href="../reference/gb_get_world.html">gb_get_world()</a></code> now returns <code>NULL</code> when a download fails or no requested country is available, and validates download options before requesting data.</li>
+</ul></div>
+    <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.0.0" id="geobounds-100">geobounds 1.0.0<a class="anchor" aria-label="anchor" href="#geobounds-100"></a></h2><p class="text-muted">CRAN release: 2026-07-08</p>
 <ul><li>Changed the software license from CC BY 4.0 to MIT and clarified that downloaded boundaries and included figures retain the licenses and attribution requirements of <strong>geoBoundaries</strong> and their original sources. Documentation now distinguishes the varying <code>gbOpen</code> licenses, UN OCHA terms and the non-commercial restriction on UN SALB boundaries. Downloads from <code>gbAuthoritative</code> now display a licensing notice.</li>
 </ul></div>
@@ -73,7 +87,7 @@
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.0" id="geobounds-010">geobounds 0.1.0<a class="anchor" aria-label="anchor" href="#geobounds-010"></a></h2><p class="text-muted">CRAN release: 2026-02-11</p>
-<p><strong>First CRAN release</strong>.</p>
+<p>First <strong>CRAN</strong> release.</p>
 <div class="section level3">
 <h3 id="breaking-changes-0-1-0">Breaking changes<a class="anchor" aria-label="anchor" href="#breaking-changes-0-1-0"></a></h3>
 <p>Functions for downloading boundaries have been renamed to follow the convention <code>object_verb()</code> (see <a href="https://devguide.ropensci.org/pkg_building.html" class="external-link uri">https://devguide.ropensci.org/pkg_building.html</a>):</p>

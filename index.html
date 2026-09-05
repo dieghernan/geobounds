@@ -45,7 +45,7 @@
 
     <a class="navbar-brand me-2" href="index.html"><img src="apple-touch-icon.png" alt="geobounds logo" height="34" width="34" class="d-inline-block me-1">geobounds</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,7 +60,7 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><hr class="dropdown-divider"></li>
-    <li><h6 class="dropdown-header" data-toc-skip>Release coverage</h6></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Release types</h6></li>
     <li><a class="dropdown-item" href="articles/gbopen.html">gbOpen coverage and boundary metadata</a></li>
     <li><a class="dropdown-item" href="articles/gbhumanitarian.html">gbHumanitarian coverage and boundary metadata</a></li>
     <li><a class="dropdown-item" href="articles/gbauthoritative.html">gbAuthoritative coverage and boundary metadata</a></li>
@@ -251,7 +251,7 @@ Important
 <h2 id="license">License<a class="anchor" aria-label="anchor" href="#license"></a>
 </h2>
 <p>The <strong>geobounds</strong> software is released under the <a href="https://opensource.org/license/mit" class="external-link">MIT license</a>. This license does not cover boundaries downloaded through the package or figures derived from those boundaries.</p>
-<p>Each boundary retains the original license reported by <strong>geoBoundaries</strong>. Before reusing or redistributing boundaries, use <code><a href="reference/gb_get_metadata.html">gb_get_metadata()</a></code> to check <code>boundaryLicense</code>, <code>licenseDetail</code>, <code>licenseSource</code>, <code>boundarySource</code> and <code>boundarySourceURL</code>. Attribute <strong>geoBoundaries</strong> and the original providers, include the applicable license and indicate modifications when required. <code>gbAuthoritative</code> contains UN SALB boundaries restricted to non-commercial use.</p>
+<p>Each boundary retains the original license reported by <strong>geoBoundaries</strong>. Before reusing or redistributing boundaries, use <code><a href="reference/gb_get_metadata.html">gb_get_metadata()</a></code> to check <code>boundaryLicense</code>, <code>licenseDetail</code>, <code>licenseSource</code>, <code>boundarySource</code> and <code>boundarySourceURL</code>. Always acknowledge <strong>geoBoundaries</strong>. Consult these fields for any additional source attribution, license link, share-alike notice or modification statement required by the boundary’s license. <strong>gbAuthoritative</strong> contains UN SALB boundaries restricted to non-commercial use.</p>
 </div>
 <div class="section level2">
 <h2 id="acknowledgments">Acknowledgments<a class="anchor" aria-label="anchor" href="#acknowledgments"></a>
@@ -273,7 +273,7 @@ Hernangómez D (2026). <em>geobounds: Download Administrative Boundary Data from
 <span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>  title <span class="ot">=</span> {{geobounds}<span class="sc">:</span> Download Administrative Boundary Data from geoBoundaries},</span>
 <span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>  author <span class="ot">=</span> {Diego Hernangómez},</span>
 <span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>  year <span class="ot">=</span> {<span class="dv">2026</span>},</span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>  version <span class="ot">=</span> {<span class="dv">1</span>.<span class="fl">0.0</span>},</span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>  version <span class="ot">=</span> {<span class="dv">1</span>.<span class="fl">0.1</span>},</span>
 <span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>  url <span class="ot">=</span> {https<span class="sc">:</span><span class="er">//</span>dieghernan.github.io<span class="sc">/</span>geobounds<span class="sc">/</span>},</span>
 <span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>  abstract <span class="ot">=</span> {Provides tools to download individual country boundaries and global composite boundaries from geoBoundaries <span class="sc">&lt;</span>https<span class="sc">:</span><span class="er">//</span>www.geoboundaries.org<span class="sc">/</span><span class="er">&gt;</span> across multiple <span class="fu">administrative</span> (ADM) levels. Returns boundaries as sf objects <span class="cf">for</span> mapping and spatial analysis. Runfola et <span class="fu">al.</span> (<span class="dv">2020</span>) <span class="sc">&lt;</span>doi<span class="sc">:</span><span class="fl">10.1371</span><span class="sc">/</span>journal.pone<span class="fl">.0231866</span><span class="sc">&gt;</span> describe the underlying database.},</span>
 <span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>  doi <span class="ot">=</span> {<span class="fl">10.32614</span><span class="sc">/</span>CRAN.package.geobounds},</span>

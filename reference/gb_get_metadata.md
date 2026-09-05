@@ -32,7 +32,8 @@ gb_get_metadata(
   the ADM level (`"adm0"` is the country boundary, `"adm1"` is the first
   level of subnational boundaries, `"adm2"` is the second level and so
   on). Uppercase versions (`"ADM1"`) and level numbers (`0`, `1`, `2`,
-  `3`, `4`, `5`) are also accepted.
+  `3`, `4`, `5`) are also accepted, including numbers supplied as text
+  (for example, `"1"`).
 
 - release_type:
 
@@ -76,6 +77,8 @@ columns:
 
 - `boundarySource`: A comma-separated list of the primary sources for
   the boundary.
+
+- `boundarySourceURL`: The URL of the original boundary source.
 
 - `boundaryLicense`: The original license under which the primary source
   released the boundary.
@@ -150,7 +153,9 @@ columns:
 ## See also
 
 [`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md)
-downloads the boundaries described by the metadata.
+downloads the boundaries described by the metadata. The [ADM
+wrappers](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
+request a single administrative level.
 
 Metadata and licensing functions:
 [`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/reference/gb_get_max_adm_lvl.md)

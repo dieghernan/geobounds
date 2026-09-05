@@ -8,10 +8,11 @@ third-, fourth- and fifth-level administrative boundaries, respectively.
 Not all countries have the same number of ADM levels. Use
 gb_get_max_adm_lvl() to check availability.
 Boundaries downloaded through these functions are not covered by the
-package's MIT license.
-Attribution to
-geoBoundaries and the original sources is required when sharing the
-boundaries or derived products."><meta property="og:description" content="These functions call gb_get() for a single ADM level. gb_get_adm0()
+package's MIT license. Always acknowledge geoBoundaries when sharing the
+boundaries or derived products. See
+https://www.geoboundaries.org/index.html#usage. Consult the boundary
+metadata for any additional source attribution, license link, share-alike
+notice or modification statement required by the boundary's license."><meta property="og:description" content="These functions call gb_get() for a single ADM level. gb_get_adm0()
 returns country boundaries, gb_get_adm1() returns first-level subnational
 boundaries (for example, states in the United States) and gb_get_adm2()
 returns second-level subnational boundaries (for example, counties in the
@@ -20,10 +21,11 @@ third-, fourth- and fifth-level administrative boundaries, respectively.
 Not all countries have the same number of ADM levels. Use
 gb_get_max_adm_lvl() to check availability.
 Boundaries downloaded through these functions are not covered by the
-package's MIT license.
-Attribution to
-geoBoundaries and the original sources is required when sharing the
-boundaries or derived products."><meta property="og:image" content="https://dieghernan.github.io/geobounds/logo.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@dhernangomez"><meta name="twitter:site" content="@dhernangomez"><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-LTNVYVLK36"></script><script>
+package's MIT license. Always acknowledge geoBoundaries when sharing the
+boundaries or derived products. See
+https://www.geoboundaries.org/index.html#usage. Consult the boundary
+metadata for any additional source attribution, license link, share-alike
+notice or modification statement required by the boundary's license."><meta property="og:image" content="https://dieghernan.github.io/geobounds/logo.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@dhernangomez"><meta name="twitter:site" content="@dhernangomez"><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-LTNVYVLK36"></script><script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
@@ -37,7 +39,7 @@ boundaries or derived products."><meta property="og:image" content="https://dieg
 
     <a class="navbar-brand me-2" href="../index.html"><img src="../apple-touch-icon.png" alt="geobounds logo" height="34" width="34" class="d-inline-block me-1">geobounds</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,7 +52,7 @@ boundaries or derived products."><meta property="og:image" content="https://dieg
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><hr class="dropdown-divider"></li>
-    <li><h6 class="dropdown-header" data-toc-skip>Release coverage</h6></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Release types</h6></li>
     <li><a class="dropdown-item" href="../articles/gbopen.html">gbOpen coverage and boundary metadata</a></li>
     <li><a class="dropdown-item" href="../articles/gbhumanitarian.html">gbHumanitarian coverage and boundary metadata</a></li>
     <li><a class="dropdown-item" href="../articles/gbauthoritative.html">gbAuthoritative coverage and boundary metadata</a></li>
@@ -93,10 +95,11 @@ third-, fourth- and fifth-level administrative boundaries, respectively.</p>
 <p>Not all countries have the same number of ADM levels. Use
 <code><a href="gb_get_max_adm_lvl.html">gb_get_max_adm_lvl()</a></code> to check availability.</p>
 <p>Boundaries downloaded through these functions are not covered by the
-package's MIT license.
-<a href="https://www.geoboundaries.org/index.html#usage" class="external-link">Attribution</a> to
-<strong>geoBoundaries</strong> and the original sources is required when sharing the
-boundaries or derived products.</p>
+package's MIT license. Always acknowledge <strong>geoBoundaries</strong> when sharing the
+boundaries or derived products. See
+<a href="https://www.geoboundaries.org/index.html#usage" class="external-link">https://www.geoboundaries.org/index.html#usage</a>. Consult the boundary
+metadata for any additional source attribution, license link, share-alike
+notice or modification statement required by the boundary's license.</p>
     </div>
 
     <div class="section level2">
@@ -171,9 +174,10 @@ also <code><a href="https://rdrr.io/pkg/countrycode/man/countrycode.html" class=
 
 
 <dt id="arg-simplified">simplified<a class="anchor" aria-label="anchor" href="#arg-simplified"></a></dt>
-<dd><p>A logical value. If <code>TRUE</code>, return simplified boundaries.
-The default <code>FALSE</code> uses the primary <strong>geoBoundaries</strong> layer. See
-simplified boundaries at <a href="https://www.geoboundaries.org/" class="external-link">https://www.geoboundaries.org/</a>.</p></dd>
+<dd><p>A logical value. If <code>TRUE</code>, return boundaries that are less
+accurate but faster to render. The default <code>FALSE</code> uses the primary
+<strong>geoBoundaries</strong> layer. See the simplified boundary downloads:
+<a href="https://www.geoboundaries.org/simplifiedDownloads.html" class="external-link">https://www.geoboundaries.org/simplifiedDownloads.html</a>.</p></dd>
 
 
 <dt id="arg-release-type">release_type<a class="anchor" aria-label="anchor" href="#arg-release-type"></a></dt>
@@ -208,8 +212,8 @@ strategies in <code><a href="gb_set_cache_dir.html">gb_set_cache_dir()</a></code
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>An <a href="https://r-spatial.github.io/sf/reference/sf.html" class="external-link">sf</a> object from <a href="https://CRAN.R-project.org/package=sf" class="external-link"><span class="pkg">sf</span></a> containing the requested
-boundaries. If no boundaries match the request, the function returns
-<code>NULL</code>.</p>
+boundaries. Returns <code>NULL</code> if no boundaries match the request or the
+downloads return no geometries.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
@@ -229,10 +233,11 @@ administrative boundaries." <em>PLOS ONE</em>, <strong>15</strong>(4), 1–9.
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index">
-<ul><li><p><code><a href="gb_get_metadata.html">gb_get_metadata()</a></code> inspects boundary metadata and licensing.</p></li>
-<li><p><code><a href="gb_get_max_adm_lvl.html">gb_get_max_adm_lvl()</a></code> checks available ADM levels.</p></li>
-</ul><p>Boundary download functions:
+    <div class="dont-index"><p><code><a href="gb_get_metadata.html">gb_get_metadata()</a></code> inspects boundary metadata and licensing.
+<code><a href="gb_get_max_adm_lvl.html">gb_get_max_adm_lvl()</a></code> checks the ADM levels available for individual
+country boundaries.
+<code><a href="gb_set_cache_dir.html">gb_set_cache_dir()</a></code> configures where downloaded archives are cached.</p>
+<p>Boundary download functions:
 <code><a href="gb_get.html">gb_get()</a></code>,
 <code><a href="gb_get_world.html">gb_get_world()</a></code></p></div>
     </div>

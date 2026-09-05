@@ -6,8 +6,8 @@
   maintainer, copyright holder.
   [](https://orcid.org/0000-0001-8457-4658)
 
-- **[William and Mary
-  geoLab](https://sites.google.com/view/wmgeolab/)**. Copyright holder.
+- **[William & Mary geoLab](https://sites.google.com/view/wmgeolab/)**.
+  Data contributor.
   [![ROR](https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg)](https://ror.org/03hsf0573)  
   for the geoBoundaries project
 
@@ -25,7 +25,7 @@ from geoBoundaries*.
       title = {{geobounds}: Download Administrative Boundary Data from geoBoundaries},
       author = {Diego Hernangómez},
       year = {2026},
-      version = {1.0.0},
+      version = {1.0.1},
       url = {https://dieghernan.github.io/geobounds/},
       abstract = {Provides tools to download individual country boundaries and global composite boundaries from geoBoundaries <https://www.geoboundaries.org/> across multiple administrative (ADM) levels. Returns boundaries as sf objects for mapping and spatial analysis. Runfola et al. (2020) <doi:10.1371/journal.pone.0231866> describe the underlying database.},
       doi = {10.32614/CRAN.package.geobounds},

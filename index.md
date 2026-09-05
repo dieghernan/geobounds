@@ -163,9 +163,10 @@ Each boundary retains the original license reported by
 **geoBoundaries**. Before reusing or redistributing boundaries, use
 [`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md)
 to check `boundaryLicense`, `licenseDetail`, `licenseSource`,
-`boundarySource` and `boundarySourceURL`. Attribute **geoBoundaries**
-and the original providers, include the applicable license and indicate
-modifications when required. `gbAuthoritative` contains UN SALB
+`boundarySource` and `boundarySourceURL`. Always acknowledge
+**geoBoundaries**. Consult these fields for any additional source
+attribution, license link, share-alike notice or modification statement
+required by the boundary’s license. **gbAuthoritative** contains UN SALB
 boundaries restricted to non-commercial use.
 
 ## Acknowledgments
@@ -192,7 +193,7 @@ A **BibTeX** entry for **LaTeX** users:
   title = {{geobounds}: Download Administrative Boundary Data from geoBoundaries},
   author = {Diego Hernangómez},
   year = {2026},
-  version = {1.0.0},
+  version = {1.0.1},
   url = {https://dieghernan.github.io/geobounds/},
   abstract = {Provides tools to download individual country boundaries and global composite boundaries from geoBoundaries <https://www.geoboundaries.org/> across multiple administrative (ADM) levels. Returns boundaries as sf objects for mapping and spatial analysis. Runfola et al. (2020) <doi:10.1371/journal.pone.0231866> describe the underlying database.},
   doi = {10.32614/CRAN.package.geobounds},

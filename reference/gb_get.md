@@ -10,10 +10,12 @@ for global composite boundaries that standardize disputed areas and fill
 gaps between borders.
 
 Boundaries downloaded through this function are not covered by the
-package's MIT license.
-[Attribution](https://www.geoboundaries.org/index.html#usage) to
-**geoBoundaries** and the original sources is required when sharing the
-boundaries or derived products.
+package's MIT license. Always acknowledge **geoBoundaries** when sharing
+the boundaries or derived products. See
+<https://www.geoboundaries.org/index.html#usage>. Consult the boundary
+metadata for any additional source attribution, license link,
+share-alike notice or modification statement required by the boundary's
+license.
 
 The wrappers
 [`gb_get_adm0()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md),
@@ -58,13 +60,15 @@ gb_get(
   the ADM level (`"adm0"` is the country boundary, `"adm1"` is the first
   level of subnational boundaries, `"adm2"` is the second level and so
   on). Uppercase versions (`"ADM1"`) and level numbers (`0`, `1`, `2`,
-  `3`, `4`, `5`) are also accepted.
+  `3`, `4`, `5`) are also accepted, including numbers supplied as text
+  (for example, `"1"`).
 
 - simplified:
 
-  A logical value. If `TRUE`, return simplified boundaries. The default
-  `FALSE` uses the primary **geoBoundaries** layer. See simplified
-  boundaries at <https://www.geoboundaries.org/>.
+  A logical value. If `TRUE`, return boundaries that are less accurate
+  but faster to render. The default `FALSE` uses the primary
+  **geoBoundaries** layer. See the simplified boundary downloads:
+  <https://www.geoboundaries.org/simplifiedDownloads.html>.
 
 - release_type:
 
@@ -101,8 +105,8 @@ gb_get(
 
 An [sf](https://r-spatial.github.io/sf/reference/sf.html) object from
 [sf](https://CRAN.R-project.org/package=sf) containing the requested
-boundaries. If no boundaries match the request, the function returns
-`NULL`.
+boundaries. Returns `NULL` if no boundaries match the request or the
+downloads return no geometries.
 
 ## Details
 
@@ -123,11 +127,12 @@ administrative boundaries." *PLOS ONE*, **15**(4), 1–9.
 
 ## See also
 
-- [`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md)
-  inspects boundary metadata and licensing.
-
-- [`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/reference/gb_get_max_adm_lvl.md)
-  checks available ADM levels.
+[`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md)
+inspects boundary metadata and licensing.
+[`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/reference/gb_get_max_adm_lvl.md)
+checks the ADM levels available for individual country boundaries.
+[`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_set_cache_dir.md)
+configures where downloaded archives are cached.
 
 Boundary download functions:
 [`gb_get_adm`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md),
