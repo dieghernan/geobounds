@@ -192,7 +192,7 @@ to check `boundaryLicense`, `licenseDetail`, `licenseSource`,
 `boundarySource` and `boundarySourceURL`. Always acknowledge
 **geoBoundaries**. Consult these fields for any additional source
 attribution, license link, share-alike notice or modification statement
-required by the boundary’s license. `gbAuthoritative` contains UN SALB
+required by the boundary’s license. **gbAuthoritative** contains UN SALB
 boundaries restricted to non-commercial use.
 
 ## Acknowledgments

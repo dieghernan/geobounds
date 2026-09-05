@@ -2,17 +2,19 @@
 
 ### Get started
 
-Learn to download, inspect and map administrative boundaries.
+Start with downloading and mapping country boundaries, then explore
+administrative levels, cache management and spatial analysis workflows.
 
 - [geobounds: Download administrative boundaries in
   R](https://dieghernan.github.io/geobounds/dev/articles/geobounds.md):
 
   Download, inspect and map administrative boundaries
 
-### Release coverage
+### Release coverage and metadata
 
-Compare ADM-level availability and boundary metadata across
-**geoBoundaries** release types.
+Explore country coverage, available ADM levels and boundary metadata for
+**gbOpen**, **gbHumanitarian** and **gbAuthoritative**. Consult the
+source and licensing information when choosing a release type.
 
 - [gbOpen coverage and boundary
   metadata](https://dieghernan.github.io/geobounds/dev/articles/gbopen.md):
@@ -33,7 +35,7 @@ Compare ADM-level availability and boundary metadata across
 
 ### From the blog
 
-Read One World posts about **geobounds**.
+Read background and worked examples from the One World blog.
 
 - [Introducing
   geobounds](https://dieghernan.github.io/202602_geobounds/):

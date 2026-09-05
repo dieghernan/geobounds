@@ -44,8 +44,10 @@ from [tibble](https://CRAN.R-project.org/package=tibble) containing ISO
 
 ## See also
 
-- [`gb_get()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get.md)
-  downloads boundaries for the available ADM levels.
+[`gb_get()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get.md)
+downloads boundaries for the available ADM levels. The [ADM
+wrappers](https://dieghernan.github.io/geobounds/dev/reference/gb_get_adm.md)
+request a single administrative level.
 
 Metadata and licensing functions:
 [`gb_get_metadata()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_metadata.md)
@@ -56,7 +58,7 @@ Metadata and licensing functions:
 all <- gb_get_max_adm_lvl()
 library(dplyr)
 
-# Countries with only one ADM level available.
+# Countries whose highest available level is ADM1.
 all |>
   filter(maxBoundaryType == 1)
 #> # A tibble: 21 × 2

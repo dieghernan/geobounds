@@ -126,11 +126,12 @@ administrative boundaries." *PLOS ONE*, **15**(4), 1–9.
 
 ## See also
 
-- [`gb_get_metadata()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_metadata.md)
-  inspects boundary metadata and licensing.
-
-- [`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_max_adm_lvl.md)
-  checks available ADM levels.
+[`gb_get_metadata()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_metadata.md)
+inspects boundary metadata and licensing.
+[`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_max_adm_lvl.md)
+checks the ADM levels available for individual country boundaries.
+[`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/dev/reference/gb_set_cache_dir.md)
+configures where downloaded archives are cached.
 
 Boundary download functions:
 [`gb_get_adm`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_adm.md),

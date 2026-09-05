@@ -52,7 +52,7 @@ CRAN release: 2026-03-24
 
 CRAN release: 2026-02-11
 
-**First CRAN release**.
+First **CRAN** release.
 
 ### Breaking changes
 

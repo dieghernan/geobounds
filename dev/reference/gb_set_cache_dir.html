@@ -28,7 +28,7 @@ Use gb_detect_cache_dir() to find the active cache directory."><meta property="o
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><hr class="dropdown-divider"></li>
-    <li><h6 class="dropdown-header" data-toc-skip>Release coverage</h6></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Release types</h6></li>
     <li><a class="dropdown-item" href="../articles/gbopen.html">gbOpen coverage and boundary metadata</a></li>
     <li><a class="dropdown-item" href="../articles/gbhumanitarian.html">gbHumanitarian coverage and boundary metadata</a></li>
     <li><a class="dropdown-item" href="../articles/gbauthoritative.html">gbAuthoritative coverage and boundary metadata</a></li>
@@ -127,10 +127,10 @@ argument. See <code><a href="gb_get.html">gb_get()</a></code>.</p></li>
 </ul></div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index">
-<ul><li><p><code><a href="https://rdrr.io/r/tools/userdir.html" class="external-link">tools::R_user_dir()</a></code> identifies standard locations for user-specific
-files.</p></li>
-</ul><p>Cache management functions:
+    <div class="dont-index"><p><code><a href="gb_get.html">gb_get()</a></code> and <code><a href="gb_get_world.html">gb_get_world()</a></code> use the configured cache directory for
+downloaded boundary archives.
+<code><a href="https://rdrr.io/r/tools/userdir.html" class="external-link">tools::R_user_dir()</a></code> identifies standard locations for user-specific files.</p>
+<p>Cache management functions:
 <code><a href="gb_clear_cache.html">gb_clear_cache()</a></code>,
 <code><a href="gb_detect_cache_dir.html">gb_detect_cache_dir()</a></code></p></div>
     </div>
@@ -142,30 +142,30 @@ files.</p></li>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span><span class="va">my_cache</span> <span class="op">&lt;-</span> <span class="fu"><a href="gb_detect_cache_dir.html">gb_detect_cache_dir</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> <span style="color: #0000BB;">/tmp/RtmpADeWGT/geobounds</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> <span style="color: #0000BB;">/tmp/Rtmpb59sW4/geobounds</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Set an example cache directory.</span></span></span>
 <span class="r-in"><span><span class="va">ex</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"example"</span>, <span class="st">"cachenew"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">gb_set_cache_dir</span><span class="op">(</span><span class="va">ex</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">geobounds</span> cache directory is <span style="color: #0000BB;">/tmp/RtmpADeWGT/example/cachenew</span>.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">geobounds</span> cache directory is <span style="color: #0000BB;">/tmp/Rtmpb59sW4/example/cachenew</span>.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> To use this cache directory in future sessions, call `gb_set_cache_dir()` with `install = TRUE`.</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="gb_detect_cache_dir.html">gb_detect_cache_dir</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> <span style="color: #0000BB;">/tmp/RtmpADeWGT/example/cachenew</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/tmp/RtmpADeWGT/example/cachenew"</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> <span style="color: #0000BB;">/tmp/Rtmpb59sW4/example/cachenew</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/tmp/Rtmpb59sW4/example/cachenew"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Restore the initial cache.</span></span></span>
 <span class="r-in"><span><span class="fu">gb_set_cache_dir</span><span class="op">(</span><span class="va">my_cache</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">geobounds</span> cache directory is <span style="color: #0000BB;">/tmp/RtmpADeWGT/geobounds</span>.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">geobounds</span> cache directory is <span style="color: #0000BB;">/tmp/Rtmpb59sW4/geobounds</span>.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> To use this cache directory in future sessions, call `gb_set_cache_dir()` with `install = TRUE`.</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/identical.html" class="external-link">identical</a></span><span class="op">(</span><span class="va">my_cache</span>, <span class="fu"><a href="gb_detect_cache_dir.html">gb_detect_cache_dir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> <span style="color: #0000BB;">/tmp/RtmpADeWGT/geobounds</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> <span style="color: #0000BB;">/tmp/Rtmpb59sW4/geobounds</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] TRUE</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="gb_detect_cache_dir.html">gb_detect_cache_dir</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> <span style="color: #0000BB;">/tmp/RtmpADeWGT/geobounds</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/tmp/RtmpADeWGT/geobounds"</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> <span style="color: #0000BB;">/tmp/Rtmpb59sW4/geobounds</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/tmp/Rtmpb59sW4/geobounds"</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

@@ -152,7 +152,9 @@ columns:
 ## See also
 
 [`gb_get()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get.md)
-downloads the boundaries described by the metadata.
+downloads the boundaries described by the metadata. The [ADM
+wrappers](https://dieghernan.github.io/geobounds/dev/reference/gb_get_adm.md)
+request a single administrative level.
 
 Metadata and licensing functions:
 [`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_max_adm_lvl.md)

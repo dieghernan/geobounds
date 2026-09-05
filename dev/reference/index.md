@@ -2,7 +2,13 @@
 
 ## Download boundaries
 
-Download individual country boundaries and global composite boundaries
+Use
+[`gb_get()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get.md)
+for individual country boundaries or
+[`gb_get_world()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_world.md)
+for global composite boundaries. The [ADM
+wrappers](https://dieghernan.github.io/geobounds/dev/reference/gb_get_adm.md)
+select a single administrative level. Downloaded boundaries are returned
 as [**sf**](https://r-spatial.github.io/sf/) objects.
 
 - [`gb_get()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get.md)
@@ -25,7 +31,11 @@ as [**sf**](https://r-spatial.github.io/sf/) objects.
 
 ## Inspect metadata and availability
 
-Inspect boundary metadata, available ADM levels and licensing.
+Find each country’s highest available ADM level with
+[`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_max_adm_lvl.md).
+Inspect boundary sources, dates and licensing with
+[`gb_get_metadata()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_metadata.md)
+before downloading or sharing data.
 
 - [`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_max_adm_lvl.md)
   : Find the highest available ADM level
@@ -37,7 +47,12 @@ Inspect boundary metadata, available ADM levels and licensing.
 
 ## Manage the cache
 
-Configure, inspect and clear cached boundary archives.
+Set a reusable cache directory with
+[`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/dev/reference/gb_set_cache_dir.md),
+locate it with
+[`gb_detect_cache_dir()`](https://dieghernan.github.io/geobounds/dev/reference/gb_detect_cache_dir.md)
+and remove cached archives or saved configuration with
+[`gb_clear_cache()`](https://dieghernan.github.io/geobounds/dev/reference/gb_clear_cache.md).
 
 - [`gb_clear_cache()`](https://dieghernan.github.io/geobounds/dev/reference/gb_clear_cache.md)
   :

@@ -26,7 +26,7 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><hr class="dropdown-divider"></li>
-    <li><h6 class="dropdown-header" data-toc-skip>Release coverage</h6></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Release types</h6></li>
     <li><a class="dropdown-item" href="../articles/gbopen.html">gbOpen coverage and boundary metadata</a></li>
     <li><a class="dropdown-item" href="../articles/gbhumanitarian.html">gbHumanitarian coverage and boundary metadata</a></li>
     <li><a class="dropdown-item" href="../articles/gbauthoritative.html">gbAuthoritative coverage and boundary metadata</a></li>
@@ -60,7 +60,7 @@
     <div class="section level2">
       <h2 id="download-boundaries">Download boundaries<a class="anchor" aria-label="anchor" href="#download-boundaries"></a></h2>
 
-      <div class="section-desc"><p>Download individual country boundaries and global composite boundaries as <a href="https://r-spatial.github.io/sf/" class="external-link"><strong>sf</strong></a> objects.</p></div>
+      <div class="section-desc"><p>Use <a href="gb_get.html"><code>gb_get()</code></a> for individual country boundaries or <a href="gb_get_world.html"><code>gb_get_world()</code></a> for global composite boundaries. The <a href="gb_get_adm.html">ADM wrappers</a> select a single administrative level. Downloaded boundaries are returned as <a href="https://r-spatial.github.io/sf/" class="external-link"><strong>sf</strong></a> objects.</p></div>
 
       <dl></dl></div><div class="section level2">
 
@@ -90,7 +90,7 @@
       </dl></div><div class="section level2">
       <h2 id="inspect-metadata-and-availability">Inspect metadata and availability<a class="anchor" aria-label="anchor" href="#inspect-metadata-and-availability"></a></h2>
 
-      <div class="section-desc"><p>Inspect boundary metadata, available ADM levels and licensing.</p></div>
+      <div class="section-desc"><p>Find each country’s highest available ADM level with <a href="gb_get_max_adm_lvl.html"><code>gb_get_max_adm_lvl()</code></a>. Inspect boundary sources, dates and licensing with <a href="gb_get_metadata.html"><code>gb_get_metadata()</code></a> before downloading or sharing data.</p></div>
 
       <dl></dl></div><div class="section level2">
 
@@ -113,7 +113,7 @@
       </dl></div><div class="section level2">
       <h2 id="manage-the-cache">Manage the cache<a class="anchor" aria-label="anchor" href="#manage-the-cache"></a></h2>
 
-      <div class="section-desc"><p>Configure, inspect and clear cached boundary archives.</p></div>
+      <div class="section-desc"><p>Set a reusable cache directory with <a href="gb_set_cache_dir.html"><code>gb_set_cache_dir()</code></a>, locate it with <a href="gb_detect_cache_dir.html"><code>gb_detect_cache_dir()</code></a> and remove cached archives or saved configuration with <a href="gb_clear_cache.html"><code>gb_clear_cache()</code></a>.</p></div>
 
       <dl></dl></div><div class="section level2">
 
