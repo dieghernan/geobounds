@@ -4,7 +4,7 @@
 #' Returns a summary of selected country codes and their highest available ADM
 #' level in **geoBoundaries**.
 #'
-#' @inheritParams gb_get_metadata
+#' @inheritParams gb_get country release_type
 #'
 #' @returns
 #' A [tibble][tibble::tbl_df] from \CRANpkg{tibble} containing ISO 3166-1
@@ -13,7 +13,8 @@
 #' @inherit gb_get source
 #'
 #' @seealso
-#' - [gb_get()] downloads boundaries for the available ADM levels.
+#' [gb_get()] downloads boundaries for the available ADM levels.
+#' The [ADM wrappers][gb_get_adm] request a single administrative level.
 #'
 #' @family metadata
 #'
@@ -24,7 +25,7 @@
 #' all <- gb_get_max_adm_lvl()
 #' library(dplyr)
 #'
-#' # Countries with only one ADM level available.
+#' # Countries whose highest available level is ADM1.
 #' all |>
 #'   filter(maxBoundaryType == 1)
 #'

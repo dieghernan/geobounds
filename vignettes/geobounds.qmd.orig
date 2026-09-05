@@ -68,7 +68,7 @@ analysis example](#spatial-analysis-workflows).
 
 ## Understanding the boundaries
 
-The **geoBoundaries** database supports commercial, noncommercial and academic
+The **geoBoundaries** database supports commercial, non-commercial and academic
 uses, subject to the license reported for each boundary. Its quality assurance
 includes manual review and hand digitization of physical maps where necessary.
 
@@ -97,7 +97,7 @@ print(object.size(norway_simp), units = "Mb")
 
 norway_all <- bind_rows(norway, norway_simp)
 
-# Plot with ggplot2.
+# Plot the boundaries.
 ggplot(norway_all) +
   geom_sf(fill = "#BA0C2F", color = "#00205B") +
   facet_wrap(vars(res)) +

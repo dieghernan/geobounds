@@ -74,10 +74,9 @@ identical(my_cache, gb_detect_cache_dir())
 gb_detect_cache_dir()
 }
 \seealso{
-\itemize{
-\item \code{\link[tools:R_user_dir]{tools::R_user_dir()}} identifies standard locations for user-specific
-files.
-}
+\code{\link[=gb_get]{gb_get()}} and \code{\link[=gb_get_world]{gb_get_world()}} use the configured cache directory for
+downloaded boundary archives.
+\code{\link[tools:R_user_dir]{tools::R_user_dir()}} identifies standard locations for user-specific files.
 
 Cache management functions:
 \code{\link[=gb_clear_cache]{gb_clear_cache()}},

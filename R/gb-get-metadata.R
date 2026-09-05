@@ -72,7 +72,9 @@
 #'
 #' @inherit gb_get source
 #'
-#' @seealso [gb_get()] downloads the boundaries described by the metadata.
+#' @seealso
+#' [gb_get()] downloads the boundaries described by the metadata. The
+#' [ADM wrappers][gb_get_adm] request a single administrative level.
 #'
 #' @family metadata
 #'

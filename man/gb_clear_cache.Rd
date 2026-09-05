@@ -31,6 +31,8 @@ This reset restores the cache state of a fresh \CRANpkg{geobounds}
 installation. For safety, the function refuses to recursively delete a cache
 path that contains the home, working, temporary or package configuration
 directory. Use a dedicated cache subdirectory.
+Inspect the active directory with \code{\link[=gb_detect_cache_dir]{gb_detect_cache_dir()}} before clearing
+it. Use \code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}} to configure a cache directory again.
 }
 \examples{
 

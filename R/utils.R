@@ -136,7 +136,7 @@ gb_hlp_select_shapefile <- function(
       paste0(
         "Expected exactly one ",
         if (simplified) "simplified " else "",
-        "shapefile in the boundary archive; found {length(shp_files)}."
+        "shapefile in the boundary archive, found {length(shp_files)}."
       ),
       call = call
     )

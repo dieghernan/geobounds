@@ -53,7 +53,7 @@ analysis example](#spatial-analysis-workflows).
 
 ## Understanding the boundaries
 
-The **geoBoundaries** database supports commercial, noncommercial and academic
+The **geoBoundaries** database supports commercial, non-commercial and academic
 uses, subject to the license reported for each boundary. Its quality assurance
 includes manual review and hand digitization of physical maps where necessary.
 
@@ -82,7 +82,7 @@ print(object.size(norway_simp), units = "Mb")
 
 norway_all <- bind_rows(norway, norway_simp)
 
-# Plot with ggplot2.
+# Plot the boundaries.
 ggplot(norway_all) +
   geom_sf(fill = "#BA0C2F", color = "#00205B") +
   facet_wrap(vars(res)) +
@@ -148,10 +148,10 @@ gb_get_metadata(c("India", "Pakistan"), adm_lvl = "ADM0") |>
     licenseSource
   )
 #> # A tibble: 2 × 4
-#>   boundaryName boundaryLicense                      boundarySource licenseSource
-#>   <chr>        <chr>                                <chr>          <chr>        
-#> 1 India        CC0 1.0 Universal (CC0 1.0) Public … geoBoundaries… commons.wiki…
-#> 2 Pakistan     Open Data Commons Open Database Lic… OpenStreetMap… www.openstre…
+#>   boundaryName boundaryLicense                                     boundarySource licenseSource
+#>   <chr>        <chr>                                               <chr>          <chr>        
+#> 1 India        CC0 1.0 Universal (CC0 1.0) Public Domain Dedicati… geoBoundaries… commons.wiki…
+#> 2 Pakistan     Open Data Commons Open Database License 1.0         OpenStreetMap… www.openstre…
 ```
 
 Always acknowledge **geoBoundaries** when sharing a boundary or derived product.
@@ -259,10 +259,10 @@ latam_meta <- gb_get_metadata(adm_lvl = "ADM0") |>
   glimpse()
 #> Rows: 47
 #> Columns: 4
-#> $ boundaryISO          <chr> "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", …
-#> $ boundaryName         <chr> "Aruba", "Anguilla", "Argentina", "Antigua and Ba…
-#> $ Continent            <chr> "Latin America and the Caribbean", "Latin America…
-#> $ worldBankIncomeGroup <chr> "High-income Countries", "No income group availab…
+#> $ boundaryISO          <chr> "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", "BLZ", "BOL", "…
+#> $ boundaryName         <chr> "Aruba", "Anguilla", "Argentina", "Antigua and Barbuda", "Bonair…
+#> $ Continent            <chr> "Latin America and the Caribbean", "Latin America and the Caribb…
+#> $ worldBankIncomeGroup <chr> "High-income Countries", "No income group available", "High-inco…
 
 # Adjust factors.
 latam_meta$income_factor <- factor(

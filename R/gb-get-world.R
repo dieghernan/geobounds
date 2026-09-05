@@ -26,7 +26,7 @@
 #'   boundaries and `"adm2"` is the second level). Uppercase versions
 #'   (`"ADM1"`) and level numbers (`0`, `1`, `2`) are also accepted.
 #'
-#' @inherit gb_get return references
+#' @inherit gb_get return
 #'
 #' @source
 #' - **geoBoundaries** global downloads:
@@ -34,10 +34,10 @@
 #' - CGAZ release files:
 #'   <https://github.com/wmgeolab/geoBoundaries/tree/main/releaseData/CGAZ>.
 #'
+#' @inherit gb_get references
+#'
 #' @seealso
-#' - [gb_get_metadata()] inspects boundary metadata and licensing.
-#' - [gb_get_max_adm_lvl()] checks the ADM levels available for individual
-#'   country boundaries.
+#' `r paste(readLines("man/chunks/seealso.md", encoding="UTF-8"),collapse="\n")`
 #'
 #' @family api
 #'

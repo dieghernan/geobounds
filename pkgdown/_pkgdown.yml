@@ -47,18 +47,28 @@ home:
 reference:
 - title: Download boundaries
   desc: >
-    Download individual country boundaries and global composite boundaries as
+    Use [`gb_get()`](gb_get.html) for individual country boundaries or
+    [`gb_get_world()`](gb_get_world.html) for global composite boundaries.
+    The [ADM wrappers](gb_get_adm.html) select a single administrative level.
+    Downloaded boundaries are returned as
     [**sf**](https://r-spatial.github.io/sf/) objects.
 - contents:
   - has_concept("api")
 - title: Inspect metadata and availability
   desc: >
-    Inspect boundary metadata, available ADM levels and licensing.
+    Find each country's highest available ADM level with
+    [`gb_get_max_adm_lvl()`](gb_get_max_adm_lvl.html). Inspect boundary sources,
+    dates and licensing with [`gb_get_metadata()`](gb_get_metadata.html)
+    before downloading or sharing data.
 - contents:
   - has_concept("metadata")
 - title: Manage the cache
   desc: >
-    Configure, inspect and clear cached boundary archives.
+    Set a reusable cache directory with
+    [`gb_set_cache_dir()`](gb_set_cache_dir.html), locate it with
+    [`gb_detect_cache_dir()`](gb_detect_cache_dir.html) and remove cached
+    archives or saved configuration with
+    [`gb_clear_cache()`](gb_clear_cache.html).
 - contents:
   - has_concept("cache")
 - title: About the package
@@ -72,14 +82,16 @@ articles:
 # pkgdown promotes the package vignette to the top-level "Get started" link.
 - title: Get started
   desc: >
-    Learn to download, inspect and map administrative boundaries.
+    Start with downloading and mapping country boundaries, then explore
+    administrative levels, cache management and spatial analysis workflows.
   contents:
   - geobounds
-- title: Release coverage
-  navbar: Release coverage
+- title: Release coverage and metadata
+  navbar: Release types
   desc: >
-    Compare ADM-level availability and boundary metadata across
-    **geoBoundaries** release types.
+    Explore country coverage, available ADM levels and boundary metadata for
+    **gbOpen**, **gbHumanitarian** and **gbAuthoritative**. Consult the
+    source and licensing information when choosing a release type.
   contents:
   - articles/gbopen
   - articles/gbhumanitarian
@@ -87,7 +99,7 @@ articles:
 - title: From the blog
   navbar: Blog posts
   desc: >
-    Read One World posts about **geobounds**.
+    Read background and worked examples from the One World blog.
   contents:
   - blog-introducing-geobounds
 

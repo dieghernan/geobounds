@@ -116,7 +116,8 @@ gb_get_metadata(adm_lvl = "ADM4") |>
 \dontshow{\}) # examplesIf}
 }
 \seealso{
-\code{\link[=gb_get]{gb_get()}} downloads the boundaries described by the metadata.
+\code{\link[=gb_get]{gb_get()}} downloads the boundaries described by the metadata. The
+\link[=gb_get_adm]{ADM wrappers} request a single administrative level.
 
 Metadata and licensing functions:
 \code{\link[=gb_get_max_adm_lvl]{gb_get_max_adm_lvl()}}

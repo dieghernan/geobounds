@@ -231,7 +231,7 @@ reusing or redistributing boundaries, use `gb_get_metadata()` to check
 `boundarySourceURL`. Always acknowledge **geoBoundaries**. Consult these fields
 for any additional source attribution, license link, share-alike notice or
 modification statement required by the boundary's license.
-`gbAuthoritative` contains UN SALB boundaries restricted to non-commercial use.
+**gbAuthoritative** contains UN SALB boundaries restricted to non-commercial use.
 
 ## Acknowledgments
 

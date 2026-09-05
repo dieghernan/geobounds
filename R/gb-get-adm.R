@@ -18,13 +18,16 @@
 #' metadata for any additional source attribution, license link, share-alike
 #' notice or modification statement required by the boundary's license.
 #'
+#' @inherit gb_get details
+#'
 #' @inheritParams gb_get
 #'
-#' @inherit gb_get details return source references
+#' @inherit gb_get return
+#'
+#' @inherit gb_get source references
 #'
 #' @seealso
-#' - [gb_get_metadata()] inspects boundary metadata and licensing.
-#' - [gb_get_max_adm_lvl()] checks available ADM levels.
+#' `r paste(readLines("man/chunks/seealso.md", encoding="UTF-8"),collapse="\n")`
 #'
 #' @family api
 #'

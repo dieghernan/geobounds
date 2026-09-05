@@ -35,8 +35,9 @@
 #'   argument. See [gb_get()].
 #'
 #' @seealso
-#' - [tools::R_user_dir()] identifies standard locations for user-specific
-#'   files.
+#' [gb_get()] and [gb_get_world()] use the configured cache directory for
+#' downloaded boundary archives.
+#' [tools::R_user_dir()] identifies standard locations for user-specific files.
 #'
 #' @family cache
 #'
@@ -120,13 +121,13 @@ gb_set_cache_dir <- function(
   # Save the cache directory in the user configuration.
   if (install) {
     config_dir <- gb_hlp_user_dir("geobounds", "config")
-    # Create the config directory if needed.
+    # Create the configuration directory if needed.
     gb_hlp_create_dir(config_dir, arg = "configuration directory")
 
     geobounds_file <- file.path(config_dir, "GEOBOUNDS_CACHE_DIR")
 
     if (!file.exists(geobounds_file) || overwrite) {
-      # Write the cache directory to the config file.
+      # Write the cache directory to the configuration file.
       writeLines(cache_dir, con = geobounds_file)
     } else {
       cli::cli_abort(c(
@@ -190,8 +191,10 @@ gb_detect_cache_dir <- function(x = NULL) {
 #' installation. For safety, the function refuses to recursively delete a cache
 #' path that contains the home, working, temporary or package configuration
 #' directory. Use a dedicated cache subdirectory.
+#' Inspect the active directory with [gb_detect_cache_dir()] before clearing
+#' it. Use [gb_set_cache_dir()] to configure a cache directory again.
 #'
-#' @inheritParams gb_set_cache_dir quiet
+#' @inheritParams gb_get quiet
 #' @param config A logical value. If `TRUE`, delete the \CRANpkg{geobounds}
 #'   configuration directory.
 #' @param cached_data A logical value. If `TRUE`, delete the active cache

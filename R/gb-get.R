@@ -70,8 +70,7 @@
 #' \doi{10.1371/journal.pone.0231866}.
 #'
 #' @seealso
-#' - [gb_get_metadata()] inspects boundary metadata and licensing.
-#' - [gb_get_max_adm_lvl()] checks available ADM levels.
+#' `r paste(readLines("man/chunks/seealso.md", encoding="UTF-8"),collapse="\n")`
 #'
 #' @family api
 #'

@@ -159,10 +159,10 @@ administrative boundaries." \emph{PLOS ONE}, \strong{15}(4), 1--9.
 \doi{10.1371/journal.pone.0231866}.
 }
 \seealso{
-\itemize{
-\item \code{\link[=gb_get_metadata]{gb_get_metadata()}} inspects boundary metadata and licensing.
-\item \code{\link[=gb_get_max_adm_lvl]{gb_get_max_adm_lvl()}} checks available ADM levels.
-}
+\code{\link[=gb_get_metadata]{gb_get_metadata()}} inspects boundary metadata and licensing.
+\code{\link[=gb_get_max_adm_lvl]{gb_get_max_adm_lvl()}} checks the ADM levels available for individual
+country boundaries.
+\code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}} configures where downloaded archives are cached.
 
 Boundary download functions:
 \code{\link[=gb_get]{gb_get()}},
