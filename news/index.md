@@ -2,6 +2,8 @@
 
 ## geobounds 1.0.1
 
+CRAN release: 2026-09-05
+
 - Argument errors now display braces in supplied values literally
   instead of interpreting them as message formatting.
 - Numeric text ADM levels such as `"1"` now resolve to the corresponding
