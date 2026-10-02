@@ -37,125 +37,46 @@ gb_get_metadata(
 
 - release_type:
 
-  A character string, one of `"gbOpen"`, `"gbHumanitarian"` or
-  `"gbAuthoritative"`. For most users, use `"gbOpen"` (the default),
-  which contains openly licensed boundaries suitable for most purposes
-  when their individual license terms are followed. `"gbHumanitarian"`
-  boundaries are mirrored from [UN OCHA](https://www.unocha.org/) and
-  may have additional conditions. `"gbAuthoritative"` boundaries are
-  mirrored from [UN SALB](https://salb.un.org/en), verified through
-  in-country processes and cannot be used for commercial purposes.
+  A character string, one of `"gbOpen"` (the default),
+  `"gbHumanitarian"` or `"gbAuthoritative"`. Selects a product, not a
+  dataset version. `"gbAuthoritative"` is restricted to non-commercial
+  use. See
+  [`vignette("metadata", package = "geobounds")`](https://dieghernan.github.io/geobounds/articles/metadata.md)
+  for product sources and licenses.
 
 ## Value
 
 A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)
 from [tibble](https://CRAN.R-project.org/package=tibble) with one row
-per matching boundary and the columns described in **Details**.
+per matching boundary. Numeric statistics are converted to numeric
+values, `sourceDataUpdateDate` to
+[POSIXlt](https://rdrr.io/r/base/DateTimeClasses.html) in GMT and
+`buildDate` to [Date](https://rdrr.io/r/base/Dates.html). Literal
+`"nan"` values become `NA`.
 
 ## Details
 
-The result is a
-[tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html) from
-[tibble](https://CRAN.R-project.org/package=tibble) with the following
-columns:
+This function queries `/api/current` and does not select historical
+versions. See
+[`vignette("metadata", package = "geobounds")`](https://dieghernan.github.io/geobounds/articles/metadata.md)
+for column definitions, type conversions, availability, licensing and
+reproducible workflows.
 
-- `boundaryID`: The ID for this layer. It combines the ISO code,
-  boundary type and a unique identifier generated from the input
-  metadata and geometry. This only changes if the underlying boundary
-  changes.
+## References
 
-- `boundaryName`: The name of the country represented by the layer.
-
-- `boundaryISO`: The ISO 3166-1 alpha-3 code for the country.
-
-- `boundaryYearRepresented`: The year or range of years in
-  `"START to END"` format that the boundary layers represent.
-
-- `boundaryType`: The type of boundary.
-
-- `boundaryCanonical`: The canonical name of the boundary.
-
-- `boundarySource`: A comma-separated list of the primary sources for
-  the boundary.
-
-- `boundarySourceURL`: The URL of the original boundary source.
-
-- `boundaryLicense`: The original license under which the primary source
-  released the boundary.
-
-- `licenseDetail`: Notes about the license.
-
-- `licenseSource`: The URL of the primary source.
-
-- `sourceDataUpdateDate`: The date the source information was integrated
-  into the **geoBoundaries** repository.
-
-- `buildDate`: The date the source boundary was most recently
-  standardized and built into a **geoBoundaries** release.
-
-- `Continent`: The continent the country is associated with.
-
-- `UNSDG-region`: The United Nations Sustainable Development Goals (SDG)
-  region the country is associated with.
-
-- `UNSDG-subregion`: The United Nations Sustainable Development Goals
-  (SDG) subregion the country is associated with.
-
-- `worldBankIncomeGroup`: The World Bank income group the country is
-  associated with.
-
-- `admUnitCount`: The number of administrative units in the boundary.
-
-- `meanVertices`: The mean number of vertices defining the boundaries of
-  each administrative unit in the layer.
-
-- `minVertices`: The minimum number of vertices defining a boundary.
-
-- `maxVertices`: The maximum number of vertices defining a boundary.
-
-- `minPerimeterLengthKM`: The minimum perimeter length of an
-  administrative unit in the layer, measured in kilometers and based on
-  a World Equidistant Cylindrical projection.
-
-- `meanPerimeterLengthKM`: The mean perimeter length of an
-  administrative unit in the layer, measured in kilometers and based on
-  a World Equidistant Cylindrical projection.
-
-- `maxPerimeterLengthKM`: The maximum perimeter length of an
-  administrative unit in the layer, measured in kilometers and based on
-  a World Equidistant Cylindrical projection.
-
-- `meanAreaSqKM`: The mean area of all administrative units in the
-  layer, measured in square kilometers and based on an EASE-GRID 2
-  projection.
-
-- `minAreaSqKM`: The minimum area of an administrative unit in the
-  layer, measured in square kilometers and based on an EASE-GRID 2
-  projection.
-
-- `maxAreaSqKM`: The maximum area of an administrative unit in the
-  layer, measured in square kilometers and based on an EASE-GRID 2
-  projection.
-
-- `staticDownloadLink`: The static download link for the aggregate ZIP
-  file containing all boundary information.
-
-- `gjDownloadURL`: The static download link for the GeoJSON.
-
-- `tjDownloadURL`: The static download link for the TopoJSON.
-
-- `imagePreview`: The static download link for an automatically rendered
-  PNG image of the layer.
-
-- `simplifiedGeometryGeoJSON`: The static download link for the
-  simplified GeoJSON.
+Runfola et al. (2020) "geoBoundaries: A global database of political
+administrative boundaries." *PLOS ONE*, **15**(4), e0231866.
+[doi:10.1371/journal.pone.0231866](https://doi.org/10.1371/journal.pone.0231866)
+.
 
 ## See also
 
 [`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md)
 downloads the boundaries described by the metadata. The [ADM
 wrappers](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
-request a single administrative level.
+request a single administrative level. This metadata describes
+individual country boundaries, not the CGAZ layers returned by
+[`gb_get_world()`](https://dieghernan.github.io/geobounds/reference/gb_get_world.md).
 
 Metadata and licensing functions:
 [`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/reference/gb_get_max_adm_lvl.md)

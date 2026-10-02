@@ -15,19 +15,26 @@ describe the underlying database.
 ## References
 
 Runfola et al. (2020) "geoBoundaries: A global database of political
-administrative boundaries." *PLOS ONE*, **15**(4), 1–9.
+administrative boundaries." *PLOS ONE*, **15**(4), e0231866.
 [doi:10.1371/journal.pone.0231866](https://doi.org/10.1371/journal.pone.0231866)
 .
 
 ## See also
 
-Useful links:
-
-- <https://dieghernan.github.io/geobounds/>
-
-- <https://github.com/dieghernan/geobounds>
-
-- Report bugs at <https://github.com/dieghernan/geobounds/issues>
+[`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md)
+downloads individual country boundaries, the [ADM
+wrappers](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
+select one level and
+[`gb_get_world()`](https://dieghernan.github.io/geobounds/reference/gb_get_world.md)
+downloads global composite boundaries.
+[`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md)
+retrieves boundary metadata and
+[`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_set_cache_dir.md)
+configures archive caching. See
+[`vignette("geobounds", package = "geobounds")`](https://dieghernan.github.io/geobounds/articles/geobounds.md)
+for mapping workflows and
+[`vignette("metadata", package = "geobounds")`](https://dieghernan.github.io/geobounds/articles/metadata.md)
+for provenance and licensing.
 
 ## Author
 

@@ -1,0 +1,382 @@
+# Explore and interpret boundary metadata
+
+## Choose a release type
+
+**gbOpen** is the default product and contains openly licensed
+boundaries. **gbHumanitarian** mirrors UN OCHA boundaries, whose source
+licenses and conditions should be checked. **gbAuthoritative** mirrors
+UN SALB boundaries, verified through in-country processes and restricted
+to non-commercial use. Use `release_type` to select a product, not a
+historical version.
+
+## Query boundary metadata
+
+[`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md)
+retrieves information about boundary layers without downloading their
+geometries. Each row describes a country and ADM level in one release
+type, not an individual administrative unit within that layer. The
+examples below use **gbOpen** metadata for Sri Lanka.
+
+``` r
+
+library(geobounds)
+library(dplyr)
+
+meta <- gb_get_metadata("Sri Lanka", adm_lvl = "ADM1", release_type = "gbOpen")
+meta |>
+  select(
+    boundaryName, boundaryISO, boundaryType,
+    boundaryCanonical, admUnitCount
+  ) |>
+  glimpse()
+#> Rows: 1
+#> Columns: 5
+#> $ boundaryName      <chr> "Sri Lanka"
+#> $ boundaryISO       <chr> "LKA"
+#> $ boundaryType      <chr> "ADM1"
+#> $ boundaryCanonical <chr> "Unknown"
+#> $ admUnitCount      <dbl> 9
+```
+
+Use `country = "all"` or `adm_lvl = "all"` to query all available
+countries or levels. Use `release_type` to query another product.
+
+These results are precomputed. Availability and metadata may change when
+you run the examples against the current API.
+
+## Check available ADM levels
+
+``` r
+
+levels <- gb_get_metadata("Sri Lanka", adm_lvl = "all")
+levels |>
+  select(boundaryISO, boundaryType, boundaryCanonical, admUnitCount) |>
+  glimpse()
+#> Rows: 5
+#> Columns: 4
+#> $ boundaryISO       <chr> "LKA", "LKA", "LKA", "LKA", "LKA"
+#> $ boundaryType      <chr> "ADM0", "ADM1", "ADM2", "ADM3", "ADM4"
+#> $ boundaryCanonical <chr> "Unknown", "Unknown", "Unknown", "Divisional Secreta…
+#> $ admUnitCount      <dbl> 1, 9, 25, 330, 14044
+
+gb_get_max_adm_lvl("Sri Lanka")
+#> # A tibble: 1 × 2
+#>   boundaryISO maxBoundaryType
+#>   <chr>                 <int>
+#> 1 LKA                       4
+```
+
+The administrative hierarchy starts at ADM0, which represents the
+country boundary.
+[`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/reference/gb_get_max_adm_lvl.md)
+reports the highest available ADM level for each country. Use
+[`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md)
+to list the available layers in the selected release type and inspect
+`boundaryType` for the level of each layer.
+
+The presence of a layer does not guarantee complete territorial
+coverage. Some administrative units do not have subdivisions at every
+level. The [official contribution
+guidelines](https://github.com/wmgeolab/geoBoundaries/blob/main/CONTRIBUTING.md)
+allow documented noncontiguous layers.
+
+## Identify a boundary layer
+
+``` r
+
+meta |>
+  select(boundaryID, boundaryISO, boundaryType, boundaryCanonical) |>
+  glimpse()
+#> Rows: 1
+#> Columns: 4
+#> $ boundaryID        <chr> "LKA-ADM1-99731895"
+#> $ boundaryISO       <chr> "LKA"
+#> $ boundaryType      <chr> "ADM1"
+#> $ boundaryCanonical <chr> "Unknown"
+```
+
+`boundaryISO` identifies the country with an ISO 3166-1 alpha-3 code.
+`boundaryType` identifies the ADM level and `boundaryCanonical` gives
+its local designation, when known. `boundaryID` identifies the layer
+using its country code, level and an identifier derived from metadata
+and geometry. It can change when the underlying data change.
+
+A layer identifier is different from a unit identifier. Downloaded
+geometries commonly include `shapeID` for individual features,
+`shapeName` for their names, `shapeGroup` for the country code and
+`shapeType` for the ADM level. Inspect the returned columns before using
+them as join keys.
+
+## Interpret dates and missing values
+
+``` r
+
+meta |>
+  select(boundaryYearRepresented, sourceDataUpdateDate, buildDate) |>
+  glimpse()
+#> Rows: 1
+#> Columns: 3
+#> $ boundaryYearRepresented <chr> "2017"
+#> $ sourceDataUpdateDate    <dttm> 2023-01-19 07:31:04
+#> $ buildDate               <date> 2023-12-12
+```
+
+`boundaryYearRepresented` is the year or range of years represented by
+the boundaries. It remains text because a layer can represent a range.
+`sourceDataUpdateDate` records integration of source information into
+the repository and is parsed as `POSIXlt` in GMT. `buildDate` records
+the build date and is parsed as `Date`.
+
+The `/api/current` endpoint does not imply that boundaries represent the
+current year. Choose data using their represented period, not their
+download date alone.
+
+The package replaces the literal string `"nan"` with `NA`. Empty text
+may remain in character fields. Missing values or values that cannot be
+parsed in converted numeric or date fields may become `NA`. Unknown
+metadata do not establish that a boundary has no source or no licensing
+requirements.
+
+## Inspect sources and licenses
+
+``` r
+
+meta |>
+  select(
+    boundarySource, boundarySourceURL, boundaryLicense, licenseDetail,
+    licenseSource
+  ) |>
+  glimpse()
+#> Rows: 1
+#> Columns: 5
+#> $ boundarySource    <chr> "OpenStreetMap, Wambacher"
+#> $ boundarySourceURL <chr> "wambachers-osm.website/boundaries/"
+#> $ boundaryLicense   <chr> "Open Data Commons Open Database License 1.0"
+#> $ licenseDetail     <chr> "Open Data Commons Open Database License 1.0"
+#> $ licenseSource     <chr> "www.openstreetmap.org/copyright"
+```
+
+`boundarySource` names the source providers and `boundarySourceURL`
+links to the source data. `boundaryLicense` names the original license,
+`licenseDetail` supplies additional notes and `licenseSource` links to
+the source’s license information.
+
+The package’s MIT license covers its code, not downloaded data. Consult
+the metadata and acknowledge **geoBoundaries** when sharing boundaries
+or derived products. Individual layers can have additional attribution
+or other terms. The package’s `COPYRIGHTS` file explains the distinction
+between software, data and figures. Read the installed copy with:
+
+``` r
+
+file.show(system.file("COPYRIGHTS", package = "geobounds"))
+```
+
+See the [official usage
+guidance](https://www.geoboundaries.org/index.html#usage) and
+[repository
+license](https://github.com/wmgeolab/geoBoundaries/blob/main/LICENSE)
+for the provider’s terms.
+
+## Choose a download format
+
+The metadata provide several links for the same layer:
+
+| Field | Content |
+|----|----|
+| `staticDownloadLink` | ZIP archive containing boundary files and supporting information. |
+| `gjDownloadURL` | GeoJSON geometry. |
+| `tjDownloadURL` | TopoJSON geometry. |
+| `simplifiedGeometryGeoJSON` | Simplified GeoJSON geometry. |
+| `imagePreview` | Rendered PNG preview of the layer. |
+
+[`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md)
+downloads the ZIP archive and reads a shapefile from it.
+`simplified = TRUE` selects the simplified shapefile in that archive, so
+it reduces geometric detail and rendering cost without reducing the
+initial ZIP download. The direct links can be used outside the package’s
+download workflow.
+
+## Interpret layer statistics
+
+``` r
+
+meta |>
+  select(
+    admUnitCount, meanVertices, minVertices, maxVertices,
+    meanAreaSqKM, meanPerimeterLengthKM
+  ) |>
+  glimpse()
+#> Rows: 1
+#> Columns: 6
+#> $ admUnitCount          <dbl> 9
+#> $ meanVertices          <dbl> 4081
+#> $ minVertices           <dbl> 2695
+#> $ maxVertices           <dbl> 6244
+#> $ meanAreaSqKM          <dbl> 7340.989
+#> $ meanPerimeterLengthKM <dbl> 708.4978
+```
+
+`admUnitCount` counts the administrative units in the layer. Vertex
+counts summarize boundary complexity, area fields use square kilometers
+and perimeter fields use kilometers. These columns are converted from
+API strings to numeric values by the package.
+
+The [API documentation](https://www.geoboundaries.org/api.html)
+describes area statistics as based on an EASE-GRID 2 projection and
+perimeter statistics as based on a World Equidistant Cylindrical
+projection. These are provider summaries, not measurements recalculated
+by **geobounds**.
+
+More vertices do not necessarily mean better accuracy and more units do
+not necessarily mean more complete coverage. These statistics describe
+the layer, not its fitness for a particular analysis.
+
+## Join metadata to geometries
+
+Keep the country, ADM level and release type consistent when joining
+metadata to individual country boundaries:
+
+``` r
+
+boundaries <- gb_get_adm1("Sri Lanka", simplified = TRUE, release_type = "gbOpen")
+layer_meta <- meta |>
+  select(boundaryISO, boundaryType, boundaryID, boundaryYearRepresented)
+
+boundaries_with_meta <- boundaries |>
+  left_join(layer_meta, by = c(
+    "shapeGroup" = "boundaryISO",
+    "shapeType" = "boundaryType"
+  ))
+
+boundaries_with_meta |>
+  sf::st_drop_geometry() |>
+  select(shapeName, shapeGroup, shapeType, boundaryID, boundaryYearRepresented) |>
+  head(3)
+#> # A tibble: 3 × 5
+#>   shapeName         shapeGroup shapeType boundaryID       boundaryYearRepresen…¹
+#>   <chr>             <chr>      <chr>     <chr>            <chr>                 
+#> 1 Northern Province LKA        ADM1      LKA-ADM1-997318… 2017                  
+#> 2 Eastern Province  LKA        ADM1      LKA-ADM1-997318… 2017                  
+#> 3 Central Province  LKA        ADM1      LKA-ADM1-997318… 2017                  
+#> # ℹ abbreviated name: ¹​boundaryYearRepresented
+```
+
+The layer metadata repeat for each unit in that layer. Joining several
+ADM levels by country alone can multiply rows, so include the level in
+the join key. Check key uniqueness and unmatched rows in your own
+workflow.
+
+CGAZ is a separate global composite product. Inspect its attributes and
+identifiers independently, rather than assuming that feature identifiers
+or names match individual country layers. Where present, `shapeGroup`
+and `shapeType` can support joins with country-level metadata, but those
+joins attach contextual information rather than establish CGAZ
+provenance. The package removes the `id` column from CGAZ output when
+present.
+
+## Preserve data provenance
+
+[`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md)
+queries `/api/current`.
+[`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md)
+uses the archives linked by those metadata and
+[`gb_get_world()`](https://dieghernan.github.io/geobounds/reference/gb_get_world.md)
+downloads CGAZ from the repository’s `main` branch. These functions do
+not support selecting a historical version or commit.
+
+The cache reuses archives by file name without validating their source
+URL, commit or `boundaryID`. Current metadata can therefore describe a
+different version from cached geometry. `overwrite = TRUE` requests a
+fresh download, but does not pin future requests to that version.
+
+For reproducible work, retain the exact downloaded archives, their
+matching metadata and download URLs. Record the retrieval date and the
+source commit when available. Saving metadata alone does not preserve
+the geometries:
+
+``` r
+
+saveRDS(meta, "sri-lanka-adm1-metadata.rds")
+writeLines(meta$staticDownloadLink, "sri-lanka-adm1-source-url.txt")
+```
+
+Historical datasets are available through the provider’s [archival
+access resources](https://www.geoboundaries.org/api.html).
+
+## Metadata field reference
+
+- `boundaryID`: The ID for this layer. It combines the ISO code,
+  boundary type and a unique identifier generated from the input
+  metadata and geometry. This only changes if the underlying boundary
+  changes.
+- `boundaryName`: The name of the country represented by the layer.
+- `boundaryISO`: The ISO 3166-1 alpha-3 code for the country.
+- `boundaryYearRepresented`: The year or range of years in
+  `"START to END"` format that the boundary layers represent.
+- `boundaryType`: The type of boundary.
+- `boundaryCanonical`: The canonical name of the boundary.
+- `boundarySource`: A comma-separated list of the primary sources for
+  the boundary.
+- `boundarySourceURL`: The URL of the original boundary source.
+- `boundaryLicense`: The original license under which the primary source
+  released the boundary.
+- `licenseDetail`: Notes about the license.
+- `licenseSource`: The URL of the original source’s license information,
+  distinct from the source data URL in `boundarySourceURL`.
+- `sourceDataUpdateDate`: The date the source information was integrated
+  into the **geoBoundaries** repository.
+- `buildDate`: The date the source boundary was most recently
+  standardized and built into a **geoBoundaries** release.
+- `Continent`: The continent the country is associated with.
+- `UNSDG-region`: The United Nations Sustainable Development Goals (SDG)
+  region the country is associated with.
+- `UNSDG-subregion`: The United Nations Sustainable Development Goals
+  (SDG) subregion the country is associated with.
+- `worldBankIncomeGroup`: The World Bank income group the country is
+  associated with.
+- `admUnitCount`: The number of administrative units in the boundary.
+- `meanVertices`: The mean number of vertices defining the boundaries of
+  each administrative unit in the layer.
+- `minVertices`: The minimum number of vertices defining a boundary.
+- `maxVertices`: The maximum number of vertices defining a boundary.
+- `minPerimeterLengthKM`: The minimum perimeter length of an
+  administrative unit in the layer, measured in kilometers and based on
+  a World Equidistant Cylindrical projection.
+- `meanPerimeterLengthKM`: The mean perimeter length of an
+  administrative unit in the layer, measured in kilometers and based on
+  a World Equidistant Cylindrical projection.
+- `maxPerimeterLengthKM`: The maximum perimeter length of an
+  administrative unit in the layer, measured in kilometers and based on
+  a World Equidistant Cylindrical projection.
+- `meanAreaSqKM`: The mean area of all administrative units in the
+  layer, measured in square kilometers and based on an EASE-GRID 2
+  projection.
+- `minAreaSqKM`: The minimum area of an administrative unit in the
+  layer, measured in square kilometers and based on an EASE-GRID 2
+  projection.
+- `maxAreaSqKM`: The maximum area of an administrative unit in the
+  layer, measured in square kilometers and based on an EASE-GRID 2
+  projection.
+- `staticDownloadLink`: The static download link for the aggregate ZIP
+  file containing all boundary information.
+- `gjDownloadURL`: The static download link for the GeoJSON.
+- `tjDownloadURL`: The static download link for the TopoJSON.
+- `imagePreview`: The static download link for an automatically rendered
+  PNG image of the layer.
+- `simplifiedGeometryGeoJSON`: The static download link for the
+  simplified GeoJSON.
+
+## Report a problem
+
+Report boundary geometry, administrative names, coverage or source
+metadata problems to the [**geoBoundaries** issue
+tracker](https://github.com/wmgeolab/geoBoundaries/issues). Include the
+country, ADM level, release type and `boundaryID` where available,
+together with the source URL and a description of the problem.
+
+Report **geobounds** download, argument handling or returned object
+problems to the [**geobounds** issue
+tracker](https://github.com/dieghernan/geobounds/issues). Include a
+reproducible example, the package version and the error or warning
+message.

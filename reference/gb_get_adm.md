@@ -9,17 +9,16 @@ subnational boundaries (for example, counties in the United States).
 `gb_get_adm3()`, `gb_get_adm4()` and `gb_get_adm5()` return third-,
 fourth- and fifth-level administrative boundaries, respectively.
 
-Not all countries have the same number of ADM levels. Use
-[`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/reference/gb_get_max_adm_lvl.md)
-to check availability.
+Use
+[`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md)
+to check availability for the requested country, ADM level and release
+type.
 
-Boundaries downloaded through these functions are not covered by the
-package's MIT license. Always acknowledge **geoBoundaries** when sharing
-the boundaries or derived products. See
-<https://www.geoboundaries.org/index.html#usage>. Consult the boundary
-metadata for any additional source attribution, license link,
-share-alike notice or modification statement required by the boundary's
-license.
+See
+[`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md)
+for download behavior and licensing, and
+[`vignette("geobounds", package = "geobounds")`](https://dieghernan.github.io/geobounds/articles/geobounds.md)
+for worked examples.
 
 ## Usage
 
@@ -94,21 +93,17 @@ gb_get_adm5(
 
 - simplified:
 
-  A logical value. If `TRUE`, return boundaries that are less accurate
-  but faster to render. The default `FALSE` uses the primary
-  **geoBoundaries** layer. See the simplified boundary downloads:
-  <https://www.geoboundaries.org/simplifiedDownloads.html>.
+  A logical value. If `TRUE`, read simplified boundaries that are faster
+  to render. Both options download the complete ZIP archive.
 
 - release_type:
 
-  A character string, one of `"gbOpen"`, `"gbHumanitarian"` or
-  `"gbAuthoritative"`. For most users, use `"gbOpen"` (the default),
-  which contains openly licensed boundaries suitable for most purposes
-  when their individual license terms are followed. `"gbHumanitarian"`
-  boundaries are mirrored from [UN OCHA](https://www.unocha.org/) and
-  may have additional conditions. `"gbAuthoritative"` boundaries are
-  mirrored from [UN SALB](https://salb.un.org/en), verified through
-  in-country processes and cannot be used for commercial purposes.
+  A character string, one of `"gbOpen"` (the default),
+  `"gbHumanitarian"` or `"gbAuthoritative"`. Selects a product, not a
+  dataset version. `"gbAuthoritative"` is restricted to non-commercial
+  use. See
+  [`vignette("metadata", package = "geobounds")`](https://dieghernan.github.io/geobounds/articles/metadata.md)
+  for product sources and licenses.
 
 - quiet:
 
@@ -121,47 +116,30 @@ gb_get_adm5(
 
 - cache_dir:
 
-  A path to a cache directory. If not set (the default `NULL`), boundary
-  archives are stored in the default cache directory (see
-  [`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_set_cache_dir.md)).
-  If no cache directory has been set, archives are stored in a temporary
-  cache directory. See
-  [`base::tempdir()`](https://rdrr.io/r/base/tempfile.html) and the
-  cache strategies in
+  A path to a cache directory. If `NULL`, use the configured directory,
+  or a temporary directory when none is configured. See
   [`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_set_cache_dir.md).
 
 ## Value
 
 An [sf](https://r-spatial.github.io/sf/reference/sf.html) object from
 [sf](https://CRAN.R-project.org/package=sf) containing the requested
-boundaries. Returns `NULL` if no boundaries match the request or the
-downloads return no geometries.
-
-## Details
-
-Each individual country boundary layer is governed by the original
-license identified in its boundary metadata. See
-[`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md).
-The `"gbOpen"` release contains multiple open licenses, including ODbL
-and CC BY-SA. Do not assume every boundary is licensed only under CC BY
-4.0. Users should cite the sources listed in the metadata and comply
-with any attribution, share-alike or non-commercial terms.
+boundaries. Returns [`NULL`](https://rdrr.io/r/base/NULL.html) if no
+boundaries match the request or the downloads return no geometries.
 
 ## References
 
 Runfola et al. (2020) "geoBoundaries: A global database of political
-administrative boundaries." *PLOS ONE*, **15**(4), 1–9.
+administrative boundaries." *PLOS ONE*, **15**(4), e0231866.
 [doi:10.1371/journal.pone.0231866](https://doi.org/10.1371/journal.pone.0231866)
 .
 
 ## See also
 
 [`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md)
-inspects boundary metadata and licensing.
+lists the layers available for a country and release type.
 [`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/reference/gb_get_max_adm_lvl.md)
-checks the ADM levels available for individual country boundaries.
-[`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_set_cache_dir.md)
-configures where downloaded archives are cached.
+summarizes the highest available ADM level.
 
 Boundary download functions:
 [`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md),

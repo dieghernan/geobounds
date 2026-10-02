@@ -2,24 +2,35 @@
 
 ### Get started
 
-Start with downloading and mapping country boundaries, then explore
-administrative levels, cache management and spatial analysis workflows.
+Choose boundary products, download and map boundaries, then explore
+administrative levels and spatial analysis workflows.
 
 - [geobounds: Download administrative boundaries in
   R](https://dieghernan.github.io/geobounds/articles/geobounds.md):
 
   Download, inspect and map administrative boundaries
 
-### Release coverage and metadata
+### Work with metadata
 
-Explore country coverage, available ADM levels and boundary metadata for
-**gbOpen**, **gbHumanitarian** and **gbAuthoritative**. Consult the
-source and licensing information when choosing a release type.
+Interpret metadata fields and check availability, licensing and
+provenance. Learn how cached archives affect reproducible workflows.
 
-- [gbOpen coverage and boundary
-  metadata](https://dieghernan.github.io/geobounds/articles/gbopen.md):
+- [Explore and interpret boundary
+  metadata](https://dieghernan.github.io/geobounds/articles/metadata.md):
 
-  gbOpen provides open boundaries with licenses reported in metadata.
+  Find available layers and interpret their dates, sources and
+  statistics
+
+### Explore release coverage
+
+Browse country coverage, available ADM levels and metadata for
+**gbOpen**, **gbHumanitarian** and **gbAuthoritative**.
+
+- [gbAuthoritative coverage and boundary
+  metadata](https://dieghernan.github.io/geobounds/articles/gbauthoritative.md):
+
+  gbAuthoritative boundaries are mirrored from UN SALB, verified through
+  in-country processes and restricted to non-commercial use.
 
 - [gbHumanitarian coverage and boundary
   metadata](https://dieghernan.github.io/geobounds/articles/gbhumanitarian.md):
@@ -27,11 +38,10 @@ source and licensing information when choosing a release type.
   gbHumanitarian boundaries are mirrored from UN OCHA, with sources,
   licenses and attribution terms reported in metadata.
 
-- [gbAuthoritative coverage and boundary
-  metadata](https://dieghernan.github.io/geobounds/articles/gbauthoritative.md):
+- [gbOpen coverage and boundary
+  metadata](https://dieghernan.github.io/geobounds/articles/gbopen.md):
 
-  gbAuthoritative boundaries are mirrored from UN SALB, verified through
-  in-country processes and restricted to non-commercial use.
+  gbOpen provides open boundaries with licenses reported in metadata.
 
 ### From the blog
 

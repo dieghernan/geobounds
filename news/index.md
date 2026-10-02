@@ -26,7 +26,7 @@ CRAN release: 2026-09-05
   that available metadata levels are consecutive.
 - [`gb_get_world()`](https://dieghernan.github.io/geobounds/reference/gb_get_world.md)
   now returns `NULL` when a download fails or no requested country is
-  available, and validates download options before requesting data.
+  available. It also validates download options before requesting data.
 
 ## geobounds 1.0.0
 

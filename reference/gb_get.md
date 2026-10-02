@@ -9,13 +9,10 @@ Use
 for global composite boundaries that standardize disputed areas and fill
 gaps between borders.
 
-Boundaries downloaded through this function are not covered by the
-package's MIT license. Always acknowledge **geoBoundaries** when sharing
-the boundaries or derived products. See
-<https://www.geoboundaries.org/index.html#usage>. Consult the boundary
-metadata for any additional source attribution, license link,
-share-alike notice or modification statement required by the boundary's
-license.
+Always acknowledge **geoBoundaries** and follow the boundary's license.
+See
+[`vignette("metadata", package = "geobounds")`](https://dieghernan.github.io/geobounds/articles/metadata.md)
+for sources and licensing.
 
 The wrappers
 [`gb_get_adm0()`](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md),
@@ -65,21 +62,17 @@ gb_get(
 
 - simplified:
 
-  A logical value. If `TRUE`, return boundaries that are less accurate
-  but faster to render. The default `FALSE` uses the primary
-  **geoBoundaries** layer. See the simplified boundary downloads:
-  <https://www.geoboundaries.org/simplifiedDownloads.html>.
+  A logical value. If `TRUE`, read simplified boundaries that are faster
+  to render. Both options download the complete ZIP archive.
 
 - release_type:
 
-  A character string, one of `"gbOpen"`, `"gbHumanitarian"` or
-  `"gbAuthoritative"`. For most users, use `"gbOpen"` (the default),
-  which contains openly licensed boundaries suitable for most purposes
-  when their individual license terms are followed. `"gbHumanitarian"`
-  boundaries are mirrored from [UN OCHA](https://www.unocha.org/) and
-  may have additional conditions. `"gbAuthoritative"` boundaries are
-  mirrored from [UN SALB](https://salb.un.org/en), verified through
-  in-country processes and cannot be used for commercial purposes.
+  A character string, one of `"gbOpen"` (the default),
+  `"gbHumanitarian"` or `"gbAuthoritative"`. Selects a product, not a
+  dataset version. `"gbAuthoritative"` is restricted to non-commercial
+  use. See
+  [`vignette("metadata", package = "geobounds")`](https://dieghernan.github.io/geobounds/articles/metadata.md)
+  for product sources and licenses.
 
 - quiet:
 
@@ -92,36 +85,33 @@ gb_get(
 
 - cache_dir:
 
-  A path to a cache directory. If not set (the default `NULL`), boundary
-  archives are stored in the default cache directory (see
-  [`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_set_cache_dir.md)).
-  If no cache directory has been set, archives are stored in a temporary
-  cache directory. See
-  [`base::tempdir()`](https://rdrr.io/r/base/tempfile.html) and the
-  cache strategies in
+  A path to a cache directory. If `NULL`, use the configured directory,
+  or a temporary directory when none is configured. See
   [`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_set_cache_dir.md).
 
 ## Value
 
 An [sf](https://r-spatial.github.io/sf/reference/sf.html) object from
 [sf](https://CRAN.R-project.org/package=sf) containing the requested
-boundaries. Returns `NULL` if no boundaries match the request or the
-downloads return no geometries.
+boundaries. Returns [`NULL`](https://rdrr.io/r/base/NULL.html) if no
+boundaries match the request or the downloads return no geometries.
 
 ## Details
 
-Each individual country boundary layer is governed by the original
-license identified in its boundary metadata. See
-[`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md).
-The `"gbOpen"` release contains multiple open licenses, including ODbL
-and CC BY-SA. Do not assume every boundary is licensed only under CC BY
-4.0. Users should cite the sources listed in the metadata and comply
-with any attribution, share-alike or non-commercial terms.
+These are terrestrial boundaries, not maritime boundaries. For product
+selection and mapping workflows, see
+[`vignette("geobounds", package = "geobounds")`](https://dieghernan.github.io/geobounds/articles/geobounds.md).
+
+This function uses current API metadata and reuses cached archives
+without checking for upstream changes. Historical versions cannot be
+selected. See
+[`vignette("metadata", package = "geobounds")`](https://dieghernan.github.io/geobounds/articles/metadata.md)
+for cache limitations and provenance.
 
 ## References
 
 Runfola et al. (2020) "geoBoundaries: A global database of political
-administrative boundaries." *PLOS ONE*, **15**(4), 1–9.
+administrative boundaries." *PLOS ONE*, **15**(4), e0231866.
 [doi:10.1371/journal.pone.0231866](https://doi.org/10.1371/journal.pone.0231866)
 .
 
@@ -181,28 +171,4 @@ ggplot(sri_lanka) +
   )
 
 # }
-
-# Inspect boundary metadata.
-library(dplyr)
-#> 
-#> Attaching package: ‘dplyr’
-#> The following objects are masked from ‘package:stats’:
-#> 
-#>     filter, lag
-#> The following objects are masked from ‘package:base’:
-#> 
-#>     intersect, setdiff, setequal, union
-gb_get_metadata(
-  "Sri Lanka",
-  adm_lvl = 2
-) |>
-  # Check the individual license.
-  select(boundaryISO, boundaryType, licenseDetail, licenseSource) |>
-  glimpse()
-#> Rows: 1
-#> Columns: 4
-#> $ boundaryISO   <chr> "LKA"
-#> $ boundaryType  <chr> "ADM2"
-#> $ licenseDetail <chr> "Open Data Commons Open Database License 1.0"
-#> $ licenseSource <chr> "www.openstreetmap.org/copyright"
 ```

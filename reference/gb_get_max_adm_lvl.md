@@ -1,7 +1,10 @@
 # Find the highest available ADM level
 
 Returns a summary of selected country codes and their highest available
-ADM level in **geoBoundaries**.
+ADM level in **geoBoundaries**. ADM0 represents the country boundary.
+Use
+[`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md)
+to list available layers in the selected release type.
 
 ## Usage
 
@@ -27,27 +30,36 @@ gb_get_max_adm_lvl(
 
 - release_type:
 
-  A character string, one of `"gbOpen"`, `"gbHumanitarian"` or
-  `"gbAuthoritative"`. For most users, use `"gbOpen"` (the default),
-  which contains openly licensed boundaries suitable for most purposes
-  when their individual license terms are followed. `"gbHumanitarian"`
-  boundaries are mirrored from [UN OCHA](https://www.unocha.org/) and
-  may have additional conditions. `"gbAuthoritative"` boundaries are
-  mirrored from [UN SALB](https://salb.un.org/en), verified through
-  in-country processes and cannot be used for commercial purposes.
+  A character string, one of `"gbOpen"` (the default),
+  `"gbHumanitarian"` or `"gbAuthoritative"`. Selects a product, not a
+  dataset version. `"gbAuthoritative"` is restricted to non-commercial
+  use. See
+  [`vignette("metadata", package = "geobounds")`](https://dieghernan.github.io/geobounds/articles/metadata.md)
+  for product sources and licenses.
 
 ## Value
 
 A [tibble](https://tibble.tidyverse.org/reference/tbl_df-class.html)
-from [tibble](https://CRAN.R-project.org/package=tibble) containing ISO
-3166-1 alpha-3 country codes and their highest available ADM levels.
+from [tibble](https://CRAN.R-project.org/package=tibble) with one row
+per matching country. The `boundaryISO` column contains ISO 3166-1
+alpha-3 country codes and `maxBoundaryType` contains the highest
+available ADM level as an integer.
+
+## References
+
+Runfola et al. (2020) "geoBoundaries: A global database of political
+administrative boundaries." *PLOS ONE*, **15**(4), e0231866.
+[doi:10.1371/journal.pone.0231866](https://doi.org/10.1371/journal.pone.0231866)
+.
 
 ## See also
 
 [`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md)
 downloads boundaries for the available ADM levels. The [ADM
 wrappers](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
-request a single administrative level.
+request a single administrative level. See
+[`vignette("metadata", package = "geobounds")`](https://dieghernan.github.io/geobounds/articles/metadata.md)
+for availability and metadata fields.
 
 Metadata and licensing functions:
 [`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md)
@@ -57,6 +69,14 @@ Metadata and licensing functions:
 ``` r
 all <- gb_get_max_adm_lvl()
 library(dplyr)
+#> 
+#> Attaching package: ‘dplyr’
+#> The following objects are masked from ‘package:stats’:
+#> 
+#>     filter, lag
+#> The following objects are masked from ‘package:base’:
+#> 
+#>     intersect, setdiff, setequal, union
 
 # Countries whose highest available level is ADM1.
 all |>
@@ -76,7 +96,7 @@ all |>
 #> 10 LBY                       1
 #> # ℹ 11 more rows
 
-# Countries with ADM4 available.
+# Countries whose highest available level is ADM4.
 all |>
   filter(maxBoundaryType == 4)
 #> # A tibble: 18 × 2

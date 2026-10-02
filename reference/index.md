@@ -2,14 +2,10 @@
 
 ## Download boundaries
 
-Use
-[`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md)
-for individual country boundaries or
-[`gb_get_world()`](https://dieghernan.github.io/geobounds/reference/gb_get_world.md)
-for global composite boundaries. The [ADM
-wrappers](https://dieghernan.github.io/geobounds/reference/gb_get_adm.md)
-select a single administrative level. Downloaded boundaries are returned
-as [**sf**](https://r-spatial.github.io/sf/) objects.
+Download individual country boundaries or global composite boundaries as
+**sf** objects. See [Get
+started](https://dieghernan.github.io/geobounds/articles/geobounds.md)
+for product differences and mapping workflows.
 
 - [`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md)
   :
@@ -31,11 +27,10 @@ as [**sf**](https://r-spatial.github.io/sf/) objects.
 
 ## Inspect metadata and availability
 
-Find each country’s highest available ADM level with
-[`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/reference/gb_get_max_adm_lvl.md).
-Inspect boundary sources, dates and licensing with
-[`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md)
-before downloading or sharing data.
+Inspect available ADM levels, boundary sources, dates and licenses. See
+[Boundary
+metadata](https://dieghernan.github.io/geobounds/articles/metadata.md)
+for field definitions and provenance.
 
 - [`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/reference/gb_get_max_adm_lvl.md)
   : Find the highest available ADM level
@@ -47,12 +42,9 @@ before downloading or sharing data.
 
 ## Manage the cache
 
-Set a reusable cache directory with
-[`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_set_cache_dir.md),
-locate it with
-[`gb_detect_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_detect_cache_dir.md)
-and remove cached archives or saved configuration with
-[`gb_clear_cache()`](https://dieghernan.github.io/geobounds/reference/gb_clear_cache.md).
+Configure, locate or clear the archive cache. See [Boundary
+metadata](https://dieghernan.github.io/geobounds/articles/metadata.md)
+for cache limitations and reproducible workflows.
 
 - [`gb_clear_cache()`](https://dieghernan.github.io/geobounds/reference/gb_clear_cache.md)
   :
@@ -74,8 +66,7 @@ and remove cached archives or saved configuration with
 
 ## About the package
 
-View package-level documentation, citation information and project links
-for **geobounds**.
+Package overview, citation and links to related functions and articles.
 
 - [`geobounds`](https://dieghernan.github.io/geobounds/reference/geobounds-package.md)
   [`geobounds-package`](https://dieghernan.github.io/geobounds/reference/geobounds-package.md)

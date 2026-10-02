@@ -28,10 +28,13 @@ geoBoundaries API."><meta property="og:image" content="https://dieghernan.github
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><hr class="dropdown-divider"></li>
-    <li><h6 class="dropdown-header" data-toc-skip>Release types</h6></li>
-    <li><a class="dropdown-item" href="../articles/gbopen.html">gbOpen coverage and boundary metadata</a></li>
-    <li><a class="dropdown-item" href="../articles/gbhumanitarian.html">gbHumanitarian coverage and boundary metadata</a></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Metadata</h6></li>
+    <li><a class="dropdown-item" href="../articles/metadata.html">Explore and interpret boundary metadata</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Release coverage</h6></li>
     <li><a class="dropdown-item" href="../articles/gbauthoritative.html">gbAuthoritative coverage and boundary metadata</a></li>
+    <li><a class="dropdown-item" href="../articles/gbhumanitarian.html">gbHumanitarian coverage and boundary metadata</a></li>
+    <li><a class="dropdown-item" href="../articles/gbopen.html">gbOpen coverage and boundary metadata</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Blog posts</h6></li>
     <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202602_geobounds/">Introducing geobounds</a></li>
@@ -99,85 +102,39 @@ supplied as text (for example, <code>"1"</code>).</p></dd>
 
 
 <dt id="arg-release-type">release_type<a class="anchor" aria-label="anchor" href="#arg-release-type"></a></dt>
-<dd><p>A character string, one of <code>"gbOpen"</code>,
-<code>"gbHumanitarian"</code> or <code>"gbAuthoritative"</code>. For most users, use <code>"gbOpen"</code>
-(the default), which contains openly licensed boundaries suitable for most
-purposes when their individual license terms are followed.
-<code>"gbHumanitarian"</code> boundaries are mirrored from
-<a href="https://www.unocha.org/" class="external-link">UN OCHA</a> and may have additional conditions.
-<code>"gbAuthoritative"</code> boundaries are mirrored from
-<a href="https://salb.un.org/en" class="external-link">UN SALB</a>, verified through in-country processes
-and cannot be used for commercial purposes.</p></dd>
+<dd><p>A character string, one of <code>"gbOpen"</code> (the default),
+<code>"gbHumanitarian"</code> or <code>"gbAuthoritative"</code>. Selects a product, not a dataset
+version. <code>"gbAuthoritative"</code> is restricted to non-commercial use. See
+<code><a href="../articles/metadata.html">vignette("metadata", package = "geobounds")</a></code> for product sources
+and licenses.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>A <a href="https://tibble.tidyverse.org/reference/tbl_df-class.html" class="external-link">tibble</a> from <a href="https://CRAN.R-project.org/package=tibble" class="external-link"><span class="pkg">tibble</span></a> with one row per matching
-boundary and the columns described in <strong>Details</strong>.</p>
+boundary. Numeric statistics are converted to numeric values,
+<code>sourceDataUpdateDate</code> to <a href="https://rdrr.io/r/base/DateTimeClasses.html" class="external-link">POSIXlt</a> in GMT and
+<code>buildDate</code> to <a href="https://rdrr.io/r/base/Dates.html" class="external-link">Date</a>. Literal <code>"nan"</code> values become <code>NA</code>.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>The result is a <a href="https://tibble.tidyverse.org/reference/tbl_df-class.html" class="external-link">tibble</a> from <a href="https://CRAN.R-project.org/package=tibble" class="external-link"><span class="pkg">tibble</span></a> with the
-following columns:</p><ul><li><p><code>boundaryID</code>: The ID for this layer. It combines the ISO code, boundary
-type and a unique identifier generated from the input metadata and
-geometry. This only changes if the underlying boundary changes.</p></li>
-<li><p><code>boundaryName</code>: The name of the country represented by the layer.</p></li>
-<li><p><code>boundaryISO</code>: The ISO 3166-1 alpha-3 code for the country.</p></li>
-<li><p><code>boundaryYearRepresented</code>: The year or range of years in <code>"START to END"</code>
-format that the boundary layers represent.</p></li>
-<li><p><code>boundaryType</code>: The type of boundary.</p></li>
-<li><p><code>boundaryCanonical</code>: The canonical name of the boundary.</p></li>
-<li><p><code>boundarySource</code>: A comma-separated list of the primary sources for the
-boundary.</p></li>
-<li><p><code>boundarySourceURL</code>: The URL of the original boundary source.</p></li>
-<li><p><code>boundaryLicense</code>: The original license under which the primary source
-released the boundary.</p></li>
-<li><p><code>licenseDetail</code>: Notes about the license.</p></li>
-<li><p><code>licenseSource</code>: The URL of the primary source.</p></li>
-<li><p><code>sourceDataUpdateDate</code>: The date the source information was integrated
-into the <strong>geoBoundaries</strong> repository.</p></li>
-<li><p><code>buildDate</code>: The date the source boundary was most recently standardized
-and built into a <strong>geoBoundaries</strong> release.</p></li>
-<li><p><code>Continent</code>: The continent the country is associated with.</p></li>
-<li><p><code>UNSDG-region</code>: The United Nations Sustainable Development Goals (SDG)
-region the country is associated with.</p></li>
-<li><p><code>UNSDG-subregion</code>: The United Nations Sustainable Development Goals (SDG)
-subregion the country is associated with.</p></li>
-<li><p><code>worldBankIncomeGroup</code>: The World Bank income group the country is
-associated with.</p></li>
-<li><p><code>admUnitCount</code>: The number of administrative units in the boundary.</p></li>
-<li><p><code>meanVertices</code>: The mean number of vertices defining the boundaries of each
-administrative unit in the layer.</p></li>
-<li><p><code>minVertices</code>: The minimum number of vertices defining a boundary.</p></li>
-<li><p><code>maxVertices</code>: The maximum number of vertices defining a boundary.</p></li>
-<li><p><code>minPerimeterLengthKM</code>: The minimum perimeter length of an administrative
-unit in the layer, measured in kilometers and based on a World Equidistant
-Cylindrical projection.</p></li>
-<li><p><code>meanPerimeterLengthKM</code>: The mean perimeter length of an administrative
-unit in the layer, measured in kilometers and based on a World Equidistant
-Cylindrical projection.</p></li>
-<li><p><code>maxPerimeterLengthKM</code>: The maximum perimeter length of an administrative
-unit in the layer, measured in kilometers and based on a World Equidistant
-Cylindrical projection.</p></li>
-<li><p><code>meanAreaSqKM</code>: The mean area of all administrative units in the layer,
-measured in square kilometers and based on an EASE-GRID 2 projection.</p></li>
-<li><p><code>minAreaSqKM</code>: The minimum area of an administrative unit in the layer,
-measured in square kilometers and based on an EASE-GRID 2 projection.</p></li>
-<li><p><code>maxAreaSqKM</code>: The maximum area of an administrative unit in the layer,
-measured in square kilometers and based on an EASE-GRID 2 projection.</p></li>
-<li><p><code>staticDownloadLink</code>: The static download link for the aggregate ZIP file
-containing all boundary information.</p></li>
-<li><p><code>gjDownloadURL</code>: The static download link for the GeoJSON.</p></li>
-<li><p><code>tjDownloadURL</code>: The static download link for the TopoJSON.</p></li>
-<li><p><code>imagePreview</code>: The static download link for an automatically rendered PNG
-image of the layer.</p></li>
-<li><p><code>simplifiedGeometryGeoJSON</code>: The static download link for the
-simplified GeoJSON.</p></li>
-</ul></div>
+    <p>This function queries <code>/api/current</code> and does not select historical versions.
+See <code><a href="../articles/metadata.html">vignette("metadata", package = "geobounds")</a></code> for column definitions,
+type conversions, availability, licensing and reproducible workflows.</p>
+    </div>
+    <div class="section level2">
+    <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
+    <p>Runfola et al. (2020) "geoBoundaries: A global database of political
+administrative boundaries." <em>PLOS ONE</em>, <strong>15</strong>(4), e0231866.
+<a href="https://doi.org/10.1371/journal.pone.0231866" class="external-link">doi:10.1371/journal.pone.0231866</a>
+.</p>
+    </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p><code><a href="gb_get.html">gb_get()</a></code> downloads the boundaries described by the metadata. The
-<a href="gb_get_adm.html">ADM wrappers</a> request a single administrative level.</p>
+<a href="gb_get_adm.html">ADM wrappers</a> request a single administrative level.
+This metadata describes individual country boundaries, not the CGAZ layers
+returned by <code><a href="gb_get_world.html">gb_get_world()</a></code>.</p>
 <p>Metadata and licensing functions:
 <code><a href="gb_get_max_adm_lvl.html">gb_get_max_adm_lvl()</a></code></p></div>
     </div>

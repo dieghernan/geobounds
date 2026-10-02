@@ -30,10 +30,13 @@ Provides tools to download individual country boundaries and global composite bo
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><hr class="dropdown-divider"></li>
-    <li><h6 class="dropdown-header" data-toc-skip>Release types</h6></li>
-    <li><a class="dropdown-item" href="../articles/gbopen.html">gbOpen coverage and boundary metadata</a></li>
-    <li><a class="dropdown-item" href="../articles/gbhumanitarian.html">gbHumanitarian coverage and boundary metadata</a></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Metadata</h6></li>
+    <li><a class="dropdown-item" href="../articles/metadata.html">Explore and interpret boundary metadata</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Release coverage</h6></li>
     <li><a class="dropdown-item" href="../articles/gbauthoritative.html">gbAuthoritative coverage and boundary metadata</a></li>
+    <li><a class="dropdown-item" href="../articles/gbhumanitarian.html">gbHumanitarian coverage and boundary metadata</a></li>
+    <li><a class="dropdown-item" href="../articles/gbopen.html">gbOpen coverage and boundary metadata</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Blog posts</h6></li>
     <li><a class="external-link dropdown-item" href="https://dieghernan.github.io/202602_geobounds/">Introducing geobounds</a></li>
@@ -77,16 +80,19 @@ Provides tools to download individual country boundaries and global composite bo
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
     <p>Runfola et al. (2020) "geoBoundaries: A global database of political
-administrative boundaries." <em>PLOS ONE</em>, <strong>15</strong>(4), 1–9.
+administrative boundaries." <em>PLOS ONE</em>, <strong>15</strong>(4), e0231866.
 <a href="https://doi.org/10.1371/journal.pone.0231866" class="external-link">doi:10.1371/journal.pone.0231866</a>
 .</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p>Useful links:</p><ul><li><p><a href="https://dieghernan.github.io/geobounds/">https://dieghernan.github.io/geobounds/</a></p></li>
-<li><p><a href="https://github.com/dieghernan/geobounds" class="external-link">https://github.com/dieghernan/geobounds</a></p></li>
-<li><p>Report bugs at <a href="https://github.com/dieghernan/geobounds/issues" class="external-link">https://github.com/dieghernan/geobounds/issues</a></p></li>
-</ul></div>
+    <div class="dont-index"><p><code><a href="gb_get.html">gb_get()</a></code> downloads individual country boundaries, the
+<a href="gb_get_adm.html">ADM wrappers</a> select one level and <code><a href="gb_get_world.html">gb_get_world()</a></code> downloads
+global composite boundaries. <code><a href="gb_get_metadata.html">gb_get_metadata()</a></code> retrieves boundary
+metadata and <code><a href="gb_set_cache_dir.html">gb_set_cache_dir()</a></code> configures archive caching.
+See <code><a href="../articles/geobounds.html">vignette("geobounds", package = "geobounds")</a></code> for mapping workflows
+and <code><a href="../articles/metadata.html">vignette("metadata", package = "geobounds")</a></code> for provenance
+and licensing.</p></div>
     </div>
     <div class="section level2">
     <h2 id="author">Author<a class="anchor" aria-label="anchor" href="#author"></a></h2>

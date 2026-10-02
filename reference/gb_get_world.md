@@ -4,9 +4,8 @@ Returns global composite boundaries for the requested ADM level.
 Boundaries are clipped to international borders, with gaps between
 borders filled.
 
-CGAZ boundaries are not covered by the package's MIT license.
-[Attribution](https://www.geoboundaries.org/index.html#usage) is
-required when sharing the boundaries or derived products.
+Always acknowledge **geoBoundaries** and follow the terms in the CGAZ
+archive.
 
 ## Usage
 
@@ -32,10 +31,10 @@ gb_get_world(
 
 - country:
 
-  A character vector of country names or ISO 3166-1 alpha-3 country
-  codes. Use `"all"` to return boundaries for all countries. See also
-  [`countrycode::countrycode()`](https://rdrr.io/pkg/countrycode/man/countrycode.html)
-  from [countrycode](https://CRAN.R-project.org/package=countrycode).
+  A character vector of country names or ISO 3166-1 alpha-3 codes. Use
+  `"all"` to return all countries. The complete global layer is
+  downloaded and read before filtering, so country selection does not
+  reduce the initial download size or the memory needed to read it.
 
 - adm_lvl:
 
@@ -56,50 +55,41 @@ gb_get_world(
 
 - cache_dir:
 
-  A path to a cache directory. If not set (the default `NULL`), boundary
-  archives are stored in the default cache directory (see
-  [`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_set_cache_dir.md)).
-  If no cache directory has been set, archives are stored in a temporary
-  cache directory. See
-  [`base::tempdir()`](https://rdrr.io/r/base/tempfile.html) and the
-  cache strategies in
+  A path to a cache directory. If `NULL`, use the configured directory,
+  or a temporary directory when none is configured. See
   [`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_set_cache_dir.md).
 
 ## Value
 
 An [sf](https://r-spatial.github.io/sf/reference/sf.html) object from
 [sf](https://CRAN.R-project.org/package=sf) containing the requested
-boundaries. Returns `NULL` if no boundaries match the request or the
-downloads return no geometries.
+boundaries. Returns [`NULL`](https://rdrr.io/r/base/NULL.html) if no
+boundaries match the request or the downloads return no geometries.
 
 ## Details
 
-Comprehensive Global Administrative Zones (CGAZ) are global composites
-for administrative boundaries. Compared with individual country
-boundaries, global composite boundaries use extensive simplification so
-file sizes are small enough for most desktop software. They remove
-disputed areas, replace them with polygons following United States
-Department of State definitions and fill gaps between borders.
-
-Follow the citation and use information included in the downloaded CGAZ
-archive. CGAZ and figures derived from it are not relicensed under the
-package's MIT license.
+CGAZ uses extensive simplification and standardizes disputed areas. See
+[`vignette("geobounds", package = "geobounds")`](https://dieghernan.github.io/geobounds/articles/geobounds.md)
+for product differences. Archives come from the repository's `main`
+branch and historical versions cannot be selected. See
+[`vignette("metadata", package = "geobounds")`](https://dieghernan.github.io/geobounds/articles/metadata.md)
+for provenance.
 
 ## References
 
 Runfola et al. (2020) "geoBoundaries: A global database of political
-administrative boundaries." *PLOS ONE*, **15**(4), 1–9.
+administrative boundaries." *PLOS ONE*, **15**(4), e0231866.
 [doi:10.1371/journal.pone.0231866](https://doi.org/10.1371/journal.pone.0231866)
 .
 
 ## See also
 
-[`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md)
-inspects boundary metadata and licensing.
-[`gb_get_max_adm_lvl()`](https://dieghernan.github.io/geobounds/reference/gb_get_max_adm_lvl.md)
-checks the ADM levels available for individual country boundaries.
+[`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md)
+downloads individual country boundaries instead of CGAZ layers.
 [`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_set_cache_dir.md)
-configures where downloaded archives are cached.
+configures where downloaded archives are cached. See
+[`vignette("geobounds", package = "geobounds")`](https://dieghernan.github.io/geobounds/articles/geobounds.md)
+for a comparison of individual country boundaries and global composites.
 
 Boundary download functions:
 [`gb_get()`](https://dieghernan.github.io/geobounds/reference/gb_get.md),

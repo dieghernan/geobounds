@@ -15,18 +15,16 @@ Political Administrative Boundaries, maintained by
 [**geoBoundaries**](https://www.geoboundaries.org/) ([Runfola et al.
 2020](#ref-10.1371/journal.pone.0231866)).
 
-The default **gbOpen** release type covers countries worldwide across
-multiple ADM levels. Its boundaries use multiple open licenses,
-including ODbL, CC BY and CC BY-SA. The package also supports
-**gbHumanitarian** and **gbAuthoritative**, which differ in their
-sources, validation processes and licensing. With **geobounds**, you can
-download boundaries as **sf** objects, inspect boundary metadata, cache
-downloaded files and integrate boundaries into spatial workflows.
+The default **gbOpen** product provides boundaries across multiple ADM
+levels. With **geobounds**, you can download boundaries as **sf**
+objects and integrate them into spatial workflows. For release types,
+dates, sources and licensing, see [the metadata
+vignette](https://dieghernan.github.io/geobounds/articles/metadata.md).
 
-This vignette keeps the main workflow in one place. It first explains
-how to [choose a boundary type](#understanding-the-boundaries), then
-covers [cache management](#cache-management-and-performance) and
-finishes with a [spatial analysis example](#spatial-analysis-workflows).
+This vignette explains how to [choose between individual country and
+global composite boundaries](#understanding-the-boundaries), then covers
+[cache management](#cache-management-and-performance) and finishes with
+a [spatial analysis example](#spatial-analysis-workflows).
 
 ## Understanding the boundaries
 
@@ -74,12 +72,21 @@ ggplot(norway_all) +
   )
 ```
 
-![Comparison between full-resolution and simplified
-boundaries.](./norway-1.png)
+![Two maps of Norway arranged side by side, with longitude and latitude
+axes. The full-resolution and simplified outlines show the same overall
+shape, but simplification reduces detail along the
+coastline.](./norway-1.png)
 
 Comparison between full-resolution and simplified boundaries.
 
 ### Individual country boundaries
+
+**geoBoundaries** provides terrestrial administrative boundaries. Its
+[contribution
+guidelines](https://github.com/wmgeolab/geoBoundaries/blob/main/CONTRIBUTING.md)
+require coastal and island boundaries to exclude state-claimed waters.
+These data should not be interpreted as maritime boundaries or used to
+delineate territorial seas or exclusive economic zones.
 
 The **geoBoundaries** API provides [individual country
 boundaries](https://www.geoboundaries.org/countryDownloads.html) that
@@ -111,34 +118,18 @@ ggplot(india_pak) +
   )
 ```
 
-![Map showing overlap in the disputed Kashmir area.](./intersect-1.png)
+![Map of India and Pakistan with longitude and latitude axes. India is
+filled orange and Pakistan dark green, both partly transparent. Their
+national boundary polygons overlap in the disputed Kashmir
+region.](./intersect-1.png)
 
 Map showing overlap in the disputed Kashmir area.
 
-Each individual country boundary is governed by the license identified
-in its boundary metadata.
-
-``` r
-
-gb_get_metadata(c("India", "Pakistan"), adm_lvl = "ADM0") |>
-  select(
-    boundaryName,
-    boundaryLicense,
-    boundarySource,
-    licenseSource
-  )
-#> # A tibble: 2 × 4
-#>   boundaryName boundaryLicense                                     boundarySource licenseSource
-#>   <chr>        <chr>                                               <chr>          <chr>        
-#> 1 India        CC0 1.0 Universal (CC0 1.0) Public Domain Dedicati… geoBoundaries… commons.wiki…
-#> 2 Pakistan     Open Data Commons Open Database License 1.0         OpenStreetMap… www.openstre…
-```
-
-Always acknowledge **geoBoundaries** when sharing a boundary or derived
-product. Consult the boundary metadata for any additional source
-attribution, license link, share-alike notice or modification statement
-required by that boundary’s license. ODbL and CC BY-SA data may impose
-share-alike obligations beyond attribution.
+Inspect sources and licenses with
+[`gb_get_metadata()`](https://dieghernan.github.io/geobounds/reference/gb_get_metadata.md)
+before sharing a boundary or derived product. See [sources and
+licenses](https://dieghernan.github.io/geobounds/articles/metadata.html#inspect-sources-and-licenses)
+for a worked example.
 
 ### Global composite boundaries
 
@@ -174,51 +165,37 @@ ggplot(cgaz_india_pak) +
   )
 ```
 
-![Map showing no overlap in Kashmir, provided by CGAZ.](./cgaz-1.png)
+![Map of India and Pakistan with longitude and latitude axes. India is
+filled orange and Pakistan dark green. The global composite boundary
+polygons meet without overlapping in the Kashmir region.](./cgaz-1.png)
 
 Map showing no overlap in Kashmir, provided by CGAZ.
 
 ## Cache management and performance
 
-**geobounds** stores downloaded files in a cache directory so repeated
-requests for the same country and ADM level can reuse the cached file.
-For example:
+**geobounds** reuses downloaded archives from a cache directory. Use
+`cache_dir` for an individual download or
+[`gb_set_cache_dir()`](https://dieghernan.github.io/geobounds/reference/gb_set_cache_dir.md)
+to configure a shared directory. See
+[`?gb_set_cache_dir`](https://dieghernan.github.io/geobounds/reference/gb_set_cache_dir.md)
+for persistent cache options.
 
 ``` r
 
-# Show the current cache directory.
-current <- gb_detect_cache_dir()
-#> ℹ 'C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp6LfQDv'
-
-current
-#> [1] "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\Rtmp6LfQDv"
-
-# Change to a new cache directory.
-newdir <- file.path(tempdir(), "geoboundvignette")
-gb_set_cache_dir(newdir)
-#> ✔ geobounds cache directory is 'C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp6LfQDv/geoboundvignette'.
-#> ℹ To use this cache directory in future sessions, call `gb_set_cache_dir()` with `install = TRUE`.
-
-# Download the example data.
-example <- gb_get_adm0("Vatican City", quiet = FALSE)
-#> ℹ Downloading file from <https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/VAT/ADM0/geoBoundaries-VAT-ADM0-all.zip>.
-#> → Cache directory is 'C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp6LfQDv/geoboundvignette/gbOpen'.
-
-# Restore the cache directory.
-gb_set_cache_dir(current)
-#> ✔ geobounds cache directory is 'C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp6LfQDv'.
-#> ℹ To use this cache directory in future sessions, call `gb_set_cache_dir()` with `install = TRUE`.
-
-current == gb_detect_cache_dir()
-#> ℹ 'C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp6LfQDv'
-#> [1] TRUE
+gb_get_adm1("Sri Lanka", cache_dir = "boundary-cache")
 ```
+
+[`gb_get_world()`](https://dieghernan.github.io/geobounds/reference/gb_get_world.md)
+downloads and reads the complete global archive before selecting
+countries. Filtering countries reduces the returned object, but not the
+initial download size or memory needed to read the layer.
+
+For cache freshness, historical versions and preserving data provenance,
+see [the metadata
+vignette](https://dieghernan.github.io/geobounds/articles/metadata.html#preserve-data-provenance).
 
 To clear the cache, use
 [`gb_clear_cache()`](https://dieghernan.github.io/geobounds/reference/gb_clear_cache.md).
-
-Use the `cache_dir` argument to set a cache directory for an individual
-function call.
 
 ## Spatial analysis workflows
 
@@ -242,10 +219,10 @@ latam_meta <- gb_get_metadata(adm_lvl = "ADM0") |>
   glimpse()
 #> Rows: 47
 #> Columns: 4
-#> $ boundaryISO          <chr> "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", "BLZ", "BOL", "…
-#> $ boundaryName         <chr> "Aruba", "Anguilla", "Argentina", "Antigua and Barbuda", "Bonair…
-#> $ Continent            <chr> "Latin America and the Caribbean", "Latin America and the Caribb…
-#> $ worldBankIncomeGroup <chr> "High-income Countries", "No income group available", "High-inco…
+#> $ boundaryISO          <chr> "ABW", "AIA", "ARG", "ATG", "BES", "BHS", "BLM", …
+#> $ boundaryName         <chr> "Aruba", "Anguilla", "Argentina", "Antigua and Ba…
+#> $ Continent            <chr> "Latin America and the Caribbean", "Latin America…
+#> $ worldBankIncomeGroup <chr> "High-income Countries", "No income group availab…
 
 # Adjust factors.
 latam_meta$income_factor <- factor(
@@ -277,10 +254,12 @@ ggplot(latam_sf) +
   )
 ```
 
-![World Bank Income Group: Latin America and the
-Caribbean.](./choro-1.png)
+![Choropleth map of Latin America and the Caribbean. Green shades
+distinguish World Bank income groups, with darker shades for higher
+incomes and lighter shades for lower incomes. Areas without a listed
+income group are gray.](./choro-1.png)
 
-World Bank Income Group: Latin America and the Caribbean.
+World Bank income groups: Latin America and the Caribbean.
 
 ## Summary
 
@@ -293,5 +272,5 @@ analysis and data integration workflows.
 
 Runfola, Daniel, Austin Anderson, Heather Baier, et al. 2020.
 “geoBoundaries: A Global Database of Political Administrative
-Boundaries.” *PLOS ONE* 15 (4): 1–9.
+Boundaries.” *PLOS ONE* 15 (4): e0231866.
 <https://doi.org/10.1371/journal.pone.0231866>.
