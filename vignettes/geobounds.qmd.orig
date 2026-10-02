@@ -24,7 +24,7 @@ knitr::opts_chunk$set(
   fig.path = "./",
   out.width = "100%"
 )
-
+options(width = 80, tibble.width = 80)
 knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
 ```
 
@@ -53,16 +53,13 @@ administrative boundaries from the Global Database of Political Administrative
 Boundaries, maintained by [**geoBoundaries**](https://www.geoboundaries.org/)
 [@10.1371/journal.pone.0231866].
 
-The default **gbOpen** release type covers countries worldwide across multiple
-ADM levels. Its boundaries use multiple open licenses, including ODbL, CC BY
-and CC BY-SA. The package also supports **gbHumanitarian** and
-**gbAuthoritative**, which differ in their sources, validation processes and
-licensing. With **geobounds**, you can download boundaries as **sf** objects,
-inspect boundary metadata, cache downloaded files and integrate boundaries
-into spatial workflows.
+The default **gbOpen** product provides boundaries across multiple ADM levels.
+With **geobounds**, you can download boundaries as **sf** objects and integrate
+them into spatial workflows. For release types, dates, sources and licensing,
+see [the metadata vignette](metadata.html).
 
-This vignette keeps the main workflow in one place. It first explains how to
-[choose a boundary type](#understanding-the-boundaries), then covers [cache
+This vignette explains how to [choose between individual country and global
+composite boundaries](#understanding-the-boundaries), then covers [cache
 management](#cache-management-and-performance) and finishes with a [spatial
 analysis example](#spatial-analysis-workflows).
 
@@ -82,6 +79,10 @@ are less accurate but faster to render. Request them by setting
 #| label: norway
 #| crop: true
 #| fig-cap: "Comparison between full-resolution and simplified boundaries."
+#| fig-alt: >
+#|   Two maps of Norway arranged side by side, with longitude and latitude
+#|   axes. The full-resolution and simplified outlines show the same overall
+#|   shape, but simplification reduces detail along the coastline.
 library(geobounds)
 library(ggplot2)
 library(dplyr)
@@ -112,6 +113,12 @@ ggplot(norway_all) +
 
 ### Individual country boundaries
 
+**geoBoundaries** provides terrestrial administrative boundaries. Its
+[contribution guidelines](https://github.com/wmgeolab/geoBoundaries/blob/main/CONTRIBUTING.md)
+require coastal and island boundaries to exclude state-claimed waters. These
+data should not be interpreted as maritime boundaries or used to delineate
+territorial seas or exclusive economic zones.
+
 The **geoBoundaries** API provides [individual country
 boundaries](https://www.geoboundaries.org/countryDownloads.html) that reflect how
 countries represent their own boundaries, without special identification of
@@ -124,6 +131,10 @@ countries and disputed territories may not be represented consistently.
 ```{r}
 #| label: intersect
 #| fig-cap: "Map showing overlap in the disputed Kashmir area."
+#| fig-alt: >
+#|   Map of India and Pakistan with longitude and latitude axes. India is
+#|   filled orange and Pakistan dark green, both partly transparent. Their
+#|   national boundary polygons overlap in the disputed Kashmir region.
 india_pak <- gb_get_adm0(c("India", "Pakistan"))
 
 # Highlight the disputed Kashmir area.
@@ -141,25 +152,9 @@ ggplot(india_pak) +
   )
 ```
 
-Each individual country boundary is governed by the license identified in its
-boundary metadata.
-
-```{r}
-#| label: meta
-gb_get_metadata(c("India", "Pakistan"), adm_lvl = "ADM0") |>
-  select(
-    boundaryName,
-    boundaryLicense,
-    boundarySource,
-    licenseSource
-  )
-```
-
-Always acknowledge **geoBoundaries** when sharing a boundary or derived product.
-Consult the boundary metadata for any additional source attribution, license
-link, share-alike notice or modification statement required by that boundary's
-license. ODbL and CC BY-SA data may impose share-alike obligations beyond
-attribution.
+Inspect sources and licenses with `gb_get_metadata()` before sharing a
+boundary or derived product. See [sources and licenses](metadata.html#inspect-sources-and-licenses)
+for a worked example.
 
 ### Global composite boundaries
 
@@ -181,6 +176,10 @@ archive.
 ```{r}
 #| label: cgaz
 #| fig-cap: "Map showing no overlap in Kashmir, provided by CGAZ."
+#| fig-alt: >
+#|   Map of India and Pakistan with longitude and latitude axes. India is
+#|   filled orange and Pakistan dark green. The global composite boundary
+#|   polygons meet without overlapping in the Kashmir region.
 cgaz_india_pak <- gb_get_world(c("India", "Pakistan"))
 
 ggplot(cgaz_india_pak) +
@@ -196,44 +195,23 @@ ggplot(cgaz_india_pak) +
 
 ## Cache management and performance
 
-**geobounds** stores downloaded files in a cache directory so repeated requests
-for the same country and ADM level can reuse the cached file. For example:
+**geobounds** reuses downloaded archives from a cache directory. Use
+`cache_dir` for an individual download or `gb_set_cache_dir()` to configure a
+shared directory. See `?gb_set_cache_dir` for persistent cache options.
 
 ```{r}
 #| eval: false
-#| message: true
-# Show the current cache directory.
-current <- gb_detect_cache_dir()
-#> ℹ 'C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp6LfQDv'
-
-current
-#> [1] "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\Rtmp6LfQDv"
-
-# Change to a new cache directory.
-newdir <- file.path(tempdir(), "geoboundvignette")
-gb_set_cache_dir(newdir)
-#> ✔ geobounds cache directory is 'C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp6LfQDv/geoboundvignette'.
-#> ℹ To use this cache directory in future sessions, call `gb_set_cache_dir()` with `install = TRUE`.
-
-# Download the example data.
-example <- gb_get_adm0("Vatican City", quiet = FALSE)
-#> ℹ Downloading file from <https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/VAT/ADM0/geoBoundaries-VAT-ADM0-all.zip>.
-#> → Cache directory is 'C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp6LfQDv/geoboundvignette/gbOpen'.
-
-# Restore the cache directory.
-gb_set_cache_dir(current)
-#> ✔ geobounds cache directory is 'C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp6LfQDv'.
-#> ℹ To use this cache directory in future sessions, call `gb_set_cache_dir()` with `install = TRUE`.
-
-current == gb_detect_cache_dir()
-#> ℹ 'C:\Users\RUNNER~1\AppData\Local\Temp\Rtmp6LfQDv'
-#> [1] TRUE
+gb_get_adm1("Sri Lanka", cache_dir = "boundary-cache")
 ```
 
-To clear the cache, use `gb_clear_cache()`.
+`gb_get_world()` downloads and reads the complete global archive before
+selecting countries. Filtering countries reduces the returned object, but not
+the initial download size or memory needed to read the layer.
 
-Use the `cache_dir` argument to set a cache directory for an individual function
-call.
+For cache freshness, historical versions and preserving data provenance, see
+[the metadata vignette](metadata.html#preserve-data-provenance).
+
+To clear the cache, use `gb_clear_cache()`.
 
 ## Spatial analysis workflows
 
@@ -250,7 +228,12 @@ boundaries and global composite boundaries from CGAZ:
 
 ```{r}
 #| label: choro
-#| fig-cap: "World Bank Income Group: Latin America and the Caribbean."
+#| fig-cap: "World Bank income groups: Latin America and the Caribbean."
+#| fig-alt: >
+#|   Choropleth map of Latin America and the Caribbean. Green shades
+#|   distinguish World Bank income groups, with darker shades for higher
+#|   incomes and lighter shades for lower incomes. Areas without a listed
+#|   income group are gray.
 # Get boundary metadata.
 latam_meta <- gb_get_metadata(adm_lvl = "ADM0") |>
   select(boundaryISO, boundaryName, Continent, worldBankIncomeGroup) |>

@@ -12,7 +12,11 @@
 #' directory in the user configuration path returned by
 #' [tools::R_user_dir()].
 #'
-#' @inheritParams gb_get
+#' Cached archives are reused without checking for upstream changes. See
+#' `vignette("metadata", package = "geobounds")` for cache limitations
+#' and provenance.
+#'
+#' @inheritParams gb_get quiet
 #' @param cache_dir A path to a cache directory. If `NULL`, the function stores
 #'   cached archives in a temporary directory. See [base::tempdir()].
 #' @param install A logical value. If `TRUE`, save the cache directory for use
@@ -22,7 +26,8 @@
 #'   already saved in the configuration file.
 #'
 #' @returns
-#' An invisible character scalar containing the path to the cache directory.
+#' A [character][base::character] scalar containing the path to the cache
+#' directory, returned invisibly.
 #'
 #' @section Cache strategies:
 #'
@@ -156,13 +161,13 @@ gb_set_cache_dir <- function(
 #' @param x An object. Ignored.
 #'
 #' @returns
-#' A character scalar containing the path to the active cache directory. The
-#' path is also printed as a clickable message. See [cli::inline-markup] from
-#' \CRANpkg{cli}.
-#'
-#' @family cache
+#' A [character][base::character] scalar containing the path to the active cache
+#' directory. The path is also printed as a clickable message. See
+#' [cli::inline-markup] from \CRANpkg{cli}.
 #'
 #' @rdname gb_detect_cache_dir
+#'
+#' @family cache
 #'
 #' @export
 #' @encoding UTF-8
@@ -201,11 +206,12 @@ gb_detect_cache_dir <- function(x = NULL) {
 #'   directory and all its contents.
 #'
 #' @returns
-#' Invisibly returns `NULL`. This function is called for its side effects.
-#'
-#' @family cache
+#' [`NULL`][base::NULL], returned invisibly. This function is called for its
+#' side effects.
 #'
 #' @rdname gb_clear_cache
+#'
+#' @family cache
 #'
 #' @export
 #' @encoding UTF-8
@@ -272,7 +278,7 @@ gb_clear_cache <- function(config = FALSE, cached_data = TRUE, quiet = TRUE) {
 #' Detect the cache directory without messages
 #'
 #' @returns
-#' A character scalar containing the active cache directory.
+#' A [character][base::character] scalar containing the active cache directory.
 #'
 #' @noRd
 gb_hlp_detect_cache_dir <- function() {
@@ -318,7 +324,7 @@ gb_hlp_detect_cache_dir <- function() {
 #'   cache directory.
 #'
 #' @returns
-#' A character scalar containing the cache directory.
+#' A [character][base::character] scalar containing the cache directory.
 #'
 #' @noRd
 gb_hlp_cachedir <- function(cache_dir = NULL) {
@@ -339,7 +345,7 @@ gb_hlp_cachedir <- function(cache_dir = NULL) {
 #' @param call The call to display in the error message.
 #'
 #' @returns
-#' `path`, invisibly.
+#' A [character][base::character] scalar containing `path`, returned invisibly.
 #'
 #' @noRd
 gb_hlp_create_dir <- function(
@@ -368,7 +374,8 @@ gb_hlp_create_dir <- function(
 #' @param call The call to display in the error message.
 #'
 #' @returns
-#' The normalized cache directory path.
+#' A [character][base::character] scalar containing the normalized cache
+#' directory path.
 #'
 #' @noRd
 gb_hlp_assert_safe_cache_dir <- function(path, call = parent.frame()) {
@@ -412,7 +419,8 @@ gb_hlp_assert_safe_cache_dir <- function(path, call = parent.frame()) {
 #' @param os_type An operating system type from [base::.Platform].
 #'
 #' @returns
-#' `path`, converted to lowercase on Windows.
+#' A [character][base::character] vector containing `path`, converted to
+#' lowercase on Windows.
 #'
 #' @noRd
 gb_hlp_path_comparison <- function(path, os_type = .Platform$OS.type) {
@@ -430,7 +438,7 @@ gb_hlp_path_comparison <- function(path, os_type = .Platform$OS.type) {
 #' @param call The call to display in the error message.
 #'
 #' @returns
-#' `NULL`, invisibly.
+#' [`NULL`][base::NULL], returned invisibly.
 #'
 #' @noRd
 gb_hlp_delete_dir <- function(path, arg, call = parent.frame()) {
@@ -452,7 +460,8 @@ gb_hlp_delete_dir <- function(path, arg, call = parent.frame()) {
 #' @param force A logical value passed to [base::unlink()].
 #'
 #' @returns
-#' The status code returned by [base::unlink()].
+#' An [integer][base::integer] scalar containing the status code returned by
+#' [base::unlink()].
 #'
 #' @noRd
 gb_hlp_unlink <- function(path, recursive, force) {
@@ -465,7 +474,7 @@ gb_hlp_unlink <- function(path, recursive, force) {
 #' @param which The type of user-specific directory to find.
 #'
 #' @returns
-#' A character scalar containing the user-specific directory.
+#' A [character][base::character] scalar containing the user-specific directory.
 #'
 #' @noRd
 gb_hlp_user_dir <- function(package, which) {

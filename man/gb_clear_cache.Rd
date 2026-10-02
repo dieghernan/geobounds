@@ -17,7 +17,8 @@ directory and all its contents.}
 \item{quiet}{A logical value. If \code{TRUE}, suppress informational messages.}
 }
 \value{
-Invisibly returns \code{NULL}. This function is called for its side effects.
+\code{\link[base:NULL]{NULL}}, returned invisibly. This function is called for its
+side effects.
 }
 \description{
 \strong{Use this function with caution}. It clears cached archives and

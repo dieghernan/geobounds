@@ -4,23 +4,21 @@
 #' Returns global composite boundaries for the requested ADM level. Boundaries
 #' are clipped to international borders, with gaps between borders filled.
 #'
-#' CGAZ boundaries are not covered by the package's MIT license.
-#' [Attribution](https://www.geoboundaries.org/index.html#usage) is required
-#' when sharing the boundaries or derived products.
+#' Always acknowledge **geoBoundaries** and follow the terms in the
+#' CGAZ archive.
 #'
 #' @details
-#' Comprehensive Global Administrative Zones (CGAZ) are global composites for
-#' administrative boundaries. Compared with individual country boundaries,
-#' global composite boundaries use extensive simplification so file sizes are
-#' small enough for most desktop software. They remove disputed areas, replace
-#' them with polygons following United States Department of State definitions
-#' and fill gaps between borders.
+#' CGAZ uses extensive simplification and standardizes disputed areas. See
+#' `vignette("geobounds", package = "geobounds")` for product differences.
+#' Archives come from the repository's `main` branch and historical versions
+#' cannot be selected. See
+#' `vignette("metadata", package = "geobounds")` for provenance.
 #'
-#' Follow the citation and use information included in the downloaded CGAZ
-#' archive. CGAZ and figures derived from it are not relicensed under the
-#' package's MIT license.
-#'
-#' @inheritParams gb_get
+#' @inheritParams gb_get quiet overwrite cache_dir
+#' @param country A character vector of country names or ISO 3166-1 alpha-3
+#'   codes. Use `"all"` to return all countries. The complete global layer is
+#'   downloaded and read before filtering, so country selection does not reduce
+#'   the initial download size or the memory needed to read it.
 #' @param adm_lvl ADM level. Accepted values are levels 0, 1 and 2 (`"adm0"` is
 #'   the country boundary, `"adm1"` is the first level of subnational
 #'   boundaries and `"adm2"` is the second level). Uppercase versions
@@ -35,10 +33,13 @@
 #' - CGAZ release files:
 #'   <https://github.com/wmgeolab/geoBoundaries/tree/main/releaseData/CGAZ>.
 #'
-#' @inherit gb_get references
+#' @inherit geobounds-package references
 #'
 #' @seealso
-#' `r paste(readLines("man/chunks/seealso.md", encoding="UTF-8"),collapse="\n")`
+#' [gb_get()] downloads individual country boundaries instead of CGAZ layers.
+#' [gb_set_cache_dir()] configures where downloaded archives are cached.
+#' See `vignette("geobounds", package = "geobounds")` for a comparison
+#' of individual country boundaries and global composites.
 #'
 #' @family api
 #'

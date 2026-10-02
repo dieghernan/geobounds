@@ -16,17 +16,17 @@ Provides tools to download individual country boundaries and global composite bo
 }
 \references{
 Runfola et al. (2020) "geoBoundaries: A global database of political
-administrative boundaries." \emph{PLOS ONE}, \strong{15}(4), 1--9.
+administrative boundaries." \emph{PLOS ONE}, \strong{15}(4), e0231866.
 \doi{10.1371/journal.pone.0231866}.
 }
 \seealso{
-Useful links:
-\itemize{
-  \item \url{https://dieghernan.github.io/geobounds/}
-  \item \url{https://github.com/dieghernan/geobounds}
-  \item Report bugs at \url{https://github.com/dieghernan/geobounds/issues}
-}
-
+\code{\link[=gb_get]{gb_get()}} downloads individual country boundaries, the
+\link[=gb_get_adm]{ADM wrappers} select one level and \code{\link[=gb_get_world]{gb_get_world()}} downloads
+global composite boundaries. \code{\link[=gb_get_metadata]{gb_get_metadata()}} retrieves boundary
+metadata and \code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}} configures archive caching.
+See \code{vignette("geobounds", package = "geobounds")} for mapping workflows
+and \code{vignette("metadata", package = "geobounds")} for provenance
+and licensing.
 }
 \author{
 \strong{Maintainer}: Diego Hernangómez \email{diego.hernangomezherrero@gmail.com} (\href{https://orcid.org/0000-0001-8457-4658}{ORCID}) [copyright holder]

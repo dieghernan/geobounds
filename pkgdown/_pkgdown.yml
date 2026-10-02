@@ -47,34 +47,28 @@ home:
 reference:
 - title: Download boundaries
   desc: >
-    Use [`gb_get()`](gb_get.html) for individual country boundaries or
-    [`gb_get_world()`](gb_get_world.html) for global composite boundaries.
-    The [ADM wrappers](gb_get_adm.html) select a single administrative level.
-    Downloaded boundaries are returned as
-    [**sf**](https://r-spatial.github.io/sf/) objects.
+    Download individual country boundaries or global composite boundaries as
+    **sf** objects. See [Get started](../articles/geobounds.html) for product
+    differences and mapping workflows.
 - contents:
   - has_concept("api")
 - title: Inspect metadata and availability
   desc: >
-    Find each country's highest available ADM level with
-    [`gb_get_max_adm_lvl()`](gb_get_max_adm_lvl.html). Inspect boundary sources,
-    dates and licensing with [`gb_get_metadata()`](gb_get_metadata.html)
-    before downloading or sharing data.
+    Inspect available ADM levels, boundary sources, dates and licenses.
+    See [Boundary metadata](../articles/metadata.html) for field definitions
+    and provenance.
 - contents:
   - has_concept("metadata")
 - title: Manage the cache
   desc: >
-    Set a reusable cache directory with
-    [`gb_set_cache_dir()`](gb_set_cache_dir.html), locate it with
-    [`gb_detect_cache_dir()`](gb_detect_cache_dir.html) and remove cached
-    archives or saved configuration with
-    [`gb_clear_cache()`](gb_clear_cache.html).
+    Configure, locate or clear the archive cache.
+    See [Boundary metadata](../articles/metadata.html) for cache limitations
+    and reproducible workflows.
 - contents:
   - has_concept("cache")
 - title: About the package
   desc: >
-    View package-level documentation, citation information and project links
-    for **geobounds**.
+    Package overview, citation and links to related functions and articles.
 - contents:
   - geobounds-package
 
@@ -82,20 +76,25 @@ articles:
 # pkgdown promotes the package vignette to the top-level "Get started" link.
 - title: Get started
   desc: >
-    Start with downloading and mapping country boundaries, then explore
-    administrative levels, cache management and spatial analysis workflows.
+    Choose boundary products, download and map boundaries, then explore
+    administrative levels and spatial analysis workflows.
   contents:
   - geobounds
-- title: Release coverage and metadata
-  navbar: Release types
+- title: Work with metadata
+  navbar: Metadata
   desc: >
-    Explore country coverage, available ADM levels and boundary metadata for
-    **gbOpen**, **gbHumanitarian** and **gbAuthoritative**. Consult the
-    source and licensing information when choosing a release type.
+    Interpret metadata fields and check availability, licensing and provenance.
+    Learn how cached archives affect reproducible workflows.
   contents:
-  - articles/gbopen
-  - articles/gbhumanitarian
-  - articles/gbauthoritative
+  - metadata
+- title: Explore release coverage
+  navbar: Release coverage
+  desc: >
+    Browse country coverage, available ADM levels and metadata for
+    **gbOpen**, **gbHumanitarian** and **gbAuthoritative**.
+  contents:
+  # Include future release coverage articles following the same naming pattern.
+  - starts_with("articles/gb")
 - title: From the blog
   navbar: Blog posts
   desc: >

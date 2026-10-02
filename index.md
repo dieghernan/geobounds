@@ -2,7 +2,7 @@
 
 <!-- index.md is generated from index.qmd. Please edit that file -->
 
-# geobounds <a href="https://dieghernan.github.io/geobounds/"><img src="man/figures/logo.png" alt="geobounds website" align="right" height="139"/></a>
+# geobounds <a href="https://dieghernan.github.io/geobounds/"><img src="man/figures/logo.png" alt="geobounds package website" align="right" height="139"/></a>
 
 <!-- badges: start -->
 
@@ -33,10 +33,6 @@ of Political Administrative Boundaries. With **geobounds**, you can:
   join administrative boundaries with your own data.
 - Work in an open-data context where attribution to **geoBoundaries** is
   required.
-
-In short, if you work with administrative boundaries in **R**,
-**geobounds** simplifies downloading, cache management and integration
-with spatial data workflows.
 
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -95,9 +91,6 @@ sri_lanka_adm1 <- gb_get_adm1("Sri Lanka")
 sri_lanka_adm2 <- gb_get_adm2("Sri Lanka")
 sri_lanka_adm3 <- gb_get_adm3("Sri Lanka")
 
-library(sf)
-library(dplyr)
-
 library(ggplot2)
 
 ggplot(sri_lanka_adm3) +
@@ -114,82 +107,17 @@ ggplot(sri_lanka_adm3) +
 ```
 
 <img src="man/figures/README-simple_plot-1.png" style="width:100.0%"
+data-fig-alt="Map of Sri Lanka with three nested administrative levels. Black outlines mark ADM1 boundaries, gold outlines mark ADM2 boundaries and white outlines divide the gray ADM3 areas."
 alt="ADM1, ADM2 and ADM3 boundaries for Sri Lanka." />
-
-## Release types
-
-**geoBoundaries** provides three release types with different data
-sources, validation processes and licensing terms:
-
-- **gbOpen**: Openly licensed boundaries suitable for most uses. The
-  original license varies by boundary and may include ODbL, CC BY or CC
-  BY-SA terms.
-- **gbHumanitarian**: Boundaries mirrored from UN OCHA. Check the
-  current metadata for the applicable source, license and attribution
-  terms.
-- **gbAuthoritative**: Boundaries mirrored from UN SALB and verified
-  through in-country processes. These boundaries are restricted to
-  non-commercial use.
-
-Use the `release_type` argument to request a specific release type, for
-example, `gb_get_adm1("Sri Lanka", release_type = "gbHumanitarian")`.
-
-For coverage and boundary metadata by release type, see the
-**geobounds** articles.
-
-## Advanced usage
-
-Map the highest available ADM level in **geoBoundaries** by country:
-
-``` r
-library(geobounds)
-library(ggplot2)
-library(dplyr)
-
-world <- gb_get_world()
-max_lvl <- gb_get_max_adm_lvl(release_type = "gbOpen")
-
-world_max <- world |>
-  mutate(boundaryISO = shapeGroup) |>
-  left_join(max_lvl) |>
-  mutate(max_lvl = factor(maxBoundaryType, levels = 0:5))
-
-pal <- c("#0e221b", "#0f4a38", "#0b6e4f", "#719384", "#b9975a", "#936e28")
-names(pal) <- levels(world_max$max_lvl)
-
-ggplot(world_max) +
-  geom_sf(fill = "#e5e5e5", color = "#e5e5e5") +
-  geom_sf(aes(fill = max_lvl), color = "transparent") +
-  scale_fill_manual(values = pal, na.translate = FALSE, drop = FALSE) +
-  guides(fill = guide_legend(direction = "horizontal", nrow = 1)) +
-  coord_sf(expand = TRUE, crs = "+proj=robin") +
-  theme_void() +
-  theme(
-    plot.background = element_rect(fill = "white", color = NA),
-    text = element_text(family = "sans", face = "bold"),
-    legend.position = "bottom",
-    legend.title.position = "top",
-    legend.title = element_text(size = rel(0.75), face = "plain"),
-    legend.text = element_text(size = rel(1)),
-    legend.text.position = "right",
-    legend.key.height = unit(1, "line"),
-    legend.key.width = unit(1, "line"),
-    plot.caption = element_text(
-      size = rel(0.7),
-      margin = margin(r = 4)
-    )
-  ) +
-  labs(
-    fill = "gbOpen: Highest available ADM level",
-    caption = "Source: geoBoundaries (CGAZ and gbOpen metadata)"
-  )
-```
-
-<img src="man/figures/README-map-coverage-1.png" style="width:100.0%"
-alt="Highest available gbOpen ADM level by country." />
 
 ## Documentation and resources
 
+- [Get
+  started](https://dieghernan.github.io/geobounds/articles/geobounds.html):
+  choose, download and map boundaries.
+- [Explore
+  metadata](https://dieghernan.github.io/geobounds/articles/metadata.html):
+  availability, dates, sources, licensing and reproducibility.
 - Visit the **pkgdown** site for full documentation:
   <https://dieghernan.github.io/geobounds/>
 - Articles on **geoBoundaries** release types:
@@ -200,24 +128,21 @@ alt="Highest available gbOpen ADM level by country." />
   <https://www.geoboundaries.org/>
 - Read the original paper describing the **geoBoundaries** dataset
   ([Runfola et al. 2020](#ref-10.1371/journal.pone.0231866)).
-- Report issues or contribute on
-  [**GitHub**](https://github.com/dieghernan/geobounds).
+- Report [boundary data
+  problems](https://github.com/wmgeolab/geoBoundaries/issues) to
+  **geoBoundaries** and [package
+  problems](https://github.com/dieghernan/geobounds/issues) to
+  **geobounds**. See [reporting
+  guidance](https://dieghernan.github.io/geobounds/articles/metadata.html#report-a-problem).
 
 ## License
 
-The **geobounds** software is released under the [MIT
-license](https://opensource.org/license/mit). This license does not
-cover boundaries downloaded through the package or figures derived from
-those boundaries.
-
-Each boundary retains the original license reported by
-**geoBoundaries**. Before reusing or redistributing boundaries, use
-`gb_get_metadata()` to check `boundaryLicense`, `licenseDetail`,
-`licenseSource`, `boundarySource` and `boundarySourceURL`. Always
-acknowledge **geoBoundaries**. Consult these fields for any additional
-source attribution, license link, share-alike notice or modification
-statement required by the boundary’s license. **gbAuthoritative**
-contains UN SALB boundaries restricted to non-commercial use.
+The package code is [MIT licensed](https://opensource.org/license/mit).
+Downloaded data retain their own licensing terms. Always acknowledge
+**geoBoundaries** and check the boundary metadata before sharing data or
+figures. See [sources and
+licenses](https://dieghernan.github.io/geobounds/articles/metadata.html#inspect-sources-and-licenses)
+and the package’s `COPYRIGHTS` file for details.
 
 ## Acknowledgments
 
@@ -259,7 +184,7 @@ A **BibTeX** entry for **LaTeX** users:
 
 Runfola, Daniel, Austin Anderson, Heather Baier, et al. 2020.
 “<span class="nocase">geoBoundaries</span>: A Global Database of
-Political Administrative Boundaries.” *PLOS ONE* 15 (4): 1–9.
+Political Administrative Boundaries.” *PLOS ONE* 15 (4): e0231866.
 <https://doi.org/10.1371/journal.pone.0231866>.
 
 </div>

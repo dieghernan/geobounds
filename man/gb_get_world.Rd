@@ -24,8 +24,9 @@ gb_get_world(
 }
 \arguments{
 \item{country}{A character vector of country names or ISO 3166-1 alpha-3
-country codes. Use \code{"all"} to return boundaries for all countries. See
-also \code{\link[countrycode:countrycode]{countrycode::countrycode()}} from \CRANpkg{countrycode}.}
+codes. Use \code{"all"} to return all countries. The complete global layer is
+downloaded and read before filtering, so country selection does not reduce
+the initial download size or the memory needed to read it.}
 
 \item{adm_lvl}{ADM level. Accepted values are levels 0, 1 and 2 (\code{"adm0"} is
 the country boundary, \code{"adm1"} is the first level of subnational
@@ -38,36 +39,28 @@ numbers supplied as text (for example, \code{"1"}).}
 \item{overwrite}{A logical value. If \code{TRUE}, force a fresh download of the
 source \code{.zip} archive.}
 
-\item{cache_dir}{A path to a cache directory. If not set (the default
-\code{NULL}), boundary archives are stored in the default cache directory (see
-\code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}). If no cache directory has been set, archives are
-stored in a temporary cache directory. See \code{\link[base:tempdir]{base::tempdir()}} and the cache
-strategies in \code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}.}
+\item{cache_dir}{A path to a cache directory. If \code{NULL}, use the configured
+directory, or a temporary directory when none is configured. See
+\code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}.}
 }
 \value{
 An \link[sf:st_sf]{sf} object from \CRANpkg{sf} containing the requested
-boundaries. Returns \code{NULL} if no boundaries match the request or the
-downloads return no geometries.
+boundaries. Returns \code{\link[base:NULL]{NULL}} if no boundaries match the request
+or the downloads return no geometries.
 }
 \description{
 Returns global composite boundaries for the requested ADM level. Boundaries
 are clipped to international borders, with gaps between borders filled.
 
-CGAZ boundaries are not covered by the package's MIT license.
-\href{https://www.geoboundaries.org/index.html#usage}{Attribution} is required
-when sharing the boundaries or derived products.
+Always acknowledge \strong{geoBoundaries} and follow the terms in the
+CGAZ archive.
 }
 \details{
-Comprehensive Global Administrative Zones (CGAZ) are global composites for
-administrative boundaries. Compared with individual country boundaries,
-global composite boundaries use extensive simplification so file sizes are
-small enough for most desktop software. They remove disputed areas, replace
-them with polygons following United States Department of State definitions
-and fill gaps between borders.
-
-Follow the citation and use information included in the downloaded CGAZ
-archive. CGAZ and figures derived from it are not relicensed under the
-package's MIT license.
+CGAZ uses extensive simplification and standardizes disputed areas. See
+\code{vignette("geobounds", package = "geobounds")} for product differences.
+Archives come from the repository's \code{main} branch and historical versions
+cannot be selected. See
+\code{vignette("metadata", package = "geobounds")} for provenance.
 }
 \examples{
 \dontshow{if (identical(Sys.getenv("NOT_CRAN"), "true") || interactive()) withAutoprint(\{ # examplesIf}
@@ -86,14 +79,14 @@ ggplot(world) +
 }
 \references{
 Runfola et al. (2020) "geoBoundaries: A global database of political
-administrative boundaries." \emph{PLOS ONE}, \strong{15}(4), 1--9.
+administrative boundaries." \emph{PLOS ONE}, \strong{15}(4), e0231866.
 \doi{10.1371/journal.pone.0231866}.
 }
 \seealso{
-\code{\link[=gb_get_metadata]{gb_get_metadata()}} inspects boundary metadata and licensing.
-\code{\link[=gb_get_max_adm_lvl]{gb_get_max_adm_lvl()}} checks the ADM levels available for individual
-country boundaries.
+\code{\link[=gb_get]{gb_get()}} downloads individual country boundaries instead of CGAZ layers.
 \code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}} configures where downloaded archives are cached.
+See \code{vignette("geobounds", package = "geobounds")} for a comparison
+of individual country boundaries and global composites.
 
 Boundary download functions:
 \code{\link[=gb_get]{gb_get()}},

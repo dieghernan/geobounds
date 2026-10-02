@@ -7,24 +7,22 @@
 #' Use [gb_get_world()] for global composite boundaries that standardize
 #' disputed areas and fill gaps between borders.
 #'
-#' Boundaries downloaded through this function are not covered by the package's
-#' MIT license. Always acknowledge **geoBoundaries** when sharing the boundaries
-#' or derived products. See <https://www.geoboundaries.org/index.html#usage>.
-#' Consult the boundary metadata for any additional source attribution, license
-#' link, share-alike notice or modification statement required by the boundary's
-#' license.
+#' Always acknowledge **geoBoundaries** and follow the boundary's license.
+#' See `vignette("metadata", package = "geobounds")` for sources and licensing.
 #'
 #' The wrappers [gb_get_adm0()], [gb_get_adm1()], [gb_get_adm2()],
 #' [gb_get_adm3()], [gb_get_adm4()] and [gb_get_adm5()] are also available for
 #' requesting a single ADM level.
 #'
 #' @details
-#' Each individual country boundary layer is governed by the original license
-#' identified in its boundary metadata. See [gb_get_metadata()]. The
-#' `"gbOpen"` release contains multiple open licenses, including ODbL and
-#' CC BY-SA. Do not assume every boundary is licensed only under CC BY 4.0.
-#' Users should cite the sources listed in the metadata and comply with any
-#' attribution, share-alike or non-commercial terms.
+#' These are terrestrial boundaries, not maritime boundaries. For product
+#' selection and mapping workflows, see
+#' `vignette("geobounds", package = "geobounds")`.
+#'
+#' This function uses current API metadata and reuses cached archives without
+#' checking for upstream changes. Historical versions cannot be selected. See
+#' `vignette("metadata", package = "geobounds")` for cache limitations
+#' and provenance.
 #'
 #' @param country A character vector of country names or ISO 3166-1 alpha-3
 #'   country codes. Use `"all"` to return boundaries for all countries. See
@@ -35,43 +33,35 @@
 #'   second level and so on). Uppercase versions (`"ADM1"`) and level numbers
 #'   (`0`, `1`, `2`, `3`, `4`, `5`) are also accepted, including numbers
 #'   supplied as text (for example, `"1"`).
-#' @param simplified A logical value. If `TRUE`, return boundaries that are less
-#'   accurate but faster to render. The default `FALSE` uses the primary
-#'   **geoBoundaries** layer. See the simplified boundary downloads:
-#'   <https://www.geoboundaries.org/simplifiedDownloads.html>.
-#' @param release_type A character string, one of `"gbOpen"`,
-#'   `"gbHumanitarian"` or `"gbAuthoritative"`. For most users, use `"gbOpen"`
-#'   (the default), which contains openly licensed boundaries suitable for most
-#'   purposes when their individual license terms are followed.
-#'   `"gbHumanitarian"` boundaries are mirrored from
-#'   [UN OCHA](https://www.unocha.org/) and may have additional conditions.
-#'   `"gbAuthoritative"` boundaries are mirrored from
-#'   [UN SALB](https://salb.un.org/en), verified through in-country processes
-#'   and cannot be used for commercial purposes.
+#' @param simplified A logical value. If `TRUE`, read simplified boundaries
+#'   that are faster to render. Both options download the complete ZIP archive.
+#' @param release_type A character string, one of `"gbOpen"` (the default),
+#'   `"gbHumanitarian"` or `"gbAuthoritative"`. Selects a product, not a dataset
+#'   version. `"gbAuthoritative"` is restricted to non-commercial use. See
+#'   `vignette("metadata", package = "geobounds")` for product sources
+#'   and licenses.
 #' @param quiet A logical value. If `TRUE`, suppress informational messages.
 #' @param overwrite A logical value. If `TRUE`, force a fresh download of the
 #'   source `.zip` archive.
-#' @param cache_dir A path to a cache directory. If not set (the default
-#'   `NULL`), boundary archives are stored in the default cache directory (see
-#'   [gb_set_cache_dir()]). If no cache directory has been set, archives are
-#'   stored in a temporary cache directory. See [base::tempdir()] and the cache
-#'   strategies in [gb_set_cache_dir()].
+#' @param cache_dir A path to a cache directory. If `NULL`, use the configured
+#'   directory, or a temporary directory when none is configured. See
+#'   [gb_set_cache_dir()].
 #'
 #' @returns
 #' An [sf][sf::st_sf] object from \CRANpkg{sf} containing the requested
-#' boundaries. Returns `NULL` if no boundaries match the request or the
-#' downloads return no geometries.
+#' boundaries. Returns [`NULL`][base::NULL] if no boundaries match the request
+#' or the downloads return no geometries.
 #'
 #' @source
 #' [**geoBoundaries** API](https://www.geoboundaries.org/api.html).
 #'
-#' @references
-#' Runfola et al. (2020) "geoBoundaries: A global database of political
-#' administrative boundaries." *PLOS ONE*, **15**(4), 1--9.
-#' \doi{10.1371/journal.pone.0231866}.
+#' @inherit geobounds-package references
 #'
 #' @seealso
-#' `r paste(readLines("man/chunks/seealso.md", encoding="UTF-8"),collapse="\n")`
+#' [gb_get_metadata()] inspects boundary metadata and licensing.
+#' [gb_get_max_adm_lvl()] checks the ADM levels available for individual
+#' country boundaries.
+#' [gb_set_cache_dir()] configures where downloaded archives are cached.
 #'
 #' @family api
 #'
@@ -100,15 +90,6 @@
 #'   )
 #' }
 #'
-#' # Inspect boundary metadata.
-#' library(dplyr)
-#' gb_get_metadata(
-#'   "Sri Lanka",
-#'   adm_lvl = 2
-#' ) |>
-#'   # Check the individual license.
-#'   select(boundaryISO, boundaryType, licenseDetail, licenseSource) |>
-#'   glimpse()
 gb_get <- function(
   country,
   adm_lvl = "adm0",
@@ -181,8 +162,7 @@ gb_get <- function(
 #'
 #' @param source The selected **geoBoundaries** release type.
 #'
-#' @returns
-#' Invisibly returns `NULL`. This function is called for its side effects.
+#' @inherit gb_clear_cache return
 #'
 #' @noRd
 gb_hlp_license_notice <- function(source) {
@@ -207,17 +187,15 @@ gb_hlp_license_notice <- function(source) {
 #'
 #' @param url A boundary archive URL.
 #' @param subdir The cache subdirectory for the archive.
-#' @param quiet A logical value. If `TRUE`, suppress informational messages.
-#' @param overwrite A logical value. If `TRUE`, force a fresh download of the
-#'   source `.zip` archive.
+#' @inheritParams gb_get quiet overwrite
 #' @param cache_dir A path to a cache directory.
 #' @param cgaz_country A character vector of country codes to keep for CGAZ
 #'   boundaries.
 #' @param simplified A logical value. If `TRUE`, read simplified boundaries.
 #'
 #' @returns
-#' An [sf][sf::st_sf] object from \CRANpkg{sf} or `NULL` when the archive
-#' download fails.
+#' An [sf][sf::st_sf] object from \CRANpkg{sf} or [`NULL`][base::NULL] when the
+#' archive download fails.
 #'
 #' @noRd
 gbnds_dev_shp_query <- function(
@@ -285,7 +263,7 @@ gbnds_dev_shp_query <- function(
 #' @param call The call to display in the error message.
 #'
 #' @returns
-#' A data frame describing the files in the archive.
+#' A [data frame][base::data.frame] describing the files in the archive.
 #'
 #' @noRd
 gb_hlp_list_archive <- function(path, call = parent.frame()) {
@@ -330,7 +308,7 @@ gb_hlp_list_archive <- function(path, call = parent.frame()) {
 #' @param path A path to a ZIP archive.
 #'
 #' @returns
-#' A data frame describing the files in the archive.
+#' A [data frame][base::data.frame] describing the files in the archive.
 #'
 #' @noRd
 gb_hlp_unzip_list <- function(path) {

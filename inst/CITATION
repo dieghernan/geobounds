@@ -25,7 +25,8 @@ bibentry(
   key = "10.1371/journal.pone.0231866",
   title = "{geoBoundaries}: A global database of political administrative boundaries",
   author = c(
-    person(given = "Daniel", family = "Runfola"),
+    person(given = "Daniel", family = "Runfola",
+           comment = c(ORCID = "0000-0001-5356-4676")),
     person(given = "Austin", family = "Anderson"),
     person(given = "Heather", family = "Baier"),
     person(given = "Matt", family = "Crittenden"),
@@ -47,11 +48,13 @@ bibentry(
   ),
   year = "2020",
   month = "apr",
+  date = "2020-04-24",
   journal = "PLOS ONE",
-  publisher = "Public Library of Science",
+  issn = "1932-6203",
+  publisher = "Public Library of Science (PLoS)",
   volume = "15",
   number = "4",
-  pages = "1--9",
+  pages = "e0231866",
   doi = "10.1371/journal.pone.0231866",
   url = "https://doi.org/10.1371/journal.pone.0231866"
 )

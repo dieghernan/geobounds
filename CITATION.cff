@@ -63,6 +63,7 @@ references:
   authors:
   - family-names: Runfola
     given-names: Daniel
+    orcid: https://orcid.org/0000-0001-5356-4676
   - family-names: Anderson
     given-names: Austin
   - family-names: Baier
@@ -101,15 +102,16 @@ references:
     given-names: Lauren
   year: '2020'
   month: '4'
+  date-published: '2020-04-24'
   journal: PLOS ONE
+  issn: 1932-6203
   publisher:
-    name: Public Library of Science
+    name: Public Library of Science (PLoS)
   volume: '15'
   issue: '4'
   doi: 10.1371/journal.pone.0231866
   url: https://doi.org/10.1371/journal.pone.0231866
-  start: '1'
-  end: '9'
+  start: e0231866
 - type: software
   title: 'R: A Language and Environment for Statistical Computing'
   notes: Depends

@@ -18,23 +18,21 @@ gb_get_max_adm_lvl(
 country codes. Use \code{"all"} to return boundaries for all countries. See
 also \code{\link[countrycode:countrycode]{countrycode::countrycode()}} from \CRANpkg{countrycode}.}
 
-\item{release_type}{A character string, one of \code{"gbOpen"},
-\code{"gbHumanitarian"} or \code{"gbAuthoritative"}. For most users, use \code{"gbOpen"}
-(the default), which contains openly licensed boundaries suitable for most
-purposes when their individual license terms are followed.
-\code{"gbHumanitarian"} boundaries are mirrored from
-\href{https://www.unocha.org/}{UN OCHA} and may have additional conditions.
-\code{"gbAuthoritative"} boundaries are mirrored from
-\href{https://salb.un.org/en}{UN SALB}, verified through in-country processes
-and cannot be used for commercial purposes.}
+\item{release_type}{A character string, one of \code{"gbOpen"} (the default),
+\code{"gbHumanitarian"} or \code{"gbAuthoritative"}. Selects a product, not a dataset
+version. \code{"gbAuthoritative"} is restricted to non-commercial use. See
+\code{vignette("metadata", package = "geobounds")} for product sources
+and licenses.}
 }
 \value{
-A \link[tibble:tbl_df]{tibble} from \CRANpkg{tibble} containing ISO 3166-1
-alpha-3 country codes and their highest available ADM levels.
+A \link[tibble:tbl_df]{tibble} from \CRANpkg{tibble} with one row per matching
+country. The \code{boundaryISO} column contains ISO 3166-1 alpha-3 country codes
+and \code{maxBoundaryType} contains the highest available ADM level as an integer.
 }
 \description{
 Returns a summary of selected country codes and their highest available ADM
-level in \strong{geoBoundaries}.
+level in \strong{geoBoundaries}. ADM0 represents the country boundary. Use
+\code{\link[=gb_get_metadata]{gb_get_metadata()}} to list available layers in the selected release type.
 }
 \examples{
 \dontshow{if (identical(Sys.getenv("NOT_CRAN"), "true") || interactive()) withAutoprint(\{ # examplesIf}
@@ -45,14 +43,21 @@ library(dplyr)
 all |>
   filter(maxBoundaryType == 1)
 
-# Countries with ADM4 available.
+# Countries whose highest available level is ADM4.
 all |>
   filter(maxBoundaryType == 4)
 \dontshow{\}) # examplesIf}
 }
+\references{
+Runfola et al. (2020) "geoBoundaries: A global database of political
+administrative boundaries." \emph{PLOS ONE}, \strong{15}(4), e0231866.
+\doi{10.1371/journal.pone.0231866}.
+}
 \seealso{
 \code{\link[=gb_get]{gb_get()}} downloads boundaries for the available ADM levels.
 The \link[=gb_get_adm]{ADM wrappers} request a single administrative level.
+See \code{vignette("metadata", package = "geobounds")} for availability
+and metadata fields.
 
 Metadata and licensing functions:
 \code{\link[=gb_get_metadata]{gb_get_metadata()}}

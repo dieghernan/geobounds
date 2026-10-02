@@ -8,31 +8,28 @@
 #' United States). [gb_get_adm3()], [gb_get_adm4()] and [gb_get_adm5()] return
 #' third-, fourth- and fifth-level administrative boundaries, respectively.
 #'
-#' Not all countries have the same number of ADM levels. Use
-#' [gb_get_max_adm_lvl()] to check availability.
+#' Use [gb_get_metadata()] to check availability for the requested country,
+#' ADM level and release type.
 #'
-#' Boundaries downloaded through these functions are not covered by the
-#' package's MIT license. Always acknowledge **geoBoundaries** when sharing the
-#' boundaries or derived products. See
-#' <https://www.geoboundaries.org/index.html#usage>. Consult the boundary
-#' metadata for any additional source attribution, license link, share-alike
-#' notice or modification statement required by the boundary's license.
+#' See [gb_get()] for download behavior and licensing, and
+#' `vignette("geobounds", package = "geobounds")` for worked examples.
 #'
-#' @inherit gb_get details
-#'
-#' @inheritParams gb_get
+#' @inheritParams gb_get country simplified release_type
+#' @inheritParams gb_get quiet overwrite cache_dir
 #'
 #' @inherit gb_get return
 #'
-#' @inherit gb_get source references
+#' @inherit gb_get source
+#' @inherit geobounds-package references
 #'
 #' @seealso
-#' `r paste(readLines("man/chunks/seealso.md", encoding="UTF-8"),collapse="\n")`
-#'
-#' @family api
+#' [gb_get_metadata()] lists the layers available for a country and release
+#' type. [gb_get_max_adm_lvl()] summarizes the highest available ADM level.
 #'
 #' @name gb_get_adm
 #' @rdname gb_get_adm
+#'
+#' @family api
 #'
 #' @export
 #' @encoding UTF-8

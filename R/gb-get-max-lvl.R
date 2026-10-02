@@ -2,19 +2,24 @@
 #'
 #' @description
 #' Returns a summary of selected country codes and their highest available ADM
-#' level in **geoBoundaries**.
+#' level in **geoBoundaries**. ADM0 represents the country boundary. Use
+#' [gb_get_metadata()] to list available layers in the selected release type.
 #'
 #' @inheritParams gb_get country release_type
 #'
 #' @returns
-#' A [tibble][tibble::tbl_df] from \CRANpkg{tibble} containing ISO 3166-1
-#' alpha-3 country codes and their highest available ADM levels.
+#' A [tibble][tibble::tbl_df] from \CRANpkg{tibble} with one row per matching
+#' country. The `boundaryISO` column contains ISO 3166-1 alpha-3 country codes
+#' and `maxBoundaryType` contains the highest available ADM level as an integer.
 #'
 #' @inherit gb_get source
+#' @inherit geobounds-package references
 #'
 #' @seealso
 #' [gb_get()] downloads boundaries for the available ADM levels.
 #' The [ADM wrappers][gb_get_adm] request a single administrative level.
+#' See `vignette("metadata", package = "geobounds")` for availability
+#' and metadata fields.
 #'
 #' @family metadata
 #'
@@ -29,7 +34,7 @@
 #' all |>
 #'   filter(maxBoundaryType == 1)
 #'
-#' # Countries with ADM4 available.
+#' # Countries whose highest available level is ADM4.
 #' all |>
 #'   filter(maxBoundaryType == 4)
 gb_get_max_adm_lvl <- function(

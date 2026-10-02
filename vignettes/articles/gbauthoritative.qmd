@@ -24,7 +24,7 @@ src <- "gbAuthoritative"
 
 ## `r src` coverage
 
-The map shows the highest ADM level available for each country in the
+The map shows the highest available ADM level for each country in the
 **gbAuthoritative** release type.
 
 These UN SALB boundaries are not covered by the package's MIT license and are
@@ -36,6 +36,11 @@ before reuse.
 #| label: gautho-coverage
 #| echo: false
 #| fig-cap: "Highest available ADM level by country: gbAuthoritative."
+#| fig-alt: >
+#|   World choropleth map in Robinson projection. Country fill indicates the
+#|   highest available administrative level, from ADM0 (national boundaries) to
+#|   ADM5 (finer subdivisions). Gray countries have no matching level in the
+#|   metadata, and higher levels indicate finer available subdivisions.
 library(geobounds)
 library(ggplot2)
 library(dplyr)
@@ -80,8 +85,11 @@ ggplot(p) +
 
 ## `r src` metadata
 
+For field definitions, sources and licensing, see
+[the metadata vignette](metadata.html).
+
 The table lists boundary metadata and archive links for **gbAuthoritative**. Use
-the filters or search box to find a country or boundary type.
+the filters or search box to find a country or ADM level.
 
 ```{r}
 #| label: metadata
@@ -109,7 +117,12 @@ meta$simplifiedGeometryGeoJSON <- paste0(
 
 meta$imagePreview <- paste0(
   '<img src="', meta$imagePreview,
-  '" alt="Map preview" class="img-thumbnail mx-auto d-block">'
+  '" alt="',
+  htmltools::htmlEscape(
+    paste("Boundary map preview:", meta$boundaryName, meta$boundaryType),
+    attribute = TRUE
+  ),
+  '" class="img-thumbnail mx-auto d-block">'
 )
 
 library(reactable)

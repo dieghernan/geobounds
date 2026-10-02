@@ -26,7 +26,8 @@ parameter is set to \code{FALSE} automatically.}
 \item{quiet}{A logical value. If \code{TRUE}, suppress informational messages.}
 }
 \value{
-An invisible character scalar containing the path to the cache directory.
+A \link[base:character]{character} scalar containing the path to the cache
+directory, returned invisibly.
 }
 \description{
 Sets the active cache directory and optionally saves it for future sessions.
@@ -39,6 +40,10 @@ the \R session ends. To reuse a cache directory across \R sessions, use
 \code{gb_set_cache_dir(cache_dir = "a/path/here", install = TRUE)}. This saves the
 directory in the user configuration path returned by
 \code{\link[tools:R_user_dir]{tools::R_user_dir()}}.
+
+Cached archives are reused without checking for upstream changes. See
+\code{vignette("metadata", package = "geobounds")} for cache limitations
+and provenance.
 }
 \section{Cache strategies}{
 

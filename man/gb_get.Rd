@@ -30,36 +30,28 @@ second level and so on). Uppercase versions (\code{"ADM1"}) and level numbers
 (\code{0}, \code{1}, \code{2}, \code{3}, \code{4}, \code{5}) are also accepted, including numbers
 supplied as text (for example, \code{"1"}).}
 
-\item{simplified}{A logical value. If \code{TRUE}, return boundaries that are less
-accurate but faster to render. The default \code{FALSE} uses the primary
-\strong{geoBoundaries} layer. See the simplified boundary downloads:
-\url{https://www.geoboundaries.org/simplifiedDownloads.html}.}
+\item{simplified}{A logical value. If \code{TRUE}, read simplified boundaries
+that are faster to render. Both options download the complete ZIP archive.}
 
-\item{release_type}{A character string, one of \code{"gbOpen"},
-\code{"gbHumanitarian"} or \code{"gbAuthoritative"}. For most users, use \code{"gbOpen"}
-(the default), which contains openly licensed boundaries suitable for most
-purposes when their individual license terms are followed.
-\code{"gbHumanitarian"} boundaries are mirrored from
-\href{https://www.unocha.org/}{UN OCHA} and may have additional conditions.
-\code{"gbAuthoritative"} boundaries are mirrored from
-\href{https://salb.un.org/en}{UN SALB}, verified through in-country processes
-and cannot be used for commercial purposes.}
+\item{release_type}{A character string, one of \code{"gbOpen"} (the default),
+\code{"gbHumanitarian"} or \code{"gbAuthoritative"}. Selects a product, not a dataset
+version. \code{"gbAuthoritative"} is restricted to non-commercial use. See
+\code{vignette("metadata", package = "geobounds")} for product sources
+and licenses.}
 
 \item{quiet}{A logical value. If \code{TRUE}, suppress informational messages.}
 
 \item{overwrite}{A logical value. If \code{TRUE}, force a fresh download of the
 source \code{.zip} archive.}
 
-\item{cache_dir}{A path to a cache directory. If not set (the default
-\code{NULL}), boundary archives are stored in the default cache directory (see
-\code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}). If no cache directory has been set, archives are
-stored in a temporary cache directory. See \code{\link[base:tempdir]{base::tempdir()}} and the cache
-strategies in \code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}.}
+\item{cache_dir}{A path to a cache directory. If \code{NULL}, use the configured
+directory, or a temporary directory when none is configured. See
+\code{\link[=gb_set_cache_dir]{gb_set_cache_dir()}}.}
 }
 \value{
 An \link[sf:st_sf]{sf} object from \CRANpkg{sf} containing the requested
-boundaries. Returns \code{NULL} if no boundaries match the request or the
-downloads return no geometries.
+boundaries. Returns \code{\link[base:NULL]{NULL}} if no boundaries match the request
+or the downloads return no geometries.
 }
 \description{
 Returns individual country boundaries that reflect how countries represent
@@ -68,24 +60,22 @@ their own boundaries, without special identification of disputed areas.
 Use \code{\link[=gb_get_world]{gb_get_world()}} for global composite boundaries that standardize
 disputed areas and fill gaps between borders.
 
-Boundaries downloaded through this function are not covered by the package's
-MIT license. Always acknowledge \strong{geoBoundaries} when sharing the boundaries
-or derived products. See \url{https://www.geoboundaries.org/index.html#usage}.
-Consult the boundary metadata for any additional source attribution, license
-link, share-alike notice or modification statement required by the boundary's
-license.
+Always acknowledge \strong{geoBoundaries} and follow the boundary's license.
+See \code{vignette("metadata", package = "geobounds")} for sources and licensing.
 
 The wrappers \code{\link[=gb_get_adm0]{gb_get_adm0()}}, \code{\link[=gb_get_adm1]{gb_get_adm1()}}, \code{\link[=gb_get_adm2]{gb_get_adm2()}},
 \code{\link[=gb_get_adm3]{gb_get_adm3()}}, \code{\link[=gb_get_adm4]{gb_get_adm4()}} and \code{\link[=gb_get_adm5]{gb_get_adm5()}} are also available for
 requesting a single ADM level.
 }
 \details{
-Each individual country boundary layer is governed by the original license
-identified in its boundary metadata. See \code{\link[=gb_get_metadata]{gb_get_metadata()}}. The
-\code{"gbOpen"} release contains multiple open licenses, including ODbL and
-CC BY-SA. Do not assume every boundary is licensed only under CC BY 4.0.
-Users should cite the sources listed in the metadata and comply with any
-attribution, share-alike or non-commercial terms.
+These are terrestrial boundaries, not maritime boundaries. For product
+selection and mapping workflows, see
+\code{vignette("geobounds", package = "geobounds")}.
+
+This function uses current API metadata and reuses cached archives without
+checking for upstream changes. Historical versions cannot be selected. See
+\code{vignette("metadata", package = "geobounds")} for cache limitations
+and provenance.
 }
 \examples{
 \dontshow{if (identical(Sys.getenv("NOT_CRAN"), "true") || interactive()) withAutoprint(\{ # examplesIf}
@@ -109,21 +99,11 @@ ggplot(sri_lanka) +
     )
   )
 }
-
-# Inspect boundary metadata.
-library(dplyr)
-gb_get_metadata(
-  "Sri Lanka",
-  adm_lvl = 2
-) |>
-  # Check the individual license.
-  select(boundaryISO, boundaryType, licenseDetail, licenseSource) |>
-  glimpse()
 \dontshow{\}) # examplesIf}
 }
 \references{
 Runfola et al. (2020) "geoBoundaries: A global database of political
-administrative boundaries." \emph{PLOS ONE}, \strong{15}(4), 1--9.
+administrative boundaries." \emph{PLOS ONE}, \strong{15}(4), e0231866.
 \doi{10.1371/journal.pone.0231866}.
 }
 \seealso{

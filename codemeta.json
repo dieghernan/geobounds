@@ -222,7 +222,7 @@
     "SystemRequirements": null
   },
   "keywords": ["administrative-boundaries", "api", "geoboundaries", "r", "r-package", "spatial-data", "cran", "cran-r"],
-  "fileSize": "479.274KB",
+  "fileSize": "447.606KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -247,7 +247,8 @@
         {
           "@type": "Person",
           "givenName": "Daniel",
-          "familyName": "Runfola"
+          "familyName": "Runfola",
+          "@id": "https://orcid.org/0000-0001-5356-4676"
         },
         {
           "@type": "Person",
@@ -343,7 +344,7 @@
       "name": "{geoBoundaries}: A global database of political administrative boundaries",
       "identifier": "10.1371/journal.pone.0231866",
       "url": "https://doi.org/10.1371/journal.pone.0231866",
-      "pagination": "1--9",
+      "pagination": "e0231866",
       "@id": "https://doi.org/10.1371/journal.pone.0231866",
       "sameAs": "https://doi.org/10.1371/journal.pone.0231866",
       "isPartOf": {

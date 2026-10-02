@@ -16,7 +16,8 @@ Data downloaded through geobounds remain subject to the applicable
 geoBoundaries terms and to the original license reported for each boundary.
 Use gb_get_metadata() to inspect the boundaryLicense, licenseDetail,
 licenseSource, boundarySource and boundarySourceURL fields before reusing or
-redistributing a boundary.
+redistributing a boundary. The licenseSource field links to the original
+source's license information, while boundarySourceURL links to the source data.
 
 The gbOpen release contains boundaries under multiple open licenses, including
 CC BY, ODbL, CC BY-SA, national open-data licenses and public-domain

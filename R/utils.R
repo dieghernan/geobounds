@@ -5,7 +5,8 @@
 #' @param call The call to display in the error message.
 #'
 #' @returns
-#' A character scalar containing the validated ADM level in uppercase format.
+#' A [character][base::character] scalar containing the validated ADM level in
+#' uppercase.
 #'
 #' @noRd
 assert_adm_lvl <- function(
@@ -43,7 +44,7 @@ assert_adm_lvl <- function(
 #' @param quiet A logical value. If `TRUE`, do not show request progress.
 #'
 #' @returns
-#' An \CRANpkg{httr2} request object.
+#' An [httr2 request][httr2::request] object from \CRANpkg{httr2}.
 #'
 #' @noRd
 gb_hlp_request <- function(url, quiet = TRUE) {
@@ -67,7 +68,8 @@ gb_hlp_request <- function(url, quiet = TRUE) {
 #' @param resp An \CRANpkg{httr2} response object.
 #'
 #' @returns
-#' A character scalar containing the HTTP status code and description.
+#' A [character][base::character] scalar containing the HTTP status code and
+#' description.
 #'
 #' @noRd
 gb_hlp_http_error <- function(resp) {
@@ -83,7 +85,8 @@ gb_hlp_http_error <- function(resp) {
 #' @param resp An \CRANpkg{httr2} response object.
 #'
 #' @returns
-#' Invisibly returns `NULL`. This function is called for its side effects.
+#' [`NULL`][base::NULL], returned invisibly. This function is called for its
+#' side effects.
 #'
 #' @noRd
 gb_hlp_alert_http_error <- function(url, resp) {
@@ -98,7 +101,7 @@ gb_hlp_alert_http_error <- function(url, resp) {
 #' @param x A vector.
 #'
 #' @returns
-#' A vector containing the unique non-missing values in `x`.
+#' A [vector][base::vector] containing the unique non-missing values in `x`.
 #'
 #' @noRd
 gb_hlp_unique_values <- function(x) {
@@ -114,7 +117,7 @@ gb_hlp_unique_values <- function(x) {
 #' @param call The call to display in the error message.
 #'
 #' @returns
-#' A character scalar containing the matching shapefile path.
+#' A [character][base::character] scalar containing the matching shapefile path.
 #'
 #' @noRd
 gb_hlp_select_shapefile <- function(
@@ -151,7 +154,8 @@ gb_hlp_select_shapefile <- function(
 #' @param cols A character vector of column names to convert.
 #'
 #' @returns
-#' `data` with matching columns converted to numeric vectors.
+#' A [data frame][base::data.frame] containing `data` with matching columns
+#' converted to numeric vectors.
 #'
 #' @noRd
 gb_hlp_as_numeric <- function(data, cols) {
@@ -165,7 +169,7 @@ gb_hlp_as_numeric <- function(data, cols) {
 #' @param x A character vector of date-time values returned by the API.
 #'
 #' @returns
-#' A `POSIXlt` vector parsed in the GMT time zone.
+#' A [POSIXlt][base::DateTimeClasses] vector parsed in the GMT time zone.
 #'
 #' @noRd
 gb_hlp_parse_api_datetime <- function(x) {
@@ -179,7 +183,7 @@ gb_hlp_parse_api_datetime <- function(x) {
 #' @param x A character vector of date values returned by the API.
 #'
 #' @returns
-#' A `Date` vector.
+#' A [Date][base::Dates] vector.
 #'
 #' @noRd
 gb_hlp_parse_api_date <- function(x) {
@@ -193,8 +197,8 @@ gb_hlp_parse_api_date <- function(x) {
 #' @param x A character vector containing English month abbreviations.
 #'
 #' @returns
-#' A character vector with month abbreviations replaced by two-digit month
-#' numbers.
+#' A [character][base::character] vector with month abbreviations replaced by
+#' two-digit month numbers.
 #'
 #' @noRd
 gb_hlp_replace_month_abbr <- function(x) {
@@ -213,7 +217,7 @@ gb_hlp_replace_month_abbr <- function(x) {
 #' @param call The call to display in the error message.
 #'
 #' @returns
-#' A vector of country codes.
+#' A [character][base::character] vector of ISO 3166-1 alpha-3 country codes.
 #'
 #' @noRd
 gbnds_dev_country2iso <- function(names, call = parent.frame()) {
@@ -356,7 +360,7 @@ gbnds_dev_sf_helper <- function(data_sf) {
 #' @param call The call to display in the error message.
 #'
 #' @returns
-#' The matched argument.
+#' A [character][base::character] scalar containing the matched argument.
 #'
 #' @noRd
 match_arg_pretty <- function(arg, choices, call = parent.frame()) {
@@ -440,7 +444,7 @@ match_arg_pretty <- function(arg, choices, call = parent.frame()) {
 #'   \CRANpkg{cli}.
 #'
 #' @returns
-#' `NULL`, invisibly, when every condition is true.
+#' [`NULL`][base::NULL], returned invisibly when every condition is true.
 #'
 #' @noRd
 gb_abort_if_not <- function(

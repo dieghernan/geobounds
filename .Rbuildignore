@@ -70,3 +70,4 @@
 ^README_files/
 ^\.codex$
 ^\.codex/
+^vignettes/metadata\.qmd\.orig$
