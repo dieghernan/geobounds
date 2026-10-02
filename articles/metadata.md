@@ -31,11 +31,11 @@ meta |>
   glimpse()
 #> Rows: 1
 #> Columns: 5
-#> $ boundaryName      <chr> "Sri Lanka"
-#> $ boundaryISO       <chr> "LKA"
-#> $ boundaryType      <chr> "ADM1"
-#> $ boundaryCanonical <chr> "Unknown"
-#> $ admUnitCount      <dbl> 9
+#> $ boundaryName      [3m[38;5;246m<chr>[39m[23m "Sri Lanka"
+#> $ boundaryISO       [3m[38;5;246m<chr>[39m[23m "LKA"
+#> $ boundaryType      [3m[38;5;246m<chr>[39m[23m "ADM1"
+#> $ boundaryCanonical [3m[38;5;246m<chr>[39m[23m "Unknown"
+#> $ admUnitCount      [3m[38;5;246m<dbl>[39m[23m 9
 ```
 
 Use `country = "all"` or `adm_lvl = "all"` to query all available
@@ -54,10 +54,10 @@ levels |>
   glimpse()
 #> Rows: 5
 #> Columns: 4
-#> $ boundaryISO       <chr> "LKA", "LKA", "LKA", "LKA", "LKA"
-#> $ boundaryType      <chr> "ADM0", "ADM1", "ADM2", "ADM3", "ADM4"
-#> $ boundaryCanonical <chr> "Unknown", "Unknown", "Unknown", "Divisional Secreta…
-#> $ admUnitCount      <dbl> 1, 9, 25, 330, 14044
+#> $ boundaryISO       [3m[38;5;246m<chr>[39m[23m "LKA"[38;5;246m, [39m"LKA"[38;5;246m, [39m"LKA"[38;5;246m, [39m"LKA"[38;5;246m, [39m"LKA"
+#> $ boundaryType      [3m[38;5;246m<chr>[39m[23m "ADM0"[38;5;246m, [39m"ADM1"[38;5;246m, [39m"ADM2"[38;5;246m, [39m"ADM3"[38;5;246m, [39m"ADM4"
+#> $ boundaryCanonical [3m[38;5;246m<chr>[39m[23m "Unknown"[38;5;246m, [39m"Unknown"[38;5;246m, [39m"Unknown"[38;5;246m, [39m"Divisional Secreta…
+#> $ admUnitCount      [3m[38;5;246m<dbl>[39m[23m 1[38;5;246m, [39m9[38;5;246m, [39m25[38;5;246m, [39m330[38;5;246m, [39m14044
 
 gb_get_max_adm_lvl("Sri Lanka")
 #> # A tibble: 1 × 2
