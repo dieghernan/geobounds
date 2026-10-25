@@ -64,20 +64,20 @@ Cache management functions:
 
 # \dontrun{
 my_cache <- gb_detect_cache_dir()
-#> ℹ /tmp/RtmpHg2bjB/geobounds
+#> ℹ /tmp/RtmpAFxFCs/geobounds
 # Set an example cache directory.
 ex <- file.path(tempdir(), "example", "cache")
 gb_set_cache_dir(ex, quiet = TRUE)
 
 gb_clear_cache(quiet = FALSE)
-#> ✔ Deleted the geobounds cache directory /tmp/RtmpHg2bjB/example/cache.
+#> ✔ Deleted the geobounds cache directory /tmp/RtmpAFxFCs/example/cache.
 
 # Restore the initial cache.
 gb_set_cache_dir(my_cache)
-#> ✔ geobounds cache directory is /tmp/RtmpHg2bjB/geobounds.
+#> ✔ geobounds cache directory is /tmp/RtmpAFxFCs/geobounds.
 #> ℹ To use this cache directory in future sessions, call `gb_set_cache_dir()` with `install = TRUE`.
 identical(my_cache, gb_detect_cache_dir())
-#> ℹ /tmp/RtmpHg2bjB/geobounds
+#> ℹ /tmp/RtmpAFxFCs/geobounds
 #> [1] TRUE
 # }
 ```
