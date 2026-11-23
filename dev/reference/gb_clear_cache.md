@@ -34,7 +34,8 @@ gb_clear_cache(config = FALSE, cached_data = TRUE, quiet = TRUE)
 
 ## Value
 
-Invisibly returns `NULL`. This function is called for its side effects.
+[`NULL`](https://rdrr.io/r/base/NULL.html), returned invisibly. This
+function is called for its side effects.
 
 ## Details
 
@@ -63,20 +64,20 @@ Cache management functions:
 
 # \dontrun{
 my_cache <- gb_detect_cache_dir()
-#> ℹ /tmp/RtmpqyCar5/geobounds
+#> ℹ /tmp/RtmpjnkQbk/geobounds
 # Set an example cache directory.
 ex <- file.path(tempdir(), "example", "cache")
 gb_set_cache_dir(ex, quiet = TRUE)
 
 gb_clear_cache(quiet = FALSE)
-#> ✔ Deleted the geobounds cache directory /tmp/RtmpqyCar5/example/cache.
+#> ✔ Deleted the geobounds cache directory /tmp/RtmpjnkQbk/example/cache.
 
 # Restore the initial cache.
 gb_set_cache_dir(my_cache)
-#> ✔ geobounds cache directory is /tmp/RtmpqyCar5/geobounds.
+#> ✔ geobounds cache directory is /tmp/RtmpjnkQbk/geobounds.
 #> ℹ To use this cache directory in future sessions, call `gb_set_cache_dir()` with `install = TRUE`.
 identical(my_cache, gb_detect_cache_dir())
-#> ℹ /tmp/RtmpqyCar5/geobounds
+#> ℹ /tmp/RtmpjnkQbk/geobounds
 #> [1] TRUE
 # }
 ```

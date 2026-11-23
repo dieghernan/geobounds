@@ -41,8 +41,8 @@ gb_set_cache_dir(
 
 ## Value
 
-An invisible character scalar containing the path to the cache
-directory.
+A [character](https://rdrr.io/r/base/character.html) scalar containing
+the path to the cache directory, returned invisibly.
 
 ## Details
 
@@ -55,6 +55,10 @@ a cache directory across R sessions, use
 `gb_set_cache_dir(cache_dir = "a/path/here", install = TRUE)`. This
 saves the directory in the user configuration path returned by
 [`tools::R_user_dir()`](https://rdrr.io/r/tools/userdir.html).
+
+Cached archives are reused without checking for upstream changes. See
+[`vignette("metadata", package = "geobounds")`](https://dieghernan.github.io/geobounds/dev/articles/metadata.md)
+for cache limitations and provenance.
 
 ## Cache strategies
 
@@ -91,28 +95,28 @@ Cache management functions:
 
 # \dontrun{
 my_cache <- gb_detect_cache_dir()
-#> ℹ /tmp/RtmpqyCar5/geobounds
+#> ℹ /tmp/RtmpjnkQbk/geobounds
 
 # Set an example cache directory.
 ex <- file.path(tempdir(), "example", "cachenew")
 gb_set_cache_dir(ex)
-#> ✔ geobounds cache directory is /tmp/RtmpqyCar5/example/cachenew.
+#> ✔ geobounds cache directory is /tmp/RtmpjnkQbk/example/cachenew.
 #> ℹ To use this cache directory in future sessions, call `gb_set_cache_dir()` with `install = TRUE`.
 
 gb_detect_cache_dir()
-#> ℹ /tmp/RtmpqyCar5/example/cachenew
-#> [1] "/tmp/RtmpqyCar5/example/cachenew"
+#> ℹ /tmp/RtmpjnkQbk/example/cachenew
+#> [1] "/tmp/RtmpjnkQbk/example/cachenew"
 
 # Restore the initial cache.
 gb_set_cache_dir(my_cache)
-#> ✔ geobounds cache directory is /tmp/RtmpqyCar5/geobounds.
+#> ✔ geobounds cache directory is /tmp/RtmpjnkQbk/geobounds.
 #> ℹ To use this cache directory in future sessions, call `gb_set_cache_dir()` with `install = TRUE`.
 identical(my_cache, gb_detect_cache_dir())
-#> ℹ /tmp/RtmpqyCar5/geobounds
+#> ℹ /tmp/RtmpjnkQbk/geobounds
 #> [1] TRUE
 # }
 
 gb_detect_cache_dir()
-#> ℹ /tmp/RtmpqyCar5/geobounds
-#> [1] "/tmp/RtmpqyCar5/geobounds"
+#> ℹ /tmp/RtmpjnkQbk/geobounds
+#> [1] "/tmp/RtmpjnkQbk/geobounds"
 ```

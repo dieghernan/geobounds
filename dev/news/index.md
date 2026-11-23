@@ -2,6 +2,16 @@
 
 ## geobounds (development version)
 
+- Minimum required **R** version is now 4.2.0.
+
+## geobounds 1.0.1
+
+CRAN release: 2026-09-05
+
+- Argument errors now display braces in supplied values literally
+  instead of interpreting them as message formatting.
+- Numeric text ADM levels such as `"1"` now resolve to the corresponding
+  code, such as `"ADM1"`.
 - Country inputs now reject empty or wholly unmatched values, and Kosovo
   aliases must match `"Kosovo"` or `"XKX"` exactly.
 - [`gb_clear_cache()`](https://dieghernan.github.io/geobounds/dev/reference/gb_clear_cache.md)
@@ -10,7 +20,8 @@
   creation failures clearly and confirm that requested deletions
   succeeded.
 - [`gb_get()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get.md)
-  now rejects missing or non-scalar download options and invalid cache
+  now returns `NULL` when no downloaded boundaries are available. It
+  also rejects missing or non-scalar download options and invalid cache
   directory values before requesting data. Invalid cached archives are
   removed with an actionable error so a subsequent request can download
   them again.
@@ -19,7 +30,7 @@
   that available metadata levels are consecutive.
 - [`gb_get_world()`](https://dieghernan.github.io/geobounds/dev/reference/gb_get_world.md)
   now returns `NULL` when a download fails or no requested country is
-  available, and validates download options before requesting data.
+  available. It also validates download options before requesting data.
 
 ## geobounds 1.0.0
 

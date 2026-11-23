@@ -25,7 +25,7 @@ from geoBoundaries*.
       title = {{geobounds}: Download Administrative Boundary Data from geoBoundaries},
       author = {Diego Hernangómez},
       year = {2026},
-      version = {1.0.0.9000},
+      version = {1.0.1.9000},
       url = {https://dieghernan.github.io/geobounds/},
       abstract = {Provides tools to download individual country boundaries and global composite boundaries from geoBoundaries <https://www.geoboundaries.org/> across multiple administrative (ADM) levels. Returns boundaries as sf objects for mapping and spatial analysis. Runfola et al. (2020) <doi:10.1371/journal.pone.0231866> describe the underlying database.},
       doi = {10.32614/CRAN.package.geobounds},
@@ -35,7 +35,7 @@ Runfola D, Anderson A, Baier H, Crittenden M, Dowker E, Fuhrig S,
 Goodman S, Grimsley G, Layko R, Melville G, Mulder M, Oberman R,
 Panganiban J, Peck A, Seitz L, Shea S, Slevin H, Youngerman R, Hobbs L
 (2020). “geoBoundaries: A global database of political administrative
-boundaries.” *PLOS ONE*, **15**(4), 1–9.
+boundaries.” *PLOS ONE*, **15**(4), e0231866. ISSN 1932-6203.
 [doi:10.1371/journal.pone.0231866](https://doi.org/10.1371/journal.pone.0231866).
 <https://doi.org/10.1371/journal.pone.0231866>.
 
@@ -44,11 +44,13 @@ boundaries.” *PLOS ONE*, **15**(4), 1–9.
       author = {Daniel Runfola and Austin Anderson and Heather Baier and Matt Crittenden and Elizabeth Dowker and Sydney Fuhrig and Seth Goodman and Grace Grimsley and Rachel Layko and Graham Melville and Maddy Mulder and Rachel Oberman and Joshua Panganiban and Andrew Peck and Leigh Seitz and Sylvia Shea and Hannah Slevin and Rebecca Youngerman and Lauren Hobbs},
       year = {2020},
       month = {apr},
+      date = {2020-04-24},
       journal = {PLOS ONE},
-      publisher = {Public Library of Science},
+      issn = {1932-6203},
+      publisher = {Public Library of Science (PLoS)},
       volume = {15},
       number = {4},
-      pages = {1--9},
+      pages = {e0231866},
       doi = {10.1371/journal.pone.0231866},
       url = {https://doi.org/10.1371/journal.pone.0231866},
     }
