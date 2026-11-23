@@ -1,3 +1,7 @@
+# geobounds (development version)
+
+- Minimum required **R** version is now 4.2.0.
+
 # geobounds 1.0.1
 
 - Argument errors now display braces in supplied values literally instead of interpreting them as message formatting.
